@@ -531,6 +531,7 @@
       ],
       "settings": {
         "additional_class": "",
+        "image": "shopify://shop_images/bathroom-interior-with-minimalis.webp",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
