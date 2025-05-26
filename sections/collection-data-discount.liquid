@@ -1,0 +1,197 @@
+<div class="page-width">
+  <div class="custm-collection-discount-main">
+    <div class="custm-collection-discount-inn">
+      
+      <div class="custm-collection-discount-header">
+        <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+        <div class="collection-discount-content-with-btn">
+          <div style="color: {{ section.settings.content_color }};" class="custom-coll-discount-area">
+            {{ section.settings.content }}
+          </div>
+          {% if section.settings.btn_lbl != blank %}
+          <div class="collection-btn">
+            <a href="{{ section.settings.btn_link }}" style="color: {{ section.settings.btn_lbl_color }}; background-color: {{ section.settings.btn_bg_color }};">{{ section.settings.btn_lbl }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+   
+      <div class="custm-collection-discount-body">
+        
+        <div class="discount-area">
+          <div class="discount-banner-overlay">
+            <div class="discount-banner">
+              {{ section.settings.discount_banner | img_tag: section.settings.discount_banner.alt, '', 'master' }}              
+            </div>
+            <div class="discount-offer">
+              <h2>{{ section.settings.discount_offer }}</h2>
+            </div>
+            <div class="discount-btn">
+              <a href="{{ section.settings.discount_btn_link }}" style="color: {{ section.settings.discount_btn_lbl_color }}; background-color: {{ section.settings.discount_btn_bg_color }};">{{ section.settings.discount_btn_lbl }}</a>
+            </div>
+          </div>
+        </div>
+        {% assign selected_coll = collections[section.settings.collection] %}
+
+        <div class="collection-product-list{% if selected_coll.products_count > 4 %} collection-product-list-slider{% endif %}">
+          {% for product in selected_coll.products %}
+          {% assign discount_percentage = null %}
+          {% if product.price_varies %}
+          {% if product.compare_at_price > product.price %}
+          {% assign discount_amount = product.compare_at_price | minus: product.price %}
+          {% assign discount_percentage = discount_amount | times: 100 | divided_by: product.compare_at_price %}
+          {% endif %}
+          {% endif %}
+        
+          <div class="collection-product-item{% if discount_percentage != null or discount_percentage != blank or discount_percentage <= 0 %} collection-prd-disc{% else %} no-disc{% endif %}">
+              
+            <a href="{{ product.url }}">
+              <div class="product-img-overlay">
+                <div class="product-img">
+                  {{ product.featured_image | img_tag: product.title, '', 'master' }}
+                  <div class="badge-info">
+                    <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
+                      {{ product.vendor }}
+                    </span>
+                    {% if discount_percentage > 0 %}
+                    <p>-{{ discount_percentage }}%</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <div class="product-infomation">
+              {% if product.available %}
+              <p class="availability_info is_available">In Stock</p>
+              {% else %}
+              <p class="availability_info not_available">Out of Stock</p>
+              {% endif %}
+
+              <h3>{{ product.title | truncate: 20 }}</h3>
+              {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+
+              <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <input type="hidden" name="quantity" value="1" min="1">
+                <button type="submit" class="btn add_to_cart_button{% unless product.available %} disabled-btn{% endunless %}"{% unless product.available %} disabled{% endunless %}>
+                  {% if product.available %}
+                  Add to Cart
+                  {% else %}
+                  Sold Out
+                  {% endif %}
+                </button>
+              </form>
+
+            </div>
+          </div>
+          {% endfor %}
+        
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection with Discount",
+    "tag": "section",
+    "class": "section custm-collection-discount",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Info"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "color",
+        "id": "content_color",
+        "label": "Content color"
+      },
+      {
+        "type": "text",
+        "id": "btn_lbl",
+        "label": "Button text"
+      },
+      {
+        "type": "color",
+        "id": "btn_lbl_color",
+        "label": "Button text color"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background color"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link"
+      },
+      {
+        "type": "header",
+        "content": "Discount Block"
+      },
+      {
+        "type": "image_picker",
+        "id": "discount_banner",
+        "label": "Discount Banner"
+      },
+      {
+        "type": "text",
+        "id": "discount_offer",
+        "label": "Discount Offer"
+      },
+      {
+        "type": "text",
+        "id": "discount_btn_lbl",
+        "label": "Discount Button text"
+      },
+      {
+        "type": "color",
+        "id": "discount_btn_lbl_color",
+        "label": "Discount Button text color"
+      },
+      {
+        "type": "color",
+        "id": "discount_btn_bg_color",
+        "label": "Discount Button Background color"
+      },
+      {
+        "type": "url",
+        "id": "discount_btn_link",
+        "label": "Discount Button link"
+      },
+      {
+        "type": "header",
+        "content": "Product Information"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection with Discount"
+      }
+    ]
+  }
+{% endschema %}

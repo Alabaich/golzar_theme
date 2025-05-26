@@ -1,0 +1,110 @@
+<div class="page-width">
+  <div class="text-with-two-img-main">
+    <div class="text-with-two-img-inn">
+
+      <div class="grid--2-col">
+        <div class="grid__item text-block-half">
+          <div class="text-block-half-main">
+          <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+          <div style="color: {{ section.settings.content_color }};" class="richtext-bloc">
+            <p>{{ section.settings.content }}</p>
+          </div>
+          <a href="{{ section.settings.btn_link }}" style="color: {{ section.settings.btn_label_color }}; background-color: {{ section.settings.btn_bg_color }};" class="btn btn-primary txt-two-img-btn">{{ section.settings.btn_label }}</a>
+          </div>
+        </div>
+
+        <div class="grid__item img-block-half">
+          <div class="img-bloc-inn">
+            {{ section.settings.img1 | img_tag: section.settings.img1.alt, 'front_img', 'master' }}
+            {{ section.settings.img2 | img_tag: section.settings.img2.alt, 'back_img', 'master' }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text with two image",
+    "class": "section text-with-two-imgs",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background color",
+        "default": "#EFF4F8"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "About Us"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color",
+        "default": "#002642"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "color",
+        "id": "content_color",
+        "label": "Content color"
+      },
+      {
+        "type": "text",
+        "id": "btn_label",
+        "label": "Button Text",
+        "default": "Contact Us"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "btn_label_color",
+        "label": "Button Text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background color",
+        "default": "#38739E"
+      },
+      {
+        "type": "image_picker",
+        "id": "img1",
+        "label": "Image1"
+      },
+      {
+        "type": "image_picker",
+        "id": "img2",
+        "label": "Image2"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text with two image"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+{% if section.settings.color_background != blank %}
+#shopify-section-{{ section.id }}{
+  background-color: {{ section.settings.color_background }};
+}
+{% endif %}
+{% endstyle %}

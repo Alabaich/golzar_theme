@@ -1,0 +1,121 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow-collection": {
+      "type": "slideshow-collection",
+      "blocks": {
+        "slide_rUEQXC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wall-Mounted-toilet2.webp",
+            "heading": "Wall Mount Toilet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Achieve Harmony: Wall-hung Toilets Balancing Form And Function",
+            "subheading_color": "#ffffff",
+            "button_label": "See More Products",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/wall-mounted-toilets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_6dV7k8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Bathroom-Sink5.webp",
+            "heading": "Bathroom Faucet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Faucet Renaissance: A Poetic Delight",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore Bathroom Faucets",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/bathroom-faucets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_XmYgPm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Vanity-22.webp",
+            "heading": "Bathroom Vanity",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Elevate Your Aesthetic With Sleek Vanity Designs",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore More Vanities",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/vanity",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_rUEQXC",
+        "slide_6dV7k8",
+        "slide_XmYgPm"
+      ],
+      "settings": {
+        "additional_class": "",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "main-collection-product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 20,
+        "padding_bottom": 68
+      }
+    }
+  },
+  "order": [
+    "slideshow-collection",
+    "main-collection-product-grid"
+  ]
+}

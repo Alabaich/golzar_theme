@@ -1,0 +1,69 @@
+<div class="logo-list-main">
+  <div class="logo-list-inn">
+    {% if section.blocks.size > 0 %}
+    <div class="logo-list-area">
+      <div class="logo-list-area-in">
+        <ul class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}">
+          {% for block in section.blocks %}
+          {% if block.settings.logo_img != blank %}
+          <li class="logo-item">
+            <a href="{{ block.settings.logo_link }}">
+              <div class="logo-img-b{% if block.settings.logo_img contains '.png' %} png-logo{% elsif block.settings.logo_img contains '.svg' %} svg-logo{% elsif block.settings.logo_img contains '.jpg' %} jpg-logo{% elsif block.settings.logo_img contains '.jpeg' %} jpg-logo{% else %}{% endif %}">
+                {{ block.settings.logo_img | img_tag: block.settings.logo_img.alt, '', 'master' }}
+              </div>
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Logo List",
+    "class": "section logo-list",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_img",
+            "label": "Logo image"
+          },
+          {
+            "type": "url",
+            "id": "logo_link",
+            "label": "Logo Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Logo List"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+{% if section.settings.color_background != blank %}
+#shopify-section-{{ section.id }}{
+  background-color: {{ section.settings.color_background }};
+}
+{% endif %}
+{% endstyle %}

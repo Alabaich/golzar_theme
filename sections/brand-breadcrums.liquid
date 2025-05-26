@@ -1,0 +1,25 @@
+{% if page.title != blank %}
+<div class="breadcrums-collection">
+  <div class="breadcrums_inner page-width">
+    <span class="title_coll" style="color:{{ section.settings.color }};">{{ page.title }}</span>
+  </div>
+</div>
+{% endif %}
+{% schema %}
+  {
+    "name": "Inner Brand Head",
+    "tag": "section",
+    "class": "collectin_slideshow brand-info-header",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "color",
+        "default": "#ffffff",
+        "label": "Color Heading"
+      }
+    ]
+  }
+{% endschema %}

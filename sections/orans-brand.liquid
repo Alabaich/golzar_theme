@@ -1,0 +1,70 @@
+<div class="brand-inner-main">
+  <div class="brand-inner-inn">
+    <div class="page-width">
+
+      {% if section.blocks.size > 0 %}
+      <div class="brand-inner-b">
+        <div class="brand-inner-b-inn">
+          <ul class="brand-data">
+            {% for block in section.blocks %}
+            <li class="brand-item">
+              <a href="{{ block.settings.link }}">
+              <div class="brand-info">
+                {% if block.settings.brand_img != blank %}
+                <div class="brand-img">
+                  <img src="{{ block.settings.brand_img | img_url: 'master' }}">
+                </div>
+                  {% endif %}
+
+                <h3>{{ block.settings.title }}</h3>
+              </div>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Brand Info",
+    "tag": "section",
+    "class": "section brand-inner",
+    "blocks": [
+      {
+        "type": "brand",
+        "name": "Brand",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "brand_img",
+            "label": "Brand image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+{% if section.blocks.size == 0 %}
+#shopify-section-{{ section.id }}{
+  display: none;
+}
+{% endif %}
+{% endstyle %}

@@ -1,0 +1,48 @@
+<div class="inner-page-bg-main">
+  <div class="inner-page-bg-overlay{% if section.settings.bg_img != blank %} inner-page-bg-overlay-img{% endif %}"{% if section.settings.bg_img != blank %} style="background-image: url({{ section.settings.bg_img | img_url: 'master' }});"{% endif %}>
+    <div class="page-content-b">
+      <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+      <p style="color: {{ section.settings.subtext_color }};">{{ section.settings.subtext }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Inner page Background",
+    "tag": "section",
+    "class": "section inner-page-bg",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_img",
+        "label": "Backgroud Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      },
+      {
+        "type": "text",
+        "id": "subtext",
+        "label": "Subtext"
+      },
+      {
+        "type": "color",
+        "id": "subtext_color",
+        "label": "Subtext color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Inner page Background"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,133 @@
+<div class="overlay-txt-with-img-main">
+  <div class="overlay-txt-with-img-inn">
+      
+    <div class="grid--2-col">
+      <div class="grid__item">
+        <div class="overlay-txt-box"{% if section.settings.bgcolor != blank %} style="background-color: {{ section.settings.bgcolor }};"{% endif %}>
+          <div class="overlay-txt-box-in">
+            {% if section.settings.subtitle != blank %}
+            <p style="color: {{ section.settings.subtitle_color }};">{{ section.settings.subtitle }}</p>
+            {% endif %}
+            {% if section.settings.title != blank %}
+            <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+            {% endif %}
+            {% if section.settings.btn != blank %}
+            <a style="color: {{ section.settings.btn_color }};" href="{{ section.settings.btn_link }}" class="button button-primary">{{ section.settings.btn }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid__item">
+        {% if section.settings.image != blank %}
+        <div class="overlay-img-box">
+          <img src="{{ section.settings.image | img_url: 'master' }}">
+        </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+        <ul class="logo-contact">
+          {%- for block in section.blocks -%}
+          {% if block.settings.logo_image != blank %}
+          <a href="{{ block.settings.logo_link }}">
+            <li>
+              <img src="{{ block.settings.logo_image | img_url: 'master' }}">
+            </li>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+          
+      </div>    
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Overlay Image Text",
+    "class": "section overlay-txt-with-img",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block"
+      },
+      {
+        "type": "color",
+        "id": "bgcolor",
+        "label": "Background color",
+        "default": "#002642"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Need help?"
+      },
+      {
+        "type": "color",
+        "id": "subtitle_color",
+        "label": "Subtitle color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Request a free consultation and price estimate"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "btn",
+        "label": "Button",
+        "default": "Contact Us"
+      },
+      {
+        "type": "color",
+        "id": "btn_color",
+        "label": "Button text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Image block"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Logo Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo Image"
+          },
+          {
+            "type": "url",
+            "id": "logo_link",
+            "label": "Logo link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
