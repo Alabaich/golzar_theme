@@ -1,0 +1,89 @@
+<div class="content-only-sec-main">
+  <div class="page-width">
+
+    {% if section.settings.img1 != blank %}
+    <div class="centered-blk text-center">
+      <div class="single-img-box">
+        <img src="{{ section.settings.img1 | img_url: 'master' }}">
+      </div>
+    </div>
+    {% endif %}
+
+    {% if section.settings.content != blank %}
+    <div class="content-only-c">
+      {{ section.settings.content }}
+    </div>
+    {% endif %}
+
+    <div class="centered-blk text-center">
+      <div class="multiple-img-box">
+        <img src="{{ section.settings.img2 | img_url: 'master' }}">
+        <img src="{{ section.settings.img3 | img_url: 'master' }}">
+        <img src="{{ section.settings.img4 | img_url: 'master' }}">
+      </div>
+
+      <ul class="custom-title">
+        <li>{{ section.settings.custom_title1 }}</li>
+        <li>{{ section.settings.custom_title2 }}</li>
+        <li>{{ section.settings.custom_title3 }}</li>
+      </ul>
+      
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Content Only",
+    "tag": "section",
+    "class": "section content-only-sec",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "img1",
+        "label": "Image1"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "img2",
+        "label": "Image2"
+      },
+      {
+        "type": "image_picker",
+        "id": "img3",
+        "label": "Image3"
+      },
+      {
+        "type": "image_picker",
+        "id": "img4",
+        "label": "Image4"
+      },
+      {
+        "type": "text",
+        "id": "custom_title1",
+        "label": "Custom Title1"
+      },
+      {
+        "type": "text",
+        "id": "custom_title2",
+        "label": "Custom Title2"
+      },
+      {
+        "type": "text",
+        "id": "custom_title3",
+        "label": "Custom Title3"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Content Only"
+      }
+    ]
+  }
+{% endschema %}

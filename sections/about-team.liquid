@@ -1,0 +1,81 @@
+<div class="team-sec-main">
+  <div class="team-sec-inn">
+    <div class="page-width">
+
+      <div class="team-sec-header">
+        <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+      </div>
+
+      {% if section.blocks.size > 0 %}
+      <div class="team-body">
+        <div class="team-body-inn">
+          <div class="team_list">
+            {% for block in section.blocks %}
+              <div class="team-member">
+                <div class="team-mem-img">
+                  {{ block.settings.member_img | img_tag: block.settings.member_name, '', 'master' }}
+                </div>
+                
+                <div class="team-mem-info">
+                  <h4>{{ block.settings.member_name }}</h4>
+                  <h5>{{ block.settings.member_profile }}</h5>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "About Team",
+    "tag": "section",
+    "class": "section team-sec",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "member",
+        "name": "Member",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "member_img",
+            "label": "Member Image"
+          },
+          {
+            "type": "text",
+            "id": "member_name",
+            "label": "Member Name"
+          },
+          {
+            "type": "text",
+            "id": "member_profile",
+            "label": "Member Profile"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About Team"
+      }
+    ]
+  }
+{% endschema %}

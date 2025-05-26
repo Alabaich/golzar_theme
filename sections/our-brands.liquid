@@ -1,0 +1,67 @@
+<div class="brand_wrapper">
+{% if section.settings.heading != blank %}
+<h2 style="color:{{ section.settings.heading_color }}">{{ section.settings.heading }}</h2>
+  {% endif %}
+  {% if section.settings.text != blank %}
+<div class="content" style="color:{{ section.settings.text_color }}">{{ section.settings.text }}</div>
+  {% endif %}
+          <ul class="logo-brands">
+              {%- for block in section.blocks -%}
+            {% if block.settings.logo_image != blank %}
+            <li>
+              <a href="{{ block.settings.logo_image_link  }}">
+              <img src="{{ block.settings.logo_image | img_url: 'master' }}">
+              </a>
+            </li>
+            
+            {% endif %}
+            {% endfor %}
+          </ul>
+</div>
+{% schema %}
+  {
+    "name": "Our Brands",
+    "settings": [
+
+       {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+   },
+         {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color"
+   },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+   },
+         {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+   }
+    ],
+     "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Logo Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo Image"
+          },
+            {
+            "type": "url",
+            "id": "logo_image_link",
+            "label": "Logo Image Link"
+          }
+          
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,79 @@
+<div class="blogs_faq_sec_main">
+  <div class="blogs_faq_sec_inn">
+    <div class="page-width">
+      {% if section.settings.title != blank %}
+      <div class="blogs_faq_sec_header center">
+        <h3>{{ section.settings.title }}</h3>
+      </div>
+      {% endif %}
+
+      {% if article.metafields.custom.faq_questions_list != blank and article.metafields.custom.faq_answers_list != blank %}
+      {% assign questions_json = article.metafields.custom.faq_questions_list %}
+      {% assign answers_json = article.metafields.custom.faq_answers_list %}
+      
+      {% assign questions = questions_json | remove: '["' | remove: '"]' | split: '","' %}
+      {% assign answers = answers_json | remove: '["' | remove: '"]' | split: '","' %}
+      
+      <div class="blogs_faq_sec_body">
+        <ul class="faq-listing">
+          {% assign questions_count = questions.size | minus: 1 %}
+          {% for i in (0..questions_count) %}
+          <li class="faq-item">
+            <div class="accordion_tile">
+              <div class="accordion__header{% if forloop.first %} is-active{% endif %}">
+                <h3>{{ questions[i] | metafield_tag }}</h3>
+                <span class="accordion__toggle">
+                  <div class="plus">
+                    {% render 'plus-icon' %}
+                  </div>
+                  <div class="minus">
+                    {% render 'minus-icon' %}
+                  </div>
+                </span>
+              </div>
+
+              <div class="accordion__body{% if forloop.first %} is-active{% endif %}">
+                {{ answers[i] | metafield_tag }}
+              </div>
+            </div>           
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "tag": "section",
+    "class": "section blogs_faq_sec",
+    "enabled_on": {
+      "templates": ["article"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Frequently Asked Questions"
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ (Blogs)"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+{% if article.metafields.custom.faq_questions_list == blank or article.metafields.custom.faq_answers_list == blank %}
+#shopify-section-{{ section.id }}{
+  display: none;
+}
+{% endif %}
+{% endstyle %}

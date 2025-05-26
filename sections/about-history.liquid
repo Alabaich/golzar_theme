@@ -1,0 +1,87 @@
+<div class="history-sec-main">
+  <div class="history-sec-inn">
+    <div class="page-width">
+
+      <div class="history-sec-header">
+        <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+        <p style="color: {{ section.settings.text_color }};">{{ section.settings.text }}</p>
+      </div>
+
+      {% if section.blocks.size > 0 %}
+      <div class="history-body">
+        <div class="history-body-inn">
+          <div class="history_list">
+            {% for block in section.blocks %}
+              <div class="history__{% cycle 'one', 'two' %} hstryLine">
+                <div class="history_line">
+                  <span></span>
+                  <small></small>
+                </div>
+                <div class="history_content">
+                  <h6>{{ block.settings.year }}</h6>
+                  <p>{{ block.settings.content }}</p>
+                </div>
+              </div>
+  
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+    "name": "About History",
+    "tag": "section",
+    "class": "section history-sec",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "history",
+        "name": "History",
+        "settings": [
+          {
+            "type": "number",
+            "id": "year",
+            "label": "Year"
+          },
+          {
+            "type": "text",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About History"
+      }
+    ]
+  }
+{% endschema %}

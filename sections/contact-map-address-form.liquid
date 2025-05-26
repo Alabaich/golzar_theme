@@ -1,0 +1,238 @@
+<div class="page-width">
+  <div class="contact-us-page-main">
+    <div class="contact-us-page-inn">
+      
+      <div class="contact-us-page-head">
+        <h2 style="color: {{ section.settings.title_color }};">{{ section.settings.title | default: page_title }}</h2>
+        {% if section.settings.map_iframe != blank %}
+        <div class="contact-page-map">
+          {{ section.settings.map_iframe }}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="contact-page-address-with-form">
+        <div class="{% if section.settings.show_address == false and section.settings.show_phone == false and section.settings.show_email == false %}grid--1-col{% else %}grid--2-col{% endif %}">
+          {% if section.settings.show_address == true or section.settings.show_phone == true or section.settings.show_email == true %}
+          
+          <div class="grid__item">
+            <div class="icon-box-container">
+              <div class="icon-box-wrapper">
+                {% if section.settings.show_address == true %}
+                <div class="icon-box-info">
+                  <div class="icon-box-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.7 4.25C11.2858 4.24999 10.95 4.58577 10.95 4.99998C10.95 5.4142 11.2858 5.74999 11.7 5.75L11.7 4.25ZM13.5652 5.376L13.8555 4.68446L13.8552 4.68435L13.5652 5.376ZM15.7531 7.2L15.1268 7.61262L15.1272 7.6133L15.7531 7.2ZM16.575 9.94L17.325 9.94L17.325 9.93883L16.575 9.94ZM15.1466 13.433L14.536 12.9976C14.5271 13.01 14.5186 13.0228 14.5105 13.0357L15.1466 13.433ZM13.7309 15.7L13.0948 15.3027L13.0922 15.3069L13.7309 15.7ZM11.7 19L11.0617 19.3937C11.1983 19.6153 11.4401 19.7501 11.7004 19.75C11.9607 19.7499 12.2023 19.6148 12.3387 19.3931L11.7 19ZM9.66909 15.707L10.3075 15.3133L10.3055 15.3102L9.66909 15.707ZM8.25339 13.436L8.88985 13.0392C8.88178 13.0263 8.87332 13.0136 8.86447 13.0012L8.25339 13.436ZM6.82501 9.943L6.07501 9.94227V9.943H6.82501ZM7.64694 7.2L8.27278 7.6133L8.27282 7.61324L7.64694 7.2ZM9.83484 5.379L10.1247 6.07072L10.126 6.07018L9.83484 5.379ZM11.7011 5.75C12.1154 5.74937 12.4506 5.41308 12.45 4.99887C12.4494 4.58465 12.1131 4.24938 11.6989 4.25L11.7011 5.75ZM11.7 10.837C11.2858 10.837 10.95 11.1728 10.95 11.587C10.95 12.0012 11.2858 12.337 11.7 12.337V10.837ZM11.7 7.543C11.2858 7.543 10.95 7.87879 10.95 8.293C10.95 8.70721 11.2858 9.043 11.7 9.043L11.7 7.543ZM11.719 12.3428C12.133 12.3323 12.4602 11.9881 12.4498 11.574C12.4393 11.16 12.0951 10.8328 11.6811 10.8432L11.719 12.3428ZM10.2764 10.7817L10.927 10.4085L10.927 10.4085L10.2764 10.7817ZM10.2764 9.11131L9.62584 8.73812L9.62584 8.73812L10.2764 9.11131ZM11.6811 9.04976C12.0951 9.06023 12.4393 8.73303 12.4498 8.31895C12.4602 7.90487 12.133 7.56071 11.719 7.55024L11.6811 9.04976ZM11.7 5.75C12.2396 5.75001 12.7746 5.85774 13.2751 6.06765L13.8552 4.68435C13.1717 4.39771 12.4396 4.25002 11.7 4.25L11.7 5.75ZM13.2749 6.06754C14.0246 6.38224 14.6697 6.91882 15.1268 7.61262L16.3794 6.78738C15.761 5.84877 14.8836 5.11602 13.8555 4.68446L13.2749 6.06754ZM15.1272 7.6133C15.58 8.29886 15.8237 9.10956 15.825 9.94117L17.325 9.93883C17.3233 8.81655 16.9945 7.71889 16.3789 6.7867L15.1272 7.6133ZM15.825 9.94C15.825 10.5044 15.7399 10.9165 15.5556 11.3427C15.3608 11.7931 15.0461 12.2822 14.536 12.9976L15.7573 13.8684C16.269 13.1508 16.6684 12.5484 16.9324 11.9381C17.2068 11.3035 17.325 10.6856 17.325 9.94H15.825ZM14.5105 13.0357L13.0948 15.3027L14.3671 16.0973L15.7828 13.8303L14.5105 13.0357ZM13.0922 15.3069L11.0613 18.6069L12.3387 19.3931L14.3697 16.0931L13.0922 15.3069ZM12.3384 18.6063L10.3074 15.3133L9.03073 16.1007L11.0617 19.3937L12.3384 18.6063ZM10.3055 15.3102L8.88985 13.0392L7.61693 13.8328L9.03263 16.1038L10.3055 15.3102ZM8.86447 13.0012C8.35405 12.2838 8.03922 11.7947 7.84433 11.3444C7.66008 10.9186 7.57501 10.5073 7.57501 9.943H6.07501C6.07501 10.6887 6.19324 11.3059 6.46772 11.9401C6.73157 12.5498 7.13093 13.1522 7.6423 13.8708L8.86447 13.0012ZM7.57501 9.94373C7.57582 9.11123 7.81958 8.29958 8.27278 7.6133L7.02109 6.7867C6.40485 7.71986 6.0761 8.81882 6.07501 9.94227L7.57501 9.94373ZM8.27282 7.61324C8.73027 6.92039 9.37536 6.38473 10.1247 6.07072L9.54497 4.68728C8.51733 5.11791 7.63993 5.84942 7.02105 6.78676L8.27282 7.61324ZM10.126 6.07018C10.6264 5.8594 11.1613 5.75081 11.7011 5.75L11.6989 4.25C10.9591 4.25112 10.227 4.39999 9.54369 4.68782L10.126 6.07018ZM11.7 12.337C12.551 12.337 13.3277 11.8714 13.7443 11.1314L12.4371 10.3956C12.28 10.6748 11.9964 10.837 11.7 10.837V12.337ZM13.7443 11.1314C14.1597 10.3934 14.1597 9.4866 13.7443 8.7486L12.4371 9.4844C12.5954 9.76557 12.5954 10.1144 12.4371 10.3956L13.7443 11.1314ZM13.7443 8.7486C13.3277 8.00864 12.551 7.543 11.7 7.543L11.7 9.043C11.9964 9.043 12.28 9.2052 12.4371 9.4844L13.7443 8.7486ZM11.6811 10.8432C11.38 10.8508 11.0889 10.6908 10.927 10.4085L9.62584 11.1549C10.0553 11.9036 10.8541 12.3646 11.719 12.3428L11.6811 10.8432ZM10.927 10.4085C10.7638 10.1241 10.7638 9.76886 10.927 9.4845L9.62584 8.73812C9.19755 9.48474 9.19755 10.4083 9.62584 11.1549L10.927 10.4085ZM10.927 9.4845C11.0889 9.20225 11.38 9.04215 11.6811 9.04976L11.719 7.55024C10.8541 7.52838 10.0553 7.9894 9.62584 8.73812L10.927 9.4845Z" fill="#000000"></path> </g></svg>
+                  </div>
+                  <div class="icon-box-contnt">
+                   <a href="{{ section.settings.address_link }}"> <h3>{{ section.settings.address }}</h3></a>
+                  </div>
+                </div>
+                {% endif %}
+
+                {% if section.settings.show_phone == true %}
+                <div class="icon-box-info">
+                  <div class="icon-box-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" fill="#1C274C"></path> </g></svg>
+                  </div>
+                  <div class="icon-box-contnt">
+                    <h3>{{ section.settings.phone }}</h3>
+                  </div>
+                </div>
+                {% endif %}
+
+                {% if section.settings.show_email == true %}
+                <div class="icon-box-info">
+                  <div class="icon-box-icon">
+                    <svg height="200px" width="200px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#000000;} </style> <g> <path class="st0" d="M510.746,110.361c-2.128-10.754-6.926-20.918-13.926-29.463c-1.422-1.794-2.909-3.39-4.535-5.009 c-12.454-12.52-29.778-19.701-47.531-19.701H67.244c-17.951,0-34.834,7-47.539,19.708c-1.608,1.604-3.099,3.216-4.575,5.067 c-6.97,8.509-11.747,18.659-13.824,29.428C0.438,114.62,0,119.002,0,123.435v265.137c0,9.224,1.874,18.206,5.589,26.745 c3.215,7.583,8.093,14.772,14.112,20.788c1.516,1.509,3.022,2.901,4.63,4.258c12.034,9.966,27.272,15.45,42.913,15.45h377.51 c15.742,0,30.965-5.505,42.967-15.56c1.604-1.298,3.091-2.661,4.578-4.148c5.818-5.812,10.442-12.49,13.766-19.854l0.438-1.05 c3.646-8.377,5.497-17.33,5.497-26.628V123.435C512,119.06,511.578,114.649,510.746,110.361z M34.823,99.104 c0.951-1.392,2.165-2.821,3.714-4.382c7.689-7.685,17.886-11.914,28.706-11.914h377.51c10.915,0,21.115,4.236,28.719,11.929 c1.313,1.327,2.567,2.8,3.661,4.272l2.887,3.88l-201.5,175.616c-6.212,5.446-14.21,8.443-22.523,8.443 c-8.231,0-16.222-2.99-22.508-8.436L32.19,102.939L34.823,99.104z M26.755,390.913c-0.109-0.722-0.134-1.524-0.134-2.341V128.925 l156.37,136.411L28.199,400.297L26.755,390.913z M464.899,423.84c-6.052,3.492-13.022,5.344-20.145,5.344H67.244 c-7.127,0-14.094-1.852-20.142-5.344l-6.328-3.668l159.936-139.379l17.528,15.246c10.514,9.128,23.922,14.16,37.761,14.16 c13.89,0,27.32-5.032,37.827-14.16l17.521-15.253L471.228,420.18L464.899,423.84z M485.372,388.572 c0,0.803-0.015,1.597-0.116,2.304l-1.386,9.472L329.012,265.409l156.36-136.418V388.572z"></path> </g> </g></svg>
+                  </div>
+                  <div class="icon-box-contnt">
+                    <h3><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></h3>
+                  </div>
+                </div>
+                {% endif %}
+                
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="grid__item">
+            <div class="contact-pg-form">
+              <div class="contact-pg-form-main">
+                <div class="contact-pg-form-inn">
+                  {% if section.settings.title1 != blank %}
+                  <h2 style="color:{{ section.settings.title1_color }}">{{ section.settings.title1 }}</h2>
+                  {% endif %}
+                  
+                {%- liquid
+                  assign contact_form_class = 'isolate'
+                  if settings.animations_reveal_on_scroll
+                    assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+                  endif
+                -%}
+
+                  {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+                  {%- if form.posted_successfully? -%}
+                    <p class="form-status form-status-list form__message" tabindex="-1" autofocus>
+                      {{- 'icon-success.svg' | inline_asset_content -}}
+                      {{ 'templates.contact.form.post_success' | t }}
+                    </p>
+                  {%- elsif form.errors -%}
+                    <div class="form__message">
+                      <p class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                        {{- 'icon-error.svg' | inline_asset_content -}}
+                        {{ 'templates.contact.form.error_heading' | t }}
+                      </p>
+                    </div>
+                    <ul class="form-status-list caption-large" role="list">
+                      <li>
+                        <a href="#ContactForm-email" class="link">
+                          {{ form.errors.translated_fields.email | capitalize }}
+                          {{ form.errors.messages.email }}
+                        </a>
+                      </li>
+                    </ul>
+                  {%- endif -%}
+
+                  <div class="form_field">
+                    <label for="ContactForm-subject">Subject (Choose From Drop-Down) <span>*</span></label>
+                    <select id="ContactForm-subject" name="contact[Subject]" required>
+                      <option value="General Customer Support">General Customer Support</option>
+                      <option value="Free Consultation">Free Consultation</option>
+                      <option value="Product Inquiry">Product Inquiry</option>
+                      <option value="Return Or Exchange">Return Or Exchange</option>
+                      <option value="Installation Guide">Installation Guide</option>
+                    </select>
+                  </div>
+
+                  <div class="form_field">
+                    <label for="ContactForm-email">Email <span>*</span></label>
+                    <input required autocomplete="email" type="email" id="ContactForm-email"
+                      name="contact[email]" spellcheck="false" autocapitalize="off"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      aria-required="true"
+                      {% if form.errors contains 'email' %}
+                        aria-invalid="true"
+                        aria-describedby="ContactForm-email-error"
+                      {% endif %}>
+
+                    {%- if form.errors contains 'email' -%}
+                    <small class="contact__field-error" id="ContactForm-email-error">
+                      <span class="form__message">
+                        <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                        {{- form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email -}}
+                      </span>
+                    </small>
+                    {%- endif -%}
+                  </div>
+
+                  <div class="form_field">
+                    <label for="ContactForm-msg">Message <span>*</span></label>
+                    <textarea rows="10" id="ContactForm-msg" name="contact[Message]">{{- form.body -}}</textarea>
+                  </div>
+
+                  <div class="form-submit-btn">
+                    <button type="submit" class="button">Send</button>
+                  </div>
+
+                  {% endform %}
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Us",
+    "class": "section contact-us-page",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color",
+        "default": "#7a7a7a"
+      },
+      {
+        "type": "html",
+        "id": "map_iframe",
+        "label": "Map Iframe"
+      },
+      {
+        "type": "header",
+        "content": "Store Info"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_address",
+        "label": "Show Address?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "address",
+        "label": "Address",
+        "default": "7250 Keele St, Vaughan, ON, Canada Unit 85/86, Improve Mall Canada L4K 1Z8"
+      },
+      {
+        "type": "url",
+        "id": "address_link",
+        "label": "Address Link",
+      },
+      {
+        "type": "checkbox",
+        "id": "show_phone",
+        "label": "Show Phone?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone",
+        "default": "(416) 7004346"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_email",
+        "label": "Show Email?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email",
+        "default": "admin@golzarhome.net"
+      },
+      {
+        "type": "text",
+        "id": "title1",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title1_color",
+        "label": "Title color",
+        "default": "#7a7a7a"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Page"
+      }
+    ]
+  }
+{% endschema %}

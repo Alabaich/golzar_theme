@@ -1,0 +1,62 @@
+<div class="catelogous_wrapper">
+  {% if section.settings.heading != blank %}
+  <h2 style="color:{{ section.settings.heading_color }}">{{ section.settings.heading }}</h2>
+  {% endif %}
+  {% if section.settings.text != blank %}
+  <div class="content" style="color:{{ section.settings.text_color }}">{{ section.settings.text }}</div>
+  {% endif %}
+          
+  <ul class="catelogues_logo_grid">
+    {%- for block in section.blocks -%}
+    {% if block.settings.logo_image != blank %}
+      <li>
+        <div class="logo-catalogues">
+          {{ block.settings.logo_image | img_tag: block.settings.logo_image.alt, '', 'master' }}
+        </div>
+        {% if block.settings.logo_heading != blank %}
+        <div class="headingg" style="color:{{ block.settings.logo_heading_color }}">{{ block.settings.logo_heading }}</div>
+        {% endif %}
+        {% if block.settings.down_pdf != blank %}
+        <a href="{{ block.settings.down_pdf }}" class="download">📥Download</a>
+        {% endif %}
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+  {
+    "name": "Catalogues Grids",
+    "class": "catalogues-grids",
+    "settings": [],
+      "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Logo Grids",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "logo_heading",
+            "label": "Logo Heading"
+          },
+          {
+            "type": "color",
+            "id": "logo_heading_color",
+            "label": "Logo Heading Color"
+          },
+          {
+            "type": "url",
+            "id": "down_pdf",
+            "label": "PDF Download"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

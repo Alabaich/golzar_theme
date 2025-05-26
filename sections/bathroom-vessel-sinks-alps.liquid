@@ -1,0 +1,123 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+{% assign tag_name = section.settings.tags %}
+
+{% assign i = 0 %}
+  {% assign category_name = section.settings.collection_selcted %}
+<div class="brands-collection-slider">
+{% paginate collections[category_name].products by 99999 %}
+  {% for product in collections[category_name].products %}
+  
+    {% if product.tags contains tag_name %}
+    {% assign i = i | plus: 1 %}
+      <div class="product-item tags-product">
+    {% render 'card-product-brands', 
+       card_product: product,
+       quick_add: section.settings.quick_add;
+    %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+{% endpaginate %}
+</div>
+
+<div class="brands-pro">
+  <ul class="brand-pro-list">
+ {% for block in section.blocks %}
+
+   <a href="{{ block.settings.product.url }}">
+    <li class="brand-pro-list-item">
+      {% if block.settings.pro_image_custom != blank %}
+      <img src="{{ block.settings.pro_image_custom | img_url: 'master' }}" class="pro-image">    
+      {% elsif block.settings.product.featured_image != blank %}
+      <img src="{{ block.settings.product.featured_image | img_url: 'master' }}" class="pro-image">
+      {% endif %}
+      <span class="SKU-pro-brands">{{  block.settings.product.variants.first.sku }}</span></li>
+   </a>
+   {% endfor %}
+    
+  </ul>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Product Tags",
+    "class": "bathroom-vessel-sinks-alps-pro-tags",
+    "settings": [
+            {
+            "type": "text",
+            "id": "tags",
+            "label": "Tags Name"
+          },
+       {
+            "type": "collection",
+            "id": "collection_selcted",
+            "label": "Category"
+          },
+             {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    }
+      
+    ],
+     "blocks": [
+       {
+         "type": "products",
+         "name": "Brands Products",
+         "settings": [
+            {
+             "id": "pro_image_custom",
+             "type": "image_picker",
+             "label": "Custom Image"
+           },
+           {
+             "id": "product",
+             "type": "product",
+             "label": "Selected Product"
+           }
+         ]
+       }
+    
+     ]
+  }
+{% endschema %}

@@ -1,0 +1,114 @@
+<div class="gallery-lightbox-main">
+  <div class="page-width">
+    <div class="gallery-lightbox-header">
+      <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
+      <p style="color: {{ section.settings.text_color }};">{{ section.settings.text }}</p>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+    <div class="gallery-lightbox-body">
+      <div class="gallery">
+        {% for block in section.blocks %}
+        <img src="{{ block.settings.img | img_url: 'master' }}" class="gallery-item">
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- The Modal/Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="">
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  let currentIndex = 0;
+
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      openLightbox(index);
+    });
+  });
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const imgSrc = galleryItems[currentIndex].src;
+    lightboxImg.src = imgSrc;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function changeImage(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+      currentIndex = galleryItems.length - 1;
+    } else if (currentIndex >= galleryItems.length) {
+      currentIndex = 0;
+    }
+
+    const imgSrc = galleryItems[currentIndex].src;
+    lightboxImg.src = imgSrc;
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Lightbox Gallery",
+    "tag": "section",
+    "class": "section gallery-lightbox",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Lightbox Gallery"
+      }
+    ]
+  }
+{% endschema %}

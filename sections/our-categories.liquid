@@ -1,0 +1,93 @@
+<div class="page-width">
+  <div class="our-categorys-main">
+    <div class="our-categorys-inn">
+
+      {% if section.settings.title != blank %}
+      <div class="our-categorys-heading">
+        <h2 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>
+      </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+      <div class="our-categorys-body">
+        <div class="our-categorys-info-s">
+          <ul class="our-categorys-listing{% if section.blocks.size > 3 %} our-categorys-listing-slider{% endif %}">
+            {% for block in section.blocks %}
+            <li class="our-categorys-listing-item">
+              <div class="category-info-main">
+                <a href="{{ block.settings.collection.url }}">
+                  <div class="category-img-overlay">
+                    {{ block.settings.collection.metafields.custom.category_image | img_tag: block.settings.collection.title, '', 'master' }}
+                    <div class="category-name-over">
+                      <h3>{{ block.settings.collection.title }}</h3>
+                      <img width="42" height="42" src="{{ 'categ-arow.svg' | file_url }}" alt="{{ block.settings.collection.title }}" class="cat-arw">
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+        
+        {% if section.blocks.size > 0 %}
+        <div class="slider_actions">
+        <div class="slide_a_num">
+          <p>1/ {{ section.blocks.size }}</p>
+        </div>
+          
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          <span class="slider__label sr-only"></span>
+        </div>
+          
+        <div class="our-categorys-arrows"></div>
+        </div>
+        {% endif %}
+        
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Our Categories",
+    "class": "section our-categorys-sec",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Our Categories"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#002642"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "category",
+        "name": "Category",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our Categories"
+      }
+    ]
+  }
+{% endschema %}

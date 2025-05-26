@@ -1,0 +1,93 @@
+<div class="browse-by-options-main">
+  <div class="browse-by-options-inn">
+    <div class="page-width">
+
+      {% if section.settings.show_product_type_options == true %}
+      <div class="browse-by-product-type brand-inner-b">
+        <div class="browse-by-product-type-inn">
+          <h3>{{ section.settings.product_type_title }}</h3>
+          {% assign vendors = collections.all.products | map: 'vendor' | uniq %}
+          <ul class="brand-data">
+            {% for vendor in vendors %}
+            <li class="brand-item">
+              <a href="/collections/vendors?q={{ vendor | url_encode }}">
+                <div class="brand-info">
+                  {% assign first_product = collections.all.products | where: 'vendor', vendor | first %}
+          
+                  {% if first_product != blank and first_product.images[0] != blank %}
+                  <div class="brand-img">
+                    <img src="{{ first_product.images[0] | img_url: 'master' }}" alt="{{ vendor }}">
+                  </div>
+                  {% endif %}
+                  <h3>{{ vendor }}</h3>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if section.settings.show_collection_options == true %}
+      <div class="browse-by-collection brand-inner-b">
+        <div class="browse-by-collection-inn">
+          <h3>{{ section.settings.collection_title }}</h3>
+          {% if section.settings.collection_list != blank %}
+          <ul class="brand-data">
+            {% for collection in section.settings.collection_list %}
+            <li class="brand-item">
+              <a href="{{ collection.url }}">
+                <div class="brand-info">
+                  <div class="brand-img">
+                    <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}">
+                  </div>
+                  <h3>{{ collection.title }}</h3>
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Browse By Options",
+    "class": "section browse-by-options",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_product_type_options",
+        "label": "Show Product Type"
+      },
+      {
+        "type": "text",
+        "id": "product_type_title",
+        "label": "Title1"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_options",
+        "label": "Show Collections"
+      },
+      {
+        "type": "text",
+        "id": "collection_title",
+        "label": "Title2"
+      },
+      {
+        "type": "collection_list",
+        "id": "collection_list",
+        "label": "Collection list"
+      }
+    ]
+  }
+{% endschema %}
