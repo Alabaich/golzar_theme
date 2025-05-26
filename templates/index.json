@@ -185,7 +185,7 @@
         "category_a3tzib": {
           "type": "category",
           "settings": {
-            "collection": "bathtubs2"
+            "collection": "bathtubs"
           }
         },
         "category_yNMibA": {
@@ -236,7 +236,9 @@
         "btn_label": "Contact Us",
         "btn_link": "shopify://pages/contact",
         "btn_label_color": "#ffffff",
-        "btn_bg_color": "#38739e"
+        "btn_bg_color": "#38739e",
+        "img1": "shopify://shop_images/About_US-01.webp",
+        "img2": "shopify://shop_images/About_US-02.webp"
       }
     },
     "logo_slider_EgdLnG": {
@@ -245,108 +247,126 @@
         "logo_rFpaJf": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/oceania.webp",
             "logo_link": "shopify://pages/visentin-golzar-home"
           }
         },
         "logo_qDdjVf": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/grohe-logo-png_seeklogo-526423.webp",
             "logo_link": ""
           }
         },
         "logo_dByH8w": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/MAAX.webp",
             "logo_link": ""
           }
         },
         "logo_ddtpwH": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/LAUFEN_1ea7b142-c8b1-46ce-bfa2-e.webp",
             "logo_link": ""
           }
         },
         "logo_kHkDjg": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/TOTO.webp",
             "logo_link": ""
           }
         },
         "logo_pXeRmz": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/ALPS.webp",
             "logo_link": ""
           }
         },
         "logo_QDmVCX": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/AQUABRASS.webp",
             "logo_link": ""
           }
         },
         "logo_tJgwVA": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/VISENTIN_7f14ce18-6156-4093-9b1b.webp",
             "logo_link": ""
           }
         },
         "logo_9yktXy": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/DURAVIT.webp",
             "logo_link": ""
           }
         },
         "logo_38VyQp": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/AQUA.webp",
             "logo_link": ""
           }
         },
         "logo_qjxHGY": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/KOHLER.webp",
             "logo_link": ""
           }
         },
         "logo_pjcVPf": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/ecoway.webp",
             "logo_link": ""
           }
         },
         "logo_Tfnq99": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/ZUCCETTI.webp",
             "logo_link": ""
           }
         },
         "logo_RFqQXx": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/GRAFF.webp",
             "logo_link": "shopify://pages/duravit-golzar-home"
           }
         },
         "logo_NgBeak": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/BRIZO.webp",
             "logo_link": "shopify://pages/ecoway-golzar-home"
           }
         },
         "logo_karKNy": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/Produits.webp",
             "logo_link": "shopify://pages/toto-golzar-home"
           }
         },
         "logo_pLXmbc": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/FRANKE.webp",
             "logo_link": "shopify://pages/laufen-golzar-home"
           }
         },
         "logo_tjV6mi": {
           "type": "logo",
           "settings": {
+            "logo_img": "shopify://shop_images/baril.webp",
             "logo_link": "shopify://pages/alps-golzar-home"
           }
         }
