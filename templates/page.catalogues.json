@@ -78,6 +78,7 @@
         "logo_image_ia7hDw": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/LAUFEN_1.webp",
             "logo_heading": "LAUFEN CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/GOLZAR-HOME-LAUFEN.pdf?v=1735747107"
@@ -86,6 +87,7 @@
         "logo_image_6cFaYm": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/BOCCHI_1.webp",
             "logo_heading": "BOCCHI CATALOGUE",
             "logo_heading_color": "",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Bocchi-Catalogue.pdf?v=1735747260"
@@ -94,6 +96,7 @@
         "logo_image_6Gawnt": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/Golzar-Home-Logo-03.webp",
             "logo_heading": "GOLZAR HOME CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Golzar-Home-Products-Catalogue_1__compressed_1.pdf?v=1735748063"
