@@ -145,47 +145,69 @@
       "blocks": {
         "slide_xLjQxR": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/1_1174218b-90fa-43e1-8988-04e69b.webp"
+          }
         },
         "slide_JMqHty": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/2_a77d004d-5fb8-4fbb-a05b-89b921d49a46.webp"
+          }
         },
         "slide_QWgfgK": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/3.webp"
+          }
         },
         "slide_pcrwBi": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/4.webp"
+          }
         },
         "slide_UJXCjQ": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/5_ab750df8-3f05-4ae3-8d91-b16238.webp"
+          }
         },
         "slide_BtaYEF": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/6.webp"
+          }
         },
         "slide_rhBYpk": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/7.webp"
+          }
         },
         "slide_nAGxFi": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/8.webp"
+          }
         },
         "slide_CwKLf3": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/9_424731ba-d7b3-435d-a4e7-d323af.webp"
+          }
         },
         "slide_mUGajM": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/10.webp"
+          }
         },
         "slide_yBNWTr": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "img": "shopify://shop_images/11.webp"
+          }
         }
       },
       "block_order": [
