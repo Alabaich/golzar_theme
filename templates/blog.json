@@ -12,7 +12,7 @@
     "main": {
       "type": "main-blog",
       "settings": {
-        "blog_banner": "shopify://shop_images/Site-headers-PICTURES-28-scaled-1.webp",
+        "blog_banner": "shopify://shop_images/Site-headers-PICTURES-28-scaled.webp",
         "heading_color": "#ffffff",
         "layout": "grid",
         "show_image": true,
