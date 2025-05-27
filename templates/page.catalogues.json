@@ -1,1 +1,116 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":36,"padding_bottom":36}},"catalogues-banner":{"type":"catalogues-banner","blocks":{"heading_Mb6cCc":{"type":"heading","settings":{"heading_color":"#ffffff","heading_size":"h1"}}},"block_order":["heading_Mb6cCc"],"settings":{"image":"shopify:\/\/shop_images\/img36.webp","image_overlay_opacity":0,"image_height":"medium","desktop_content_position":"middle-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"catalogues-grids":{"type":"catalogues-grids","blocks":{"logo_image_3cbFrc":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/ALPS-1_2.svg","logo_heading":"ALPS CATALOGUE","logo_heading_color":"#000000","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/ALPS-CATALOGUE.pdf?v=1735746886"}},"logo_image_6AcdVj":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/ORANS_1.svg","logo_heading":"ORANS CATALOGUE","logo_heading_color":"#000000","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/Orans-catalogue.pdf?v=1735746961"}},"logo_image_bnmLWV":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/VISENTIN_1.svg","logo_heading":"VISENTIN CATALOGUE","logo_heading_color":"#000000","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/VISENTIN-WP.pdf?v=1735747042"}},"logo_image_ia7hDw":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/LAUFEN_1.svg","logo_heading":"LAUFEN CATALOGUE","logo_heading_color":"#000000","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/GOLZAR-HOME-LAUFEN.pdf?v=1735747107"}},"logo_image_6cFaYm":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/BOCCHI_1.svg","logo_heading":"BOCCHI CATALOGUE","logo_heading_color":"","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/Bocchi-Catalogue.pdf?v=1735747260"}},"logo_image_6Gawnt":{"type":"logo_image","settings":{"logo_image":"shopify:\/\/shop_images\/Golzar-Home-Logo-03.svg","logo_heading":"GOLZAR HOME CATALOGUE","logo_heading_color":"#000000","down_pdf":"https:\/\/cdn.shopify.com\/s\/files\/1\/0848\/7193\/8321\/files\/Golzar-Home-Products-Catalogue_1__compressed_1.pdf?v=1735748063"}}},"block_order":["logo_image_3cbFrc","logo_image_6AcdVj","logo_image_bnmLWV","logo_image_ia7hDw","logo_image_6cFaYm","logo_image_6Gawnt"],"settings":{}}},"order":["main","catalogues-banner","catalogues-grids"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "catalogues-banner": {
+      "type": "catalogues-banner",
+      "blocks": {
+        "heading_Mb6cCc": {
+          "type": "heading",
+          "settings": {
+            "heading_color": "#ffffff",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Mb6cCc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/img36.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "catalogues-grids": {
+      "type": "catalogues-grids",
+      "blocks": {
+        "logo_image_3cbFrc": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "ALPS CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/ALPS-CATALOGUE.pdf?v=1735746886"
+          }
+        },
+        "logo_image_6AcdVj": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "ORANS CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Orans-catalogue.pdf?v=1735746961"
+          }
+        },
+        "logo_image_bnmLWV": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "VISENTIN CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/VISENTIN-WP.pdf?v=1735747042"
+          }
+        },
+        "logo_image_ia7hDw": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "LAUFEN CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/GOLZAR-HOME-LAUFEN.pdf?v=1735747107"
+          }
+        },
+        "logo_image_6cFaYm": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "BOCCHI CATALOGUE",
+            "logo_heading_color": "",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Bocchi-Catalogue.pdf?v=1735747260"
+          }
+        },
+        "logo_image_6Gawnt": {
+          "type": "logo_image",
+          "settings": {
+            "logo_heading": "GOLZAR HOME CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Golzar-Home-Products-Catalogue_1__compressed_1.pdf?v=1735748063"
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_3cbFrc",
+        "logo_image_6AcdVj",
+        "logo_image_bnmLWV",
+        "logo_image_ia7hDw",
+        "logo_image_6cFaYm",
+        "logo_image_6Gawnt"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "catalogues-banner",
+    "catalogues-grids"
+  ]
+}
