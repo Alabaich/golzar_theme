@@ -51,6 +51,7 @@
         "logo_image_3cbFrc": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/ALPS-1_2.webp",
             "logo_heading": "ALPS CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/ALPS-CATALOGUE.pdf?v=1735746886"
@@ -59,6 +60,7 @@
         "logo_image_6AcdVj": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/ORANS_1.webp",
             "logo_heading": "ORANS CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Orans-catalogue.pdf?v=1735746961"
@@ -67,6 +69,7 @@
         "logo_image_bnmLWV": {
           "type": "logo_image",
           "settings": {
+            "logo_image": "shopify://shop_images/VISENTIN_1.webp",
             "logo_heading": "VISENTIN CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/VISENTIN-WP.pdf?v=1735747042"
