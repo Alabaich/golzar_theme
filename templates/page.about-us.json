@@ -20,6 +20,7 @@
     "page_inner_bg_GDYGPr": {
       "type": "page-inner-bg",
       "settings": {
+        "bg_img": "shopify://shop_images/img41-min.webp",
         "title": "BATH AND KITCHEN ESSENTIALS SHOWROOM",
         "title_color": "#ffffff",
         "subtext": "Your Ultimate Destination for Premium Bathroom and Kitchen Products Across Canada",
