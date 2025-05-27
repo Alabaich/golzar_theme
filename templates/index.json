@@ -460,6 +460,7 @@
         "btn_lbl_color": "#ffffff",
         "btn_bg_color": "#38739e",
         "btn_link": "shopify://collections/bestsellers",
+        "discount_banner": "shopify://shop_images/DISCOUNT.webp",
         "discount_offer": "40% Off",
         "discount_btn_lbl": "Discover More",
         "discount_btn_lbl_color": "#38739e",
