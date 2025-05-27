@@ -173,6 +173,7 @@
       "type": "store-footer",
       "settings": {
         "color_background": "#002642",
+        "footer_logo": "shopify://shop_images/Golzar-Home-Logo-03-1.webp",
         "footer_logo_width": 100,
         "social_title": "Connect with us",
         "social_title_color": "#ffffff",
