@@ -128,7 +128,7 @@
       "settings": {
         "additional_class": "",
         "layout": "grid",
-        "slide_height": "adapt_image",
+        "slide_height": "small",
         "slider_visual": "dots",
         "auto_rotate": true,
         "change_slides_speed": 5,
@@ -475,7 +475,6 @@
         ".article-card .card__heading {margin-bottom: 0.6rem; font-size: small;}",
         ".article-card__excerpt {width: 100%; margin-top: 1.2rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; text-overflow: ellipsis;}"
       ],
-      "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "heading": "Popular Products",
         "heading_size": "h0",
