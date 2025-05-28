@@ -26,43 +26,52 @@
 {%- endif -%}
 
 <style>
-  .banner__buttons {
-    margin-bottom: 25px;
+  .slideshow__text.banner__box {
+    position: relative;
+    padding-bottom: 70px;
   }
 
-  .slideshow__navigation {
+  .custom-slideshow-buttons {
+    position: absolute;
+    bottom: 20px;
+    z-index: 2;
     display: flex;
-    align-items: center;
+    gap: 0.8rem;
+
+    left: var(--text-alignment-left, 3rem);
+    right: var(--text-alignment-right, auto);
+    transform: var(--text-alignment-transform, none);
+  }
+  .slideshow__text--center .custom-slideshow-buttons {
+    --text-alignment-left: 50%;
+    --text-alignment-transform: translateX(-50%);
+  }
+  .slideshow__text--right .custom-slideshow-buttons {
+    --text-alignment-left: auto;
+    --text-alignment-right: 3rem;
+  }
+
+  .custom-slideshow-button {
+    display: flex;
     justify-content: center;
-    gap: 15px;
-  }
-
-  .slideshow__navigation-dots {
-    display: flex;
-    gap: 8px;
-  }
-
-  .slideshow__navigation-dot {
-    width: 10px;
-    height: 10px;
-    border: 1px solid white;
+    align-items: center;
+    width: 44px;
+    height: 44px;
     background-color: transparent;
-    transition: background-color 0.3s ease;
-  }
-
-  .slideshow__navigation-dot.is-active {
-    background-color: white;
-  }
-
-  .slideshow__navigation-arrow {
-    font-family: serif;
-    font-size: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
     color: white;
-    background: none;
-    border: none;
-    padding: 0 5px;
     cursor: pointer;
-    line-height: 1;
+    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 50%;
+  }
+  .custom-slideshow-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
+  .custom-slideshow-button svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
   }
 </style>
 
@@ -72,7 +81,6 @@
   aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
-
   <div
     class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     id="Slider-{{ section.id }}"
@@ -170,21 +178,33 @@
               </div>
             {%- endif -%}
 
-{%- if section.blocks.size > 1 -%}
-  <div class="slideshow__navigation">
-    <button type="button" class="slideshow__navigation-arrow" name="previous" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}">
-      <
-    </button>
-    <div class="slideshow__navigation-dots">
-      {%- for dot_block in section.blocks -%}
-        <span class="slideshow__navigation-dot{% if dot_block.id == block.id %} is-active{% endif %}"></span>
-      {%- endfor -%}
-    </div>
-    <button type="button" class="slideshow__navigation-arrow" name="next" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}">
-      >
-    </button>
-  </div>
-{%- endif -%}
+            {%- if section.blocks.size > 1 -%}
+              <div class="custom-slideshow-buttons">
+                <button class="custom-slideshow-button" name="previous" aria-label="Previous slide">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-caret"
+                    viewBox="0 0 10 6"
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                  </svg>
+                </button>
+                <button class="custom-slideshow-button" name="next" aria-label="Next slide">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-caret"
+                    viewBox="0 0 10 6"
+                    style="transform: rotate(180deg);"
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                  </svg>
+                </button>
+              </div>
+            {%- endif -%}
           </div>
         </div>
       </div>
@@ -197,27 +217,26 @@
 {%- endif -%}
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const allSlideshows = document.querySelectorAll('slideshow-component');
+  document.addEventListener('DOMContentLoaded', function () {
+    const slideshowComponent = document.querySelector('#Slider-{{ section.id }}').closest('slideshow-component');
 
-    allSlideshows.forEach(slideshow => {
-      const customNavButtons = slideshow.querySelectorAll('.slideshow__navigation-arrow');
+    if (slideshowComponent) {
+      slideshowComponent.addEventListener('click', function (event) {
+        const button = event.target.closest('.custom-slideshow-button');
 
-      customNavButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-          event.preventDefault();
-          const slideshowComponent = this.closest('slideshow-component');
+        if (!button) {
+          return;
+        }
 
-          if (!slideshowComponent) return;
+        event.preventDefault();
 
-          if (this.name === 'previous') {
-            slideshowComponent.previous?.();
-          } else if (this.name === 'next') {
-            slideshowComponent.next?.();
-          }
-        });
+        if (button.name === 'previous') {
+          this.previous();
+        } else if (button.name === 'next') {
+          this.next();
+        }
       });
-    });
+    }
   });
 </script>
 
