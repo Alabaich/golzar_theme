@@ -32,15 +32,16 @@
 
   .slideshow-navigation-wrapper {
     position: absolute;
-    bottom: 3.5rem;
-    left: 3.5rem;
-    transform: translateX(-50%);
     z-index: 10;
     display: flex;
     gap: 1rem;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
+
+    bottom: 2.5rem;
+    left: 2.5rem;
+    transform: none;
   }
 
   .slideshow-navigation-wrapper .slider-button {
@@ -69,11 +70,9 @@
 
   @media screen and (max-width: 749px) {
     .slideshow-navigation-wrapper {
-      bottom: 2rem;
-    }
-
-    .slideshow-navigation-wrapper {
       left: 50%;
+      transform: translateX(-50%);
+      bottom: 1.5rem;
     }
   }
 </style>
