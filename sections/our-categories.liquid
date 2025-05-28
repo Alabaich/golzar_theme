@@ -29,13 +29,34 @@
 
                         <div class="category-name-over">
                           <h3>{{ block.settings.collection.title | default: "Category" }}</h3>
-                          <img
+                          
+                          <svg
+                            class="cat-arw"
                             width="42"
                             height="42"
-                            src="{{ 'categ-arow.svg' | file_url }}"
-                            alt="{{ block.settings.collection.title | default: "Category" }}"
-                            class="cat-arw"
+                            viewBox="0 0 25 25"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            focusable="false"
                           >
+                            <g clip-path="url(#clip0_56_709_{{ forloop.index }})">
+                              <mask id="mask0_56_709_{{ forloop.index }}" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
+                              </mask>
+                              <g mask="url(#mask0_56_709_{{ forloop.index }})">
+                                <path d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z" stroke="#2A2A2A" stroke-width="1.07143"/>
+                                <path d="M8.36328 16.1366L15.6364 8.86353" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.36334 8.86353H15.6365V16.1366" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
+                              </g>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_56_709_{{ forloop.index }}">
+                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+
                         </div>
                       </div>
                     </a>
@@ -50,11 +71,9 @@
               <div class="slide_a_num">
                 <p>1/ {{ section.blocks.size }}</p>
               </div>
-
               <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                 <span class="slider__label sr-only"></span>
               </div>
-
               <div class="our-categorys-arrows"></div>
             </div>
           {% endif %}
