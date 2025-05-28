@@ -57,8 +57,8 @@
     transition: background-color 0.3s, border-color 0.3s;
     border-radius: 50%;
   }
+
   .slideshow-navigation-wrapper .slider-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
     border-color: white;
   }
   .slideshow-navigation-wrapper .slider-button svg {
@@ -67,11 +67,41 @@
     fill: white;
   }
 
+  a.custom-discover-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: var(--button-background, #ffffff);
+    color: var(--button-text-color, #002642);
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-discover-button__icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  a.custom-discover-button:hover,
+  a.custom-discover-button:focus {
+    background-color: #f5f5f5;
+    color: var(--button-text-color, #002642);
+    border-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+  }
+
   @media screen and (max-width: 749px) {
     .slideshow-navigation-wrapper {
       left: 50%;
       transform: translateX(-50%);
-      bottom: 1.5rem;
     }
   }
 </style>
@@ -166,15 +196,25 @@
             {%- if block.settings.button_label != blank -%}
               <div class="banner__buttons">
                 <a
-                  style="color: {{ block.settings.button_label_color }};"
                   {% if block.settings.link %}
                     href="{{ block.settings.link }}"
                   {% else %}
                     role="link" aria-disabled="true"
                   {% endif %}
-                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %} custom-discover-button"
+                  style="--button-text-color: {{ block.settings.button_label_color | default: '#002642' }}; --button-background: {{ block.settings.button_background_color | default: '#ffffff' }};"
                 >
-                  {{- block.settings.button_label | escape -}}
+                  <span>{{- block.settings.button_label | escape -}}</span>
+                  <svg
+                    class="custom-discover-button__icon"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="#002642"/>
+                  </svg>
                 </a>
               </div>
             {%- endif -%}
