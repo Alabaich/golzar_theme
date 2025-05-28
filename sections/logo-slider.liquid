@@ -3,17 +3,17 @@
     {% if section.blocks.size > 0 %}
     <div class="logo-list-area">
       <div class="logo-list-area-in">
-        <ul class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}">
+        <ul class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}" id="LogoList-{{ section.id }}">
           {% for block in section.blocks %}
-          {% if block.settings.logo_img != blank %}
-          <li class="logo-item">
-            <a href="{{ block.settings.logo_link }}">
-              <div class="logo-img-b{% if block.settings.logo_img contains '.png' %} png-logo{% elsif block.settings.logo_img contains '.svg' %} svg-logo{% elsif block.settings.logo_img contains '.jpg' %} jpg-logo{% elsif block.settings.logo_img contains '.jpeg' %} jpg-logo{% else %}{% endif %}">
-                {{ block.settings.logo_img | img_tag: block.settings.logo_img.alt, '', 'master' }}
-              </div>
-            </a>
-          </li>
-          {% endif %}
+            {% if block.settings.logo_img != blank %}
+              <li class="logo-item">
+                <a href="{{ block.settings.logo_link | default: "#" }}" aria-label="{{ block.settings.logo_img.alt | escape }}">
+                  <div class="logo-img-b">
+                    {{ block.settings.logo_img | image_url: width: 300 | image_tag: loading: 'lazy', alt: block.settings.logo_img.alt }}
+                  </div>
+                </a>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -61,9 +61,86 @@
 {% endschema %}
 
 {% style %}
-{% if section.settings.color_background != blank %}
-#shopify-section-{{ section.id }}{
-  background-color: {{ section.settings.color_background }};
-}
-{% endif %}
+  {% if section.settings.color_background != blank %}
+    #shopify-section-{{ section.id }}{
+      background-color: {{ section.settings.color_background }};
+    }
+  {% endif %}
+
+  .logo-list .slick-arrow,
+  .logo-list .swiper-button-next,
+  .logo-list .swiper-button-prev,
+  .logo-list .flickity-button {
+    display: none !important;
+  }
+
+  .logo-list-area-in {
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .logo-list-slider {
+    display: flex !important;
+    flex-wrap: nowrap;
+    width: fit-content;
+    
+    --logo-count: {{ section.blocks.size }};
+    --duration: calc(var(--logo-count) * 5s);
+
+    animation: scroll var(--duration) linear infinite;
+  }
+  
+  .logo-list-slider:hover {
+    animation-play-state: paused;
+  }
+
+  .logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 35px;
+  }
+
+  .logo-item img {
+    max-width: 150px;
+    height: 50px;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+  }
+  
+  .logo-item a:hover img {
+    opacity: 1;
+  }
 {% endstyle %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const logoSlider = document.getElementById('LogoList-{{ section.id }}');
+
+  if (logoSlider && logoSlider.classList.contains('logo-list-slider')) {
+    
+    const cloneLogos = () => {
+      const logos = logoSlider.querySelectorAll('.logo-item');
+      logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        logoSlider.appendChild(clone);
+      });
+    };
+    
+    cloneLogos();
+  }
+});
+</script>
