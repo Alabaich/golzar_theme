@@ -41,7 +41,8 @@
     {
       "type": "color",
       "id": "color_background",
-      "label": "Background color"
+      "label": "Background color",
+      "default": "#FFFFFF"
     }
   ],
   "blocks": [
@@ -71,11 +72,10 @@
 {% endschema %}
 
 {% style %}
-  {% if section.settings.color_background != blank %}
-    #shopify-section-{{ section.id }}{
-      background-color: {{ section.settings.color_background }};
-    }
-  {% endif %}
+  #shopify-section-{{ section.id }}{
+    background-color: {{ section.settings.color_background }};
+    padding: 2.5rem 0;
+  }
 
   .logo-list .slick-arrow,
   .logo-list .swiper-button-next,
@@ -87,8 +87,8 @@
   .logo-list-area-in {
     overflow: hidden;
     width: 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
   }
 
   @keyframes scroll {
@@ -100,15 +100,22 @@
     }
   }
 
+  .logo-list-data:not(.logo-list-slider) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+
   .logo-list-slider {
     visibility: hidden;
     display: flex !important;
     flex-wrap: nowrap;
     min-width: 100%;
     --logo-count: {{ section.blocks.size }};
-    --duration: calc(var(--logo-count) * 5s);
+    --duration: calc(var(--logo-count) * 3s);
     animation: scroll var(--duration) linear infinite;
-    background: white;
   }
 
   .logo-list-slider.is-ready {
