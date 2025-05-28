@@ -1,3 +1,76 @@
+<style>
+  .our-categorys-sec .our-categorys-inn {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .our-categorys-sec .our-categorys-heading h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .our-categorys-sec .our-categorys-body,
+  .our-categorys-sec .our-categorys-info-s {
+    padding: 0;
+  }
+  .category-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .category-card {
+    text-decoration: none;
+    display: block;
+    color: #2A2A2A;
+  }
+  .category-card__image-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 12px;
+  }
+  .category-card__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .category-card:hover .category-card__image-wrapper img {
+    transform: scale(1.05);
+  }
+  .category-card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+  }
+  .category-card__title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .category-card__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  @media (max-width: 990px) {
+    .category-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 750px) {
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+     .our-categorys-sec .our-categorys-heading h2 {
+        font-size: 28px;
+     }
+  }
+</style>
+
 <div class="page-width">
   <div class="our-categorys-main">
     <div class="our-categorys-inn">
@@ -10,73 +83,58 @@
       {% if section.blocks.size > 0 %}
         <div class="our-categorys-body">
           <div class="our-categorys-info-s">
-            <ul class="our-categorys-listing{% if section.blocks.size > 3 %} our-categorys-listing-slider{% endif %}">
+            <ul class="category-grid">
               {% for block in section.blocks %}
-                <li class="our-categorys-listing-item">
-                  <div class="category-info-main">
-                    <a href="{{ block.settings.collection.url | default: '#' }}">
-                      <div class="category-img-overlay">
-                        {%- assign custom_image = block.settings.image -%}
-                        {%- assign collection_image = block.settings.collection.image -%}
+                <li>
+                  <a href="{{ block.settings.collection.url | default: '#' }}" class="category-card">
+                    <div class="category-card__image-wrapper">
+                      {%- assign custom_image = block.settings.image -%}
+                      {%- assign collection_image = block.settings.collection.image -%}
 
-                        {% if custom_image != blank %}
-                          {{ custom_image | img_tag: block.settings.collection.title, '', 'master' }}
-                        {% elsif collection_image != blank %}
-                          {{ collection_image | img_tag: block.settings.collection.title, '', 'master' }}
-                        {% else %}
-                          {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                        {% endif %}
+                      {% if custom_image != blank %}
+                        {{ custom_image | img_tag: block.settings.collection.title, '', 'master' }}
+                      {% elsif collection_image != blank %}
+                        {{ collection_image | img_tag: block.settings.collection.title, '', 'master' }}
+                      {% else %}
+                        {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                    </div>
 
-                        <div class="category-name-over">
-                          <h3>{{ block.settings.collection.title | default: "Category" }}</h3>
-                          
-                          <svg
-                            class="cat-arw"
-                            width="42"
-                            height="42"
-                            viewBox="0 0 25 25"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                            focusable="false"
-                          >
-                            <g clip-path="url(#clip0_56_709_{{ forloop.index }})">
-                              <mask id="mask0_56_709_{{ forloop.index }}" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
-                                <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
-                              </mask>
-                              <g mask="url(#mask0_56_709_{{ forloop.index }})">
-                                <path d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z" stroke="#2A2A2A" stroke-width="1.07143"/>
-                                <path d="M8.36328 16.1366L15.6364 8.86353" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8.36334 8.86353H15.6365V16.1366" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
-                              </g>
+                    <div class="category-card__info">
+                      <p class="category-card__title">
+                        {{ block.settings.collection.title | default: "Category" }}
+                      </p>
+                      <div class="category-card__icon">
+                        <svg
+                          viewBox="0 0 25 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          <g clip-path="url(#clip0_new_{{ forloop.index }})">
+                            <mask id="mask0_new_{{ forloop.index }}" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                              <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
+                            </mask>
+                            <g mask="url(#mask0_new_{{ forloop.index }})">
+                              <path d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z" stroke="#2A2A2A" stroke-width="1.07143"/>
+                              <path d="M8.36328 16.1366L15.6364 8.86353" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8.36334 8.86353H15.6365V16.1366" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
                             </g>
-                            <defs>
-                              <clipPath id="clip0_56_709_{{ forloop.index }}">
-                                <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                              </clipPath>
-                            </defs>
-                          </svg>
-
-                        </div>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_new_{{ forloop.index }}">
+                              <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </li>
               {% endfor %}
             </ul>
           </div>
-
-          {% if section.blocks.size > 0 %}
-            <div class="slider_actions">
-              <div class="slide_a_num">
-                <p>1/ {{ section.blocks.size }}</p>
-              </div>
-              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                <span class="slider__label sr-only"></span>
-              </div>
-              <div class="our-categorys-arrows"></div>
-            </div>
-          {% endif %}
         </div>
       {% endif %}
     </div>
