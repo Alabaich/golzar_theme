@@ -1,63 +1,73 @@
 <div class="logo-list-main">
   <div class="logo-list-inn">
     {% if section.blocks.size > 0 %}
-    <div class="logo-list-area">
-      <div class="logo-list-area-in">
-        <ul class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}" id="LogoList-{{ section.id }}">
-          {% for block in section.blocks %}
-            {% if block.settings.logo_img != blank %}
-              <li class="logo-item">
-                <a href="{{ block.settings.logo_link | default: "#" }}" aria-label="{{ block.settings.logo_img.alt | escape }}">
-                  <div class="logo-img-b">
-                    {{ block.settings.logo_img | image_url: width: 300 | image_tag: loading: 'lazy', alt: block.settings.logo_img.alt }}
-                  </div>
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+      <div class="logo-list-area">
+        <div class="logo-list-area-in">
+          <ul
+            class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}"
+            id="LogoList-{{ section.id }}"
+          >
+            {% for block in section.blocks %}
+              {% if block.settings.logo_img != blank %}
+                <li class="logo-item">
+                  <a
+                    href="{{ block.settings.logo_link | default: "#" }}"
+                    aria-label="{{ block.settings.logo_img.alt | escape }}"
+                  >
+                    <div class="logo-img-b">
+                      {{
+                        block.settings.logo_img
+                        | image_url: width: 300
+                        | image_tag: loading: 'lazy', alt: block.settings.logo_img.alt
+                      }}
+                    </div>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
     {% endif %}
   </div>
 </div>
 
 {% schema %}
-  {
-    "name": "Logo List",
-    "class": "section logo-list",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "color",
-        "id": "color_background",
-        "label": "Background color"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "logo",
-        "name": "Logo",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "logo_img",
-            "label": "Logo image"
-          },
-          {
-            "type": "url",
-            "id": "logo_link",
-            "label": "Logo Link"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Logo List"
-      }
-    ]
-  }
+{
+  "name": "Logo List",
+  "class": "section logo-list",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_img",
+          "label": "Logo image"
+        },
+        {
+          "type": "url",
+          "id": "logo_link",
+          "label": "Logo Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo List"
+    }
+  ]
+}
 {% endschema %}
 
 {% style %}
@@ -91,16 +101,20 @@
   }
 
   .logo-list-slider {
+    visibility: hidden;
     display: flex !important;
     flex-wrap: nowrap;
-    width: fit-content;
-    
+    min-width: 100%;
     --logo-count: {{ section.blocks.size }};
     --duration: calc(var(--logo-count) * 5s);
-
     animation: scroll var(--duration) linear infinite;
+    background: white;
   }
-  
+
+  .logo-list-slider.is-ready {
+    visibility: visible;
+  }
+
   .logo-list-slider:hover {
     animation-play-state: paused;
   }
@@ -120,27 +134,27 @@
     opacity: 0.75;
     transition: opacity 0.3s ease;
   }
-  
+
   .logo-item a:hover img {
     opacity: 1;
   }
 {% endstyle %}
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const logoSlider = document.getElementById('LogoList-{{ section.id }}');
+  document.addEventListener('DOMContentLoaded', () => {
+    const logoSlider = document.getElementById('LogoList-{{ section.id }}');
 
-  if (logoSlider && logoSlider.classList.contains('logo-list-slider')) {
-    
-    const cloneLogos = () => {
-      const logos = logoSlider.querySelectorAll('.logo-item');
-      logos.forEach(logo => {
-        const clone = logo.cloneNode(true);
-        logoSlider.appendChild(clone);
-      });
-    };
-    
-    cloneLogos();
-  }
-});
+    if (logoSlider && logoSlider.classList.contains('logo-list-slider')) {
+      const cloneLogos = () => {
+        const logos = logoSlider.querySelectorAll('.logo-item');
+        logos.forEach((logo) => {
+          const clone = logo.cloneNode(true);
+          logoSlider.appendChild(clone);
+        });
+      };
+
+      cloneLogos();
+      logoSlider.classList.add('is-ready');
+    }
+  });
 </script>
