@@ -24,15 +24,15 @@
   .category-card {
     text-decoration: none;
     display: block;
-    color: #2A2A2A;
+    color: #2a2a2a;
     border-radius: 12px;
     overflow: hidden;
     background-color: #f7f7f7;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s ease;
   }
   .category-card:hover {
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   }
   .category-card__image-wrapper {
     overflow: hidden;
@@ -52,17 +52,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 16px;
+    padding: 15px;
   }
   .category-card__title {
     font-size: 16px;
     font-weight: 500;
+    margin: 0;
+  }
+
+  .category-card__icon {
+    display: flex;
   }
   .category-card__icon svg {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
   }
+  
   @media (max-width: 990px) {
     .category-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -72,9 +78,9 @@
     .category-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-     .our-categorys-sec .our-categorys-heading h2 {
-        font-size: 28px;
-     }
+    .our-categorys-sec .our-categorys-heading h2 {
+      font-size: 28px;
+    }
   }
 </style>
 
@@ -109,7 +115,7 @@
 
                     <div class="category-card__info">
                       <p class="category-card__title">
-                        {{ block.settings.collection.title | default: "Category" }}
+                        {{ block.settings.collection.title | default: 'Category' }}
                       </p>
                       <div class="category-card__icon">
                         <svg
