@@ -31,7 +31,7 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    display: flex !important;
     gap: 10px;
     z-index: 10;
   }
@@ -44,6 +44,8 @@
     border: 2px solid rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: all 0.3s ease;
+    display: block !important;
+    visibility: visible !important;
   }
   
   .custom-pagination-dot.active {
