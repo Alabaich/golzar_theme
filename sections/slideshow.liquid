@@ -33,7 +33,7 @@
   .slideshow-navigation-wrapper {
     position: absolute;
     bottom: 3.5rem;
-    left: 50%;
+    left: 3.5rem;
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
@@ -70,6 +70,10 @@
   @media screen and (max-width: 749px) {
     .slideshow-navigation-wrapper {
       bottom: 2rem;
+    }
+
+    .slideshow-navigation-wrapper {
+      left: 50%;
     }
   }
 </style>
@@ -203,7 +207,7 @@
           role="presentation"
           class="icon icon-caret"
           viewBox="0 0 10 6"
-          style="transform: rotate(180deg);"
+          style="transform: rotate(280deg);"
         >
           <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
         </svg>
@@ -215,6 +219,30 @@
 {%- if request.design_mode -%}
   <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slideshowComponent = document.querySelector('#Slider-{{ section.id }}').closest('slideshow-component');
+
+    if (slideshowComponent) {
+      slideshowComponent.addEventListener('click', function (event) {
+        const button = event.target.closest('.slider-button');
+
+        if (!button || !button.closest('.slideshow-navigation-wrapper')) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (button.name === 'previous') {
+          this.previous();
+        } else if (button.name === 'next') {
+          this.next();
+        }
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
