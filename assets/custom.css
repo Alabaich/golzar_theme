@@ -244,7 +244,7 @@ section.shopify-section.section.banner-slideshow
   .banner__buttons a {
   text-transform: uppercase;
   border-radius: 50px;
-  background: transparent;
+  background-color: #fff;
   color: #fff;
   border: 1px solid #fff;
   transition: all ease 0.5s;
