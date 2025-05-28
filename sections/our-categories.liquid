@@ -25,13 +25,19 @@
     text-decoration: none;
     display: block;
     color: #2A2A2A;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  .category-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   }
   .category-card__image-wrapper {
     overflow: hidden;
-    border-radius: 12px;
     position: relative;
     aspect-ratio: 1 / 1;
-    margin-bottom: 12px;
   }
   .category-card__image-wrapper img {
     width: 100%;
@@ -46,15 +52,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4px;
+    padding: 20px 16px;
   }
   .category-card__title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
   }
   .category-card__icon svg {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
   }
   @media (max-width: 990px) {
     .category-grid {
