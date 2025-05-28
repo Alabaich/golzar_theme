@@ -18,7 +18,7 @@
                       {{
                         block.settings.logo_img
                         | image_url: width: 300
-                        | image_tag: loading: 'lazy', alt: block.settings.logo_img.alt
+                        | image_tag: loading: 'lazy', alt: block.settings.logo_img.alt, class: 'logo-item__image'
                       }}
                     </div>
                   </a>
@@ -74,30 +74,18 @@
 {% style %}
   #shopify-section-{{ section.id }}{
     background-color: {{ section.settings.color_background }};
-    padding: 2.5rem 0;
+    padding: 2rem 0;
   }
 
-  .logo-list .slick-arrow,
-  .logo-list .swiper-button-next,
-  .logo-list .swiper-button-prev,
-  .logo-list .flickity-button {
+  .logo-list .slick-arrow {
     display: none !important;
   }
 
   .logo-list-area-in {
     overflow: hidden;
     width: 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
   }
 
   .logo-list-data:not(.logo-list-slider) {
@@ -108,60 +96,80 @@
     gap: 35px;
   }
 
-  .logo-list-slider {
-    visibility: hidden;
+  .logo-list-slider .slick-list {
+    padding: 1rem 0;
+  }
+
+  .logo-list-slider .slick-slide {
     display: flex !important;
-    flex-wrap: nowrap;
-    min-width: 100%;
-    --logo-count: {{ section.blocks.size }};
-    --duration: calc(var(--logo-count) * 3s);
-    animation: scroll var(--duration) linear infinite;
-  }
-
-  .logo-list-slider.is-ready {
-    visibility: visible;
-  }
-
-  .logo-list-slider:hover {
-    animation-play-state: paused;
+    align-items: center;
+    justify-content: center;
+    height: auto;
   }
 
   .logo-item {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 35px;
+    padding: 0 30px;
   }
 
-  .logo-item img {
-    max-width: 150px;
-    height: 50px;
+  .logo-item__image {
+    max-width: 160px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    opacity: 0.75;
+    opacity: 0.8;
     transition: opacity 0.3s ease;
   }
 
-  .logo-item a:hover img {
+  .logo-item a:hover .logo-item__image {
     opacity: 1;
   }
 {% endstyle %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const logoSlider = document.getElementById('LogoList-{{ section.id }}');
+document.addEventListener('DOMContentLoaded', () => {
+  const initLogoMarquee = () => {
+    const logoSlider = $('#LogoList-{{ section.id }}');
 
-    if (logoSlider && logoSlider.classList.contains('logo-list-slider')) {
-      const cloneLogos = () => {
-        const logos = logoSlider.querySelectorAll('.logo-item');
-        logos.forEach((logo) => {
-          const clone = logo.cloneNode(true);
-          logoSlider.appendChild(clone);
-        });
-      };
+    if (logoSlider.length && logoSlider.hasClass('logo-list-slider') && typeof logoSlider.slick === 'function') {
+      if (logoSlider.hasClass('slick-initialized')) {
+        logoSlider.slick('unslick');
+      }
 
-      cloneLogos();
-      logoSlider.classList.add('is-ready');
+      logoSlider.slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 8000,
+        cssEase: 'linear',
+        arrows: false,
+        dots: false,
+        pauseOnHover: true,
+        variableWidth: true,
+        infinite: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 4
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 3
+            }
+          }
+        ]
+      });
     }
-  });
+  };
+
+  if (typeof $ === 'undefined' || typeof $.fn.slick === 'undefined') {
+    setTimeout(initLogoMarquee, 500);
+  } else {
+    initLogoMarquee();
+  }
+});
 </script>
