@@ -602,7 +602,7 @@
         "title_size": 32,
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff",
-        "button_bg_color_hover": "#071f38"
+        "button_bg_color_hover": "#ffffff"
       }
     }
   },
