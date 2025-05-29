@@ -567,7 +567,7 @@
         "text_column_width": 50,
         "text_align_desktop": "left",
         "text_align_mobile": "center",
-        "image_bg_color": "#f0f0f0",
+        "image_bg_color": "#ffffff",
         "image_fit": "cover",
         "image_position_mobile": "top",
         "image_min_height_mobile": 250,
