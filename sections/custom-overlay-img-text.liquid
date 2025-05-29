@@ -1,79 +1,6 @@
-<style>
-  .overlay-txt-with-img-main .grid--2-col {
-    align-items: center;
-    gap: 0;
-  }
-
-  .overlay-txt-box {
-    padding: 30px 40px;
-    box-sizing: border-box;
-  }
-
-  .overlay-txt-box p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-size: 16px;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-
-  .overlay-txt-box h3 {
-    font-family: serif;
-    font-size: 42px;
-    line-height: 1.2;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 25px;
-  }
-
-  .overlay-txt-box .button.button-primary {
-    background-color: #002642 !important;
-    color: #ffffff !important;
-    padding: 12px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-weight: bold;
-    font-size: 14px;
-    text-transform: uppercase;
-    border: none;
-  }
-
-  .overlay-img-box {
-    line-height: 0;
-  }
-
-  .overlay-img-box img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-  }
-
-  .overlay-txt-with-img .grid__item:first-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-  }
-
-  @media (max-width: 768px) {
-    .overlay-txt-with-img-main .grid--2-col {
-      grid-template-columns: 1fr;
-    }
-    .overlay-img-box img {
-      border-top-right-radius: 0;
-      border-bottom-left-radius: 15px;
-    }
-    .overlay-txt-box {
-      text-align: center;
-    }
-  }
-
-</style>
-
 <div class="overlay-txt-with-img-main">
   <div class="overlay-txt-with-img-inn">
+      
     <div class="grid--2-col">
       <div class="grid__item">
         <div class="overlay-txt-box"{% if section.settings.bgcolor != blank %} style="background-color: {{ section.settings.bgcolor }};"{% endif %}>
@@ -85,7 +12,7 @@
             <h3 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h3>
             {% endif %}
             {% if section.settings.btn != blank %}
-            <a href="{{ section.settings.btn_link }}" class="button button-primary">{{ section.settings.btn }}</a>
+            <a style="color: {{ section.settings.btn_color }};" href="{{ section.settings.btn_link }}" class="button button-primary">{{ section.settings.btn }}</a>
             {% endif %}
           </div>
         </div>
@@ -94,12 +21,7 @@
       <div class="grid__item">
         {% if section.settings.image != blank %}
         <div class="overlay-img-box">
-          <img 
-            src="{{ section.settings.image | image_url: width: section.settings.image.width, height: section.settings.image.height }}" 
-            alt="{{ section.settings.image.alt | default: 'Promotional image' }}"
-            width="{{ section.settings.image.width }}"
-            height="{{ section.settings.image.height }}"
-          >
+          <img src="{{ section.settings.image | img_url: 'master' }}">
         </div>
         {% endif %}
 
@@ -109,19 +31,15 @@
           {% if block.settings.logo_image != blank %}
           <a href="{{ block.settings.logo_link }}">
             <li>
-              <img 
-                src="{{ block.settings.logo_image | image_url: width: block.settings.logo_image.width, height: block.settings.logo_image.height }}" 
-                alt="{{ block.settings.logo_image.alt | default: 'Logo' }}"
-                width="{{ block.settings.logo_image.width }}"
-                height="{{ block.settings.logo_image.height }}"
-              >
+              <img src="{{ block.settings.logo_image | img_url: 'master' }}">
             </li>
           </a>
           {% endif %}
           {% endfor %}
         </ul>
         {% endif %}
-      </div>
+          
+      </div>    
     </div>
   </div>
 </div>
@@ -140,7 +58,7 @@
         "type": "color",
         "id": "bgcolor",
         "label": "Background color",
-        "default": "#ffffff"
+        "default": "#002642"
       },
       {
         "type": "text",
@@ -152,25 +70,25 @@
         "type": "color",
         "id": "subtitle_color",
         "label": "Subtitle color",
-        "default": "#555555"
+        "default": "#ffffff"
       },
       {
         "type": "text",
         "id": "title",
         "label": "Title",
-        "default": "Request a free consultation and price estimate!"
+        "default": "Request a free consultation and price estimate"
       },
       {
         "type": "color",
         "id": "title_color",
         "label": "Title color",
-        "default": "#111111"
+        "default": "#ffffff"
       },
       {
         "type": "text",
         "id": "btn",
         "label": "Button",
-        "default": "CONTACT US >"
+        "default": "Contact Us"
       },
       {
         "type": "color",
@@ -209,12 +127,6 @@
             "label": "Logo link"
           }
         ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Overlay Image Text",
-        "category": "Image"
       }
     ]
   }

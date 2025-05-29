@@ -1,0 +1,295 @@
+<style>
+  .iwc-section {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .iwc-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .iwc-text-column,
+  .iwc-image-column {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .iwc-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .iwc-subheading {
+    font-size: {{ section.settings.subheading_font_size }}px;
+    color: {{ section.settings.subheading_color }};
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  .iwc-heading {
+    font-size: {{ section.settings.heading_font_size }}px;
+    line-height: 1.2;
+    color: {{ section.settings.heading_color }};
+    margin-bottom: 25px;
+    font-weight: {{ section.settings.heading_font_weight }};
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+  }
+
+  .iwc-button {
+    display: inline-block;
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: {{ section.settings.button_border_radius }}px;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .iwc-button:hover {
+    background-color: {{ section.settings.button_background_hover_color }};
+  }
+
+  .iwc-image-column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: {{ section.settings.image_border_radius }}px;
+  }
+
+  @media (max-width: 768px) {
+    .iwc-container {
+      flex-direction: column;
+    }
+    .iwc-text-column {
+      align-items: center;
+      text-align: center;
+      order: 2;
+    }
+    .iwc-image-column {
+      order: 1;
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+<div class="iwc-section">
+  <div class="iwc-container">
+    <div class="iwc-text-column">
+      {% if section.settings.sub_heading != blank %}
+        <p class="iwc-subheading">{{ section.settings.sub_heading | escape }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="iwc-heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="iwc-button">
+          {{ section.settings.button_text | escape }} &rsaquo;
+        </a>
+      {% endif %}
+    </div>
+    <div class="iwc-image-column">
+      {% if section.settings.image != blank %}
+        {{
+          section.settings.image
+          | image_url: width: 800
+          | image_tag: loading: 'lazy', alt: section.settings.image.alt
+          | default: 'Descriptive image'
+        }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--image' }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with Text CTA",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Text Column"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Subheading",
+      "default": "Need help?"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#777777"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Subheading Font Size",
+      "default": 16
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Request a free consultation and price estimate!</p>"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "serif_font"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "bold", "label": "Bold" }
+      ],
+      "default": "bold"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#002D5B"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_background_hover_color",
+      "label": "Button Background Hover Color",
+      "default": "#001F3D"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Border Radius",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Image Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Image Border Radius",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text CTA",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
