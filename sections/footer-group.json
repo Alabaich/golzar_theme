@@ -158,11 +158,11 @@
         "logo_image_RTTa8T"
       ],
       "settings": {
-        "bgcolor": "#002642",
+        "bgcolor": "#ffffff",
         "subtitle": "Need help?",
         "subtitle_color": "#ffffff",
         "title": "Request a free consultation and price estimate",
-        "title_color": "#ffffff",
+        "title_color": "#2c2d2c",
         "btn": "Contact Us",
         "btn_color": "#ffffff",
         "btn_link": "shopify://pages/contact",
