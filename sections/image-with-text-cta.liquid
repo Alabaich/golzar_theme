@@ -2,7 +2,7 @@
   assign image = section.settings.image
   assign help_text = section.settings.help_text
   assign title_setting = section.settings.title
-  assign button_text = section.settings.button_text
+  assign button_text_content = section.settings.button_text
   assign button_link = section.settings.button_link
 
   assign image_alt = section.settings.image_alt_text
@@ -17,6 +17,7 @@
   assign button_text_default = "CONTACT US" | t
 
   assign banner_title_content = title_setting | default: title_default
+  assign actual_button_text = button_text_content | default: button_text_default
 -%}
 
 <style>
@@ -176,19 +177,21 @@
         <h1 class="consultation-banner__title">{{ banner_title_content }}</h1>
       {%- endif -%}
 
-      {%- if button_text != blank or section.settings.button_text != "" -%}
+      {%- if button_text_content != blank or section.settings.button_text != "" -%}
         {%- if button_link != blank -%}
           <a href="{{ button_link }}"
              class="consultation-banner__button"
-             title="{{ banner_title_content | escape }}">
-            {{ button_text | default: button_text_default }}
+             title="{{ actual_button_text | escape }}">
+            {{ actual_button_text }}
             {%- if section.settings.show_button_arrow -%}
               <span class="consultation-banner__arrow">&gt;</span>
             {%- endif -%}
           </a>
         {%- else -%}
-          <span class="consultation-banner__button" style="cursor:default;">
-            {{ button_text | default: button_text_default }}
+          <span class="consultation-banner__button"
+                style="cursor:default;"
+                title="{{ actual_button_text | escape }}">
+            {{ actual_button_text }}
             {%- if section.settings.show_button_arrow -%}
               <span class="consultation-banner__arrow">&gt;</span>
             {%- endif -%}
@@ -208,6 +211,7 @@
                   {{ image | image_url: width: image.width }} {{ image.width }}w"
           sizes="(max-width: 768px) 100vw, {{ 100 | minus: section.settings.text_column_width }}vw"
           alt="{{ image_alt }}"
+          title="{{ banner_title_content | escape }}"
           loading="lazy"
           width="{{ image.width }}"
           height="{{ image.height }}">
