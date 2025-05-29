@@ -121,7 +121,6 @@
 
   .blog-posts-section-{{ section.id }}
   .article-card__content {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -131,7 +130,7 @@
   .article-card__date {
     font-size: 13px;
     color: {{ section.settings.date_color }};
-    margin-bottom: 8px;
+    margin-bottom: 0;
     font-family: var(--font-body-family, sans-serif);
   }
 
@@ -141,7 +140,7 @@
     font-weight: bold;
     color: {{ section.settings.article_title_color }};
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-family: var(--font-heading-family, sans-serif);
     line-height: 1.4;
   }
@@ -160,7 +159,8 @@
   .article-card__excerpt {
     font-size: 14px;
     color: {{ section.settings.excerpt_color }};
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     line-height: 1.6;
     font-family: var(--font-body-family, sans-serif);
     flex-grow: 1;
