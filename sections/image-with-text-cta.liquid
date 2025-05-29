@@ -21,8 +21,9 @@
   .consultation-banner-{{ section.id }} {
     background-color: #ffffff;
     width: 100%;
-    max-width: {{ section.settings.max_width }}px;
+    max-width: var(--page-width);
     margin: 20px auto;
+    padding: 0 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border-radius: {{ section.settings.border_radius }}px;
@@ -139,6 +140,12 @@
     left: 0;
   }
 
+  @media screen and (min-width: 750px) {
+    .consultation-banner-{{ section.id }} {
+      padding: 0 5rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .consultation-banner-{{ section.id }} .consultation-banner__content {
       flex-direction: column;
@@ -205,11 +212,11 @@
         <img
           src="{{ image | image_url: width: image.width }}"
           srcset="{%- if image.width >= 400 -%}{{ image | image_url: width: 400 }} 400w,{%- endif -%}
-                            {%- if image.width >= 600 -%}{{ image | image_url: width: 600 }} 600w,{%- endif -%}
-                            {%- if image.width >= 800 -%}{{ image | image_url: width: 800 }} 800w,{%- endif -%}
-                            {%- if image.width >= 1000 -%}{{ image | image_url: width: 1000 }} 1000w,{%- endif -%}
-                            {%- if image.width >= 1200 -%}{{ image | image_url: width: 1200 }} 1200w,{%- endif -%}
-                            {{ image | image_url: width: image.width }} {{ image.width }}w"
+                  {%- if image.width >= 600 -%}{{ image | image_url: width: 600 }} 600w,{%- endif -%}
+                  {%- if image.width >= 800 -%}{{ image | image_url: width: 800 }} 800w,{%- endif -%}
+                  {%- if image.width >= 1000 -%}{{ image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                  {%- if image.width >= 1200 -%}{{ image | image_url: width: 1200 }} 1200w,{%- endif -%}
+                  {{ image | image_url: width: image.width }} {{ image.width }}w"
           sizes="(max-width: 768px) 100vw, {{ 100 | minus: section.settings.text_column_width }}vw"
           alt="{{ image_alt }}"
           loading="lazy"
@@ -270,15 +277,6 @@
       }, {
         "type": "header",
         "content": "Layout Settings"
-      }, {
-        "type": "range",
-        "id": "max_width",
-        "min": 500,
-        "max": 2000,
-        "step": 50,
-        "unit": "px",
-        "label": "Max width of section",
-        "default": 1000
       }, {
         "type": "range",
         "id": "border_radius",
