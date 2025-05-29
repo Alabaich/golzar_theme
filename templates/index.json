@@ -576,8 +576,8 @@
         "article_title_color": "#101828",
         "excerpt_color": "#52525b",
         "read_more_link_color": "#002642",
-        "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_top": 100,
+        "padding_bottom": 100,
         "section_bg_color": "rgba(0,0,0,0)"
       }
     },
