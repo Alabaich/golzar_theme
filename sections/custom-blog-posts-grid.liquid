@@ -20,7 +20,9 @@
   endif
 
   assign grid_modifier_class = ""
-  if post_limit == 7 and columns_desktop == 4
+  if post_limit == 8 and columns_desktop == 5  // MODIFIED: Condition for 5 then 3 layout
+    assign grid_modifier_class = "blog-posts-grid--desktop-5-then-3" // MODIFIED: New class name
+  elsif post_limit == 7 and columns_desktop == 4 // Kept original 4 then 3 as an example, can be removed if not needed
     assign grid_modifier_class = "blog-posts-grid--desktop-4-then-3"
   endif
 -%}
@@ -66,7 +68,7 @@
     grid-template-columns: repeat({{ columns_mobile }}, 1fr);
   }
   .blog-posts-section-{{ section.id }} .blog-posts-grid .article-card {
-    grid-column: auto; 
+    grid-column: auto;
   }
 
   @media screen and (min-width: 750px) {
@@ -80,17 +82,32 @@
       grid-template-columns: repeat({{ columns_desktop }}, 1fr);
     }
     
+    /* Original 4 then 3 layout (if post_limit == 7 and columns_desktop == 4) */
     .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 {
       grid-template-columns: repeat(12, 1fr);
     }
     .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card {
-       grid-column: span 3;
+        grid-column: span 3; /* Default for 4 columns (12/4 = 3) */
     }
     .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card:nth-child(-n+4) {
-      grid-column: span 3; 
+      grid-column: span 3;
     }
     .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card:nth-child(n+5) {
-      grid-column: span 4; 
+      grid-column: span 4;
+    }
+
+    /* NEW: 5 then 3 layout (if post_limit == 8 and columns_desktop == 5) */
+    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 {
+      grid-template-columns: repeat(15, 1fr); /* 15-column grid for 5 and 3 */
+    }
+    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card {
+        grid-column: span 3; /* Default for 5 columns (15/5 = 3) */
+    }
+    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card:nth-child(-n+5) {
+      grid-column: span 3; /* First 5 items span 3 columns each (15 / 5 = 3) */
+    }
+    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card:nth-child(n+6) {
+      grid-column: span 5; /* Next 3 items span 5 columns each (15 / 3 = 5) */
     }
   }
 
@@ -136,6 +153,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 15px; /* Added some padding for content within the card */
   }
 
   .blog-posts-section-{{ section.id }} .article-card__date {
@@ -181,7 +199,7 @@
     text-decoration: none;
     font-family: var(--font-body-family, sans-serif);
     align-self: flex-start;
-    margin-top: auto;
+    margin-top: auto; /* Pushes to the bottom if content is shorter */
   }
   .blog-posts-section-{{ section.id }} .article-card__read-more:hover {
     text-decoration: underline;
@@ -191,7 +209,8 @@
     display: inline-block;
     transition: transform 0.2s ease-in-out;
   }
-  .blog-posts-section-{{ section.id }} .article-card__read-more:hover .article-card__arrow {
+  /* MODIFIED: Arrow animation on card hover */
+  .blog-posts-section-{{ section.id }} .article-card:hover .article-card__arrow {
     transform: translateX(3px);
   }
 </style>
@@ -221,7 +240,7 @@
               </a>
             {%- elsif show_image -%}
               <a href="{{ article.url }}" class="article-card__image-link" aria-label="{{ 'blogs.article.view_article_label' | t: article_title: article.title | escape }}">
-                 <div class="article-card__image-container" {% if image_aspect_ratio == "natural" %}style="aspect-ratio: 4/3;"{% endif %}>
+                  <div class="article-card__image-container" {% if image_aspect_ratio == "natural" %}style="aspect-ratio: 4/3;"{% endif %}>
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg article-card__image' }}
                 </div>
               </a>
@@ -311,7 +330,7 @@
       "max": 12,
       "step": 1,
       "label": "Number of posts to show",
-      "default": 7
+      "default": 7 
     },
     {
       "type": "header",
@@ -321,10 +340,9 @@
       "type": "range",
       "id": "columns_desktop",
       "min": 1,
-      "max": 4,
+      "max": 5, "info": "If 5 columns and 8 posts are selected, the first 5 posts will be in a row, and the next 3 will be wider. If 4 columns and 7 posts are selected, the first 4 posts will be in a row, and the next 3 will be wider.", // MODIFIED max and info
       "step": 1,
       "label": "Columns on desktop (990px+)",
-      "info": "If 4 columns and 7 posts are selected, the last 3 posts will be wider.",
       "default": 4
     },
     {
