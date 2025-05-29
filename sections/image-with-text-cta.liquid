@@ -1,7 +1,7 @@
 {%- liquid
   assign image = section.settings.image
   assign help_text = section.settings.help_text
-  assign title = section.settings.title
+  assign title_setting = section.settings.title
   assign button_text = section.settings.button_text
   assign button_link = section.settings.button_link
 
@@ -15,6 +15,8 @@
   assign title_default = "Request a free consultation and price estimate!" | t
   assign help_text_default = "Need help?" | t
   assign button_text_default = "CONTACT US" | t
+
+  assign banner_title_content = title_setting | default: title_default
 -%}
 
 <style>
@@ -74,13 +76,13 @@
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
-  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: left"] .consultation-banner__button { /* Corrected: ensured space */
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: left"] .consultation-banner__button {
     align-self: flex-start;
   }
-  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: center"] .consultation-banner__button { /* Corrected: ensured space */
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: center"] .consultation-banner__button {
     align-self: center;
   }
-  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: right"] .consultation-banner__button { /* Corrected: ensured space */
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: right"] .consultation-banner__button {
     align-self: flex-end;
   }
 
@@ -163,20 +165,22 @@
   }
 </style>
 
-<section class="consultation-banner consultation-banner-{{ section.id }}" aria-label="{{ title | default: title_default }}">
+<section class="consultation-banner consultation-banner-{{ section.id }}" aria-label="{{ banner_title_content | escape }}">
   <div class="consultation-banner__content">
     <div class="consultation-banner__text-column" style="text-align: {{ section.settings.text_align_desktop }};">
       {%- if help_text != blank or section.settings.help_text != "" -%}
         <p class="consultation-banner__help-text">{{ help_text | default: help_text_default }}</p>
       {%- endif -%}
 
-      {%- if title != blank or section.settings.title != "" -%}
-        <h1 class="consultation-banner__title">{{ title | default: title_default }}</h1>
+      {%- if title_setting != blank or section.settings.title != "" -%}
+        <h1 class="consultation-banner__title">{{ banner_title_content }}</h1>
       {%- endif -%}
 
       {%- if button_text != blank or section.settings.button_text != "" -%}
         {%- if button_link != blank -%}
-          <a href="{{ button_link }}" class="consultation-banner__button">
+          <a href="{{ button_link }}"
+             class="consultation-banner__button"
+             title="{{ banner_title_content | escape }}">
             {{ button_text | default: button_text_default }}
             {%- if section.settings.show_button_arrow -%}
               <span class="consultation-banner__arrow">&gt;</span>
@@ -380,15 +384,6 @@
         "label": "Button text color",
         "default": "#ffffff"
       }
-      /* MODIFIED: Removed button_bg_color_hover setting
-      {
-        "type": "color",
-        "id": "button_bg_color_hover",
-        "label": "Button background color (Hover)",
-        "info": "This setting is not used with the current button hover style (white background on hover).",
-        "default": "#071f38"
-      }
-      */
     ],
     "presets": [
       {
