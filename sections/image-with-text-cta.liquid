@@ -105,7 +105,6 @@
           section.settings.image
           | image_url: width: 800
           | image_tag: loading: 'lazy', alt: section.settings.image.alt
-          | default: 'Descriptive image'
         }}
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--image' }}
