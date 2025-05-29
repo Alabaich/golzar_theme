@@ -49,10 +49,10 @@
 
   .blog-posts-section-{{ section.id }} .section-header__title {
     font-size: {{ section.settings.heading_size }}px;
-    font-weight: bold; /* Используйте настройки шрифта темы, если возможно */
+    font-weight: bold;
     color: {{ section.settings.heading_color }};
     margin: 0;
-    font-family: var(--font-heading-family, sans-serif); /* Используйте переменную темы */
+    font-family: var(--font-heading-family, sans-serif);
   }
 
   .blog-posts-section-{{ section.id }} .blog-posts-grid {
@@ -80,21 +80,22 @@
     background-color: {{ section.settings.card_bg_color }};
     border-radius: {{ section.settings.card_border_radius }}px;
     overflow: hidden;
-    height: 100%; /* Для выравнивания карточек по высоте, если нужно */
+    height: 100%;
   }
 
   .blog-posts-section-{{ section.id }} .article-card__image-link {
     display: block;
     position: relative;
     overflow: hidden;
-    border-radius: {{ section.settings.card_border_radius }}px {{ section.settings.card_border_radius }}px 0 0; /* Если скругление только сверху */
+    border-top-left-radius: {{ section.settings.card_border_radius }}px;
+    border-top-right-radius: {{ section.settings.card_border_radius }}px;
   }
   
   .blog-posts-section-{{ section.id }} .article-card__image-container {
     position: relative;
     display: block;
     overflow: hidden;
-    background-color: #f0f0f0; /* Placeholder background */
+    background-color: #f0f0f0;
   }
 
   .blog-posts-section-{{ section.id }} .article-card__image {
@@ -146,7 +147,8 @@
   .blog-posts-section-{{ section.id }} .article-card__excerpt {
     font-size: 14px;
     color: {{ section.settings.excerpt_color }};
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
+    margin-top: 0; /* Убрал верхний отступ если заголовок и дата уже имеют нижний */
     line-height: 1.6;
     font-family: var(--font-body-family, sans-serif);
     flex-grow: 1;
@@ -157,9 +159,9 @@
     font-weight: bold;
     color: {{ section.settings.read_more_link_color }};
     text-decoration: none;
-    font-family: var(--font-body-family, sans-serif); /* Или var(--font-heading-family) если соответствует стилю заголовков */
+    font-family: var(--font-body-family, sans-serif);
     align-self: flex-start;
-    margin-top: auto; /* Прижимает ссылку к низу, если эксерпт занимает не все место */
+    margin-top: auto;
   }
   .blog-posts-section-{{ section.id }} .article-card__read-more:hover {
     text-decoration: underline;
@@ -346,7 +348,7 @@
         { "value": "3/4", "label": "3:4 (Portrait)" }
       ],
       "default": "4/3",
-      "info": "'Natural' uses the original image aspect ratio."
+      "info": "'Natural' uses the original image aspect ratio. Non-natural options use CSS aspect-ratio."
     },
     {
       "type": "checkbox",
