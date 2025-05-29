@@ -18,6 +18,11 @@
   else
     assign image_aspect_ratio_value = image_aspect_ratio
   endif
+
+  assign grid_modifier_class = ""
+  if post_limit == 7 and columns_desktop == 4
+    assign grid_modifier_class = "blog-posts-grid--layout-4-then-3"
+  endif
 -%}
 
 <style>
@@ -62,8 +67,16 @@
   .blog-posts-grid {
     display: grid;
     gap: {{ section.settings.grid_gap }}px;
+  }
+
+  .blog-posts-section-{{ section.id }} .blog-posts-grid {
     grid-template-columns: repeat({{ columns_mobile }}, 1fr);
   }
+  .blog-posts-section-{{ section.id }}
+  .blog-posts-grid .article-card {
+    grid-column: auto;
+  }
+
 
   @media screen and (min-width: 750px) {
     .blog-posts-section-{{ section.id }} .blog-posts-grid {
@@ -71,9 +84,19 @@
     }
   }
 
-  @media screen and (min-width: 990px) {
     .blog-posts-section-{{ section.id }} .blog-posts-grid {
-      grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .blog-posts-section-{{ section.id }}
+    .blog-posts-grid .article-card {
+      grid-column: span{{ 12 | divided_by: columns_desktop | floor }};
+    }
+
+    .blog-posts-section-{{ section.id }}.blog-posts-grid.blog-posts-grid--layout-4-then-3 .article-card:nth-child(-n + 4) {
+      grid-column: span 3;
+    }
+    .blog-posts-section-{{ section.id }}.blog-posts-grid.blog-posts-grid--layout-4-then-3 .article-card:nth-child(n + 5) {
+      grid-column: span 4;
     }
   }
 
@@ -93,8 +116,8 @@
     display: block;
     position: relative;
     overflow: hidden;
-    border-radius: {{ section.settings.card_border_radius }}px{{ section.settings.card_border_radius }}
-    px 0 0;
+    border-top-left-radius: {{ section.settings.card_border_radius }}px;
+    border-top-right-radius: {{ section.settings.card_border_radius }}px;
   }
 
   .blog-posts-section-{{ section.id }}
@@ -199,7 +222,7 @@
     {%- endif -%}
 
     {%- if chosen_blog != blank and chosen_blog.articles_count > 0 -%}
-      <div class="blog-posts-grid">
+      <div class="blog-posts-grid {{ grid_modifier_class }}">
         {%- for article in chosen_blog.articles limit: post_limit -%}
           <article class="article-card" aria-labelledby="ArticleTitle-{{ section.id }}-{{ article.id }}">
             {%- if show_image and article.image -%}
@@ -335,6 +358,7 @@
         "max": 4,
         "step": 1,
         "label": "Columns on desktop (990px+)",
+        "info": "If 4 columns are selected and 'Posts to show' is 7, the last 3 posts will be wider.",
         "default": 4
       }, {
         "type": "range",
@@ -390,7 +414,7 @@
           }
         ],
         "default": "4/3",
-        "info": "'Natural' uses the original image aspect ratio."
+        "info": "'Natural' uses the original image aspect ratio. Non-natural options use CSS aspect-ratio."
       }, {
         "type": "checkbox",
         "id": "show_date",
