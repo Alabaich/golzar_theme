@@ -550,6 +550,32 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "image_with_text_cta_4dbPbU": {
+      "type": "image-with-text-cta",
+      "name": "Consultation Banner",
+      "settings": {
+        "image": "shopify://shop_images/NeedHelpIMG.webp",
+        "image_alt_text": "",
+        "help_text": "Need help?",
+        "title": "Request a free consultation and price estimate!",
+        "button_text": "CONTACT US",
+        "button_link": "",
+        "show_button_arrow": true,
+        "max_width": 1000,
+        "border_radius": 8,
+        "text_column_width": 55,
+        "text_align_desktop": "left",
+        "text_align_mobile": "center",
+        "image_bg_color": "#f0f0f0",
+        "image_fit": "cover",
+        "image_position_mobile": "top",
+        "image_min_height_mobile": 250,
+        "title_size": 32,
+        "button_bg_color": "#0a2b4c",
+        "button_text_color": "#ffffff",
+        "button_bg_color_hover": "#071f38"
+      }
     }
   },
   "order": [
@@ -561,6 +587,7 @@
     "collection_data_discount_bERRBy",
     "featured_blog_yqKkQg",
     "image_banner_MWGE6A",
-    "17405401850356168b"
+    "17405401850356168b",
+    "image_with_text_cta_4dbPbU"
   ]
 }
