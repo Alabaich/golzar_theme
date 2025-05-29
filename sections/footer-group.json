@@ -157,6 +157,7 @@
         "logo_image_zhGQa4",
         "logo_image_RTTa8T"
       ],
+      "disabled": true,
       "settings": {
         "bgcolor": "#002642",
         "subtitle": "Need help?",
