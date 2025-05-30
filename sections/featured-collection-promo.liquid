@@ -33,19 +33,30 @@
     margin-bottom: 1em;
     line-height: 1.6;
   }
+
   .promo-banner-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #ffffff;
-    color: #000000;
+    color: #002642;
     text-decoration: none;
-    border: 1px solid #000000;
-    border-radius: 4px;
+    border: 2px solid #002642;
+    border-radius: 50px;
     font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    line-height: normal;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
+
   .promo-banner-button:hover {
-    background-color: #f0f0f0;
+    background-color: #002642;
+    color: #ffffff;
+    border-color: #002642;
   }
+
   .promo-banner-image-wrapper {
     flex-basis: 40%;
     max-width: 40%;
@@ -220,15 +231,15 @@
       <div class="promo-banner-inner">
         <div class="promo-banner-content">
           {% if section.settings.promo_heading != blank %}
-            <h2 class="promo-banner-heading" style="color: {{ section.settings.promo_heading_color }};">{{ section.settings.promo_heading | escape }}</h2>
+            <h2 class="promo-banner-heading" style="color: {{ section.settings.promo_heading_color }};" title="{{ section.settings.promo_heading }}">{{ section.settings.promo_heading | escape }}</h2>
           {% endif %}
           {% if section.settings.promo_subheading != blank %}
-            <div class="promo-banner-subheading rte" style="color: {{ section.settings.promo_subheading_color }};">
+            <div class="promo-banner-subheading rte" style="color: {{ section.settings.promo_subheading_color }};" title="{{ section.settings.promo_subheading }}">
               {{ section.settings.promo_subheading }}
             </div>
           {% endif %}
           {% if section.settings.promo_button_text != blank and section.settings.promo_button_link != blank %}
-            <a href="{{ section.settings.promo_button_link }}" class="button promo-banner-button">
+            <a href="{{ section.settings.promo_button_link }}" class="button promo-banner-button" title="{{ section.settings.promo_button_text | escape }}">
               {{ section.settings.promo_button_text | escape }}
             </a>
           {% endif %}
@@ -236,9 +247,9 @@
         {% if section.settings.promo_image != blank %}
           <div class="promo-banner-image-wrapper">
             {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
- loading: 'lazy',
- widths: '300, 400, 500, 600, 700, 800, 1000',
- class: 'promo-banner-image'
+              loading: 'lazy',
+              widths: '300, 400, 500, 600, 700, 800, 1000',
+              class: 'promo-banner-image'
             }}
           </div>
         {% endif %}
@@ -247,7 +258,7 @@
   {% endif %}
 
   {% if section.settings.section_title != blank %}
-    <h2 class="section-header text-center">{{ section.settings.section_title | escape }}</h2>
+    <h2 class="section-header text-center" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
   {% endif %}
 
   <div class="product-grid">
@@ -261,20 +272,20 @@
           endif
         -%}
         <div class="grid-item product-card{% if discount_percentage > 0 %} product-card--on-sale{% endif %}">
-          <a href="{{ product.url | within: collection }}" class="product-card__link-image">
+          <a href="{{ product.url | within: collection }}" class="product-card__link-image" title="{{ product.vendor }}">
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
- loading: 'lazy',
- widths: '200, 300, 400, 500',
- class: 'product-card__image'
+                  loading: 'lazy',
+                  widths: '200, 300, 400, 500',
+                  class: 'product-card__image'
                 }}
               {% else %}
                 {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
               <div class="product-card__badge-info">
                 {% if section.settings.show_vendor %}
-                  <span class="badge badge--vendor color-{{ settings.sale_badge_color_scheme | default: 'accent-1' }}">{{ product.vendor }}</span>
+                  <span class="badge badge--vendor color-{{ settings.sale_badge_color_scheme | default: 'accent-1' }}" title="{{ product.vendor }}">{{ product.vendor }}</span>
                 {% endif %}
                 {% if discount_percentage > 0 and section.settings.show_discount_badge %}
                   <span class="badge badge--discount">-{{ discount_percentage }}%</span>
@@ -319,8 +330,8 @@
                   type="submit"
                   class="button product-card__add-to-cart-button{% unless product.available %} button--disabled{% endunless %}"
                   {% unless product.available %}
-                  disabled
-                  aria-disabled="true"
+                    disabled
+                    aria-disabled="true"
                   {% endunless %}>
                   {% if product.available %}
                     {{ 'products.product.add_to_cart' | t }}
@@ -398,7 +409,7 @@
         "type": "color",
         "id": "promo_bg_color",
         "label": "Banner background color",
-        "default": "#003366"
+        "default": "#003366" /* Вы упомянули, что по дефолту цвет секции #002642, но здесь стоял #003366. Оставляю как было в schema, но кнопка будет использовать #002642, как вы просили. */
       }, {
         "type": "color",
         "id": "promo_heading_color",
@@ -465,6 +476,13 @@
         "name": "Unique Promo Slider",
         "category": "Collection"
       }
-    ]
+    ],
+    "locales": {
+      "en": {
+        "sections.featured_collection_promo.no_collection_selected": "Please select a collection in the theme editor to display products.",
+        "sections.featured_collection_promo.no_products_in_collection": "The selected collection '{{ collection_title }} ' has no products. Please add products or choose another collection.",
+        "onboarding.product_title": "Example Product"
+      }
+    }
   }
 {% endschema %}
