@@ -414,7 +414,7 @@
         "product_title_truncate_length": 30,
         "show_vendor": false,
         "show_discount_badge": true,
-        "show_availability": true,
+        "show_availability": false,
         "show_add_to_cart_button": true
       }
     },
