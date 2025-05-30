@@ -544,6 +544,37 @@
         "show_text_below": true
       }
     },
+    "feature_block_with_stats_VM6e6p": {
+      "type": "feature-block-with-stats",
+      "name": "Feature Block with Stats",
+      "settings": {
+        "section_bg_color": "#FFFFFF",
+        "text_color": "#6B7280",
+        "heading": "At Golzar Home, we make quality our standard",
+        "heading_color": "#1F2937",
+        "heading_size": 36,
+        "subheading": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula massa in enim luctus. Rutrum arcu.</p>",
+        "subheading_size": 16,
+        "text_alignment": "left",
+        "button_label": "CONTACT US",
+        "button_link": "",
+        "button_bg_color": "#0A2B4C",
+        "button_text_color": "#FFFFFF",
+        "button_bg_hover_color": "#FFFFFF",
+        "button_text_hover_color": "#0A2B4C",
+        "button_border_hover_color": "#0A2B4C",
+        "stat1_number": "2943",
+        "stat1_text": "Lorem ipsum dolor",
+        "stat2_number": "$1M+",
+        "stat2_text": "Transaction Completed",
+        "stat_number_size": 30,
+        "stat_number_color": "",
+        "stat_text_size": 14,
+        "stat_text_color": "",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
     "17405401850356168b": {
       "type": "apps",
       "disabled": true,
@@ -570,7 +601,7 @@
         "show_excerpt": true,
         "excerpt_length": 6,
         "read_more_text": "READ NOW",
-        "card_bg_color": "#FFFFFF",
+        "card_bg_color": "#ffffff",
         "card_border_radius": 6,
         "date_color": "#b9b9b9",
         "article_title_color": "#101828",
@@ -601,8 +632,7 @@
         "image_min_height_mobile": 250,
         "title_size": 32,
         "button_bg_color": "#0a2b4c",
-        "button_text_color": "#ffffff",
-        "button_bg_color_hover": "#ffffff"
+        "button_text_color": "#ffffff"
       }
     }
   },
@@ -615,6 +645,7 @@
     "collection_data_discount_bERRBy",
     "featured_blog_yqKkQg",
     "image_banner_MWGE6A",
+    "feature_block_with_stats_VM6e6p",
     "17405401850356168b",
     "custom_blog_posts_grid_eQzdfc",
     "image_with_text_cta_4dbPbU"
