@@ -571,6 +571,8 @@
         "stat_number_color": "",
         "stat_text_size": 14,
         "stat_text_color": "",
+        "image_main": "shopify://shop_images/About_US-01.webp",
+        "image_overlay": "shopify://shop_images/About_US-02.webp",
         "padding_top": 50,
         "padding_bottom": 50
       }
