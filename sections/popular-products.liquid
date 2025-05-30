@@ -1,0 +1,189 @@
+<div class="popular-products-main">
+    <div class="popular-products-inn">
+        <div class="popular-products">
+            <div class="qdsad">
+                <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
+                <a href="{{ section.settings.show_more_link }}" class="show-more">Show More</a>
+            </div>
+            <div class="products-grid">
+                {% for block in section.blocks %}
+                    {% if block.type == 'product' %}
+                        <div class="product-item">
+                            {% if block.settings.product_image != blank %}
+                                <div class="product-image">
+                                    <img src="{{ block.settings.product_image | image_url: width: 300 }}" alt="{{ block.settings.product_title | escape }}" class="prod-img">
+                                </div>
+                            {% endif %}
+                            <h3 class="product-title">{{ block.settings.product_title | escape }}</h3>
+                            <p class="product-price">{{ block.settings.product_price | escape }}</p>
+                            <div class="qdsad gapich">
+                                <a href="{{ block.settings.product_link }}" class="product-cta">BUY NOW</a>
+                                <p>qwe</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Popular Products",
+  "class": "section popular-products-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "popular_title",
+      "label": "Popular Products Title",
+      "default": "Popular Products of Kohler"
+    },
+    {
+      "type": "url",
+      "id": "show_more_link",
+      "label": "Show More Link",
+      "default": "/"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title",
+          "default": "Product Name"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "label": "Product Price",
+          "default": "$999.00"
+        },
+        {
+          "type": "url",
+          "id": "product_link",
+          "label": "Product Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popular Products"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+    #shopify-section-{{ section.id }} {
+    padding: 40px 10%;
+    background:#38739E1A;
+    }
+    .gapich{
+    gap:0 20px;
+    }
+
+    .popular-products-inn {
+    margin: 0 auto;
+    }
+
+    .qdsad {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    }
+
+    .section-title {
+    font-size: 50px;
+    font-family: 'Black Mango', sans-serif;
+    font-weight:600;
+    }
+
+    .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    }
+
+    .product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background:white;
+    }
+
+    .product-image {
+    margin-bottom: 1rem;
+    }
+
+    .prod-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    }
+
+    .product-title {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .product-price {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .product-cta {
+    display: inline-block;
+    background-color: #003087;
+    text-align:center;
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform:uppercase;
+    duration:300;
+    width:100%;
+    padding: 12px 24px;
+
+    }
+
+    .product-cta:hover {
+    background-color: #00205b;
+    }
+
+    .show-more {
+    display: block;
+    text-align: center;
+    padding: 16px 42px;
+    color: #151515;
+    border-radius:9999px;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight: bold;
+    border:1px solid #151515;
+    }
+
+    @media (max-width: 1024px) {
+    .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
+    }
+
+    @media (max-width: 768px) {
+    .products-grid {
+    grid-template-columns: 1fr;
+    }
+    }
+{% endstyle %}

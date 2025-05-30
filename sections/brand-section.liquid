@@ -1,0 +1,136 @@
+{% schema %}
+{
+  "name": "Brand Hero",
+  "tag": "section",
+  "class": "shopify-section--brand-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_title",
+      "label": "Brand Title",
+      "default": "Kohler Brand Page"
+    },
+    {
+      "type": "text",
+      "id": "brand_subtitle",
+      "label": "Brand Subtitle",
+      "default": "Express your personality with our range of styles and finishes."
+    },
+    {
+      "type": "url",
+      "id": "brand_link",
+      "label": "Brand Link",
+      "default": "/"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Hero",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="brand-header-main">
+    <div class="brand-header">
+        <h1 class="brand-title">{{ section.settings.brand_title | escape }}</h1>
+        <div class="fqfsa">
+            <p class="brand-subtitle">{{ section.settings.brand_subtitle | escape }}</p>
+            <a href="{{ section.settings.brand_link }}" class="brand-cta">Discover Brand</a>
+        </div>
+    </div>
+    {% if section.settings.hero_image != blank %}
+        <div class="brand-hero">
+            <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" alt="Brand Hero" class="hero-image">
+        </div>
+    {% endif %}
+</div>
+
+{% style %}
+    .brand-header-main {
+    text-align: center;
+    padding: 60px 10%;
+    }
+
+    .fqfsa {
+    display:flex;
+    flex-direction:column;
+    gap:42px;
+    width:20%;
+    }
+
+    .brand-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    }
+
+    .brand-title {
+    font-size: 68px;
+    max-width:600px;
+    text-align:start;
+    font-weight: 600;
+    font-family: 'Black Mango', sans-serif;
+    color: #151515;
+    }
+
+    .brand-subtitle {
+    font-size: 16px;
+    color: #151515;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .brand-cta {
+    display: inline-block;
+    background-color: #002B5B;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 26px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease;
+    }
+
+    .brand-cta:hover {
+    background-color: #001F3F;
+    }
+
+    .brand-hero {
+    margin-top: 2rem;
+    }
+
+    .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+    .brand-header-main {
+    padding: 40px 5% 0;
+    }
+
+    .brand-title {
+    font-size: 2rem;
+    }
+
+    .brand-subtitle {
+    font-size: 0.95rem;
+    }
+
+    .brand-cta {
+    font-size: 0.7rem;
+    padding: 0.6rem 1.25rem;
+    }
+    }
+{% endstyle %}
