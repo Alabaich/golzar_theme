@@ -64,7 +64,6 @@
     align-items: flex-end;
   }
 
-
   #{{ section_id }} .feature-block-stats__stat-number {
     font-size: {{ section.settings.stat_number_size }}px;
     font-weight: bold;
@@ -92,35 +91,32 @@
 
   #{{ section_id }} .feature-block-stats__image {
     position: absolute;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
   #{{ section_id }} .feature-block-stats__image--main {
-    width: 85%;
-    height: auto;
-    max-height: 100%;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    width: 75%;
+    height: 90%;
+    top: 5%;
+    right: 0;
+    left: auto;
     z-index: 1;
   }
 
   #{{ section_id }} .feature-block-stats__image--overlay {
-    width: 65%;
-    height: auto;
-    max-height: 80%;
-    top: 50%;
-    left: auto;
-    right: 0;
-    transform: translate(10%, -40%);
+    width: 60%;
+    height: 65%;
+    top: 15%;
+    left: 5%;
+    right: auto;
     z-index: 2;
-    border: 4px solid white;
+    border: 3px solid white;
   }
 
   #{{ section_id }} .feature-block-stats__button {
@@ -183,12 +179,21 @@
     }
     #{{ section_id }} .feature-block-stats__image--main {
         width: 80%;
+        height: auto;
+        max-height: 80%;
         left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: auto;
     }
     #{{ section_id }} .feature-block-stats__image--overlay {
         width: 60%;
+        height: auto;
+        max-height: 70%;
         right: 5%;
-        transform: translate(0%, -40%);
+        left: auto;
+        top: 50%;
+        transform: translateY(-65%);
     }
      #{{ section_id }} .feature-block-stats__stats {
         justify-content: center;
@@ -222,7 +227,11 @@
           <div class="feature-block-stats__subheading">{{ section.settings.subheading }}</div>
         {%- endif -%}
         {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-          <a href="{{ section.settings.button_link }}" class="feature-block-stats__button">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="feature-block-stats__button"
+            title="{{ section.settings.button_label | escape }} - Перейти"
+          >
             {{ section.settings.button_label | escape }}
           </a>
         {%- endif -%}
@@ -260,6 +269,7 @@
                 <img
                     src="{{ section.settings.image_main | image_url: width: 800 }}"
                     alt="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
+                    title="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
                     class="feature-block-stats__image feature-block-stats__image--main"
                     loading="lazy"
                     width="{{ section.settings.image_main.width }}"
@@ -272,7 +282,8 @@
                 {%- if section.settings.image_overlay != blank -%}
                 <img
                     src="{{ section.settings.image_overlay | image_url: width: 600 }}"
-                    alt="{{ section.settings.image_overlay.alt | default: 'Overlay image' | escape }}"
+                    alt="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
+                    title="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
                     class="feature-block-stats__image feature-block-stats__image--overlay"
                     loading="lazy"
                     width="{{ section.settings.image_overlay.width }}"
@@ -472,12 +483,12 @@
     {
       "type": "image_picker",
       "id": "image_main",
-      "label": "Main Image (Background)"
+      "label": "Main Image (Background, Right)"
     },
     {
       "type": "image_picker",
       "id": "image_overlay",
-      "label": "Overlay Image (Foreground)"
+      "label": "Overlay Image (Foreground, Left)"
     },
     {
       "type": "header",
