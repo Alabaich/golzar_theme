@@ -1,0 +1,400 @@
+{% comment %}
+  ** Featured Collection with Promo Banner **
+  - Shows a promotional banner
+  - Displays 4 products from a selected collection
+{% endcomment %}
+
+{%- liquid
+  assign collection = collections[section.settings.featured_collection]
+  assign products_to_display = section.settings.products_to_show | default: 4
+-%}
+
+<div class="page-width featured-collection-promo" data-section-id="{{ section.id }}" data-section-type="featured-collection-promo-section">
+
+  {% comment %} Promotional Banner Section {% endcomment %}
+  {% if section.settings.show_promo_banner %}
+    <div class="promo-banner-wrapper" style="background-color: {{ section.settings.promo_bg_color }};">
+      <div class="promo-banner-inner">
+        <div class="promo-banner-content">
+          {% if section.settings.promo_heading != blank %}
+            <h2 class="promo-banner-heading" style="color: {{ section.settings.promo_heading_color }};">{{ section.settings.promo_heading | escape }}</h2>
+          {% endif %}
+          {% if section.settings.promo_subheading != blank %}
+            <div class="promo-banner-subheading rte" style="color: {{ section.settings.promo_subheading_color }};">
+              {{ section.settings.promo_subheading }}
+            </div>
+          {% endif %}
+          {% if section.settings.promo_button_text != blank and section.settings.promo_button_link != blank %}
+            <a href="{{ section.settings.promo_button_link }}" class="button promo-banner-button">
+              {{ section.settings.promo_button_text | escape }}
+            </a>
+          {% endif %}
+        </div>
+        {% if section.settings.promo_image != blank %}
+          <div class="promo-banner-image-wrapper">
+            {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
+              loading: 'lazy',
+              widths: '300, 400, 500, 600, 700, 800, 1000',
+              class: 'promo-banner-image'
+            }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% comment %} Section Title for Products {% endcomment %}
+  {% if section.settings.section_title != blank %}
+    <h2 class="section-header text-center">{{ section.settings.section_title | escape }}</h2>
+  {% endif %}
+
+  {% comment %} Product Grid {% endcomment %}
+  <div class="product-grid">
+    {% if collection != blank and collection.products_count > 0 %}
+      {% for product in collection.products limit: products_to_display %}
+        <div class="grid-item product-card">
+          <a href="{{ product.url | within: collection }}" class="product-card__link">
+            {% if product.featured_image %}
+              <div class="product-card__image-wrapper">
+                {{ product.featured_image | image_url: width: 500 | image_tag:
+                  loading: 'lazy',
+                  widths: '200, 300, 400, 500',
+                  class: 'product-card__image'
+                }}
+              </div>
+            {% endif %}
+            <div class="product-card__info">
+              <div class="product-card__title">{{ product.title }}</div>
+              <div class="product-card__price">
+                {{ product.price | money }}
+                {% if product.compare_at_price > product.price %}
+                  <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                  <s class="product-card__compare-price">{{ product.compare_at_price | money }}</s>
+                {% endif %}
+              </div>
+              {% comment %}
+                You can add a "Buy Now" or "Add to Cart" button here.
+                For simplicity, this example just links to the product.
+                To mimic the image, a "BUY NOW >" button:
+              {% endcomment %}
+              <span class="button product-card__button">{{ 'products.product.view_details' | t }}</span>
+              {% comment %} Or, for a direct "BUY NOW >" text like your image:
+              <span class="button product-card__button">BUY NOW ></span>
+              {% endcomment %}
+            </div>
+          </a>
+          {% comment %}
+          If you want an actual "Add to Cart" form per product (more complex):
+          {% form 'product', product, class: 'product-card__form' %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <button type="submit" name="add" class="button product-card__add-to-cart">
+              {{ 'products.product.add_to_cart' | t }}
+            </button>
+          {% endform %}
+          {% endcomment %}
+        </div>
+      {% endfor %}
+    {% elsif collection == blank %}
+      <p class="text-center">{{ 'sections.featured_collection_promo.no_collection_selected' | t }}</p>
+      {% comment %} Display placeholder products if no collection is selected in theme editor {% endcomment %}
+      {% for i in (1..products_to_display) %}
+        <div class="grid-item product-card">
+          <div class="product-card__link">
+            <div class="product-card__image-wrapper">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="product-card__info">
+              <div class="product-card__title">{{ 'onboarding.product_title' | t }}</div>
+              <div class="product-card__price">$19.99</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-center">{{ 'sections.featured_collection_promo.no_products_in_collection' | t: collection_title: collection.title }}</p>
+    {% endif %}
+  </div>
+
+</div>
+
+{% stylesheet %}
+.featured-collection-promo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.promo-banner-wrapper {
+  margin-bottom: 30px; /* Space between banner and product title */
+  padding: 20px; /* Padding inside the banner background */
+}
+
+.promo-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between text and image */
+  max-width: 1200px; /* Or your theme's content width */
+  margin: 0 auto; /* Center it */
+}
+
+.promo-banner-content {
+  flex: 1; /* Takes available space */
+  padding-right: 20px; /* Ensure some space if image is very close */
+}
+
+.promo-banner-heading {
+  font-size: 2.5em; /* Example size */
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.promo-banner-subheading {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.promo-banner-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff; /* Example: White button */
+  color: #000000; /* Example: Black text */
+  text-decoration: none;
+  border: 1px solid #000000; /* Example border */
+  border-radius: 4px;
+  font-weight: bold;
+}
+.promo-banner-button:hover {
+  background-color: #f0f0f0;
+}
+
+
+.promo-banner-image-wrapper {
+  flex-basis: 40%; /* Adjust as needed for image size */
+  max-width: 40%; /* Ensure it doesn't get too big */
+}
+
+.promo-banner-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional: rounded corners for image */
+}
+
+.section-header {
+  margin-bottom: 30px; /* Space below "Our products" title */
+  font-size: 2em;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Adjust gap between products */
+}
+
+.grid-item.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden; /* For clean corners if image touches edge */
+  text-align: center;
+}
+
+.product-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card__image-wrapper {
+  padding: 10px; /* Optional padding around image */
+  background-color: #f9f9f9; /* Light bg for image area */
+}
+
+.product-card__image {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* Makes images square, adjust if needed */
+  object-fit: cover;
+}
+
+.product-card__info {
+  padding: 15px;
+}
+
+.product-card__title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.product-card__price {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.product-card__compare-price {
+  text-decoration: line-through;
+  color: #777;
+  margin-left: 5px;
+}
+
+.product-card__button {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #333; /* Dark button */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+}
+.product-card__button:hover {
+  background-color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 990px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row on medium screens */
+  }
+  .promo-banner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .promo-banner-content {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  .promo-banner-image-wrapper {
+    flex-basis: auto;
+    max-width: 70%; /* Allow image to be wider on mobile if banner is stacked */
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 product per row on small screens */
+  }
+   .promo-banner-heading {
+    font-size: 2em;
+  }
+}
+
+.placeholder-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust as needed */
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Featured Collection + Promo",
+  "tag": "section",
+  "class": "section-featured-collection-promo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Promotional Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_promo_banner",
+      "label": "Show promotional banner",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "promo_heading",
+      "label": "Heading",
+      "default": "Big Online Sale! 40% OFF!"
+    },
+    {
+      "type": "richtext",
+      "id": "promo_subheading",
+      "label": "Subheading",
+      "default": "<p>Discover a wide range of premium bathroom accessories to elevate your space. From sleek faucets and towel racks to elegant mirrors and organizers.</p>"
+    },
+    {
+      "type": "text",
+      "id": "promo_button_text",
+      "label": "Button text",
+      "default": "DISCOVER MORE >"
+    },
+    {
+      "type": "url",
+      "id": "promo_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_image",
+      "label": "Promo image"
+    },
+    {
+      "type": "color",
+      "id": "promo_bg_color",
+      "label": "Banner background color",
+      "default": "#003366"
+    },
+    {
+        "type": "color",
+        "id": "promo_heading_color",
+        "label": "Banner heading color",
+        "default": "#FFFFFF"
+    },
+    {
+        "type": "color",
+        "id": "promo_subheading_color",
+        "label": "Banner subheading color",
+        "default": "#DDDDDD"
+    },
+    {
+      "type": "header",
+      "content": "Product Grid"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title for products",
+      "default": "Our products"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Select collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "label": "Products to show",
+      "default": 4,
+      "info": "The design is optimized for 4 products per row on desktop."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection + Promo",
+      "category": "Collection"
+    }
+  ],
+  "locales": {
+    "en": {
+      "sections.featured_collection_promo.no_collection_selected": "Please select a collection in the theme editor to display products.",
+      "sections.featured_collection_promo.no_products_in_collection": "The selected collection '{{ collection_title }}' has no products. Please add products or choose another collection.",
+      "onboarding.product_title": "Example Product"
+    },
+    "ru": {
+      "sections.featured_collection_promo.no_collection_selected": "Пожалуйста, выберите коллекцию в редакторе темы для отображения товаров.",
+      "sections.featured_collection_promo.no_products_in_collection": "В выбранной коллекции '{{ collection_title }}' нет товаров. Пожалуйста, добавьте товары или выберите другую коллекцию.",
+      "onboarding.product_title": "Пример товара"
+    }
+  }
+}
+{% endschema %}
