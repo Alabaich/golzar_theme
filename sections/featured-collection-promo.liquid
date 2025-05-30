@@ -10,7 +10,8 @@
   }
   .promo-banner-wrapper {
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 30px 40px;
+    border-radius: 10px;
   }
   .promo-banner-inner {
     display: flex;
@@ -30,8 +31,7 @@
   }
   .promo-banner-subheading {
     font-size: 1em;
-    margin: 0;
-    margin-bottom: 1em;
+    margin: 0 0 1.5em;
     line-height: 1.6;
   }
 
@@ -44,12 +44,15 @@
     border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial'
+    , sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
     line-height: normal;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease
+    , color 0.3s ease
+    , border-color 0.3s ease;
   }
 
   .promo-banner-button:hover {
@@ -71,6 +74,8 @@
   .section-header {
     margin-bottom: 30px;
     font-size: 2em;
+    text-align: left;
+    color: #1c1c1c;
   }
   .product-grid {
     display: grid;
@@ -163,29 +168,78 @@
     margin-bottom: 15px;
     font-size: 0.9em;
   }
-  .product-card__form {
+
+  .product-card__form-container {
+    display: flex;
+    gap: 10px;
     margin-top: auto;
+    align-items: center;
   }
+
+  .product-card__form {
+    flex-grow: 1;
+  }
+
   .product-card__add-to-cart-button {
-    display: inline-block;
+    display: block;
     width: 100%;
-    padding: 10px 15px;
-    background-color: #333;
+    padding: 12px 15px;
+    background-color: #002642;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50px;
     font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
   }
+
   .product-card__add-to-cart-button:hover:not(:disabled) {
-    background-color: #555;
+    background-color: #003366;
   }
+
   .product-card__add-to-cart-button.button--disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  .product-card__quick-cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #002642;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .product-card__quick-cart-button svg {
+    width: 18px;
+    height: 18px;
+    fill: #ffffff;
+  }
+
+  .product-card__quick-cart-button:hover:not(:disabled) {
+    background-color: #003366;
+  }
+  .product-card__quick-cart-button:disabled,
+  .product-card__quick-cart-button.button--disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  .product-card__quick-cart-button:disabled svg,
+  .product-card__quick-cart-button.button--disabled svg {
+    fill: #777;
+  }
+
   .placeholder-svg.product-card__image {
     display: block;
     width: 100%;
@@ -232,15 +286,24 @@
       <div class="promo-banner-inner">
         <div class="promo-banner-content">
           {% if section.settings.promo_heading != blank %}
-            <h2 class="promo-banner-heading" style="color: {{ section.settings.promo_heading_color }};" title="{{ section.settings.promo_heading }}">{{ section.settings.promo_heading | escape }}</h2>
+            <h2
+              class="promo-banner-heading"
+              style="color: {{ section.settings.promo_heading_color }};"
+              title="{{ section.settings.promo_heading }}">{{ section.settings.promo_heading | escape }}</h2>
           {% endif %}
           {% if section.settings.promo_subheading != blank %}
-            <div class="promo-banner-subheading rte" style="color: {{ section.settings.promo_subheading_color }};" title="{{ section.settings.promo_subheading }}">
+            <div
+              class="promo-banner-subheading rte"
+              style="color: {{ section.settings.promo_subheading_color }};"
+              title="{{ section.settings.promo_subheading }}">
               {{ section.settings.promo_subheading }}
             </div>
           {% endif %}
           {% if section.settings.promo_button_text != blank and section.settings.promo_button_link != blank %}
-            <a href="{{ section.settings.promo_button_link }}" class="button promo-banner-button" title="{{ section.settings.promo_button_text | escape }}">
+            <a
+              href="{{ section.settings.promo_button_link }}"
+              class="button promo-banner-button"
+              title="{{ section.settings.promo_button_text | escape }}">
               {{ section.settings.promo_button_text | escape }}
             </a>
           {% endif %}
@@ -248,9 +311,9 @@
         {% if section.settings.promo_image != blank %}
           <div class="promo-banner-image-wrapper">
             {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
-              loading: 'lazy',
-              widths: '300, 400, 500, 600, 700, 800, 1000',
-              class: 'promo-banner-image'
+ loading: 'lazy',
+ widths: '300, 400, 500, 600, 700, 800, 1000',
+ class: 'promo-banner-image'
             }}
           </div>
         {% endif %}
@@ -259,7 +322,7 @@
   {% endif %}
 
   {% if section.settings.section_title != blank %}
-    <h2 class="section-header text-center" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
+    <h2 class="section-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
   {% endif %}
 
   <div class="product-grid">
@@ -273,13 +336,16 @@
           endif
         -%}
         <div class="grid-item product-card{% if discount_percentage > 0 %} product-card--on-sale{% endif %}">
-          <a href="{{ product.url | within: collection }}" class="product-card__link-image" title="{{ product.vendor }}">
+          <a
+            href="{{ product.url | within: collection }}"
+            class="product-card__link-image"
+            title="{{ product.vendor }}">
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
-                  loading: 'lazy',
-                  widths: '200, 300, 400, 500',
-                  class: 'product-card__image'
+ loading: 'lazy',
+ widths: '200, 300, 400, 500',
+ class: 'product-card__image'
                 }}
               {% else %}
                 {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -296,7 +362,7 @@
           </a>
           <div class="product-card__info">
             {% if section.settings.show_availability %}
-              {% if product.available %}
+              {% if product.selected_or_first_available_variant.available %}
                 <p class="product-card__availability product-card__availability--in-stock">{{ 'products.product.in_stock' | t }}</p>
               {% else %}
                 <p class="product-card__availability product-card__availability--out-of-stock">{{ 'products.product.sold_out' | t }}</p>
@@ -313,34 +379,57 @@
               , show_compare_at_price: true %}
 
             {% if section.settings.show_add_to_cart_button %}
-              <form
-                action="{{ routes.cart_add_url }}"
-                method="post"
-                enctype="multipart/form-data"
-                class="product-card__form">
-                <input
-                  type="hidden"
-                  name="id"
-                  value="{{ product.selected_or_first_available_variant.id }}">
-                <input
-                  type="hidden"
-                  name="quantity"
-                  value="1"
-                  min="1">
-                <button
-                  type="submit"
-                  class="button product-card__add-to-cart-button{% unless product.available %} button--disabled{% endunless %}"
-                  {% unless product.available %}
+              <div class="product-card__form-container">
+                <form
+                  action="{{ routes.cart_add_url }}"
+                  method="post"
+                  enctype="multipart/form-data"
+                  class="product-card__form">
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ product.selected_or_first_available_variant.id }}">
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                    min="1">
+                  <button
+                    type="submit"
+                    class="button product-card__add-to-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
+                    {% unless product.selected_or_first_available_variant.available %}
                     disabled
                     aria-disabled="true"
+                    {% endunless %}>
+                    {% if product.selected_or_first_available_variant.available %}
+                      {{ section.settings.product_button_text | escape }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </button>
+                </form>
+                <button
+                  type="button"
+                  class="product-card__quick-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
+                  aria-label="{{ 'products.product.add_to_cart' | t }}"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  {% unless product.selected_or_first_available_variant.available %}
+                  disabled
+                  aria-disabled="true"
                   {% endunless %}>
-                  {% if product.available %}
-                    {{ 'products.product.add_to_cart' | t }}
-                  {% else %}
-                    {{ 'products.product.sold_out' | t }}
-                  {% endif %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"><path d="M17.218 6.235C17.013 5.438 16.275 4.91 15.42 4.91H8.58c-.855 0-1.593.528-1.798 1.325L4.305 15.085A3.5 3.5 0 0 0 7.702 19h8.596a3.5 3.5 0 0 0 3.397-3.915l-2.478-8.85zM8.58 6.91h6.84l1.798 6.42H6.782l1.798-6.42zM7.702 17a1.5 1.5 0 0 1-1.488-1.675L7.096 10.9H16.904l.882 4.415A1.5 1.5 0 0 1 16.298 17H7.702z" /><circle
+                      cx="8.5"
+                      cy="20.5"
+                      r="1.5" /><circle
+                      cx="15.5"
+                      cy="20.5"
+                      r="1.5" /></svg>
                 </button>
-              </form>
+              </div>
             {% endif %}
           </div>
         </div>
@@ -410,7 +499,7 @@
         "type": "color",
         "id": "promo_bg_color",
         "label": "Banner background color",
-        "default": "#003366" /* Вы упомянули, что по дефолту цвет секции #002642, но здесь стоял #003366. Оставляю как было в schema, но кнопка будет использовать #002642, как вы просили. */
+        "default": "#003366"
       }, {
         "type": "color",
         "id": "promo_heading_color",
@@ -470,6 +559,11 @@
         "id": "show_add_to_cart_button",
         "label": "Show 'Add to Cart' button",
         "default": true
+      }, {
+        "type": "text",
+        "id": "product_button_text",
+        "label": "Product card button text",
+        "default": "BUY NOW >"
       }
     ],
     "presets": [
