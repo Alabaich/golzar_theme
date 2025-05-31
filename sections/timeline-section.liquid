@@ -75,6 +75,7 @@
 
   .timeline-section-{{ section.id }} .timeline__container {
     position: relative;
+    padding-top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
   }
 
   .timeline-section-{{ section.id }} .timeline__line {
@@ -112,11 +113,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     flex-basis: 0;
     flex-grow: 1;
     padding: 0 10px;
     box-sizing: border-box;
+    position: relative;
   }
   {% if num_blocks > 0 %}
     .timeline-section-{{ section.id }} .timeline__event-item {
@@ -140,8 +141,10 @@
     font-size: 18px;
     font-weight: 600;
     font-family: 'Raleway', sans-serif;
-    margin-bottom: var(--year-display-bottom-margin);
-    position: relative;
+    position: absolute;
+    top: calc(-1 * (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size)/2 + var(--dot-border-size) ) + (var(--dot-size)/2 + var(--dot-border-size))  );
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 3;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
@@ -156,6 +159,8 @@
     position: relative;
     z-index: 3;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-top: calc( (var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px) - ( (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size)/2 + var(--dot-border-size) ) - (var(--dot-size)/2 + var(--dot-border-size)) ) - var(--dot-size)/2 - var(--dot-border-size) );
+
   }
 
   .timeline-section-{{ section.id }} .timeline__description-card {
@@ -169,6 +174,7 @@
     min-height: 100px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     font-family: 'Raleway', sans-serif;
+    text-align: left;
   }
   .timeline-section-{{ section.id }} .timeline__description-card p {
     margin-top: 0;
@@ -182,75 +188,129 @@
     {% if num_blocks > 3 %}
       .timeline-section-{{ section.id }} .timeline__events {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
       }
       .timeline-section-{{ section.id }} .timeline__line {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 0;
-        bottom: 0;
+        left: calc(var(--year-display-size) / 2 - 1px + 10px); /* 10px is padding of event-item */
+        transform: translateX(0);
+        top: calc(var(--year-display-size) / 2);
+        bottom: calc(var(--year-display-size) / 2);
         width: 2px;
         height: auto;
         right: auto;
+      }
+      .timeline-section-{{ section.id }} .timeline__event-item {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 30px;
+        padding: 0 0 0 calc(var(--year-display-size) + 30px);
+        align-items: flex-start;
+        text-align: left;
+      }
+      .timeline-section-{{ section.id }} .timeline__year-display {
+        position: absolute;
+        top: 0;
+        left: 10px; /* Corresponds to event-item padding */
+        transform: translateX(0);
+        margin-bottom: 0;
+      }
+       .timeline-section-{{ section.id }} .timeline__dot {
+        position: absolute;
+        left: calc(10px + var(--year-display-size)/2 - var(--dot-size)/2 - var(--dot-border-size));
+        top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
+        margin-top: 0;
+        margin-bottom: 0; /* Dot is on the line beside content */
+      }
+      .timeline-section-{{ section.id }} .timeline__description-card {
+         margin-top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) + var(--dot-bottom-margin) + 10px); /* Space below dot */
+         margin-left: 0;
+      }
+      .timeline-section-{{ section.id }} .timeline__event-item:last-child {
+        margin-bottom: 0;
       }
       {% if num_blocks == 1 %}
         .timeline-section-{{ section.id }} .timeline__line {
           display: none;
         }
+         .timeline-section-{{ section.id }} .timeline__event-item {
+            padding: 0 10px; align-items: center; text-align:center;
+         }
+         .timeline-section-{{ section.id }} .timeline__year-display { position: relative; left: auto; transform: none; }
+         .timeline-section-{{ section.id }} .timeline__dot { position: relative; left: auto; transform: none; margin-top:0;}
+         .timeline-section-{{ section.id }} .timeline__description-card { margin-left:auto; margin-right:auto; text-align:center;}
+
       {% endif %}
-      .timeline-section-{{ section.id }} .timeline__event-item {
-        width: 90%;
-        max-width: 450px;
-        margin-bottom: 40px;
-        padding: 0;
-      }
-      .timeline-section-{{ section.id }} .timeline__event-item:last-child {
-        margin-bottom: 0;
-      }
     {% endif %}
   }
 
   @media (max-width: 749px) {
+    .timeline-section-{{ section.id }} .timeline__container {
+        padding-top: 0;
+    }
     .timeline-section-{{ section.id }} .timeline__events {
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
     }
     .timeline-section-{{ section.id }} .timeline__line {
-      left: 50%;
-      transform: translateX(-50%);
-      top: 0;
-      bottom: 0;
+      left: calc(var(--year-display-size) / 2 - 1px + 10px); /* 10px is initial padding */
+      transform: translateX(0);
+      top: calc(var(--year-display-size) / 2);
+      bottom: calc(var(--year-display-size) / 2);
       width: 2px;
       height: auto;
       right: auto;
     }
-    {% if num_blocks == 1 %}
-      .timeline-section-{{ section.id }} .timeline__line {
-        display: none;
-      }
-    {% endif %}
     .timeline-section-{{ section.id }} .timeline__event-item {
-      width: 90%;
-      max-width: 400px;
+      width: 100%;
+      max-width: none;
       margin-bottom: 40px;
-      padding: 0;
+      padding: 0 0 0 calc(var(--year-display-size) / 2 + 10px + var(--dot-size) + 15px); /* space for dot + year + gap */
+      position: relative;
+      min-height: var(--year-display-size);
+      align-items: flex-start;
+      text-align: left;
     }
-    .timeline-section-{{ section.id }} .timeline__event-item:last-child {
+     .timeline-section-{{ section.id }} .timeline__event-item:last-child {
+        margin-bottom: 0;
+      }
+    .timeline-section-{{ section.id }} .timeline__year-display {
+      width: var(--year-display-size); /* Use variable */
+      height: var(--year-display-size);
+      font-size: 16px;
+      position: absolute;
+      left: 10px; /* Align with page-width padding */
+      top: 0;
+      transform: translateX(0);
       margin-bottom: 0;
     }
-    .timeline-section-{{ section.id }} .timeline__year-display {
-      width: 80px;
-      height: 80px;
-      font-size: 16px;
-    }
     .timeline-section-{{ section.id }} .timeline__dot {
-      width: 14px;
-      height: 14px;
+      width: var(--dot-size); /* Use variable */
+      height: var(--dot-size);
+      position: absolute;
+      left: calc(10px + var(--year-display-size) / 2 - var(--dot-size) / 2 - var(--dot-border-size));
+      top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
+      transform: translateY(0);
+      margin-top:0;
+      margin-bottom:0;
     }
     .timeline-section-{{ section.id }} .timeline__description-card {
       padding: 15px;
       font-size: 12px;
+      margin-top: 0; /* Aligned with year display */
+      margin-left: 0; /* Reset margin if any */
+      min-height:auto;
     }
+     {% if num_blocks == 1 %}
+        .timeline-section-{{ section.id }} .timeline__line {
+          display: none;
+        }
+         .timeline-section-{{ section.id }} .timeline__event-item {
+            padding: 0 10px; align-items: center; text-align:center; min-height:auto;
+         }
+         .timeline-section-{{ section.id }} .timeline__year-display { position: relative; left: auto; transform: none; top:auto; }
+         .timeline-section-{{ section.id }} .timeline__dot { position: relative; left: auto; transform: none; top:auto; }
+         .timeline-section-{{ section.id }} .timeline__description-card { margin-left:auto; margin-right:auto; text-align:center;}
+      {% endif %}
   }
 {%- endstyle -%}
 
