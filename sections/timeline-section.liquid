@@ -1,6 +1,7 @@
 {%- liquid
   assign settings = section.settings
   assign blocks = section.blocks
+  assign num_blocks = blocks.size
 -%}
 
 {%- style -%}
@@ -102,113 +103,134 @@
     height: 2px;
     background-color: var(--line-color);
     z-index: 1;
-  }
-  {%- assign num_blocks = blocks.size -%}
-  {%- if num_blocks > 1 -%}
-    .timeline-section-{{ section.id }}
-    .timeline__line {
+    {%- if num_blocks > 1 -%}
       left: calc((100% / {{ num_blocks }}) / 2);
       right: calc((100% / {{ num_blocks }}) / 2);
-    }
-  {%- else -%}
-  .timeline-section-{{ section.id }}
-  .timeline__line {
-    display: none;
+    {%- else -%}
+      display: none;
+    {%- endif -%}
   }
-{%- endif -%}
 
-.timeline-section-{{ section.id }}
-.timeline__events {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index: 2;
-}
-{% if num_blocks == 1 %}
   .timeline-section-{{ section.id }}
   .timeline__events {
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    {% if num_blocks == 1 %}
+      justify-content: center;
+    {% endif %}
   }
-{% endif %}
 
-.timeline-section-{{ section.id }}
-.timeline__event-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex-basis: 0;
-  flex-grow: 1;
-  padding: 0 10px;
-  box-sizing: border-box;
-  {% if num_blocks > 0 %}
-    max-width: calc(100% / {{ num_blocks }});
-  {% else %}
-    max-width: 100%;
-  {% endif %}
-}
+  .timeline-section-{{ section.id }}
+  .timeline__event-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 0 10px;
+    box-sizing: border-box;
+    {% if num_blocks > 0 %}
+      max-width: calc(100% / {{ num_blocks }});
+    {% else %}
+      max-width: 100%;
+    {% endif %}
+  }
 
-.timeline-section-{{ section.id }}
-.timeline__year-display {
-  width: var(--year-display-size);
-  height: var(--year-display-size);
-  border-radius: 50%;
-  background-color: var(--accent-color);
-  color: var(--year-text-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 600;
-  font-family: 'Raleway'
-  , sans-serif;
-  margin-bottom: var(--year-display-bottom-margin);
-  position: relative;
-  z-index: 3;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  .timeline-section-{{ section.id }}
+  .timeline__year-display {
+    width: var(--year-display-size);
+    height: var(--year-display-size);
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--year-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Raleway'
+    , sans-serif;
+    margin-bottom: var(--year-display-bottom-margin);
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-.timeline-section-{{ section.id }}
-.timeline__dot {
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  border: var(--dot-border-size) solid var(--section-bg);
-  margin-bottom: var(--dot-bottom-margin);
-  position: relative;
-  z-index: 3;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+  .timeline-section-{{ section.id }}
+  .timeline__dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: var(--dot-border-size) solid var(--section-bg);
+    margin-bottom: var(--dot-bottom-margin);
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
 
-.timeline-section-{{ section.id }}
-.timeline__description-card {
-  background-color: var(--card-bg-color);
-  color: var(--card-text-color);
-  padding: 20px;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 1.6;
-  width: 100%;
-  min-height: 100px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-family: 'Raleway'
-  , sans-serif;
-}
-.timeline-section-{{ section.id }}
-.timeline__description-card p {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-.timeline-section-{{ section.id }}.timeline__description-card p:last-child {
-  margin-bottom: 0;
-}
+  .timeline-section-{{ section.id }}
+  .timeline__description-card {
+    background-color: var(--card-bg-color);
+    color: var(--card-text-color);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    width: 100%;
+    min-height: 100px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    font-family: 'Raleway'
+    , sans-serif;
+  }
+  .timeline-section-{{ section.id }}
+  .timeline__description-card p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+  .timeline-section-{{ section.id }}.timeline__description-card p:last-child {
+    margin-bottom: 0;
+  }
 
-@media (max-width: 989px) {
-  {% if num_blocks > 3 %}
-    .timeline-section-{{ section.id }}
-    .timeline__events {
+  @media (max-width: 989px) {
+    {% if num_blocks > 3 %}
+      .timeline-section-{{ section.id }}
+      .timeline__events {
+        flex-direction: column;
+        align-items: center;
+      }
+      .timeline-section-{{ section.id }}
+      .timeline__line {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+        right: auto;
+        {% if num_blocks == 1 %}
+          display: none;
+        {% endif %}
+      }
+      .timeline-section-{{ section.id }}
+      .timeline__event-item {
+        width: 90%;
+        max-width: 450px;
+        margin-bottom: 40px;
+        padding: 0;
+      }
+      .timeline-section-{{ section.id }}.timeline__event-item:last-child {
+        margin-bottom: 0;
+      }
+    {% endif %}
+  }
+
+  @media (max-width: 749px) {
+    .timeline-section-{{ section.id }} .timeline__events {
       flex-direction: column;
       align-items: center;
     }
@@ -221,74 +243,37 @@
       width: 2px;
       height: auto;
       right: auto;
-    }
-    {% if num_blocks == 1 %}
-      .timeline-section-{{ section.id }}
-      .timeline__line {
+      {% if num_blocks == 1 %}
         display: none;
-      }
-    {% endif %}
+      {% endif %}
+    }
     .timeline-section-{{ section.id }}
     .timeline__event-item {
       width: 90%;
-      max-width: 450px;
+      max-width: 400px;
       margin-bottom: 40px;
       padding: 0;
     }
     .timeline-section-{{ section.id }}.timeline__event-item:last-child {
       margin-bottom: 0;
     }
-  {% endif %}
-}
-
-@media (max-width: 749px) {
-  .timeline-section-{{ section.id }} .timeline__events {
-    flex-direction: column;
-    align-items: center;
-  }
-  .timeline-section-{{ section.id }}
-  .timeline__line {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    height: auto;
-    right: auto;
-  }
-  {% if num_blocks == 1 %}
     .timeline-section-{{ section.id }}
-    .timeline__line {
-      display: none;
+    .timeline__year-display {
+      width: 80px;
+      height: 80px;
+      font-size: 16px;
     }
-  {% endif %}
-  .timeline-section-{{ section.id }}
-  .timeline__event-item {
-    width: 90%;
-    max-width: 400px;
-    margin-bottom: 40px;
-    padding: 0;
+    .timeline-section-{{ section.id }}
+    .timeline__dot {
+      width: 14px;
+      height: 14px;
+    }
+    .timeline-section-{{ section.id }}
+    .timeline__description-card {
+      padding: 15px;
+      font-size: 12px;
+    }
   }
-  .timeline-section-{{ section.id }}.timeline__event-item:last-child {
-    margin-bottom: 0;
-  }
-  .timeline-section-{{ section.id }}
-  .timeline__year-display {
-    width: 80px;
-    height: 80px;
-    font-size: 16px;
-  }
-  .timeline-section-{{ section.id }}
-  .timeline__dot {
-    width: 14px;
-    height: 14px;
-  }
-  .timeline-section-{{ section.id }}
-  .timeline__description-card {
-    padding: 15px;
-    font-size: 12px;
-  }
-}
 {%- endstyle -%}
 
 <div class="timeline-section-{{ section.id }}">
