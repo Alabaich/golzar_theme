@@ -97,7 +97,7 @@
   .feature-grid-section-{{ section.id }} .feature-item__title {
     font-size: {{ section.settings.item_title_size }}px;
     font-weight: 600;
-    color: {{ section.settings.item_title_color }};
+    color: {{ section.settings.item_title_color | default: '#212529' }};
     margin-top: 0;
     margin-bottom: 10px;
     font-family: var(--font-heading-family, 'Raleway', sans-serif);
@@ -106,7 +106,7 @@
 
   .feature-grid-section-{{ section.id }} .feature-item__description {
     font-size: 14px;
-    color: {{ section.settings.item_description_color }};
+    color: {{ section.settings.item_description_color | default: '#495057' }};
     line-height: 1.6;
     margin: 0;
     font-family: var(--font-body-family, 'Raleway', sans-serif);
