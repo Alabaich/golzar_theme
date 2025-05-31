@@ -4,7 +4,8 @@
     padding-bottom: 50px;
   }
   .our-categorys-sec .our-categorys-heading h2 {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Times New Roman'
+    , serif;
     font-size: 36px;
     text-align: center;
     margin-bottom: 40px;
@@ -99,7 +100,10 @@
             <ul class="category-grid">
               {% for block in section.blocks %}
                 <li>
-                  <a href="{{ block.settings.collection.url | default: '#' }}" class="category-card" title="{{ block.settings.collection.url | default: '#' }}">
+                  <a
+                    href="{{ block.settings.collection.url | default: '#' }}"
+                    class="category-card"
+                    title="{{ block.settings.collection.title | default: 'Category' }}">
                     <div class="category-card__image-wrapper">
                       {%- assign custom_image = block.settings.image -%}
                       {%- assign collection_image = block.settings.collection.image -%}
@@ -123,38 +127,58 @@
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                           aria-hidden="true"
-                          focusable="false"
-                        >
+                          focusable="false">
                           <g clip-path="url(#clip0_new_{{ forloop.index }})">
-                            <mask id="mask0_new_{{ forloop.index }}" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
-                              <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
-                            </mask>
-                            <g mask="url(#mask0_new_{{ forloop.index }})">
-                              <path d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z" stroke="#2A2A2A" stroke-width="1.07143"/>
-                              <path d="M8.36328 16.1366L15.6364 8.86353" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M8.36334 8.86353H15.6365V16.1366" stroke="#2A2A2A" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
-                            </g>
+                          <mask
+                            id="mask0_new_{{ forloop.index }}"
+                            style="mask-type:luminance"
+                            maskUnits="userSpaceOnUse"
+                            x="0"
+                            y="0"
+                            width="24"
+                            height="25">
+                            <path d="M24 0.5H0V24.5H24V0.5Z" fill="white" />
+                          </mask>
+                          <g mask="url(#mask0_new_{{ forloop.index }})">
+                            <path
+                              d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z"
+                              stroke="#2A2A2A"
+                              stroke-width="1.07143" />
+                            <path
+                              d="M8.36328 16.1366L15.6364 8.86353"
+                              stroke="#2A2A2A"
+                              stroke-width="1.07143"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                            <path
+                              d="M8.36334 8.86353H15.6365V16.1366"
+                              stroke="#2A2A2A"
+                              stroke-width="1.07143"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
                           </g>
-                          <defs>
-                            <clipPath id="clip0_new_{{ forloop.index }}">
-                              <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                            </clipPath>
-                          </defs>
-                        </svg>
-                      </div>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_new_{{ forloop.index }}">
+                            <rect
+                              width="24"
+                              height="24"
+                              fill="white"
+                              transform="translate(0 0.5)" />
+                          </clipPath>
+                        </defs>
+                      </svg>
                     </div>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </div>
-</div>
-
-{% schema %}
+</div></div>{% schema %}
 {
   "name": "Our Categories",
   "class": "section our-categorys-sec",
@@ -165,8 +189,7 @@
       "id": "title",
       "label": "Title",
       "default": "Our Categories"
-    },
-    {
+    }, {
       "type": "color",
       "id": "title_color",
       "label": "Title Color",
@@ -182,8 +205,7 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection (for link and title)"
-        },
-        {
+        }, {
           "type": "image_picker",
           "id": "image",
           "label": "Custom Image",
@@ -197,5 +219,4 @@
       "name": "Our Categories"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}
