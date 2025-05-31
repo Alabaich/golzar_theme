@@ -36,7 +36,8 @@
     background-color: {{ section.settings.section_bg_color }};
   }
 
-  .blog-posts-section-{{ section.id }} .page-width-container {
+  .blog-posts-section-{{ section.id }}
+  .page-width-container {
     max-width: var(--page-width, 1200px);
     margin-left: auto;
     margin-right: auto;
@@ -51,25 +52,42 @@
     }
   }
 
-  .blog-posts-section-{{ section.id }} .section-header {
+  .blog-posts-section-{{ section.id }}
+  .section-header {
     margin-bottom: 30px;
     text-align: {{ section.settings.heading_alignment }};
   }
 
-  .blog-posts-section-{{ section.id }} .section-header__title {
-    font-size: {{ section.settings.heading_size }}px;
-    font-weight: bold;
+  .blog-posts-section-{{ section.id }}
+  .section-header__title {
+    font-family: 'Black Mango'
+    , sans-serif;
+    font-size: 50px;
+    font-weight: 600;
     color: {{ section.settings.heading_color }};
     margin: 0;
-    font-family: var(--font-heading-family, sans-serif);
   }
 
-  .blog-posts-section-{{ section.id }} .blog-posts-grid {
+  @media (max-width: 1024px) {
+    .blog-posts-section-{{ section.id }} .section-header__title {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-posts-section-{{ section.id }} .section-header__title {
+      font-size: 32px;
+    }
+  }
+
+  .blog-posts-section-{{ section.id }}
+  .blog-posts-grid {
     display: grid;
     gap: {{ section.settings.grid_gap }}px;
     grid-template-columns: repeat({{ columns_mobile }}, 1fr);
   }
-  .blog-posts-section-{{ section.id }} .blog-posts-grid .article-card {
+  .blog-posts-section-{{ section.id }}
+  .blog-posts-grid .article-card {
     grid-column: auto;
   }
 
@@ -83,12 +101,14 @@
     .blog-posts-section-{{ section.id }} .blog-posts-grid {
       grid-template-columns: repeat({{ columns_desktop }}, 1fr);
     }
-    
-    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 {
+
+    .blog-posts-section-{{ section.id }}
+    .blog-posts-grid.blog-posts-grid--desktop-4-then-3 {
       grid-template-columns: repeat(12, 1fr);
     }
-    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card {
-        grid-column: span 3;
+    .blog-posts-section-{{ section.id }}
+    .blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card {
+      grid-column: span 3;
     }
     .blog-posts-section-{{ section.id }}.blog-posts-grid.blog-posts-grid--desktop-4-then-3 .article-card:nth-child(-n + 4) {
       grid-column: span 3;
@@ -97,11 +117,13 @@
       grid-column: span 4;
     }
 
-    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 {
+    .blog-posts-section-{{ section.id }}
+    .blog-posts-grid.blog-posts-grid--desktop-5-then-3 {
       grid-template-columns: repeat(15, 1fr);
     }
-    .blog-posts-section-{{ section.id }} .blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card {
-        grid-column: span 3;
+    .blog-posts-section-{{ section.id }}
+    .blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card {
+      grid-column: span 3;
     }
     .blog-posts-section-{{ section.id }}.blog-posts-grid.blog-posts-grid--desktop-5-then-3 .article-card:nth-child(-n + 5) {
       grid-column: span 3;
@@ -111,7 +133,8 @@
     }
   }
 
-  .blog-posts-section-{{ section.id }} .article-card {
+  .blog-posts-section-{{ section.id }}
+  .article-card {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -119,7 +142,8 @@
     border-radius: {{ section.settings.card_border_radius }}px;
     overflow: hidden;
     height: 100%;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition: transform 0.3s ease-out
+    , box-shadow 0.3s ease-out;
     position: relative;
   }
 
@@ -127,21 +151,24 @@
     transform: scale(1.03);
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__image-link {
+  .blog-posts-section-{{ section.id }}
+  .article-card__image-link {
     display: block;
     position: relative;
     overflow: hidden;
     border-radius: 15px;
   }
-  
-  .blog-posts-section-{{ section.id }} .article-card__image-container {
+
+  .blog-posts-section-{{ section.id }}
+  .article-card__image-container {
     position: relative;
     display: block;
     overflow: hidden;
     background-color: #f0f0f0;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__image {
+  .blog-posts-section-{{ section.id }}
+  .article-card__image {
     width: 100%;
     height: 100%;
     aspect-ratio: {{ image_aspect_ratio_value }};
@@ -149,21 +176,24 @@
     display: block;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__content {
+  .blog-posts-section-{{ section.id }}
+  .article-card__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     padding: 15px;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__date {
+  .blog-posts-section-{{ section.id }}
+  .article-card__date {
     font-size: 13px;
     color: {{ section.settings.date_color }};
     margin-bottom: 8px;
     font-family: var(--font-body-family, sans-serif);
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__title {
+  .blog-posts-section-{{ section.id }}
+  .article-card__title {
     font-size: 18px;
     font-weight: bold;
     color: {{ section.settings.article_title_color }};
@@ -173,7 +203,8 @@
     line-height: 1.4;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__title a {
+  .blog-posts-section-{{ section.id }}
+  .article-card__title a {
     text-decoration: none;
     color: inherit;
   }
@@ -182,17 +213,19 @@
     text-decoration: underline;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__excerpt {
+  .blog-posts-section-{{ section.id }}
+  .article-card__excerpt {
     font-size: 14px;
     color: {{ section.settings.excerpt_color }};
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
     margin-top: 0;
     line-height: 1.6;
     font-family: var(--font-body-family, sans-serif);
     flex-grow: 1;
   }
 
-  .blog-posts-section-{{ section.id }} .article-card__read-more {
+  .blog-posts-section-{{ section.id }}
+  .article-card__read-more {
     font-size: 13px;
     font-weight: bold;
     color: {{ section.settings.read_more_link_color }};
@@ -204,7 +237,8 @@
   .blog-posts-section-{{ section.id }}.article-card__read-more:hover {
     text-decoration: underline;
   }
-  .blog-posts-section-{{ section.id }} .article-card__arrow {
+  .blog-posts-section-{{ section.id }}
+  .article-card__arrow {
     margin-left: 5px;
     display: inline-block;
     transition: transform 0.2s ease-in-out;
@@ -217,8 +251,8 @@
 <div
   class="blog-posts-section-{{ section.id }}"
   {% if heading != blank %}
-    role="region"
-    aria-labelledby="{{ section_label_id }}"
+  role="region"
+  aria-labelledby="{{ section_label_id }}"
   {% endif %}>
   <div class="page-width-container">
     {%- if heading != blank -%}
@@ -316,44 +350,43 @@
               },
               "headline": "{{ article.title | escape }}",
               {%- if article.image -%}
-              "image": {
-                "@type": "ImageObject",
-                "url": "{{ article.image | image_url: width: 1200 | prepend: 'https:' }}",
-                "width": {{ article.image.width }},
-                "height": {{ article.image.height }}
-              },
-              {%- endif -%}
-              "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
-              "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
-              {%- if article.author -%}
-              "author": {
-                "@type": "Person",
-                "name": "{{ article.author | escape }}"
-              },
-              {%- endif -%}
-              "publisher": {
-                "@type": "Organization",
-                "name": "{{ shop.name | escape }}",
-                {%- assign publisher_logo_url = shop.brand.logo | image_url: width: 200 | default: (settings.logo | image_url: width: 200 ) -%}
-                {%- if publisher_logo_url != blank -%}
-                "logo": {
+                "image" : {
                   "@type": "ImageObject",
-                  "url": "{{ publisher_logo_url | prepend: 'https:' }}"
-                }
+                  "url": "{{ article.image | image_url: width: 1200 | prepend: 'https:' }}",
+                  "width": {{ article.image.width }},
+                  "height": {{ article.image.height }}
+                },
                 {%- endif -%}
-              },
-              "articleSection": "{{ chosen_blog.title | escape }}",
-              {%- assign json_ld_description = "" -%}
-              {%- if article.excerpt.size > 0 -%}
-                {%- assign json_ld_description = article.excerpt | strip_html | strip_newlines | replace: '"', '\"' | escape -%}
-              {%- else -%}
-                {%- assign json_ld_description = article.content | strip_html | strip_newlines | replace: '"', '\"' | truncatewords: 30, "" | escape -%}
-              {%- endif -%}
-              "description": "{{ json_ld_description }}"
-              {%- if article.tags.size > 0 -%}
-              ,"keywords": "{{ article.tags | join: ', ' | escape }}"
-              {%- endif -%}
-            }
+                "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+                "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+                {%- if article.author -%}
+                  "author" : {
+                    "@type": "Person",
+                    "name": "{{ article.author | escape }}"
+                  },
+                  {%- endif -%}
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "{{ shop.name | escape }}",
+                    {%- assign publisher_logo_url = shop.brand.logo | image_url: width: 200 | default: (settings.logo | image_url: width: 200 ) -%}
+                    {%- if publisher_logo_url != blank -%}
+                      "logo" : {
+                        "@type": "ImageObject",
+                        "url": "{{ publisher_logo_url | prepend: 'https:' }}"
+                      }
+                      {%- endif -%}
+                    },
+                    "articleSection": "{{ chosen_blog.title | escape }}",
+                    {%- assign json_ld_description = "" -%}
+                    {%- if article.excerpt.size > 0 -%}
+                      {%- assign json_ld_description = article.excerpt | strip_html | strip_newlines | replace: '"', '\"' | escape -%}
+                    {%- else -%}
+                      {%- assign json_ld_description = article.content | strip_html | strip_newlines | replace: '"', '\"' | truncatewords: 30, "" | escape -%}
+                      {%- endif -%}
+                      "description": "{{ json_ld_description }}"{%- if article.tags.size > 0 -%},
+                      "keywords" : "{{ article.tags | join: ', ' | escape }}"
+                    {%- endif -%}
+                    }
           </script>
         {%- endfor -%}
       </div>
@@ -386,8 +419,13 @@
         "id": "heading_alignment",
         "label": "Heading Alignment",
         "options": [
-          { "value": "left", "label": "Left" },
-          { "value": "center", "label": "Center" }
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
         ],
         "default": "left"
       },
@@ -395,24 +433,42 @@
         "type": "range",
         "id": "heading_size",
         "min": 18,
-        "max": 48,
+        "max": 70,
         "step": 1,
         "unit": "px",
         "label": "Heading Font Size",
-        "default": 28
+        "default": 50
       },
       {
         "type": "color",
         "id": "heading_color",
         "label": "Heading Color",
         "default": "#222222"
-      },
-      {
+      }, {
+        "type": "select",
+        "id": "heading_weight",
+        "label": "Heading Font Weight",
+        "options": [
+          {
+            "value": "400",
+            "label": "Normal"
+          }, {
+            "value": "500",
+            "label": "Medium"
+          }, {
+            "value": "600",
+            "label": "Semi-bold"
+          }, {
+            "value": "700",
+            "label": "Bold"
+          }
+        ],
+        "default": "600"
+      }, {
         "type": "blog",
         "id": "blog_handle",
         "label": "Blog"
-      },
-      {
+      }, {
         "type": "range",
         "id": "posts_to_show",
         "min": 1,
@@ -420,12 +476,10 @@
         "step": 1,
         "label": "Number of posts to show",
         "default": 7
-      },
-      {
+      }, {
         "type": "header",
         "content": "Grid Layout"
-      },
-      {
+      }, {
         "type": "range",
         "id": "columns_desktop",
         "min": 1,
@@ -434,8 +488,7 @@
         "step": 1,
         "label": "Columns on desktop (990px+)",
         "default": 4
-      },
-      {
+      }, {
         "type": "range",
         "id": "columns_tablet",
         "min": 1,
@@ -443,8 +496,7 @@
         "step": 1,
         "label": "Columns on tablet (750px - 989px)",
         "default": 2
-      },
-      {
+      }, {
         "type": "range",
         "id": "grid_gap",
         "min": 0,
@@ -453,45 +505,55 @@
         "unit": "px",
         "label": "Gap between cards",
         "default": 30
-      },
-      {
+      }, {
         "type": "header",
         "content": "Card Content"
-      },
-      {
+      }, {
         "type": "checkbox",
         "id": "show_image",
         "label": "Show featured image",
         "default": true
-      },
-      {
+      }, {
         "type": "select",
         "id": "image_aspect_ratio",
         "label": "Image aspect ratio",
         "options": [
-          { "value": "natural", "label": "Natural" },
-          { "value": "1/1", "label": "1:1 (Square)" },
-          { "value": "4/3", "label": "4:3" },
-          { "value": "16/9", "label": "16:9" },
-          { "value": "2/3", "label": "2:3 (Portrait)" },
-          { "value": "3/4", "label": "3:4 (Portrait)" }
+          {
+            "value": "natural",
+            "label": "Natural"
+          },
+          {
+            "value": "1/1",
+            "label": "1:1 (Square)"
+          },
+          {
+            "value": "4/3",
+            "label": "4:3"
+          },
+          {
+            "value": "16/9",
+            "label": "16:9"
+          }, {
+            "value": "2/3",
+            "label": "2:3 (Portrait)"
+          }, {
+            "value": "3/4",
+            "label": "3:4 (Portrait)"
+          }
         ],
         "default": "4/2",
         "info": "'Natural' uses the original image aspect ratio. Non-natural options use CSS aspect-ratio."
-      },
-      {
+      }, {
         "type": "checkbox",
         "id": "show_date",
         "label": "Show publication date",
         "default": true
-      },
-      {
+      }, {
         "type": "checkbox",
         "id": "show_excerpt",
         "label": "Show excerpt",
         "default": true
-      },
-      {
+      }, {
         "type": "range",
         "id": "excerpt_length",
         "min": 5,
@@ -499,24 +561,20 @@
         "step": 1,
         "label": "Excerpt length (words)",
         "default": 12
-      },
-      {
+      }, {
         "type": "text",
         "id": "read_more_text",
         "label": "'Read more' link text",
         "default": "READ NOW"
-      },
-      {
+      }, {
         "type": "header",
         "content": "Card Styling"
-      },
-      {
+      }, {
         "type": "color",
         "id": "card_bg_color",
         "label": "Card background color",
         "default": "#FFFFFF"
-      },
-      {
+      }, {
         "type": "range",
         "id": "card_border_radius",
         "min": 0,
@@ -525,36 +583,30 @@
         "unit": "px",
         "label": "Card border radius",
         "default": 6
-      },
-      {
+      }, {
         "type": "color",
         "id": "date_color",
         "label": "Date color",
         "default": "#777777"
-      },
-      {
+      }, {
         "type": "color",
         "id": "article_title_color",
         "label": "Article title color",
         "default": "#222222"
-      },
-      {
+      }, {
         "type": "color",
         "id": "excerpt_color",
         "label": "Excerpt color",
         "default": "#555555"
-      },
-      {
+      }, {
         "type": "color",
         "id": "read_more_link_color",
         "label": "'Read more' link color",
         "default": "#222222"
-      },
-      {
+      }, {
         "type": "header",
         "content": "Section Padding"
-      },
-      {
+      }, {
         "type": "range",
         "id": "padding_top",
         "min": 0,
@@ -563,8 +615,7 @@
         "unit": "px",
         "label": "Top padding",
         "default": 40
-      },
-      {
+      }, {
         "type": "range",
         "id": "padding_bottom",
         "min": 0,
@@ -573,8 +624,7 @@
         "unit": "px",
         "label": "Bottom padding",
         "default": 40
-      },
-      {
+      }, {
         "type": "color",
         "id": "section_bg_color",
         "label": "Section background color",
