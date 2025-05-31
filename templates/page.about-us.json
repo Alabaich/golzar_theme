@@ -288,7 +288,7 @@
         "item_title_size": 20,
         "item_title_color": "#212529",
         "item_description_color": "#495057",
-        "icon_circle_bg_color": "#e0e0e0",
+        "icon_circle_bg_color": "#ffffff",
         "icon_arrow_color": "#333333",
         "icon_circle_bg_hover_color": "#212529",
         "icon_arrow_hover_color": "#ffffff"
