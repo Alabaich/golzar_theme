@@ -11,12 +11,14 @@
     --heading-title-color: {{ settings.heading_title_color | default: '#111827' }};
     --accent-color: {{ settings.accent_color | default: '#3B5F82' }};
     --year-text-color: {{ settings.year_text_color | default: '#FFFFFF' }};
+    --card-bg-color: {{ settings.card_bg_color | default: '#F8F9FA' }};
     --card-text-color: {{ settings.card_text_color | default: '#374151' }};
     --line-color: {{ settings.line_color | default: '#E5E7EB' }};
 
     --year-display-size: {{ settings.year_bubble_size }}px;
     --year-display-font-size: {{ settings.year_font_size }}px;
-    --year-to-text-margin: 15px;
+    --year-to-card-margin: 15px;
+    --dot-size: {{ settings.dot_size }}px;
     --line-thickness: 2px;
 
     background-color: var(--section-bg);
@@ -24,12 +26,31 @@
     padding-bottom: {{ settings.padding_bottom }}px;
     font-family: 'Raleway'
     , sans-serif;
+    box-sizing: border-box;
+  }
+
+  .timeline-section-{{ section.id }}
+  *
+  , .timeline-section-{{ section.id }}
+  *::before
+  , .timeline-section-{{ section.id }}
+  *::after {
+    box-sizing: inherit;
   }
 
   .timeline-section-{{ section.id }}
   .page-width {
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 750px) {
+    .timeline-section-{{ section.id }} .page-width {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
 
   .timeline-section-{{ section.id }}
@@ -40,24 +61,42 @@
 
   .timeline-section-{{ section.id }}
   .timeline-header__supertitle {
+    display: block;
+    font-family: 'Raleway'
+    , sans-serif;
     font-size: {{ settings.supertitle_font_size }}px;
     font-weight: {{ settings.supertitle_font_weight }};
+    line-height: 1.4;
     color: var(--heading-supertitle-color);
     margin-bottom: 8px;
   }
 
   .timeline-section-{{ section.id }}
   .timeline-header__title {
-    font-size: 36px;
+    display: block;
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 600;
+    font-size: 50px;
+    line-height: 1.1;
+    letter-spacing: 0;
     color: var(--heading-title-color);
     margin: 0;
+  }
+
+  @media (max-width: 749px) {
+    .timeline-section-{{ section.id }} .timeline-header__title {
+      font-size: 36px;
+    }
+    .timeline-section-{{ section.id }}
+    .timeline-header__supertitle {
+      font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px;
+    }
   }
 
   .timeline-section-{{ section.id }}
   .timeline__container {
     position: relative;
-    padding-top: calc(var(--year-display-size) / 2);
   }
 
   .timeline-section-{{ section.id }}
@@ -71,108 +110,251 @@
     z-index: 1;
   }
 
+  {%- if num_blocks > 1 -%}
+    .timeline-section-{{ section.id }}
+    .timeline__line {
+      left: calc(var(--year-display-size) / 2);
+      right: calc(var(--year-display-size) / 2);
+    }
+  {%- else -%}
+  .timeline-section-{{ section.id }}
+  .timeline__line {
+    display: none;
+  }
+{%- endif -%}
+
+.timeline-section-{{ section.id }}
+.timeline__events {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+{% if num_blocks == 1 %}
   .timeline-section-{{ section.id }}
   .timeline__events {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
+    justify-content: center;
   }
+{% endif %}
 
+.timeline-section-{{ section.id }}
+.timeline__event-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 15px;
+  position: relative;
+}
+
+{% if num_blocks > 0 %}
   .timeline-section-{{ section.id }}
   .timeline__event-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    padding: 0 15px;
+    max-width: calc(100% / {{ num_blocks }});
+  }
+{% endif %}
+
+.timeline-section-{{ section.id }}
+.timeline__year-display {
+  width: var(--year-display-size);
+  height: var(--year-display-size);
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: var(--year-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--year-display-font-size);
+  font-weight: 600;
+  margin-bottom: var(--year-to-card-margin);
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-section-{{ section.id }}
+.timeline__description-card {
+  background-color: var(--card-bg-color);
+  color: var(--card-text-color);
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  width: 100%;
+  min-height: 120px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.timeline-section-{{ section.id }}
+.timeline__description-card p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.timeline-section-{{ section.id }}.timeline__description-card p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 989px) {
+  .timeline-section-{{ section.id }} .timeline__line {
+    {% if num_blocks > 2 %}
+      left: calc(var(--year-display-size) / 2);
+      right: auto;
+      top: 0;
+      bottom: 0;
+      width: var(--line-thickness);
+      height: auto;
+      transform: none;
+    {% endif %}
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__year-display {
-    width: var(--year-display-size);
-    height: var(--year-display-size);
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    color: var(--year-text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--year-display-font-size);
-    font-weight: 600;
-    margin-bottom: var(--year-to-text-margin);
-    position: relative;
-    z-index: 3;
-  }
-
-  .timeline-section-{{ section.id }}
-  .timeline__event-text {
-    color: var(--card-text-color);
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
-    padding-top: 10px;
-  }
-
-  @media (max-width: 749px) {
-    .timeline-section-{{ section.id }} .timeline__events {
+  {% if num_blocks > 2 %}
+    .timeline-section-{{ section.id }}
+    .timeline__events {
       flex-direction: column;
+      align-items: flex-start;
     }
 
     .timeline-section-{{ section.id }}
     .timeline__event-item {
-      flex-direction: row;
-      align-items: flex-start;
+      width: 100%;
+      max-width: none;
       margin-bottom: 30px;
-      padding: 0;
+      padding-left: calc(var(--year-display-size) + 30px);
+      min-height: var(--year-display-size);
     }
 
     .timeline-section-{{ section.id }}
     .timeline__year-display {
-      margin-right: 20px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: none;
       margin-bottom: 0;
     }
 
-    .timeline-section-{{ section.id }}
-    .timeline__line {
-      display: none;
+    .timeline-section-{{ section.id }}.timeline__event-item:last-child {
+      margin-bottom: 0;
     }
+  {% endif %}
+}
+
+@media (max-width: 749px) {
+  .timeline-section-{{ section.id }} .timeline__line {
+    top: calc(var(--year-display-size) * 0.8 / 2);
+    left: calc(var(--year-display-size) * 0.8 + 15px);
+    right: 15px;
+    height: var(--line-thickness);
   }
+
+  .timeline-section-{{ section.id }}
+  .timeline-header {
+    text-align: left;
+  }
+
+  .timeline-section-{{ section.id }}
+  .timeline__events {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-section-{{ section.id }}
+  .timeline__event-item {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 30px;
+    padding-left: calc(var(--year-display-size) * 0.8 + 30px);
+    min-height: calc(var(--year-display-size) * 0.8);
+    align-items: flex-start;
+  }
+
+  .timeline-section-{{ section.id }}
+  .timeline__year-display {
+    width: calc(var(--year-display-size) * 0.8);
+    height: calc(var(--year-display-size) * 0.8);
+    font-size: calc(var(--year-display-font-size) * 0.9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: none;
+    margin-bottom: 0;
+  }
+
+  .timeline-section-{{ section.id }}
+  .timeline__description-card {
+    padding: 15px;
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .timeline-section-{{ section.id }}.timeline__event-item:last-child {
+    margin-bottom: 0;
+  }
+
+  {% if num_blocks == 1 %}
+    .timeline-section-{{ section.id }}
+    .timeline__event-item {
+      padding-left: 10px;
+      align-items: center;
+    }
+
+    .timeline-section-{{ section.id }}
+    .timeline__year-display {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-bottom: var(--year-to-card-margin);
+    }
+  {% endif %}
+}
 {%- endstyle -%}
 
 <div class="timeline-section-{{ section.id }}">
   <div class="page-width">
-    <div class="timeline-header">
-      {%- if settings.supertitle != blank -%}
-        <div class="timeline-header__supertitle">{{ settings.supertitle }}</div>
-      {%- endif -%}
-      {%- if settings.title != blank -%}
-        <h2 class="timeline-header__title">{{ settings.title }}</h2>
-      {%- endif -%}
-    </div>
-
-    <div class="timeline__container">
-      <div class="timeline__line"></div>
-      <div class="timeline__events">
-        {%- for block in blocks -%}
-          <div class="timeline__event-item">
-            {%- if block.settings.year != blank -%}
-              <div class="timeline__year-display">{{ block.settings.year }}</div>
-            {%- endif -%}
-            {%- if block.settings.description != blank -%}
-              <div class="timeline__event-text">{{ block.settings.description }}</div>
-            {%- endif -%}
-          </div>
-        {%- endfor -%}
+    {%- if settings.supertitle != blank or settings.title != blank -%}
+      <div class="timeline-header">
+        {%- if settings.supertitle != blank -%}
+          <span class="timeline-header__supertitle">{{ settings.supertitle }}</span>
+        {%- endif -%}
+        {%- if settings.title != blank -%}
+          <h2 class="timeline-header__title">{{ settings.title }}</h2>
+        {%- endif -%}
       </div>
-    </div>
+    {%- endif -%}
+
+    {%- if blocks.size > 0 -%}
+      <div class="timeline__container">
+        <div class="timeline__line"></div>
+        <div class="timeline__events">
+          {%- for block in blocks -%}
+            <div class="timeline__event-item">
+              {%- if block.settings.year != blank -%}
+                <div class="timeline__year-display">
+                  {{ block.settings.year }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="timeline__description-card">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
 {% schema %}
   {
-    "name": "Timeline Simple",
+    "name": "Timeline Evolution",
     "tag": "section",
+    "class": "timeline-section-wrapper",
     "settings": [
       {
         "type": "text",
@@ -217,14 +399,31 @@
         ],
         "default": "600"
       }, {
+        "type": "select",
+        "id": "header_align",
+        "label": "Header Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "header",
+        "content": "Timeline Element Sizes"
+      }, {
         "type": "range",
         "id": "year_bubble_size",
-        "min": 40,
-        "max": 100,
+        "min": 60,
+        "max": 120,
         "step": 2,
         "unit": "px",
         "label": "Year Bubble Size",
-        "default": 60
+        "default": 90
       }, {
         "type": "range",
         "id": "year_font_size",
@@ -232,65 +431,116 @@
         "max": 24,
         "step": 1,
         "unit": "px",
-        "label": "Year Font Size",
+        "label": "Year Font Size (in Bubble)",
         "default": 16
+      }, {
+        "type": "range",
+        "id": "dot_size",
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Dot Size (on line)",
+        "default": 12
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Section Background",
+        "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "heading_supertitle_color",
+        "label": "Superheading Text Color",
+        "default": "#111827"
+      }, {
+        "type": "color",
+        "id": "heading_title_color",
+        "label": "Main Heading Text Color",
+        "default": "#111827"
       }, {
         "type": "color",
         "id": "accent_color",
-        "label": "Year Bubble Color",
+        "label": "Accent Color (Year Bubbles)",
         "default": "#3B5F82"
       }, {
         "type": "color",
         "id": "year_text_color",
-        "label": "Year Text Color",
+        "label": "Year Text Color (in Bubble)",
         "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "card_bg_color",
+        "label": "Event Card Background",
+        "default": "#F8F9FA"
+      }, {
+        "type": "color",
+        "id": "card_text_color",
+        "label": "Event Card Text",
+        "default": "#374151"
       }, {
         "type": "color",
         "id": "line_color",
         "label": "Timeline Color",
         "default": "#E5E7EB"
       }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
         "type": "range",
         "id": "padding_top",
         "min": 0,
-        "max": 100,
+        "max": 200,
         "step": 4,
         "unit": "px",
         "label": "Top Padding",
-        "default": 60
+        "default": 80
       }, {
         "type": "range",
         "id": "padding_bottom",
         "min": 0,
-        "max": 100,
+        "max": 200,
         "step": 4,
         "unit": "px",
         "label": "Bottom Padding",
-        "default": 60
+        "default": 80
       }
     ],
     "blocks": [
       {
         "type": "timeline_event",
         "name": "Timeline Event",
+        "limit": 6,
         "settings": [
           {
             "type": "text",
             "id": "year",
             "label": "Year",
-            "default": "2022"
+            "default": "2024"
           }, {
             "type": "richtext",
             "id": "description",
             "label": "Description",
-            "default": "<p>Event description</p>"
+            "default": "<p>Use this text to share information about this event in your company's history.</p>"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Timeline Simple",
+        "name": "Timeline Evolution",
+        "settings": {
+          "supertitle": "Built on Experience:",
+          "title": "The Evolution of Golzar Home",
+          "header_align": "left",
+          "supertitle_font_size": 18,
+          "supertitle_font_weight": "600",
+          "year_bubble_size": 90,
+          "year_font_size": 16,
+          "dot_size": 12
+        },
         "blocks": [
           {
             "type": "timeline_event",
