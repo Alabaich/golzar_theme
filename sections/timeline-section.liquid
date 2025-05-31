@@ -7,22 +7,28 @@
 {%- style -%}
   .timeline-section-{{ section.id }} {
     --section-bg: {{ settings.section_bg_color | default: '#FFFFFF' }};
-    --heading-color: {{ settings.heading_color | default: '#1F2937' }};
+    --heading-supertitle-color: {{ settings.heading_supertitle_color | default: '#1F2937' }};
+    --heading-title-color: {{ settings.heading_title_color | default: '#1F2937' }};
     --accent-color: {{ settings.accent_color | default: '#3B5F82' }};
     --year-text-color: {{ settings.year_text_color | default: '#FFFFFF' }};
     --card-bg-color: {{ settings.card_bg_color | default: '#F8F9FA' }};
     --card-text-color: {{ settings.card_text_color | default: '#4B5563' }};
     --line-color: {{ settings.line_color | default: '#D1D5DB' }};
+    
     --year-display-size: 90px;
-    --dot-size: 16px;
-    --dot-border-size: 3px;
-    --year-display-bottom-margin: 10px;
-    --dot-bottom-margin: 10px;
+    --year-display-font-size: 16px;
+    --year-display-bottom-margin: 15px;
+
+    --dot-size: 12px;
+    --dot-border-size: 0px;
+    
+    --dot-to-card-margin: 15px;
+    --line-thickness: 2px;
 
     background-color: var(--section-bg);
     padding-top: {{ settings.padding_top }}px;
     padding-bottom: {{ settings.padding_bottom }}px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: 'Raleway', sans-serif;
   }
 
   .timeline-section-{{ section.id }} .page-width {
@@ -39,52 +45,53 @@
   }
 
   .timeline-section-{{ section.id }} .timeline-header {
-    text-align: {{ settings.header_align | default: 'center' }};
+    text-align: {{ settings.header_align | default: 'left' }};
     margin-bottom: 60px;
   }
 
-  .timeline-section-{{ section.id }} .timeline-header__content h1,
-  .timeline-section-{{ section.id }} .timeline-header__content h2,
-  .timeline-section-{{ section.id }} .timeline-header__content h3,
-  .timeline-section-{{ section.id }} .timeline-header__content p {
-    color: var(--heading-color);
+  .timeline-section-{{ section.id }} .timeline-header__supertitle {
+    display: block;
     font-family: 'Raleway', sans-serif;
-  }
-
-  .timeline-section-{{ section.id }} .timeline-header__content p:first-child {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: {{ settings.supertitle_font_size }}px;
+    font-weight: {{ settings.supertitle_font_weight }};
     line-height: 1.4;
+    color: var(--heading-supertitle-color);
     margin-bottom: 4px;
   }
-  .timeline-section-{{ section.id }} .timeline-header__content h2 {
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 0;
-    margin-bottom: 0;
+
+  .timeline-section-{{ section.id }} .timeline-header__title {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1.1; /* 110% */
+    letter-spacing: 0px;
+    color: var(--heading-title-color);
+    margin: 0;
   }
-  @media (min-width: 750px) {
-    .timeline-section-{{ section.id }} .timeline-header__content p:first-child {
-      font-size: 20px;
+  @media (max-width: 749px) {
+    .timeline-section-{{ section.id }} .timeline-header__title {
+      font-size: 36px;
     }
-    .timeline-section-{{ section.id }} .timeline-header__content h2 {
-      font-size: 38px;
+     .timeline-section-{{ section.id }} .timeline-header__supertitle {
+      font-size: {{ settings.supertitle_font_size | minus: 2 }}px;
     }
   }
+
 
   .timeline-section-{{ section.id }} .timeline__container {
     position: relative;
-    padding-top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
+    padding-top: calc(var(--year-display-size) / 2 + var(--year-display-bottom-margin));
   }
 
   .timeline-section-{{ section.id }} .timeline__line {
-    position: absolute;
-    top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px);
-    height: 2px;
+    position: absolute; 
+    top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) / 2 - (var(--line-thickness) / 2) );
+    height: var(--line-thickness);
     background-color: var(--line-color);
     z-index: 1;
   }
+  
   {%- if num_blocks > 1 -%}
     .timeline-section-{{ section.id }} .timeline__line {
       left: calc((100% / {{ num_blocks }}) / 2);
@@ -95,6 +102,7 @@
       display: none;
     }
   {%- endif -%}
+
 
   .timeline-section-{{ section.id }} .timeline__events {
     display: flex;
@@ -138,13 +146,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: var(--year-display-font-size);
     font-weight: 600;
     font-family: 'Raleway', sans-serif;
-    position: absolute;
-    top: calc(-1 * (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size)/2 + var(--dot-border-size) ) + (var(--dot-size)/2 + var(--dot-border-size))  );
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: var(--year-display-bottom-margin);
+    position: relative; 
     z-index: 3;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
@@ -155,12 +161,10 @@
     background-color: var(--accent-color);
     border-radius: 50%;
     border: var(--dot-border-size) solid var(--section-bg);
-    margin-bottom: var(--dot-bottom-margin);
+    margin-bottom: var(--dot-to-card-margin);
     position: relative;
-    z-index: 3;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-top: calc( (var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px) - ( (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size)/2 + var(--dot-border-size) ) - (var(--dot-size)/2 + var(--dot-border-size)) ) - var(--dot-size)/2 - var(--dot-border-size) );
-
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
 
   .timeline-section-{{ section.id }} .timeline__description-card {
@@ -171,8 +175,8 @@
     font-size: 13px;
     line-height: 1.6;
     width: 100%;
-    min-height: 100px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    min-height: 120px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.07);
     font-family: 'Raleway', sans-serif;
     text-align: left;
   }
@@ -185,61 +189,41 @@
   }
 
   @media (max-width: 989px) {
-    {% if num_blocks > 3 %}
+    .timeline-section-{{ section.id }} .timeline__container {
+      padding-top: calc(var(--year-display-size) / 2 + var(--year-display-bottom-margin) + 10px); /* Увеличим отступ для ясности */
+    }
+    {% if num_blocks > 3 or num_blocks == 2 %}
       .timeline-section-{{ section.id }} .timeline__events {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
       }
       .timeline-section-{{ section.id }} .timeline__line {
-        left: calc(var(--year-display-size) / 2 - 1px + 10px); /* 10px is padding of event-item */
-        transform: translateX(0);
-        top: calc(var(--year-display-size) / 2);
-        bottom: calc(var(--year-display-size) / 2);
-        width: 2px;
-        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px); /* Сброс, т.к. container имеет padding-top */
+        bottom: auto;
+        width: 2px; 
+        height: calc(100% - (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) + var(--dot-bottom-margin) ) ); /* Примерная высота */
         right: auto;
       }
       .timeline-section-{{ section.id }} .timeline__event-item {
         width: 100%;
-        max-width: none;
-        margin-bottom: 30px;
-        padding: 0 0 0 calc(var(--year-display-size) + 30px);
-        align-items: flex-start;
-        text-align: left;
+        max-width: 450px;
+        margin-bottom: 40px;
+        padding: 0;
       }
       .timeline-section-{{ section.id }} .timeline__year-display {
-        position: absolute;
-        top: 0;
-        left: 10px; /* Corresponds to event-item padding */
-        transform: translateX(0);
-        margin-bottom: 0;
-      }
-       .timeline-section-{{ section.id }} .timeline__dot {
-        position: absolute;
-        left: calc(10px + var(--year-display-size)/2 - var(--dot-size)/2 - var(--dot-border-size));
-        top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
-        margin-top: 0;
-        margin-bottom: 0; /* Dot is on the line beside content */
-      }
-      .timeline-section-{{ section.id }} .timeline__description-card {
-         margin-top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) + var(--dot-bottom-margin) + 10px); /* Space below dot */
-         margin-left: 0;
+         position: relative;
+         top: auto;
+         left: auto;
+         transform: none;
       }
       .timeline-section-{{ section.id }} .timeline__event-item:last-child {
         margin-bottom: 0;
       }
-      {% if num_blocks == 1 %}
-        .timeline-section-{{ section.id }} .timeline__line {
-          display: none;
-        }
-         .timeline-section-{{ section.id }} .timeline__event-item {
-            padding: 0 10px; align-items: center; text-align:center;
-         }
-         .timeline-section-{{ section.id }} .timeline__year-display { position: relative; left: auto; transform: none; }
-         .timeline-section-{{ section.id }} .timeline__dot { position: relative; left: auto; transform: none; margin-top:0;}
-         .timeline-section-{{ section.id }} .timeline__description-card { margin-left:auto; margin-right:auto; text-align:center;}
-
-      {% endif %}
+       {% if num_blocks == 1 %}
+         .timeline-section-{{ section.id }} .timeline__line { display: none; }
+       {% endif %}
     {% endif %}
   }
 
@@ -249,56 +233,54 @@
     }
     .timeline-section-{{ section.id }} .timeline__events {
       flex-direction: column;
-      align-items: stretch;
+      align-items: flex-start;
     }
     .timeline-section-{{ section.id }} .timeline__line {
-      left: calc(var(--year-display-size) / 2 - 1px + 10px); /* 10px is initial padding */
+      left: calc(var(--year-display-size) / 2);
       transform: translateX(0);
       top: calc(var(--year-display-size) / 2);
-      bottom: calc(var(--year-display-size) / 2);
-      width: 2px;
+      bottom: 20px;
+      width: var(--line-thickness);
       height: auto;
       right: auto;
     }
     .timeline-section-{{ section.id }} .timeline__event-item {
       width: 100%;
       max-width: none;
-      margin-bottom: 40px;
-      padding: 0 0 0 calc(var(--year-display-size) / 2 + 10px + var(--dot-size) + 15px); /* space for dot + year + gap */
+      margin-bottom: 30px;
+      padding-left: calc(var(--year-display-size) + 20px);
       position: relative;
       min-height: var(--year-display-size);
-      align-items: flex-start;
       text-align: left;
+      align-items: flex-start;
     }
-     .timeline-section-{{ section.id }} .timeline__event-item:last-child {
-        margin-bottom: 0;
-      }
+    .timeline-section-{{ section.id }} .timeline__event-item:last-child {
+      margin-bottom: 0;
+    }
     .timeline-section-{{ section.id }} .timeline__year-display {
-      width: var(--year-display-size); /* Use variable */
+      width: var(--year-display-size);
       height: var(--year-display-size);
       font-size: 16px;
       position: absolute;
-      left: 10px; /* Align with page-width padding */
+      left: calc(-1 * (var(--year-display-size) / 2 + 10px));
       top: 0;
-      transform: translateX(0);
+      transform: none;
       margin-bottom: 0;
     }
     .timeline-section-{{ section.id }} .timeline__dot {
-      width: var(--dot-size); /* Use variable */
+      width: var(--dot-size);
       height: var(--dot-size);
       position: absolute;
-      left: calc(10px + var(--year-display-size) / 2 - var(--dot-size) / 2 - var(--dot-border-size));
-      top: calc(var(--year-display-size) + var(--year-display-bottom-margin));
+      left: calc(-1 * (var(--year-display-size) / 2 + 10px) + var(--year-display-size)/2 - var(--dot-size)/2 - var(--dot-border-size)); /* Центрируем по линии */
+      top: calc(var(--year-display-size) + var(--year-display-bottom-margin) );
       transform: translateY(0);
-      margin-top:0;
+      z-index: 3;
       margin-bottom:0;
     }
     .timeline-section-{{ section.id }} .timeline__description-card {
       padding: 15px;
-      font-size: 12px;
-      margin-top: 0; /* Aligned with year display */
-      margin-left: 0; /* Reset margin if any */
-      min-height:auto;
+      font-size: 13px;
+      margin-top: 0;
     }
      {% if num_blocks == 1 %}
         .timeline-section-{{ section.id }} .timeline__line {
@@ -316,9 +298,14 @@
 
 <div class="timeline-section-{{ section.id }}">
   <div class="page-width">
-    {%- if settings.heading != blank -%}
+    {%- if settings.supertitle != blank or settings.title != blank -%}
       <div class="timeline-header">
-        <div class="timeline-header__content">{{ settings.heading }}</div>
+        {%- if settings.supertitle != blank -%}
+          <span class="timeline-header__supertitle">{{ settings.supertitle }}</span>
+        {%- endif -%}
+        {%- if settings.title != blank -%}
+          <h2 class="timeline-header__title">{{ settings.title }}</h2>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
@@ -349,31 +336,53 @@
 
 {% schema %}
   {
-    "name": "Timeline Section",
+    "name": "Timeline Section v2",
     "tag": "section",
     "class": "timeline-section-wrapper",
     "settings": [
       {
-        "type": "richtext",
-        "id": "heading",
-        "label": "Heading",
-        "default": "<p>Built on Experience:</p><h2>The Evolution of Golzar Home</h2>"
+        "type": "text",
+        "id": "supertitle",
+        "label": "Superheading",
+        "default": "Built on Experience:"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Main Heading",
+        "default": "The Evolution of Golzar Home"
+      },
+      {
+        "type": "range",
+        "id": "supertitle_font_size",
+        "min": 12,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "Superheading Font Size",
+        "default": 18
+      },
+      {
+        "type": "select",
+        "id": "supertitle_font_weight",
+        "label": "Superheading Font Weight",
+        "options": [
+          { "value": "400", "label": "Regular" },
+          { "value": "500", "label": "Medium" },
+          { "value": "600", "label": "Semi-Bold" },
+          { "value": "700", "label": "Bold" }
+        ],
+        "default": "600"
       },
       {
         "type": "select",
         "id": "header_align",
         "label": "Header Alignment",
         "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          }
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
         ],
-        "default": "center"
+        "default": "left"
       },
       {
         "type": "header",
@@ -387,8 +396,14 @@
       },
       {
         "type": "color",
-        "id": "heading_color",
-        "label": "Heading Text",
+        "id": "heading_supertitle_color",
+        "label": "Superheading Text Color",
+        "default": "#1F2937"
+      },
+      {
+        "type": "color",
+        "id": "heading_title_color",
+        "label": "Main Heading Text Color",
         "default": "#1F2937"
       },
       {
@@ -433,7 +448,7 @@
         "step": 4,
         "unit": "px",
         "label": "Top Padding",
-        "default": 60
+        "default": 80
       },
       {
         "type": "range",
@@ -443,14 +458,14 @@
         "step": 4,
         "unit": "px",
         "label": "Bottom Padding",
-        "default": 60
+        "default": 80
       }
     ],
     "blocks": [
       {
         "type": "timeline_event",
         "name": "Timeline Event",
-        "limit": 8,
+        "limit": 6,
         "settings": [
           {
             "type": "text",
@@ -469,7 +484,10 @@
     ],
     "presets": [
       {
-        "name": "Timeline Section",
+        "name": "Timeline Evolution",
+        "settings": {
+          "header_align": "left"
+        },
         "blocks": [
           {
             "type": "timeline_event",
@@ -482,7 +500,7 @@
             "type": "timeline_event",
             "settings": {
               "year": "2006",
-              "description": "<p>Corporate Registration as an Importer. Official Incorporation as an Importer of Galvanized Fitting.</p>"
+              "description": "<p>Corporate Registration as an Importer. Official Incorporation as an Importer of Galvanized Fitting 2010.</p>"
             }
           },
           {
