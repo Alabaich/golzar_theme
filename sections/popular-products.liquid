@@ -1,124 +1,8 @@
-<div class="page-width">
-  <div class="popular-products-main">
-    <div class="popular-products-inn">
-      <div class="popular-products">
-        <div class="qdsad">
-          <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
-          {% if section.settings.featured_collection != blank and collections[section.settings.featured_collection].products_count > 0 %}
-            <a href="{{ collections[section.settings.featured_collection].url }}" class="show-more">Show More</a>
-          {% elsif section.settings.show_more_link != blank %}
-            <a href="{{ section.settings.show_more_link }}" class="show-more">Show More</a>
-          {% endif %}
-        </div>
-
-        {%- assign collection_handle = section.settings.featured_collection -%}
-        {%- assign collection_to_display = collections[collection_handle] -%}
-        {%- assign products_limit = section.settings.products_limit -%}
-
-        <div class="products-grid">
-          {%- if collection_handle == blank -%}
-            <p class="products-grid__no-products-message">
-              Please select a collection in the theme customizer.
-            </p>
-          {%- elsif collection_to_display == blank -%}
-            <p class="products-grid__no-products-message">
-              The selected collection '{{ collection_handle }}' could not be found. It might have been deleted or the handle is incorrect.
-            </p>
-          {%- elsif collection_to_display.products_count == 0 -%}
-            <p class="products-grid__no-products-message">
-              No products found in the '{{ collection_to_display.title }}' collection.
-            </p>
-          {%- else -%}
-            {%- for product in collection_to_display.products limit: products_limit -%}
-              {%- liquid
-                assign current_variant = product.selected_or_first_available_variant
-              -%}
-              <div class="product-item">
-                <a href="{{ product.url | within: collection_to_display }}" class="product-image-link">
-                  {%- if product.featured_image != blank -%}
-                    <div class="product-image">
-                      <img
-                        src="{{ product.featured_image | image_url: width: 300 }}"
-                        alt="{{ product.title | escape }}"
-                        class="prod-img"
-                        loading="lazy"
-                        width="300"
-                        height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}">
-                    </div>
-                  {%- else -%}
-                    <div class="product-image placeholder">
-                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    </div>
-                  {%- endif -%}
-                </a>
-                <h3 class="product-title">
-                  <a href="{{ product.url | within: collection_to_display }}">{{ product.title | escape }}</a>
-                </h3>
-
-                <div class="product-price-container">
-                  {%- if current_variant.compare_at_price > current_variant.price -%}
-                    <span class="product-price--sale">
-                      {{ current_variant.price | money }}
-                    </span>
-                    <s class="product-price--original">
-                      {{ current_variant.compare_at_price | money }}
-                    </s>
-                  {%- else -%}
-                    <span class="product-price--regular">
-                      {{ current_variant.price | money }}
-                    </span>
-                  {%- endif -%}
-                </div>
-
-                <div class="product-actions">
-                  <a href="{{ product.url | within: collection_to_display }}" class="product-cta">View Product</a>
-                </div>
-              </div>
-            {%- endfor -%}
-          {%- endif -%}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% schema %}
-  {
-    "name": "Popular Products",
-    "class": "section popular-products-section",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "popular_title",
-        "label": "Title",
-        "default": "Popular Products"
-      }, {
-        "type": "collection",
-        "id": "featured_collection",
-        "label": "Collection"
-      }, {
-        "type": "range",
-        "id": "products_limit",
-        "min": 2,
-        "max": 16,
-        "step": 1,
-        "label": "Number of products to show",
-        "default": 4
-      }, {
-        "type": "url",
-        "id": "show_more_link",
-        "label": " Fallback 'Show More' Link",
-        "info": "If a collection is selected AND has products, 'Show More' links to it. Otherwise, this fallback link is used (if not blank)."
-      }
-    ],
-    "presets": [
-      {
-        "name": "Popular Products"
-      }
-    ]
-  }
-{% endschema %}
+{%- liquid
+  assign collection_handle = section.settings.featured_collection
+  assign collection_to_display = collections[collection_handle]
+  assign products_limit = section.settings.products_limit
+-%}
 
 {% style %}
   #shopify-section-{{ section.id }} {
@@ -230,28 +114,119 @@
     color: #1c1c1c;
   }
 
-  .product-actions {
+  .product-availability {
+    font-size: 0.85em;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  .product-availability--in-stock {
+    color: #28a745;
+  }
+  .product-availability--out-of-stock {
+    color: #dc3545;
+  }
+
+  .product-card__form-container {
+    display: flex;
+    gap: 10px;
     margin-top: auto;
+    align-items: center;
   }
 
-  .product-cta {
+  .product-card__form {
+    flex-grow: 1;
+  }
+
+  .product-card__add-to-cart-button {
     display: block;
-    background-color: #003087;
-    text-align: center;
-    color: white;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
     width: 100%;
-    padding: 12px 24px;
-    box-sizing: border-box;
+    padding: 12px 15px;
+    background-color: #002642;
+    color: #ffffff;
+    border: 2px solid #002642;
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease
+    , color 0.3s ease
+    , border-color 0.3s ease;
+    text-align: center;
   }
 
-  .product-cta:hover {
-    background-color: #00205b;
+  .product-card__add-to-cart-button:hover:not(:disabled) {
+    background-color: #003366;
+    border-color: #003366;
+    color: #ffffff;
   }
+
+  .product-card__add-to-cart-button.button--disabled {
+    background-color: #ebebeb;
+    color: #555555;
+    border: 2px solid #d0d0d0;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  .product-card__add-to-cart-button.button--disabled:hover {
+    background-color: #ebebeb;
+    color: #555555;
+    border-color: #d0d0d0;
+  }
+
+  .product-card__quick-cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background-color: #ebebeb;
+    border: 2px solid #d0d0d0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease
+    , border-color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .product-card__quick-cart-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #002642;
+    transition: fill 0.3s ease;
+  }
+
+  .product-card__quick-cart-button:hover:not(:disabled) {
+    background-color: #002642;
+    border-color: #002642;
+  }
+  .product-card__quick-cart-button:hover:not(:disabled) svg {
+    fill: #ffffff;
+  }
+
+  .product-card__quick-cart-button.button--disabled,
+  .product-card__quick-cart-button:disabled {
+    background-color: #ebebeb;
+    border: 2px solid #d0d0d0;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  .product-card__quick-cart-button.button--disabled svg,
+  .product-card__quick-cart-button:disabled svg {
+    fill: #777;
+  }
+  .product-card__quick-cart-button.button--disabled:hover,
+  .product-card__quick-cart-button:disabled:hover {
+    background-color: #ebebeb;
+    border-color: #d0d0d0;
+  }
+  .product-card__quick-cart-button.button--disabled:hover svg,
+  .product-card__quick-cart-button:disabled:hover svg {
+    fill: #777;
+  }
+
 
   .show-more {
     display: inline-block;
@@ -295,6 +270,202 @@
     .show-more {
       width: auto;
       align-self: flex-start;
-    };
+    }
   }
 {% endstyle %}
+
+<div class="page-width">
+  <div class="popular-products-main">
+    <div class="popular-products-inn">
+      <div class="popular-products">
+        <div class="qdsad">
+          <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
+          {% if section.settings.featured_collection != blank and collection_to_display.products_count > 0 %}
+            <a href="{{ collection_to_display.url }}" class="show-more">Show More</a>
+          {% elsif section.settings.show_more_link != blank %}
+            <a href="{{ section.settings.show_more_link }}" class="show-more">Show More</a>
+          {% endif %}
+        </div>
+
+        <div class="products-grid">
+          {%- if collection_handle == blank -%}
+            <p class="products-grid__no-products-message">
+              Please select a collection in the theme customizer.
+            </p>
+          {%- elsif collection_to_display == blank -%}
+            <p class="products-grid__no-products-message">
+              The selected collection '{{ collection_handle }}' could not be found. It might have been deleted or the handle is incorrect.
+            </p>
+          {%- elsif collection_to_display.products_count == 0 -%}
+            <p class="products-grid__no-products-message">
+              No products found in the '{{ collection_to_display.title }}' collection.
+            </p>
+          {%- else -%}
+            {%- for product in collection_to_display.products limit: products_limit -%}
+              {%- liquid
+                assign current_variant = product.selected_or_first_available_variant
+              -%}
+              <div class="product-item">
+                <a href="{{ product.url | within: collection_to_display }}" class="product-image-link">
+                  {%- if product.featured_image != blank -%}
+                    <div class="product-image">
+                      <img
+                        src="{{ product.featured_image | image_url: width: 300 }}"
+                        alt="{{ product.title | escape }}"
+                        class="prod-img"
+                        loading="lazy"
+                        width="300"
+                        height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}">
+                    </div>
+                  {%- else -%}
+                    <div class="product-image placeholder">
+                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {%- endif -%}
+                </a>
+                <h3 class="product-title">
+                  <a href="{{ product.url | within: collection_to_display }}">{{ product.title | escape }}</a>
+                </h3>
+
+                {% if section.settings.show_availability %}
+                  {% if current_variant.available %}
+                    <p class="product-availability product-availability--in-stock">{{ 'products.product.in_stock' | t }}</p>
+                  {% else %}
+                    <p class="product-availability product-availability--out-of-stock">{{ 'products.product.sold_out' | t }}</p>
+                  {% endif %}
+                {% endif %}
+
+                <div class="product-price-container">
+                  {%- if current_variant.compare_at_price > current_variant.price -%}
+                    <span class="product-price--sale">
+                      {{ current_variant.price | money }}
+                    </span>
+                    <s class="product-price--original">
+                      {{ current_variant.compare_at_price | money }}
+                    </s>
+                  {%- else -%}
+                    <span class="product-price--regular">
+                      {{ current_variant.price | money }}
+                    </span>
+                  {%- endif -%}
+                </div>
+
+                {% if section.settings.show_add_to_cart_button %}
+                  <div class="product-card__form-container">
+                    <form
+                      action="{{ routes.cart_add_url }}"
+                      method="post"
+                      enctype="multipart/form-data"
+                      class="product-card__form">
+                      <input
+                        type="hidden"
+                        name="id"
+                        value="{{ current_variant.id }}">
+                      <input
+                        type="hidden"
+                        name="quantity"
+                        value="1"
+                        min="1">
+                      <button
+                        type="submit"
+                        class="product-card__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                        {% unless current_variant.available %}
+                        disabled
+                        aria-disabled="true"
+                        {% endunless %}>
+                        {% if current_variant.available %}
+                          {{ section.settings.product_button_text | default: 'Add to Cart' | escape }}
+                        {% else %}
+                          {{ 'products.product.sold_out' | t }}
+                        {% endif %}
+                      </button>
+                    </form>
+                    <button
+                      type="button"
+                      class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                      aria-label="{{ 'products.product.add_to_cart' | t }}"
+                      data-variant-id="{{ current_variant.id }}"
+                      {% unless current_variant.available %}
+                      disabled
+                      aria-disabled="true"
+                      {% endunless %}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
+                        <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" />
+                        <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" />
+                      </svg>
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Popular Products",
+    "class": "section popular-products-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "popular_title",
+        "label": "Title",
+        "default": "Popular Products"
+      },
+      {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+      },
+      {
+        "type": "range",
+        "id": "products_limit",
+        "min": 2,
+        "max": 16,
+        "step": 1,
+        "label": "Number of products to show",
+        "default": 4
+      },
+      {
+        "type": "url",
+        "id": "show_more_link",
+        "label": " Fallback 'Show More' Link",
+        "info": "If a collection is selected AND has products, 'Show More' links to it. Otherwise, this fallback link is used (if not blank)."
+      }, {
+        "type": "checkbox",
+        "id": "show_availability",
+        "label": "Show availability",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_add_to_cart_button",
+        "label": "Show 'Add to Cart' button",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "product_button_text",
+        "label": "Add to Cart button text",
+        "default": "Add to Cart"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Popular Products"
+      }
+    ]
+  }
+{% endschema %}
