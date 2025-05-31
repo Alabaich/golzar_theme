@@ -22,20 +22,10 @@
     background-color: var(--section-bg);
     padding-top: {{ settings.padding_top }}px;
     padding-bottom: {{ settings.padding_bottom }}px;
-    font-family: -apple-system
-    , BlinkMacSystemFont
-    , 'Segoe UI'
-    , Roboto
-    , Helvetica
-    , Arial
-    , sans-serif
-    , 'Apple Color Emoji'
-    , 'Segoe UI Emoji'
-    , 'Segoe UI Symbol';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 
-  .timeline-section-{{ section.id }}
-  .page-width {
+  .timeline-section-{{ section.id }} .page-width {
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
@@ -48,33 +38,26 @@
     }
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline-header {
+  .timeline-section-{{ section.id }} .timeline-header {
     text-align: {{ settings.header_align | default: 'center' }};
     margin-bottom: 60px;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline-header__content h1
-  , .timeline-section-{{ section.id }}
-  .timeline-header__content h2
-  , .timeline-section-{{ section.id }}
-  .timeline-header__content h3
-  , .timeline-section-{{ section.id }}
-  .timeline-header__content p {
+  .timeline-section-{{ section.id }} .timeline-header__content h1,
+  .timeline-section-{{ section.id }} .timeline-header__content h2,
+  .timeline-section-{{ section.id }} .timeline-header__content h3,
+  .timeline-section-{{ section.id }} .timeline-header__content p {
     color: var(--heading-color);
-    font-family: 'Raleway'
-    , sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
-  .timeline-section-{{ section.id }}.timeline-header__content p:first-child {
+  .timeline-section-{{ section.id }} .timeline-header__content p:first-child {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 4px;
   }
-  .timeline-section-{{ section.id }}
-  .timeline-header__content h2 {
+  .timeline-section-{{ section.id }} .timeline-header__content h2 {
     font-size: 30px;
     font-weight: 700;
     line-height: 1.2;
@@ -82,49 +65,50 @@
     margin-bottom: 0;
   }
   @media (min-width: 750px) {
-    .timeline-section-{{ section.id }}.timeline-header__content p:first-child {
+    .timeline-section-{{ section.id }} .timeline-header__content p:first-child {
       font-size: 20px;
     }
-    .timeline-section-{{ section.id }}
-    .timeline-header__content h2 {
+    .timeline-section-{{ section.id }} .timeline-header__content h2 {
       font-size: 38px;
     }
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__container {
+  .timeline-section-{{ section.id }} .timeline__container {
     position: relative;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__line {
+  .timeline-section-{{ section.id }} .timeline__line {
     position: absolute;
-    top: calc(var(--year-display-size) + var(--year-display-bottom-margin) +(var(--dot-size) / 2) + var(--dot-border-size) - 1px);
+    top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px);
     height: 2px;
     background-color: var(--line-color);
     z-index: 1;
-    {%- if num_blocks > 1 -%}
+  }
+  {%- if num_blocks > 1 -%}
+    .timeline-section-{{ section.id }} .timeline__line {
       left: calc((100% / {{ num_blocks }}) / 2);
       right: calc((100% / {{ num_blocks }}) / 2);
-    {%- else -%}
+    }
+  {%- else -%}
+    .timeline-section-{{ section.id }} .timeline__line {
       display: none;
-    {%- endif -%}
-  }
+    }
+  {%- endif -%}
 
-  .timeline-section-{{ section.id }}
-  .timeline__events {
+  .timeline-section-{{ section.id }} .timeline__events {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
     z-index: 2;
-    {% if num_blocks == 1 %}
-      justify-content: center;
-    {% endif %}
   }
+  {% if num_blocks == 1 %}
+    .timeline-section-{{ section.id }} .timeline__events {
+      justify-content: center;
+    }
+  {% endif %}
 
-  .timeline-section-{{ section.id }}
-  .timeline__event-item {
+  .timeline-section-{{ section.id }} .timeline__event-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,15 +117,18 @@
     flex-grow: 1;
     padding: 0 10px;
     box-sizing: border-box;
-    {% if num_blocks > 0 %}
-      max-width: calc(100% / {{ num_blocks }});
-    {% else %}
-      max-width: 100%;
-    {% endif %}
   }
+  {% if num_blocks > 0 %}
+    .timeline-section-{{ section.id }} .timeline__event-item {
+      max-width: calc(100% / {{ num_blocks }});
+    }
+  {% else %}
+    .timeline-section-{{ section.id }} .timeline__event-item {
+      max-width: 100%;
+    }
+  {% endif %}
 
-  .timeline-section-{{ section.id }}
-  .timeline__year-display {
+  .timeline-section-{{ section.id }} .timeline__year-display {
     width: var(--year-display-size);
     height: var(--year-display-size);
     border-radius: 50%;
@@ -152,16 +139,14 @@
     justify-content: center;
     font-size: 18px;
     font-weight: 600;
-    font-family: 'Raleway'
-    , sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin-bottom: var(--year-display-bottom-margin);
     position: relative;
     z-index: 3;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__dot {
+  .timeline-section-{{ section.id }} .timeline__dot {
     width: var(--dot-size);
     height: var(--dot-size);
     background-color: var(--accent-color);
@@ -170,11 +155,10 @@
     margin-bottom: var(--dot-bottom-margin);
     position: relative;
     z-index: 3;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__description-card {
+  .timeline-section-{{ section.id }} .timeline__description-card {
     background-color: var(--card-bg-color);
     color: var(--card-text-color);
     padding: 20px;
@@ -183,28 +167,24 @@
     line-height: 1.6;
     width: 100%;
     min-height: 100px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    font-family: 'Raleway'
-    , sans-serif;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    font-family: 'Raleway', sans-serif;
   }
-  .timeline-section-{{ section.id }}
-  .timeline__description-card p {
+  .timeline-section-{{ section.id }} .timeline__description-card p {
     margin-top: 0;
     margin-bottom: 0.5em;
   }
-  .timeline-section-{{ section.id }}.timeline__description-card p:last-child {
+  .timeline-section-{{ section.id }} .timeline__description-card p:last-child {
     margin-bottom: 0;
   }
 
   @media (max-width: 989px) {
     {% if num_blocks > 3 %}
-      .timeline-section-{{ section.id }}
-      .timeline__events {
+      .timeline-section-{{ section.id }} .timeline__events {
         flex-direction: column;
         align-items: center;
       }
-      .timeline-section-{{ section.id }}
-      .timeline__line {
+      .timeline-section-{{ section.id }} .timeline__line {
         left: 50%;
         transform: translateX(-50%);
         top: 0;
@@ -212,18 +192,19 @@
         width: 2px;
         height: auto;
         right: auto;
-        {% if num_blocks == 1 %}
-          display: none;
-        {% endif %}
       }
-      .timeline-section-{{ section.id }}
-      .timeline__event-item {
+      {% if num_blocks == 1 %}
+        .timeline-section-{{ section.id }} .timeline__line {
+          display: none;
+        }
+      {% endif %}
+      .timeline-section-{{ section.id }} .timeline__event-item {
         width: 90%;
         max-width: 450px;
         margin-bottom: 40px;
         padding: 0;
       }
-      .timeline-section-{{ section.id }}.timeline__event-item:last-child {
+      .timeline-section-{{ section.id }} .timeline__event-item:last-child {
         margin-bottom: 0;
       }
     {% endif %}
@@ -234,8 +215,7 @@
       flex-direction: column;
       align-items: center;
     }
-    .timeline-section-{{ section.id }}
-    .timeline__line {
+    .timeline-section-{{ section.id }} .timeline__line {
       left: 50%;
       transform: translateX(-50%);
       top: 0;
@@ -243,33 +223,31 @@
       width: 2px;
       height: auto;
       right: auto;
-      {% if num_blocks == 1 %}
-        display: none;
-      {% endif %}
     }
-    .timeline-section-{{ section.id }}
-    .timeline__event-item {
+    {% if num_blocks == 1 %}
+      .timeline-section-{{ section.id }} .timeline__line {
+        display: none;
+      }
+    {% endif %}
+    .timeline-section-{{ section.id }} .timeline__event-item {
       width: 90%;
       max-width: 400px;
       margin-bottom: 40px;
       padding: 0;
     }
-    .timeline-section-{{ section.id }}.timeline__event-item:last-child {
+    .timeline-section-{{ section.id }} .timeline__event-item:last-child {
       margin-bottom: 0;
     }
-    .timeline-section-{{ section.id }}
-    .timeline__year-display {
+    .timeline-section-{{ section.id }} .timeline__year-display {
       width: 80px;
       height: 80px;
       font-size: 16px;
     }
-    .timeline-section-{{ section.id }}
-    .timeline__dot {
+    .timeline-section-{{ section.id }} .timeline__dot {
       width: 14px;
       height: 14px;
     }
-    .timeline-section-{{ section.id }}
-    .timeline__description-card {
+    .timeline-section-{{ section.id }} .timeline__description-card {
       padding: 15px;
       font-size: 12px;
     }
@@ -329,7 +307,8 @@
           {
             "value": "left",
             "label": "Left"
-          }, {
+          },
+          {
             "value": "center",
             "label": "Center"
           }
@@ -345,40 +324,48 @@
         "id": "section_bg_color",
         "label": "Section Background",
         "default": "#FFFFFF"
-      }, {
+      },
+      {
         "type": "color",
         "id": "heading_color",
         "label": "Heading Text",
         "default": "#1F2937"
-      }, {
+      },
+      {
         "type": "color",
         "id": "accent_color",
         "label": "Accent Color (Year Bubbles, Dots)",
         "default": "#3B5F82"
-      }, {
+      },
+      {
         "type": "color",
         "id": "year_text_color",
         "label": "Year Text Color (in Bubble)",
         "default": "#FFFFFF"
-      }, {
+      },
+      {
         "type": "color",
         "id": "card_bg_color",
         "label": "Event Card Background",
         "default": "#F8F9FA"
-      }, {
+      },
+      {
         "type": "color",
         "id": "card_text_color",
         "label": "Event Card Text",
         "default": "#4B5563"
-      }, {
+      },
+      {
         "type": "color",
         "id": "line_color",
         "label": "Timeline Color",
         "default": "#D1D5DB"
-      }, {
+      },
+      {
         "type": "header",
         "content": "Section Padding"
-      }, {
+      },
+      {
         "type": "range",
         "id": "padding_top",
         "min": 0,
@@ -387,7 +374,8 @@
         "unit": "px",
         "label": "Top Padding",
         "default": 60
-      }, {
+      },
+      {
         "type": "range",
         "id": "padding_bottom",
         "min": 0,
@@ -409,7 +397,8 @@
             "id": "year",
             "label": "Year",
             "default": "2024"
-          }, {
+          },
+          {
             "type": "richtext",
             "id": "description",
             "label": "Description",
@@ -449,7 +438,8 @@
               "year": "2019",
               "description": "<p>Inception of Golzar Home Construction Holding. Importing and Supplying a Wide Range of Construction Industry Products.</p>"
             }
-          }, {
+          },
+          {
             "type": "timeline_event",
             "settings": {
               "year": "2022",
