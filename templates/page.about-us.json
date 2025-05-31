@@ -354,8 +354,8 @@
         "card_bg_color": "#F8F9FA",
         "card_text_color": "#4B5563",
         "line_color": "#D1D5DB",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
