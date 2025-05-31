@@ -242,7 +242,7 @@
           "type": "feature_item",
           "settings": {
             "item_title": "Experience Since 1996",
-            "item_description": "<p>With nearly 30 years in the kitchen and bathroom industry, Golzar Home has built a trusted reputation for quality, reliability, and expertise.</p>",
+            "item_description": "<p>With nearly 30 years in the kitchen and bathroom industry, <strong>Golzar Home has built a trusted reputation for quality, reliability, and expertise.</strong></p>",
             "item_link": ""
           }
         },
@@ -285,7 +285,7 @@
         "card_bg_color": "#ebeeef",
         "card_border_color": "#ebeeef",
         "card_border_radius": 12,
-        "item_title_size": 20,
+        "item_title_size": 16,
         "item_title_color": "#212529",
         "item_description_color": "#495057",
         "icon_circle_bg_color": "#e0e0e0",
