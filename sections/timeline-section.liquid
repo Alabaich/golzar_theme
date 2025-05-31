@@ -7,21 +7,19 @@
 {%- style -%}
   .timeline-section-{{ section.id }} {
     --section-bg: {{ settings.section_bg_color | default: '#FFFFFF' }};
-    --heading-supertitle-color: {{ settings.heading_supertitle_color | default: '#1F2937' }};
-    --heading-title-color: {{ settings.heading_title_color | default: '#1F2937' }};
+    --heading-supertitle-color: {{ settings.heading_supertitle_color | default: '#111827' }};
+    --heading-title-color: {{ settings.heading_title_color | default: '#111827' }};
     --accent-color: {{ settings.accent_color | default: '#3B5F82' }};
     --year-text-color: {{ settings.year_text_color | default: '#FFFFFF' }};
     --card-bg-color: {{ settings.card_bg_color | default: '#F8F9FA' }};
-    --card-text-color: {{ settings.card_text_color | default: '#4B5563' }};
-    --line-color: {{ settings.line_color | default: '#D1D5DB' }};
+    --card-text-color: {{ settings.card_text_color | default: '#374151' }};
+    --line-color: {{ settings.line_color | default: '#E5E7EB' }};
     
-    --year-display-size: 90px;
-    --year-display-font-size: 16px;
-    --year-display-bottom-margin: 15px;
+    --year-display-size: {{ settings.year_bubble_size }}px;
+    --year-display-font-size: {{ settings.year_font_size }}px;
+    --year-display-to-dot-margin: 15px;
 
-    --dot-size: 12px;
-    --dot-border-size: 0px;
-    
+    --dot-size: {{ settings.dot_size }}px;
     --dot-to-card-margin: 15px;
     --line-thickness: 2px;
 
@@ -29,13 +27,17 @@
     padding-top: {{ settings.padding_top }}px;
     padding-bottom: {{ settings.padding_bottom }}px;
     font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
   }
 
   .timeline-section-{{ section.id }} .page-width {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   @media (min-width: 750px) {
     .timeline-section-{{ section.id }} .page-width {
@@ -46,7 +48,7 @@
 
   .timeline-section-{{ section.id }} .timeline-header {
     text-align: {{ settings.header_align | default: 'left' }};
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   .timeline-section-{{ section.id }} .timeline-header__supertitle {
@@ -56,7 +58,7 @@
     font-weight: {{ settings.supertitle_font_weight }};
     line-height: 1.4;
     color: var(--heading-supertitle-color);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .timeline-section-{{ section.id }} .timeline-header__title {
@@ -64,29 +66,27 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 50px;
-    line-height: 1.1; /* 110% */
+    line-height: 1.1;
     letter-spacing: 0px;
     color: var(--heading-title-color);
     margin: 0;
   }
   @media (max-width: 749px) {
     .timeline-section-{{ section.id }} .timeline-header__title {
-      font-size: 36px;
+      font-size: 36px; 
     }
      .timeline-section-{{ section.id }} .timeline-header__supertitle {
-      font-size: {{ settings.supertitle_font_size | minus: 2 }}px;
+      font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px;
     }
   }
-
 
   .timeline-section-{{ section.id }} .timeline__container {
     position: relative;
-    padding-top: calc(var(--year-display-size) / 2 + var(--year-display-bottom-margin));
   }
 
   .timeline-section-{{ section.id }} .timeline__line {
-    position: absolute; 
-    top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) / 2 - (var(--line-thickness) / 2) );
+    position: absolute;
+    top: calc(var(--year-display-size) + var(--year-display-to-dot-margin) + (var(--dot-size) / 2) - (var(--line-thickness) / 2));
     height: var(--line-thickness);
     background-color: var(--line-color);
     z-index: 1;
@@ -103,11 +103,10 @@
     }
   {%- endif -%}
 
-
   .timeline-section-{{ section.id }} .timeline__events {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start; 
     position: relative;
     z-index: 2;
   }
@@ -120,11 +119,10 @@
   .timeline-section-{{ section.id }} .timeline__event-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     flex-basis: 0;
     flex-grow: 1;
-    padding: 0 10px;
-    box-sizing: border-box;
+    padding: 0 10px; 
     position: relative;
   }
   {% if num_blocks > 0 %}
@@ -148,11 +146,10 @@
     justify-content: center;
     font-size: var(--year-display-font-size);
     font-weight: 600;
-    font-family: 'Raleway', sans-serif;
-    margin-bottom: var(--year-display-bottom-margin);
+    margin-bottom: var(--year-display-to-dot-margin);
     position: relative; 
     z-index: 3;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
   .timeline-section-{{ section.id }} .timeline__dot {
@@ -160,10 +157,10 @@
     height: var(--dot-size);
     background-color: var(--accent-color);
     border-radius: 50%;
-    border: var(--dot-border-size) solid var(--section-bg);
+    border: var(--dot-border-size) solid var(--section-bg); 
     margin-bottom: var(--dot-to-card-margin);
     position: relative;
-    z-index: 2;
+    z-index: 2; 
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
 
@@ -175,10 +172,9 @@
     font-size: 13px;
     line-height: 1.6;
     width: 100%;
-    min-height: 120px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.07);
-    font-family: 'Raleway', sans-serif;
-    text-align: left;
+    min-height: 120px; 
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.06);
+    text-align: left; 
   }
   .timeline-section-{{ section.id }} .timeline__description-card p {
     margin-top: 0;
@@ -189,110 +185,118 @@
   }
 
   @media (max-width: 989px) {
-    .timeline-section-{{ section.id }} .timeline__container {
-      padding-top: calc(var(--year-display-size) / 2 + var(--year-display-bottom-margin) + 10px); /* Увеличим отступ для ясности */
+    .timeline-section-{{ section.id }} .timeline__line {
+      {% if num_blocks > 2 %}
+        left: 20px;
+        right: auto;
+        top: var(--year-display-size) / 2;
+        bottom: 20px;
+        width: var(--line-thickness);
+        height: auto; 
+        transform: none;
+      {% endif %}
     }
-    {% if num_blocks > 3 or num_blocks == 2 %}
+    {% if num_blocks > 2 %}
       .timeline-section-{{ section.id }} .timeline__events {
         flex-direction: column;
-        align-items: center;
-      }
-      .timeline-section-{{ section.id }} .timeline__line {
-        left: 50%;
-        transform: translateX(-50%);
-        top: calc(var(--year-display-size) + var(--year-display-bottom-margin) + (var(--dot-size) / 2) + var(--dot-border-size) - 1px); /* Сброс, т.к. container имеет padding-top */
-        bottom: auto;
-        width: 2px; 
-        height: calc(100% - (var(--year-display-size) + var(--year-display-bottom-margin) + var(--dot-size) + var(--dot-bottom-margin) ) ); /* Примерная высота */
-        right: auto;
+        align-items: flex-start;
       }
       .timeline-section-{{ section.id }} .timeline__event-item {
         width: 100%;
-        max-width: 450px;
-        margin-bottom: 40px;
-        padding: 0;
+        max-width: none; 
+        margin-bottom: 30px;
+        padding-left: calc(20px + var(--year-display-size) + 20px); /* Место для круга, линии, точки и отступа */
+        min-height: var(--year-display-size);
       }
       .timeline-section-{{ section.id }} .timeline__year-display {
-         position: relative;
-         top: auto;
-         left: auto;
-         transform: none;
+        position: absolute;
+        left: 20px;
+        top: 0;
+        transform: none;
+        margin-bottom: 0;
+      }
+      .timeline-section-{{ section.id }} .timeline__dot {
+        position: absolute;
+        left: calc(20px + var(--year-display-size)/2 - var(--dot-size)/2);
+        top: calc(var(--year-display-size) + var(--year-display-to-dot-margin));
+        margin-bottom: 0;
+      }
+       .timeline-section-{{ section.id }} .timeline__description-card {
+         margin-top: 0;
       }
       .timeline-section-{{ section.id }} .timeline__event-item:last-child {
         margin-bottom: 0;
       }
-       {% if num_blocks == 1 %}
-         .timeline-section-{{ section.id }} .timeline__line { display: none; }
-       {% endif %}
     {% endif %}
   }
 
   @media (max-width: 749px) {
-    .timeline-section-{{ section.id }} .timeline__container {
-        padding-top: 0;
-    }
-    .timeline-section-{{ section.id }} .timeline__events {
-      flex-direction: column;
-      align-items: flex-start;
+    .timeline-section-{{ section.id }} .timeline-header {
+      text-align: left;
     }
     .timeline-section-{{ section.id }} .timeline__line {
       left: calc(var(--year-display-size) / 2);
-      transform: translateX(0);
-      top: calc(var(--year-display-size) / 2);
-      bottom: 20px;
-      width: var(--line-thickness);
-      height: auto;
       right: auto;
+      top: 0;
+      bottom: 0; 
+      width: var(--line-thickness);
+      height: auto; 
+      transform: none;
+       {% if num_blocks == 1 %} display: none; {% endif %}
+    }
+    .timeline-section-{{ section.id }} .timeline__events {
+      flex-direction: column;
+      align-items: flex-start; 
     }
     .timeline-section-{{ section.id }} .timeline__event-item {
       width: 100%;
-      max-width: none;
+      max-width: none; 
       margin-bottom: 30px;
-      padding-left: calc(var(--year-display-size) + 20px);
-      position: relative;
+      padding-left: calc(var(--year-display-size) + 30px); 
       min-height: var(--year-display-size);
-      text-align: left;
       align-items: flex-start;
     }
-    .timeline-section-{{ section.id }} .timeline__event-item:last-child {
-      margin-bottom: 0;
-    }
     .timeline-section-{{ section.id }} .timeline__year-display {
-      width: var(--year-display-size);
-      height: var(--year-display-size);
-      font-size: 16px;
+      width: calc(var(--year-display-size) * 0.8);
+      height: calc(var(--year-display-size) * 0.8);
+      font-size: calc(var(--year-display-font-size) * 0.9);
       position: absolute;
-      left: calc(-1 * (var(--year-display-size) / 2 + 10px));
+      left: 0; 
       top: 0;
       transform: none;
       margin-bottom: 0;
     }
     .timeline-section-{{ section.id }} .timeline__dot {
-      width: var(--dot-size);
-      height: var(--dot-size);
+      width: calc(var(--dot-size) * 0.8);
+      height: calc(var(--dot-size) * 0.8);
+      border-width: calc(var(--dot-border-size) * 0.8);
       position: absolute;
-      left: calc(-1 * (var(--year-display-size) / 2 + 10px) + var(--year-display-size)/2 - var(--dot-size)/2 - var(--dot-border-size)); /* Центрируем по линии */
-      top: calc(var(--year-display-size) + var(--year-display-bottom-margin) );
-      transform: translateY(0);
-      z-index: 3;
+      left: calc(var(--year-display-size) * 0.8 / 2 - var(--dot-size) * 0.8 / 2 - var(--dot-border-size) * 0.8);
+      top: calc(var(--year-display-size) * 0.8 + var(--year-display-to-dot-margin) * 0.8 );
       margin-bottom:0;
     }
     .timeline-section-{{ section.id }} .timeline__description-card {
       padding: 15px;
-      font-size: 13px;
+      font-size: 12px;
       margin-top: 0;
     }
-     {% if num_blocks == 1 %}
-        .timeline-section-{{ section.id }} .timeline__line {
-          display: none;
-        }
-         .timeline-section-{{ section.id }} .timeline__event-item {
-            padding: 0 10px; align-items: center; text-align:center; min-height:auto;
-         }
-         .timeline-section-{{ section.id }} .timeline__year-display { position: relative; left: auto; transform: none; top:auto; }
-         .timeline-section-{{ section.id }} .timeline__dot { position: relative; left: auto; transform: none; top:auto; }
-         .timeline-section-{{ section.id }} .timeline__description-card { margin-left:auto; margin-right:auto; text-align:center;}
-      {% endif %}
+    .timeline-section-{{ section.id }} .timeline__event-item:last-child {
+      margin-bottom: 0;
+    }
+    {% if num_blocks == 1 %}
+      .timeline-section-{{ section.id }} .timeline__event-item {
+        padding-left: 10px; 
+        align-items: center;
+      }
+      .timeline-section-{{ section.id }} .timeline__year-display,
+      .timeline-section-{{ section.id }} .timeline__dot {
+        position: relative;
+        left: auto;
+        top: auto;
+      }
+      .timeline-section-{{ section.id }} .timeline__year-display{ margin-bottom: var(--year-display-to-dot-margin); }
+      .timeline-section-{{ section.id }} .timeline__dot{ margin-bottom: var(--dot-to-card-margin); }
+    {% endif %}
   }
 {%- endstyle -%}
 
@@ -336,7 +340,7 @@
 
 {% schema %}
   {
-    "name": "Timeline Section v2",
+    "name": "Timeline Evolution",
     "tag": "section",
     "class": "timeline-section-wrapper",
     "settings": [
@@ -386,6 +390,40 @@
       },
       {
         "type": "header",
+        "content": "Timeline Element Sizes"
+      },
+      {
+        "type": "range",
+        "id": "year_bubble_size",
+        "min": 60,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "Year Bubble Size",
+        "default": 90
+      },
+      {
+        "type": "range",
+        "id": "year_font_size",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Year Font Size (in Bubble)",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "dot_size",
+        "min": 8,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Dot Size (on line)",
+        "default": 12
+      },
+      {
+        "type": "header",
         "content": "Colors"
       },
       {
@@ -398,13 +436,13 @@
         "type": "color",
         "id": "heading_supertitle_color",
         "label": "Superheading Text Color",
-        "default": "#1F2937"
+        "default": "#111827"
       },
       {
         "type": "color",
         "id": "heading_title_color",
         "label": "Main Heading Text Color",
-        "default": "#1F2937"
+        "default": "#111827"
       },
       {
         "type": "color",
@@ -428,13 +466,13 @@
         "type": "color",
         "id": "card_text_color",
         "label": "Event Card Text",
-        "default": "#4B5563"
+        "default": "#374151"
       },
       {
         "type": "color",
         "id": "line_color",
         "label": "Timeline Color",
-        "default": "#D1D5DB"
+        "default": "#E5E7EB"
       },
       {
         "type": "header",
@@ -486,43 +524,33 @@
       {
         "name": "Timeline Evolution",
         "settings": {
-          "header_align": "left"
+          "header_align": "left",
+          "supertitle_font_size": 18,
+          "supertitle_font_weight": "600",
+          "year_bubble_size": 90,
+          "year_font_size": 16,
+          "dot_size": 12
         },
         "blocks": [
           {
             "type": "timeline_event",
-            "settings": {
-              "year": "1996",
-              "description": "<p>Establishment of Golzar Home. Reputable Retailer of Galvanized Fitting.</p>"
-            }
+            "settings": { "year": "1996", "description": "<p>Establishment of Golzar Home. Reputable Retailer of Galvanized Fitting.</p>" }
           },
           {
             "type": "timeline_event",
-            "settings": {
-              "year": "2006",
-              "description": "<p>Corporate Registration as an Importer. Official Incorporation as an Importer of Galvanized Fitting 2010.</p>"
-            }
+            "settings": { "year": "2006", "description": "<p>Corporate Registration as an Importer. Official Incorporation as an Importer of Galvanized Fitting 2010.</p>" }
           },
           {
             "type": "timeline_event",
-            "settings": {
-              "year": "2010",
-              "description": "<p>Market Shift: Transition to Importing Luxury Kitchen and Bathroom Faucets.</p>"
-            }
+            "settings": { "year": "2010", "description": "<p>Market Shift: Transition to Importing Luxury Kitchen and Bathroom Faucets.</p>" }
           },
           {
             "type": "timeline_event",
-            "settings": {
-              "year": "2019",
-              "description": "<p>Inception of Golzar Home Construction Holding. Importing and Supplying a Wide Range of Construction Industry Products.</p>"
-            }
+            "settings": { "year": "2019", "description": "<p>Inception of Golzar Home Construction Holding. Importing and Supplying a Wide Range of Construction Industry Products.</p>" }
           },
           {
             "type": "timeline_event",
-            "settings": {
-              "year": "2022",
-              "description": "<p>Golzar Home took a major step forward by expanding internationally, establishing our business in Canada and opening our first showroom in Ontario.</p>"
-            }
+            "settings": { "year": "2022", "description": "<p>Golzar Home took a major step forward by expanding internationally, establishing our business in Canada and opening our first showroom in Ontario.</p>" }
           }
         ]
       }
