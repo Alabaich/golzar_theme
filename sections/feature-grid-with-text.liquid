@@ -121,9 +121,11 @@
     justify-content: space-between; 
   }
 
+  {% if section.settings.show_arrow_and_link %}
   .feature-grid-section-{{ section.id }} .feature-item--link .feature-item__inner {
     align-items: center; 
   }
+  {% endif %}
   
   .feature-grid-section-{{ section.id }} .feature-item__text-content {
     flex-grow: 1;
@@ -210,7 +212,7 @@
       <ul class="feature-grid__list">
         {%- for block in section.blocks -%}
           <li {{ block.shopify_attributes }}>
-            {%- if block.settings.show_arrow_and_link -%}
+            {%- if section.settings.show_arrow_and_link -%}
               <a href="{{ block.settings.item_link | default: '#' }}" class="feature-item feature-item--link">
                 <div class="feature-item__inner">
                   <div class="feature-item__text-content">
@@ -236,7 +238,7 @@
               </a>
             {%- else -%}
               <div class="feature-item feature-item--static">
-                <div class="feature-item__inner feature-item__inner--static">
+                <div class="feature-item__inner feature-item__inner--static"> {/* Added --static modifier for potential CSS adjustments */}
                   <div class="feature-item__text-content">
                     {%- if section.settings.show_block_numbering -%}
                       {%- assign item_number = forloop.index -%}
@@ -250,7 +252,6 @@
                       <div class="feature-item__description">{{ block.settings.item_description }}</div>
                     {% endif %}
                   </div>
-                  {%# No icon wrapper for static items #}
                 </div>
               </div>
             {%- endif -%}
@@ -282,7 +283,7 @@
     {
       "type": "checkbox",
       "id": "show_block_numbering",
-      "label": "Show block numbering",
+      "label": "Show block numbering for all items",
       "default": false
     },
     {
@@ -290,6 +291,13 @@
       "id": "block_number_color",
       "label": "Block Number Color",
       "default": "#6B7280"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow_and_link",
+      "label": "Show arrow and make all items linkable",
+      "info": "If checked, ensure 'Item Link' is set for each block below.",
+      "default": true
     },
     {
       "type": "header",
@@ -355,7 +363,7 @@
     },
     {
       "type": "header",
-      "content": "Icon Styling (for linkable items)"
+      "content": "Icon Styling (if items are linkable)"
     },
     {
       "type": "color",
@@ -388,15 +396,9 @@
       "name": "Feature Item",
       "settings": [
         {
-          "type": "checkbox",
-          "id": "show_arrow_and_link",
-          "label": "Show arrow and make item a link",
-          "default": true
-        },
-        {
           "type": "url",
           "id": "item_link",
-          "label": "Item Link (if arrow is shown)"
+          "label": "Item Link (used if 'make all items linkable' is checked)"
         },
         {
           "type": "text",
@@ -418,16 +420,16 @@
       "name": "Feature Grid Text",
       "settings": {
         "main_heading": "Why choose Our Company",
+        "show_block_numbering": true,
+        "show_arrow_and_link": false,
         "card_bg_color": "#EBEEEF",
         "card_border_color": "#EBEEEF",
-        "card_border_radius": 12,
-        "show_block_numbering": true 
+        "card_border_radius": 12
       },
       "blocks": [
         {
           "type": "feature_item",
           "settings": {
-            "show_arrow_and_link": false, 
             "item_title": "Experience Since 1996",
             "item_description": "<p>With nearly 30 years in the industry, our company has built a trusted reputation for quality, reliability, and expertise.</p>"
           }
@@ -435,7 +437,6 @@
         {
           "type": "feature_item",
           "settings": {
-            "show_arrow_and_link": false,
             "item_title": "Exclusive Imported Brands",
             "item_description": "<p>We directly import top-tier brands – offering premium products with strict quality control and 5-year warranty.</p>"
           }
@@ -443,7 +444,6 @@
         {
           "type": "feature_item",
           "settings": {
-            "show_arrow_and_link": false,
             "item_title": "Authorized Dealer Network",
             "item_description": "<p>Our extensive network ensures you receive genuine products and dedicated support across all regions.</p>"
           }
@@ -451,7 +451,6 @@
         {
           "type": "feature_item",
           "settings": {
-            "show_arrow_and_link": false,
             "item_title": "Personalized Support & Experience",
             "item_description": "<p>We provide tailored assistance and a seamless experience, ensuring your needs are met with utmost care.</p>"
           }
