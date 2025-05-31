@@ -58,7 +58,7 @@
   a.promo-banner-button:hover {
     background-color: #002642;
     color: #ffffff;
-    border-color: #002642;
+    border-color: #ffffff;
   }
 
   .promo-banner-image-wrapper {
@@ -282,7 +282,7 @@
   data-section-type="featured-collection-promo-section">
 
   {% if section.settings.section_title != blank %}
-    <h2 class="section-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
+    <h3 title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
   {% endif %}
 
   {% if section.settings.show_promo_banner %}
