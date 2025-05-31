@@ -665,6 +665,14 @@
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
+    },
+    "popular_products_7jxJNT": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products of Kohler",
+        "show_more_link": "shopify://collections/all"
+      }
     }
   },
   "order": [
@@ -680,6 +688,7 @@
     "feature_block_with_stats_VM6e6p",
     "17405401850356168b",
     "custom_blog_posts_grid_eQzdfc",
-    "image_with_text_cta_4dbPbU"
+    "image_with_text_cta_4dbPbU",
+    "popular_products_7jxJNT"
   ]
 }
