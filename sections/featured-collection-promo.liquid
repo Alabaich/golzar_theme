@@ -172,6 +172,18 @@
     font-size: 0.9em;
   }
 
+  .product-card__price-wrapper .price--sale {
+    color: #D9534F;
+    font-weight: bold;
+  }
+
+  .product-card__price-wrapper .price--original {
+    color: #777777;
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-size: 0.9em;
+  }
+
   .product-card__form-container {
     display: flex;
     gap: 10px;
@@ -388,10 +400,11 @@
     {% if collection != blank and collection.products_count > 0 %}
       {% for product in collection.products limit: products_to_display %}
         {%- liquid
+          assign current_variant = product.selected_or_first_available_variant
           assign discount_percentage = 0
-          if product.compare_at_price > product.price
-            assign discount_amount = product.compare_at_price | minus: product.price
-            assign discount_percentage = discount_amount | times: 100.0 | divided_by: product.compare_at_price | round
+          if current_variant.compare_at_price > current_variant.price
+            assign discount_amount = current_variant.compare_at_price | minus: current_variant.price
+            assign discount_percentage = discount_amount | times: 100.0 | divided_by: current_variant.compare_at_price | round
           endif
         -%}
         <div class="grid-item product-card{% if discount_percentage > 0 %} product-card--on-sale{% endif %}">
@@ -421,7 +434,7 @@
           </a>
           <div class="product-card__info">
             {% if section.settings.show_availability %}
-              {% if product.selected_or_first_available_variant.available %}
+              {% if current_variant.available %}
                 <p class="product-card__availability product-card__availability--in-stock">{{ 'products.product.in_stock' | t }}</p>
               {% else %}
                 <p class="product-card__availability product-card__availability--out-of-stock">{{ 'products.product.sold_out' | t }}</p>
@@ -432,10 +445,20 @@
               <h3 class="product-card__title">{{ product.title | truncate: section.settings.product_title_truncate_length | default: 30 }}</h3>
             </a>
 
-            {% render 'price'
-              , product: product
-              , price_class: 'product-card__price-wrapper'
-              , show_compare_at_price: true %}
+            <div class="product-card__price-wrapper">
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <span class="price--sale">
+                  {{ current_variant.price | money }}
+                </span>
+                <s class="price--original">
+                  {{ current_variant.compare_at_price | money }}
+                </s>
+              {%- else -%}
+                <span class="price--regular">
+                  {{ current_variant.price | money }}
+                </span>
+              {%- endif -%}
+            </div>
 
             {% if section.settings.show_add_to_cart_button %}
               <div class="product-card__form-container">
@@ -447,7 +470,7 @@
                   <input
                     type="hidden"
                     name="id"
-                    value="{{ product.selected_or_first_available_variant.id }}">
+                    value="{{ current_variant.id }}">
                   <input
                     type="hidden"
                     name="quantity"
@@ -455,12 +478,12 @@
                     min="1">
                   <button
                     type="submit"
-                    class="product-card__add-to-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
-                    {% unless product.selected_or_first_available_variant.available %}
+                    class="product-card__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                    {% unless current_variant.available %}
                     disabled
                     aria-disabled="true"
                     {% endunless %}>
-                    {% if product.selected_or_first_available_variant.available %}
+                    {% if current_variant.available %}
                       {{ section.settings.product_button_text | escape }}
                     {% else %}
                       {{ 'products.product.sold_out' | t }}
@@ -469,10 +492,10 @@
                 </form>
                 <button
                   type="button"
-                  class="product-card__quick-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
+                  class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
                   aria-label="{{ 'products.product.add_to_cart' | t }}"
-                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                  {% unless product.selected_or_first_available_variant.available %}
+                  data-variant-id="{{ current_variant.id }}"
+                  {% unless current_variant.available %}
                   disabled
                   aria-disabled="true"
                   {% endunless %}>
