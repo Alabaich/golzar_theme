@@ -44,15 +44,12 @@
     border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
-    font-family: 'Arial'
-    , sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
     line-height: normal;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   a.promo-banner-button:hover {
@@ -108,7 +105,7 @@
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: var(--product-image-aspect-ratio, 1 / 1);
+    aspect-ratio: var(--product-image-aspect-ratio, 4 / 3);
     object-fit: cover;
   }
   .product-card__badge-info {
@@ -195,9 +192,7 @@
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     text-align: center;
   }
 
@@ -227,12 +222,11 @@
     padding: 10px;
     width: 40px;
     height: 40px;
-    background-color: #002642;
-    border: 2px solid #002642;
+    background-color: #ebebeb;
+    border: 2px solid #d0d0d0;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .product-card__quick-cart-button svg {
@@ -243,8 +237,8 @@
   }
 
   .product-card__quick-cart-button:hover:not(:disabled) {
-    background-color: #003366;
-    border-color: #003366;
+    background-color: #002642;
+    border-color: #002642;
   }
   .product-card__quick-cart-button:hover:not(:disabled) svg {
     fill: #ffffff;
@@ -270,7 +264,6 @@
   .product-card__quick-cart-button:disabled:hover svg {
     fill: #777;
   }
-
 
   .placeholder-svg.product-card__image {
     display: block;
@@ -316,8 +309,8 @@
   }
 
   @media (max-width: 750px) {
-    .section-header {
-      font-size: 28px;
+     .custm-collection-discount-header h3 {
+      font-size: 32px;
     }
   }
 
@@ -327,6 +320,9 @@
     }
     .promo-banner-heading {
       font-size: 2em;
+    }
+    .custm-collection-discount-header h3 {
+      font-size: 28px;
     }
   }
 {% endstylesheet %}
@@ -372,9 +368,9 @@
         {% if section.settings.promo_image != blank %}
           <div class="promo-banner-image-wrapper">
             {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
- loading: 'lazy',
- widths: '300, 400, 500, 600, 700, 800, 1000',
- class: 'promo-banner-image'
+  loading: 'lazy',
+  widths: '300, 400, 500, 600, 700, 800, 1000',
+  class: 'promo-banner-image'
             }}
           </div>
         {% endif %}
@@ -400,9 +396,9 @@
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
- loading: 'lazy',
- widths: '200, 300, 400, 500',
- class: 'product-card__image'
+  loading: 'lazy',
+  widths: '200, 300, 400, 500',
+  class: 'product-card__image'
                 }}
               {% else %}
                 {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -483,9 +479,10 @@
                     <path
                       fill-rule="evenodd"
                       clip-rule="evenodd"
-                      d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
-                    <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" />
-                    <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" />
+                      d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z"
+                      />
+                    <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z"  />
+                    <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z"  />
                   </svg>
                 </button>
               </div>
