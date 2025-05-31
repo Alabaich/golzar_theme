@@ -142,7 +142,7 @@
   }
   .product-card__info {
     padding: 15px;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -301,7 +301,7 @@
     }
     .promo-banner-inner {
       flex-direction: column;
-      text-align: center;
+      text-align: left;
     }
     .promo-banner-content {
       padding-right: 0;
@@ -496,7 +496,7 @@
         </div>
       {% endfor %}
     {% elsif collection == blank %}
-      <p class="text-center">{{ 'sections.featured_collection_promo.no_collection_selected' | t }}</p>
+      <p>{{ 'sections.featured_collection_promo.no_collection_selected' | t }}</p>
       {% for i in (1..products_to_display) %}
         <div class="grid-item product-card">
           <div class="product-card__link-image">
@@ -511,7 +511,7 @@
         </div>
       {% endfor %}
     {% else %}
-      <p class="text-center">{{ 'sections.featured_collection_promo.no_products_in_collection' | t: collection_title: collection.title }}</p>
+      <p>{{ 'sections.featured_collection_promo.no_products_in_collection' | t: collection_title: collection.title }}</p>
     {% endif %}
   </div>
 </div>
