@@ -1,62 +1,282 @@
-<div class="catelogous_wrapper">
-  {% if section.settings.heading != blank %}
-  <h2 style="color:{{ section.settings.heading_color }}">{{ section.settings.heading }}</h2>
-  {% endif %}
-  {% if section.settings.text != blank %}
-  <div class="content" style="color:{{ section.settings.text_color }}">{{ section.settings.text }}</div>
-  {% endif %}
-          
-  <ul class="catelogues_logo_grid">
-    {%- for block in section.blocks -%}
-    {% if block.settings.logo_image != blank %}
-      <li>
-        <div class="logo-catalogues">
-          {{ block.settings.logo_image | img_tag: block.settings.logo_image.alt, '', 'master' }}
-        </div>
-        {% if block.settings.logo_heading != blank %}
-        <div class="headingg" style="color:{{ block.settings.logo_heading_color }}">{{ block.settings.logo_heading }}</div>
-        {% endif %}
-        {% if block.settings.down_pdf != blank %}
-        <a href="{{ block.settings.down_pdf }}" class="download">📥Download</a>
-        {% endif %}
-      </li>
+{%- liquid
+  assign section_heading = section.settings.heading
+  assign section_text = section.settings.text
+-%}
+
+<div class="page-width">
+  <div class="catelogues_wrapper">
+    {% if section_heading != blank %}
+      <h2 class="catelogues_section-heading" style="color:{{ section.settings.heading_color }}">{{ section_heading }}</h2>
     {% endif %}
-    {% endfor %}
-  </ul>
+    {% if section_text != blank %}
+      <div class="catelogues_section-subtitle" style="color:{{ section.settings.text_color }}">{{ section_text }}</div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <ul class="catelogues_grid">
+        {%- for block in section.blocks -%}
+          <li class="catalogue-card" {{ block.shopify_attributes }}>
+            {% if block.settings.showcase_image != blank %}
+              <div class="catalogue-card__showcase-image-wrapper">
+                <a
+                  href="{{ block.settings.download_link | default: '#' }}"
+                  {% if block.settings.download_link contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  <img
+                    src="{{ block.settings.showcase_image | image_url: width: 450, height: 300, crop: 'center' }}"
+                    alt="{{ block.settings.catalogue_name | default: block.settings.showcase_image.alt | escape }}"
+                    class="catalogue-card__showcase-image"
+                    loading="lazy"
+                    width="450"
+                    height="300">
+                </a>
+              </div>
+            {% endif %}
+            <div class="catalogue-card__content">
+              {% if block.settings.logo_image != blank %}
+                <div class="catalogue-card__logo-wrapper">
+                  {{ block.settings.logo_image | image_url: height: 60 | image_tag: class: 'catalogue-card__logo-image', alt: block.settings.logo_image.alt | default: block.settings.catalogue_name }}
+                </div>
+              {% endif %}
+              {% if block.settings.catalogue_name != blank %}
+                <h3 class="catalogue-card__name" style="color:{{ block.settings.catalogue_name_color }}">{{ block.settings.catalogue_name }}</h3>
+              {% endif %}
+              {% if block.settings.download_link != blank %}
+                <a
+                  href="{{ block.settings.download_link }}"
+                  class="catalogue-card__download-button"
+                  style="background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }};"
+                  {% if block.settings.download_link contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  <span class="download-icon">📥</span>
+                  <span>{{ block.settings.button_text | default: "Download" }}</span>
+                </a>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No catalogue items have been added yet.</p>
+    {% endif %}
+  </div>
 </div>
 
 {% schema %}
   {
-    "name": "Catalogues Grids",
-    "class": "catalogues-grids",
-    "settings": [],
-      "blocks": [
+    "name": "Catalogues Grid",
+    "class": "catalogues-grids-section",
+    "max_blocks": 12,
+    "settings": [
       {
-        "type": "logo_image",
-        "name": "Logo Grids",
+        "type": "text",
+        "id": "heading",
+        "label": "Main Heading",
+        "default": "Browse brand catalogues"
+      }, {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Main Heading Color",
+        "default": "#121212"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Subtitle / Description",
+        "default": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Subtitle Color",
+        "default": "#555555"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "catalogue_item",
+        "name": "Catalogue Item",
         "settings": [
           {
             "type": "image_picker",
+            "id": "showcase_image",
+            "label": "Showcase Image (Main Visual)"
+          },
+          {
+            "type": "image_picker",
             "id": "logo_image",
-            "label": "Logo Image"
+            "label": "Brand Logo Image"
           },
           {
             "type": "text",
-            "id": "logo_heading",
-            "label": "Logo Heading"
+            "id": "catalogue_name",
+            "label": "Catalogue Name (e.g., Alps Catalogue)",
+            "default": "Brand Catalogue"
           },
           {
             "type": "color",
-            "id": "logo_heading_color",
-            "label": "Logo Heading Color"
-          },
-          {
+            "id": "catalogue_name_color",
+            "label": "Catalogue Name Color",
+            "default": "#333333"
+          }, {
             "type": "url",
-            "id": "down_pdf",
-            "label": "PDF Download"
+            "id": "download_link",
+            "label": "Download Link (PDF or Page)"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Download"
+          }, {
+            "type": "color",
+            "id": "button_bg_color",
+            "label": "Button Background Color",
+            "default": "#072D4B"
+          }, {
+            "type": "color",
+            "id": "button_text_color",
+            "label": "Button Text Color",
+            "default": "#FFFFFF"
           }
         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Catalogues Grid",
+        "category": "Image"
       }
     ]
   }
 {% endschema %}
+
+{% stylesheet %}
+  .catalogues-grids-section .catelogues_wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .catelogues_section-heading {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .catelogues_section-subtitle {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  .catelogues_grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media screen and (min-width: 750px) {
+    .catelogues_grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .catelogues_grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .catalogue-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .catalogue-card__showcase-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+  .catalogue-card__showcase-image-wrapper a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .catalogue-card__showcase-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .catalogue-card__content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .catalogue-card__logo-wrapper {
+    margin-bottom: 15px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .catalogue-card__logo-image {
+    max-height: 40px;
+    max-width: 150px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .catalogue-card__name {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    min-height: 2.4em;
+    line-height: 1.2em;
+  }
+
+  .catalogue-card__download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: auto;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
+  }
+
+  .catalogue-card__download-button:hover {
+    opacity: 0.85;
+  }
+
+  .catalogue-card__download-button .download-icon {
+    margin-right: 8px;
+    line-height: 1;
+  }
+{% endstylesheet %}
