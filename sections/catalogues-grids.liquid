@@ -14,7 +14,7 @@
     margin-bottom: 10px;
     text-align: left;
     font-weight: bold;
-    color: {{ section.settings.main_heading_color }};
+    color: #151515;
   }
 
   .catalogues-section-subtitle {
@@ -23,7 +23,7 @@
     margin-bottom: 40px;
     max-width: 700px;
     text-align: left;
-    color: {{ section.settings.main_subtitle_color }};
+    color: #151515;
   }
 
   .catalogues-grid {
@@ -62,8 +62,8 @@
     aspect-ratio: 4 / 3;
     overflow: hidden;
     padding: 2rem;
+    box-sizing: border-box;
   }
-
   .catalogue-card__showcase-image-wrapper a {
     display: block;
     width: 100%;
@@ -90,7 +90,6 @@
     height: auto;
     object-fit: contain;
   }
-
 
   .catalogue-card__content {
     padding: 0 2rem 2rem;
@@ -122,6 +121,7 @@
     margin-bottom: 20px;
     line-height: 1.2em;
     color: #09192C;
+    min-height: 2.4em;
   }
 
   .catalogue-card__download-button {
@@ -131,7 +131,6 @@
     padding: 12px 20px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
     font-size: 0.9em;
     border: none;
     cursor: pointer;
@@ -152,7 +151,6 @@
     margin-left: 8px;
     line-height: 1;
     width: 16px;
-    height: 16px;
   }
   .catalogue-card__download-button .download-icon svg path {
     fill: #FFFFFF;
@@ -160,7 +158,7 @@
 {% endstylesheet %}
 
 <div class="page-width">
-  <div>
+  <div class="catalogues-wrapper">
     {% if section_main_heading != blank %}
       <h2 class="catalogues-section-heading">{{ section_main_heading }}</h2>
     {% endif %}
@@ -262,12 +260,24 @@
         "id": "main_heading",
         "label": "Main Heading",
         "default": "Browse brand catalogues"
-      }, {
+      },
+      {
         "type": "color",
         "id": "main_heading_color",
         "label": "Main Heading Color",
         "default": "#121212"
-      }, {
+      },
+      {
+        "type": "range",
+        "id": "main_heading_font_size",
+        "min": 20,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Main Heading Font Size",
+        "default": 36
+      },
+      {
         "type": "richtext",
         "id": "main_subtitle",
         "label": "Subtitle / Description",
