@@ -1,61 +1,306 @@
-<div class="catelogous_wrapper">
-  {% if section.settings.heading != blank %}
-  <h2 style="color:{{ section.settings.heading_color }}">{{ section.settings.heading }}</h2>
-  {% endif %}
-  {% if section.settings.text != blank %}
-  <div class="content" style="color:{{ section.settings.text_color }}">{{ section.settings.text }}</div>
-  {% endif %}
-          
-  <ul class="catelogues_logo_grid">
-    {%- for block in section.blocks -%}
-    {% if block.settings.logo_image != blank %}
-      <li>
-        <div class="logo-catalogues">
-          {{ block.settings.logo_image | img_tag: block.settings.logo_image.alt, '', 'master' }}
-        </div>
-        {% if block.settings.logo_heading != blank %}
-        <div class="headingg" style="color:{{ block.settings.logo_heading_color }}">{{ block.settings.logo_heading }}</div>
-        {% endif %}
-        {% if block.settings.down_pdf != blank %}
-        <a href="{{ block.settings.down_pdf }}" class="download">📥Download</a>
-        {% endif %}
-      </li>
+{%- liquid
+  assign section_main_heading = section.settings.main_heading
+  assign section_main_subtitle = section.settings.main_subtitle
+-%}
+
+{% stylesheet %}
+  .catalogues-grids-section .page-width {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+.catalogues-section-heading {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: left;
+  font-weight: bold;
+  color: {{ section.settings.main_heading_color }};
+}
+
+.catalogues-section-subtitle {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 700px;
+  text-align: left;
+  color: {{ section.settings.main_subtitle_color }};
+}
+
+.catalogues-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (min-width: 750px) {
+  .catalogues-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .catalogues-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.catalogue-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.catalogue-card__showcase-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+.catalogue-card__showcase-image-wrapper a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.catalogue-card__showcase-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.catalogue-card__showcase-image-wrapper--logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.catalogue-card__showcase-image--fallback-logo {
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.catalogue-card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.catalogue-card__logo-wrapper {
+  margin-bottom: 15px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalogue-card__logo-image {
+  max-height: 50px;
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+}
+
+.catalogue-card__name {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  min-height: 2.4em;
+  line-height: 1.2em;
+  color: #09192C;
+}
+
+.catalogue-card__download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: auto;
+  width: 100%;
+  max-width: 250px;
+  box-sizing: border-box;
+  background-color: {{ block.settings.button_bg_color }};
+  color: {{ block.settings.button_text_color }};/
+}
+
+.catalogue-card__download-button:hover {
+  opacity: 0.85;
+}
+
+.catalogue-card__download-button .download-icon {
+  margin-right: 8px;
+  line-height: 1;
+}
+{% endstylesheet %}
+
+<div class="page-width">
+  <div class="catalogues-wrapper">
+    {% if section_main_heading != blank %}
+      <h2 class="catalogues-section-heading">{{ section_main_heading }}</h2>
     {% endif %}
-    {% endfor %}
-  </ul>
+    {% if section_main_subtitle != blank %}
+      <div class="catalogues-section-subtitle">{{ section_main_subtitle }}</div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <ul class="catalogues-grid">
+        {%- for block in section.blocks -%}
+          <li class="catalogue-card" {{ block.shopify_attributes }}>
+            {% if block.settings.showcase_image != blank %}
+              <div class="catalogue-card__showcase-image-wrapper">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  <img
+                    src="{{ block.settings.showcase_image | image_url: width: 450, height: 300, crop: 'center' }}"
+                    alt="{{ block.settings.logo_heading | default: block.settings.showcase_image.alt | escape }}"
+                    class="catalogue-card__showcase-image"
+                    loading="lazy"
+                    width="450"
+                    height="300">
+                </a>
+              </div>
+            {% elsif block.settings.logo_image != blank %}
+              <div class="catalogue-card__showcase-image-wrapper catalogue-card__showcase-image-wrapper--logo-fallback">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  {{ block.settings.logo_image | image_url: width: 450, height: 300, crop: 'center', scale: 2 | image_tag: class: 'catalogue-card__showcase-image catalogue-card__showcase-image--fallback-logo', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
+                </a>
+              </div>
+            {% endif %}
+
+            <div class="catalogue-card__content">
+              {% if block.settings.logo_image != blank %}
+                <div class="catalogue-card__logo-wrapper">
+                  {{ block.settings.logo_image | image_url: height: 50 | image_tag: class: 'catalogue-card__logo-image', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.logo_heading != blank %}
+                <h3 class="catalogue-card__name">{{ block.settings.logo_heading }}</h3>
+              {% endif %}
+
+              {% if block.settings.down_pdf != blank %}
+                <a href="{{ block.settings.down_pdf }}" class="catalogue-card__download-button">
+                  <span class="download-icon">📥</span>
+                  <span>{{ block.settings.button_text | default: "Download" }}</span>
+                </a>
+              {% endif %}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% else %}
+      <p>No catalogue items have been added yet.</p>
+    {% endif %}
+  </div>
 </div>
 
 {% schema %}
   {
     "name": "Catalogues Grids",
-    "class": "catalogues-grids",
-    "settings": [],
-      "blocks": [
+    "class": "catalogues-grids-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Main Heading",
+        "default": "Browse brand catalogues"
+      }, {
+        "type": "color",
+        "id": "main_heading_color",
+        "label": "Main Heading Color",
+        "default": "#121212"
+      }, {
+        "type": "richtext",
+        "id": "main_subtitle",
+        "label": "Subtitle / Description",
+        "default": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>"
+      }, {
+        "type": "color",
+        "id": "main_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#555555"
+      }
+    ],
+    "blocks": [
       {
         "type": "logo_image",
-        "name": "Logo Grids",
+        "name": "Catalogue Item",
         "settings": [
           {
             "type": "image_picker",
+            "id": "showcase_image",
+            "label": "Showcase Image (Main Visual)"
+          },
+          {
+            "type": "image_picker",
             "id": "logo_image",
-            "label": "Logo Image"
+            "label": "Brand Logo Image"
           },
           {
             "type": "text",
             "id": "logo_heading",
-            "label": "Logo Heading"
+            "label": "Catalogue Name (e.g., Alps Catalogue)"
           },
           {
             "type": "color",
             "id": "logo_heading_color",
-            "label": "Logo Heading Color"
-          },
-          {
+            "label": "Catalogue Name Color",
+            "default": "#333333"
+          }, {
             "type": "url",
             "id": "down_pdf",
-            "label": "PDF Download"
+            "label": "Download Link (PDF or Page)"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Download"
+          }, {
+            "type": "color",
+            "id": "button_bg_color",
+            "label": "Button Background Color",
+            "default": "#072D4B"
+          }, {
+            "type": "color",
+            "id": "button_text_color",
+            "label": "Button Text Color",
+            "default": "#FFFFFF"
           }
         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Catalogues Grid",
+        "category": "Image"
       }
     ]
   }
