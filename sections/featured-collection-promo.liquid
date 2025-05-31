@@ -35,19 +35,19 @@
     line-height: 1.6;
   }
 
-  a.button.promo-banner-button {
+  a.promo-banner-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #ffffff !important;
-    color: #002642 !important;
+    background-color: #ffffff;
+    color: #002642;
     text-decoration: none;
-    border: 2px solid #002642 !important;
+    border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
     font-family: 'Arial'
     , sans-serif;
     font-size: 14px;
-    text-transform: uppercase !important;
+    text-transform: uppercase;
     cursor: pointer;
     line-height: normal;
     transition: background-color 0.3s ease
@@ -55,10 +55,10 @@
     , border-color 0.3s ease;
   }
 
-  a.button.promo-banner-button:hover {
-    background-color: #002642 !important;
-    color: #ffffff !important;
-    border-color: #002642 !important;
+  a.promo-banner-button:hover {
+    background-color: #002642;
+    color: #ffffff;
+    border-color: #002642;
   }
 
   .promo-banner-image-wrapper {
@@ -306,7 +306,7 @@
           {% if section.settings.promo_button_text != blank and section.settings.promo_button_link != blank %}
             <a
               href="{{ section.settings.promo_button_link }}"
-              class="button promo-banner-button"
+              class="promo-banner-button"
               title="{{ section.settings.promo_button_text | escape }}">
               {{ section.settings.promo_button_text | escape }}
             </a>
