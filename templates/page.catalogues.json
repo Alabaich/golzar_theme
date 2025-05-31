@@ -144,7 +144,7 @@
         "image_fit": "cover",
         "image_position_mobile": "top",
         "image_min_height_mobile": 250,
-        "title_size": 32,
+        "title_size": 36,
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
