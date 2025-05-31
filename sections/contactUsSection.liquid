@@ -1,0 +1,394 @@
+<div class="contact-us-main">
+    <div class="contact-us-inn">
+        <div class="contact-us-content">
+            <div class="contact-form-area">
+                <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
+                <form class="contact-form" method="post" action="/contact">
+                    <input type="hidden" name="form_type" value="contact">
+                    <input type="hidden" name="utf8" value="✓">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input type="text" placeholder="John" id="first-name" name="contact[first_name]" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" placeholder="Wick" id="last-name" name="contact[last_name]" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="you@company.com" id="email" name="contact[email]" class="form-input full-width" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" placeholder="+1 (416) 7004346" id="phone" name="contact[phone]" class="form-input full-width" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="subject">Subject (choose from drop-down) *</label>
+                            <select id="subject" name="contact[subject]" class="form-input full-width" required>
+                                <option value="">Select an option</option>
+                                <option value="general">General customer support</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="contact[message]" class="form-input full-width" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row checkbox-row">
+                        <input type="checkbox" id="privacy-policy" required>
+                        <label for="privacy-policy">I agree to friendly privacy policy</label>
+                    </div>
+                    <button type="submit" class="form-submit">BUY NOW</button>
+                </form>
+            </div>
+            <div class="contact-info-area">
+                <div class="map-container" id="map-{{ section.id }}"></div>
+                <div class="contact-details">
+                    <div class="colrowvich">
+                        <div class="contact-detail-item">
+                            <h4 class="contact-details-title">Phone number:</h4>
+                            <p class="contact-phone">{{ section.settings.phone_number | escape }}</p>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h4 class="contact-details-title">Social media:</h4>
+                            <div class="social-links">
+                                {% for block in section.blocks %}
+                                    {% if block.type == 'social_link' and block.settings.social_url != blank %}
+                                        <div class="social-links-container">
+                                            <a href="{{ block.settings.social_url }}" class="social-icon">
+                                                {% if block.settings.social_icon != blank %}
+                                                    <img src="{{ block.settings.social_icon | image_url: width: 24 }}" alt="Social Icon">
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colrowvich">
+                        <div class="contact-detail-item">
+                            <h4 class="contact-details-title">Showroom hours:</h4>
+                            <p class="contact-hours">{{ section.settings.showroom_hours | escape | newline_to_br }}</p>
+                        </div>
+                        <div class="contact-detail-item">
+                            <h4 class="contact-details-title">Email:</h4>
+                            <p class="contact-email">{{ section.settings.email | escape }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Us",
+  "class": "section contact-us",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "map_latitude",
+      "label": "Map Latitude",
+      "default": "43.8031"
+    },
+    {
+      "type": "text",
+      "id": "map_longitude",
+      "label": "Map Longitude",
+      "default": "-79.3631"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "+1 (416) 700-3046"
+    },
+    {
+      "type": "textarea",
+      "id": "showroom_hours",
+      "label": "Showroom Hours",
+      "default": "Mon - Sat: 10am - 6pm\nSun: By appointment"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "info@bathroomsupplier.ca"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social_link",
+      "name": "Social Link",
+      "settings": [
+        {
+          "type": "url",
+          "id": "social_url",
+          "label": "Social Media URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "social_icon",
+          "label": "Social Media Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Us"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+    #shopify-section-{{ section.id }} {
+    padding: 80px 0;
+    }
+
+    .contact-us-inn {
+    margin: 0 auto;
+    padding: 0 10%;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .colrowvich {
+    display:flex;
+    align-items: baseline;
+    justify-content:space-between;
+    }
+
+    .contact-us-content {
+    display: flex;
+    gap: 4rem;
+    }
+
+    .contact-form-area,
+    .contact-info-area {
+    flex: 1;
+    }
+
+    .contact-info-area {
+    justify-content:space-between;
+    display:flex;
+    flex-direction:column;
+    }
+
+    .contact-title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    }
+
+    .form-row {
+    display: flex;
+    gap: 1.5rem;
+    }
+
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    }
+
+    .form-group.full-width {
+    width: 100%;
+    }
+
+    .form-group label {
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+    }
+
+    .form-input {
+    padding: 0.75rem 1rem;
+    background-color: #E8ECEF;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    font-size: 16px;
+    height: 48px;
+    }
+
+    .form-input.full-width {
+    width: 100%;
+    }
+
+    .form-input.full-width::placeholder, .form-input::placeholder{
+    color:#667085;
+    }
+
+    .form-input[type="select"],
+    select.form-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #E8ECEF url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e') no-repeat right 1rem center;
+    background-size: 1em;
+    }
+
+    textarea.form-input {
+    height: 120px;
+    resize: none;
+    }
+
+    .checkbox-row {
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #333;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #003087;
+    }
+
+    .form-submit {
+    background-color: #003087;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    height: 60px;
+    align-self: flex-start;
+    }
+
+    .form-submit:hover {
+    background-color: #00205b;
+    }
+
+    .map-container {
+    height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    }
+
+    .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-content:baseline;
+    gap: 1rem;
+    }
+
+    .contact-detail-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap: 0.25rem;
+    }
+
+    .contact-detail-item p {
+    font-size:20px;
+    }
+
+    .contact-details-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #00264266;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+    .contact-phone,
+    .contact-email,
+    .contact-hours {
+    color: #002642;
+    margin: 0;
+    }
+
+    .social-links {
+    display: flex;
+    gap: 0.25rem;
+    }
+
+    .social-links-container {
+    display: flex;
+    gap: 0.5rem;
+    }
+
+    .social-icon img {
+    width: 24px;
+    height: 24px;
+    }
+
+    @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} {
+    padding: 40px 0;
+    }
+
+    .contact-us-inn {
+    padding: 0 5%;
+    }
+
+    .contact-us-content {
+    flex-direction: column;
+    }
+
+    .form-input {
+    padding: 0.75rem 1rem;
+    }
+
+    .form-submit {
+    width: 100%;
+    }
+    }
+{% endstyle %}
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mapContainer = document.getElementById('map-{{ section.id }}');
+        if (mapContainer) {
+            const map = L.map(mapContainer).setView([{{ section.settings.map_latitude }}, {{ section.settings.map_longitude }}], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([{{ section.settings.map_latitude }}, {{ section.settings.map_longitude }}]).addTo(map)
+                .bindPopup('Bathroom Supplier Location')
+                .openPopup();
+        }
+    });
+</script>
