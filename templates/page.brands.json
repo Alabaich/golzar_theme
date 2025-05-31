@@ -151,11 +151,44 @@
         "text": "<p>GolzarHome prides itself on its selective portfolio of top quality luxury products sourced throughout North America and Europe. Our brands are among the best known and most respected in the industry. We are the authorized dealers for the following trusted companies.</p>",
         "text_color": "#000000"
       }
+    },
+    "feature_grid_with_text_Ye3pQT": {
+      "type": "feature-grid-with-text",
+      "blocks": {
+        "feature_item_FKmV4K": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Sanitary Ware",
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>",
+            "item_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_FKmV4K"
+      ],
+      "name": "Feature Grid Text",
+      "settings": {
+        "main_heading": "We bring better home to everyone",
+        "main_subtitle": "<p>At Golzar Home, we're proud to be an authorized dealer of leading bathroom and kitchen brands across Canada.</p>",
+        "section_bg_color": "#FFFFFF",
+        "card_bg_color": "#F8F9FA",
+        "card_border_color": "#E9ECEF",
+        "card_border_radius": 12,
+        "item_title_size": 20,
+        "item_title_color": "#212529",
+        "item_description_color": "#495057",
+        "icon_circle_bg_color": "#E9ECEF",
+        "icon_arrow_color": "#495057",
+        "icon_circle_bg_hover_color": "#DEE2E6",
+        "icon_arrow_hover_color": "#212529"
+      }
     }
   },
   "order": [
     "main",
     "image-banner-brands",
-    "our-brands"
+    "our-brands",
+    "feature_grid_with_text_Ye3pQT"
   ]
 }
