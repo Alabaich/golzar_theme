@@ -1,77 +1,82 @@
-<div class="popular-products-main">
-  <div class="popular-products-inn">
-    <div class="popular-products">
-      <div class="qdsad">
-        <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
-        {% if section.settings.show_more_link != blank and section.settings.featured_collection != blank %}
-          <a href="{{ collections[section.settings.featured_collection].url | default: section.settings.show_more_link }}" class="show-more">Show More</a>
-        {% elsif section.settings.show_more_link != blank %}
-          <a href="{{ section.settings.show_more_link }}" class="show-more">Show More</a>
-        {% endif %}
-      </div>
+<div class="page-width">
+  <div class="popular-products-main">
+    <div class="popular-products-inn">
+      <div class="popular-products">
+        <div class="qdsad">
+          <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
+          {% if section.settings.featured_collection != blank and collections[section.settings.featured_collection].products_count > 0 %}
+            <a href="{{ collections[section.settings.featured_collection].url }}" class="show-more">Show More</a>
+          {% elsif section.settings.show_more_link != blank %}
+            <a href="{{ section.settings.show_more_link }}" class="show-more">Show More</a>
+          {% endif %}
+        </div>
 
-      {%- assign
- collection_to_display = collections[section.settings.featured_collection]
-      -%}
-      {%- assign products_limit = section.settings.products_limit -%}
+        {%- assign collection_handle = section.settings.featured_collection -%}
+        {%- assign collection_to_display = collections[collection_handle] -%}
+        {%- assign products_limit = section.settings.products_limit -%}
 
-      <div class="products-grid">
-        {%- if collection_to_display != blank and collection_to_display.products_count > 0 -%}
-          {%- for product in collection_to_display.products limit: products_limit -%}
-            {%- liquid
-              assign current_variant = product.selected_or_first_available_variant
-            -%}
-            <div class="product-item">
-              <a href="{{ product.url | within: collection_to_display }}" class="product-image-link">
-                {%- if product.featured_image != blank -%}
-                  <div class="product-image">
-                    <img
-                      src="{{ product.featured_image | image_url: width: 300 }}"
-                      alt="{{ product.title | escape }}"
-                      class="prod-img"
-                      loading="lazy"
-                      width="300"
-                      height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}">
-                  </div>
-                {%- else -%}
-                  <div class="product-image placeholder">
-                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                  </div>
-                {%- endif -%}
-              </a>
-              <h3 class="product-title">
-                <a href="{{ product.url | within: collection_to_display }}">{{ product.title | escape }}</a>
-              </h3>
-
-              <div class="product-price-container">
-                {%- if current_variant.compare_at_price > current_variant.price -%}
-                  <span class="product-price--sale">
-                    {{ current_variant.price | money }}
-                  </span>
-                  <s class="product-price--original">
-                    {{ current_variant.compare_at_price | money }}
-                  </s>
-                {%- else -%}
-                  <span class="product-price--regular">
-                    {{ current_variant.price | money }}
-                  </span>
-                {%- endif -%}
-              </div>
-
-              <div class="product-actions">
-                <a href="{{ product.url | within: collection_to_display }}" class="product-cta">View Product</a>
-              </div>
-            </div>
-          {%- endfor -%}
-        {%- else -%}
-          <p class="products-grid__no-products-message">
-            {% if section.settings.featured_collection == blank %}
+        <div class="products-grid">
+          {%- if collection_handle == blank -%}
+            <p class="products-grid__no-products-message">
               Please select a collection in the theme customizer.
-            {% else %}
-              No products found in this collection.
-            {% endif %}
-          </p>
-        {%- endif -%}
+            </p>
+          {%- elsif collection_to_display == blank -%}
+            <p class="products-grid__no-products-message">
+              The selected collection '{{ collection_handle }}' could not be found. It might have been deleted or the handle is incorrect.
+            </p>
+          {%- elsif collection_to_display.products_count == 0 -%}
+            <p class="products-grid__no-products-message">
+              No products found in the '{{ collection_to_display.title }}' collection.
+            </p>
+          {%- else -%}
+            {%- for product in collection_to_display.products limit: products_limit -%}
+              {%- liquid
+                assign current_variant = product.selected_or_first_available_variant
+              -%}
+              <div class="product-item">
+                <a href="{{ product.url | within: collection_to_display }}" class="product-image-link">
+                  {%- if product.featured_image != blank -%}
+                    <div class="product-image">
+                      <img
+                        src="{{ product.featured_image | image_url: width: 300 }}"
+                        alt="{{ product.title | escape }}"
+                        class="prod-img"
+                        loading="lazy"
+                        width="300"
+                        height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}">
+                    </div>
+                  {%- else -%}
+                    <div class="product-image placeholder">
+                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {%- endif -%}
+                </a>
+                <h3 class="product-title">
+                  <a href="{{ product.url | within: collection_to_display }}">{{ product.title | escape }}</a>
+                </h3>
+
+                <div class="product-price-container">
+                  {%- if current_variant.compare_at_price > current_variant.price -%}
+                    <span class="product-price--sale">
+                      {{ current_variant.price | money }}
+                    </span>
+                    <s class="product-price--original">
+                      {{ current_variant.compare_at_price | money }}
+                    </s>
+                  {%- else -%}
+                    <span class="product-price--regular">
+                      {{ current_variant.price | money }}
+                    </span>
+                  {%- endif -%}
+                </div>
+
+                <div class="product-actions">
+                  <a href="{{ product.url | within: collection_to_display }}" class="product-cta">View Product</a>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>
@@ -104,7 +109,7 @@
         "type": "url",
         "id": "show_more_link",
         "label": " Fallback 'Show More' Link",
-        "info": "Links to the selected collection if a collection is chosen. Otherwise, uses this fallback link."
+        "info": "If a collection is selected AND has products, 'Show More' links to it. Otherwise, this fallback link is used (if not blank)."
       }
     ],
     "presets": [
@@ -117,12 +122,8 @@
 
 {% style %}
   #shopify-section-{{ section.id }} {
-    padding: 40px 10%;
+    padding: 40px 0;
     background: #38739E1A;
-  }
-
-  .popular-products-inn {
-    margin: 0 auto;
   }
 
   .qdsad {
@@ -150,6 +151,8 @@
     grid-column: 1 / -1;
     text-align: center;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
   }
 
   .product-item {
@@ -292,9 +295,6 @@
     .show-more {
       width: auto;
       align-self: flex-start;
-    }
-    #shopify-section-{{ section.id }} {
-      padding: 30px 5%;
-    }
+    };
   }
 {% endstyle %}
