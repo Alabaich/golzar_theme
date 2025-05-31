@@ -89,7 +89,7 @@
     <div class="our-categorys-inn">
       {% if section.settings.title != blank %}
         <div class="our-categorys-heading">
-          <h2 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>
+          <h2 style="color: {{ section.settings.title_color }};" title="{{ section.settings.title }}">{{ section.settings.title }}</h2>
         </div>
       {% endif %}
 
@@ -99,7 +99,7 @@
             <ul class="category-grid">
               {% for block in section.blocks %}
                 <li>
-                  <a href="{{ block.settings.collection.url | default: '#' }}" class="category-card">
+                  <a href="{{ block.settings.collection.url | default: '#' }}" class="category-card" title="{{ block.settings.collection.url | default: '#' }}">
                     <div class="category-card__image-wrapper">
                       {%- assign custom_image = block.settings.image -%}
                       {%- assign collection_image = block.settings.collection.image -%}
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="category-card__info">
-                      <p class="category-card__title">
+                      <p class="category-card__title" title="{{ block.settings.collection.title | default: 'Category' }}">
                         {{ block.settings.collection.title | default: 'Category' }}
                       </p>
                       <div class="category-card__icon">
