@@ -279,6 +279,21 @@
     aspect-ratio: var(--product-image-aspect-ratio, 1 / 1);
   }
 
+  .custm-collection-discount-header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .custm-collection-discount-header h3 {
+    font-size: 56px;
+    font-weight: 400;
+    color: #002642;
+    margin: 0;
+    font-family: "Black Mango";
+  }
+
   @media (max-width: 990px) {
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -319,9 +334,11 @@
   data-section-id="{{ section.id }}"
   data-section-type="featured-collection-promo-section">
 
-  {% if section.settings.section_title != blank %}
-    <h3 class="custm-collection-discount-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
-  {% endif %}
+  <div class="custm-collection-discount-header">\
+    {% if section.settings.section_title != blank %}
+      <h3 class="custm-collection-discount-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
+    {% endif %}
+  </div>
 
   {% if section.settings.show_promo_banner %}
     <div class="promo-banner-wrapper" style="background-color: {{ section.settings.promo_bg_color }};">
