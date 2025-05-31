@@ -74,7 +74,7 @@
 
   .section-header {
     font-family: 'Raleway'
-    , serif;
+    , sans-serif;
     font-size: 36px;
     text-align: left;
     margin-bottom: 40px;
@@ -224,8 +224,8 @@
   }
 
   .product-card__quick-cart-button svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     fill: #ffffff;
   }
 
@@ -406,7 +406,7 @@
                     min="1">
                   <button
                     type="submit"
-                    class="button product-card__add-to-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
+                    class="product-card__add-to-cart-button{% unless product.selected_or_first_available_variant.available %} button--disabled{% endunless %}"
                     {% unless product.selected_or_first_available_variant.available %}
                     disabled
                     aria-disabled="true"
@@ -428,16 +428,19 @@
                   aria-disabled="true"
                   {% endunless %}>
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
                     viewBox="0 0 24 24"
-                    width="20"
-                    height="20"><path d="M17.218 6.235C17.013 5.438 16.275 4.91 15.42 4.91H8.58c-.855 0-1.593.528-1.798 1.325L4.305 15.085A3.5 3.5 0 0 0 7.702 19h8.596a3.5 3.5 0 0 0 3.397-3.915l-2.478-8.85zM8.58 6.91h6.84l1.798 6.42H6.782l1.798-6.42zM7.702 17a1.5 1.5 0 0 1-1.488-1.675L7.096 10.9H16.904l.882 4.415A1.5 1.5 0 0 1 16.298 17H7.702z" /><circle
-                      cx="8.5"
-                      cy="20.5"
-                      r="1.5" /><circle
-                      cx="15.5"
-                      cy="20.5"
-                      r="1.5" /></svg>
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z"
+                      fill="#002642" />
+                    <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" fill="#002642" />
+                    <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" fill="#002642" />
+                  </svg>
                 </button>
               </div>
             {% endif %}
