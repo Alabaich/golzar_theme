@@ -1,0 +1,315 @@
+{%- liquid
+  assign main_heading = section.settings.main_heading
+  assign main_subtitle = section.settings.main_subtitle
+-%}
+
+{% stylesheet %}
+  .feature-grid-section-{{ section.id }} {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-grid__header {
+    margin-bottom: 40px;
+    text-align: left; 
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1.1;
+    letter-spacing: 0px;
+    color: #151515;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6; 
+    letter-spacing: -0.01em;
+    color: #151515;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 600px; 
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-grid__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px; 
+    grid-template-columns: repeat(1, 1fr); 
+  }
+
+  @media screen and (min-width: 750px) {
+    .feature-grid-section-{{ section.id }} .feature-grid__list {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
+      font-size: 50px; 
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+    .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
+      font-size: 32px; 
+    }
+     .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
+      font-size: 15px;
+    }
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item {
+    display: block;
+    text-decoration: none;
+    background-color: {{ section.settings.card_bg_color }};
+    border: 1px solid {{ section.settings.card_border_color }};
+    border-radius: {{ section.settings.card_border_radius }}px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__text-content {
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__title {
+    font-size: {{ section.settings.item_title_size }}px;
+    font-weight: 600; 
+    color: {{ section.settings.item_title_color }};
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-family: var(--font-heading-family, 'Raleway', sans-serif);
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__description {
+    font-size: 14px;
+    color: {{ section.settings.item_description_color }};
+    line-height: 1.5;
+    margin: 0;
+    font-family: var(--font-body-family, 'Raleway', sans-serif);
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: {{ section.settings.icon_circle_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper {
+    background-color: {{ section.settings.icon_circle_bg_hover_color }};
+  }
+
+  .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper svg {
+    width: 18px;
+    height: 18px;
+    stroke: {{ section.settings.icon_arrow_color }};
+    transition: stroke 0.3s ease;
+  }
+  .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper svg {
+    stroke: {{ section.settings.icon_arrow_hover_color }};
+  }
+
+{% endstylesheet %}
+
+<div class="feature-grid-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="feature-grid__header">
+      {% if main_heading != blank %}
+        <h2 class="feature-grid__main-heading">{{ main_heading }}</h2>
+      {% endif %}
+      {% if main_subtitle != blank %}
+        <div class="feature-grid__main-subtitle">{{ main_subtitle }}</div>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <ul class="feature-grid__list">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.item_link | default: '#' }}" class="feature-item">
+              <div class="feature-item__inner">
+                <div class="feature-item__text-content">
+                  {% if block.settings.item_title != blank %}
+                    <h3 class="feature-item__title">{{ block.settings.item_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.item_description != blank %}
+                    <div class="feature-item__description">{{ block.settings.item_description }}</div>
+                  {% endif %}
+                </div>
+                <span class="feature-item__icon-wrapper">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Feature Grid Text",
+    "tag": "section",
+    "class": "feature-grid-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Main Heading",
+        "default": "We bring better home to everyone"
+      },
+      {
+        "type": "richtext",
+        "id": "main_subtitle",
+        "label": "Main Subtitle",
+        "default": "<p>At Golzar Home, we're proud to be an authorized dealer of leading bathroom and kitchen brands across Canada.</p>"
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Section Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Card Styling"
+      },
+      {
+        "type": "color",
+        "id": "card_bg_color",
+        "label": "Card Background Color",
+        "default": "#F8F9FA"
+      },
+      {
+        "type": "color",
+        "id": "card_border_color",
+        "label": "Card Border Color",
+        "default": "#E9ECEF"
+      },
+      {
+        "type": "range",
+        "id": "card_border_radius",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Card Border Radius",
+        "default": 12
+      },
+      {
+        "type": "header",
+        "content": "Card Text Styling"
+      },
+      {
+        "type": "range",
+        "id": "item_title_size",
+        "min": 14,
+        "max": 32,
+        "step": 1,
+        "unit": "px",
+        "label": "Item Title Size",
+        "default": 20
+      },
+      {
+        "type": "color",
+        "id": "item_title_color",
+        "label": "Item Title Color",
+        "default": "#212529"
+      },
+      {
+        "type": "color",
+        "id": "item_description_color",
+        "label": "Item Description Color",
+        "default": "#495057"
+      },
+      {
+        "type": "header",
+        "content": "Icon Styling"
+      },
+      {
+        "type": "color",
+        "id": "icon_circle_bg_color",
+        "label": "Icon Circle Background",
+        "default": "#E9ECEF"
+      },
+      {
+        "type": "color",
+        "id": "icon_arrow_color",
+        "label": "Icon Arrow Color",
+        "default": "#495057"
+      },
+      {
+        "type": "color",
+        "id": "icon_circle_bg_hover_color",
+        "label": "Icon Circle Background (Hover)",
+        "default": "#DEE2E6"
+      },
+      {
+        "type": "color",
+        "id": "icon_arrow_hover_color",
+        "label": "Icon Arrow Color (Hover)",
+        "default": "#212529"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature_item",
+        "name": "Feature Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "item_title",
+            "label": "Item Title",
+            "default": "Feature Title"
+          },
+          {
+            "type": "richtext",
+            "id": "item_description",
+            "label": "Item Description",
+            "default": "<p>Short description about this feature or category.</p>"
+          },
+          {
+            "type": "url",
+            "id": "item_link",
+            "label": "Item Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Grid Text"
+      }
+    ]
+  }
+{% endschema %}
