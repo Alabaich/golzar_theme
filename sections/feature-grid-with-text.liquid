@@ -43,24 +43,25 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 20px; 
-    grid-template-columns: repeat(1, 1fr); 
+    gap: 25px;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   @media screen and (min-width: 750px) {
     .feature-grid-section-{{ section.id }} .feature-grid__list {
-      grid-template-columns: repeat(2, 1fr); 
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
     }
     .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-      font-size: 50px; 
+      font-size: 50px;
     }
   }
-  
+
   @media screen and (max-width: 749px) {
     .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-      font-size: 32px; 
+      font-size: 32px;
     }
-     .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
+    .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
       font-size: 15px;
     }
   }
@@ -68,16 +69,17 @@
   .feature-grid-section-{{ section.id }} .feature-item {
     display: block;
     text-decoration: none;
-    background-color: {{ section.settings.card_bg_color }};
-    border: 1px solid {{ section.settings.card_border_color }};
-    border-radius: {{ section.settings.card_border_radius }}px;
-    padding: 20px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: {{ section.settings.card_bg_color | default: '#FFFFFF' }};
+    border: 1px solid {{ section.settings.card_border_color | default: '#EAEAEA' }};
+    border-radius: {{ section.settings.card_border_radius | default: 8 }}px;
+    padding: 25px 30px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.08);
   }
 
   .feature-grid-section-{{ section.id }} .feature-item:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+    transform: translateY(-4px);
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__inner {
@@ -94,47 +96,50 @@
 
   .feature-grid-section-{{ section.id }} .feature-item__title {
     font-size: {{ section.settings.item_title_size }}px;
-    font-weight: 600; 
+    font-weight: 600;
     color: {{ section.settings.item_title_color }};
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-family: var(--font-heading-family, 'Raleway', sans-serif);
+    line-height: 1.3;
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__description {
     font-size: 14px;
     color: {{ section.settings.item_description_color }};
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
     font-family: var(--font-body-family, 'Raleway', sans-serif);
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: {{ section.settings.icon_circle_bg_color }};
+    background-color: transparent;
+    border: 1px solid {{ section.settings.icon_circle_bg_color | default: '#E0E0E0' }};
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
   }
-  
+
   .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper {
-    background-color: {{ section.settings.icon_circle_bg_hover_color }};
+    background-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color }};
+    border-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color }};
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper svg {
     width: 18px;
     height: 18px;
-    stroke: {{ section.settings.icon_arrow_color }};
+    stroke: {{ section.settings.icon_arrow_color | default: '#333333' }};
     transition: stroke 0.3s ease;
   }
-  .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper svg {
-    stroke: {{ section.settings.icon_arrow_hover_color }};
-  }
 
+  .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper svg {
+    stroke: {{ section.settings.icon_arrow_hover_color | default: '#FFFFFF' }};
+  }
 {% endstylesheet %}
 
 <div class="feature-grid-section-{{ section.id }}">
