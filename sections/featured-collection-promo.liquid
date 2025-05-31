@@ -281,6 +281,10 @@
   data-section-id="{{ section.id }}"
   data-section-type="featured-collection-promo-section">
 
+  {% if section.settings.section_title != blank %}
+    <h2 class="section-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
+  {% endif %}
+
   {% if section.settings.show_promo_banner %}
     <div class="promo-banner-wrapper" style="background-color: {{ section.settings.promo_bg_color }};">
       <div class="promo-banner-inner">
@@ -319,10 +323,6 @@
         {% endif %}
       </div>
     </div>
-  {% endif %}
-
-  {% if section.settings.section_title != blank %}
-    <h2 class="section-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h2>
   {% endif %}
 
   <div class="product-grid">
