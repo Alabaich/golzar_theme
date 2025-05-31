@@ -167,7 +167,7 @@
           "type": "feature_item",
           "settings": {
             "item_title": "Faucets",
-            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</p>",
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
             "item_link": ""
           }
         },
@@ -183,7 +183,7 @@
           "type": "feature_item",
           "settings": {
             "item_title": "Steam Showers",
-            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</p>",
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
             "item_link": ""
           }
         },
@@ -198,8 +198,8 @@
         "feature_item_Hicenn": {
           "type": "feature_item",
           "settings": {
-            "item_title": "Feature Title",
-            "item_description": "<p>Short description about this feature or category.</p>",
+            "item_title": "Bathtubs",
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
             "item_link": ""
           }
         }
