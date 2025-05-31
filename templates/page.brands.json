@@ -162,10 +162,55 @@
             "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>",
             "item_link": ""
           }
+        },
+        "feature_item_G6nyAN": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Faucets",
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_bqE6Ue": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Bathroom Sinks",
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_cYhQ6x": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Steam Showers",
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_hUphjt": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Kitchen Sinks",
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: <strong>Duravit, TOTO, Grohe, Kohler</strong></p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_Hicenn": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Feature Title",
+            "item_description": "<p>Short description about this feature or category.</p>",
+            "item_link": ""
+          }
         }
       },
       "block_order": [
-        "feature_item_FKmV4K"
+        "feature_item_FKmV4K",
+        "feature_item_G6nyAN",
+        "feature_item_bqE6Ue",
+        "feature_item_cYhQ6x",
+        "feature_item_hUphjt",
+        "feature_item_Hicenn"
       ],
       "name": "Feature Grid Text",
       "settings": {
