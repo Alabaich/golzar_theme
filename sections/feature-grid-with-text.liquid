@@ -3,16 +3,28 @@
   assign main_subtitle = section.settings.main_subtitle
 -%}
 
-{% stylesheet %}
+{%- style -%}
   .feature-grid-section-{{ section.id }} {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: {{ section.settings.section_bg_color }};
+    --section-bg-color: {{ section.settings.section_bg_color | default: '#FFFFFF' }};
+    --card-bg-color: {{ section.settings.card_bg_color | default: '#FFFFFF' }};
+    --card-border-color: {{ section.settings.card_border_color | default: '#EAEAEA' }};
+    --card-border-radius: {{ section.settings.card_border_radius | default: 8 }}px;
+    --item-title-color: {{ section.settings.item_title_color | default: '#212529' }};
+    --item-description-color: {{ section.settings.item_description_color | default: '#495057' }};
+    --icon-circle-bg-color: {{ section.settings.icon_circle_bg_color | default: '#E0E0E0' }};
+    --icon-circle-bg-hover-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color | default: '#212529' }};
+    --icon-arrow-color: {{ section.settings.icon_arrow_color | default: '#333333' }};
+    --icon-arrow-hover-color: {{ section.settings.icon_arrow_hover_color | default: '#FFFFFF' }};
+    --item-title-size: {{ section.settings.item_title_size | default: 20 }}px;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--section-bg-color);
   }
 
   .feature-grid-section-{{ section.id }} .feature-grid__header {
     margin-bottom: 40px;
-    text-align: left; 
+    text-align: left;
   }
 
   .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
@@ -69,9 +81,9 @@
   .feature-grid-section-{{ section.id }} .feature-item {
     display: block;
     text-decoration: none;
-    background-color: {{ section.settings.card_bg_color | default: '#FFFFFF' }};
-    border: 1px solid {{ section.settings.card_border_color | default: '#EAEAEA' }};
-    border-radius: {{ section.settings.card_border_radius | default: 8 }}px;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
     padding: 25px 30px;
     transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.08);
@@ -95,9 +107,9 @@
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__title {
-    font-size: {{ section.settings.item_title_size }}px;
+    font-size: var(--item-title-size);
     font-weight: 600;
-    color: {{ section.settings.item_title_color | default: '#212529' }};
+    color: var(--item-title-color);
     margin-top: 0;
     margin-bottom: 10px;
     font-family: var(--font-heading-family, 'Raleway', sans-serif);
@@ -106,7 +118,7 @@
 
   .feature-grid-section-{{ section.id }} .feature-item__description {
     font-size: 14px;
-    color: {{ section.settings.item_description_color | default: '#495057' }};
+    color: var(--item-description-color);
     line-height: 1.6;
     margin: 0;
     font-family: var(--font-body-family, 'Raleway', sans-serif);
@@ -117,7 +129,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: transparent;
-    border: 1px solid {{ section.settings.icon_circle_bg_color | default: '#E0E0E0' }};
+    border: 1px solid var(--icon-circle-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,21 +138,21 @@
   }
 
   .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper {
-    background-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color }};
-    border-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color }};
+    background-color: var(--icon-circle-bg-hover-color);
+    border-color: var(--icon-circle-bg-hover-color);
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper svg {
     width: 18px;
     height: 18px;
-    stroke: {{ section.settings.icon_arrow_color | default: '#333333' }};
+    stroke: var(--icon-arrow-color);
     transition: stroke 0.3s ease;
   }
 
   .feature-grid-section-{{ section.id }} .feature-item:hover .feature-item__icon-wrapper svg {
-    stroke: {{ section.settings.icon_arrow_hover_color | default: '#FFFFFF' }};
+    stroke: var(--icon-arrow-hover-color);
   }
-{% endstylesheet %}
+{%- endstyle -%}
 
 <div class="feature-grid-section-{{ section.id }}">
   <div class="page-width">
@@ -213,13 +225,13 @@
         "type": "color",
         "id": "card_bg_color",
         "label": "Card Background Color",
-        "default": "#F8F9FA"
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "card_border_color",
         "label": "Card Border Color",
-        "default": "#E9ECEF"
+        "default": "#EAEAEA"
       },
       {
         "type": "range",
@@ -229,7 +241,7 @@
         "step": 1,
         "unit": "px",
         "label": "Card Border Radius",
-        "default": 12
+        "default": 8
       },
       {
         "type": "header",
@@ -264,26 +276,26 @@
       {
         "type": "color",
         "id": "icon_circle_bg_color",
-        "label": "Icon Circle Background",
-        "default": "#E9ECEF"
+        "label": "Icon Circle Background or Border",
+        "default": "#E0E0E0"
       },
       {
         "type": "color",
         "id": "icon_arrow_color",
         "label": "Icon Arrow Color",
-        "default": "#495057"
+        "default": "#333333"
       },
       {
         "type": "color",
         "id": "icon_circle_bg_hover_color",
         "label": "Icon Circle Background (Hover)",
-        "default": "#DEE2E6"
+        "default": "#212529"
       },
       {
         "type": "color",
         "id": "icon_arrow_hover_color",
         "label": "Icon Arrow Color (Hover)",
-        "default": "#212529"
+        "default": "#FFFFFF"
       }
     ],
     "blocks": [
