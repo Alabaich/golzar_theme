@@ -19,6 +19,7 @@
     },
     "page_inner_bg_GDYGPr": {
       "type": "page-inner-bg",
+      "disabled": true,
       "settings": {
         "bg_img": "shopify://shop_images/img41-min.webp",
         "title": "BATH AND KITCHEN ESSENTIALS SHOWROOM",
@@ -29,6 +30,7 @@
     },
     "inner_content_only_qqLCAD": {
       "type": "inner-content-only",
+      "disabled": true,
       "settings": {
         "img1": "shopify://shop_images/Golzar-Home-Logo-min.webp",
         "content": "<p><strong>About Golzar Home</strong></p><p>Since 1996, Golzar Home has been a trusted name in the kitchen and bathroom industry, providing top-quality products and exceptional service. With nearly three decades of experience, we have established ourselves as a leading importer and authorized dealer of premium brands, helping homeowners, designers, and contractors bring their visions to life.</p><h3>Our Two Core Divisions</h3><p>At Golzar Home, we operate under two distinct yet complementary divisions:</p><h4><strong>1. Exclusive Imported Brands</strong></h4><p>We take pride in directly sourcing and importing some of the world’s finest bathroom and kitchen products, ensuring top-tier quality and affordability. Our exclusive brands include:</p><ul><li><strong>ALPS</strong> – Specializing in bathroom sinks, wall-mounted toilets, and smart toilets.</li><li><strong>VISENTIN</strong> – A premium collection of high-performance faucets.</li><li><strong>GODI</strong> – Offering a luxurious range of bathroom vanities.</li><li><strong>BOCCHI</strong> – Known for elegantly designed wall-mounted toilets and bathroom sinks.</li><li><strong>ORANS</strong> – Delivering top-quality bathroom vanities and bathtubs.</li></ul><p>As direct importers, we maintain a strict quality control process, offer competitive pricing, and provide a <strong>5-year warranty</strong> on all our imported products.</p><h4><strong>2. Authorized Dealership of Global Brands</strong></h4><p>Beyond our exclusive imports, we are also an authorized dealer of some of the most prestigious international brands, ensuring our customers have access to a wide selection of industry-leading products. These brands include:</p><ul><li><strong>TOTO</strong></li><li><strong>GEBERIT</strong></li><li><strong>DURAVIT</strong></li><li><strong>LAUFEN</strong></li><li><strong>GROHE</strong></li><li><strong>RIOBEL</strong></li><li><strong>VOGT</strong></li><li><strong>BLANCO</strong></li></ul><p>With this extensive selection, we help our clients find the perfect fixtures and fittings for their custom homes and renovation projects, catering to all budgets and styles, from economical to high-end luxury.</p><h3><strong>A Showroom Experience Like No Other</strong></h3><p>At Golzar Home, we understand that choosing bathroom and kitchen products is more than just a transaction—it’s an experience. That’s why we have designed our showroom to be immersive, displaying products in a way that allows customers to visualize them in their own homes. Unlike conventional stores, our space is curated to help clients feel the design, function, and quality of each item, ensuring a seamless selection process.</p><h3><strong>Expert Guidance & Personalized Service</strong></h3><p>With deep expertise in kitchen and bathroom supplies, our team is dedicated to helping customers find the best product combinations based on their style and needs. Whether you're looking for an affordable solution or a luxurious upgrade, we ensure that each selection matches your taste and functional requirements.</p><h3><strong>Reliable After-Sales Support & Warranty</strong></h3><p>We stand behind the quality of our products. All items we directly import come with a <strong>5-year warranty</strong>, giving our customers peace of mind. Additionally, as an authorized dealer, we provide after-sales service for the international brands we carry. Our <strong>professional plumbing team is available 24/7</strong>, ensuring any issues are resolved promptly and efficiently.</p><h3><strong>Our Online Store: BathroomSupplier.ca</strong></h3><p>To make shopping even more convenient, we operate <strong>BathroomSupplier.ca</strong>, our dedicated online store. This platform allows our customers to browse and purchase our extensive product range from the comfort of their homes, making the buying process easier and more accessible.</p>",
@@ -86,6 +88,7 @@
         "history_V8qYXG",
         "history_6DBHzN"
       ],
+      "disabled": true,
       "settings": {
         "title": "OUR HISTORY",
         "title_color": "#082c4a",
@@ -135,6 +138,7 @@
         "member_hAaCJm",
         "member_8X3fia"
       ],
+      "disabled": true,
       "settings": {
         "title": "OUR TEAM",
         "title_color": "#082c4a"
@@ -223,11 +227,71 @@
         "slide_mUGajM",
         "slide_yBNWTr"
       ],
+      "disabled": true,
       "settings": {
         "title": "SHOWROOMS",
         "title_color": "#082c4a",
         "text": "You can find anything in our practical showroom",
         "text_color": "#7a7a7a"
+      }
+    },
+    "feature_grid_with_text_r8q4cy": {
+      "type": "feature-grid-with-text",
+      "blocks": {
+        "feature_item_QmABih": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Experience Since 1996",
+            "item_description": "<p>With nearly 30 years in the kitchen and bathroom industry, Golzar Home has built a trusted reputation for quality, reliability, and expertise.</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_Yyi979": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Exclusive Imported Brands",
+            "item_description": "<p>We directly import top-tier brands like ALPS, VISENTIN, GODI, BOCCHI, and ORANS — offering premium products with strict quality control and 5-year warranty.</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_PXY4Qr": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Authorized Dealer Network",
+            "item_description": "<p>With nearly 30 years in the kitchen and bathroom industry, Golzar Home has built a trusted reputation for quality, reliability, and expertise.</p>",
+            "item_link": ""
+          }
+        },
+        "feature_item_WAacrV": {
+          "type": "feature_item",
+          "settings": {
+            "item_title": "Personalized Support & Experience",
+            "item_description": "<p>We directly import top-tier brands like ALPS, VISENTIN, GODI, BOCCHI, and ORANS — offering premium products with strict quality control and 5-year warranty.</p>",
+            "item_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_QmABih",
+        "feature_item_Yyi979",
+        "feature_item_PXY4Qr",
+        "feature_item_WAacrV"
+      ],
+      "name": "Feature Grid Text",
+      "settings": {
+        "main_heading": "Why choose Golzar Home",
+        "main_subtitle": "",
+        "section_bg_color": "#FFFFFF",
+        "card_bg_color": "#FFFFFF",
+        "card_border_color": "#EAEAEA",
+        "card_border_radius": 8,
+        "item_title_size": 20,
+        "item_title_color": "#212529",
+        "item_description_color": "#495057",
+        "icon_circle_bg_color": "#E0E0E0",
+        "icon_arrow_color": "#333333",
+        "icon_circle_bg_hover_color": "#212529",
+        "icon_arrow_hover_color": "#FFFFFF"
       }
     }
   },
@@ -237,6 +301,7 @@
     "inner_content_only_qqLCAD",
     "about_history_yLfqi4",
     "about_team_QYXaFF",
-    "gallery_lightbox_slider_UNGJCQ"
+    "gallery_lightbox_slider_UNGJCQ",
+    "feature_grid_with_text_r8q4cy"
   ]
 }
