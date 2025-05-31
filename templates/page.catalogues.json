@@ -129,6 +129,7 @@
       "type": "image-with-text-cta",
       "name": "Consultation Banner",
       "settings": {
+        "image": "shopify://shop_images/123.webp",
         "image_alt_text": "Help",
         "help_text": "Need help?",
         "title": "Can’t find what you’re looking for or want  a custom quote?",
