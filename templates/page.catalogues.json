@@ -51,6 +51,7 @@
         "logo_image_3cbFrc": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_3_1x_3f543a96-949d-4a0c-bc9b-fdcb939832f9.webp",
             "logo_image": "shopify://shop_images/ALPS-1_2.webp",
             "logo_heading": "ALPS CATALOGUE",
             "logo_heading_color": "#000000",
@@ -60,6 +61,7 @@
         "logo_image_6AcdVj": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_2x_0f745065-7cff-4f15-949e-98dc1ed7c253.webp",
             "logo_image": "shopify://shop_images/ORANS_1.webp",
             "logo_heading": "ORANS CATALOGUE",
             "logo_heading_color": "#000000",
@@ -69,6 +71,7 @@
         "logo_image_bnmLWV": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_1x_93eba729-3c4f-49ee-a257-77b50d8c2256.webp",
             "logo_image": "shopify://shop_images/VISENTIN_1.webp",
             "logo_heading": "VISENTIN CATALOGUE",
             "logo_heading_color": "#000000",
@@ -78,6 +81,7 @@
         "logo_image_ia7hDw": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_3_1x_3f543a96-949d-4a0c-bc9b-fdcb939832f9.webp",
             "logo_image": "shopify://shop_images/LAUFEN_1.webp",
             "logo_heading": "LAUFEN CATALOGUE",
             "logo_heading_color": "#000000",
@@ -87,6 +91,7 @@
         "logo_image_6cFaYm": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_2x_0f745065-7cff-4f15-949e-98dc1ed7c253.webp",
             "logo_image": "shopify://shop_images/BOCCHI_1.webp",
             "logo_heading": "BOCCHI CATALOGUE",
             "logo_heading_color": "",
@@ -96,6 +101,7 @@
         "logo_image_6Gawnt": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/image_1x_93eba729-3c4f-49ee-a257-77b50d8c2256.webp",
             "logo_image": "shopify://shop_images/Golzar-Home-Logo-03.webp",
             "logo_heading": "GOLZAR HOME CATALOGUE",
             "logo_heading_color": "#000000",
@@ -111,7 +117,12 @@
         "logo_image_6cFaYm",
         "logo_image_6Gawnt"
       ],
-      "settings": {}
+      "settings": {
+        "main_heading": "Browse brand catalogues",
+        "main_heading_color": "#121212",
+        "main_subtitle": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>",
+        "main_subtitle_color": "#555555"
+      }
     }
   },
   "order": [
