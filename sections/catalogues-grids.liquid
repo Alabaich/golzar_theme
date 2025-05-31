@@ -47,9 +47,6 @@
     .catalogues-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
-
-  @media screen and (max-width: 750px) {
     .catalogues-section-heading {
       font-size: 36px;
     }
@@ -58,6 +55,11 @@
   @media screen and (min-width: 990px) {
     .catalogues-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .catalogues-section-heading {
+      font-size: 32px;
     }
   }
 
@@ -238,7 +240,7 @@
                   {% if block.settings.down_pdf contains '.pdf' %}
                   target="_blank"
                   {% endif %}>
-                  <span>Download</span>
+                  <span>{{ block.settings.button_text | default: "Download" }}</span>
                   <span class="download-icon">
                     <svg
                       width="16"
@@ -330,6 +332,11 @@
             "type": "url",
             "id": "down_pdf",
             "label": "Download Link (PDF or Page)"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Download"
           }
         ]
       }
