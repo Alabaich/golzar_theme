@@ -49,118 +49,123 @@
     }
   }
 
-  @media screen and (min-width: 990px) {
-    .catalogues-grid {
-      grid-template-columns: repeat(3, 1fr);
+  @media screen and (max-width: 750px) {
+    .catalogues-section-heading {
+      font-size: 36px;
     }
-  }
 
-  .catalogue-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+    @media screen and (min-width: 990px) {
+      .catalogues-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-  .catalogue-card__showcase-image-wrapper {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-  .catalogue-card__showcase-image-wrapper a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+    .catalogue-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .catalogue-card__showcase-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-  .catalogue-card__showcase-image-wrapper--logo-fallback {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  .catalogue-card__showcase-image--fallback-logo {
-    max-width: 70%;
-    max-height: 70%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
+    .catalogue-card__showcase-image-wrapper {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .catalogue-card__showcase-image-wrapper a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
-  .catalogue-card__content {
-    padding: 0 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-  }
+    .catalogue-card__showcase-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .catalogue-card__showcase-image-wrapper--logo-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .catalogue-card__showcase-image--fallback-logo {
+      max-width: 70%;
+      max-height: 70%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
 
-  .catalogue-card__logo-wrapper {
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
+    .catalogue-card__content {
+      padding: 0 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+    }
 
-  .catalogue-card__logo-image {
-    max-height: 50px;
-    max-width: 180px;
-    width: auto;
-    object-fit: contain;
-  }
+    .catalogue-card__logo-wrapper {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
 
-  .catalogue-card__name {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-top: 0;
-    color: #09192C;
-    min-height: 2.4em;
-  }
+    .catalogue-card__logo-image {
+      max-height: 50px;
+      max-width: 180px;
+      width: auto;
+      object-fit: contain;
+    }
 
-  .catalogue-card__download-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 0.9em;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    margin-top: auto;
-    width: 100%;
-    max-width: 250px;
-    box-sizing: border-box;
-    background-color: #072D4B;
-    color: #FFFFFF;
-  }
+    .catalogue-card__name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 0;
+      color: #09192C;
+      min-height: 2.4em;
+    }
 
-  .catalogue-card__download-button:hover {
-    opacity: 0.85;
-  }
+    .catalogue-card__download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.9em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      margin-top: auto;
+      width: 100%;
+      max-width: 250px;
+      box-sizing: border-box;
+      background-color: #072D4B;
+      color: #FFFFFF;
+    }
 
-  .catalogue-card__download-button .download-icon {
-    margin-left: 8px;
-    line-height: 1;
-    width: 16px;
-  }
-  .catalogue-card__download-button .download-icon svg path {
-    fill: #FFFFFF;
-  }
+    .catalogue-card__download-button:hover {
+      opacity: 0.85;
+    }
+
+    .catalogue-card__download-button .download-icon {
+      margin-left: 8px;
+      line-height: 1;
+      width: 16px;
+    }
+    .catalogue-card__download-button .download-icon svg path {
+      fill: #FFFFFF;
+    }
 {% endstylesheet %}
 
 <div class="page-width">
