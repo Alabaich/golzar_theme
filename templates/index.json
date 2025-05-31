@@ -671,7 +671,7 @@
       "name": "Popular Products",
       "settings": {
         "popular_title": "Popular Products of Kohler",
-        "show_more_link": "shopify://collections/all"
+        "show_more_link": "shopify://collections/red"
       }
     }
   },
