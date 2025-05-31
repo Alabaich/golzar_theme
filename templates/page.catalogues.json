@@ -124,11 +124,35 @@
         "main_subtitle": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>",
         "main_subtitle_color": "#555555"
       }
+    },
+    "image_with_text_cta_ehHg96": {
+      "type": "image-with-text-cta",
+      "name": "Consultation Banner",
+      "settings": {
+        "image_alt_text": "Help",
+        "help_text": "Need help?",
+        "title": "Can’t find what you’re looking for or want  a custom quote?",
+        "button_text": "Contact us",
+        "button_link": "shopify://pages/contact",
+        "show_button_arrow": true,
+        "border_radius": 12,
+        "text_column_width": 55,
+        "text_align_desktop": "left",
+        "text_align_mobile": "center",
+        "image_bg_color": "#f0f0f0",
+        "image_fit": "cover",
+        "image_position_mobile": "top",
+        "image_min_height_mobile": 250,
+        "title_size": 32,
+        "button_bg_color": "#0a2b4c",
+        "button_text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "main",
     "catalogues-banner",
-    "catalogues-grids"
+    "catalogues-grids",
+    "image_with_text_cta_ehHg96"
   ]
 }
