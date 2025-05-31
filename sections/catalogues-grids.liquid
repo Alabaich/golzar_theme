@@ -10,19 +10,20 @@
   }
 
   .catalogues-section-heading {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 600;
     font-size: {{ section.settings.main_heading_font_size | default: 36 }}px;
     line-height: 1.1;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     margin-bottom: 10px;
     text-align: left;
-    font-weight: bold;
-    color: #151515;
+    color: {{ section.settings.main_heading_color }};
   }
 
   .catalogues-section-subtitle {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.1;
@@ -30,7 +31,7 @@
     margin-bottom: 40px;
     max-width: 700px;
     text-align: left;
-    color: #151515;
+    color: {{ section.settings.main_subtitle_color }};
   }
 
   .catalogues-grid {
@@ -68,8 +69,8 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    padding: 2rem; 
-    box-sizing: border-box; 
+    padding: 2rem;
+    box-sizing: border-box;
   }
   .catalogue-card__showcase-image-wrapper a {
     display: block;
@@ -82,7 +83,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px; 
+    border-radius: 12px;
   }
   .catalogue-card__showcase-image-wrapper--logo-fallback {
     display: flex;
@@ -99,7 +100,7 @@
   }
 
   .catalogue-card__content {
-    padding: 0 2rem 2rem; 
+    padding: 0 2rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,7 +112,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
   }
 
   .catalogue-card__logo-image {
@@ -122,12 +123,11 @@
   }
 
   .catalogue-card__name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin-top: 0;
-    color: #09192C;
+    color: {{ block.settings.logo_heading_color }};
     min-height: 2.4em;
-    margin-bottom: 0;
   }
 
   .catalogue-card__download-button {
@@ -135,7 +135,7 @@
     align-items: center;
     justify-content: center;
     padding: 12px 20px;
-    border-radius: 50px; 
+    border-radius: 50px;
     text-decoration: none;
     font-size: 0.9em;
     border: none;
@@ -145,8 +145,8 @@
     width: 100%;
     max-width: 250px;
     box-sizing: border-box;
-    background-color: #072D4B; 
-    color: #FFFFFF; 
+    background-color: #072D4B;
+    color: #FFFFFF;
   }
 
   .catalogue-card__download-button:hover {
@@ -154,12 +154,12 @@
   }
 
   .catalogue-card__download-button .download-icon {
-    margin-left: 8px; 
+    margin-left: 8px;
     line-height: 1;
-    width: 16px; 
+    width: 16px;
   }
   .catalogue-card__download-button .download-icon svg path {
-    fill: #FFFFFF; 
+    fill: #FFFFFF;
   }
 {% endstylesheet %}
 
@@ -171,7 +171,7 @@
     {% if section_main_subtitle != blank %}
       <div class="catalogues-section-subtitle">{{ section_main_subtitle }}</div>
     {% endif %}
-        
+
     {% if section.blocks.size > 0 %}
       <ul class="catalogues-grid">
         {%- for block in section.blocks -%}
@@ -182,8 +182,7 @@
                   href="{{ block.settings.down_pdf | default: '#' }}"
                   {% if block.settings.down_pdf contains '.pdf' %}
                   target="_blank"
-                  {% endif %}
-                >
+                  {% endif %}>
                   <img
                     src="{{ block.settings.showcase_image | image_url: width: 450, height: 300, crop: 'center' }}"
                     alt="{{ block.settings.logo_heading | default: block.settings.showcase_image.alt | escape }}"
@@ -199,17 +198,20 @@
                   href="{{ block.settings.down_pdf | default: '#' }}"
                   {% if block.settings.down_pdf contains '.pdf' %}
                   target="_blank"
-                  {% endif %}
-                >
+                  {% endif %}>
                   {{ block.settings.logo_image | image_url: width: 450, height: 300, crop: 'center', scale: 2 | image_tag: class: 'catalogue-card__showcase-image catalogue-card__showcase-image--fallback-logo', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
                 </a>
               </div>
             {% else %}
-               <div class="catalogue-card__showcase-image-wrapper">
-                 <a href="{{ block.settings.down_pdf | default: '#' }}" {% if block.settings.down_pdf contains '.pdf' %}target="_blank"{% endif %}>
+              <div class="catalogue-card__showcase-image-wrapper">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg catalogue-card__showcase-image' }}
-                 </a>
-               </div>
+                </a>
+              </div>
             {% endif %}
 
             <div class="catalogue-card__content">
@@ -218,7 +220,7 @@
                   {{ block.settings.logo_image | image_url: height: 50 | image_tag: class: 'catalogue-card__logo-image', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
                 </div>
               {% endif %}
-              
+
               {% if block.settings.logo_heading != blank %}
                 <h3 class="catalogue-card__name">{{ block.settings.logo_heading }}</h3>
               {% endif %}
@@ -229,12 +231,16 @@
                   class="catalogue-card__download-button"
                   {% if block.settings.down_pdf contains '.pdf' %}
                   target="_blank"
-                  {% endif %}
-                >
+                  {% endif %}>
                   <span>Download</span>
                   <span class="download-icon">
-                    <svg width="16" height="17" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 16.0674C11.8667 16.0674 11.7417 16.0468 11.625 16.0054C11.5083 15.9641 11.4 15.8931 11.3 15.7924L7.7 12.1924C7.5 11.9924 7.404 11.7591 7.412 11.4924C7.42 11.2258 7.516 10.9924 7.7 10.7924C7.9 10.5924 8.13767 10.4884 8.413 10.4804C8.68833 10.4724 8.92567 10.5681 9.125 10.7674L11 12.6424V5.49244C11 5.2091 11.096 4.97177 11.288 4.78044C11.48 4.5891 11.7173 4.4931 12 4.49244C12.2827 4.49177 12.5203 4.58777 12.713 4.78044C12.9057 4.9731 13.0013 5.21044 13 5.49244V12.6424L14.875 10.7674C15.075 10.5674 15.3127 10.4714 15.588 10.4794C15.8633 10.4874 16.1007 10.5918 16.3 10.7924C16.4833 10.9924 16.5793 11.2258 16.588 11.4924C16.5967 11.7591 16.5007 11.9924 16.3 12.1924L12.7 15.7924C12.6 15.8924 12.4917 15.9634 12.375 16.0054C12.2583 16.0474 12.1333 16.0681 12 16.0674ZM6 20.4924C5.45 20.4924 4.97933 20.2968 4.588 19.9054C4.19667 19.5141 4.00067 19.0431 4 18.4924V16.4924C4 16.2091 4.096 15.9718 4.288 15.7804C4.48 15.5891 4.71733 15.4931 5 15.4924C5.28267 15.4918 5.52033 15.5878 5.713 15.7804C5.90567 15.9731 6.00133 16.2104 6 16.4924V18.4924H18V16.4924C18 16.2091 18.096 15.9718 18.288 15.7804C18.48 15.5891 18.7173 15.4931 19 15.4924C19.2827 15.4918 19.5203 15.5878 19.713 15.7804C19.9057 15.9731 20.0013 16.2104 20 16.4924V18.4924C20 19.0424 19.8043 19.5134 19.413 19.9054C19.0217 20.2974 18.5507 20.4931 18 20.4924H6Z" fill="#FFFFFF"/>
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 16.0674C11.8667 16.0674 11.7417 16.0468 11.625 16.0054C11.5083 15.9641 11.4 15.8931 11.3 15.7924L7.7 12.1924C7.5 11.9924 7.404 11.7591 7.412 11.4924C7.42 11.2258 7.516 10.9924 7.7 10.7924C7.9 10.5924 8.13767 10.4884 8.413 10.4804C8.68833 10.4724 8.92567 10.5681 9.125 10.7674L11 12.6424V5.49244C11 5.2091 11.096 4.97177 11.288 4.78044C11.48 4.5891 11.7173 4.4931 12 4.49244C12.2827 4.49177 12.5203 4.58777 12.713 4.78044C12.9057 4.9731 13.0013 5.21044 13 5.49244V12.6424L14.875 10.7674C15.075 10.5674 15.3127 10.4714 15.588 10.4794C15.8633 10.4874 16.1007 10.5918 16.3 10.7924C16.4833 10.9924 16.5793 11.2258 16.588 11.4924C16.5967 11.7591 16.5007 11.9924 16.3 12.1924L12.7 15.7924C12.6 15.8924 12.4917 15.9634 12.375 16.0054C12.2583 16.0474 12.1333 16.0681 12 16.0674ZM6 20.4924C5.45 20.4924 4.97933 20.2968 4.588 19.9054C4.19667 19.5141 4.00067 19.0431 4 18.4924V16.4924C4 16.2091 4.096 15.9718 4.288 15.7804C4.48 15.5891 4.71733 15.4931 5 15.4924C5.28267 15.4918 5.52033 15.5878 5.713 15.7804C5.90567 15.9731 6.00133 16.2104 6 16.4924V18.4924H18V16.4924C18 16.2091 18.096 15.9718 18.288 15.7804C18.48 15.5891 18.7173 15.4931 19 15.4924C19.2827 15.4918 19.5203 15.5878 19.713 15.7804C19.9057 15.9731 20.0013 16.2104 20 16.4924V18.4924C20 19.0424 19.8043 19.5134 19.413 19.9054C19.0217 20.2974 18.5507 20.4931 18 20.4924H6Z" fill="#FFFFFF" />
                     </svg>
                   </span>
                 </a>
@@ -265,4 +271,68 @@
         "type": "color",
         "id": "main_heading_color",
         "label": "Main Heading Color",
-        "default":
+        "default": "#151515"
+      },
+      {
+        "type": "range",
+        "id": "main_heading_font_size",
+        "min": 20,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Main Heading Font Size",
+        "default": 36
+      },
+      {
+        "type": "richtext",
+        "id": "main_subtitle",
+        "label": "Subtitle / Description",
+        "default": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>"
+      }, {
+        "type": "color",
+        "id": "main_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#151515"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Catalogue Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "showcase_image",
+            "label": "Showcase Image (Main Visual)"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Brand Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "logo_heading",
+            "label": "Catalogue Name (e.g., Alps Catalogue)"
+          },
+          {
+            "type": "color",
+            "id": "logo_heading_color",
+            "label": "Catalogue Name Color",
+            "default": "#09192C"
+          }, {
+            "type": "url",
+            "id": "down_pdf",
+            "label": "Download Link (PDF or Page)"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Catalogues Grid",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
