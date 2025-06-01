@@ -23,11 +23,11 @@
 
     --button-text-color: {{ settings.button_text_color | default: '#FFFFFF' }};
     --button-bg-color: {{ settings.button_bg_color | default: '#072A4A' }};
-    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 14 }}px;
-    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 13 }}px;
-    --button-border-radius: {{ settings.button_border_radius | default: 8 }}px;
-    --button-padding-vertical: {{ settings.button_padding_vertical | default: 10 }}px;
-    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 20 }}px;
+    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 15 }}px; /* Updated default */
+    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 14 }}px; /* Updated default */
+    --button-border-radius: {{ settings.button_border_radius | default: 50 }}px; /* Updated default */
+    --button-padding-vertical: {{ settings.button_padding_vertical | default: 12 }}px; /* Updated default */
+    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 20 }}px; /* Updated default */
 
     --image-border-radius: {{ settings.image_border_radius | default: 20 }}px;
     --content-gap: {{ settings.content_gap | default: 30 }}px;
@@ -84,17 +84,22 @@
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
     font-size: var(--button-font-size-desktop);
-    font-weight: 500;
+    font-weight: 600;
     padding: var(--button-padding-vertical) var(--button-padding-horizontal);
     border-radius: var(--button-border-radius);
     transition: opacity 0.3s ease;
     align-self: flex-start;
     line-height: 1.2;
+    border: none;
+    cursor: pointer;
   }
    .brand-hero-section-{{ section.id }} .brand-hero__cta .arrow {
     margin-left: 8px;
@@ -102,7 +107,7 @@
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__cta:hover {
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__image-container {
@@ -136,6 +141,8 @@
 
     .brand-hero-section-{{ section.id }} .brand-hero__cta {
       align-self: {{ settings.mobile_button_align | default: 'flex-start' }};
+      font-size: var(--button-font-size-mobile);
+      padding: var(--button-padding-vertical) var(--button-padding-horizontal);
     }
 
     .brand-hero-section-{{ section.id }} .brand-hero__title {
@@ -144,11 +151,6 @@
 
     .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
       font-size: var(--subtitle-font-size-mobile);
-    }
-
-    .brand-hero-section-{{ section.id }} .brand-hero__cta {
-      font-size: var(--button-font-size-mobile);
-      padding: calc(var(--button-padding-vertical) * 0.9) calc(var(--button-padding-horizontal) * 0.9);
     }
   }
 {%- endstyle -%}
@@ -315,24 +317,24 @@
       "type": "range",
       "id": "button_font_size_desktop",
       "label": "Button Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14
+      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 15
     },
     {
       "type": "range",
       "id": "button_font_size_mobile",
       "label": "Button Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 13
+      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 14
     },
     {
       "type": "range",
       "id": "button_border_radius",
-      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 8
+      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 50
     },
      {
       "type": "range",
       "id": "button_padding_vertical",
       "label": "Button Vertical Padding",
-      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 10
+      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12
     },
     {
       "type": "range",

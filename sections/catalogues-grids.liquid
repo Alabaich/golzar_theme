@@ -1,403 +1,352 @@
 {%- liquid
-  assign settings = section.settings
-  assign brand_title = settings.brand_title
-  assign brand_subtitle = settings.brand_subtitle
-  assign brand_link = settings.brand_link
-  assign hero_image = settings.hero_image
+  assign section_main_heading = section.settings.main_heading
+  assign section_main_subtitle = section.settings.main_subtitle
 -%}
 
-{%- style -%}
-  .brand-hero-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top | default: 60 }}px;
-    --section-padding-bottom: {{ settings.padding_bottom | default: 60 }}px;
-    --section-bg-color: {{ settings.section_bg_color | default: '#FFFFFF' }};
-
-    --heading-color: {{ settings.heading_color | default: '#101828' }};
-    --heading-font-size-desktop: {{ settings.heading_font_size_desktop | default: 52 }}px;
-    --heading-font-size-mobile: {{ settings.heading_font_size_mobile | default: 36 }}px;
-    --heading-font-weight: {{ settings.heading_font_weight | default: 600 }};
-
-    --subtitle-color: {{ settings.subtitle_color | default: '#475467' }};
-    --subtitle-font-size-desktop: {{ settings.subtitle_font_size_desktop | default: 14 }}px;
-    --subtitle-font-size-mobile: {{ settings.subtitle_font_size_mobile | default: 13 }}px;
-
-    --button-text-color: {{ settings.button_text_color | default: '#FFFFFF' }};
-    --button-bg-color: {{ settings.button_bg_color | default: '#072A4A' }};
-    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 15 }}px; /* Updated default */
-    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 14 }}px; /* Updated default */
-    --button-border-radius: {{ settings.button_border_radius | default: 50 }}px; /* Updated default */
-    --button-padding-vertical: {{ settings.button_padding_vertical | default: 12 }}px; /* Updated default */
-    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 20 }}px; /* Updated default */
-
-    --image-border-radius: {{ settings.image_border_radius | default: 20 }}px;
-    --content-gap: {{ settings.content_gap | default: 30 }}px;
-    --header-bottom-margin: {{ settings.header_bottom_margin | default: 40 }}px;
-
-    background-color: var(--section-bg-color);
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway', sans-serif;
+{% stylesheet %}
+  .catalogues-grids-section .page-width {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--content-gap);
-    margin-bottom: var(--header-bottom-margin);
-  }
-
-  .brand-hero-section-{{ section.id }} .brand-hero__title-wrapper {
-    flex: 3 1 60%;
-    min-width: 280px;
-  }
-
-  .brand-hero-section-{{ section.id }} .brand-hero__title {
-    font-family: 'Raleway', sans-serif;
-    font-weight: var(--heading-font-weight);
-    font-size: var(--heading-font-size-desktop);
-    line-height: 1.25;
-    color: var(--heading-color);
+  .catalogues-section-heading {
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin-bottom: 10px;
     text-align: left;
-    margin: 0;
+    color: #151515;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
+  .catalogues-section-subtitle {
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    text-align: left;
+    color: #151515;
+  }
+
+  .catalogues-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media screen and (min-width: 750px) {
+    .catalogues-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .catalogues-section-heading {
+      font-size: 36px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .catalogues-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .catalogues-section-heading {
+      font-size: 32px;
+    }
+  }
+
+  .catalogue-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    flex: 1 1 30%;
-    min-width: 260px;
-    max-width: 320px;
-    text-align: left;
-    padding-top: 3px;
+    text-align: center;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
-    font-family: 'Raleway', sans-serif;
+  .catalogue-card__showcase-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .catalogue-card__showcase-image-wrapper a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .catalogue-card__showcase-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .catalogue-card__showcase-image-wrapper--logo-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .catalogue-card__showcase-image--fallback-logo {
+    max-width: 70%;
+    max-height: 70%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .catalogue-card__content {
+    padding: 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .catalogue-card__logo-wrapper {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .catalogue-card__logo-image {
+    max-height: 50px;
+    max-width: 180px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .catalogue-card__name {
+    font-size: 1.2rem;
     font-weight: 400;
-    font-size: var(--subtitle-font-size-desktop);
-    line-height: 1.6;
-    color: var(--subtitle-color);
-    margin: 0;
+    margin-top: 0;
+    color: #09192C;
+    min-height: 2.4em;
+    margin-bottom: 0;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__cta {
+  .catalogue-card__download-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    padding: 12px 20px;
+    border-radius: 50px;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif; /* Kept from original Brand Hero button */
-    font-size: var(--button-font-size-desktop);
-    font-weight: 600; /* From catalogue button style */
-    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-    border-radius: var(--button-border-radius);
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
     transition: opacity 0.3s ease;
-    align-self: flex-start;
-    line-height: 1.2;
-    border: none; /* From catalogue button style */
-    cursor: pointer; /* From catalogue button style */
-  }
-   .brand-hero-section-{{ section.id }} .brand-hero__cta .arrow {
-    margin-left: 8px;
-    display: inline-block;
-  }
-
-  .brand-hero-section-{{ section.id }} .brand-hero__cta:hover {
-    opacity: 0.85; /* From catalogue button style */
-  }
-
-  .brand-hero-section-{{ section.id }} .brand-hero__image-container {
-    margin-top: 0;
-  }
-
-  .brand-hero-section-{{ section.id }} .brand-hero__image {
+    margin-top: auto;
     width: 100%;
-    height: auto;
-    border-radius: var(--image-border-radius);
-    object-fit: cover;
-    display: block;
+    max-width: 250px;
+    box-sizing: border-box;
+    background-color: #072D4B;
+    color: #FFFFFF;
   }
 
-  @media (max-width: 768px) {
-    .brand-hero-section-{{ section.id }} .brand-hero__header {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 20px;
-    }
-    
-    .brand-hero-section-{{ section.id }} .brand-hero__title-wrapper,
-    .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
-      flex-basis: auto;
-      text-align: {{ settings.mobile_text_align | default: 'left' }};
-      max-width: none;
-    }
-    .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
-       padding-top: 0;
-    }
-
-    .brand-hero-section-{{ section.id }} .brand-hero__cta {
-      align-self: {{ settings.mobile_button_align | default: 'flex-start' }};
-      font-size: var(--button-font-size-mobile);
-      /* Padding for mobile button can be slightly smaller if needed, or use desktop values if 0.9 factor is too small */
-      /* Example: keep desktop padding or define specific mobile padding variables */
-      padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-    }
-
-    .brand-hero-section-{{ section.id }} .brand-hero__title {
-      font-size: var(--heading-font-size-mobile);
-    }
-
-    .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
-      font-size: var(--subtitle-font-size-mobile);
-    }
+  .catalogue-card__download-button:hover {
+    opacity: 0.85;
   }
-{%- endstyle -%}
 
-<div class="brand-hero-section-{{ section.id }}">
-  <div class="page-width">
-    <div class="brand-hero__header">
-      <div class="brand-hero__title-wrapper">
-        {%- if brand_title != blank -%}
-          <h1 class="brand-hero__title">{{ brand_title | newline_to_br }}</h1>
-        {%- endif -%}
-      </div>
-      <div class="brand-hero__cta-wrapper">
-        {%- if brand_subtitle != blank -%}
-          <p class="brand-hero__subtitle">{{ brand_subtitle }}</p>
-        {%- endif -%}
-        {%- if button_text != blank and brand_link != blank -%}
-          <a href="{{ brand_link }}" class="brand-hero__cta">
-            {{ button_text | escape }}
-            {%- if settings.show_button_arrow -%}
-              <span class="arrow">&gt;</span>
-            {%- endif -%}
-          </a>
-        {%- endif -%}
-      </div>
-    </div>
-    {%- if hero_image != blank -%}
-      <div class="brand-hero__image-container">
-        <img
-          src="{{ hero_image | image_url: width: hero_image.width }}"
-          alt="{{ hero_image.alt | default: brand_title | escape }}"
-          width="{{ hero_image.width }}"
-          height="{{ hero_image.height }}"
-          loading="lazy"
-          class="brand-hero__image">
-      </div>
-    {%- elsif settings.show_onboarding_image -%}
-       <div class="brand-hero__image-container" style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--image-border-radius);">
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      </div>
-    {%- endif -%}
+  .catalogue-card__download-button .download-icon {
+    margin-left: 8px;
+    line-height: 1;
+    width: 16px;
+  }
+  .catalogue-card__download-button .download-icon svg path {
+    fill: #FFFFFF;
+  }
+{% endstylesheet %}
+
+<div class="page-width">
+  <div class="catalogues-wrapper">
+    {% if section_main_heading != blank %}
+      <h2 class="catalogues-section-heading">{{ section_main_heading }}</h2>
+    {% endif %}
+    {% if section_main_subtitle != blank %}
+      <div class="catalogues-section-subtitle">{{ section_main_subtitle }}</div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <ul class="catalogues-grid">
+        {%- for block in section.blocks -%}
+          <li class="catalogue-card" {{ block.shopify_attributes }}>
+            {% if block.settings.showcase_image != blank %}
+              <div class="catalogue-card__showcase-image-wrapper">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  <img
+                    src="{{ block.settings.showcase_image | image_url: width: 450, height: 300, crop: 'center' }}"
+                    alt="{{ block.settings.logo_heading | default: block.settings.showcase_image.alt | escape }}"
+                    class="catalogue-card__showcase-image"
+                    loading="lazy"
+                    width="450"
+                    height="300">
+                </a>
+              </div>
+            {% elsif block.settings.logo_image != blank %}
+              <div class="catalogue-card__showcase-image-wrapper catalogue-card__showcase-image-wrapper--logo-fallback">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  {{ block.settings.logo_image | image_url: width: 450, height: 300, crop: 'center', scale: 2 | image_tag: class: 'catalogue-card__showcase-image catalogue-card__showcase-image--fallback-logo', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
+                </a>
+              </div>
+            {% else %}
+              <div class="catalogue-card__showcase-image-wrapper">
+                <a
+                  href="{{ block.settings.down_pdf | default: '#' }}"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg catalogue-card__showcase-image' }}
+                </a>
+              </div>
+            {% endif %}
+
+            <div class="catalogue-card__content">
+              {% if block.settings.logo_image != blank %}
+                <div class="catalogue-card__logo-wrapper">
+                  {{ block.settings.logo_image | image_url: height: 50 | image_tag: class: 'catalogue-card__logo-image', alt: block.settings.logo_image.alt | default: block.settings.logo_heading }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.logo_heading != blank %}
+                <h3 class="catalogue-card__name">{{ block.settings.logo_heading }}</h3>
+              {% endif %}
+
+              {% if block.settings.down_pdf != blank %}
+                <a
+                  href="{{ block.settings.down_pdf }}"
+                  class="catalogue-card__download-button"
+                  {% if block.settings.down_pdf contains '.pdf' %}
+                  target="_blank"
+                  {% endif %}>
+                  <span>{{ block.settings.button_text | default: "Download" }}</span>
+                  <span class="download-icon">
+                    <svg
+                      width="16"
+                      height="17"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 16.0674C11.8667 16.0674 11.7417 16.0468 11.625 16.0054C11.5083 15.9641 11.4 15.8931 11.3 15.7924L7.7 12.1924C7.5 11.9924 7.404 11.7591 7.412 11.4924C7.42 11.2258 7.516 10.9924 7.7 10.7924C7.9 10.5924 8.13767 10.4884 8.413 10.4804C8.68833 10.4724 8.92567 10.5681 9.125 10.7674L11 12.6424V5.49244C11 5.2091 11.096 4.97177 11.288 4.78044C11.48 4.5891 11.7173 4.4931 12 4.49244C12.2827 4.49177 12.5203 4.58777 12.713 4.78044C12.9057 4.9731 13.0013 5.21044 13 5.49244V12.6424L14.875 10.7674C15.075 10.5674 15.3127 10.4714 15.588 10.4794C15.8633 10.4874 16.1007 10.5918 16.3 10.7924C16.4833 10.9924 16.5793 11.2258 16.588 11.4924C16.5967 11.7591 16.5007 11.9924 16.3 12.1924L12.7 15.7924C12.6 15.8924 12.4917 15.9634 12.375 16.0054C12.2583 16.0474 12.1333 16.0681 12 16.0674ZM6 20.4924C5.45 20.4924 4.97933 20.2968 4.588 19.9054C4.19667 19.5141 4.00067 19.0431 4 18.4924V16.4924C4 16.2091 4.096 15.9718 4.288 15.7804C4.48 15.5891 4.71733 15.4931 5 15.4924C5.28267 15.4918 5.52033 15.5878 5.713 15.7804C5.90567 15.9731 6.00133 16.2104 6 16.4924V18.4924H18V16.4924C18 16.2091 18.096 15.9718 18.288 15.7804C18.48 15.5891 18.7173 15.4931 19 15.4924C19.2827 15.4918 19.5203 15.5878 19.713 15.7804C19.9057 15.9731 20.0013 16.2104 20 16.4924V18.4924C20 19.0424 19.8043 19.5134 19.413 19.9054C19.0217 20.2974 18.5507 20.4931 18 20.4924H6Z" fill="#FFFFFF" />
+                    </svg>
+                  </span>
+                </a>
+              {% endif %}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% else %}
+      <p>No catalogue items have been added yet.</p>
+    {% endif %}
   </div>
 </div>
 
 {% schema %}
-{
-  "name": "Brand Hero Advanced",
-  "tag": "section",
-  "class": "shopify-section--brand-hero-adv",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "textarea",
-      "id": "brand_title",
-      "label": "Heading",
-      "default": "Bath and kitchen essentials showroom"
-    },
-    {
-      "type": "richtext",
-      "id": "brand_subtitle",
-      "label": "Subtitle",
-      "default": "<p>Express your personality with our range of styles and finishes.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Discover Brand"
-    },
-    {
-      "type": "url",
-      "id": "brand_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_button_arrow",
-      "label": "Show arrow on button",
-      "default": true
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_onboarding_image",
-      "label": "Show placeholder if no image",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Layout & Spacing"
-    },
-    {
+  {
+    "name": "Catalogues Grids",
+    "class": "catalogues-grids-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Main Heading",
+        "default": "Browse brand catalogues"
+      },
+      {
+        "type": "color",
+        "id": "main_heading_color",
+        "label": "Main Heading Color",
+        "default": "#151515"
+      },
+      {
         "type": "range",
-        "id": "content_gap",
-        "label": "Gap between heading and CTA columns (Desktop)",
-        "min": 10,
-        "max": 100,
-        "step": 5,
+        "id": "main_heading_font_size",
+        "min": 20,
+        "max": 60,
+        "step": 1,
         "unit": "px",
-        "default": 30
-    },
-    {
-        "type": "range",
-        "id": "header_bottom_margin",
-        "label": "Space below header/CTA block",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "default": 40
-    },
-    {
-      "type": "header",
-      "content": "Text Styling"
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_desktop",
-      "label": "Heading Font Size (Desktop)",
-      "min": 24, "max": 80, "step": 1, "unit": "px", "default": 52
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_mobile",
-      "label": "Heading Font Size (Mobile)",
-      "min": 20, "max": 50, "step": 1, "unit": "px", "default": 36
-    },
-    {
-      "type": "select",
-      "id": "heading_font_weight",
-      "label": "Heading Font Weight",
-      "options": [
-        {"value": "400", "label": "Regular"},
-        {"value": "500", "label": "Medium"},
-        {"value": "600", "label": "Semi-Bold"},
-        {"value": "700", "label": "Bold"}
-      ],
-      "default": "600"
-    },
-    {
-      "type": "range",
-      "id": "subtitle_font_size_desktop",
-      "label": "Subtitle Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14
-    },
-    {
-      "type": "range",
-      "id": "subtitle_font_size_mobile",
-      "label": "Subtitle Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 13
-    },
-    {
-      "type": "header",
-      "content": "Button Styling"
-    },
-    {
-      "type": "range",
-      "id": "button_font_size_desktop",
-      "label": "Button Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 15
-    },
-    {
-      "type": "range",
-      "id": "button_font_size_mobile",
-      "label": "Button Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 14
-    },
-    {
-      "type": "range",
-      "id": "button_border_radius",
-      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 50
-    },
-     {
-      "type": "range",
-      "id": "button_padding_vertical",
-      "label": "Button Vertical Padding",
-      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12
-    },
-    {
-      "type": "range",
-      "id": "button_padding_horizontal",
-      "label": "Button Horizontal Padding",
-      "min": 12, "max": 40, "step": 1, "unit": "px", "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Image Styling"
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    { "type": "color", "id": "section_bg_color", "label": "Section Background", "default": "#FFFFFF" },
-    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#101828" },
-    { "type": "color", "id": "subtitle_color", "label": "Subtitle Color", "default": "#475467" },
-    { "type": "color", "id": "button_bg_color", "label": "Button Background", "default": "#072A4A" },
-    { "type": "color", "id": "button_text_color", "label": "Button Text Color", "default": "#FFFFFF" },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Top Padding", "default": 60 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Bottom Padding", "default": 60 },
-    {
-      "type": "header",
-      "content": "Mobile Layout"
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_align",
-      "label": "Text Alignment on Mobile",
-      "options": [
-        {"value": "left", "label": "Left"},
-        {"value": "center", "label": "Center"}
-      ],
-      "default": "left"
-    },
-    {
-      "type": "select",
-      "id": "mobile_button_align",
-      "label": "Button Alignment on Mobile",
-       "options": [
-        {"value": "flex-start", "label": "Left"},
-        {"value": "center", "label": "Center"},
-        {"value": "flex-end", "label": "Right"}
-      ],
-      "default": "flex-start"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Hero Advanced"
-    }
-  ]
-}
+        "label": "Main Heading Font Size",
+        "default": 36
+      },
+      {
+        "type": "richtext",
+        "id": "main_subtitle",
+        "label": "Subtitle / Description",
+        "default": "<p>Explore full product collections from our trusted brands. Download or view online to find detailed specs, inspiration, and more.</p>"
+      }, {
+        "type": "color",
+        "id": "main_subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#151515"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Catalogue Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "showcase_image",
+            "label": "Showcase Image (Main Visual)"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Brand Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "logo_heading",
+            "label": "Catalogue Name (e.g., Alps Catalogue)"
+          },
+          {
+            "type": "color",
+            "id": "logo_heading_color",
+            "label": "Catalogue Name Color",
+            "default": "#09192C"
+          }, {
+            "type": "url",
+            "id": "down_pdf",
+            "label": "Download Link (PDF or Page)"
+          }, {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Download"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Catalogues Grid",
+        "category": "Image"
+      }
+    ]
+  }
 {% endschema %}
