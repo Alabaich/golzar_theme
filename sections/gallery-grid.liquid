@@ -11,7 +11,6 @@
     --title-font-size-desktop: {{ settings.title_font_size_desktop | default: 32 }}px;
     --title-font-size-mobile: {{ settings.title_font_size_mobile | default: 24 }}px;
     --gap-size: {{ settings.gap_size | default: 16 }}px;
-
     background-color: {{ settings.background_color | default: 'transparent' }};
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
@@ -36,15 +35,12 @@
   .ig__grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 колонки, как в вашем примере */
     grid-template-rows: repeat(2, 1fr);
-    /* 2 строки, как в вашем примере */
-    /* Вместо grid-column-gap и grid-row-gap используем общую переменную gap */
     gap: var(--gap-size);
   }
 
-  /* Применяем grid-area к каждому слоту */
-  .ig-section-{{ section.id }} .ig__slot--1 {
+  .ig-section-{{ section.id }}
+  .ig__slot--1 {
     grid-area: 1 / 1 / 2 / 3;
   }
   .ig-section-{{ section.id }}
@@ -76,16 +72,8 @@
     background-color: #f0f0f0;
     transition: transform 0.3s ease;
     aspect-ratio: {{ settings.image_aspect_ratio | default: '3/4' }};
-
-
-    /*
-
-   height: 100%; и width: 100%; для дочерних элементов grid-area обычно не нужны, 
-   но полезны для содержимого внутри, если оно не изображение 
-*/
   }
 
-  /* Исправленный селектор hover */
   .ig-section-{{ section.id }}.ig__slot:hover {
     transform: scale(0.98);
   }
@@ -111,9 +99,7 @@
   .ig-section-{{ section.id }}
   .ig__slot .placeholder-svg {
     width: 25%;
-    /* Можно настроить */
     height: 25%;
-    /* Можно настроить */
     max-width: 80px;
     max-height: 80px;
     opacity: 0.2;
@@ -128,10 +114,7 @@
     .ig-section-{{ section.id }}
     .ig__grid-container {
       grid-template-columns: 1fr 1fr;
-      /* Например, 2 колонки на мобильных */
       grid-template-rows: auto;
-      /* Автоматическая высота строк */
-      /* Сброс grid-area, так как элементы будут идти по порядку */
     }
     .ig-section-{{ section.id }}
     .ig__slot--1
@@ -146,22 +129,11 @@
     , .ig-section-{{ section.id }}
     .ig__slot--6 {
       grid-area: auto / auto / auto / auto;
-      /* Сброс grid-area */
     }
 
-
-    /*
-
-   Если хотите 1 колонку на мобильных, используйте: 
-   .ig-section-{{ section.id }} .ig__grid-container { 
-   grid-template-columns: 1fr; 
-   grid-template-rows: auto; 
-   } 
-*/
-
-    .ig-section-{{ section.id }} .ig__slot {
+    .ig-section-{{ section.id }}
+    .ig__slot {
       aspect-ratio: {{ settings.mobile_image_aspect_ratio | default: '1/1' }};
-      /* Можно сделать отдельную настройку для мобильных */
     }
   }
 {%- endstyle -%}
@@ -181,19 +153,12 @@
         {%- assign image = settings[slot_image_setting] -%}
         {%- assign link = settings[slot_link_setting] -%}
         {%- assign alt_text = settings[slot_alt_setting] -%}
-
-      {%- assign slot_class = "ig__slot ig__slot--" | append: i -%}
-
-        {%- comment -%} Определяем sizes для каждого слота на десктопе (4 колонки в сетке) {%- endcomment -%}
-        {%- assign desktop_size = "25vw" -%} {# По умолчанию для ячейки 1x1 #}
+        {%- assign slot_class = "ig__slot ig__slot--" | append: i -%}
+        {%- assign desktop_size = "25vw" -%}
         {%- if i == 1 or i == 6 -%}
-          {%- assign desktop_size = "50vw" -%} {# Слоты 1 и 6 занимают 2 колонки из 4 #}
-      {%- endif -%}
-
-        {%- comment -%} Определяем sizes для мобильных (предполагаем 2 колонки) {%- endcomment -%}
+          {%- assign desktop_size = "50vw" -%}
+        {%- endif -%}
         {%- assign mobile_size = "50vw" -%}
-        {%- comment -%} Если на мобильных 1 колонка, то mobile_size = "100vw" {%- endcomment -%}
-
 
         <div class="{{ slot_class }}">
           {%- if image != blank -%}
@@ -229,7 +194,7 @@
 
 {% schema %}
   {
-    "name": "Image Gallery Grid (6)",
+    "name": "Image Gallery Grid",
     "tag": "section",
     "class": "shopify-section--image-gallery-grid",
     "settings": [
@@ -329,8 +294,7 @@
             "label": "Wide (16:9)"
           }
         ],
-        "default": "3/4",
-        "info": "Applies to all image slots on desktop. 'Auto' may cause uneven row heights if 'Grid Template Rows' are not '1fr'."
+        "default": "3/4"
       }, {
         "type": "select",
         "id": "mobile_image_aspect_ratio",
@@ -350,8 +314,7 @@
             "label": "Landscape (4:3)"
           }
         ],
-        "default": "1/1",
-        "info": "Applies to all image slots on mobile."
+        "default": "1/1"
       }, {
         "type": "checkbox",
         "id": "show_onboarding_placeholders",
@@ -360,39 +323,123 @@
       }, {
         "type": "header",
         "content": "Image Slots (6 Total)"
+      }, {
+        "type": "header",
+        "content": "Slot 1"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_1",
+        "label": "Image (Slot 1)"
+      }, {
+        "type": "url",
+        "id": "link_slot_1",
+        "label": "Link (Slot 1)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_1",
+        "label": "Alt Text (Slot 1)"
+      }, {
+        "type": "header",
+        "content": "Slot 2"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_2",
+        "label": "Image (Slot 2)"
+      }, {
+        "type": "url",
+        "id": "link_slot_2",
+        "label": "Link (Slot 2)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_2",
+        "label": "Alt Text (Slot 2)"
+      }, {
+        "type": "header",
+        "content": "Slot 3"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_3",
+        "label": "Image (Slot 3)"
+      }, {
+        "type": "url",
+        "id": "link_slot_3",
+        "label": "Link (Slot 3)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_3",
+        "label": "Alt Text (Slot 3)"
+      }, {
+        "type": "header",
+        "content": "Slot 4"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_4",
+        "label": "Image (Slot 4)"
+      }, {
+        "type": "url",
+        "id": "link_slot_4",
+        "label": "Link (Slot 4)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_4",
+        "label": "Alt Text (Slot 4)"
+      }, {
+        "type": "header",
+        "content": "Slot 5"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_5",
+        "label": "Image (Slot 5)"
+      }, {
+        "type": "url",
+        "id": "link_slot_5",
+        "label": "Link (Slot 5)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_5",
+        "label": "Alt Text (Slot 5)"
+      }, {
+        "type": "header",
+        "content": "Slot 6"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_6",
+        "label": "Image (Slot 6)"
+      }, {
+        "type": "url",
+        "id": "link_slot_6",
+        "label": "Link (Slot 6)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_6",
+        "label": "Alt Text (Slot 6)"
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 50
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 50
       }
     ],
     "presets": [
       {
-        "name": "Image Gallery Grid (6)",
-        "settings": {
-          "section_title": "Our Awesome Grid Gallery"
-        }
+        "name": "Image Gallery Grid"
       }
     ]
   }
-
-  {%- for i in (1..6) -%}
-    {%- capture header_content -%}
-      Slot {{ i }} {%- endcapture -%} {%- capture image_id -%} image_slot_ {{ i }} {%- endcapture -%} {%- capture link_id -%} link_slot_ {{ i }} {%- endcapture -%} {%- capture alt_id -%} alt_slot_ {{ i }} {%- endcapture -%} {{ {
-      "type": "header",
-      "content": header_content
-    } | json | replace: '{', '' | replace: '}', '' }},
-      {{ {
-      "type": "image_picker",
-      "id": image_id,
-      "label": "Image"
-    } | json | replace: '{', '' | replace: '}', '' }},
-      {{ {
-      "type": "url",
-      "id": link_id,
-      "label": "Link (Optional)"
-    } | json | replace: '{', '' | replace: '}', '' }},
-      {{ {
-      "type": "text",
-      "id": alt_id,
-      "label": "Alt Text (Optional)",
-      "info": "Defaults to image name or section title."
-    } | json | replace: '{', '' | replace: '}', '' }}{% unless forloop.last %},{% endunless %}
-    {%- endfor -%}
 {% endschema %}
