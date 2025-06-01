@@ -22,52 +22,84 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
+
   .category-card {
     text-decoration: none;
     display: block;
-    color: #2a2a2a;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease
+    , transform 0.3s ease;
     border-radius: 12px;
-    overflow: hidden;
-    background-color: #f7f7f7;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
   }
   .category-card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
   }
-  .category-card__image-wrapper {
-    overflow: hidden;
+
+  .category-card__media-wrapper {
     position: relative;
+    overflow: hidden;
     aspect-ratio: 5 / 3;
+    border-radius: 12px;
+    background-color: #e0e0e0;
   }
-  .category-card__image-wrapper img {
+
+  .category-card__media-wrapper img,
+  .category-card__media-wrapper .placeholder-svg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  .category-card:hover .category-card__image-wrapper img {
-    transform: scale(1.05);
+
+  .category-card:hover .category-card__media-wrapper img {
+    transform: scale(1.08);
   }
-  .category-card__info {
+
+  .category-card__overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-  }
-  .category-card__title {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
+    z-index: 2;
+    min-height: 70px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
   }
 
-  .category-card__icon {
-    display: flex;
+  .category-card__title-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0;
+    font-family: -apple-system
+    , BlinkMacSystemFont
+    , 'Segoe UI'
+    , Roboto
+    , Helvetica
+    , Arial
+    , sans-serif
+    , 'Apple Color Emoji'
+    , 'Segoe UI Emoji'
+    , 'Segoe UI Symbol';
+    line-height: 1.3;
   }
-  .category-card__icon svg {
-    width: 24px;
-    height: 24px;
+
+  .category-card__icon-new {
+    display: flex;
     flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .category-card__icon-new svg {
+    width: 28px;
+    height: 28px;
   }
 
   @media (max-width: 990px) {
@@ -78,19 +110,36 @@
   @media (max-width: 750px) {
     .category-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
     .our-categorys-sec .our-categorys-heading h2 {
       font-size: 28px;
+    }
+    .category-card__title-text {
+      font-size: 18px;
+    }
+    .category-card__icon-new svg {
+      width: 24px;
+      height: 24px;
+    }
+    .category-card__overlay-content {
+      padding: 12px 15px;
+      min-height: 60px;
+    }
+  }
+  @media (max-width: 480px) {
+    .category-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
 
 <div class="page-width">
-  <div class="our-categorys-main">
+  <div class="our-categorys-main our-categorys-sec">
     <div class="our-categorys-inn">
       {% if section.settings.title != blank %}
         <div class="our-categorys-heading">
-          <h2 style="color: {{ section.settings.title_color }};" title="{{ section.settings.title }}">{{ section.settings.title }}</h2>
+          <h2 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>
         </div>
       {% endif %}
 
@@ -99,75 +148,114 @@
           <div class="our-categorys-info-s">
             <ul class="category-grid">
               {% for block in section.blocks %}
-                <li>
+                <li {{ block.shopify_attributes }}>
                   <a
                     href="{{ block.settings.collection.url | default: '#' }}"
                     class="category-card"
-                    title="{{ block.settings.collection.title | default: 'Category' }}">
-                    <div class="category-card__image-wrapper">
-                      {%- assign custom_image = block.settings.image -%}
-                      {%- assign collection_image = block.settings.collection.image -%}
+                    aria-label="{{ block.settings.collection.title | default: 'Category' | escape }}">
+                    <div class="category-card__media-wrapper">
+                      {%- liquid
+                        assign img_obj = block.settings.image
+                        if img_obj == blank
+                          assign img_obj = block.settings.collection.image
+                        endif
+                        assign img_alt = block.settings.collection.title | default: "Category" | escape
+                      -%}
 
-                      {% if custom_image != blank %}
-                        {{ custom_image | img_tag: block.settings.collection.title, '', 'master' }}
-                      {% elsif collection_image != blank %}
-                        {{ collection_image | img_tag: block.settings.collection.title, '', 'master' }}
+                      {% if img_obj != blank %}
+                        <img
+                          src="{{ img_obj | image_url: width: 700 }}"
+                          srcset="{% if img_obj.width >= 350 %}{{ img_obj | image_url: width: 350 }} 350w,{% endif %}
+                                  {% if img_obj.width >= 700 %}{{ img_obj | image_url: width: 700 }} 700w,{% endif %}
+                                  {% if img_obj.width >= 1000 %}{{ img_obj | image_url: width: 1000 }} 1000w{% endif %}"
+                          alt="{{ img_alt }}"
+                          loading="lazy"
+                          width="{{ img_obj.width }}"
+                          height="{{ img_obj.height }}"
+                          sizes="(max-width: 750px) calc(50vw - 24px), (max-width: 990px) calc(33.33vw - 20px), calc(25vw - 22px)">
                       {% else %}
                         {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
                       {% endif %}
-                    </div>
 
-                    <div class="category-card__info">
-                      <p class="category-card__title" title="{{ block.settings.collection.title | default: 'Category' }}">
-                        {{ block.settings.collection.title | default: 'Category' }}
-                      </p>
-                      <div class="category-card__icon">
-                        <svg
-                          viewBox="0 0 25 25"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-hidden="true"
-                          focusable="false">
-                          <g clip-path="url(#clip0_new_{{ forloop.index }})">
-                          <mask
-                            id="mask0_new_{{ forloop.index }}"
-                            style="mask-type:luminance"
-                            maskUnits="userSpaceOnUse"
-                            x="0"
-                            y="0"
-                            width="24"
-                            height="25">
-                            <path d="M24 0.5H0V24.5H24V0.5Z" fill="white" />
-                          </mask>
-                          <g mask="url(#mask0_new_{{ forloop.index }})">
-                            <path
-                              d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z"
-                              stroke="#2A2A2A"
-                              stroke-width="1.07143" />
-                            <path
-                              d="M8.36328 16.1366L15.6364 8.86353"
-                              stroke="#2A2A2A"
-                              stroke-width="1.07143"
-                              stroke-linecap="round"
-                              stroke-linejoin="round" />
-                            <path
-                              d="M8.36334 8.86353H15.6365V16.1366"
-                              stroke="#2A2A2A"
-                              stroke-width="1.07143"
-                              stroke-linecap="round"
-                              stroke-linejoin="round" />
-                          </g>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_new_{{ forloop.index }}">
-                            <rect
+                      <div class="category-card__overlay-content">
+                        <span class="category-card__title-text">
+                          {{ block.settings.collection.title | default: 'Category' }}
+                        </span>
+                        <div class="category-card__icon-new">
+                          <svg
+                            viewBox="0 0 25 25"
+                            /*
+                            Original
+                            viewBox,
+                            ensure
+                            icon
+                            fits
+                            */
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            focusable="false">
+                            <g clip-path="url(#clip0_new_{{ section.id }}_{{ forloop.index }})">
+                            <mask
+                              id="mask0_new_{{ section.id }}_{{ forloop.index }}"
+                              /*
+                              Unique
+                              mask
+                              ID
+                              */
+                              style="mask-type:luminance"
+                              maskUnits="userSpaceOnUse"
+                              x="0"
+                              y="0"
                               width="24"
-                              height="24"
-                              fill="white"
-                              transform="translate(0 0.5)" />
-                          </clipPath>
-                        </defs>
-                      </svg>
+                              height="25">
+                              <path d="M24 0.5H0V24.5H24V0.5Z" fill="white" />
+                            </mask>
+                            <g mask="url(#mask0_new_{{ section.id }}_{{ forloop.index }})">
+                              <path
+                                d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z"
+                                stroke="#FFFFFF"
+                                /*
+                                Changed
+                                to
+                                white
+                                */
+                                stroke-width="1.07143" />
+                              <path
+                                d="M8.36328 16.1366L15.6364 8.86353"
+                                stroke="#FFFFFF"
+                                /*
+                                Changed
+                                to
+                                white
+                                */
+                                stroke-width="1.07143"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M8.36334 8.86353H15.6365V16.1366"
+                                stroke="#FFFFFF"
+                                /*
+                                Changed
+                                to
+                                white
+                                */
+                                stroke-width="1.07143"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </g>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_new_{{ section.id }}_{{ forloop.index }}">
+                              <rect
+                                width="24"
+                                height="24"
+                                fill="white"
+                                transform="translate(0 0.5)" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -181,7 +269,7 @@
 </div></div>{% schema %}
 {
   "name": "Our Categories",
-  "class": "section our-categorys-sec",
+  "class": "section our-categorys-sec-schema-class",
   "tag": "section",
   "settings": [
     {
