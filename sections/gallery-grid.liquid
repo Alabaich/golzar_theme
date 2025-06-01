@@ -32,37 +32,32 @@
   }
 
   .ig-section-{{ section.id }}
-  .ig__grid-container {
+  .ig__main-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: var(--gap-size);
     align-items: start;
   }
 
   .ig-section-{{ section.id }}
-  .ig__slot--1 {
-    grid-area: 1 / 1 / 2 / 3;
+  .ig__left-column {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--gap-size);
   }
+
   .ig-section-{{ section.id }}
-  .ig__slot--2 {
-    grid-area: 2 / 1 / 3 / 2;
+  .ig__left-bottom-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-size);
   }
+
   .ig-section-{{ section.id }}
-  .ig__slot--3 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  .ig-section-{{ section.id }}
-  .ig__slot--4 {
-    grid-area: 1 / 3 / 2 / 4;
-  }
-  .ig-section-{{ section.id }}
-  .ig__slot--5 {
-    grid-area: 1 / 4 / 2 / 5;
-  }
-  .ig-section-{{ section.id }}
-  .ig__slot--6 {
-    grid-area: 2 / 3 / 3 / 5;
+  .ig__right-column {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: var(--gap-size);
   }
 
   .ig-section-{{ section.id }}
@@ -72,7 +67,7 @@
     border-radius: 16px;
     background-color: #f0f0f0;
     transition: transform 0.3s ease;
-    aspect-ratio: {{ settings.image_aspect_ratio | default: '3/4' }};
+    aspect-ratio: {{ settings.image_aspect_ratio | default: 'auto' }};
   }
 
   .ig-section-{{ section.id }}.ig__slot:hover {
@@ -113,24 +108,19 @@
     }
 
     .ig-section-{{ section.id }}
-    .ig__grid-container {
-      grid-template-columns: 1fr 1fr;
+    .ig__main-grid-container {
+      grid-template-columns: 1fr;
+    }
+
+    .ig-section-{{ section.id }}
+    .ig__left-column
+    , .ig-section-{{ section.id }}
+    .ig__right-column {
       grid-template-rows: auto;
-      align-items: stretch;
     }
     .ig-section-{{ section.id }}
-    .ig__slot--1
-    , .ig-section-{{ section.id }}
-    .ig__slot--2
-    , .ig-section-{{ section.id }}
-    .ig__slot--3
-    , .ig-section-{{ section.id }}
-    .ig__slot--4
-    , .ig-section-{{ section.id }}
-    .ig__slot--5
-    , .ig-section-{{ section.id }}
-    .ig__slot--6 {
-      grid-area: auto / auto / auto / auto;
+    .ig__left-bottom-wrapper {
+      grid-template-columns: 1fr;
     }
 
     .ig-section-{{ section.id }}
@@ -146,59 +136,137 @@
       <h2 class="ig__title">{{ section_title | escape }}</h2>
     {%- endif -%}
 
-    <div class="ig__grid-container">
-      {%- for i in (1..6) -%}
-        {%- capture slot_image_setting -%}image_slot_{{ i }}{%- endcapture -%}
-        {%- capture slot_link_setting -%}link_slot_{{ i }}{%- endcapture -%}
-        {%- capture slot_alt_setting -%}alt_slot_{{ i }}{%- endcapture -%}
-
-        {%- assign image = settings[slot_image_setting] -%}
-        {%- assign link = settings[slot_link_setting] -%}
-        {%- assign alt_text = settings[slot_alt_setting] -%}
-        {%- assign slot_class = "ig__slot ig__slot--" | append: i -%}
-        {%- assign desktop_size = "25vw" -%}
-        {%- if i == 1 or i == 6 -%}
-          {%- assign desktop_size = "50vw" -%}
-        {%- endif -%}
-        {%- assign mobile_size = "50vw" -%}
-
-        <div class="{{ slot_class }}">
-          {%- if image != blank -%}
-            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
+    <div class="ig__main-grid-container">
+      <div class="ig__left-column">
+        <div class="ig__slot ig__slot--1">
+          {%- assign image1 = settings.image_slot_1 -%}
+          {%- assign link1 = settings.link_slot_1 -%}
+          {%- assign alt1 = settings.alt_slot_1 -%}
+          {%- if image1 != blank -%}
+            {%- if link1 != blank -%}<a href="{{ link1 }}" aria-label="{{ alt1 | default: image1.alt | default: section_title | escape }}">{%- endif -%}
             <img
-              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
-                      {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%}
-                      {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
-                      {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                      {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                      {%- if image.width >= 1780 -%}{{ image | image_url: width: 1780 }} 1780w,{%- endif -%}
-                      {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
-                      {%- if image.width >= 2800 -%}{{ image | image_url: width: 2800 }} 2800w,{%- endif -%}
-                      {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                      {{ image | image_url }} {{ image.width }}w"
-              src="{{ image | image_url: width: 1500 }}"
-              sizes="(max-width: 768px) {{ mobile_size }}, {{ desktop_size }}"
-              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
+              srcset="{%- if image1.width >= 375 -%}{{ image1 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image1.width >= 550 -%}{{ image1 | image_url: width: 550 }} 550w,{%- endif -%} {%- if image1.width >= 750 -%}{{ image1 | image_url: width: 750 }} 750w,{%- endif -%} {%- if image1.width >= 1100 -%}{{ image1 | image_url: width: 1100 }} 1100w,{%- endif -%} {{ image1 | image_url }} {{ image1.width }}w"
+              src="{{ image1 | image_url: width: 750 }}"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="{{ alt1 | default: image1.alt | default: section_title | escape }}"
               loading="lazy"
-              width="{{ image.width }}"
-              height="{{ image.height }}">
-            {%- if link != blank -%}</a>{%- endif -%}
+              width="{{ image1.width }}"
+              height="{{ image1.height }}">
+            {%- if link1 != blank -%}</a>{%- endif -%}
           {%- elsif settings.show_onboarding_placeholders -%}
-            <div class="ig__placeholder-svg-wrapper">
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-            </div>
+            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
           {%- endif -%}
         </div>
-      {%- endfor -%}
+        <div class="ig__left-bottom-wrapper">
+          <div class="ig__slot ig__slot--2">
+            {%- assign image2 = settings.image_slot_2 -%}
+            {%- assign link2 = settings.link_slot_2 -%}
+            {%- assign alt2 = settings.alt_slot_2 -%}
+            {%- if image2 != blank -%}
+              {%- if link2 != blank -%}<a href="{{ link2 }}" aria-label="{{ alt2 | default: image2.alt | default: section_title | escape }}">{%- endif -%}
+              <img
+                srcset="{%- if image2.width >= 180 -%}{{ image2 | image_url: width: 180 }} 180w,{%- endif -%} {%- if image2.width >= 375 -%}{{ image2 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image2.width >= 550 -%}{{ image2 | image_url: width: 550 }} 550w,{%- endif -%} {{ image2 | image_url }} {{ image2.width }}w"
+                src="{{ image2 | image_url: width: 375 }}"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ alt2 | default: image2.alt | default: section_title | escape }}"
+                loading="lazy"
+                width="{{ image2.width }}"
+                height="{{ image2.height }}">
+              {%- if link2 != blank -%}</a>{%- endif -%}
+            {%- elsif settings.show_onboarding_placeholders -%}
+              <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}
+          </div>
+          <div class="ig__slot ig__slot--3">
+            {%- assign image3 = settings.image_slot_3 -%}
+            {%- assign link3 = settings.link_slot_3 -%}
+            {%- assign alt3 = settings.alt_slot_3 -%}
+            {%- if image3 != blank -%}
+              {%- if link3 != blank -%}<a href="{{ link3 }}" aria-label="{{ alt3 | default: image3.alt | default: section_title | escape }}">{%- endif -%}
+              <img
+                srcset="{%- if image3.width >= 180 -%}{{ image3 | image_url: width: 180 }} 180w,{%- endif -%} {%- if image3.width >= 375 -%}{{ image3 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image3.width >= 550 -%}{{ image3 | image_url: width: 550 }} 550w,{%- endif -%} {{ image3 | image_url }} {{ image3.width }}w"
+                src="{{ image3 | image_url: width: 375 }}"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ alt3 | default: image3.alt | default: section_title | escape }}"
+                loading="lazy"
+                width="{{ image3.width }}"
+                height="{{ image3.height }}">
+              {%- if link3 != blank -%}</a>{%- endif -%}
+            {%- elsif settings.show_onboarding_placeholders -%}
+              <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="ig__right-column">
+        <div class="ig__slot ig__slot--4">
+          {%- assign image4 = settings.image_slot_4 -%}
+          {%- assign link4 = settings.link_slot_4 -%}
+          {%- assign alt4 = settings.alt_slot_4 -%}
+          {%- if image4 != blank -%}
+            {%- if link4 != blank -%}<a href="{{ link4 }}" aria-label="{{ alt4 | default: image4.alt | default: section_title | escape }}">{%- endif -%}
+            <img
+              srcset="{%- if image4.width >= 375 -%}{{ image4 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image4.width >= 550 -%}{{ image4 | image_url: width: 550 }} 550w,{%- endif -%} {%- if image4.width >= 750 -%}{{ image4 | image_url: width: 750 }} 750w,{%- endif -%} {{ image4 | image_url }} {{ image4.width }}w"
+              src="{{ image4 | image_url: width: 750 }}"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="{{ alt4 | default: image4.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="{{ image4.width }}"
+              height="{{ image4.height }}">
+            {%- if link4 != blank -%}</a>{%- endif -%}
+          {%- elsif settings.show_onboarding_placeholders -%}
+            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {%- endif -%}
+        </div>
+        <div class="ig__slot ig__slot--5">
+          {%- assign image5 = settings.image_slot_5 -%}
+          {%- assign link5 = settings.link_slot_5 -%}
+          {%- assign alt5 = settings.alt_slot_5 -%}
+          {%- if image5 != blank -%}
+            {%- if link5 != blank -%}<a href="{{ link5 }}" aria-label="{{ alt5 | default: image5.alt | default: section_title | escape }}">{%- endif -%}
+            <img
+              srcset="{%- if image5.width >= 375 -%}{{ image5 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image5.width >= 550 -%}{{ image5 | image_url: width: 550 }} 550w,{%- endif -%} {%- if image5.width >= 750 -%}{{ image5 | image_url: width: 750 }} 750w,{%- endif -%} {{ image5 | image_url }} {{ image5.width }}w"
+              src="{{ image5 | image_url: width: 750 }}"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="{{ alt5 | default: image5.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="{{ image5.width }}"
+              height="{{ image5.height }}">
+            {%- if link5 != blank -%}</a>{%- endif -%}
+          {%- elsif settings.show_onboarding_placeholders -%}
+            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {%- endif -%}
+        </div>
+        <div class="ig__slot ig__slot--6">
+          {%- assign image6 = settings.image_slot_6 -%}
+          {%- assign link6 = settings.link_slot_6 -%}
+          {%- assign alt6 = settings.alt_slot_6 -%}
+          {%- if image6 != blank -%}
+            {%- if link6 != blank -%}<a href="{{ link6 }}" aria-label="{{ alt6 | default: image6.alt | default: section_title | escape }}">{%- endif -%}
+            <img
+              srcset="{%- if image6.width >= 375 -%}{{ image6 | image_url: width: 375 }} 375w,{%- endif -%} {%- if image6.width >= 550 -%}{{ image6 | image_url: width: 550 }} 550w,{%- endif -%} {%- if image6.width >= 750 -%}{{ image6 | image_url: width: 750 }} 750w,{%- endif -%} {{ image6 | image_url }} {{ image6.width }}w"
+              src="{{ image6 | image_url: width: 750 }}"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="{{ alt6 | default: image6.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="{{ image6.width }}"
+              height="{{ image6.height }}">
+            {%- if link6 != blank -%}</a>{%- endif -%}
+          {%- elsif settings.show_onboarding_placeholders -%}
+            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {%- endif -%}
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 {% schema %}
   {
-    "name": "Image Gallery Grid",
+    "name": "Masonry Image Gallery (3+3)",
     "tag": "section",
-    "class": "shopify-section--image-gallery-grid",
+    "class": "shopify-section--masonry-image-gallery",
     "settings": [
       {
         "type": "header",
@@ -272,7 +340,7 @@
         "options": [
           {
             "value": "auto",
-            "label": "Original (Auto)"
+            "label": "Original (Auto) - Recommended for Masonry"
           },
           {
             "value": "1/1",
@@ -296,7 +364,7 @@
             "label": "Wide (16:9)"
           }
         ],
-        "default": "3/4"
+        "default": "auto"
       }, {
         "type": "select",
         "id": "mobile_image_aspect_ratio",
@@ -324,97 +392,97 @@
         "default": true
       }, {
         "type": "header",
-        "content": "Image Slots (6 Total)"
+        "content": "Image Slots (6 Total: 3 Left, 3 Right)"
       }, {
         "type": "header",
-        "content": "Slot 1"
+        "content": "Left Column - Image 1 (Top Large)"
       }, {
         "type": "image_picker",
         "id": "image_slot_1",
-        "label": "Image (Slot 1)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_1",
-        "label": "Link (Slot 1)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_1",
-        "label": "Alt Text (Slot 1)"
+        "label": "Alt Text"
       }, {
         "type": "header",
-        "content": "Slot 2"
+        "content": "Left Column - Image 2 (Bottom Left)"
       }, {
         "type": "image_picker",
         "id": "image_slot_2",
-        "label": "Image (Slot 2)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_2",
-        "label": "Link (Slot 2)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_2",
-        "label": "Alt Text (Slot 2)"
+        "label": "Alt Text"
       }, {
         "type": "header",
-        "content": "Slot 3"
+        "content": "Left Column - Image 3 (Bottom Right)"
       }, {
         "type": "image_picker",
         "id": "image_slot_3",
-        "label": "Image (Slot 3)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_3",
-        "label": "Link (Slot 3)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_3",
-        "label": "Alt Text (Slot 3)"
+        "label": "Alt Text"
       }, {
         "type": "header",
-        "content": "Slot 4"
+        "content": "Right Column - Image 4 (Top)"
       }, {
         "type": "image_picker",
         "id": "image_slot_4",
-        "label": "Image (Slot 4)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_4",
-        "label": "Link (Slot 4)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_4",
-        "label": "Alt Text (Slot 4)"
+        "label": "Alt Text"
       }, {
         "type": "header",
-        "content": "Slot 5"
+        "content": "Right Column - Image 5 (Middle)"
       }, {
         "type": "image_picker",
         "id": "image_slot_5",
-        "label": "Image (Slot 5)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_5",
-        "label": "Link (Slot 5)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_5",
-        "label": "Alt Text (Slot 5)"
+        "label": "Alt Text"
       }, {
         "type": "header",
-        "content": "Slot 6"
+        "content": "Right Column - Image 6 (Bottom)"
       }, {
         "type": "image_picker",
         "id": "image_slot_6",
-        "label": "Image (Slot 6)"
+        "label": "Image"
       }, {
         "type": "url",
         "id": "link_slot_6",
-        "label": "Link (Slot 6)"
+        "label": "Link"
       }, {
         "type": "text",
         "id": "alt_slot_6",
-        "label": "Alt Text (Slot 6)"
+        "label": "Alt Text"
       }, {
         "type": "header",
         "content": "Section Padding"
@@ -440,7 +508,8 @@
     ],
     "presets": [
       {
-        "name": "Image Gallery Grid"
+        "name": "Masonry Gallery (3+3)",
+        "settings": {}
       }
     ]
   }
