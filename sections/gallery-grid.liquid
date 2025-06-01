@@ -26,21 +26,22 @@
   .discover-products-{{ section.id }}
   __grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-auto-rows: 240px;
-    grid-gap: 20px;
-    grid-auto-flow: dense;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    height: 600px;
   }
 
   .discover-product-image {
     position: relative;
-    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
   }
 
   .discover-product-image:hover {
     transform: scale(1.02);
+    z-index: 2;
   }
 
   .discover-product-image__img {
@@ -49,28 +50,40 @@
     object-fit: cover;
   }
 
-  .discover-product-image--large {
-    grid-column: span 2;
+  .discover-product-image-1 {
+    grid-area: 1 / 1 / 2 / 3;
   }
 
-  .discover-product-image--tall {
-    grid-row: span 2;
+  .discover-product-image-2 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .discover-product-image-3 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  .discover-product-image-4 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  .discover-product-image-5 {
+    grid-area: 1 / 4 / 2 / 5;
+  }
+
+  .discover-product-image-6 {
+    grid-area: 2 / 3 / 3 / 5;
   }
 
   @media (max-width: 768px) {
     .discover-products-{{ section.id }}__grid {
       grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
     }
 
-    .discover-product-image--large,
-    .discover-product-image--tall {
-      grid-column: span 1;
-      grid-row: span 1;
-    }
-
-    .discover-products-{{ section.id }}
-    __title {
-      font-size: 2rem;
+    .discover-product-image {
+      grid-area: auto !important;
+      height: 300px;
     }
   }
 </style>
@@ -85,7 +98,7 @@
 
   <div class="discover-products-{{ section.id }}__grid">
     {% for block in section.blocks %}
-      <div class="discover-product-image {% if block.settings.size == 'large' %}discover-product-image--large{% elsif block.settings.size == 'tall' %}discover-product-image--tall{% endif %}">
+      <div class="discover-product-image discover-product-image-{{ forloop.index }}">
         {% if block.settings.image != blank %}
           <img
             src="{{ block.settings.image | img_url: '1000x' }}"
@@ -101,7 +114,7 @@
 
 {% schema %}
   {
-    "name": "Discover Products Gallery",
+    "name": "Products Masonry Grid",
     "settings": [
       {
         "type": "text",
@@ -129,47 +142,32 @@
       {
         "type": "image",
         "name": "Image",
+        "limit": 6,
         "settings": [
           {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          }, {
-            "type": "select",
-            "id": "size",
-            "label": "Image Size",
-            "options": [
-              {
-                "value": "regular",
-                "label": "Regular"
-              }, {
-                "value": "large",
-                "label": "Large (2 columns)"
-              }, {
-                "value": "tall",
-                "label": "Tall (2 rows)"
-              }
-            ],
-            "default": "regular"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Products Masonry Gallery",
+        "name": "Products Masonry Grid",
         "category": "Image",
         "blocks": [
           {
-            "type": "image",
-            "settings": {
-              "size": "large"
-            }
-          }, {
-            "type": "image",
-            "settings": {
-              "size": "tall"
-            }
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
           }, {
             "type": "image"
           }, {
