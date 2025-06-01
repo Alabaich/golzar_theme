@@ -518,60 +518,18 @@
         "button_font_size_mobile": 14
       }
     },
-    "gallery_grid_WpXikP": {
+    "gallery_grid_T6YW6E": {
       "type": "gallery-grid",
-      "blocks": {
-        "image_AcNHD7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/111.webp"
-          }
-        },
-        "image_zkcewy": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/222.webp"
-          }
-        },
-        "image_TpgXmt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/333.webp"
-          }
-        },
-        "image_DGXriL": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/444.webp"
-          }
-        },
-        "image_8UwWgk": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/555.webp"
-          }
-        },
-        "image_YwViKX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/666.webp"
-          }
-        }
-      },
-      "block_order": [
-        "image_AcNHD7",
-        "image_zkcewy",
-        "image_TpgXmt",
-        "image_DGXriL",
-        "image_8UwWgk",
-        "image_YwViKX"
-      ],
-      "name": "Products Masonry Grid",
+      "name": "Image Gallery Rows",
       "settings": {
-        "title": "Discover products in a real-life setting",
-        "title_color": "#333333",
-        "subtitle": "See how our products fit perfectly in everyday spaces",
-        "subtitle_color": "#666666"
+        "title": "Our Gallery",
+        "row1_img_large": "shopify://shop_images/111.webp",
+        "row1_img_small1": "shopify://shop_images/222.webp",
+        "row1_img_small2": "shopify://shop_images/333.webp",
+        "row2_img_small1": "shopify://shop_images/444.webp",
+        "row2_img_small2": "shopify://shop_images/555.webp",
+        "row2_img_large": "shopify://shop_images/666.webp",
+        "gap_size": 10
       }
     }
   },
@@ -588,6 +546,6 @@
     "timeline_section_FQWqKh",
     "team_section_ANyinb",
     "switch_side_image_9JknXU",
-    "gallery_grid_WpXikP"
+    "gallery_grid_T6YW6E"
   ]
 }
