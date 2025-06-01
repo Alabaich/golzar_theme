@@ -352,7 +352,7 @@
 
   <div class="custm-collection-discount-header">
     {% if section.settings.section_title != blank %}
-      <h3 class="custm-collection-discount-header" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
+      <h3 title="{{ section.settings.section_title | escape }}" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
     {% endif %}
   </div>
 
@@ -364,7 +364,8 @@
             <h2
               class="promo-banner-heading"
               style="color: {{ section.settings.promo_heading_color }};"
-              title="{{ section.settings.promo_heading }}">{{ section.settings.promo_heading | escape }}</h2>
+              title="{{ section.settings.promo_heading | escape }}"
+              title="{{ section.settings.promo_heading | escape }}">{{ section.settings.promo_heading | escape }}</h2>
           {% endif %}
           {% if section.settings.promo_subheading != blank %}
             <div
@@ -411,7 +412,7 @@
           <a
             href="{{ product.url | within: collection }}"
             class="product-card__link-image"
-            title="{{ product.vendor }}">
+            title="{{ product.vendor | escape }}">
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
@@ -420,11 +421,11 @@
  class: 'product-card__image'
                 }}
               {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
               {% endif %}
               <div class="product-card__badge-info">
                 {% if section.settings.show_vendor %}
-                  <span class="badge badge--vendor color-{{ settings.sale_badge_color_scheme | default: 'accent-1' }}" title="{{ product.vendor }}">{{ product.vendor }}</span>
+                  <span class="badge badge--vendor color-{{ settings.sale_badge_color_scheme | default: 'accent-1' }}" title="{{ product.vendor | escape }}">{{ product.vendor | escape }}</span>
                 {% endif %}
                 {% if discount_percentage > 0 and section.settings.show_discount_badge %}
                   <span class="badge badge--discount">-{{ discount_percentage }}%</span>
@@ -435,14 +436,14 @@
           <div class="product-card__info">
             {% if section.settings.show_availability %}
               {% if current_variant.available %}
-                <p class="product-card__availability product-card__availability--in-stock">{{ 'products.product.in_stock' | t }}</p>
+                <p class="product-card__availability product-card__availability--in-stock">In Stock</p>
               {% else %}
-                <p class="product-card__availability product-card__availability--out-of-stock">{{ 'products.product.sold_out' | t }}</p>
+                <p class="product-card__availability product-card__availability--out-of-stock">Sold Out</p>
               {% endif %}
             {% endif %}
 
             <a href="{{ product.url | within: collection }}" class="product-card__title-link">
-              <h3 class="product-card__title">{{ product.title | truncate: section.settings.product_title_truncate_length | default: 30 }}</h3>
+              <h3 class="product-card__title">{{ product.title | truncate: section.settings.product_title_truncate_length | default: 30 | escape }}</h3>
             </a>
 
             <div class="product-card__price-wrapper">
@@ -486,14 +487,14 @@
                     {% if current_variant.available %}
                       {{ section.settings.product_button_text | escape }}
                     {% else %}
-                      {{ 'products.product.sold_out' | t }}
+                      Sold Out
                     {% endif %}
                   </button>
                 </form>
                 <button
                   type="button"
                   class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
-                  aria-label="{{ 'products.product.add_to_cart' | t }}"
+                  aria-label="Add to cart"
                   data-variant-id="{{ current_variant.id }}"
                   {% unless current_variant.available %}
                   disabled
@@ -519,7 +520,7 @@
         </div>
       {% endfor %}
     {% elsif collection == blank %}
-      <p>{{ 'sections.featured_collection_promo.no_collection_selected' | t }}</p>
+      <p>Please select a collection to display products.</p>
       {% for i in (1..products_to_display) %}
         <div class="grid-item product-card">
           <div class="product-card__link-image">
@@ -528,13 +529,13 @@
             </div>
           </div>
           <div class="product-card__info">
-            <h3 class="product-card__title">{{ 'onboarding.product_title' | t }}</h3>
+            <h3 class="product-card__title">Example Product</h3>
             <div class="product-card__price-wrapper">$19.99</div>
           </div>
         </div>
       {% endfor %}
     {% else %}
-      <p>{{ 'sections.featured_collection_promo.no_products_in_collection' | t: collection_title: collection.title }}</p>
+      <p>No products found in the "{{ collection.title | escape }}" collection.</p>
     {% endif %}
   </div>
 </div>
