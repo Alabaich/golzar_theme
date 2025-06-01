@@ -34,8 +34,8 @@
   .ig-section-{{ section.id }}
   .ig__grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto auto auto;
     gap: 10px;
   }
 
@@ -74,39 +74,81 @@
 
   .ig-section-{{ section.id }}
   .ig__slot--1 {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 4;
     grid-row: 1 / span 2;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1.5 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--2 {
-    grid-column: 3 / span 1;
+    grid-column: 5 / span 2;
     grid-row: 1 / span 1;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--3 {
-    grid-column: 3 / span 1;
+    grid-column: 5 / span 2;
     grid-row: 2 / span 1;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--4 {
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--5 {
-    grid-column: 2 / span 1;
+    grid-column: 3 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--6 {
-    grid-column: 3 / span 1;
+    grid-column: 5 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.6 / 1;
+  }
+
+  @media (max-width: 990px) {
+    .ig-section-{{ section.id }} .ig__grid-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--1 {
+      grid-column: 1 / span 4;
+      grid-row: 1 / span 1;
+      aspect-ratio: 2 / 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--2 {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+      aspect-ratio: 1.6 / 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--3 {
+      grid-column: 3 / span 2;
+      grid-row: 2 / span 1;
+      aspect-ratio: 1.6 / 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--4 {
+      grid-column: 1 / span 2;
+      grid-row: 3 / span 1;
+      aspect-ratio: 1.6 / 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--5 {
+      grid-column: 3 / span 2;
+      grid-row: 3 / span 1;
+      aspect-ratio: 1.6 / 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--6 {
+      grid-column: 1 / span 4;
+      grid-row: 4 / span 1;
+      aspect-ratio: 2 / 1;
+    }
   }
 
   @media (max-width: 768px) {
@@ -117,7 +159,7 @@
 
     .ig-section-{{ section.id }}
     .ig__grid-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .ig-section-{{ section.id }}
@@ -136,7 +178,7 @@
     .ig__slot--6 {
       grid-column: auto;
       grid-row: auto;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1 / 1;
     }
   }
 {%- endstyle -%}
@@ -162,17 +204,17 @@
             {%- if link != blank -%}<a href="{{ link }}">{%- endif -%}
             <img
               srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
-                        {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%}
-                        {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
-                        {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                        {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                        {%- if image.width >= 1780 -%}{{ image | image_url: width: 1780 }} 1780w,{%- endif -%}
-                        {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
-                        {%- if image.width >= 2800 -%}{{ image | image_url: width: 2800 }} 2800w,{%- endif -%}
-                        {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                        {{ image | image_url }} {{ image.width }}w"
+                      {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%}
+                      {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if image.width >= 1780 -%}{{ image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                      {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                      {%- if image.width >= 2800 -%}{{ image | image_url: width: 2800 }} 2800w,{%- endif -%}
+                      {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                      {{ image | image_url }} {{ image.width }}w"
               src="{{ image | image_url: width: 1500 }}"
-              sizes="(max-width: 768px) 100vw, (max-width: 990px) 33vw, 25vw"
+              sizes="(max-width: 768px) 50vw, (max-width: 990px) 25vw, 16.66vw"
               alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
               loading="lazy"
               width="{{ image.width }}"
