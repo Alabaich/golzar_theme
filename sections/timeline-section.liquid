@@ -28,27 +28,15 @@
     padding-bottom: {{ settings.padding_bottom }}px;
     font-family: 'Raleway'
     , sans-serif;
-    box-sizing: border-box;
-  }
-
-  .timeline-section-{{ section.id }}
-  *
-  , .timeline-section-{{ section.id }}
-  *::before
-  , .timeline-section-{{ section.id }}
-  *::after {
-    box-sizing: inherit;
   }
 
   .timeline-section-{{ section.id }}
   .page-width {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline-header {
+  .timeline-section-{{ section.id }} .timeline-header {
     text-align: {{ settings.header_align | default: 'left' }};
     margin-bottom: 50px;
   }
@@ -73,8 +61,7 @@
     margin: 0;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__container {
+  .timeline-section-{{ section.id }} .timeline__container {
     position: relative;
   }
 
@@ -83,25 +70,23 @@
     .timeline__container::before {
       content: '';
       position: absolute;
+      top: calc(var(--year-display-size) / 2);
+      left: 0;
+      right: 0;
+      height: var(--line-thickness);
       background-color: var(--line-color);
       z-index: 1;
-      top: calc(var(--year-display-size) + var(--year-display-to-dot-margin) +(var(--dot-size) / 2) -(var(--line-thickness) / 2));
-      left: calc((100% / {{ num_blocks }}) / 2);
-      right: calc((100% / {{ num_blocks }}) / 2);
-      height: var(--line-thickness);
     }
   {%- endif -%}
 
-  .timeline-section-{{ section.id }}
-  .timeline__events {
+  .timeline-section-{{ section.id }} .timeline__events {
     display: flex;
     justify-content: space-between;
     position: relative;
     z-index: 2;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__event-item {
+  .timeline-section-{{ section.id }} .timeline__event-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,8 +95,7 @@
     padding: 0 15px;
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__year-display {
+  .timeline-section-{{ section.id }} .timeline__year-display {
     width: var(--year-display-size);
     height: var(--year-display-size);
     border-radius: 50%;
@@ -128,8 +112,7 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__dot {
+  .timeline-section-{{ section.id }} .timeline__dot {
     width: var(--dot-size);
     height: var(--dot-size);
     background-color: var(--accent-color);
@@ -142,8 +125,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
-  .timeline-section-{{ section.id }}
-  .timeline__description-card {
+  .timeline-section-{{ section.id }} .timeline__description-card {
     background-color: var(--card-bg-color);
     color: var(--card-text-color);
     padding: 20px;
@@ -160,34 +142,104 @@
   .timeline__description-card p {
     margin: 0 0 10px;
   }
+
   .timeline-section-{{ section.id }}.timeline__description-card p:last-child {
     margin-bottom: 0;
   }
 
-  /* Responsive Styles */
   @media (max-width: 989px) {
-    {%- if num_blocks > 1 -%}
+    {% if num_blocks > 2 %}
       .timeline-section-{{ section.id }}
       .timeline__container::before {
-        top: calc(var(--year-display-size) + var(--year-display-to-dot-margin) +(var(--dot-size) / 2));
-        left: calc(var(--year-display-size) / 2 -(var(--line-thickness) / 2) + 20px);
+        left: calc(var(--year-display-size) / 2);
         right: auto;
-        bottom: calc(var(--dot-to-card-margin) + var(--dot-size) / 2);
+        top: 0;
+        bottom: 0;
         width: var(--line-thickness);
         height: auto;
       }
-    {%- endif -%}
 
-    {% if num_blocks > 2 %}
-    .timeline-section-{{ section.id }} .timeline__events {
-      flex-direction: column;
-      align-items: stretch;
+      .timeline-section-{{ section.id }}
+      .timeline__events {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__event-item {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0 0 30px;
+        margin-left: calc(var(--year-display-size) + 20px);
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__year-display {
+        position: absolute;
+        left: calc(-1 *(var(--year-display-size) + 20px));
+        top: 0;
+        margin-bottom: 0;
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__dot {
+        position: absolute;
+        left: calc(-1 *(var(--year-display-size) / 2 + 10px - var(--dot-size) / 2));
+        top: calc(var(--year-display-size) / 2 - var(--dot-size) / 2);
+        margin-bottom: 0;
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__description-card {
+        margin-left: 20px;
+      }
+    {% endif %}
+  }
+
+  @media (max-width: 749px) {
+    .timeline-section-{{ section.id }} .timeline-header__title {
+      font-size: 36px;
     }
 
     .timeline-section-{{ section.id }}
-    .timeline__event-item {
-      width: 100%;
-      padding: 0 0 30px calc(var(--year-display-size); /* P_BOTTOM, P_LEFT(for year display + 10px gap) */ margin-left: 0; /* REMOVED margin-left */ align-items: flex-start; /* Align content to start */ flex: none; /* Reset flex grow/shrink */ } .timeline-section-{{ section.id }} .timeline__year-display { position: absolute; left: 0; /* Position at the start of the padding-left area */ top: 0; margin-bottom: 0; } .timeline-section-{{ section.id }} .timeline__dot { position: absolute; left: calc(var(--year-display-size) / 2 - var(--dot-size) / 2); /* Centered in year-display's horizontal space */ top: calc(var(--year-display-size) + var(--year-display-to-dot-margin)); margin-bottom: 0; } .timeline-section-{{ section.id }} .timeline__description-card { margin-left: 0; /* REMOVED margin-left, flows in parent's content area */ width: 100%; } {% endif %} } @media(max-width: 749px) { .timeline-section-{{ section.id }} .timeline-header__title { font-size: 36px; } .timeline-section-{{ section.id }} .timeline-header__supertitle { font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px; } {%- if num_blocks > 1 -%} /* Line styles only if more than 1 block */ .timeline-section-{{ section.id }} .timeline__container::before { /* Vertical line for mobile */ top: calc(var(--year-display-size) * 0.8 + var(--year-display-to-dot-margin) * 0.8 +(var(--dot-size) * 0.8 / 2)); left: calc(var(--year-display-size) * 0.8 / 2 -(var(--line-thickness) / 2) + 20px); /* Aligned with smaller year display center */ bottom: calc(var(--dot-to-card-margin) * 0.8 +(var(--dot-size) * 0.8 / 2)); width: var(--line-thickness); height: auto; } {%- endif -%} {% if num_blocks > 2 %} /* Layout changes for mobile if enough blocks, inheriting from 989px if similar */ .timeline-section-{{ section.id }} .timeline__event-item { padding: 0 0 30px calc(var(--year-display-size); /* Adjusted padding for smaller year display */ } .timeline-section-{{ section.id }} .timeline__year-display { width: calc(var(--year-display-size) * 0.8); height: calc(var(--year-display-size) * 0.8); font-size: calc(var(--year-display-font-size) * 0.9); /* left: 0; from 989px */ } .timeline-section-{{ section.id }} .timeline__dot { width: calc(var(--dot-size) * 0.8); height: calc(var(--dot-size) * 0.8); left: calc(var(--year-display-size) * 0.8 / 2 - var(--dot-size) * 0.8 / 2); /* Centered in smaller year-display */ top: calc(var(--year-display-size) * 0.8 + var(--year-display-to-dot-margin) * 0.8); } .timeline-section-{{ section.id }} .timeline__description-card { padding: 15px; font-size: 13px; /* margin-left: 0; from 989px */ } {% endif %} /* Styles for single block on mobile(if num_blocks == 1, the >2 condition won't apply) */ {% if num_blocks == 1 %} .timeline-section-{{ section.id }} .timeline__events { justify-content: center; /* Center the single item */ } .timeline-section-{{ section.id }} .timeline__event-item { padding: 0 15px 30px; /* Regular padding for single item */ align-items: center; /* Center content of single item */ } .timeline-section-{{ section.id }} .timeline__year-display , .timeline-section-{{ section.id }} .timeline__dot { position: relative; /* Reset absolute positioning */ left: auto; top: auto; } .timeline-section-{{ section.id }} .timeline__year-display { margin-bottom: var(--year-display-to-dot-margin); } .timeline-section-{{ section.id }} .timeline__dot { margin-bottom: var(--dot-to-card-margin); } {% endif %} }
+    .timeline-header__supertitle {
+      font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px;
+    }
+
+    {% if num_blocks > 2 %}
+      .timeline-section-{{ section.id }}
+      .timeline__container::before {
+        left: calc(var(--year-display-size) * 0.8 / 2);
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__event-item {
+        margin-left: calc(var(--year-display-size) * 0.8 + 20px);
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__year-display {
+        width: calc(var(--year-display-size) * 0.8);
+        height: calc(var(--year-display-size) * 0.8);
+        font-size: calc(var(--year-display-font-size) * 0.9);
+        left: calc(-1 *(var(--year-display-size) * 0.8 + 20px));
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__dot {
+        width: calc(var(--dot-size) * 0.8);
+        height: calc(var(--dot-size) * 0.8);
+        left: calc(-1 *(var(--year-display-size) * 0.8 / 2 + 10px - var(--dot-size) * 0.8 / 2));
+      }
+
+      .timeline-section-{{ section.id }}
+      .timeline__description-card {
+        padding: 15px;
+        font-size: 13px;
+      }
+    {% endif %}
+  }
 {%- endstyle -%}
 
 <div class="timeline-section-{{ section.id }}">
