@@ -10,36 +10,18 @@
   .brand-hero-section-{{ section.id }} {
     --section-padding-top: {{ settings.padding_top | default: 60 }}px;
     --section-padding-bottom: {{ settings.padding_bottom | default: 60 }}px;
-    --section-bg-color: {{ settings.section_bg_color | default: '#FFFFFF' }};
-
-    --heading-color: {{ settings.heading_color | default: '#101828' }};
-    --heading-font-size-desktop: {{ settings.heading_font_size_desktop | default: 52 }}px;
-    --heading-font-size-mobile: {{ settings.heading_font_size_mobile | default: 36 }}px;
-    --heading-font-weight: {{ settings.heading_font_weight | default: 600 }};
-
-    --subtitle-color: {{ settings.subtitle_color | default: '#475467' }};
-    --subtitle-font-size-desktop: {{ settings.subtitle_font_size_desktop | default: 14 }}px;
-    --subtitle-font-size-mobile: {{ settings.subtitle_font_size_mobile | default: 13 }}px;
-
-    --button-text-color: {{ settings.button_text_color | default: '#FFFFFF' }};
-    --button-bg-color: {{ settings.button_bg_color | default: '#072A4A' }};
-    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 15 }}px; /* Updated default */
-    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 14 }}px; /* Updated default */
-    --button-border-radius: {{ settings.button_border_radius | default: 50 }}px; /* Updated default */
-    --button-padding-vertical: {{ settings.button_padding_vertical | default: 12 }}px; /* Updated default */
-    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 20 }}px; /* Updated default */
-
-    --image-border-radius: {{ settings.image_border_radius | default: 20 }}px;
     --content-gap: {{ settings.content_gap | default: 30 }}px;
     --header-bottom-margin: {{ settings.header_bottom_margin | default: 40 }}px;
 
-    background-color: var(--section-bg-color);
+    background-color: #FFFFFF;
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway'
+    , sans-serif;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__header {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__header {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -48,22 +30,26 @@
     margin-bottom: var(--header-bottom-margin);
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__title-wrapper {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__title-wrapper {
     flex: 3 1 60%;
     min-width: 280px;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__title {
-    font-family: 'Raleway', sans-serif;
-    font-weight: var(--heading-font-weight);
-    font-size: var(--heading-font-size-desktop);
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__title {
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 600;
+    font-size: 52px;
     line-height: 1.25;
-    color: var(--heading-color);
+    color: #101828;
     text-align: left;
     margin: 0;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__cta-wrapper {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -74,50 +60,57 @@
     padding-top: 3px;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
-    font-family: 'Raleway', sans-serif;
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__subtitle {
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 400;
-    font-size: var(--subtitle-font-size-desktop);
+    font-size: 14px;
     line-height: 1.6;
-    color: var(--subtitle-color);
+    color: #475467;
     margin: 0;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__cta {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    background-color: #072A4A;
+    color: #FFFFFF;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-size: var(--button-font-size-desktop);
-    font-weight: 600;
-    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-    border-radius: var(--button-border-radius);
+    font-family: 'Raleway'
+    , sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
     transition: opacity 0.3s ease;
     align-self: flex-start;
     line-height: 1.2;
     border: none;
     cursor: pointer;
   }
-   .brand-hero-section-{{ section.id }} .brand-hero__cta .arrow {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__cta .arrow {
     margin-left: 8px;
     display: inline-block;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__cta:hover {
+  .brand-hero-section-{{ section.id }}.brand-hero__cta:hover {
     opacity: 0.85;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__image-container {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__image-container {
     margin-top: 0;
   }
 
-  .brand-hero-section-{{ section.id }} .brand-hero__image {
+  .brand-hero-section-{{ section.id }}
+  .brand-hero__image {
     width: 100%;
     height: auto;
-    border-radius: var(--image-border-radius);
+    border-radius: 20px;
     object-fit: cover;
     display: block;
   }
@@ -128,29 +121,39 @@
       align-items: stretch;
       gap: 20px;
     }
-    
-    .brand-hero-section-{{ section.id }} .brand-hero__title-wrapper,
-    .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
+
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__title-wrapper
+    , .brand-hero-section-{{ section.id }}
+    .brand-hero__cta-wrapper {
       flex-basis: auto;
       text-align: {{ settings.mobile_text_align | default: 'left' }};
       max-width: none;
     }
-    .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
-       padding-top: 0;
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__cta-wrapper {
+      padding-top: 0;
     }
 
-    .brand-hero-section-{{ section.id }} .brand-hero__cta {
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__cta {
       align-self: {{ settings.mobile_button_align | default: 'flex-start' }};
-      font-size: var(--button-font-size-mobile);
-      padding: var(--button-padding-vertical) var(--button-padding-horizontal);
     }
 
-    .brand-hero-section-{{ section.id }} .brand-hero__title {
-      font-size: var(--heading-font-size-mobile);
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__title {
+      font-size: 36px;
     }
 
-    .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
-      font-size: var(--subtitle-font-size-mobile);
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__subtitle {
+      font-size: 13px;
+    }
+
+    .brand-hero-section-{{ section.id }}
+    .brand-hero__cta {
+      font-size: 13px;
+      padding: 9px 18px;
     }
   }
 {%- endstyle -%}
@@ -188,7 +191,7 @@
           class="brand-hero__image">
       </div>
     {%- elsif settings.show_onboarding_image -%}
-       <div class="brand-hero__image-container" style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--image-border-radius);">
+      <div class="brand-hero__image-container" style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: 20px;">
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       </div>
     {%- endif -%}
@@ -196,60 +199,54 @@
 </div>
 
 {% schema %}
-{
-  "name": "Brand Hero Advanced",
-  "tag": "section",
-  "class": "shopify-section--brand-hero-adv",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "textarea",
-      "id": "brand_title",
-      "label": "Heading",
-      "default": "Bath and kitchen essentials showroom"
-    },
-    {
-      "type": "richtext",
-      "id": "brand_subtitle",
-      "label": "Subtitle",
-      "default": "<p>Express your personality with our range of styles and finishes.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Discover Brand"
-    },
-    {
-      "type": "url",
-      "id": "brand_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_button_arrow",
-      "label": "Show arrow on button",
-      "default": true
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_onboarding_image",
-      "label": "Show placeholder if no image",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Layout & Spacing"
-    },
-    {
+  {
+    "name": "Brand Hero Advanced",
+    "tag": "section",
+    "class": "shopify-section--brand-hero-adv",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "textarea",
+        "id": "brand_title",
+        "label": "Heading",
+        "default": "Bath and kitchen essentials showroom"
+      },
+      {
+        "type": "richtext",
+        "id": "brand_subtitle",
+        "label": "Subtitle",
+        "default": "<p>Express your personality with our range of styles and finishes.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Discover Brand"
+      }, {
+        "type": "url",
+        "id": "brand_link",
+        "label": "Button Link"
+      }, {
+        "type": "checkbox",
+        "id": "show_button_arrow",
+        "label": "Show arrow on button",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image"
+      }, {
+        "type": "checkbox",
+        "id": "show_onboarding_image",
+        "label": "Show placeholder if no image",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "Layout & Spacing"
+      }, {
         "type": "range",
         "id": "content_gap",
         "label": "Gap between heading and CTA columns (Desktop)",
@@ -258,8 +255,7 @@
         "step": 5,
         "unit": "px",
         "default": 30
-    },
-    {
+      }, {
         "type": "range",
         "id": "header_bottom_margin",
         "label": "Space below header/CTA block",
@@ -268,134 +264,67 @@
         "step": 5,
         "unit": "px",
         "default": 40
-    },
-    {
-      "type": "header",
-      "content": "Text Styling"
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_desktop",
-      "label": "Heading Font Size (Desktop)",
-      "min": 24, "max": 80, "step": 1, "unit": "px", "default": 52
-    },
-    {
-      "type": "range",
-      "id": "heading_font_size_mobile",
-      "label": "Heading Font Size (Mobile)",
-      "min": 20, "max": 50, "step": 1, "unit": "px", "default": 36
-    },
-    {
-      "type": "select",
-      "id": "heading_font_weight",
-      "label": "Heading Font Weight",
-      "options": [
-        {"value": "400", "label": "Regular"},
-        {"value": "500", "label": "Medium"},
-        {"value": "600", "label": "Semi-Bold"},
-        {"value": "700", "label": "Bold"}
-      ],
-      "default": "600"
-    },
-    {
-      "type": "range",
-      "id": "subtitle_font_size_desktop",
-      "label": "Subtitle Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14
-    },
-    {
-      "type": "range",
-      "id": "subtitle_font_size_mobile",
-      "label": "Subtitle Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 13
-    },
-    {
-      "type": "header",
-      "content": "Button Styling"
-    },
-    {
-      "type": "range",
-      "id": "button_font_size_desktop",
-      "label": "Button Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 15
-    },
-    {
-      "type": "range",
-      "id": "button_font_size_mobile",
-      "label": "Button Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 14
-    },
-    {
-      "type": "range",
-      "id": "button_border_radius",
-      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 50
-    },
-     {
-      "type": "range",
-      "id": "button_padding_vertical",
-      "label": "Button Vertical Padding",
-      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12
-    },
-    {
-      "type": "range",
-      "id": "button_padding_horizontal",
-      "label": "Button Horizontal Padding",
-      "min": 12, "max": 40, "step": 1, "unit": "px", "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Image Styling"
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "min": 0, "max": 50, "step": 1, "unit": "px", "default": 20
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    { "type": "color", "id": "section_bg_color", "label": "Section Background", "default": "#FFFFFF" },
-    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#101828" },
-    { "type": "color", "id": "subtitle_color", "label": "Subtitle Color", "default": "#475467" },
-    { "type": "color", "id": "button_bg_color", "label": "Button Background", "default": "#072A4A" },
-    { "type": "color", "id": "button_text_color", "label": "Button Text Color", "default": "#FFFFFF" },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Top Padding", "default": 60 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Bottom Padding", "default": 60 },
-    {
-      "type": "header",
-      "content": "Mobile Layout"
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_align",
-      "label": "Text Alignment on Mobile",
-      "options": [
-        {"value": "left", "label": "Left"},
-        {"value": "center", "label": "Center"}
-      ],
-      "default": "left"
-    },
-    {
-      "type": "select",
-      "id": "mobile_button_align",
-      "label": "Button Alignment on Mobile",
-       "options": [
-        {"value": "flex-start", "label": "Left"},
-        {"value": "center", "label": "Center"},
-        {"value": "flex-end", "label": "Right"}
-      ],
-      "default": "flex-start"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Hero Advanced"
-    }
-  ]
-}
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 60
+      }, {
+        "type": "header",
+        "content": "Mobile Layout"
+      }, {
+        "type": "select",
+        "id": "mobile_text_align",
+        "label": "Text Alignment on Mobile",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "select",
+        "id": "mobile_button_align",
+        "label": "Button Alignment on Mobile",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ],
+        "default": "flex-start"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Hero Advanced"
+      }
+    ]
+  }
 {% endschema %}
