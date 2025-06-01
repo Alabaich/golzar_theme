@@ -53,7 +53,7 @@
   .brand-hero__cta-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
     flex: 1 1 30%;
     min-width: 260px;
     max-width: 320px;
@@ -92,6 +92,7 @@
     line-height: 1.2;
     border: none;
     cursor: pointer;
+    margin-top: 15px;
   }
   .brand-hero-section-{{ section.id }}
   .brand-hero__cta .arrow {
@@ -141,6 +142,7 @@
     .brand-hero-section-{{ section.id }}
     .brand-hero__cta {
       align-self: {{ settings.mobile_button_align | default: 'flex-start' }};
+      margin-top: 15px;
     }
 
     .brand-hero-section-{{ section.id }}
