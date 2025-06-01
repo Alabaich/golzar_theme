@@ -171,7 +171,7 @@
 
 {% schema %}
 {
-  "name": "Image Gallery Grid",
+  "name": "Image Gallery Grid (Fixed Layout)",
   "tag": "section",
   "class": "shopify-section--image-gallery-grid-fixed",
   "settings": [
@@ -209,26 +209,46 @@
     {
       "type": "header",
       "content": "Image Slots (1 to 6)"
+    },
+    {%- for i in (1..6) -%}
+      {%- capture group_label -%}Image Slot {{ i }}{%- endcapture -%}
+      {%- capture image_id -%}image_slot_{{ i }}{%- endcapture -%}
+      {%- capture link_id -%}link_slot_{{ i }}{%- endcapture -%}
+      {%- capture alt_id -%}alt_slot_{{ i }}{%- endcapture -%}
+      { "type": "header", "content": "{{ group_label }}" },
+      { "type": "image_picker", "id": "{{ image_id }}", "label": "Image" },
+      { "type": "url", "id": "{{ link_id }}", "label": "Link (Optional)" },
+      { "type": "text", "id": "{{ alt_id }}", "label": "Alt Text (Optional)", "info": "Defaults to image name or section title." }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%},
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 50
     }
   ],
   "presets": [
     {
-      "name": "Image Gallery Grid"
+      "name": "Image Gallery Grid (Fixed Layout)"
     }
   ]
 }
-{%- for i in (1..6) -%}
-  {%- capture group_label -%}Image Slot {{ i }}{%- endcapture -%}
-  {%- capture image_id -%}image_slot_{{ i }}{%- endcapture -%}
-  {%- capture link_id -%}link_slot_{{ i }}{%- endcapture -%}
-  {%- capture alt_id -%}alt_slot_{{ i }}{%- endcapture -%}
-  {{ "{ \"type\": \"header\", \"content\": \"" | append: group_label | append: "\" }," }}
-  {{ "{ \"type\": \"image_picker\", \"id\": \"" | append: image_id | append: "\", \"label\": \"Image\" }," }}
-  {{ "{ \"type\": \"url\", \"id\": \"" | append: link_id | append: "\", \"label\": \"Link (Optional)\" }," }}
-  {{ "{ \"type\": "text", \"id\": \"" | append: alt_id | append: "\", \"label\": \"Alt Text (Optional)\", \"info\": \"Defaults to image name or section title.\" }," }}
-{%- endfor -%}
-{{ "{ \"type\": \"header\", \"content\": \"Section Padding\" }," }}
-{{ "{ \"type\": \"range\", \"id\": \"padding_top\", \"min\": 0, \"max\": 150, \"step\": 5, \"unit\": \"px\", \"label\": \"Top Padding\", \"default\": 50 }," }}
-{{ "{ \"type\": \"range\", \"id\": \"padding_bottom\", \"min\": 0, \"max\": 150, \"step\": 5, \"unit\": \"px\", \"label\": \"Bottom Padding\", \"default\": 50 }" }}
-{{ "]}" }}
 {% endschema %}
