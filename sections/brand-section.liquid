@@ -1,22 +1,36 @@
+{%- liquid
+  assign settings = section.settings
+  assign heading = settings.brand_title
+  assign subtitle = settings.brand_subtitle
+  assign link = settings.brand_link
+  assign image = settings.hero_image
+-%}
+
 {%- style -%}
-  .brand-header-main {
-    text-align: center;
-    padding: 60px 10%;
+  .brand-header-main-{{ section.id }} {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
+  .brand-header-main-{{ section.id }}
   .fqfsa {
     display: flex;
     flex-direction: column;
     gap: 42px;
-    width: 20%;
+    flex: 1 1 300px;
+    max-width: 400px;
   }
 
+  .brand-header-main-{{ section.id }}
   .brand-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
   }
 
+  .brand-header-main-{{ section.id }}
   .brand-title {
     font-family: 'Raleway'
     , sans-serif;
@@ -24,11 +38,12 @@
     font-size: 50px;
     line-height: 1.2;
     color: #151515;
-    max-width: 600px;
     text-align: start;
     margin: 0 0 15px;
+    flex: 2 1 50%;
   }
 
+  .brand-header-main-{{ section.id }}
   .brand-subtitle {
     font-family: 'Raleway'
     , sans-serif;
@@ -38,9 +53,9 @@
     letter-spacing: -0.01em;
     color: #151515;
     margin: 0;
-    max-width: 600px;
   }
 
+  .brand-header-main-{{ section.id }}
   .brand-cta {
     display: inline-block;
     background-color: #002B5B;
@@ -55,60 +70,90 @@
     transition: background-color 0.3s ease;
     font-family: 'Open Sans'
     , sans-serif;
+    align-self: flex-start;
   }
 
-  .brand-cta:hover {
+  .brand-header-main-{{ section.id }}.brand-cta:hover {
     background-color: #001F3F;
   }
 
+  .brand-header-main-{{ section.id }}
   .brand-hero {
     margin-top: 2rem;
   }
 
+  .brand-header-main-{{ section.id }}
   .hero-image {
     width: 100%;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
+    display: block;
   }
 
   @media (max-width: 768px) {
-    .brand-header-main {
-      padding: 40px 5% 0;
+    .brand-header-main-{{ section.id }} {
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
+    .brand-header-main-{{ section.id }}
+    .brand-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand-header-main-{{ section.id }}
     .brand-title {
       font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+      flex-basis: auto;
     }
 
+    .brand-header-main-{{ section.id }}
+    .fqfsa {
+      align-items: center;
+      text-align: center;
+      gap: 25px;
+      flex-basis: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .brand-header-main-{{ section.id }}
     .brand-subtitle {
       font-size: 15px;
     }
 
+    .brand-header-main-{{ section.id }}
     .brand-cta {
-      font-size: 0.7rem;
-      padding: 0.6rem 1.25rem;
+      font-size: 14px;
+      padding: 12px 22px;
+      align-self: center;
     }
   }
 {%- endstyle -%}
 
-
-<div class="brand-header-main">
-  <div class="brand-header">
-    <h1 class="brand-title">{{ section.settings.brand_title | escape }}</h1>
-    <div class="fqfsa">
-      <p class="brand-subtitle">{{ section.settings.brand_subtitle | escape }}</p>
-      <a href="{{ section.settings.brand_link }}" class="brand-cta">Discover Brand</a>
+<div class="brand-header-main brand-header-main-{{ section.id }}">
+  <div class="page-width">
+    <div class="brand-header">
+      <h1 class="brand-title">{{ section.settings.brand_title | escape }}</h1>
+      <div class="fqfsa">
+        <p class="brand-subtitle">{{ section.settings.brand_subtitle | escape }}</p>
+        <a href="{{ section.settings.brand_link }}" class="brand-cta">Discover Brand</a>
+      </div>
     </div>
+    {% if section.settings.hero_image != blank %}
+      <div class="brand-hero">
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1400 }}"
+          alt="{{ section.settings.hero_image.alt | default: section.settings.brand_title | escape }}"
+          class="hero-image">
+      </div>
+    {% endif %}
   </div>
-  {% if section.settings.hero_image != blank %}
-    <div class="brand-hero">
-      <img
-        src="{{ section.settings.hero_image | image_url: width: 1400 }}"
-        alt="Brand Hero"
-        class="hero-image">
-    </div>
-  {% endif %}
 </div>
 
 {% schema %}
