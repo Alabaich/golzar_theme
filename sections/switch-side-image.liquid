@@ -1,0 +1,462 @@
+{%- liquid
+  assign settings = section.settings
+  assign heading = settings.heading
+  assign subheading = settings.subheading
+  assign button_text = settings.button_text
+  assign button_link = settings.button_link
+  assign image = settings.image
+  assign image_position = settings.image_position
+  assign desktop_image_width = settings.desktop_image_width
+  assign mobile_stack_order = settings.mobile_stack_order
+  assign vertical_align = settings.vertical_align
+
+  assign text_col_width = 100 | minus: desktop_image_width
+-%}
+
+{%- style -%}
+  .iwts-section-{{ section.id }} {
+    --section-padding-top: {{ settings.padding_top | default: 60 }}px;
+    --section-padding-bottom: {{ settings.padding_bottom | default: 60 }}px;
+    --content-gap: {{ settings.content_gap | default: 30 }}px;
+    --text-elements-gap: {{ settings.text_elements_gap | default: 20 }}px;
+    --image-border-radius: {{ settings.image_border_radius | default: 12 }}px;
+
+    background-color: {{ settings.background_color | default: '#FFFFFF' }};
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    font-family: 'Raleway'
+    , sans-serif;
+  }
+
+  .iwts-section-{{ section.id }}
+  .iwts__grid {
+    display: flex;
+    align-items: {{ vertical_align | default: 'center' }};
+    gap: var(--content-gap);
+    flex-direction: {% if image_position == 'left' %}row-reverse{% else %}row{% endif %};
+}
+
+.iwts-section-{{ section.id }}
+.iwts__text-content {
+  flex: 1 1{{ text_col_width }}%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--text-elements-gap);
+  min-width: 0;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__image-container {
+  flex: 1 1{{ desktop_image_width }}%;
+  min-width: 0;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--image-border-radius);
+  object-fit: cover;
+  display: block;
+}
+
+.iwts-section-{{ section.id }} .iwts__title {
+  font-family: 'Raleway'
+  , sans-serif;
+  font-weight: 600;
+  font-size: {{ settings.title_font_size_desktop | default: 42 }}px;
+  line-height: 1.25;
+  color: {{ settings.title_color | default: '#101828' }};
+  text-align: left;
+  margin: 0;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__subheading {
+  font-family: 'Raleway'
+  , sans-serif;
+  font-weight: 400;
+  font-size: {{ settings.subheading_font_size_desktop | default: 16 }}px;
+  line-height: 1.6;
+  color: {{ settings.subheading_color | default: '#475467' }};
+  margin: 0;
+  text-align: left;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__subheading p {
+  margin: 0;
+}
+.iwts-section-{{ section.id }}.iwts__subheading p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+
+.iwts-section-{{ section.id }}
+.iwts__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: {{ settings.button_bg_color | default: '#072A4A' }};
+  color: {{ settings.button_text_color | default: '#FFFFFF' }};
+  text-decoration: none;
+  font-family: 'Raleway'
+  , sans-serif;
+  font-size: {{ settings.button_font_size_desktop | default: 14 }}px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: opacity 0.3s ease
+  , transform 0.3s ease;
+  line-height: 1.2;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__cta .arrow {
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.iwts-section-{{ section.id }}.iwts__cta:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .iwts-section-{{ section.id }} .iwts__grid {
+    flex-direction: {% if mobile_stack_order == 'image_first' %}column-reverse{% else %}column{% endif %};
+}
+
+.iwts-section-{{ section.id }}
+.iwts__text-content
+, .iwts-section-{{ section.id }}
+.iwts__image-container {
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.iwts-section-{{ section.id }}
+.iwts__text-content {
+  align-items: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
+}
+
+.iwts-section-{{ section.id }}
+.iwts__title {
+  font-size: {{ settings.title_font_size_mobile | default: 32 }}px;
+  text-align: {{ settings.mobile_text_align | default: 'left' }};
+}
+
+.iwts-section-{{ section.id }}
+.iwts__subheading {
+  font-size: {{ settings.subheading_font_size_mobile | default: 15 }}px;
+  text-align: {{ settings.mobile_text_align | default: 'left' }};
+}
+
+.iwts-section-{{ section.id }}
+.iwts__cta {
+  font-size: {{ settings.button_font_size_mobile | default: 14 }}px;
+  align-self: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
+}
+}
+{%- endstyle -%}
+
+<div class="iwts-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="iwts__grid">
+      <div class="iwts__text-content">
+        {%- if heading != blank -%}
+          <h2 class="iwts__title">{{ heading | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if subheading != blank -%}
+          <div class="iwts__subheading">{{ subheading }}</div>
+        {%- endif -%}
+        {%- if button_text != blank and button_link != blank -%}
+          <a href="{{ button_link }}" class="iwts__cta">
+            {{ button_text | escape }}
+            {%- if settings.show_button_arrow -%}
+              <span class="arrow">&gt;</span>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      </div>
+      <div class="iwts__image-container">
+        {%- if image != blank -%}
+          <img
+            src="{{ image | image_url: width: image.width }}"
+            alt="{{ image.alt | default: heading | escape }}"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            loading="lazy"
+            class="iwts__image">
+        {%- elsif settings.show_onboarding_image -%}
+          <div style="aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--image-border-radius);">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image With Text (Switchable)",
+    "tag": "section",
+    "class": "shopify-section--iwts",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Reliable support before and after you buy"
+      },
+      {
+        "type": "richtext",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "<p>All our imported items come with a 5-year warranty for peace of mind. As authorized dealers, we also handle after-sales support for global brands we carry. Our licensed plumbing team is available 24/7, ensuring any issues are resolved quickly and professionally.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Contact us"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }, {
+        "type": "checkbox",
+        "id": "show_button_arrow",
+        "label": "Show arrow on button",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }, {
+        "type": "checkbox",
+        "id": "show_onboarding_image",
+        "label": "Show placeholder if no image",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "Layout & Spacing"
+      }, {
+        "type": "select",
+        "id": "image_position",
+        "label": "Image Position (Desktop)",
+        "options": [
+          {
+            "value": "right",
+            "label": "Image on Right"
+          }, {
+            "value": "left",
+            "label": "Image on Left"
+          }
+        ],
+        "default": "right"
+      }, {
+        "type": "range",
+        "id": "desktop_image_width",
+        "label": "Image Column Width (Desktop)",
+        "min": 20,
+        "max": 80,
+        "step": 5,
+        "unit": "%",
+        "default": 45
+      }, {
+        "type": "select",
+        "id": "vertical_align",
+        "label": "Vertical Alignment of Columns (Desktop)",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Top"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "flex-end",
+            "label": "Bottom"
+          }
+        ],
+        "default": "center"
+      }, {
+        "type": "range",
+        "id": "content_gap",
+        "label": "Gap between text and image columns",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 30
+      }, {
+        "type": "range",
+        "id": "text_elements_gap",
+        "label": "Gap between text elements (Heading, Subheading, Button)",
+        "min": 0,
+        "max": 50,
+        "step": 5,
+        "unit": "px",
+        "default": 20
+      }, {
+        "type": "range",
+        "id": "image_border_radius",
+        "label": "Image Border Radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 12
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 60
+      }, {
+        "type": "header",
+        "content": "Text Styling"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Section Background Color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#101828"
+      }, {
+        "type": "range",
+        "id": "title_font_size_desktop",
+        "label": "Title Font Size (Desktop)",
+        "min": 20,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "default": 42
+      }, {
+        "type": "color",
+        "id": "subheading_color",
+        "label": "Subheading Color",
+        "default": "#475467"
+      }, {
+        "type": "range",
+        "id": "subheading_font_size_desktop",
+        "label": "Subheading Font Size (Desktop)",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      }, {
+        "type": "color",
+        "id": "button_bg_color",
+        "label": "Button Background Color",
+        "default": "#072A4A"
+      }, {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text Color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "range",
+        "id": "button_font_size_desktop",
+        "label": "Button Font Size (Desktop)",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 14
+      }, {
+        "type": "header",
+        "content": "Mobile Layout"
+      }, {
+        "type": "select",
+        "id": "mobile_stack_order",
+        "label": "Mobile Stacking Order",
+        "options": [
+          {
+            "value": "text_first",
+            "label": "Text First, then Image"
+          }, {
+            "value": "image_first",
+            "label": "Image First, then Text"
+          }
+        ],
+        "default": "text_first"
+      }, {
+        "type": "select",
+        "id": "mobile_text_align",
+        "label": "Text Alignment on Mobile",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "range",
+        "id": "title_font_size_mobile",
+        "label": "Title Font Size (Mobile)",
+        "min": 20,
+        "max": 48,
+        "step": 1,
+        "unit": "px",
+        "default": 32
+      }, {
+        "type": "range",
+        "id": "subheading_font_size_mobile",
+        "label": "Subheading Font Size (Mobile)",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 15
+      }, {
+        "type": "range",
+        "id": "button_font_size_mobile",
+        "label": "Button Font Size (Mobile)",
+        "min": 12,
+        "max": 18,
+        "step": 1,
+        "unit": "px",
+        "default": 14
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image With Text (Switchable)"
+      }
+    ]
+  }
+{% endschema %}
