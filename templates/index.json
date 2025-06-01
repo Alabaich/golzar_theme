@@ -410,7 +410,7 @@
         "promo_heading_color": "#ffffff",
         "promo_subheading_color": "#ffffff",
         "section_title": "Our products",
-        "featured_collection": "red",
+        "featured_collection": "tub-door",
         "products_to_show": 4,
         "product_title_truncate_length": 30,
         "show_vendor": false,
