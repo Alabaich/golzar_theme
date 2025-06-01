@@ -1,9 +1,6 @@
 <style>
   .image-gallery-outer-wrapper-{{ section.id }} {
     padding: 20px 0;
-    {% if section.settings.large_image_overlap != 0 %}
-      padding-top: {{ section.settings.large_image_overlap | plus: 20 }}px;
-    {% endif %}
   }
 
   .image-gallery-rows-content-{{ section.id }} {
@@ -21,7 +18,7 @@
     display: flex;
     gap: var(--image-gap);
     margin-bottom: var(--image-gap);
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .image-container-{{ section.id }} {
@@ -43,9 +40,6 @@
     flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 0;
-    {% if section.settings.large_image_overlap != 0 %}
-      margin-top: -{{ section.settings.large_image_overlap }}px;
-    {% endif %}
   }
 
   .image-container-{{ section.id }}
@@ -58,9 +52,7 @@
   @media (max-width: 768px) {
     .image-row-{{ section.id }} {
       flex-direction: column;
-      align-items: center;
     }
-
     .image-container-{{ section.id }}
     .item-large
     , .image-container-{{ section.id }}
@@ -68,9 +60,7 @@
       width: 100%;
       margin-bottom: var(--image-gap);
       flex-basis: auto;
-      margin-top: 0;
     }
-
     .image-row-{{ section.id }}.image-container-{{ section.id }}:last-child {
       margin-bottom: 0;
     }
@@ -256,16 +246,6 @@
         "unit": "px",
         "label": "Gap between images",
         "default": 10
-      }, {
-        "type": "range",
-        "id": "large_image_overlap",
-        "min": 0,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "label": "Large Image Upward Overlap",
-        "info": "Makes the large image shift upwards.",
-        "default": 0
       }
     ],
     "presets": [
