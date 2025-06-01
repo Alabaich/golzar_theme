@@ -520,38 +520,84 @@
     },
     "gallery_grid_XqDCde": {
       "type": "gallery-grid",
+      "blocks": {
+        "product_card_efdxDK": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/111.webp",
+            "title": "",
+            "button_label": "",
+            "button_link": "",
+            "size": "tall"
+          }
+        },
+        "product_card_LGjVrN": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/222.webp",
+            "title": "Product Collection",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "size": "regular"
+          }
+        },
+        "product_card_649bki": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/333.webp",
+            "title": "Product Collection",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "size": "regular"
+          }
+        },
+        "product_card_AqywF3": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/444.webp",
+            "title": "Product Collection",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "size": "regular"
+          }
+        },
+        "product_card_3NkDnC": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/555.webp",
+            "title": "Product Collection",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "size": "regular"
+          }
+        },
+        "product_card_PjaqtF": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/666.webp",
+            "title": "Product Collection",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_efdxDK",
+        "product_card_LGjVrN",
+        "product_card_649bki",
+        "product_card_AqywF3",
+        "product_card_3NkDnC",
+        "product_card_PjaqtF"
+      ],
       "name": "Image Gallery Grid",
       "settings": {
-        "section_title": "Discover products in a real-life setting",
-        "title_align": "left",
+        "title": "Discover products in a real-life setting",
         "title_color": "#101828",
-        "title_font_size_desktop": 32,
-        "title_font_size_mobile": 24,
-        "background_color": "rgba(0,0,0,0)",
-        "gap_size": 16,
-        "image_aspect_ratio": "3/4",
-        "mobile_image_aspect_ratio": "1/1",
-        "show_onboarding_placeholders": true,
-        "image_slot_1": "shopify://shop_images/111.webp",
-        "link_slot_1": "",
-        "alt_slot_1": "",
-        "image_slot_2": "shopify://shop_images/222.webp",
-        "link_slot_2": "",
-        "alt_slot_2": "",
-        "image_slot_3": "shopify://shop_images/333.webp",
-        "link_slot_3": "",
-        "alt_slot_3": "",
-        "image_slot_4": "shopify://shop_images/444.webp",
-        "link_slot_4": "",
-        "alt_slot_4": "",
-        "image_slot_5": "shopify://shop_images/555.webp",
-        "link_slot_5": "",
-        "alt_slot_5": "",
-        "image_slot_6": "shopify://shop_images/666.webp",
-        "link_slot_6": "",
-        "alt_slot_6": "",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "subtitle": "See how our products fit perfectly in everyday spaces",
+        "subtitle_color": "#666666",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000"
       }
     }
   },
