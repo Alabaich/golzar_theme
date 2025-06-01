@@ -430,6 +430,16 @@
         "padding_bottom": 60,
         "show_onboarding_info": true
       }
+    },
+    "brand_section_9m9dXr": {
+      "type": "brand-section",
+      "name": "Brand Hero",
+      "settings": {
+        "brand_title": "Bath and kitchen essentials showroom",
+        "brand_subtitle": "Express your personality with our range of styles and finishes.",
+        "brand_link": "/",
+        "hero_image": "shopify://shop_images/43212344132.webp"
+      }
     }
   },
   "order": [
@@ -441,6 +451,7 @@
     "gallery_lightbox_slider_UNGJCQ",
     "feature_grid_with_text_r8q4cy",
     "timeline_section_FQWqKh",
-    "team_section_ANyinb"
+    "team_section_ANyinb",
+    "brand_section_9m9dXr"
   ]
 }
