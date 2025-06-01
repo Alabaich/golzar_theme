@@ -35,8 +35,9 @@
   .ig__grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto auto;
     gap: var(--gap-size);
+    align-items: start;
   }
 
   .ig-section-{{ section.id }}
@@ -115,6 +116,7 @@
     .ig__grid-container {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
+      align-items: stretch;
     }
     .ig-section-{{ section.id }}
     .ig__slot--1
