@@ -345,17 +345,89 @@
       ],
       "name": "Timeline Section",
       "settings": {
-        "heading": "<p>Built on Experience:</p><h2>The Evolution of Golzar Home</h2>",
+        "supertitle": "Built on Experience:",
+        "title": "The Evolution of Golzar Home",
+        "supertitle_font_size": 18,
+        "line_thickness": 2,
+        "supertitle_font_weight": "600",
         "header_align": "left",
-        "section_bg_color": "#FFFFFF",
-        "heading_color": "#1F2937",
-        "accent_color": "#3B5F82",
-        "year_text_color": "#FFFFFF",
-        "card_bg_color": "#F8F9FA",
-        "card_text_color": "#4B5563",
-        "line_color": "#D1D5DB",
+        "year_bubble_size": 90,
+        "year_font_size": 16,
+        "dot_size": 12,
+        "section_bg_color": "#ffffff",
+        "heading_supertitle_color": "#111827",
+        "heading_title_color": "#111827",
+        "accent_color": "#3b5f82",
+        "year_text_color": "#ffffff",
+        "card_bg_color": "#f8f9fa",
+        "card_text_color": "#4b5563",
+        "line_color": "#d1d5db",
         "padding_top": 100,
         "padding_bottom": 100
+      }
+    },
+    "team_section_ANyinb": {
+      "type": "team-section",
+      "blocks": {
+        "team_member_wczYnq": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/image_5_1x_0c11009a-41f5-410b-a541-53d44e5e2893.webp",
+            "name": "Team Member Name",
+            "role": "Job Title",
+            "description": "<p>Brief description about the team member and their expertise.</p>"
+          }
+        },
+        "team_member_nEDBjK": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/image_6_1x_98a753fa-fb77-4b2b-8455-52fad8d79da2.webp",
+            "name": "Team Member Name",
+            "role": "Job Title",
+            "description": "<p>Brief description about the team member and their expertise.</p>"
+          }
+        },
+        "team_member_YgQFQ3": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/image_7_1x_aed61706-8b45-488e-a768-e184151babd5.webp",
+            "name": "Team Member Name",
+            "role": "Job Title",
+            "description": "<p>Brief description about the team member and their expertise.</p>"
+          }
+        },
+        "team_member_qwkmLa": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/image_8_1x_e88c66cf-c0fa-453a-8cf2-db304fc2d0bc.webp",
+            "name": "Team Member Name",
+            "role": "Job Title",
+            "description": "<p>Brief description about the team member and their expertise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_wczYnq",
+        "team_member_nEDBjK",
+        "team_member_YgQFQ3",
+        "team_member_qwkmLa"
+      ],
+      "name": "Team Section",
+      "settings": {
+        "title": "The Golzar Home team",
+        "header_align": "left",
+        "member_text_align": "left",
+        "columns_desktop": 4,
+        "image_aspect_ratio": "4/3",
+        "image_border_radius": 8,
+        "section_bg_color": "#FFFFFF",
+        "text_color_heading": "#111111",
+        "text_color_name": "#333333",
+        "text_color_role": "#555555",
+        "text_color_description": "#777777",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_onboarding_info": true
       }
     }
   },
@@ -367,6 +439,7 @@
     "about_team_QYXaFF",
     "gallery_lightbox_slider_UNGJCQ",
     "feature_grid_with_text_r8q4cy",
-    "timeline_section_FQWqKh"
+    "timeline_section_FQWqKh",
+    "team_section_ANyinb"
   ]
 }
