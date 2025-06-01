@@ -14,11 +14,14 @@
     background-color: {{ settings.background_color | default: 'transparent' }};
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway'
+    , sans-serif;
   }
 
-  .ig-section-{{ section.id }} .ig__title {
-    font-family: 'Raleway', sans-serif;
+  .ig-section-{{ section.id }}
+  .ig__title {
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 600;
     font-size: var(--title-font-size-desktop);
     line-height: 1.3;
@@ -28,70 +31,82 @@
     text-align: {{ settings.title_align | default: 'left' }};
   }
 
-  .ig-section-{{ section.id }} .ig__grid-container {
+  .ig-section-{{ section.id }}
+  .ig__grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
-    gap: 10px; /* Hardcoded */
+    gap: 10px;
   }
 
-  .ig-section-{{ section.id }} .ig__slot {
+  .ig-section-{{ section.id }}
+  .ig__slot {
     position: relative;
     overflow: hidden;
-    border-radius: 8px; /* Hardcoded */
+    border-radius: 16px;
     background-color: #f0f0f0;
   }
 
-  .ig-section-{{ section.id }} .ig__slot img,
-  .ig-section-{{ section.id }} .ig__slot .ig__placeholder-svg-wrapper {
+  .ig-section-{{ section.id }}
+  .ig__slot img
+  , .ig-section-{{ section.id }}
+  .ig__slot .ig__placeholder-svg-wrapper {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
-  .ig-section-{{ section.id }} .ig__slot .ig__placeholder-svg-wrapper {
+
+  .ig-section-{{ section.id }}
+  .ig__slot .ig__placeholder-svg-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .ig-section-{{ section.id }} .ig__slot .placeholder-svg {
-     width: 25%;
-     height: 25%;
-     max-width: 80px;
-     max-height: 80px;
+  .ig-section-{{ section.id }}
+  .ig__slot .placeholder-svg {
+    width: 25%;
+    height: 25%;
+    max-width: 80px;
+    max-height: 80px;
   }
 
-  .ig-section-{{ section.id }} .ig__slot--1 {
+  .ig-section-{{ section.id }}
+  .ig__slot--1 {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
-    aspect-ratio: 1/1; /* Hardcoded */
+    aspect-ratio: 1 / 1;
   }
-  .ig-section-{{ section.id }} .ig__slot--2 {
+  .ig-section-{{ section.id }}
+  .ig__slot--2 {
     grid-column: 3 / span 1;
     grid-row: 1 / span 1;
-    aspect-ratio: 3/2; /* Hardcoded */
+    aspect-ratio: 3 / 2;
   }
-  .ig-section-{{ section.id }} .ig__slot--3 {
+  .ig-section-{{ section.id }}
+  .ig__slot--3 {
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
-    aspect-ratio: 3/2; /* Hardcoded */
+    aspect-ratio: 3 / 2;
   }
-  .ig-section-{{ section.id }} .ig__slot--4 {
+  .ig-section-{{ section.id }}
+  .ig__slot--4 {
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
-    aspect-ratio: 3/2; /* Hardcoded */
+    aspect-ratio: 3 / 2;
   }
-  .ig-section-{{ section.id }} .ig__slot--5 {
+  .ig-section-{{ section.id }}
+  .ig__slot--5 {
     grid-column: 2 / span 1;
     grid-row: 3 / span 1;
-    aspect-ratio: 3/2; /* Hardcoded */
+    aspect-ratio: 3 / 2;
   }
-  .ig-section-{{ section.id }} .ig__slot--6 {
+  .ig-section-{{ section.id }}
+  .ig__slot--6 {
     grid-column: 3 / span 1;
     grid-row: 3 / span 1;
-    aspect-ratio: 3/2; /* Hardcoded */
+    aspect-ratio: 3 / 2;
   }
 
   @media (max-width: 768px) {
@@ -100,20 +115,28 @@
       margin-bottom: 20px;
     }
 
-    .ig-section-{{ section.id }} .ig__grid-container {
-      grid-template-columns: 1fr; /* Hardcoded: 1 column on mobile */
+    .ig-section-{{ section.id }}
+    .ig__grid-container {
+      grid-template-columns: 1fr;
     }
 
-    .ig-section-{{ section.id }} .ig__slot,
-    .ig-section-{{ section.id }} .ig__slot--1,
-    .ig-section-{{ section.id }} .ig__slot--2,
-    .ig-section-{{ section.id }} .ig__slot--3,
-    .ig-section-{{ section.id }} .ig__slot--4,
-    .ig-section-{{ section.id }} .ig__slot--5,
-    .ig-section-{{ section.id }} .ig__slot--6 {
+    .ig-section-{{ section.id }}
+    .ig__slot
+    , .ig-section-{{ section.id }}
+    .ig__slot--1
+    , .ig-section-{{ section.id }}
+    .ig__slot--2
+    , .ig-section-{{ section.id }}
+    .ig__slot--3
+    , .ig-section-{{ section.id }}
+    .ig__slot--4
+    , .ig-section-{{ section.id }}
+    .ig__slot--5
+    , .ig-section-{{ section.id }}
+    .ig__slot--6 {
       grid-column: auto;
-      grid-row: auto;   
-      aspect-ratio: 4/3;
+      grid-row: auto;
+      aspect-ratio: 4 / 3;
     }
   }
 {%- endstyle -%}
@@ -137,8 +160,8 @@
         {%- if image != blank -%}
           <div class="ig__slot ig__slot--{{ i }}">
             {%- if link != blank -%}<a href="{{ link }}">{%- endif -%}
-              <img
-                srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
+            <img
+              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
                         {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%}
                         {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
                         {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
@@ -148,13 +171,12 @@
                         {%- if image.width >= 2800 -%}{{ image | image_url: width: 2800 }} 2800w,{%- endif -%}
                         {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                         {{ image | image_url }} {{ image.width }}w"
-                src="{{ image | image_url: width: 1500 }}"
-                sizes="(max-width: 768px) 100vw, (max-width: 990px) 33vw, 25vw"
-                alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-                loading="lazy"
-                width="{{ image.width }}"
-                height="{{ image.height }}"
-              >
+              src="{{ image | image_url: width: 1500 }}"
+              sizes="(max-width: 768px) 100vw, (max-width: 990px) 33vw, 25vw"
+              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="{{ image.width }}"
+              height="{{ image.height }}">
             {%- if link != blank -%}</a>{%- endif -%}
           </div>
         {%- elsif settings.show_onboarding_placeholders -%}
@@ -170,85 +192,198 @@
 </div>
 
 {% schema %}
-{
-  "name": "Image Gallery Grid",
-  "tag": "section",
-  "class": "shopify-section--image-gallery-grid-fixed",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Section Title & Style"
-    },
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Title",
-      "default": "Discover products in a real-life setting"
-    },
-    {
-      "type": "select",
-      "id": "title_align",
-      "label": "Title Alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "left"
-    },
-    { "type": "color", "id": "title_color", "label": "Title Color", "default": "#101828" },
-    { "type": "range", "id": "title_font_size_desktop", "label": "Title Font Size (Desktop)", "min": 20, "max": 60, "step": 1, "unit": "px", "default": 32 },
-    { "type": "range", "id": "title_font_size_mobile", "label": "Title Font Size (Mobile)", "min": 16, "max": 40, "step": 1, "unit": "px", "default": 24 },
-    { "type": "color", "id": "background_color", "label": "Section Background Color", "default": "rgba(0,0,0,0)" },
-    {
-      "type": "checkbox",
-      "id": "show_onboarding_placeholders",
-      "label": "Show placeholders for empty slots",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Image Slots (1 to 6)"
-    },
-    {%- for i in (1..6) -%}
-      {%- capture group_label -%}Image Slot {{ i }}{%- endcapture -%}
-      {%- capture image_id -%}image_slot_{{ i }}{%- endcapture -%}
-      {%- capture link_id -%}link_slot_{{ i }}{%- endcapture -%}
-      {%- capture alt_id -%}alt_slot_{{ i }}{%- endcapture -%}
-      { "type": "header", "content": "{{ group_label }}" },
-      { "type": "image_picker", "id": "{{ image_id }}", "label": "Image" },
-      { "type": "url", "id": "{{ link_id }}", "label": "Link (Optional)" },
-      { "type": "text", "id": "{{ alt_id }}", "label": "Alt Text (Optional)", "info": "Defaults to image name or section title." }{% unless forloop.last %},{% endunless %}
-    {%- endfor -%},
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 150,
-      "step": 5,
-      "unit": "px",
-      "label": "Top Padding",
-      "default": 50
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 150,
-      "step": 5,
-      "unit": "px",
-      "label": "Bottom Padding",
-      "default": 50
-    }
-  ],
-  "presets": [
-    {
-      "name": "Image Gallery Grid"
-    }
-  ]
-}
+  {
+    "name": "Image Gallery Grid",
+    "tag": "section",
+    "class": "shopify-section--image-gallery-grid-fixed",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Title & Style"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Title",
+        "default": "Discover products in a real-life setting"
+      },
+      {
+        "type": "select",
+        "id": "title_align",
+        "label": "Title Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#101828"
+      }, {
+        "type": "range",
+        "id": "title_font_size_desktop",
+        "label": "Title Font Size (Desktop)",
+        "min": 20,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "default": 32
+      }, {
+        "type": "range",
+        "id": "title_font_size_mobile",
+        "label": "Title Font Size (Mobile)",
+        "min": 16,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "default": 24
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Section Background Color",
+        "default": "rgba(0,0,0,0)"
+      }, {
+        "type": "checkbox",
+        "id": "show_onboarding_placeholders",
+        "label": "Show placeholders for empty slots",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "Image Slots (1 to 6)"
+      }, {
+        "type": "header",
+        "content": "Image Slot 1"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_1",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_1",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_1",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Image Slot 2"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_2",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_2",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_2",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Image Slot 3"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_3",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_3",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_3",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Image Slot 4"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_4",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_4",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_4",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Image Slot 5"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_5",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_5",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_5",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Image Slot 6"
+      }, {
+        "type": "image_picker",
+        "id": "image_slot_6",
+        "label": "Image"
+      }, {
+        "type": "url",
+        "id": "link_slot_6",
+        "label": "Link (Optional)"
+      }, {
+        "type": "text",
+        "id": "alt_slot_6",
+        "label": "Alt Text (Optional)",
+        "info": "Defaults to image name or section title."
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 50
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 50
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Gallery Grid"
+      }
+    ]
+  }
 {% endschema %}
