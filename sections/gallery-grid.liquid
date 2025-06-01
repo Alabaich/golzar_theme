@@ -1,224 +1,256 @@
 <style>
-  .fixed-grid-layout-{{ section.id }} {
-    padding: 2rem 0;
+  .image-gallery-outer-wrapper-{{ section.id }} {
+    padding: 20px 0;
   }
 
-  .fixed-grid-layout-{{ section.id }}
-  __header {
+  .image-gallery-rows-content-{{ section.id }} {
+    --image-gap: {{ section.settings.gap_size }}px;
+  }
+
+  .image-gallery-rows-content-{{ section.id }}
+  .gallery-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
+    font-size: 2em;
   }
 
-  .fixed-grid-layout-{{ section.id }}
-  __title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: {{ section.settings.title_color }};
+  .image-row-{{ section.id }} {
+    display: flex;
+    gap: var(--image-gap);
+    margin-bottom: var(--image-gap);
+    align-items: stretch;
   }
 
-  .fixed-grid-layout-{{ section.id }}
-  __grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 300px);
-    grid-column-gap: {{ section.settings.gap_horizontal }}px;
-    grid-row-gap: {{ section.settings.gap_vertical }}px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item {
+  .image-container-{{ section.id }} {
+    position: relative;
     overflow: hidden;
   }
 
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item img
-  , .fixed-grid-layout-{{ section.id }}
-  __grid-item .placeholder-svg {
+  .image-container-{{ section.id }}
+  img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-    border-radius: {{ section.settings.image_border_radius }}px;
+    object-position: center;
   }
 
-  .fixed-grid-layout-{{ section.id }}__grid-item img:hover {
-    transform: scale(1.05);
+  .image-container-{{ section.id }}
+  .item-large {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
   }
 
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--1 {
-    grid-area: 1 / 1 / 2 / 3;
-  }
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--2 {
-    grid-area: 1 / 3 / 2 / 4;
-  }
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--3 {
-    grid-area: 1 / 4 / 2 / 5;
-  }
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--4 {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--5 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  .fixed-grid-layout-{{ section.id }}
-  __grid-item--6 {
-    grid-area: 2 / 3 / 3 / 5;
+  .image-container-{{ section.id }}
+  .item-small {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
   }
 
   @media (max-width: 768px) {
-    .fixed-grid-layout-{{ section.id }}__grid-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat({{ section.blocks.size | at_most: 6 }}, 250px);
-      grid-column-gap: {{ section.settings.gap_vertical }}px;
-      grid-row-gap: {{ section.settings.gap_vertical }}px;
+    .image-row-{{ section.id }} {
+      flex-direction: column;
     }
-
-    .fixed-grid-layout-{{ section.id }}
-    __grid-item--1
-    , .fixed-grid-layout-{{ section.id }}
-    __grid-item--2
-    , .fixed-grid-layout-{{ section.id }}
-    __grid-item--3
-    , .fixed-grid-layout-{{ section.id }}
-    __grid-item--4
-    , .fixed-grid-layout-{{ section.id }}
-    __grid-item--5
-    , .fixed-grid-layout-{{ section.id }}
-    __grid-item--6 {
-      grid-area: auto;
+    .image-container-{{ section.id }}
+    .item-large
+    , .image-container-{{ section.id }}
+    .item-small {
+      width: 100%;
+      margin-bottom: var(--image-gap);
+      flex-basis: auto;
+    }
+    .image-row-{{ section.id }}.image-container-{{ section.id }}:last-child {
+      margin-bottom: 0;
     }
   }
 </style>
 
-<section class="fixed-grid-layout-{{ section.id }}">
+<div class="image-gallery-outer-wrapper-{{ section.id }}">
   <div class="page-width">
-    {%- if section.settings.custom_text_title != blank -%}
-      <div class="fixed-grid-layout-{{ section.id }}__header">
-        <h2 class="fixed-grid-layout-{{ section.id }}__title">{{ section.settings.custom_text_title | escape }}</h2>
-      </div>
-    {%- endif -%}
+    <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
+      {% if section.settings.title != blank %}
+        <h2 class="gallery-title">{{ section.settings.title | escape }}</h2>
+      {% endif %}
 
-    {%- if section.blocks.size > 0 -%}
-      <div class="fixed-grid-layout-{{ section.id }}__grid-container">
-        {%- for block in section.blocks limit: 6 -%}
-          <div class="fixed-grid-layout-{{ section.id }}__grid-item fixed-grid-layout-{{ section.id }}__grid-item--{{ forloop.index }}" {{ block.shopify_attributes }}>
-            {%- if block.settings.gallery_image != blank -%}
+      {%- assign row1_img_large = section.settings.row1_img_large -%}
+      {%- assign row1_img_small1 = section.settings.row1_img_small1 -%}
+      {%- assign row1_img_small2 = section.settings.row1_img_small2 -%}
+
+      {% if row1_img_large or row1_img_small1 or row1_img_small2 %}
+        <div class="image-row-{{ section.id }}">
+          {% if row1_img_large %}
+            <div class="image-container-{{ section.id }} item-large">
               <img
-                src="{{ block.settings.gallery_image | img_url: '1024x' }}"
-                alt="{{ block.settings.gallery_image.alt | default: block.settings.alt_text | default: section.settings.custom_text_title | escape | append: ' - ' | append: forloop.index }}"
+                src="{{ row1_img_large | image_url: width: row1_img_large.width }}"
+                srcset="{%- if row1_img_large.width >= 375 -%}{{ row1_img_large | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if row1_img_large.width >= 550 -%}{{ row1_img_large | image_url: width: 550 }} 550w,{%- endif -%}
+                        {%- if row1_img_large.width >= 750 -%}{{ row1_img_large | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if row1_img_large.width >= 1100 -%}{{ row1_img_large | image_url: width: 1100 }} 1100w,{%- endif -%}
+                        {%- if row1_img_large.width >= 1500 -%}{{ row1_img_large | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ row1_img_large | image_url: width: row1_img_large.width }} {{ row1_img_large.width }}w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="{{ row1_img_large.alt | default: 'Large image 1' | escape }}"
                 loading="lazy"
-                width="{{ block.settings.gallery_image.width }}"
-                height="{{ block.settings.gallery_image.height }}">
-            {%- else -%}
-              {%- capture placeholder_classes -%}
-                fixed-grid-layout-{{ section.id }}__grid-item--{{ forloop.index }} placeholder-svg
-              {%- endcapture -%}
-              {{ 'image' | placeholder_svg_tag: placeholder_classes }}
-            {%- endif -%}
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+                width="{{ row1_img_large.width }}"
+                height="{{ row1_img_large.height }}">
+            </div>
+          {% endif %}
+          {% if row1_img_small1 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row1_img_small1 | image_url: width: row1_img_small1.width }}"
+                srcset="{%- if row1_img_small1.width >= 200 -%}{{ row1_img_small1 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 300 -%}{{ row1_img_small1 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 400 -%}{{ row1_img_small1 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 550 -%}{{ row1_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row1_img_small1 | image_url: width: row1_img_small1.width }} {{ row1_img_small1.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row1_img_small1.alt | default: 'Small image 1.1' | escape }}"
+                loading="lazy"
+                width="{{ row1_img_small1.width }}"
+                height="{{ row1_img_small1.height }}">
+            </div>
+          {% endif %}
+          {% if row1_img_small2 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row1_img_small2 | image_url: width: row1_img_small2.width }}"
+                srcset="{%- if row1_img_small2.width >= 200 -%}{{ row1_img_small2 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 300 -%}{{ row1_img_small2 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 400 -%}{{ row1_img_small2 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 550 -%}{{ row1_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row1_img_small2 | image_url: width: row1_img_small2.width }} {{ row1_img_small2.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row1_img_small2.alt | default: 'Small image 1.2' | escape }}"
+                loading="lazy"
+                width="{{ row1_img_small2.width }}"
+                height="{{ row1_img_small2.height }}">
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {%- assign row2_img_small1 = section.settings.row2_img_small1 -%}
+      {%- assign row2_img_small2 = section.settings.row2_img_small2 -%}
+      {%- assign row2_img_large = section.settings.row2_img_large -%}
+
+      {% if row2_img_small1 or row2_img_small2 or row2_img_large %}
+        <div class="image-row-{{ section.id }}">
+          {% if row2_img_small1 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row2_img_small1 | image_url: width: row2_img_small1.width }}"
+                srcset="{%- if row2_img_small1.width >= 200 -%}{{ row2_img_small1 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 300 -%}{{ row2_img_small1 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 400 -%}{{ row2_img_small1 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 550 -%}{{ row2_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row2_img_small1 | image_url: width: row2_img_small1.width }} {{ row2_img_small1.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row2_img_small1.alt | default: 'Small image 2.1' | escape }}"
+                loading="lazy"
+                width="{{ row2_img_small1.width }}"
+                height="{{ row2_img_small1.height }}">
+            </div>
+          {% endif %}
+          {% if row2_img_small2 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row2_img_small2 | image_url: width: row2_img_small2.width }}"
+                srcset="{%- if row2_img_small2.width >= 200 -%}{{ row2_img_small2 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 300 -%}{{ row2_img_small2 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 400 -%}{{ row2_img_small2 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 550 -%}{{ row2_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row2_img_small2 | image_url: width: row2_img_small2.width }} {{ row2_img_small2.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row2_img_small2.alt | default: 'Small image 2.2' | escape }}"
+                loading="lazy"
+                width="{{ row2_img_small2.width }}"
+                height="{{ row2_img_small2.height }}">
+            </div>
+          {% endif %}
+          {% if row2_img_large %}
+            <div class="image-container-{{ section.id }} item-large">
+              <img
+                src="{{ row2_img_large | image_url: width: row2_img_large.width }}"
+                srcset="{%- if row2_img_large.width >= 375 -%}{{ row2_img_large | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if row2_img_large.width >= 550 -%}{{ row2_img_large | image_url: width: 550 }} 550w,{%- endif -%}
+                        {%- if row2_img_large.width >= 750 -%}{{ row2_img_large | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if row2_img_large.width >= 1100 -%}{{ row2_img_large | image_url: width: 1100 }} 1100w,{%- endif -%}
+                        {%- if row2_img_large.width >= 1500 -%}{{ row2_img_large | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ row2_img_large | image_url: width: row2_img_large.width }} {{ row2_img_large.width }}w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="{{ row2_img_large.alt | default: 'Large image 2' | escape }}"
+                loading="lazy"
+                width="{{ row2_img_large.width }}"
+                height="{{ row2_img_large.height }}">
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
   </div>
-</section>
+</div>
 
 {% schema %}
   {
-    "name": "6 Image Fixed Grid",
+    "name": "Image Gallery Rows",
     "tag": "section",
-    "class": "section-fixed-grid-layout",
-    "max_blocks": 6,
+    "class": "section-image-gallery-rows",
     "settings": [
       {
         "type": "text",
-        "id": "custom_text_title",
-        "label": "Title",
-        "default": "Discover products in a real-life setting"
+        "id": "title",
+        "label": "Section Title",
+        "default": "Our Gallery"
       },
       {
-        "type": "color",
-        "id": "title_color",
-        "label": "Title Color",
-        "default": "#333333"
+        "type": "header",
+        "content": "Row 1: 1 large, 2 small"
       },
       {
-        "type": "range",
-        "id": "gap_horizontal",
-        "min": 0,
-        "max": 50,
-        "step": 1,
-        "unit": "px",
-        "label": "Horizontal Gap",
-        "default": 0
+        "type": "image_picker",
+        "id": "row1_img_large",
+        "label": "Large image (50%)"
       },
       {
-        "type": "range",
-        "id": "gap_vertical",
-        "min": 0,
-        "max": 50,
-        "step": 1,
-        "unit": "px",
-        "label": "Vertical Gap",
-        "default": 0
+        "type": "image_picker",
+        "id": "row1_img_small1",
+        "label": "Small image 1 (25%)"
+      }, {
+        "type": "image_picker",
+        "id": "row1_img_small2",
+        "label": "Small image 2 (25%)"
+      }, {
+        "type": "header",
+        "content": "Row 2: 2 small, 1 large"
+      }, {
+        "type": "image_picker",
+        "id": "row2_img_small1",
+        "label": "Small image 1 (25%)"
+      }, {
+        "type": "image_picker",
+        "id": "row2_img_small2",
+        "label": "Small image 2 (25%)"
+      }, {
+        "type": "image_picker",
+        "id": "row2_img_large",
+        "label": "Large image (50%)"
       }, {
         "type": "range",
-        "id": "image_border_radius",
+        "id": "gap_size",
         "min": 0,
-        "max": 50,
-        "step": 1,
+        "max": 30,
+        "step": 2,
         "unit": "px",
-        "label": "Image Border Radius",
-        "default": 0
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Image",
-        "type": "gallery_image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "gallery_image",
-            "label": "Image"
-          }, {
-            "type": "text",
-            "id": "alt_text",
-            "label": "Alt Text (Optional)",
-            "info": "Overrides default image alt text."
-          }
-        ]
+        "label": "Gap between images",
+        "default": 10
       }
     ],
     "presets": [
       {
-        "name": "6 Image Fixed Grid",
-        "category": "Image",
-        "blocks": [
-          {
-            "type": "gallery_image"
-          },
-          {
-            "type": "gallery_image"
-          },
-          {
-            "type": "gallery_image"
-          },
-          {
-            "type": "gallery_image"
-          }, {
-            "type": "gallery_image"
-          }, {
-            "type": "gallery_image"
-          }
-        ]
+        "name": "Image Gallery Rows"
       }
     ]
   }
