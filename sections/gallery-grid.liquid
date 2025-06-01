@@ -1,171 +1,225 @@
 <style>
-  .new-image-grid-{{ section.id }} {
-    padding: 4rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
+  .fixed-grid-layout-{{ section.id }} {
+    padding: 2rem 0;
   }
 
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: {{ section.settings.title_color }};
   }
 
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* Как вы указали. Высота строк будет зависеть от контента или высоты контейнера. */
-    /* Для предсказуемости можно задать, например, grid-template-rows: repeat(2, 300px); */
-    /* или дать .new-image-grid-{{ section.id }}__grid-container явную высоту. */
-    grid-column-gap: 0;
-    grid-row-gap: 0;
-    /* Если grid-container не имеет определенной высоты, строки 1fr могут быть очень маленькими. */
-    /* Рекомендуется, чтобы изображения имели некоторую внутреннюю высоту или контейнер имел высоту. */
-    /* Для примера, можно задать минимальную высоту для строк или контейнера: */
-    /* min-height: 600px; /* Пример для контейнера */
+    grid-template-rows: repeat(2, 300px);
+    grid-column-gap: {{ section.settings.gap_horizontal }}px;
+    grid-row-gap: {{ section.settings.gap_vertical }}px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .new-image-grid-{{ section.id }}
-  __grid-item .grid-image {
+  .fixed-grid-layout-{{ section.id }}
+  __grid-item {
+    overflow: hidden;
+  }
+
+  .fixed-grid-layout-{{ section.id }}
+  __grid-item img
+  , .fixed-grid-layout-{{ section.id }}
+  __grid-item .placeholder-svg {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Убирает лишние отступы под img, если есть */
     transition: transform 0.3s ease;
-  }
-  .new-image-grid-{{ section.id }}__grid-item .grid-image:hover {
-    transform: scale(1.03);
+    border-radius: {{ section.settings.image_border_radius }}px;
   }
 
+  .fixed-grid-layout-{{ section.id }}__grid-item img:hover {
+    transform: scale(1.05);
+  }
 
-  /* Применение grid-area к соответствующим элементам */
-  .new-image-grid-{{ section.id }}__grid-item--1 {
+  .fixed-grid-layout-{{ section.id }}
+  __grid-item--1 {
     grid-area: 1 / 1 / 2 / 3;
   }
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-item--2 {
     grid-area: 1 / 3 / 2 / 4;
   }
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-item--3 {
     grid-area: 1 / 4 / 2 / 5;
   }
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-item--4 {
     grid-area: 2 / 1 / 3 / 2;
   }
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-item--5 {
     grid-area: 2 / 2 / 3 / 3;
   }
-  .new-image-grid-{{ section.id }}
+  .fixed-grid-layout-{{ section.id }}
   __grid-item--6 {
     grid-area: 2 / 3 / 3 / 5;
   }
 
   @media (max-width: 768px) {
-    .new-image-grid-{{ section.id }}__grid-container {
+    .fixed-grid-layout-{{ section.id }}__grid-container {
       grid-template-columns: 1fr;
-      /* Один столбец на мобильных */
-      grid-template-rows: repeat(6, 250px);
-      /* Каждое изображение в своей строке, высота 250px */
-      /* или grid-auto-rows: 250px; если не используется grid-area */
-      gap: 10px;
-      /* Можно добавить небольшой отступ на мобильных, если 0px слишком плотно */
+      grid-template-rows: repeat({{ section.blocks.size | at_most: 6 }}, 250px);
+      grid-column-gap: {{ section.settings.gap_vertical }}px;
+      grid-row-gap: {{ section.settings.gap_vertical }}px;
     }
 
-    /* Сброс grid-area для мобильных устройств, чтобы изображения шли по порядку */
-    .new-image-grid-{{ section.id }}__grid-item--1
-    , .new-image-grid-{{ section.id }}
+    .fixed-grid-layout-{{ section.id }}
+    __grid-item--1
+    , .fixed-grid-layout-{{ section.id }}
     __grid-item--2
-    , .new-image-grid-{{ section.id }}
+    , .fixed-grid-layout-{{ section.id }}
     __grid-item--3
-    , .new-image-grid-{{ section.id }}
+    , .fixed-grid-layout-{{ section.id }}
     __grid-item--4
-    , .new-image-grid-{{ section.id }}
+    , .fixed-grid-layout-{{ section.id }}
     __grid-item--5
-    , .new-image-grid-{{ section.id }}
+    , .fixed-grid-layout-{{ section.id }}
     __grid-item--6 {
       grid-area: auto;
-      /* Позволяет элементам располагаться автоматически в потоке */
     }
   }
 </style>
 
-<section class="new-image-grid-{{ section.id }} page-width">
-  <div class="new-image-grid-{{ section.id }}__header">
-    {% if section.settings.title != blank %}
-      <h2 class="new-image-grid-{{ section.id }}__title">{{ section.settings.title | escape }}</h2>
-    {% endif %}
-  </div>
-
-  <div class="new-image-grid-{{ section.id }}__grid-container">
-    {% for i in (1..6) %}
-      {% assign image_setting_key = 'image_' | append: i %}
-      {% assign current_image = section.settings[image_setting_key] %}
-      {% assign placeholder_class = 'new-image-grid-{{ section.id }}__grid-item--' | append: i %}
-
-      <div class="new-image-grid-{{ section.id }}__grid-item new-image-grid-{{ section.id }}__grid-item--{{ i }}">
-        {% if current_image != blank %}
-          <img
-            src="{{ current_image | img_url: '1000x' }}"
-            alt="{{ current_image.alt | default: section.settings.title | escape | append: ' - Image ' | append: i }}"
-            class="grid-image"
-            loading="lazy"
-            width="{{ current_image.width }}"
-            height="{{ current_image.height }}">
-        {% else %}
-          {% capture svg_placeholder_classes %}{{ placeholder_class }} grid-image placeholder{% endcapture %}
-          {{ 'image' | placeholder_svg_tag: svg_placeholder_classes }}
-        {% endif %}
+<section class="fixed-grid-layout-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.custom_text_title != blank -%}
+      <div class="fixed-grid-layout-{{ section.id }}__header">
+        <h2 class="fixed-grid-layout-{{ section.id }}__title">{{ section.settings.custom_text_title | escape }}</h2>
       </div>
-    {% endfor %}
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="fixed-grid-layout-{{ section.id }}__grid-container">
+        {%- for block in section.blocks limit: 6 -%}
+          <div class="fixed-grid-layout-{{ section.id }}__grid-item fixed-grid-layout-{{ section.id }}__grid-item--{{ forloop.index }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.gallery_image != blank -%}
+              <img
+                src="{{ block.settings.gallery_image | img_url: '1024x' }}"
+                alt="{{ block.settings.gallery_image.alt | default: block.settings.alt_text | default: section.settings.custom_text_title | escape | append: ' - ' | append: forloop.index }}"
+                loading="lazy"
+                width="{{ block.settings.gallery_image.width }}"
+                height="{{ block.settings.gallery_image.height }}">
+            {%- else -%}
+              {%- capture placeholder_classes -%}
+                fixed-grid-layout-{{ section.id }}__grid-item--{{ forloop.index }} placeholder-svg
+              {%- endcapture -%}
+              {{ 'image' | placeholder_svg_tag: placeholder_classes }}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
 {% schema %}
   {
-    "name": "6 Image Grid Layout",
+    "name": "6 Image Fixed Grid",
+    "tag": "section",
+    "class": "section-fixed-grid-layout",
+    "max_blocks": 6,
     "settings": [
-        {
+      {
         "type": "text",
-        "id": "title",
+        "id": "custom_text_title",
         "label": "Title",
-        "default": "Our Image Gallery"
-      }, {
+        "default": "Discover products in a real-life setting"
+      },
+      {
         "type": "color",
         "id": "title_color",
         "label": "Title Color",
         "default": "#333333"
+      },
+      {
+        "type": "range",
+        "id": "gap_horizontal",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Horizontal Gap",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "gap_vertical",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Vertical Gap",
+        "default": 0
       }, {
-        "type": "header",
-        "content": "Image Uploads"
-      }, {
-        "type": "paragraph",
-        "content": "Upload up to 6 images for the grid."
+        "type": "range",
+        "id": "image_border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Image Border Radius",
+        "default": 0
       }
-      {% for i in (1..6) %}, {
-          "type": "image_picker",
-          "id": "image_{{ i }}",
-          "label": "Image {{ i }}"
-        }
-        {% endfor %}
-      ],
-      "presets": [
-        {
-          "name": "6 Image Grid Layout",
-          "category": "Image"
-        }
-      ]
-    }
+    ],
+    "blocks": [
+      {
+        "name": "Image",
+        "type": "gallery_image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "gallery_image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text (Optional)",
+            "info": "Overrides default image alt text."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "6 Image Fixed Grid",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "gallery_image"
+          },
+          {
+            "type": "gallery_image"
+          },
+          {
+            "type": "gallery_image"
+          },
+          {
+            "type": "gallery_image"
+          }, {
+            "type": "gallery_image"
+          }, {
+            "type": "gallery_image"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
