@@ -67,7 +67,7 @@
     border-radius: 16px;
     background-color: #f0f0f0;
     transition: transform 0.3s ease;
-    aspect-ratio: {{ settings.image_aspect_ratio | default: 'auto' }};
+    aspect-ratio: 4 / 2;
   }
 
   .ig-section-{{ section.id }}.ig__slot:hover {
@@ -333,38 +333,6 @@
         "step": 1,
         "unit": "px",
         "default": 16
-      }, {
-        "type": "select",
-        "id": "image_aspect_ratio",
-        "label": "Image Aspect Ratio (Desktop)",
-        "options": [
-          {
-            "value": "auto",
-            "label": "Original (Auto) - Recommended for Masonry"
-          },
-          {
-            "value": "1/1",
-            "label": "Square (1:1)"
-          },
-          {
-            "value": "2/3",
-            "label": "Portrait (2:3)"
-          },
-          {
-            "value": "3/4",
-            "label": "Portrait (3:4)"
-          }, {
-            "value": "4/3",
-            "label": "Landscape (4:3)"
-          }, {
-            "value": "3/2",
-            "label": "Landscape (3:2)"
-          }, {
-            "value": "16/9",
-            "label": "Wide (16:9)"
-          }
-        ],
-        "default": "auto"
       }, {
         "type": "select",
         "id": "mobile_image_aspect_ratio",
