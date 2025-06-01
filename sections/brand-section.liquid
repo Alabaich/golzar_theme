@@ -18,16 +18,16 @@
     --heading-font-weight: {{ settings.heading_font_weight | default: 600 }};
 
     --subtitle-color: {{ settings.subtitle_color | default: '#475467' }};
-    --subtitle-font-size-desktop: {{ settings.subtitle_font_size_desktop | default: 16 }}px;
-    --subtitle-font-size-mobile: {{ settings.subtitle_font_size_mobile | default: 15 }}px;
+    --subtitle-font-size-desktop: {{ settings.subtitle_font_size_desktop | default: 14 }}px;
+    --subtitle-font-size-mobile: {{ settings.subtitle_font_size_mobile | default: 13 }}px;
 
     --button-text-color: {{ settings.button_text_color | default: '#FFFFFF' }};
     --button-bg-color: {{ settings.button_bg_color | default: '#072A4A' }};
-    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 16 }}px;
-    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 15 }}px;
+    --button-font-size-desktop: {{ settings.button_font_size_desktop | default: 14 }}px;
+    --button-font-size-mobile: {{ settings.button_font_size_mobile | default: 13 }}px;
     --button-border-radius: {{ settings.button_border_radius | default: 8 }}px;
-    --button-padding-vertical: {{ settings.button_padding_vertical | default: 12 }}px;
-    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 24 }}px;
+    --button-padding-vertical: {{ settings.button_padding_vertical | default: 10 }}px;
+    --button-padding-horizontal: {{ settings.button_padding_horizontal | default: 20 }}px;
 
     --image-border-radius: {{ settings.image_border_radius | default: 20 }}px;
     --content-gap: {{ settings.content_gap | default: 30 }}px;
@@ -37,13 +37,6 @@
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
     font-family: 'Raleway', sans-serif;
-  }
-
-  .brand-hero-section-{{ section.id }} .page-width {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__header {
@@ -56,7 +49,7 @@
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__title-wrapper {
-    flex: 2 1 55%;
+    flex: 3 1 60%;
     min-width: 280px;
   }
 
@@ -73,11 +66,12 @@
   .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    flex: 1 1 35%;
-    min-width: 280px;
+    gap: 15px;
+    flex: 1 1 30%;
+    min-width: 260px;
+    max-width: 320px;
     text-align: left;
-     padding-top: 3px;
+    padding-top: 3px;
   }
 
   .brand-hero-section-{{ section.id }} .brand-hero__subtitle {
@@ -134,6 +128,7 @@
     .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
       flex-basis: auto;
       text-align: {{ settings.mobile_text_align | default: 'left' }};
+      max-width: none;
     }
     .brand-hero-section-{{ section.id }} .brand-hero__cta-wrapper {
        padding-top: 0;
@@ -304,13 +299,13 @@
       "type": "range",
       "id": "subtitle_font_size_desktop",
       "label": "Subtitle Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16
+      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14
     },
     {
       "type": "range",
       "id": "subtitle_font_size_mobile",
       "label": "Subtitle Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 15
+      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 13
     },
     {
       "type": "header",
@@ -320,13 +315,13 @@
       "type": "range",
       "id": "button_font_size_desktop",
       "label": "Button Font Size (Desktop)",
-      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16
+      "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14
     },
     {
       "type": "range",
       "id": "button_font_size_mobile",
       "label": "Button Font Size (Mobile)",
-      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 15
+      "min": 12, "max": 20, "step": 1, "unit": "px", "default": 13
     },
     {
       "type": "range",
@@ -337,13 +332,13 @@
       "type": "range",
       "id": "button_padding_vertical",
       "label": "Button Vertical Padding",
-      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12
+      "min": 8, "max": 24, "step": 1, "unit": "px", "default": 10
     },
     {
       "type": "range",
       "id": "button_padding_horizontal",
       "label": "Button Horizontal Padding",
-      "min": 12, "max": 40, "step": 1, "unit": "px", "default": 24
+      "min": 12, "max": 40, "step": 1, "unit": "px", "default": 20
     },
     {
       "type": "header",
