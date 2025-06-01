@@ -20,6 +20,7 @@
   __subtitle {
     font-size: 1.2rem;
     color: {{ section.settings.subtitle_color }};
+    margin-bottom: 2rem;
   }
 
   .discover-products-{{ section.id }}
@@ -31,56 +32,28 @@
     grid-auto-flow: dense;
   }
 
-  .discover-product-card {
+  .discover-product-image {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
 
-  .discover-product-card:hover {
-    transform: translateY(-5px);
+  .discover-product-image:hover {
+    transform: scale(1.02);
   }
 
-  .discover-product-card__image {
+  .discover-product-image__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .discover-product-card__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: white;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .discover-product-card__overlay h3 {
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-  }
-
-  .discover-product-card__overlay .button {
-    background: {{ section.settings.button_color }};
-    color: {{ section.settings.button_text_color }};
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .discover-product-card--large {
+  .discover-product-image--large {
     grid-column: span 2;
   }
 
-  .discover-product-card--tall {
+  .discover-product-image--tall {
     grid-row: span 2;
   }
 
@@ -89,8 +62,8 @@
       grid-template-columns: 1fr;
     }
 
-    .discover-product-card--large,
-    .discover-product-card--tall {
+    .discover-product-image--large,
+    .discover-product-image--tall {
       grid-column: span 1;
       grid-row: span 1;
     }
@@ -112,23 +85,15 @@
 
   <div class="discover-products-{{ section.id }}__grid">
     {% for block in section.blocks %}
-      <div class="discover-product-card {% if block.settings.size == 'large' %}discover-product-card--large{% elsif block.settings.size == 'tall' %}discover-product-card--tall{% endif %}">
+      <div class="discover-product-image {% if block.settings.size == 'large' %}discover-product-image--large{% elsif block.settings.size == 'tall' %}discover-product-image--tall{% endif %}">
         {% if block.settings.image != blank %}
           <img
-            src="{{ block.settings.image | img_url: '800x' }}"
+            src="{{ block.settings.image | img_url: '1000x' }}"
             alt="{{ block.settings.image.alt }}"
-            class="discover-product-card__image">
+            class="discover-product-image__img">
         {% else %}
-          {{ 'image' | placeholder_svg_tag: 'discover-product-card__image' }}
+          {{ 'image' | placeholder_svg_tag: 'discover-product-image__img' }}
         {% endif %}
-        <div class="discover-product-card__overlay">
-          {% if block.settings.title != blank %}
-            <h3>{{ block.settings.title }}</h3>
-          {% endif %}
-          {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-            <a href="{{ block.settings.button_link }}" class="button">{{ block.settings.button_label }}</a>
-          {% endif %}
-        </div>
       </div>
     {% endfor %}
   </div>
@@ -136,73 +101,43 @@
 
 {% schema %}
   {
-    "name": "Image Gallery",
+    "name": "Discover Products Gallery",
     "settings": [
       {
         "type": "text",
         "id": "title",
         "label": "Title",
         "default": "Discover products in a real-life setting"
-      },
-      {
+      }, {
         "type": "color",
         "id": "title_color",
         "label": "Title color",
         "default": "#333333"
-      },
-      {
+      }, {
         "type": "text",
         "id": "subtitle",
         "label": "Subtitle",
         "default": "See how our products fit perfectly in everyday spaces"
-      },
-      {
+      }, {
         "type": "color",
         "id": "subtitle_color",
         "label": "Subtitle color",
         "default": "#666666"
-      }, {
-        "type": "color",
-        "id": "button_color",
-        "label": "Button color",
-        "default": "#ffffff"
-      }, {
-        "type": "color",
-        "id": "button_text_color",
-        "label": "Button text color",
-        "default": "#000000"
       }
     ],
     "blocks": [
       {
-        "type": "product_card",
-        "name": "Product Card",
+        "type": "image",
+        "name": "Image",
         "settings": [
           {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Card Title",
-            "default": "Product Collection"
-          },
-          {
-            "type": "text",
-            "id": "button_label",
-            "label": "Button Label",
-            "default": "Shop Now"
-          },
-          {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button Link"
           }, {
             "type": "select",
             "id": "size",
-            "label": "Card Size",
+            "label": "Image Size",
             "options": [
               {
                 "value": "regular",
@@ -222,35 +157,23 @@
     ],
     "presets": [
       {
-        "name": "Image Gallery",
-        "category": "Custom",
+        "name": "Products Masonry Gallery",
+        "category": "Image",
         "blocks": [
           {
-            "type": "product_card",
+            "type": "image",
             "settings": {
-              "title": "Living Room",
-              "button_label": "Shop Now",
               "size": "large"
             }
           }, {
-            "type": "product_card",
+            "type": "image",
             "settings": {
-              "title": "Kitchen",
-              "button_label": "View Products"
-            }
-          }, {
-            "type": "product_card",
-            "settings": {
-              "title": "Bedroom",
-              "button_label": "Explore",
               "size": "tall"
             }
           }, {
-            "type": "product_card",
-            "settings": {
-              "title": "Office",
-              "button_label": "Discover"
-            }
+            "type": "image"
+          }, {
+            "type": "image"
           }
         ]
       }
