@@ -84,16 +84,18 @@
 
 <section class="discover-products-{{ section.id }} page-width">
   <div class="discover-products-{{ section.id }}__header">
-    <h2 class="discover-products-{{ section.id }}__title">{{ section.settings.title }}</h2>
+    <h2 class="discover-products-{{ section.id }}__title">{{ section.settings.title | escape }}</h2>
   </div>
 
   <div class="discover-products-{{ section.id }}__grid">
     {% for i in (1..6) %}
       <div class="discover-product-{{ i }}">
-        {% if section.settings['image_' + i] != blank %}
+        {% assign image_setting_id = 'image_' | append: i %}
+        {% assign current_image = section.settings[image_setting_id] %}
+        {% if current_image != blank %}
           <img
-            src="{{ section.settings['image_' + i] | img_url: '800x' }}"
-            alt="{{ section.settings['image_' + i].alt }}"
+            src="{{ current_image | img_url: '800x' }}"
+            alt="{{ current_image.alt | default: section.settings.title | escape | append: ' - Image ' | append: i }}"
             class="discover-product-img"
             loading="lazy">
         {% else %}
