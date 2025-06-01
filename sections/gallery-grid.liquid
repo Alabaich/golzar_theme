@@ -102,8 +102,8 @@
     opacity: 0.2;
   }
 
-  /* Specific slots */
-  .ig-section-{{ section.id }} .ig__slot--1 {
+  .ig-section-{{ section.id }}
+  .ig__slot--1 {
     height: 100%;
   }
 
@@ -120,11 +120,14 @@
 
     .ig-section-{{ section.id }}
     .ig__right-column {
-      grid-template-rows: auto;
+      grid-template-rows: auto auto;
     }
 
-    .ig-section-{{ section.id }}
-    .ig__slot {
+    .ig-section-{{ section.id }} .ig__right-bottom {
+      grid-template-columns: 1fr;
+    }
+
+    .ig-section-{{ section.id }} .ig__slot {
       aspect-ratio: 1 / 1;
     }
   }
@@ -137,7 +140,6 @@
     {%- endif -%}
 
     <div class="ig__grid-container">
-      <!-- Left Column (50%) -->
       <div class="ig__left-column">
         <div class="ig__slot ig__slot--1">
           {%- assign image = settings.image_slot_1 -%}
@@ -172,9 +174,7 @@
         </div>
       </div>
 
-      <!-- Right Column (50%) -->
       <div class="ig__right-column">
-        <!-- Top Right (50% of right column) -->
         <div class="ig__slot ig__slot--2">
           {%- assign image = settings.image_slot_2 -%}
           {%- assign link = settings.link_slot_2 -%}
@@ -194,7 +194,7 @@
                       {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                       {{ image | image_url }} {{ image.width }}w"
               src="{{ image | image_url: width: 1500 }}"
-              sizes="(max-width: 768px) 100vw, 25vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
               loading="lazy"
               width="{{ image.width }}"
@@ -207,7 +207,6 @@
           {%- endif -%}
         </div>
 
-        <!-- Bottom Right (50% of right column) - split into two -->
         <div class="ig__right-bottom">
           <div class="ig__slot ig__slot--3">
             {%- assign image = settings.image_slot_3 -%}
@@ -228,7 +227,16 @@
                         {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                         {{ image | image_url }} {{ image.width }}w"
                 src="{{ image | image_url: width: 1500 }}"
-                sizes="(max-width: 768px) 100vw, 12.5vw"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                {#
+                Исправлено:
+                100vw
+                для
+                мобильных,
+                т.к.
+                теперь
+                стек
+                #}
                 alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
                 loading="lazy"
                 width="{{ image.width }}"
@@ -260,7 +268,16 @@
                         {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                         {{ image | image_url }} {{ image.width }}w"
                 src="{{ image | image_url: width: 1500 }}"
-                sizes="(max-width: 768px) 100vw, 12.5vw"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                {#
+                Исправлено:
+                100vw
+                для
+                мобильных,
+                т.к.
+                теперь
+                стек
+                #}
                 alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
                 loading="lazy"
                 width="{{ image.width }}"
@@ -352,15 +369,21 @@
       }, {
         "type": "select",
         "id": "image_aspect_ratio",
-        "label": "Image Aspect Ratio",
+        "label": "Image Aspect Ratio (Global)",
         "options": [
+          {
+            "value": "auto",
+            "label": "Original (Auto)"
+          },
           {
             "value": "1/1",
             "label": "Square (1:1)"
-          }, {
+          },
+          {
             "value": "3/4",
             "label": "Portrait (3:4)"
-          }, {
+          },
+          {
             "value": "4/3",
             "label": "Landscape (4:3)"
           }, {
@@ -368,7 +391,8 @@
             "label": "Wide (16:9)"
           }
         ],
-        "default": "3/4"
+        "default": "3/4",
+        "info": "Applies to all image slots. For 'Original (Auto)', images will take space based on their intrinsic ratio but might lead to uneven grids if not all images are same size."
       }, {
         "type": "checkbox",
         "id": "show_onboarding_placeholders",
@@ -379,7 +403,7 @@
         "content": "Image Slots"
       }, {
         "type": "header",
-        "content": "Left Column - Large Image (50%)"
+        "content": "Left Column - Large Image (Slot 1)"
       }, {
         "type": "image_picker",
         "id": "image_slot_1",
@@ -395,7 +419,7 @@
         "info": "Defaults to image name or section title."
       }, {
         "type": "header",
-        "content": "Right Column - Top Image (50% of right)"
+        "content": "Right Column - Top Image (Slot 2)"
       }, {
         "type": "image_picker",
         "id": "image_slot_2",
@@ -411,7 +435,7 @@
         "info": "Defaults to image name or section title."
       }, {
         "type": "header",
-        "content": "Right Column - Bottom Left (25% of right)"
+        "content": "Right Column - Bottom Left (Slot 3)"
       }, {
         "type": "image_picker",
         "id": "image_slot_3",
@@ -427,7 +451,7 @@
         "info": "Defaults to image name or section title."
       }, {
         "type": "header",
-        "content": "Right Column - Bottom Right (25% of right)"
+        "content": "Right Column - Bottom Right (Slot 4)"
       }, {
         "type": "image_picker",
         "id": "image_slot_4",
