@@ -1,92 +1,47 @@
-{% schema %}
-{
-  "name": "Brand Hero",
-  "tag": "section",
-  "class": "shopify-section--brand-hero",
-  "settings": [
-    {
-      "type": "text",
-      "id": "brand_title",
-      "label": "Brand Title",
-      "default": "Kohler Brand Page"
-    },
-    {
-      "type": "text",
-      "id": "brand_subtitle",
-      "label": "Brand Subtitle",
-      "default": "Express your personality with our range of styles and finishes."
-    },
-    {
-      "type": "url",
-      "id": "brand_link",
-      "label": "Brand Link",
-      "default": "/"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Brand Hero",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
-
-<div class="brand-header-main">
-    <div class="brand-header">
-        <h1 class="brand-title">{{ section.settings.brand_title | escape }}</h1>
-        <div class="fqfsa">
-            <p class="brand-subtitle">{{ section.settings.brand_subtitle | escape }}</p>
-            <a href="{{ section.settings.brand_link }}" class="brand-cta">Discover Brand</a>
-        </div>
-    </div>
-    {% if section.settings.hero_image != blank %}
-        <div class="brand-hero">
-            <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" alt="Brand Hero" class="hero-image">
-        </div>
-    {% endif %}
-</div>
-
-{% style %}
-    .brand-header-main {
+{%- style -%}
+  .brand-header-main {
     text-align: center;
     padding: 60px 10%;
-    }
+  }
 
-    .fqfsa {
-    display:flex;
-    flex-direction:column;
-    gap:42px;
-    width:20%;
-    }
+  .fqfsa {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    width: 20%;
+  }
 
-    .brand-header {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    }
+  .brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .brand-title {
-    font-size: 68px;
-    max-width:600px;
-    text-align:start;
+  .brand-title {
+    font-family: 'Raleway'
+    , sans-serif;
     font-weight: 600;
-    font-family: 'Black Mango', sans-serif;
+    font-size: 50px;
+    line-height: 1.2;
     color: #151515;
-    }
+    max-width: 600px;
+    text-align: start;
+    margin: 0 0 15px;
+  }
 
-    .brand-subtitle {
+  .brand-subtitle {
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 400;
     font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
     color: #151515;
-    font-family: 'Open Sans', sans-serif;
-    }
+    margin: 0;
+    max-width: 600px;
+  }
 
-    .brand-cta {
+  .brand-cta {
     display: inline-block;
     background-color: #002B5B;
     color: #fff;
@@ -98,39 +53,96 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transition: background-color 0.3s ease;
-    }
+    font-family: 'Open Sans'
+    , sans-serif;
+  }
 
-    .brand-cta:hover {
+  .brand-cta:hover {
     background-color: #001F3F;
-    }
+  }
 
-    .brand-hero {
+  .brand-hero {
     margin-top: 2rem;
-    }
+  }
 
-    .hero-image {
+  .hero-image {
     width: 100%;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    }
+  }
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     .brand-header-main {
-    padding: 40px 5% 0;
+      padding: 40px 5% 0;
     }
 
     .brand-title {
-    font-size: 2rem;
+      font-size: 32px;
     }
 
     .brand-subtitle {
-    font-size: 0.95rem;
+      font-size: 15px;
     }
 
     .brand-cta {
-    font-size: 0.7rem;
-    padding: 0.6rem 1.25rem;
+      font-size: 0.7rem;
+      padding: 0.6rem 1.25rem;
     }
-    }
-{% endstyle %}
+  }
+{%- endstyle -%}
+
+
+<div class="brand-header-main">
+  <div class="brand-header">
+    <h1 class="brand-title">{{ section.settings.brand_title | escape }}</h1>
+    <div class="fqfsa">
+      <p class="brand-subtitle">{{ section.settings.brand_subtitle | escape }}</p>
+      <a href="{{ section.settings.brand_link }}" class="brand-cta">Discover Brand</a>
+    </div>
+  </div>
+  {% if section.settings.hero_image != blank %}
+    <div class="brand-hero">
+      <img
+        src="{{ section.settings.hero_image | image_url: width: 1400 }}"
+        alt="Brand Hero"
+        class="hero-image">
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Brand Hero",
+    "tag": "section",
+    "class": "shopify-section--brand-hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_title",
+        "label": "Brand Title",
+        "default": "Kohler Brand Page"
+      }, {
+        "type": "text",
+        "id": "brand_subtitle",
+        "label": "Brand Subtitle",
+        "default": "Express your personality with our range of styles and finishes."
+      }, {
+        "type": "url",
+        "id": "brand_link",
+        "label": "Brand Link",
+        "default": "/"
+      }, {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Hero",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
