@@ -535,18 +535,23 @@
         "image_slot_1": "shopify://shop_images/111.webp",
         "link_slot_1": "",
         "alt_slot_1": "",
+        "image_slot_2": "shopify://shop_images/222.webp",
         "link_slot_2": "",
         "alt_slot_2": "",
+        "image_slot_3": "shopify://shop_images/333.webp",
         "link_slot_3": "",
         "alt_slot_3": "",
+        "image_slot_4": "shopify://shop_images/444.webp",
         "link_slot_4": "",
         "alt_slot_4": "",
+        "image_slot_5": "shopify://shop_images/555.webp",
         "link_slot_5": "",
         "alt_slot_5": "",
+        "image_slot_6": "shopify://shop_images/666.webp",
         "link_slot_6": "",
         "alt_slot_6": "",
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
