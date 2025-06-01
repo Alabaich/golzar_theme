@@ -235,6 +235,16 @@
         "text_color": "#7a7a7a"
       }
     },
+    "brand_section_9m9dXr": {
+      "type": "brand-section",
+      "name": "Brand Hero",
+      "settings": {
+        "brand_title": "Bath and kitchen essentials showroom",
+        "brand_subtitle": "Express your personality with our range of styles and finishes.",
+        "brand_link": "/",
+        "hero_image": "shopify://shop_images/43212344132.webp"
+      }
+    },
     "feature_grid_with_text_r8q4cy": {
       "type": "feature-grid-with-text",
       "blocks": {
@@ -430,16 +440,6 @@
         "padding_bottom": 60,
         "show_onboarding_info": true
       }
-    },
-    "brand_section_9m9dXr": {
-      "type": "brand-section",
-      "name": "Brand Hero",
-      "settings": {
-        "brand_title": "Bath and kitchen essentials showroom",
-        "brand_subtitle": "Express your personality with our range of styles and finishes.",
-        "brand_link": "/",
-        "hero_image": "shopify://shop_images/43212344132.webp"
-      }
     }
   },
   "order": [
@@ -449,9 +449,9 @@
     "about_history_yLfqi4",
     "about_team_QYXaFF",
     "gallery_lightbox_slider_UNGJCQ",
+    "brand_section_9m9dXr",
     "feature_grid_with_text_r8q4cy",
     "timeline_section_FQWqKh",
-    "team_section_ANyinb",
-    "brand_section_9m9dXr"
+    "team_section_ANyinb"
   ]
 }
