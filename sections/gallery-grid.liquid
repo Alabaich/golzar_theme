@@ -1,18 +1,52 @@
 <style>
   .image-gallery-outer-wrapper-{{ section.id }} {
     padding: 20px 0;
+    font-family: 'Raleway'
+    , sans-serif;
   }
 
   .image-gallery-rows-content-{{ section.id }} {
     --image-gap: {{ section.settings.gap_size }}px;
   }
 
-  .image-gallery-rows-content-{{ section.id }}
-  .gallery-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
+  .gallery-header-{{ section.id }} {
+    text-align: left;
+    margin-bottom: 40px;
   }
+
+  .gallery-title-{{ section.id }} {
+    font-family: 'Raleway'
+    , sans-serif;
+    /* Ensured */
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #151515;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .gallery-subtitle-{{ section.id }} {
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: #151515;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  .gallery-subtitle-{{ section.id }}
+  p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+  .gallery-subtitle-{{ section.id }}p:last-child {
+    margin-bottom: 0;
+  }
+
 
   .image-row-{{ section.id }} {
     display: flex;
@@ -35,8 +69,7 @@
     object-position: center;
   }
 
-  .image-container-{{ section.id }}
-  .item-large {
+  .image-container-{{ section.id }} .item-large {
     flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 0;
@@ -49,18 +82,29 @@
     flex-basis: 0;
   }
 
+  @media (max-width: 749px) {
+    .gallery-title-{{ section.id }} {
+      font-size: 32px;
+    }
+    .gallery-subtitle-{{ section.id }} {
+      font-size: 15px;
+    }
+  }
+
   @media (max-width: 768px) {
     .image-row-{{ section.id }} {
       flex-direction: column;
+      align-items: center;
     }
-    .image-container-{{ section.id }}
-    .item-large
+
+    .image-container-{{ section.id }} .item-large
     , .image-container-{{ section.id }}
     .item-small {
       width: 100%;
       margin-bottom: var(--image-gap);
       flex-basis: auto;
     }
+
     .image-row-{{ section.id }}.image-container-{{ section.id }}:last-child {
       margin-bottom: 0;
     }
@@ -70,9 +114,15 @@
 <div class="image-gallery-outer-wrapper-{{ section.id }}">
   <div class="page-width">
     <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
-      {% if section.settings.title != blank %}
-        <h2 class="gallery-title">{{ section.settings.title | escape }}</h2>
-      {% endif %}
+
+      <div class="gallery-header-{{ section.id }}">
+        {% if section.settings.title != blank %}
+          <h2 class="gallery-title-{{ section.id }}" title="{{ section.settings.title | escape }}">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank and section.settings.subtitle != "<p></p>" %}
+          <div class="gallery-subtitle-{{ section.id }}" title="{{ section.settings.subtitle }}">{{ section.settings.subtitle }}</div>
+        {% endif %}
+      </div>
 
       {%- assign row1_img_large = section.settings.row1_img_large -%}
       {%- assign row1_img_small1 = section.settings.row1_img_small1 -%}
@@ -206,6 +256,12 @@
         "default": "Our Gallery"
       },
       {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Section Subtitle",
+        "default": "<p>Optional subtitle description here.</p>"
+      },
+      {
         "type": "header",
         "content": "Row 1: 1 large, 2 small"
       },
@@ -213,8 +269,7 @@
         "type": "image_picker",
         "id": "row1_img_large",
         "label": "Large image (50%)"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "row1_img_small1",
         "label": "Small image 1 (25%)"
