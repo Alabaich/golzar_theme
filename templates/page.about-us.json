@@ -240,9 +240,18 @@
       "name": "Brand Hero",
       "settings": {
         "brand_title": "Bath and kitchen essentials showroom",
-        "brand_subtitle": "Express your personality with our range of styles and finishes.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
         "brand_link": "/",
-        "hero_image": "shopify://shop_images/43212344132.webp"
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/43212344132.webp",
+        "show_onboarding_image": true,
+        "content_gap": 30,
+        "header_bottom_margin": 40,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
       }
     },
     "feature_grid_with_text_r8q4cy": {
@@ -440,6 +449,40 @@
         "padding_bottom": 60,
         "show_onboarding_info": true
       }
+    },
+    "switch_side_image_FWNrhr": {
+      "type": "switch-side-image",
+      "name": "Switch Side Image",
+      "settings": {
+        "heading": "Reliable support before and after you buy",
+        "subheading": "<p>All our imported items come with a 5-year warranty for peace of mind. As authorized dealers, we also handle after-sales support for global brands we carry. Our licensed plumbing team is available 24/7, ensuring any issues are resolved quickly and professionally.</p>",
+        "button_text": "Contact us",
+        "button_link": "",
+        "show_button_arrow": true,
+        "image": "shopify://shop_images/1231457777.webp",
+        "show_onboarding_image": true,
+        "image_position": "right",
+        "desktop_image_width": 45,
+        "vertical_align": "center",
+        "content_gap": 30,
+        "text_elements_gap": 20,
+        "image_border_radius": 12,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_color": "#FFFFFF",
+        "title_color": "#101828",
+        "title_font_size_desktop": 42,
+        "subheading_color": "#475467",
+        "subheading_font_size_desktop": 16,
+        "button_bg_color": "#072A4A",
+        "button_text_color": "#FFFFFF",
+        "button_font_size_desktop": 14,
+        "mobile_stack_order": "text_first",
+        "mobile_text_align": "left",
+        "title_font_size_mobile": 32,
+        "subheading_font_size_mobile": 15,
+        "button_font_size_mobile": 14
+      }
     }
   },
   "order": [
@@ -452,6 +495,7 @@
     "brand_section_9m9dXr",
     "feature_grid_with_text_r8q4cy",
     "timeline_section_FQWqKh",
-    "team_section_ANyinb"
+    "team_section_ANyinb",
+    "switch_side_image_FWNrhr"
   ]
 }
