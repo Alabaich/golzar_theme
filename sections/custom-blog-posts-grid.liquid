@@ -4,6 +4,7 @@
   assign post_limit = section.settings.posts_to_show
   assign show_image = section.settings.show_image
   assign show_date = section.settings.show_date
+  assign article_title_length = section.settings.article_title_length | default: 70 Liquid comment: Added default for safety, though schema default should apply %
   assign show_excerpt = section.settings.show_excerpt
   assign excerpt_length = section.settings.excerpt_length
   assign read_more_text_setting = section.settings.read_more_text | default: "READ NOW"
@@ -147,7 +148,7 @@
     position: relative;
   }
 
-  .blog-posts-section-{{ section.id }}.article-card:hover {
+  .blog-posts-section-{{ section.id }} .article-card:hover {
     transform: scale(1.03);
   }
 
@@ -156,7 +157,7 @@
     display: block;
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 12px;
   }
 
   .blog-posts-section-{{ section.id }}
@@ -209,7 +210,7 @@
     color: inherit;
   }
 
-  .blog-posts-section-{{ section.id }}.article-card__title a:hover {
+  .blog-posts-section-{{ section.id }} .article-card__title a:hover {
     text-decoration: underline;
   }
 
@@ -234,7 +235,7 @@
     align-self: flex-start;
     margin-top: auto;
   }
-  .blog-posts-section-{{ section.id }}.article-card__read-more:hover {
+  .blog-posts-section-{{ section.id }} .article-card__read-more:hover {
     text-decoration: underline;
   }
   .blog-posts-section-{{ section.id }}
@@ -243,7 +244,7 @@
     display: inline-block;
     transition: transform 0.2s ease-in-out;
   }
-  .blog-posts-section-{{ section.id }}.article-card:hover .article-card__arrow {
+  .blog-posts-section-{{ section.id }} .article-card:hover .article-card__arrow {
     transform: translateX(3px);
   }
 </style>
@@ -314,7 +315,10 @@
                   class="article-card__image-container"
                   {% if image_aspect_ratio == "natural" %}
                   style="aspect-ratio: 4/2;"
-                  {% endif %}>
+                                  {% if image_aspect_ratio_value == 'auto' %}
+                                    style="aspect-ratio: 16/9;"
+                                  {% endif %}
+                                  >
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg article-card__image' }}
                 </div>
               </a>
@@ -324,7 +328,7 @@
                 <p class="article-card__date" title="{{ published_date_text | escape }}">{{ published_date_text }}</p>
               {%- endif -%}
               <h3 class="article-card__title" id="ArticleTitle-{{ section.id }}-{{ article.id }}">
-                <a href="{{ article.url }}" title="{{ article_title_escaped }}">{{ article.title }}</a>
+                <a href="{{ article.url }}" title="{{ article_title_escaped }}">{{ article.title | truncate: article_title_length, "&hellip;" }}</a>
               </h3>
               {%- if show_excerpt -%}
                 <div class="article-card__excerpt" title="{{ full_excerpt_for_title | escape }}">
@@ -356,37 +360,37 @@
                   "width": {{ article.image.width }},
                   "height": {{ article.image.height }}
                 },
+              {%- endif -%}
+              "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+              "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+              {%- if article.author -%}
+                "author" : {
+                  "@type": "Person",
+                  "name": "{{ article.author | escape }}"
+                },
+              {%- endif -%}
+              "publisher": {
+                "@type": "Organization",
+                "name": "{{ shop.name | escape }}",
+                {%- assign publisher_logo_url = shop.brand.logo | image_url: width: 200 | default: (settings.logo | image_url: width: 200 ) -%}
+                {%- if publisher_logo_url != blank -%}
+                  "logo" : {
+                    "@type": "ImageObject",
+                    "url": "{{ publisher_logo_url | prepend: 'https:' }}"
+                  }
                 {%- endif -%}
-                "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
-                "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
-                {%- if article.author -%}
-                  "author" : {
-                    "@type": "Person",
-                    "name": "{{ article.author | escape }}"
-                  },
-                  {%- endif -%}
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "{{ shop.name | escape }}",
-                    {%- assign publisher_logo_url = shop.brand.logo | image_url: width: 200 | default: (settings.logo | image_url: width: 200 ) -%}
-                    {%- if publisher_logo_url != blank -%}
-                      "logo" : {
-                        "@type": "ImageObject",
-                        "url": "{{ publisher_logo_url | prepend: 'https:' }}"
-                      }
-                      {%- endif -%}
-                    },
-                    "articleSection": "{{ chosen_blog.title | escape }}",
-                    {%- assign json_ld_description = "" -%}
-                    {%- if article.excerpt.size > 0 -%}
-                      {%- assign json_ld_description = article.excerpt | strip_html | strip_newlines | replace: '"', '\"' | escape -%}
-                    {%- else -%}
-                      {%- assign json_ld_description = article.content | strip_html | strip_newlines | replace: '"', '\"' | truncatewords: 30, "" | escape -%}
-                      {%- endif -%}
-                      "description": "{{ json_ld_description }}"{%- if article.tags.size > 0 -%},
-                      "keywords" : "{{ article.tags | join: ', ' | escape }}"
-                    {%- endif -%}
-                    }
+              },
+              "articleSection": "{{ chosen_blog.title | escape }}",
+              {%- assign json_ld_description = "" -%}
+              {%- if article.excerpt.size > 0 -%}
+                {%- assign json_ld_description = article.excerpt | strip_html | strip_newlines | replace: '"', '\"' | escape -%}
+              {%- else -%}
+                {%- assign json_ld_description = article.content | strip_html | strip_newlines | replace: '"', '\"' | truncatewords: 30, "" | escape -%}
+              {%- endif -%}
+              "description": "{{ json_ld_description }}"{%- if article.tags.size > 0 -%},
+              "keywords" : "{{ article.tags | join: ', ' | escape }}"
+              {%- endif -%}
+            }
           </script>
         {%- endfor -%}
       </div>
@@ -548,6 +552,16 @@
         "id": "show_date",
         "label": "Show publication date",
         "default": true
+      }, {
+        "type": "range",
+        "id": "article_title_length",
+        "min": 20,
+        "max": 150,
+        "step": 5,
+        "unit": "char",
+        "label": "Article title length (characters)",
+        "default": 70,
+        "info": "Truncates the displayed article title to a specific number of characters. Appends '...' if truncated."
       }, {
         "type": "checkbox",
         "id": "show_excerpt",
