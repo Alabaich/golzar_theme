@@ -455,9 +455,9 @@
       "name": "Switch Side Image",
       "settings": {
         "heading": "Reliable support before and after you buy",
-        "subheading": "<p>All our imported items come with a 5-year warranty for peace of mind. As authorized dealers, we also handle after-sales support for global brands we carry. Our licensed plumbing team is available 24/7, ensuring any issues are resolved quickly and professionally.</p>",
+        "subheading": "<p>All our imported items come with a 5-year warranty for peace of mind.As authorized dealers, we also handle after-sales support for global brands we carry.Our licensed plumbing team is available 24/7, ensuring any issues are resolved quickly and professionally.</p>",
         "button_text": "Contact us",
-        "button_link": "",
+        "button_link": "shopify://pages/contact",
         "show_button_arrow": true,
         "image": "shopify://shop_images/1231457777.webp",
         "show_onboarding_image": true,
