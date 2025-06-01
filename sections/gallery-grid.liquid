@@ -35,8 +35,9 @@
   .ig__grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 0.85fr;
-    gap: 10px;
+    grid-template-rows: repeat(3, minmax(100px, 1fr));
+    gap: 16px;
+    min-height: 600px;
   }
 
   .ig-section-{{ section.id }}
@@ -45,6 +46,11 @@
     overflow: hidden;
     border-radius: 16px;
     background-color: #f0f0f0;
+    transition: transform 0.3s ease;
+  }
+
+  .ig-section-{{ section.id }}.ig__slot:hover {
+    transform: scale(0.98);
   }
 
   .ig-section-{{ section.id }}
@@ -62,6 +68,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #f5f5f5;
   }
 
   .ig-section-{{ section.id }}
@@ -70,6 +77,7 @@
     height: 25%;
     max-width: 80px;
     max-height: 80px;
+    opacity: 0.2;
   }
 
   .ig-section-{{ section.id }} .ig__slot--1 {
@@ -105,25 +113,39 @@
   @media (max-width: 990px) and (min-width: 769px) {
     .ig-section-{{ section.id }} .ig__grid-container {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
+      grid-template-rows: repeat(4, minmax(100px, 1fr));
+      min-height: 800px;
+    }
+
+    .ig-section-{{ section.id }}
+    .ig__slot--1 {
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 2;
     }
     .ig-section-{{ section.id }}
-    .ig__slot
-    , .ig-section-{{ section.id }}
-    .ig__slot--1
-    , .ig-section-{{ section.id }}
-    .ig__slot--2
-    , .ig-section-{{ section.id }}
-    .ig__slot--3
-    , .ig-section-{{ section.id }}
-    .ig__slot--4
-    , .ig-section-{{ section.id }}
-    .ig__slot--5
-    , .ig-section-{{ section.id }}
+    .ig__slot--2 {
+      grid-column: 1 / span 1;
+      grid-row: 3 / span 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--3 {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--4 {
+      grid-column: 3 / span 1;
+      grid-row: 3 / span 1;
+    }
+    .ig-section-{{ section.id }}
+    .ig__slot--5 {
+      grid-column: 1 / span 2;
+      grid-row: 4 / span 1;
+    }
+    .ig-section-{{ section.id }}
     .ig__slot--6 {
-      grid-column: auto;
-      grid-row: auto;
-      aspect-ratio: 4 / 3;
+      grid-column: 3 / span 1;
+      grid-row: 4 / span 1;
     }
   }
 
@@ -135,8 +157,10 @@
 
     .ig-section-{{ section.id }}
     .ig__grid-container {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, minmax(150px, 1fr));
+      min-height: 1000px;
+      gap: 12px;
     }
 
     .ig-section-{{ section.id }}
@@ -155,7 +179,6 @@
     .ig__slot--6 {
       grid-column: auto;
       grid-row: auto;
-      aspect-ratio: 1 / 1;
     }
   }
 {%- endstyle -%}
@@ -178,7 +201,7 @@
 
         {%- if image != blank -%}
           <div class="ig__slot ig__slot--{{ i }}">
-            {%- if link != blank -%}<a href="{{ link }}">{%- endif -%}
+            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
             <img
               srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
                       {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%}
@@ -191,7 +214,7 @@
                       {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                       {{ image | image_url }} {{ image.width }}w"
               src="{{ image | image_url: width: 1500 }}"
-              sizes="(max-width: 768px) 50vw, (max-width: 990px) 33.33vw, 16.66vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 990px) 33.33vw, 16.66vw"
               alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
               loading="lazy"
               width="{{ image.width }}"
@@ -401,7 +424,10 @@
     ],
     "presets": [
       {
-        "name": "Image Gallery Grid"
+        "name": "Image Gallery Grid",
+        "settings": {
+          "section_title": "Discover products in a real-life setting"
+        }
       }
     ]
   }
