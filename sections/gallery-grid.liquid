@@ -35,7 +35,7 @@
   .ig__grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 1fr 0.85fr;
     gap: 10px;
   }
 
@@ -72,82 +72,58 @@
     max-height: 80px;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__slot--1 {
+  .ig-section-{{ section.id }} .ig__slot--1 {
     grid-column: 1 / span 4;
     grid-row: 1 / span 2;
-    aspect-ratio: 1.5 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--2 {
     grid-column: 5 / span 2;
     grid-row: 1 / span 1;
-    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--3 {
     grid-column: 5 / span 2;
     grid-row: 2 / span 1;
-    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--4 {
     grid-column: 1 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--5 {
     grid-column: 3 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 1.6 / 1;
   }
   .ig-section-{{ section.id }}
   .ig__slot--6 {
     grid-column: 5 / span 2;
     grid-row: 3 / span 1;
-    aspect-ratio: 1.6 / 1;
   }
 
-  @media (max-width: 990px) {
+  @media (max-width: 990px) and (min-width: 769px) {
     .ig-section-{{ section.id }} .ig__grid-container {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
     }
     .ig-section-{{ section.id }}
-    .ig__slot--1 {
-      grid-column: 1 / span 4;
-      grid-row: 1 / span 1;
-      aspect-ratio: 2 / 1;
-    }
-    .ig-section-{{ section.id }}
-    .ig__slot--2 {
-      grid-column: 1 / span 2;
-      grid-row: 2 / span 1;
-      aspect-ratio: 1.6 / 1;
-    }
-    .ig-section-{{ section.id }}
-    .ig__slot--3 {
-      grid-column: 3 / span 2;
-      grid-row: 2 / span 1;
-      aspect-ratio: 1.6 / 1;
-    }
-    .ig-section-{{ section.id }}
-    .ig__slot--4 {
-      grid-column: 1 / span 2;
-      grid-row: 3 / span 1;
-      aspect-ratio: 1.6 / 1;
-    }
-    .ig-section-{{ section.id }}
-    .ig__slot--5 {
-      grid-column: 3 / span 2;
-      grid-row: 3 / span 1;
-      aspect-ratio: 1.6 / 1;
-    }
-    .ig-section-{{ section.id }}
+    .ig__slot
+    , .ig-section-{{ section.id }}
+    .ig__slot--1
+    , .ig-section-{{ section.id }}
+    .ig__slot--2
+    , .ig-section-{{ section.id }}
+    .ig__slot--3
+    , .ig-section-{{ section.id }}
+    .ig__slot--4
+    , .ig-section-{{ section.id }}
+    .ig__slot--5
+    , .ig-section-{{ section.id }}
     .ig__slot--6 {
-      grid-column: 1 / span 4;
-      grid-row: 4 / span 1;
-      aspect-ratio: 2 / 1;
+      grid-column: auto;
+      grid-row: auto;
+      aspect-ratio: 4 / 3;
     }
   }
 
@@ -160,6 +136,7 @@
     .ig-section-{{ section.id }}
     .ig__grid-container {
       grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
     }
 
     .ig-section-{{ section.id }}
@@ -214,7 +191,7 @@
                       {%- if image.width >= 3840 -%}{{ image | image_url: width: 3840 }} 3840w,{%- endif -%}
                       {{ image | image_url }} {{ image.width }}w"
               src="{{ image | image_url: width: 1500 }}"
-              sizes="(max-width: 768px) 50vw, (max-width: 990px) 25vw, 16.66vw"
+              sizes="(max-width: 768px) 50vw, (max-width: 990px) 33.33vw, 16.66vw"
               alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
               loading="lazy"
               width="{{ image.width }}"
