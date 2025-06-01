@@ -1,503 +1,258 @@
-{%- liquid
-  assign settings = section.settings
-  assign section_title = settings.section_title
--%}
-
-{%- style -%}
-  .ig-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top | default: 50 }}px;
-    --section-padding-bottom: {{ settings.padding_bottom | default: 50 }}px;
-    --title-color: {{ settings.title_color | default: '#101828' }};
-    --title-font-size-desktop: {{ settings.title_font_size_desktop | default: 32 }}px;
-    --title-font-size-mobile: {{ settings.title_font_size_mobile | default: 24 }}px;
-    --gap-size: {{ settings.gap_size | default: 16 }}px;
-    background-color: {{ settings.background_color | default: 'transparent' }};
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway'
-    , sans-serif;
+<style>
+  .discover-products-{{ section.id }} {
+    padding: 4rem 0;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__title {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 600;
-    font-size: var(--title-font-size-desktop);
-    line-height: 1.3;
-    color: var(--title-color);
-    margin-top: 0;
-    margin-bottom: 30px;
-    text-align: {{ settings.title_align | default: 'left' }};
+  .discover-products-{{ section.id }}
+  __header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__gallery-container {
+  .discover-products-{{ section.id }}
+  __title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: {{ section.settings.title_color }};
+  }
+
+  .discover-products-{{ section.id }}
+  __subtitle {
+    font-size: 1.2rem;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  .discover-products-{{ section.id }}
+  __grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--gap-size);
-    align-items: start;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 240px;
+    grid-gap: 20px;
+    grid-auto-flow: dense;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__column {
-    display: grid;
-    gap: var(--gap-size);
-    grid-template-columns: 1fr;
-    /* Ensure items stack vertically within column */
-  }
-
-  .ig-section-{{ section.id }}
-  .ig__left-column-bottom-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--gap-size);
-  }
-
-  .ig-section-{{ section.id }}
-  .ig__slot {
+  .discover-product-card {
     position: relative;
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 16px;
-    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    aspect-ratio: {{ settings.image_aspect_ratio | default: 'auto' }};
-    width: 100%;
   }
 
-  .ig-section-{{ section.id }}.ig__slot:hover {
-    transform: scale(0.98);
+  .discover-product-card:hover {
+    transform: translateY(-5px);
   }
 
-  .ig-section-{{ section.id }}
-  .ig__slot img
-  , .ig-section-{{ section.id }}
-  .ig__slot .ig__placeholder-svg-wrapper {
-    display: block;
+  .discover-product-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__slot .ig__placeholder-svg-wrapper {
+  .discover-product-card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    padding: 1.5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .ig-section-{{ section.id }}
-  .ig__slot .placeholder-svg {
-    width: 25%;
-    height: 25%;
-    max-width: 80px;
-    max-height: 80px;
-    opacity: 0.2;
+  .discover-product-card__overlay h3 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+  }
+
+  .discover-product-card__overlay .button {
+    background: {{ section.settings.button_color }};
+    color: {{ section.settings.button_text_color }};
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .discover-product-card--large {
+    grid-column: span 2;
+  }
+
+  .discover-product-card--tall {
+    grid-row: span 2;
   }
 
   @media (max-width: 768px) {
-    .ig-section-{{ section.id }} .ig__title {
-      font-size: var(--title-font-size-mobile);
-      margin-bottom: 20px;
-    }
-    .ig-section-{{ section.id }}
-    .ig__gallery-container {
+    .discover-products-{{ section.id }}__grid {
       grid-template-columns: 1fr;
     }
-    .ig-section-{{ section.id }}
-    .ig__left-column-bottom-pair {
-      grid-template-columns: 1fr;
+
+    .discover-product-card--large,
+    .discover-product-card--tall {
+      grid-column: span 1;
+      grid-row: span 1;
     }
-    .ig-section-{{ section.id }}
-    .ig__slot {
-      aspect-ratio: {{ settings.mobile_image_aspect_ratio | default: '1/1' }};
+
+    .discover-products-{{ section.id }}
+    __title {
+      font-size: 2rem;
     }
   }
-{%- endstyle -%}
+</style>
 
-<div class="ig-section-{{ section.id }}">
-  <div class="page-width">
-    {%- if section_title != blank -%}
-      <h2 class="ig__title">{{ section_title | escape }}</h2>
-    {%- endif -%}
-
-    <div class="ig__gallery-container">
-      <div class="ig__column ig__left-column">
-        <div class="ig__slot ig__slot--1">
-          {%- assign image = settings.image_slot_1 -%}
-          {%- assign link = settings.link_slot_1 -%}
-          {%- assign alt_text = settings.alt_slot_1 -%}
-          {%- if image != blank -%}
-            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-            <img
-              src="{{ image | image_url: width: 750 }}"
-              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%} {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%} {%- if image.width >= 1000 -%}{{ image | image_url: width: 1000 }} 1000w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-              loading="lazy"
-              width="{{ image.width }}"
-              height="{{ image.height }}">
-            {%- if link != blank -%}</a>{%- endif -%}
-          {%- elsif settings.show_onboarding_placeholders -%}
-            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-          {%- endif -%}
-        </div>
-        <div class="ig__left-column-bottom-pair">
-          <div class="ig__slot ig__slot--2">
-            {%- assign image = settings.image_slot_2 -%}
-            {%- assign link = settings.link_slot_2 -%}
-            {%- assign alt_text = settings.alt_slot_2 -%}
-            {%- if image != blank -%}
-              {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-              <img
-                src="{{ image | image_url: width: 375 }}"
-                srcset="{%- if image.width >= 180 -%}{{ image | image_url: width: 180 }} 180w,{%- endif -%} {%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-                sizes="(max-width: 768px) 100vw, 25vw"
-                alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-                loading="lazy"
-                width="{{ image.width }}"
-                height="{{ image.height }}">
-              {%- if link != blank -%}</a>{%- endif -%}
-            {%- elsif settings.show_onboarding_placeholders -%}
-              <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-            {%- endif -%}
-          </div>
-          <div class="ig__slot ig__slot--3">
-            {%- assign image = settings.image_slot_3 -%}
-            {%- assign link = settings.link_slot_3 -%}
-            {%- assign alt_text = settings.alt_slot_3 -%}
-            {%- if image != blank -%}
-              {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-              <img
-                src="{{ image | image_url: width: 375 }}"
-                srcset="{%- if image.width >= 180 -%}{{ image | image_url: width: 180 }} 180w,{%- endif -%} {%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-                sizes="(max-width: 768px) 100vw, 25vw"
-                alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-                loading="lazy"
-                width="{{ image.width }}"
-                height="{{ image.height }}">
-              {%- if link != blank -%}</a>{%- endif -%}
-            {%- elsif settings.show_onboarding_placeholders -%}
-              <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-            {%- endif -%}
-          </div>
-        </div>
-      </div>
-      <div class="ig__column ig__right-column">
-        <div class="ig__slot ig__slot--4">
-          {%- assign image = settings.image_slot_4 -%}
-          {%- assign link = settings.link_slot_4 -%}
-          {%- assign alt_text = settings.alt_slot_4 -%}
-          {%- if image != blank -%}
-            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-            <img
-              src="{{ image | image_url: width: 750 }}"
-              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%} {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-              loading="lazy"
-              width="{{ image.width }}"
-              height="{{ image.height }}">
-            {%- if link != blank -%}</a>{%- endif -%}
-          {%- elsif settings.show_onboarding_placeholders -%}
-            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-          {%- endif -%}
-        </div>
-        <div class="ig__slot ig__slot--5">
-          {%- assign image = settings.image_slot_5 -%}
-          {%- assign link = settings.link_slot_5 -%}
-          {%- assign alt_text = settings.alt_slot_5 -%}
-          {%- if image != blank -%}
-            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-            <img
-              src="{{ image | image_url: width: 750 }}"
-              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%} {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-              loading="lazy"
-              width="{{ image.width }}"
-              height="{{ image.height }}">
-            {%- if link != blank -%}</a>{%- endif -%}
-          {%- elsif settings.show_onboarding_placeholders -%}
-            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-          {%- endif -%}
-        </div>
-        <div class="ig__slot ig__slot--6">
-          {%- assign image = settings.image_slot_6 -%}
-          {%- assign link = settings.link_slot_6 -%}
-          {%- assign alt_text = settings.alt_slot_6 -%}
-          {%- if image != blank -%}
-            {%- if link != blank -%}<a href="{{ link }}" aria-label="{{ alt_text | default: image.alt | default: section_title | escape }}">{%- endif -%}
-            <img
-              src="{{ image | image_url: width: 750 }}"
-              srcset="{%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%} {%- if image.width >= 550 -%}{{ image | image_url: width: 550 }} 550w,{%- endif -%} {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%} {{ image | image_url }} {{ image.width }}w"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              alt="{{ alt_text | default: image.alt | default: section_title | escape }}"
-              loading="lazy"
-              width="{{ image.width }}"
-              height="{{ image.height }}">
-            {%- if link != blank -%}</a>{%- endif -%}
-          {%- elsif settings.show_onboarding_placeholders -%}
-            <div class="ig__placeholder-svg-wrapper">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-          {%- endif -%}
-        </div>
-      </div>
-    </div>
+<section class="discover-products-{{ section.id }} page-width">
+  <div class="discover-products-{{ section.id }}__header">
+    <h2 class="discover-products-{{ section.id }}__title">{{ section.settings.title }}</h2>
+    {% if section.settings.subtitle != blank %}
+      <p class="discover-products-{{ section.id }}__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
   </div>
-</div>
+
+  <div class="discover-products-{{ section.id }}__grid">
+    {% for block in section.blocks %}
+      <div class="discover-product-card {% if block.settings.size == 'large' %}discover-product-card--large{% elsif block.settings.size == 'tall' %}discover-product-card--tall{% endif %}">
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | img_url: '800x' }}"
+            alt="{{ block.settings.image.alt }}"
+            class="discover-product-card__image">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'discover-product-card__image' }}
+        {% endif %}
+        <div class="discover-product-card__overlay">
+          {% if block.settings.title != blank %}
+            <h3>{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+            <a href="{{ block.settings.button_link }}" class="button">{{ block.settings.button_label }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
 
 {% schema %}
   {
-    "name": "Masonry Gallery (New)",
-    "tag": "section",
-    "class": "shopify-section--masonry-gallery-new",
+    "name": "Image Gallery",
     "settings": [
       {
-        "type": "header",
-        "content": "Section Title & Style"
-      },
-      {
         "type": "text",
-        "id": "section_title",
+        "id": "title",
         "label": "Title",
         "default": "Discover products in a real-life setting"
       },
       {
-        "type": "select",
-        "id": "title_align",
-        "label": "Title Alignment",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "center",
-            "label": "Center"
-          }, {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "left"
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color",
+        "default": "#333333"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "See how our products fit perfectly in everyday spaces"
       },
       {
         "type": "color",
-        "id": "title_color",
-        "label": "Title Color",
-        "default": "#101828"
-      }, {
-        "type": "range",
-        "id": "title_font_size_desktop",
-        "label": "Title Font Size (Desktop)",
-        "min": 20,
-        "max": 60,
-        "step": 1,
-        "unit": "px",
-        "default": 32
-      }, {
-        "type": "range",
-        "id": "title_font_size_mobile",
-        "label": "Title Font Size (Mobile)",
-        "min": 16,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "default": 24
+        "id": "subtitle_color",
+        "label": "Subtitle color",
+        "default": "#666666"
       }, {
         "type": "color",
-        "id": "background_color",
-        "label": "Section Background Color",
-        "default": "rgba(0,0,0,0)"
+        "id": "button_color",
+        "label": "Button color",
+        "default": "#ffffff"
       }, {
-        "type": "range",
-        "id": "gap_size",
-        "label": "Gap between images",
-        "min": 0,
-        "max": 30,
-        "step": 1,
-        "unit": "px",
-        "default": 16
-      }, {
-        "type": "select",
-        "id": "image_aspect_ratio",
-        "label": "Image Aspect Ratio (Desktop)",
-        "options": [
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color",
+        "default": "#000000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product_card",
+        "name": "Product Card",
+        "settings": [
           {
-            "value": "auto",
-            "label": "Original (Auto) - For Masonry"
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           },
           {
-            "value": "1/1",
-            "label": "Square (1:1)"
+            "type": "text",
+            "id": "title",
+            "label": "Card Title",
+            "default": "Product Collection"
           },
           {
-            "value": "2/1",
-            "label": "Landscape (2:1) - User Requested"
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Shop Now"
           },
           {
-            "value": "16/9",
-            "label": "Wide (16:9)"
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
           }, {
-            "value": "4/3",
-            "label": "Landscape (4:3)"
-          }, {
-            "value": "3/2",
-            "label": "Landscape (3:2)"
-          }, {
-            "value": "3/4",
-            "label": "Portrait (3:4)"
-          }, {
-            "value": "2/3",
-            "label": "Portrait (2:3)"
+            "type": "select",
+            "id": "size",
+            "label": "Card Size",
+            "options": [
+              {
+                "value": "regular",
+                "label": "Regular"
+              }, {
+                "value": "large",
+                "label": "Large (2 columns)"
+              }, {
+                "value": "tall",
+                "label": "Tall (2 rows)"
+              }
+            ],
+            "default": "regular"
           }
-        ],
-        "default": "auto"
-      }, {
-        "type": "select",
-        "id": "mobile_image_aspect_ratio",
-        "label": "Image Aspect Ratio (Mobile)",
-        "options": [
-          {
-            "value": "auto",
-            "label": "Original (Auto)"
-          }, {
-            "value": "1/1",
-            "label": "Square (1:1)"
-          }, {
-            "value": "3/4",
-            "label": "Portrait (3:4)"
-          }, {
-            "value": "4/3",
-            "label": "Landscape (4:3)"
-          }
-        ],
-        "default": "1/1"
-      }, {
-        "type": "checkbox",
-        "id": "show_onboarding_placeholders",
-        "label": "Show placeholders for empty slots",
-        "default": true
-      }, {
-        "type": "header",
-        "content": "Image Slots (3 Left, 3 Right)"
-      }, {
-        "type": "header",
-        "content": "Left Column - Slot 1 (Top Large)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_1",
-        "label": "Image 1"
-      }, {
-        "type": "url",
-        "id": "link_slot_1",
-        "label": "Link 1"
-      }, {
-        "type": "text",
-        "id": "alt_slot_1",
-        "label": "Alt Text 1"
-      }, {
-        "type": "header",
-        "content": "Left Column - Slot 2 (Bottom Left)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_2",
-        "label": "Image 2"
-      }, {
-        "type": "url",
-        "id": "link_slot_2",
-        "label": "Link 2"
-      }, {
-        "type": "text",
-        "id": "alt_slot_2",
-        "label": "Alt Text 2"
-      }, {
-        "type": "header",
-        "content": "Left Column - Slot 3 (Bottom Right)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_3",
-        "label": "Image 3"
-      }, {
-        "type": "url",
-        "id": "link_slot_3",
-        "label": "Link 3"
-      }, {
-        "type": "text",
-        "id": "alt_slot_3",
-        "label": "Alt Text 3"
-      }, {
-        "type": "header",
-        "content": "Right Column - Slot 4 (Top)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_4",
-        "label": "Image 4"
-      }, {
-        "type": "url",
-        "id": "link_slot_4",
-        "label": "Link 4"
-      }, {
-        "type": "text",
-        "id": "alt_slot_4",
-        "label": "Alt Text 4"
-      }, {
-        "type": "header",
-        "content": "Right Column - Slot 5 (Middle)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_5",
-        "label": "Image 5"
-      }, {
-        "type": "url",
-        "id": "link_slot_5",
-        "label": "Link 5"
-      }, {
-        "type": "text",
-        "id": "alt_slot_5",
-        "label": "Alt Text 5"
-      }, {
-        "type": "header",
-        "content": "Right Column - Slot 6 (Bottom)"
-      }, {
-        "type": "image_picker",
-        "id": "image_slot_6",
-        "label": "Image 6"
-      }, {
-        "type": "url",
-        "id": "link_slot_6",
-        "label": "Link 6"
-      }, {
-        "type": "text",
-        "id": "alt_slot_6",
-        "label": "Alt Text 6"
-      }, {
-        "type": "header",
-        "content": "Section Padding"
-      }, {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 150,
-        "step": 5,
-        "unit": "px",
-        "label": "Top Padding",
-        "default": 50
-      }, {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 150,
-        "step": 5,
-        "unit": "px",
-        "label": "Bottom Padding",
-        "default": 50
+        ]
       }
     ],
     "presets": [
       {
-        "name": "Masonry Gallery (New)",
-        "settings": {}
+        "name": "Image Gallery",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "product_card",
+            "settings": {
+              "title": "Living Room",
+              "button_label": "Shop Now",
+              "size": "large"
+            }
+          }, {
+            "type": "product_card",
+            "settings": {
+              "title": "Kitchen",
+              "button_label": "View Products"
+            }
+          }, {
+            "type": "product_card",
+            "settings": {
+              "title": "Bedroom",
+              "button_label": "Explore",
+              "size": "tall"
+            }
+          }, {
+            "type": "product_card",
+            "settings": {
+              "title": "Office",
+              "button_label": "Discover"
+            }
+          }
+        ]
       }
     ]
   }
