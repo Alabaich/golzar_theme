@@ -521,83 +521,31 @@
     "gallery_grid_XqDCde": {
       "type": "gallery-grid",
       "blocks": {
-        "product_card_efdxDK": {
-          "type": "product_card",
+        "image_ABGzfT": {
+          "type": "image",
           "settings": {
             "image": "shopify://shop_images/111.webp",
-            "title": "",
-            "button_label": "",
-            "button_link": "",
-            "size": "tall"
+            "size": "regular"
           }
         },
-        "product_card_LGjVrN": {
-          "type": "product_card",
+        "image_xtqVxY": {
+          "type": "image",
           "settings": {
             "image": "shopify://shop_images/222.webp",
-            "title": "Product Collection",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "size": "regular"
-          }
-        },
-        "product_card_649bki": {
-          "type": "product_card",
-          "settings": {
-            "image": "shopify://shop_images/333.webp",
-            "title": "Product Collection",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "size": "regular"
-          }
-        },
-        "product_card_AqywF3": {
-          "type": "product_card",
-          "settings": {
-            "image": "shopify://shop_images/444.webp",
-            "title": "Product Collection",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "size": "regular"
-          }
-        },
-        "product_card_3NkDnC": {
-          "type": "product_card",
-          "settings": {
-            "image": "shopify://shop_images/555.webp",
-            "title": "Product Collection",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "size": "regular"
-          }
-        },
-        "product_card_PjaqtF": {
-          "type": "product_card",
-          "settings": {
-            "image": "shopify://shop_images/666.webp",
-            "title": "Product Collection",
-            "button_label": "Shop Now",
-            "button_link": "",
             "size": "regular"
           }
         }
       },
       "block_order": [
-        "product_card_efdxDK",
-        "product_card_LGjVrN",
-        "product_card_649bki",
-        "product_card_AqywF3",
-        "product_card_3NkDnC",
-        "product_card_PjaqtF"
+        "image_ABGzfT",
+        "image_xtqVxY"
       ],
       "name": "Image Gallery Grid",
       "settings": {
         "title": "Discover products in a real-life setting",
         "title_color": "#101828",
         "subtitle": "See how our products fit perfectly in everyday spaces",
-        "subtitle_color": "#666666",
-        "button_color": "#ffffff",
-        "button_text_color": "#000000"
+        "subtitle_color": "#666666"
       }
     }
   },
