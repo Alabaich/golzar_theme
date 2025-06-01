@@ -522,15 +522,15 @@
       "type": "gallery-grid",
       "name": "Image Gallery Rows",
       "settings": {
-        "title": "Our Gallery",
+        "title": "Discover products in a real-life setting",
+        "subtitle": "",
         "row1_img_large": "shopify://shop_images/111.webp",
         "row1_img_small1": "shopify://shop_images/222.webp",
         "row1_img_small2": "shopify://shop_images/333.webp",
         "row2_img_small1": "shopify://shop_images/444.webp",
         "row2_img_small2": "shopify://shop_images/555.webp",
         "row2_img_large": "shopify://shop_images/666.webp",
-        "gap_size": 10,
-        "large_image_overlap": 0
+        "gap_size": 10
       }
     }
   },
