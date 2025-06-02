@@ -403,7 +403,7 @@
         "show_promo_banner": true,
         "promo_heading": "Big Online Sale! 40% OFF!",
         "promo_subheading": "<p>Discover a wide range of premium bathroom accessories to elevate your space. From sleek faucets and towel racks to elegant mirrors and organizers.</p>",
-        "promo_button_text": "Discover more >",
+        "promo_button_text": "Discover more",
         "promo_button_link": "shopify://collections",
         "promo_image": "shopify://shop_images/saleIMG.webp",
         "promo_bg_color": "#002642",
@@ -417,7 +417,7 @@
         "show_discount_badge": true,
         "show_availability": false,
         "show_add_to_cart_button": true,
-        "product_button_text": "Buy now >"
+        "product_button_text": "Buy now"
       }
     },
     "image_banner_JPJCMg": {
