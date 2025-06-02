@@ -66,7 +66,6 @@
 
   .feature-icons__item-title {
     margin-top: 0;
-    font-weight: 600;
   }
 
   .feature-icons__item-description {
@@ -127,11 +126,11 @@
             {%- endif -%}
             <div class="feature-icons__content">
               {%- if block.settings.title != blank -%}
-                <h3 class="feature-icons__item-title">{{ block.settings.title | escape }}</h3>
+                <h5 class="feature-icons__item-title" title="{{ block.settings.title | escape }}">{{ block.settings.title | escape }}</h5>
               {%- endif -%}
               {%- if block.settings.description != blank -%}
                 <div class="feature-icons__item-description rte">
-                  {{ block.settings.description }}
+                  <p class="bodyText" title="{{ block.settings.description | escape }}">{{ block.settings.description }}</p>
                 </div>
               {%- endif -%}
             </div>
