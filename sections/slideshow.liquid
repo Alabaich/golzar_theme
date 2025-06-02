@@ -219,13 +219,13 @@
               </div>
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
-                <a class="transparentButton customButton"
+                <a
                   {% if block.settings.link %}
                     href="{{ block.settings.link }}"
                   {% else %}
                     role="link" aria-disabled="true"
                   {% endif %}
-                  class="transparentButton"
+                  class="transparentButton customButton"
                   title="{{- block.settings.button_label | escape -}}"
                 >
                   <span>{{- block.settings.button_label | escape -}}</span>
