@@ -3621,3 +3621,8 @@ button.customButton, .customButton{
   border-radius: 30px;
   padding: 16px 24px;
 } 
+
+pageWidth{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
