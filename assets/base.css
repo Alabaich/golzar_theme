@@ -3629,41 +3629,41 @@ button.customButton, .customButton{
 } 
 
 button.blueButton, .blueButton{
-  background-color: var(--darkBlue)
-  color: var(--white)
+  background: var(--darkBlue);
+  color: var(--white);
   text-transform: none;
 }
 
 button.blueButton, .blueButton{
-  background-color: var(--darkBlue)
+  background: var(--darkBlue);
   color: var(--white);
   text-transform: none;
-  border: 1px solid var(--darkBlue)
+  border: 1px solid var(--darkBlue);
   transition: all linear 200ms;
 }
 
 button.blueButton:hover, .blueButton:hover{
-  background-color: none;
+  background: none;
   color: var(--darkBlue);
   border: 1px solid var(--darkBlue)
 }
 
 button.transparentButton, .transparentButton{
-  background-color: none;
+  background: none;
   color: var(--white);
-  border: 1px solid var(--white)
+  border: 1px solid var(--white);
   text-transform: none;
     transition: all linear 200ms;
 }
 
 button.transparentButton:hover, .transparentButton:hover{
-  background-color: var(--darkBlue)
+  background-color: var(--darkBlue);
   color: var(--white);
-  border: 1px solid var(--darkBlue)
+  border: 1px solid var(--darkBlue);
 }
 
 button.blueButton, .blueButton{
-  background-color: var(--darkBlue)
+  background-color: var(--darkBlue);
 }
 
 .pageWidth{

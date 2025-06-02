@@ -26,9 +26,6 @@
   .consultation-banner-{{ section.id }} {
     background-color: #ffffff;
     width: 100%;
-    max-width: var(--page-width);
-    margin: 20px auto;
-    padding: 100px 1.5rem;
     overflow: hidden;
     border-radius: {{ section.settings.border_radius }}px;
   }
@@ -57,12 +54,12 @@
   .consultation-banner-{{ section.id }} .consultation-banner__help-text {
     font-size: 16px;
     color: #555555;
-    margin: 0 0 10px;
+    margin: 0 0 0px;
     font-family: 'Arial', sans-serif;
   }
 
   .consultation-banner-{{ section.id }} .consultation-banner__title {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Black Mango', sans-serif;
     font-weight: 600;
     font-size: {{ section.settings.title_size }}px;
     line-height: 1.1;
@@ -210,8 +207,8 @@
   }
 </style>
 
-<section class="consultation-banner consultation-banner-{{ section.id }}" aria-label="{{ banner_title_content | escape }}">
-  <div class="consultation-banner__content">
+<section class="consultation-banner consultation-banner-{{ section.id }}" aria-label="{{ banner_title_content | escape }} page-width">
+  <div class="consultation-banner__content pageWidth">
     <div class="consultation-banner__text-column" style="text-align: {{ section.settings.text_align_desktop }};">
       {%- if help_text != blank or section.settings.help_text != "" -%}
         <p class="consultation-banner__help-text">{{ help_text | default: help_text_default }}</p>
@@ -413,16 +410,8 @@
       }, {
         "type": "header",
         "content": "Styling"
-      }, {
-        "type": "range",
-        "id": "title_size",
-        "min": 18,
-        "max": 60,
-        "step": 1,
-        "unit": "px",
-        "label": "Title font size",
-        "default": 32
-      }, {
+      },
+      {
         "type": "color",
         "id": "button_bg_color",
         "label": "Button background color",
