@@ -3645,7 +3645,6 @@ button.blueButton, .blueButton{
 button.blueButton:hover, .blueButton:hover{
   background-color: none;
   color: var(--darkBlue);
-  text-transform: none;
   border: 1px solid var(--darkBlue)
 }
 
@@ -3654,6 +3653,13 @@ button.transparentButton, .transparentButton{
   color: var(--white);
   border: 1px solid var(--white)
   text-transform: none;
+    transition: all linear 200ms;
+}
+
+button.transparentButton:hover, .transparentButton:hover{
+  background-color: var(--darkBlue)
+  color: var(--white);
+  border: 1px solid var(--darkBlue)
 }
 
 button.blueButton, .blueButton{
