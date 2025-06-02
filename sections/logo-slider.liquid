@@ -14,7 +14,7 @@
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
   }
 
-  .logo-list-data:not(.logo-list-slider) {
+  .logoListData:not(.logoListSlider) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
     gap: 25px;
   }
 
-  .logo-list-slider .slick-slide {
+  .logoListSlider .slick-slide {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -53,7 +53,7 @@
     {% if section.blocks.size > 0 %}
       <div class="logo-list-area">
         <div class="logo-list-area-in">
-          <ul class="logo-list-data{% if section.blocks.size > 4 %} logo-list-slider{% endif %}" id="LogoList-{{ section.id }}">
+          <ul class="logoListData{% if section.blocks.size > 4 %} logoListSlider{% endif %}" id="LogoList-{{ section.id }}">
             {% for block in section.blocks %}
               {% if block.settings.logo_img != blank %}
                 <li class="logo-item">
@@ -80,7 +80,7 @@
     const initLogoMarquee = () => {
       const logoSlider = $('#LogoList-{{ section.id }}');
   
-      if (logoSlider.length && logoSlider.hasClass('logo-list-slider') && typeof logoSlider.slick === 'function') {
+      if (logoSlider.length && logoSlider.hasClass('logoListSlider') && typeof logoSlider.slick === 'function') {
         if (logoSlider.hasClass('slick-initialized')) {
           logoSlider.slick('unslick');
         }
