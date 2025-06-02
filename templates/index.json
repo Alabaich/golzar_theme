@@ -417,7 +417,7 @@
         "show_discount_badge": true,
         "show_availability": false,
         "show_add_to_cart_button": true,
-        "product_button_text": "BUY NOW >"
+        "product_button_text": "Buy now >"
       }
     },
     "image_banner_JPJCMg": {
@@ -655,6 +655,7 @@
         "show_button_arrow": true,
         "border_radius": 12,
         "text_column_width": 50,
+        "image_position_desktop": "right",
         "text_align_desktop": "left",
         "text_align_mobile": "center",
         "image_bg_color": "#ffffff",
