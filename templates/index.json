@@ -143,7 +143,7 @@
         "feature_item_3YQ3dq": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon_preset": "support",
             "icon_width": 40,
             "title": "Acknowledged customer support",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>"
@@ -152,7 +152,7 @@
         "feature_item_BVrRFY": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon_preset": "price_match",
             "icon_width": 40,
             "title": "Feature Title",
             "description": "<p>Brief description of your benefit or feature.</p>"
@@ -161,7 +161,7 @@
         "feature_item_VHeCta": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon_preset": "delivery",
             "icon_width": 40,
             "title": "Feature Title",
             "description": "<p>Brief description of your benefit or feature.</p>"
@@ -170,7 +170,7 @@
         "feature_item_NVFfWx": {
           "type": "feature_item",
           "settings": {
-            "icon_svg": "",
+            "icon_preset": "pickup",
             "icon_width": 40,
             "title": "Feature Title",
             "description": "<p>Brief description of your benefit or feature.</p>"
