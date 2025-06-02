@@ -3659,6 +3659,7 @@ h4, .h4{
 h5, .h5{
   font-family: Raleway, sans serif;
   font-size: 1.125em;
+  font-weight: 400;
 }
 
 p.bodyText{
