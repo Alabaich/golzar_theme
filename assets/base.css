@@ -3622,7 +3622,11 @@ button.customButton, .customButton{
   padding: 16px 24px;
 } 
 
-pageWidth{
+.pageWidth{
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.insidePadding{
+  padding: 25px;
 }
