@@ -3619,12 +3619,42 @@ details-disclosure > details {
 
 :root {
   --darkBlue: #002642;
+  --white: #fff;
+  --black: #2c2d2c;
 }
 
 button.customButton, .customButton{
   border-radius: 30px;
   padding: 16px 24px;
 } 
+
+button.blueButton, .blueButton{
+  background-color: var(--darkBlue)
+  color: var(--white)
+  text-transform: none;
+}
+
+button.blueButton, .blueButton{
+  background-color: var(--darkBlue)
+  color: var(--white);
+  text-transform: none;
+  border: 1px solid var(--darkBlue)
+  transition: all linear 200ms;
+}
+
+button.blueButton:hover, .blueButton:hover{
+  background-color: none;
+  color: var(--darkBlue);
+  text-transform: none;
+  border: 1px solid var(--darkBlue)
+}
+
+button.transparentButton, .transparentButton{
+  background-color: none;
+  color: var(--white);
+  border: 1px solid var(--white)
+  text-transform: none;
+}
 
 button.blueButton, .blueButton{
   background-color: var(--darkBlue)
