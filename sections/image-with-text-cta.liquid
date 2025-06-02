@@ -124,8 +124,8 @@
 .consultation-banner-{{ section.id }}.consultation-banner__button:hover,
 .consultation-banner-{{ section.id }}.consultation-banner__button:focus {
   background-color: #ffffff;
-  color: #0a2b4c;
-  border-color: #0a2b4c;
+  color: {{ section.settings.button_bg_color }};
+  border-color: {{ section.settings.button_bg_color }};
   outline: none;
 }
 
@@ -144,7 +144,7 @@
 
 .consultation-banner-{{ section.id }}.consultation-banner__button:hover .consultation-banner__arrow-svg path,
 .consultation-banner-{{ section.id }}.consultation-banner__button:focus .consultation-banner__arrow-svg path {
-  fill: #0a2b4c;
+  fill: {{ section.settings.button_bg_color }};
 }
 
 .consultation-banner-{{ section.id }}
