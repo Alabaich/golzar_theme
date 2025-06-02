@@ -3612,3 +3612,11 @@ details-disclosure > details {
     margin-left: 50px;
     margin-right: 50px;
 }
+
+
+
+/* Golzar Custom Styles Start */
+
+button.customButton, .customButton{
+  border-radius: 50%;
+} 
