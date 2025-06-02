@@ -104,9 +104,31 @@
   }
 
   @media screen and (max-width: 749px) {
+        .slideshow.banner--adapt_image .banner__media,
+    .slideshow.banner--adapt_image::before {
+      padding-bottom: 56.25% !important;
+    }
+    
+    .slideshow.banner--medium {
+      min-height: 56.25vw !important;
+    }
+    
     .slideshow-navigation-wrapper {
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 1.5rem !important;
+    }
+    
+    .slideshow__text-wrapper {
+      padding: 1rem !important;
+    }
+    
+    .banner__heading {
+      font-size: 2rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .banner__text {
+      font-size: 1rem !important;
+      margin-bottom: 0.5rem !important;
     }
   }
 </style>
