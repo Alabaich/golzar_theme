@@ -137,6 +137,63 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "feature_icons_RCwUXD": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_3YQ3dq": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "icon_width": 40,
+            "title": "Acknowledged customer support",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>"
+          }
+        },
+        "feature_item_BVrRFY": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "icon_width": 40,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_VHeCta": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "icon_width": 40,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_NVFfWx": {
+          "type": "feature_item",
+          "settings": {
+            "icon_svg": "",
+            "icon_width": 40,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_3YQ3dq",
+        "feature_item_BVrRFY",
+        "feature_item_VHeCta",
+        "feature_item_NVFfWx"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "logo_slider_EgdLnG": {
       "type": "logo-slider",
       "blocks": {
@@ -682,6 +739,7 @@
   },
   "order": [
     "slideshow_JJwBwz",
+    "feature_icons_RCwUXD",
     "logo_slider_EgdLnG",
     "our_categories_wnJ3DH",
     "text_with_two_img_YrdmHc",
