@@ -241,7 +241,7 @@ section.shopify-section.section.banner-slideshow
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
   .slideshow__text-wrapper.banner__content
-  .banner__buttons a {
+  .banner__buttons a.oldButton {
   text-transform: uppercase;
   border-radius: 50px;
   background-color: #fff;
@@ -252,17 +252,17 @@ section.shopify-section.section.banner-slideshow
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
   .slideshow__text-wrapper.banner__content
-  .banner__buttons a::after,
+  .banner__buttons a.oldButton::after,
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
   .slideshow__text-wrapper.banner__content
-  .banner__buttons a::before {
+  .banner__buttons a.oldButton::before {
   display: none;
 }
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
   .slideshow__text-wrapper.banner__content
-  .banner__buttons a:hover {
+  .banner__buttons a.oldButton:hover {
   background-color: #7a7a7a;
 }
 section.shopify-section.section.banner-slideshow
