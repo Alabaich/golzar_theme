@@ -2731,7 +2731,7 @@ div#FacetsWrapperDesktop .facets-vertical .active-facets__button {
   font-weight: 400;
   font-family: "Raleway", serif;
 }
-.collectin_slideshow .slideshow__text .banner__buttons a {
+.collectin_slideshow .slideshow__text .banner__buttons a.oldButton {
   padding: 15px 30px;
   text-align: center;
   transition: all 0.3s;
