@@ -35,30 +35,46 @@
     line-height: 1.6;
   }
 
-  .featured-collection-promo a.promo-banner-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #ffffff;
-    color: #002642;
+  .featured-collection-promo .promo-banner-button {
+    background-color: {{ section.settings.promo_button_bg_color }};
+    color: {{ section.settings.promo_button_text_color }};
+    padding: 12px 25px;
     text-decoration: none;
-    border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
-    font-family: 'Arial'
-    , sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid {{ section.settings.promo_button_bg_color }};
     cursor: pointer;
     line-height: normal;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
-  .featured-collection-promo a.promo-banner-button:hover {
-    background-color: #002642;
-    color: #ffffff;
-    border-color: #ffffff;
+  .featured-collection-promo .promo-banner-button:hover,
+  .featured-collection-promo .promo-banner-button:focus {
+    background-color: #ffffff;
+    color: {{ section.settings.promo_button_bg_color }};
+    border-color: {{ section.settings.promo_button_bg_color }};
+    outline: none;
+  }
+
+  .featured-collection-promo .promo-banner-button__arrow-svg {
+    margin-left: 8px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .featured-collection-promo .promo-banner-button__arrow-svg path {
+    fill: {{ section.settings.promo_button_text_color }};
+    transition: fill 0.3s ease;
+  }
+
+  .featured-collection-promo .promo-banner-button:hover .promo-banner-button__arrow-svg path,
+  .featured-collection-promo .promo-banner-button:focus .promo-banner-button__arrow-svg path {
+    fill: {{ section.settings.promo_button_bg_color }};
   }
 
   .featured-collection-promo .promo-banner-image-wrapper {
@@ -352,7 +368,7 @@
 
   <div class="custm-collection-discount-header">
     {% if section.settings.section_title != blank %}
-      <h3 title="{{ section.settings.section_title | escape }}" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
+      <h3 title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
     {% endif %}
   </div>
 
@@ -364,14 +380,12 @@
             <h2
               class="promo-banner-heading"
               style="color: {{ section.settings.promo_heading_color }};"
-              title="{{ section.settings.promo_heading | escape }}"
               title="{{ section.settings.promo_heading | escape }}">{{ section.settings.promo_heading | escape }}</h2>
           {% endif %}
           {% if section.settings.promo_subheading != blank %}
             <div
               class="promo-banner-subheading"
-              style="color: {{ section.settings.promo_subheading_color }};"
-              title="{{ section.settings.promo_subheading }}">
+              style="color: {{ section.settings.promo_subheading_color }};">
               {{ section.settings.promo_subheading }}
             </div>
           {% endif %}
@@ -381,15 +395,22 @@
               class="promo-banner-button"
               title="{{ section.settings.promo_button_text | escape }}">
               {{ section.settings.promo_button_text | escape }}
+              {%- if section.settings.promo_show_button_arrow -%}
+                <svg
+                  class="promo-banner-button__arrow-svg"
+                  width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.744078 0.984312C1.06951 0.658875 1.59715 0.658875 1.92259 0.984312L6.08926 5.15098C6.41469 5.47642 6.41469 6.00405 6.08926 6.32949L1.92259 10.4962C1.59715 10.8216 1.06951 10.8216 0.744078 10.4962C0.418641 10.1707 0.418641 9.64308 0.744078 9.31765L4.32149 5.74023L0.744078 2.16282C0.418641 1.83739 0.418641 1.30975 0.744078 0.984312Z" />
+                </svg>
+              {%- endif -%}
             </a>
           {% endif %}
         </div>
         {% if section.settings.promo_image != blank %}
           <div class="promo-banner-image-wrapper">
             {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
- loading: 'lazy',
- widths: '300, 400, 500, 600, 700, 800, 1000',
- class: 'promo-banner-image'
+              loading: 'lazy',
+              widths: '300, 400, 500, 600, 700, 800, 1000',
+              class: 'promo-banner-image'
             }}
           </div>
         {% endif %}
@@ -416,9 +437,9 @@
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
- loading: 'lazy',
- widths: '200, 300, 400, 500',
- class: 'product-card__image'
+                  loading: 'lazy',
+                  widths: '200, 300, 400, 500',
+                  class: 'product-card__image'
                 }}
               {% else %}
                 {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
@@ -571,12 +592,31 @@
         "type": "text",
         "id": "promo_button_text",
         "label": "Button text",
-        "default": "DISCOVER MORE >"
+        "default": "DISCOVER MORE"
       }, {
         "type": "url",
         "id": "promo_button_link",
         "label": "Button link"
-      }, {
+      },
+      {
+        "type": "color",
+        "id": "promo_button_bg_color",
+        "label": "Promo button background color",
+        "default": "#0a2b4c"
+      },
+      {
+        "type": "color",
+        "id": "promo_button_text_color",
+        "label": "Promo button text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "promo_show_button_arrow",
+        "label": "Show arrow on promo button",
+        "default": true
+      },
+      {
         "type": "image_picker",
         "id": "promo_image",
         "label": "Promo image"
@@ -648,7 +688,7 @@
         "type": "text",
         "id": "product_button_text",
         "label": "Product card button text",
-        "default": "BUY NOW >"
+        "default": "BUY NOW"
       }
     ],
     "presets": [
