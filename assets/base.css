@@ -3630,3 +3630,13 @@ button.customButton, .customButton{
 .insidePadding{
   padding: 25px;
 }
+
+.insidePaddingSmall{
+  padding: 10px;
+}
+
+h1, .h1{
+  font-size: 4.25em;  
+}
+
+
