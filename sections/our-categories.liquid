@@ -3,20 +3,14 @@
     display: block;
   }
 
-  .our-categorys-sec .our-categorys-inn {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .our-categorys-sec .our-categorys-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
-  .our-categorys-sec .our-categorys-heading {
-    margin-bottom: 40px;
-  }
   .our-categorys-sec .our-categorys-heading h2 {
-    font-family: "Black Mango"
-    , serif;
-    font-size: 56px;
-    font-weight: 400;
-    text-align: center;
+    text-align: left;
     margin: 0;
   }
   .our-categorys-sec .our-categorys-body,
@@ -72,7 +66,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px 20px;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -83,21 +77,8 @@
   }
 
   .category-card__title-text {
-    font-size: 20px;
-    font-weight: 600;
     color: #FFFFFF;
     margin: 0;
-    font-family: -apple-system
-    , BlinkMacSystemFont
-    , 'Segoe UI'
-    , Roboto
-    , Helvetica
-    , Arial
-    , sans-serif
-    , 'Apple Color Emoji'
-    , 'Segoe UI Emoji'
-    , 'Segoe UI Symbol';
-    line-height: 1.3;
   }
 
   .category-card__icon-new {
@@ -121,12 +102,6 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
-    .our-categorys-sec .our-categorys-heading h2 {
-      font-size: 32px;
-    }
-    .category-card__title-text {
-      font-size: 18px;
-    }
     .category-card__icon-new svg {
       width: 24px;
       height: 24px;
@@ -136,19 +111,14 @@
       min-height: 60px;
     }
   }
-  @media (max-width: 550px) {
-    .our-categorys-sec .our-categorys-heading h2 {
-      font-size: 28px;
-    }
-  }
 </style>
 
-<div class="page-width">
+<div class="page-width pageWidth">
   <div class="our-categorys-main our-categorys-sec">
-    <div class="our-categorys-inn">
+    <div class="our-categorys-inner">
       {% if section.settings.title != blank %}
         <div class="our-categorys-heading">
-          <h2 style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>
+          <h2 title="{{ section.settings.title }}">{{ section.settings.title }}</h2>
         </div>
       {% endif %}
 
@@ -161,7 +131,8 @@
                   <a
                     href="{{ block.settings.collection.url | default: '#' }}"
                     class="category-card"
-                    aria-label="{{ block.settings.collection.title | default: 'Category' | escape }}">
+                    aria-label="{{ block.settings.collection.title | default: 'Category' | escape }}"
+                    title="{{ block.settings.collection.title | default: 'Category' | escape }}">
                     <div class="category-card__media-wrapper">
                       {%- liquid
                         assign img_obj = block.settings.image
@@ -187,9 +158,9 @@
                       {% endif %}
 
                       <div class="category-card__overlay-content">
-                        <span class="category-card__title-text">
+                        <h5 class="category-card__title-text" title="{{ block.settings.collection.title | default: 'Category' }}">
                           {{ block.settings.collection.title | default: 'Category' }}
-                        </span>
+                        </h5>
                         <div class="category-card__icon-new">
                           <svg
                             viewBox="0 0 25 25"
