@@ -211,7 +211,7 @@ section.shopify-section.section.banner-slideshow
 }
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
-  .slideshow__text-wrapper.banner__content h2 {
+  .slideshow__text-wrapper.banner__content h1 {
   font-family: "Black Mango";
   font-size: 80px;
   font-weight: 400;

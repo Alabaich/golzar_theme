@@ -61,7 +61,7 @@
 @media only screen and (max-width: 1199px) {
   section.shopify-section.section.banner-slideshow
     slideshow-component div.slideshow
-    .slideshow__text-wrapper.banner__content h2 {
+    .slideshow__text-wrapper.banner__content h1 {
     font-size: 55px;
   }
   .banner__buttons a.button.button--primary {
