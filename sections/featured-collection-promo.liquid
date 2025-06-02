@@ -35,46 +35,29 @@
     line-height: 1.6;
   }
 
-  .featured-collection-promo .promo-banner-button {
+  .featured-collection-promo a.promo-banner-button {
+    display: inline-block;
+    padding: 15px 30px;
     background-color: #ffffff;
-    color: {{ section.settings.promo_bg_color }};
-    padding: 12px 25px;
+    color: #002642;
     text-decoration: none;
+    border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid {{ section.settings.promo_bg_color }};
+    font-family: 'Arial'
+    , sans-serif;
+    font-size: 14px;
     cursor: pointer;
     line-height: normal;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease
+    , color 0.3s ease
+    , border-color 0.3s ease;
   }
 
-  .featured-collection-promo .promo-banner-button:hover,
-  .featured-collection-promo .promo-banner-button:focus {
-    background-color: {{ section.settings.promo_button_bg_color }};
-    color: {{ section.settings.promo_button_text_color }};
-    border-color: {{ section.settings.promo_button_bg_color }};
-    outline: none;
-  }
-
-  .featured-collection-promo .promo-banner-button__arrow-svg {
-    margin-left: 8px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .featured-collection-promo .promo-banner-button__arrow-svg path {
-    fill: {{ section.settings.promo_bg_color }};
-    transition: fill 0.3s ease;
-  }
-
-  .featured-collection-promo .promo-banner-button:hover .promo-banner-button__arrow-svg path,
-  .featured-collection-promo .promo-banner-button:focus .promo-banner-button__arrow-svg path {
-    fill: {{ section.settings.promo_button_text_color }};
+  .featured-collection-promo a.promo-banner-button:hover {
+    background-color: #002642;
+    color: #ffffff;
+    border-color: #ffffff;
   }
 
   .featured-collection-promo .promo-banner-image-wrapper {
@@ -89,7 +72,8 @@
   }
 
   .featured-collection-promo .section-header {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway'
+    , sans-serif;
     font-size: 36px;
     text-align: left;
     margin-bottom: 40px;
@@ -166,8 +150,12 @@
     font-size: 0.85em;
     margin-bottom: 5px;
   }
-  .featured-collection-promo .product-card__availability--in-stock { color: #28a745; }
-  .featured-collection-promo .product-card__availability--out-of-stock { color: #dc3545; }
+  .featured-collection-promo .product-card__availability--in-stock {
+    color: #28a745;
+  }
+  .featured-collection-promo .product-card__availability--out-of-stock {
+    color: #dc3545;
+  }
   .featured-collection-promo .product-card__title-link {
     text-decoration: none;
     color: inherit;
@@ -182,8 +170,18 @@
     margin-bottom: 1rem !important;
     font-size: 0.9em;
   }
-  .featured-collection-promo .product-card__price-wrapper .price--sale { color: #D9534F; font-weight: bold; }
-  .featured-collection-promo .product-card__price-wrapper .price--original { color: #777777; text-decoration: line-through; margin-left: 8px; font-size: 0.9em; }
+
+  .featured-collection-promo .product-card__price-wrapper .price--sale {
+    color: #D9534F;
+    font-weight: bold;
+  }
+
+  .featured-collection-promo .product-card__price-wrapper .price--original {
+    color: #777777;
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-size: 0.9em;
+  }
 
   .featured-collection-promo .product-card__form-container {
     display: flex;
@@ -191,64 +189,59 @@
     margin-top: auto;
     align-items: center;
   }
+
   .featured-collection-promo .product-card__form {
     flex-grow: 1;
-    display: flex;
   }
 
   .featured-collection-promo .product-card__add-to-cart-button {
-    background-color: {{ section.settings.product_button_bg_color }};
-    color: {{ section.settings.product_button_text_color }};
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid {{ section.settings.product_button_bg_color }};
-    cursor: pointer;
-    line-height: normal;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    gap: 8px;
     width: 100%;
-    text-transform: none;
+    padding: 12px 15px;
+    background-color: #002642;
+    color: #ffffff;
+    border: 2px solid #002642;
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
   }
 
-  .featured-collection-promo .product-card__add-to-cart-button:hover:not(:disabled),
-  .featured-collection-promo .product-card__add-to-cart-button:focus:not(:disabled) {
-    background-color: #ffffff;
-    color: {{ section.settings.product_button_bg_color }};
-    border-color: {{ section.settings.product_button_bg_color }};
-    outline: none;
-  }
-
-  .featured-collection-promo .product-card__button-arrow-svg {
-    margin-left: 8px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .featured-collection-promo .product-card__button-arrow-svg path {
-    fill: {{ section.settings.product_button_text_color }};
+  .featured-collection-promo .product-card__add-to-cart-button svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor;
     transition: fill 0.3s ease;
   }
 
-  .featured-collection-promo .product-card__add-to-cart-button:hover:not(:disabled) .product-card__button-arrow-svg path,
-  .featured-collection-promo .product-card__add-to-cart-button:focus:not(:disabled) .product-card__button-arrow-svg path {
-    fill: {{ section.settings.product_button_bg_color }};
+  .featured-collection-promo .product-card__add-to-cart-button:hover:not(:disabled) {
+    background-color: #ffffff;
+    color: #002642;
+    border-color: #002642;
   }
-
-  .featured-collection-promo .product-card__add-to-cart-button.button--disabled,
-  .featured-collection-promo .product-card__add-to-cart-button.button--disabled:hover {
+  
+  .featured-collection-promo .product-card__add-to-cart-button.button--disabled {
     background-color: #ebebeb;
     color: #555555;
     border: 2px solid #d0d0d0;
     cursor: not-allowed;
     opacity: 1;
   }
-   .featured-collection-promo .product-card__add-to-cart-button.button--disabled .product-card__button-arrow-svg path {
+  .featured-collection-promo .product-card__add-to-cart-button.button--disabled:hover {
+    background-color: #ebebeb;
+    color: #555555;
+    border-color: #d0d0d0;
+  }
+  .featured-collection-promo .product-card__add-to-cart-button.button--disabled svg {
+    fill: #555555;
+  }
+  .featured-collection-promo .product-card__add-to-cart-button.button--disabled:hover svg {
     fill: #555555;
   }
 
@@ -259,35 +252,47 @@
     padding: 10px;
     width: 40px;
     height: 40px;
-    background-color: #ffffff;
-    border: 1px solid {{ section.settings.product_button_bg_color }};
+    background-color: #ebebeb;
+    border: 2px solid #d0d0d0;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
+    transition: background-color 0.3s ease
+    , border-color 0.3s ease;
   }
+
   .featured-collection-promo .product-card__quick-cart-button svg {
     width: 20px;
     height: 20px;
-    fill: {{ section.settings.product_button_bg_color }};
+    fill: #002642;
     transition: fill 0.3s ease;
   }
+
   .featured-collection-promo .product-card__quick-cart-button:hover:not(:disabled) {
-    background-color: {{ section.settings.product_button_bg_color }};
-    border-color: {{ section.settings.product_button_bg_color }};
+    background-color: #002642;
+    border-color: #002642;
   }
   .featured-collection-promo .product-card__quick-cart-button:hover:not(:disabled) svg {
     fill: #ffffff;
   }
 
   .featured-collection-promo .product-card__quick-cart-button.button--disabled,
-  .featured-collection-promo .product-card__quick-cart-button.button--disabled:hover {
+  .featured-collection-promo .product-card__quick-cart-button:disabled {
     background-color: #ebebeb;
-    border: 1px solid #d0d0d0;
+    border: 2px solid #d0d0d0;
     cursor: not-allowed;
     opacity: 1;
   }
   .featured-collection-promo .product-card__quick-cart-button.button--disabled svg,
-  .featured-collection-promo .product-card__quick-cart-button.button--disabled:hover svg {
+  .featured-collection-promo .product-card__quick-cart-button:disabled svg {
+    fill: #777;
+  }
+  .featured-collection-promo .product-card__quick-cart-button.button--disabled:hover,
+  .featured-collection-promo .product-card__quick-cart-button:disabled:hover {
+    background-color: #ebebeb;
+    border-color: #d0d0d0;
+  }
+  .featured-collection-promo .product-card__quick-cart-button.button--disabled:hover svg,
+  .featured-collection-promo .product-card__quick-cart-button:disabled:hover svg {
     fill: #777;
   }
 
@@ -360,7 +365,7 @@
 
   <div class="custm-collection-discount-header">
     {% if section.settings.section_title != blank %}
-      <h3 title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
+      <h3 title="{{ section.settings.section_title | escape }}" title="{{ section.settings.section_title | escape }}">{{ section.settings.section_title | escape }}</h3>
     {% endif %}
   </div>
 
@@ -372,12 +377,14 @@
             <h2
               class="promo-banner-heading"
               style="color: {{ section.settings.promo_heading_color }};"
+              title="{{ section.settings.promo_heading | escape }}"
               title="{{ section.settings.promo_heading | escape }}">{{ section.settings.promo_heading | escape }}</h2>
           {% endif %}
           {% if section.settings.promo_subheading != blank %}
             <div
               class="promo-banner-subheading"
-              style="color: {{ section.settings.promo_subheading_color }};">
+              style="color: {{ section.settings.promo_subheading_color }};"
+              title="{{ section.settings.promo_subheading }}">
               {{ section.settings.promo_subheading }}
             </div>
           {% endif %}
@@ -387,23 +394,15 @@
               class="promo-banner-button"
               title="{{ section.settings.promo_button_text | escape }}">
               {{ section.settings.promo_button_text | escape }}
-              {%- if section.settings.promo_show_button_arrow -%}
-                <svg
-                  class="promo-banner-button__arrow-svg"
-                  aria-hidden="true" focusable="false" role="presentation"
-                  width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.744078 0.984312C1.06951 0.658875 1.59715 0.658875 1.92259 0.984312L6.08926 5.15098C6.41469 5.47642 6.41469 6.00405 6.08926 6.32949L1.92259 10.4962C1.59715 10.8216 1.06951 10.8216 0.744078 10.4962C0.418641 10.1707 0.418641 9.64308 0.744078 9.31765L4.32149 5.74023L0.744078 2.16282C0.418641 1.83739 0.418641 1.30975 0.744078 0.984312Z" />
-                </svg>
-              {%- endif -%}
             </a>
           {% endif %}
         </div>
         {% if section.settings.promo_image != blank %}
           <div class="promo-banner-image-wrapper">
             {{ section.settings.promo_image | image_url: width: 1000 | image_tag:
-              loading: 'lazy',
-              widths: '300, 400, 500, 600, 700, 800, 1000',
-              class: 'promo-banner-image'
+  loading: 'lazy',
+  widths: '300, 400, 500, 600, 700, 800, 1000',
+  class: 'promo-banner-image'
             }}
           </div>
         {% endif %}
@@ -430,9 +429,9 @@
             <div class="product-card__image-wrapper">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 500 | image_tag:
-                  loading: 'lazy',
-                  widths: '200, 300, 400, 500',
-                  class: 'product-card__image'
+  loading: 'lazy',
+  widths: '200, 300, 400, 500',
+  class: 'product-card__image'
                 }}
               {% else %}
                 {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
@@ -482,25 +481,30 @@
                   method="post"
                   enctype="multipart/form-data"
                   class="product-card__form">
-                  <input type="hidden" name="id" value="{{ current_variant.id }}">
-                  <input type="hidden" name="quantity" value="1" min="1">
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ current_variant.id }}">
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                    min="1">
                   <button
                     type="submit"
                     class="product-card__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
-                    {% unless current_variant.available %} disabled aria-disabled="true" {% endunless %}>
-                    {%- if current_variant.available -%}
-                        {{ section.settings.product_button_text | escape }}
-                    {%- else -%}
-                        Sold Out
-                    {%- endif -%}
-                    {%- if section.settings.product_button_show_arrow and current_variant.available -%}
-                      <svg
-                        class="product-card__button-arrow-svg"
-                        aria-hidden="true" focusable="false" role="presentation"
-                        width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.744078 0.984312C1.06951 0.658875 1.59715 0.658875 1.92259 0.984312L6.08926 5.15098C6.41469 5.47642 6.41469 6.00405 6.08926 6.32949L1.92259 10.4962C1.59715 10.8216 1.06951 10.8216 0.744078 10.4962C0.418641 10.1707 0.418641 9.64308 0.744078 9.31765L4.32149 5.74023L0.744078 2.16282C0.418641 1.83739 0.418641 1.30975 0.744078 0.984312Z" />
+                    {% unless current_variant.available %}
+                    disabled
+                    aria-disabled="true"
+                    {% endunless %}>
+                    {% if current_variant.available %}
+                      <span>{{ section.settings.product_button_text | escape }}</span>
+                      <svg viewBox="0 0 8 12" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                        <path d="M0.589844 10.59L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.59Z"/>
                       </svg>
-                    {%- endif -%}
+                    {% else %}
+                      <span>Sold Out</span>
+                    {% endif %}
                   </button>
                 </form>
                 <button
@@ -508,9 +512,20 @@
                   class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
                   aria-label="Add to cart"
                   data-variant-id="{{ current_variant.id }}"
-                  {% unless current_variant.available %} disabled aria-disabled="true" {% endunless %}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
+                  {% unless current_variant.available %}
+                  disabled
+                  aria-disabled="true"
+                  {% endunless %}>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
                     <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" />
                     <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" />
                   </svg>
@@ -572,31 +587,12 @@
         "type": "text",
         "id": "promo_button_text",
         "label": "Button text",
-        "default": "DISCOVER MORE"
+        "default": "DISCOVER MORE >"
       }, {
         "type": "url",
         "id": "promo_button_link",
         "label": "Button link"
-      },
-      {
-        "type": "color",
-        "id": "promo_button_bg_color",
-        "label": "Promo button background color (Hover)",
-        "default": "#003366"
-      },
-      {
-        "type": "color",
-        "id": "promo_button_text_color",
-        "label": "Promo button text color (Hover)",
-        "default": "#ffffff"
-      },
-      {
-        "type": "checkbox",
-        "id": "promo_show_button_arrow",
-        "label": "Show arrow on promo button",
-        "default": true
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "promo_image",
         "label": "Promo image"
@@ -669,24 +665,6 @@
         "id": "product_button_text",
         "label": "Product card button text",
         "default": "BUY NOW"
-      },
-      {
-        "type": "color",
-        "id": "product_button_bg_color",
-        "label": "Product button background color",
-        "default": "#003366"
-      },
-      {
-        "type": "color",
-        "id": "product_button_text_color",
-        "label": "Product button text color",
-        "default": "#ffffff"
-      },
-      {
-        "type": "checkbox",
-        "id": "product_button_show_arrow",
-        "label": "Show arrow on product button",
-        "default": true
       }
     ],
     "presets": [
