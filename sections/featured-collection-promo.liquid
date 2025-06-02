@@ -36,7 +36,10 @@
   }
 
   .featured-collection-promo a.promo-banner-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 15px 30px;
     background-color: #ffffff;
     color: #002642;
@@ -44,14 +47,18 @@
     border: 2px solid #002642;
     border-radius: 50px;
     font-weight: bold;
-    font-family: 'Arial'
-    , sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 14px;
     cursor: pointer;
     line-height: normal;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .featured-collection-promo a.promo-banner-button svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
   }
 
   .featured-collection-promo a.promo-banner-button:hover {
@@ -72,8 +79,7 @@
   }
 
   .featured-collection-promo .section-header {
-    font-family: 'Raleway'
-    , sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 36px;
     text-align: left;
     margin-bottom: 40px;
@@ -256,8 +262,7 @@
     border: 2px solid #d0d0d0;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .featured-collection-promo .product-card__quick-cart-button svg {
@@ -393,7 +398,10 @@
               href="{{ section.settings.promo_button_link }}"
               class="promo-banner-button"
               title="{{ section.settings.promo_button_text | escape }}">
-              {{ section.settings.promo_button_text | escape }}
+              <span>{{ section.settings.promo_button_text | escape }}</span>
+              <svg viewBox="0 0 8 12" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                <path d="M0.589844 10.59L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.59Z"/>
+              </svg>
             </a>
           {% endif %}
         </div>
@@ -587,7 +595,7 @@
         "type": "text",
         "id": "promo_button_text",
         "label": "Button text",
-        "default": "DISCOVER MORE >"
+        "default": "DISCOVER MORE"
       }, {
         "type": "url",
         "id": "promo_button_link",
