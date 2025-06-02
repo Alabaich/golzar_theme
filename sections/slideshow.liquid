@@ -41,7 +41,7 @@
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
-    bottom: 5%;
+    bottom: 7%;
     left: 3%;
     transform: none;
   }
@@ -219,7 +219,7 @@
                 {{ block.shopify_attributes }}
                 title="{{ block.settings.subheading }}"
               >
-                <p>{{ block.settings.subheading }}</p>
+                <p class="bodyText" title="{{ block.settings.subheading }}">{{ block.settings.subheading }}</p>
               </div>
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
