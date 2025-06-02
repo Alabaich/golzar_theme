@@ -1,0 +1,291 @@
+<style>
+  .feature-icons__section-title {
+    margin: 0;
+  }
+
+  .feature-icons__grid {
+    display: grid;
+    gap: var(--grid-gap, 32px);
+  }
+
+  .feature-icons--1-columns {
+    grid-template-columns: 1fr;
+  }
+  .feature-icons--2-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-icons--3-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feature-icons--4-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature-icons__item {
+    display: flex;
+    gap: 15px;
+  }
+
+  .feature-icons__item--align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .feature-icons__item--align-center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .feature-icons__item--align-center .feature-icons__icon-wrapper {
+    margin-bottom: 5px;
+  }
+
+  .feature-icons__icon-wrapper {
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  .feature-icons__icon-wrapper svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .feature-icons__icon-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .feature-icons__content {
+    flex-grow: 1;
+  }
+
+  .feature-icons__item-title {
+    margin-top: 0;
+    font-weight: 600;
+  }
+
+  .feature-icons__item-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .feature-icons__item-description p {
+    margin-bottom: 0;
+  }
+  .feature-icons__item-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .feature-icons--3-columns,
+    .feature-icons--4-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .feature-icons--2-columns,
+    .feature-icons--3-columns,
+    .feature-icons--4-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="page-width pageWidth feature-icons-section color-{{ section.settings.color_scheme }} gradient">
+  <div>
+    {%- if section.settings.title != blank -%}
+      <h2
+        class="feature-icons__section-title title {{ section.settings.heading_size }}"
+        style="text-align: {{ section.settings.heading_alignment }};"
+        title="{{ section.settings.title | escape }}">
+        {%- if section.settings.heading_alignment == 'left' -%}
+          <span class="visually-hidden" title="{{ section.settings.title | escape }}">{{ section.settings.title | escape }}</span>
+        {%- endif -%}
+        {{ section.settings.title | escape }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="feature-icons__grid feature-icons--{{ section.settings.columns_desktop }}-columns" style="--grid-gap: {{ section.settings.grid_gap }}px;">
+        {%- for block in section.blocks -%}
+          <div class="feature-icons__item feature-icons__item--align-{{ section.settings.content_alignment }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon_svg != blank -%}
+              <div class="feature-icons__icon-wrapper" style="width: {{ block.settings.icon_width }}px; height: {{ block.settings.icon_width }}px;">
+                {{ block.settings.icon_svg }}
+              </div>
+            {%- elsif block.settings.image != blank -%}
+              <div class="feature-icons__icon-wrapper" style="width: {{ block.settings.icon_width }}px; height: {{ block.settings.icon_width }}px;">
+                {{ block.settings.image | image_url: width: block.settings.icon_width | image_tag: widths: '40, 80, 120', sizes: '(max-width: 749px) 40px, 50px', class: 'feature-icons__icon-image' }}
+              </div>
+            {%- endif -%}
+            <div class="feature-icons__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="feature-icons__item-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="feature-icons__item-description rte">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Feature Icons",
+    "tag": "section",
+    "class": "shopify-section--feature-icons",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section title",
+        "default": "Our Features"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "label": "Section heading size",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          }, {
+            "value": "h2",
+            "label": "H2"
+          }, {
+            "value": "h3",
+            "label": "H3"
+          }
+        ],
+        "default": "h2"
+      },
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "Section heading alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "label": "Columns on desktop",
+        "default": 4
+      }, {
+        "type": "range",
+        "id": "grid_gap",
+        "min": 0,
+        "max": 60,
+        "step": 4,
+        "unit": "px",
+        "label": "Gap between items",
+        "default": 32
+      }, {
+        "type": "select",
+        "id": "content_alignment",
+        "label": "Content alignment in item",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left (icon on left)"
+          }, {
+            "value": "center",
+            "label": "Center (icon on top)"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature_item",
+        "name": "Feature item",
+        "limit": 8,
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "icon_svg",
+            "label": "SVG icon code",
+            "info": "Paste full SVG code. Ensure SVG has no fixed `fill` or `stroke` attributes if you want color to be inherited, or use `currentColor` for them."
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Or pick an icon image"
+          },
+          {
+            "type": "range",
+            "id": "icon_width",
+            "min": 20,
+            "max": 80,
+            "step": 4,
+            "unit": "px",
+            "label": "Icon size",
+            "default": 40
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Item title",
+            "default": "Feature Title"
+          }, {
+            "type": "richtext",
+            "id": "description",
+            "label": "Item description",
+            "default": "<p>Brief description of your benefit or feature.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Icons",
+        "blocks": [
+          {
+            "type": "feature_item"
+          }, {
+            "type": "feature_item"
+          }, {
+            "type": "feature_item"
+          }, {
+            "type": "feature_item"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
