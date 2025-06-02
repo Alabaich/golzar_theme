@@ -3617,10 +3617,18 @@ details-disclosure > details {
 
 /* Golzar Custom Styles Start */
 
+:root {
+  --darkBlue: #002642;
+}
+
 button.customButton, .customButton{
   border-radius: 30px;
   padding: 16px 24px;
 } 
+
+button.blueButton, .blueButton{
+  background-color: var(--darkBlue)
+}
 
 .pageWidth{
   padding-top: 25px;
