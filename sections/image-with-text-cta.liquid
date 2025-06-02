@@ -33,8 +33,7 @@
     border-radius: {{ section.settings.border_radius }}px;
   }
 
-  .consultation-banner-{{ section.id }}
-  .consultation-banner__content {
+  .consultation-banner-{{ section.id }} .consultation-banner__content {
     display: flex;
     align-items: stretch;
     {% if image_position_desktop == 'left' %}
@@ -44,9 +43,8 @@
     {% endif %}
   }
 
-  .consultation-banner-{{ section.id }}
-  .consultation-banner__text-column {
-    flex: 1 1{{ section.settings.text_column_width }}%;
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column {
+    flex: 1 1 {{ section.settings.text_column_width }}%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,181 +52,162 @@
     text-align: {{ section.settings.text_align_desktop }};
     padding-right: {% if image_position_desktop == 'left' %}0{% else %}25px{% endif %};
     padding-left: {% if image_position_desktop == 'left' %}25px{% else %}0{% endif %};
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__help-text {
-  font-size: 16px;
-  color: #555555;
-  margin: 0 0 10px;
-  font-family: 'Arial'
-  , sans-serif;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__title {
-  font-family: 'Raleway'
-  , sans-serif;
-  font-weight: 600;
-  font-size: {{ section.settings.title_size }}px;
-  line-height: 1.1;
-  letter-spacing: 0;
-  color: #000000;
-  margin-top: 0;
-  margin-bottom: 25px;
-  {% if image_position_desktop == 'left' %}
-    margin-left: 0;
-    margin-right: 0;
-  {% else %}
-    margin-right: 25px;
-    margin-left: 0;
-  {% endif %}
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__button {
-  background-color: {{ section.settings.button_bg_color }};
-  color: {{ section.settings.button_text_color }};
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  font-family: 'Arial'
-  , sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid{{ section.settings.button_bg_color }};
-  cursor: pointer;
-  line-height: normal;
-  transition: background-color 0.3s ease
-  , color 0.3s ease
-  , border-color 0.3s ease;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__text-column[style*="text-align: left"] .consultation-banner__button {
-  align-self: flex-start;
-}
-.consultation-banner-{{ section.id }}
-.consultation-banner__text-column[style*="text-align: center"] .consultation-banner__button {
-  align-self: center;
-}
-.consultation-banner-{{ section.id }}
-.consultation-banner__text-column[style*="text-align: right"] .consultation-banner__button {
-  align-self: flex-end;
-}
-
-.consultation-banner-{{ section.id }}.consultation-banner__button:hover,
-.consultation-banner-{{ section.id }}.consultation-banner__button:focus {
-  background-color: #ffffff;
-  color: {{ section.settings.button_bg_color }};
-  border-color: {{ section.settings.button_bg_color }};
-  outline: none;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__arrow-svg {
-  margin-left: 8px;
-  width: 20px;
-  height: 20px;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__arrow-svg path {
-  fill: {{ section.settings.button_text_color }};
-  transition: fill 0.3s ease;
-}
-
-.consultation-banner-{{ section.id }}.consultation-banner__button:hover .consultation-banner__arrow-svg path,
-.consultation-banner-{{ section.id }}.consultation-banner__button:focus .consultation-banner__arrow-svg path {
-  fill: {{ section.settings.button_bg_color }};
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__image-column {
-  flex: 1 1{{ 100 | minus: section.settings.text_column_width }}%;
-  background-color: {{ section.settings.image_bg_color }};
-  overflow: hidden;
-  position: relative;
-  min-height: 200px;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__image-column img {
-  width: 100%;
-  height: 100%;
-  object-fit: {{ section.settings.image_fit }};
-  display: block;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__placeholder-image svg {
-  width: 80%;
-  height: 80%;
-  max-width: 150px;
-  max-height: 150px;
-  display: block;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-@media screen and (min-width: 769px) {
-  .consultation-banner-{{ section.id }} {
-    padding: 100px 5rem;
   }
-  .consultation-banner-{{ section.id }}
-  .consultation-banner__text-column {
-    padding: 0;
+
+  .consultation-banner-{{ section.id }} .consultation-banner__help-text {
+    font-size: 16px;
+    color: #555555;
+    margin: 0 0 10px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 25px;
     {% if image_position_desktop == 'left' %}
-      padding-left: 25px;
+      margin-left: 0;
+      margin-right: 0;
     {% else %}
-      padding-right: 25px;
+      margin-right: 25px;
+      margin-left: 0;
     {% endif %}
   }
-}
 
-@media (max-width: 768px) {
-  .consultation-banner-{{ section.id }} .consultation-banner__content {
-    flex-direction: column;
+  .consultation-banner-{{ section.id }} .consultation-banner__button {
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid {{ section.settings.button_bg_color }};
+    cursor: pointer;
+    line-height: normal;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
-  .consultation-banner-{{ section.id }}
-  .consultation-banner__text-column {
-    flex-basis: auto;
-    padding: 30px;
-    text-align: {{ section.settings.text_align_mobile }};
-    order: {% if section.settings.image_position_mobile == 'top' %}2{% else %}1{% endif %};
-}
-.consultation-banner-{{ section.id }}
-.consultation-banner__title {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.consultation-banner-{{ section.id }}
-.consultation-banner__image-column {
-  flex-basis: auto;
-  min-height: {{ section.settings.image_min_height_mobile }}px;
-  order: {% if section.settings.image_position_mobile == 'top' %}1{% else %}2{% endif %};
-}
-}
-
-@media (max-width: 480px) {
-  .consultation-banner-{{ section.id }} .consultation-banner__title {
-    font-size: {{ section.settings.title_size | times: 0.8 | round }}px;
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: left"] .consultation-banner__button {
+    align-self: flex-start;
   }
-  .consultation-banner-{{ section.id }}
-  .consultation-banner__text-column {
-    padding: 20px;
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: center"] .consultation-banner__button {
+    align-self: center;
   }
-}
+  .consultation-banner-{{ section.id }} .consultation-banner__text-column[style*="text-align: right"] .consultation-banner__button {
+    align-self: flex-end;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__button:hover,
+  .consultation-banner-{{ section.id }} .consultation-banner__button:focus {
+    background-color: #ffffff;
+    color: {{ section.settings.button_bg_color }};
+    border-color: {{ section.settings.button_bg_color }};
+    outline: none;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__arrow-svg {
+    margin-left: 8px;
+    width: 20px;
+    height: 17px;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__arrow-svg path {
+    fill: {{ section.settings.button_text_color }};
+    transition: fill 0.3s ease;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__button:hover .consultation-banner__arrow-svg path,
+  .consultation-banner-{{ section.id }} .consultation-banner__button:focus .consultation-banner__arrow-svg path {
+    fill: {{ section.settings.button_bg_color }};
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__image-column {
+    flex: 1 1 {{ 100 | minus: section.settings.text_column_width }}%;
+    background-color: {{ section.settings.image_bg_color }};
+    overflow: hidden;
+    position: relative;
+    min-height: 200px;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__image-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: {{ section.settings.image_fit }};
+    display: block;
+  }
+
+  .consultation-banner-{{ section.id }} .consultation-banner__placeholder-image svg {
+    width: 80%;
+    height: 80%;
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: 769px) {
+    .consultation-banner-{{ section.id }} {
+      padding: 100px 5rem;
+    }
+    .consultation-banner-{{ section.id }} .consultation-banner__text-column {
+      padding: 0;
+      {% if image_position_desktop == 'left' %}
+        padding-left: 25px;
+      {% else %}
+        padding-right: 25px;
+      {% endif %}
+    }
+  }
+
+  @media (max-width: 768px) {
+    .consultation-banner-{{ section.id }} .consultation-banner__content {
+      flex-direction: column;
+    }
+
+    .consultation-banner-{{ section.id }} .consultation-banner__text-column {
+      flex-basis: auto;
+      padding: 30px;
+      text-align: {{ section.settings.text_align_mobile }};
+      order: {% if section.settings.image_position_mobile == 'top' %}2{% else %}1{% endif %};
+      padding-left: 30px; 
+      padding-right: 30px;
+    }
+    .consultation-banner-{{ section.id }} .consultation-banner__title {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .consultation-banner-{{ section.id }} .consultation-banner__image-column {
+      flex-basis: auto;
+      min-height: {{ section.settings.image_min_height_mobile }}px;
+      order: {% if section.settings.image_position_mobile == 'top' %}1{% else %}2{% endif %};
+    }
+  }
+
+  @media (max-width: 480px) {
+    .consultation-banner-{{ section.id }} .consultation-banner__title {
+      font-size: {{ section.settings.title_size | times: 0.8 | round }}px;
+    }
+    .consultation-banner-{{ section.id }} .consultation-banner__text-column {
+      padding: 20px;
+    }
+  }
 </style>
 
 <section class="consultation-banner consultation-banner-{{ section.id }}" aria-label="{{ banner_title_content | escape }}">
@@ -382,13 +361,8 @@
         "id": "image_position_desktop",
         "label": "Image position (Desktop)",
         "options": [
-          {
-            "value": "right",
-            "label": "Image on Right, Text on Left"
-          }, {
-            "value": "left",
-            "label": "Image on Left, Text on Right"
-          }
+          { "value": "right", "label": "Image on Right, Text on Left" },
+          { "value": "left", "label": "Image on Left, Text on Right" }
         ],
         "default": "right",
         "info": "Determines if the image is to the left or right of the text on desktop."
@@ -397,16 +371,9 @@
         "id": "text_align_desktop",
         "label": "Text alignment (Desktop)",
         "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "center",
-            "label": "Center"
-          }, {
-            "value": "right",
-            "label": "Right"
-          }
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" },
+          { "value": "right", "label": "Right" }
         ],
         "default": "left"
       }, {
@@ -414,16 +381,9 @@
         "id": "text_align_mobile",
         "label": "Text alignment (Mobile)",
         "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "center",
-            "label": "Center"
-          }, {
-            "value": "right",
-            "label": "Right"
-          }
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" },
+          { "value": "right", "label": "Right" }
         ],
         "default": "center"
       }, {
@@ -439,13 +399,8 @@
         "id": "image_fit",
         "label": "Image fit",
         "options": [
-          {
-            "value": "cover",
-            "label": "Cover (fill & crop)"
-          }, {
-            "value": "contain",
-            "label": "Contain (fit without crop)"
-          }
+          { "value": "cover", "label": "Cover (fill & crop)" },
+          { "value": "contain", "label": "Contain (fit without crop)" }
         ],
         "default": "cover"
       }, {
@@ -456,13 +411,8 @@
         "id": "image_position_mobile",
         "label": "Image position on mobile",
         "options": [
-          {
-            "value": "top",
-            "label": "Image on Top"
-          }, {
-            "value": "bottom",
-            "label": "Image on Bottom (Text on Top)"
-          }
+          { "value": "top", "label": "Image on Top" },
+          { "value": "bottom", "label": "Image on Bottom (Text on Top)" }
         ],
         "default": "top"
       }, {
