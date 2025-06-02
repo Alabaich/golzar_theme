@@ -3618,5 +3618,6 @@ details-disclosure > details {
 /* Golzar Custom Styles Start */
 
 button.customButton, .customButton{
-  border-radius: 50%;
+  border-radius: 30px;
+  padding: 16px 24px;
 } 
