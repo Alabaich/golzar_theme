@@ -3662,6 +3662,19 @@ h5, .h5{
   font-weight: 400;
 }
 
+h6, .h6{
+  font-family: Raleway, sans serif;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+
+h7, .h7{
+  font-family: Raleway, sans serif;
+  font-size: 1.125em;
+  font-weight: 300;
+}
+
 p.bodyText{
     font-size: 1em;
   font-weight: 300;
