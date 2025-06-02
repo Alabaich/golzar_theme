@@ -146,7 +146,7 @@
             "icon_preset": "support",
             "icon_width": 40,
             "title": "Acknowledged customer support",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>"
+            "description": "<p>Brief description of your benefit or feature.</p>"
           }
         },
         "feature_item_BVrRFY": {
@@ -154,7 +154,7 @@
           "settings": {
             "icon_preset": "price_match",
             "icon_width": 40,
-            "title": "Feature Title",
+            "title": "Price match",
             "description": "<p>Brief description of your benefit or feature.</p>"
           }
         },
@@ -163,7 +163,7 @@
           "settings": {
             "icon_preset": "delivery",
             "icon_width": 40,
-            "title": "Feature Title",
+            "title": "Free delivery",
             "description": "<p>Brief description of your benefit or feature.</p>"
           }
         },
@@ -172,7 +172,7 @@
           "settings": {
             "icon_preset": "pickup",
             "icon_width": 40,
-            "title": "Feature Title",
+            "title": "Same day pick up",
             "description": "<p>Brief description of your benefit or feature.</p>"
           }
         }
