@@ -227,7 +227,7 @@ section.shopify-section.section.banner-slideshow
 section.shopify-section.section.banner-slideshow
   slideshow-component div.slideshow
   .slideshow__text-wrapper.banner__content
-  .banner__text p {
+  .oldP {
   font-size: 17px;
   line-height: 1.4;
   margin-bottom: 30px;
@@ -2724,7 +2724,7 @@ div#FacetsWrapperDesktop .facets-vertical .active-facets__button {
   font-size: 35px;
   margin: 0 0 30px;
 }
-.collectin_slideshow .slideshow__text .banner__text p {
+.collectin_slideshow .slideshow__text .banner__text p.oldP {
   margin: 0 0 30px;
   font-size: 17px;
   line-height: 1.4;

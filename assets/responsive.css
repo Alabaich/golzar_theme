@@ -312,7 +312,7 @@
   section.shopify-section.section.banner-slideshow
     slideshow-component div.slideshow
     div.slideshow__slide .banner__content
-    .banner__text p {
+    .banner__text p.oldP {
     font-size: 13px;
   }
   section.shopify-section.section.our-categorys-sec {
