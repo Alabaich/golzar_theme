@@ -3656,6 +3656,11 @@ h4, .h4{
   font-size: 1.5em;
 }
 
+h5, .h5{
+  font-family: Raleway, sans serif;
+  font-size: 1.125em;
+}
+
 p.bodyText{
     font-size: 1em;
   font-weight: 300;
