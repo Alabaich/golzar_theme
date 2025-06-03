@@ -1136,7 +1136,8 @@ section.shopify-section.section.wall-mount div.banner .banner__content::after {
   nav.header__inline-menu
   ul.header__submenu.list-menu
   li .list-menu__item--active {
-  color: #d3b574;
+  /* color: #d3b574; */
+  font-weight: 500;
 }
 .slider_actions .slide_a_num p::first-letter {
   font-size: 55px;
