@@ -27,7 +27,7 @@
 
 <style>
   .section.shopify-section.section.banner-slideshow slideshow-component {
-    padding: 0;
+    padding: 0 5rem;
   }
   slideshow-component {
     position: relative;
@@ -41,9 +41,14 @@
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
-    bottom: 7.5rem;
-    left: 9.5rem;
+    bottom: 5%;
+    left: 7%;
     transform: none;
+  }
+
+    .slideshow__slide {
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   .slideshow-navigation-wrapper .slider-button {
@@ -58,6 +63,17 @@
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
     border-radius: 50%;
+  }
+
+  section.shopify-section.section.banner-slideshow slideshow-component div.slideshow .slideshow__text-wrapper {
+      min-height: 600px !important;
+  }
+
+  .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box .transparentButton{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0;
   }
 
   .slideshow-navigation-wrapper .slider-button:hover {
@@ -121,6 +137,15 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
+    .section.shopify-section.section.banner-slideshow slideshow-component {
+      padding: 0;
+    }
+
+    .section.banner-slideshow slideshow-component .slideshow {
+      display: flex;
+      gap: 25px;
+    }
   }
 </style>
 
@@ -131,7 +156,7 @@
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
   <div
-    class="pageWidth slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    class="pageWidth page-width slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     id="Slider-{{ section.id }}"
     aria-live="polite"
     aria-atomic="true"
@@ -208,7 +233,7 @@
                 {{ block.shopify_attributes }}
                 title="{{ block.settings.subheading }}"
               >
-                <p>{{ block.settings.subheading }}</p>
+                <p class="bodyText" title="{{ block.settings.subheading }}">{{ block.settings.subheading }}</p>
               </div>
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
@@ -218,7 +243,7 @@
                   {% else %}
                     role="link" aria-disabled="true"
                   {% endif %}
-                  class="transparentButton"
+                  class="transparentButton customButton"
                   title="{{- block.settings.button_label | escape -}}"
                 >
                   <span>{{- block.settings.button_label | escape -}}</span>

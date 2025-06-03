@@ -158,49 +158,49 @@
         "feature_item_FKmV4K": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Sanitary Ware",
-            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>",
-            "item_link": ""
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>"
           }
         },
         "feature_item_G6nyAN": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Faucets",
-            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
-            "item_link": ""
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>"
           }
         },
         "feature_item_bqE6Ue": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Bathroom Sinks",
-            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>",
-            "item_link": ""
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: Duravit, TOTO, Grohe, Kohler</p>"
           }
         },
         "feature_item_cYhQ6x": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Steam Showers",
-            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
-            "item_link": ""
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>"
           }
         },
         "feature_item_hUphjt": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Kitchen Sinks",
-            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: <strong>Duravit, TOTO, Grohe, Kohler</strong></p>",
-            "item_link": ""
+            "item_description": "<p>At Golzar Home, we’re proud to be an authorized dealer of leading bathroom and kitchen brands across Canada. Brands: <strong>Duravit, TOTO, Grohe, Kohler</strong></p>"
           }
         },
         "feature_item_Hicenn": {
           "type": "feature_item",
           "settings": {
+            "item_link": "",
             "item_title": "Bathtubs",
-            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>",
-            "item_link": ""
+            "item_description": "<p>Stylish and reliable faucet solutions for every design preference.  Brands: <strong>Vogt, Riobel, Delta, Grohe, Aquabrass, Rubinet, Graff, AquaDesign</strong></p>"
           }
         }
       },
@@ -216,17 +216,54 @@
       "settings": {
         "main_heading": "We bring better home to everyone",
         "main_subtitle": "<p>At Golzar Home, we're proud to be an authorized dealer of leading bathroom and kitchen brands across Canada.</p>",
-        "section_bg_color": "#FFFFFF",
-        "card_bg_color": "#F8F9FA",
-        "card_border_color": "#E9ECEF",
+        "show_block_numbering": false,
+        "block_number_color": "#6b7280",
+        "show_arrow_and_link": true,
+        "section_bg_color": "#ffffff",
+        "card_bg_color": "#f8f9fa",
+        "card_border_color": "#e9ecef",
         "card_border_radius": 12,
         "item_title_size": 20,
         "item_title_color": "#212529",
         "item_description_color": "#495057",
-        "icon_circle_bg_color": "#E9ECEF",
+        "icon_circle_bg_color": "#e9ecef",
         "icon_arrow_color": "#495057",
-        "icon_circle_bg_hover_color": "#DEE2E6",
+        "icon_circle_bg_hover_color": "#dee2e6",
         "icon_arrow_hover_color": "#212529"
+      }
+    },
+    "switch_side_image_zVzFg4": {
+      "type": "switch-side-image",
+      "name": "Switch Side Image",
+      "settings": {
+        "heading": "Request a free consultation  \nand price estimate!",
+        "subheading": "",
+        "button_text": "Contact us",
+        "button_link": "shopify://collections/bathtubs",
+        "show_button_arrow": true,
+        "image": "shopify://shop_images/bathroom-interior-with-minimalistic-shower-lighting.png",
+        "show_onboarding_image": true,
+        "image_position": "right",
+        "desktop_image_width": 45,
+        "vertical_align": "center",
+        "content_gap": 30,
+        "text_elements_gap": 20,
+        "image_border_radius": 12,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_color": "#FFFFFF",
+        "title_color": "#101828",
+        "title_font_size_desktop": 42,
+        "subheading_color": "#475467",
+        "subheading_font_size_desktop": 16,
+        "button_bg_color": "#072A4A",
+        "button_text_color": "#FFFFFF",
+        "button_font_size_desktop": 14,
+        "mobile_stack_order": "text_first",
+        "mobile_text_align": "left",
+        "title_font_size_mobile": 32,
+        "subheading_font_size_mobile": 15,
+        "button_font_size_mobile": 14
       }
     }
   },
@@ -234,6 +271,7 @@
     "main",
     "image-banner-brands",
     "our-brands",
-    "feature_grid_with_text_Ye3pQT"
+    "feature_grid_with_text_Ye3pQT",
+    "switch_side_image_zVzFg4"
   ]
 }
