@@ -140,7 +140,7 @@
   <div class="page-width pageWidth">
     <div class="section-header">
       {%- if settings.title != blank -%}
-        <h5 class="section-header__title">{{ settings.title | escape }}</h5>
+        <h2 class="section-header__title">{{ settings.title | escape }}</h2>
       {%- endif -%}
       {%- if settings.subtitle != blank -%}
         <div class="section-header__subtitle">{{ settings.subtitle }}</div>
@@ -166,7 +166,7 @@
 
             <div class="team-member__text-content">
               {%- if block.settings.name != blank -%}
-                <h2 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h2>
+                <h5 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h5>
               {%- endif -%}
               {%- if block.settings.role != blank -%}
                 <p class="team-member__role" title="{{ block.settings.role | escape }}">{{ block.settings.role | escape }}</p>
