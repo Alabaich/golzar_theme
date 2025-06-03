@@ -1,1 +1,70 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"custom-announce-bar","blocks":{"announce_JJjKfF":{"type":"announce","settings":{"announcement":"Open 7 days\/week.","announcement_color":"#ffffff","announcement_link":""}},"announce_gMGytj":{"type":"announce","settings":{"announcement":"Free shipping on orders over CAD $5,000!","announcement_color":"#ffffff","announcement_link":"shopify:\/\/policies\/shipping-policy"}}},"block_order":["announce_JJjKfF","announce_gMGytj"],"settings":{"color_background":"#002642"}},"header":{"type":"header","settings":{"logo_position":"top-center","menu_area_bgcolor":"#eff4f8","menu":"main-menu","menu_type_desktop":"mega","head_btn":"Contact Us","head_btn_link":"shopify:\/\/pages\/contact","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"scheme-1","menu_color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"enable_customer_avatar":true,"mobile_logo_position":"center","margin_bottom":0,"padding_top":12,"padding_bottom":12}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "custom-announce-bar",
+      "blocks": {
+        "announce_JJjKfF": {
+          "type": "announce",
+          "settings": {
+            "announcement": "Open 7 days/week.",
+            "announcement_color": "#ffffff",
+            "announcement_link": ""
+          }
+        },
+        "announce_gMGytj": {
+          "type": "announce",
+          "settings": {
+            "announcement": "Free shipping on orders over CAD $5,000!",
+            "announcement_color": "#ffffff",
+            "announcement_link": "shopify://policies/shipping-policy"
+          }
+        }
+      },
+      "block_order": [
+        "announce_JJjKfF",
+        "announce_gMGytj"
+      ],
+      "settings": {
+        "color_background": "#366a91",
+        "scroll_duration": 20
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "top-center",
+        "menu_area_bgcolor": "#eff4f8",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "head_btn": "Contact Us",
+        "head_btn_link": "shopify://pages/contact",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
