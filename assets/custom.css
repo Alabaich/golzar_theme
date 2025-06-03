@@ -131,6 +131,7 @@ a.btn.btn-primary:hover,
   text-underline-offset: initial;
   text-decoration: none;
   transition: all ease 0.5s;
+  transition: font-weight 0.3s ease, color 0.3s ease;
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li a:hover,
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li a span:hover,
