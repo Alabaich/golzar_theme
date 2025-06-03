@@ -116,6 +116,18 @@
       "settings": {
         "title": "Browse by product type"
       }
+    },
+    "popular_products_BRUd9n": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular products of Kohler",
+        "featured_collection": "sink",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/sink",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Add to Cart"
+      }
     }
   },
   "order": [
@@ -123,6 +135,7 @@
     "browse_by_options",
     "main",
     "brand_section_qeMegz",
-    "featured_product_groups_zjRqfN"
+    "featured_product_groups_zjRqfN",
+    "popular_products_BRUd9n"
   ]
 }
