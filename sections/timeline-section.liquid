@@ -24,22 +24,18 @@
     --dot-to-card-margin: 15px;
 
     background-color: var(--section-bg);
-    padding-top: {{ settings.padding_top }}px;
-    padding-bottom: {{ settings.padding_bottom }}px;
-    font-family: 'Raleway'
-    , sans-serif;
-  }
-
-  .timeline-section-{{ section.id }}
-  .page-width {
-    margin: 0 auto;
-    padding: 0 20px;
   }
 
   .timeline-section-{{ section.id }}
   .timeline-header {
     text-align: {{ settings.header_align | default: 'left' }};
-    margin-bottom: 50px;
+  }
+
+  .timeline-section-{{ section.id }} 
+  .pageWidth {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .timeline-section-{{ section.id }}
@@ -49,14 +45,12 @@
     font-weight: {{ settings.supertitle_font_weight }};
     line-height: 1.4;
     color: var(--heading-supertitle-color);
-    margin-bottom: 8px;
   }
 
   .timeline-section-{{ section.id }}
   .timeline-header__title {
     display: block;
     font-weight: 600;
-    font-size: 50px;
     line-height: 1.1;
     color: var(--heading-title-color);
     margin: 0;
@@ -96,7 +90,6 @@
     align-items: center;
     flex: 1;
     position: relative;
-    padding: 0 15px;
   }
 
   .timeline-section-{{ section.id }}
