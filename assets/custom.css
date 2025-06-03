@@ -140,13 +140,13 @@ a.btn.btn-primary:hover,
   ul.list-menu li
   summary.header__menu-item
   .header__active-menu-item {
-  color: #d3b574;
+  /* color: #d3b574; */
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li * {
   color: #002642;
   fill: #002642;
   letter-spacing: 0px;
-  font-size: 16px;
+  font-size: 1em;
   text-decoration: none;
 }
 .header-menu-area-inn nav.header__inline-menu
