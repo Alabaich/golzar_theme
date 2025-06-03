@@ -246,10 +246,6 @@
         "show_button_arrow": true,
         "hero_image": "shopify://shop_images/43212344132.webp",
         "show_onboarding_image": true,
-        "content_gap": 30,
-        "header_bottom_margin": 40,
-        "padding_top": 60,
-        "padding_bottom": 60,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
@@ -398,8 +394,8 @@
       ],
       "name": "Timeline Section",
       "settings": {
-        "supertitle": "Built on Experience:",
-        "title": "The Evolution of Golzar Home",
+        "supertitle": "",
+        "title": "Built on Experience: The Evolution of Golzar Home",
         "supertitle_font_size": 18,
         "line_thickness": 2,
         "supertitle_font_weight": "600",
