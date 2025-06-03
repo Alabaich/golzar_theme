@@ -35,7 +35,12 @@
 
   .marquee-item p {
     margin: 0;
-    line-height: 1.5;
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: 0;
   }
 
   .marquee-item a,
@@ -55,7 +60,6 @@
       transform: translateX(-50%);
     }
   }
-
 {% endstyle %}
 
 <div class="page-width">
@@ -69,7 +73,10 @@
                 <p class="bodyText" title="{{ block.settings.announcement }}">{{ block.settings.announcement }}</p>
               </a>
             {% else %}
-              <p class="bodyText" style="color: {{ block.settings.announcement_color }};" title="{{ block.settings.announcement }}">{{ block.settings.announcement }}</p>
+              <p
+                class="bodyText"
+                style="color: {{ block.settings.announcement_color }};"
+                title="{{ block.settings.announcement }}">{{ block.settings.announcement }}</p>
             {% endif %}
           </div>
         {% endfor %}
