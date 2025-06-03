@@ -19,6 +19,7 @@
     },
     "image-banner-brands": {
       "type": "image-banner-brands",
+      "disabled": true,
       "settings": {
         "additional_class": "",
         "image_2": "shopify://shop_images/sewa_classic_01-1536x864.webp",
@@ -145,6 +146,7 @@
         "logo_image_gULRRf",
         "logo_image_npRJVR"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Our Brands",
         "heading_color": "#575757",
@@ -251,13 +253,13 @@
         "image_border_radius": 12,
         "padding_top": 60,
         "padding_bottom": 60,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "title_color": "#101828",
         "title_font_size_desktop": 42,
         "subheading_color": "#475467",
         "subheading_font_size_desktop": 16,
-        "button_bg_color": "#072A4A",
-        "button_text_color": "#FFFFFF",
+        "button_bg_color": "#072a4a",
+        "button_text_color": "#ffffff",
         "button_font_size_desktop": 14,
         "mobile_stack_order": "text_first",
         "mobile_text_align": "left",
