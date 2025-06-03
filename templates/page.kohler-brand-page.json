@@ -58,7 +58,7 @@
         "button_text": "Discover brand",
         "brand_link": "shopify://collections/rough-in-valves",
         "show_button_arrow": true,
-        "hero_image": "shopify://shop_images/image_62f44395-729d-4b84-9779-803feac62755.png",
+        "hero_image": "shopify://shop_images/Inspired-Banner-with-Image-versi.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
@@ -148,7 +148,7 @@
         "show_excerpt": true,
         "excerpt_length": 12,
         "read_more_text": "READ NOW",
-        "card_bg_color": "#FFFFFF",
+        "card_bg_color": "#ffffff",
         "card_border_radius": 6,
         "date_color": "#777777",
         "article_title_color": "#222222",
