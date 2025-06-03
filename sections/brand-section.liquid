@@ -141,7 +141,7 @@
       </div>
       <div class="brand-hero__cta-wrapper">
         {%- if brand_subtitle != blank -%}
-          <p class="brand-hero__subtitle bodyText" title="{{ brand_subtitle | escape }}">{{ brand_subtitle }}</p>
+          <div class="brand-hero__subtitle bodyText" title="{{ brand_subtitle | strip_html | escape }}">{{ brand_subtitle }}</div>
         {%- endif -%}
         {%- if button_text != blank and brand_link != blank -%}
           <a
