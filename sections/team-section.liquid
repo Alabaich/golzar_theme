@@ -5,8 +5,6 @@
 
 {%- style -%}
   .team-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top }}px;
-    --section-padding-bottom: {{ settings.padding_bottom }}px;
     --section-background-color: {{ settings.section_bg_color }};
     --heading-color: {{ settings.text_color_heading }};
     --name-color: {{ settings.text_color_name }};
@@ -16,23 +14,6 @@
     --grid-gap: 30px;
 
     background-color: var(--section-background-color);
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway', sans-serif;
-  }
-
-  .team-section-{{ section.id }} .page-width {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  @media (min-width: 750px) {
-    .team-section-{{ section.id }} .page-width {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
   }
 
   .team-section-{{ section.id }} .section-header {
@@ -42,36 +23,24 @@
 
   .team-section-{{ section.id }} .section-header__title {
     font-weight: 600;
-    font-size: 50px;
     line-height: 1.2;
     color: #151515;
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
   }
 
   .team-section-{{ section.id }} .section-header__subtitle {
     font-weight: 400;
-    font-size: 16px;
     line-height: 1.6;
     letter-spacing: -0.01em;
     color: #151515;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
     max-width: 600px;
     {% if settings.header_align == 'center' %}
       margin-left: auto;
       margin-right: auto;
     {% endif %}
   }
-  
-  @media screen and (max-width: 749px) {
-    .team-section-{{ section.id }} .section-header__title {
-      font-size: 32px;
-    }
-    .team-section-{{ section.id }} .section-header__subtitle {
-      font-size: 15px;
-    }
-  }
+
 
   .team-section-{{ section.id }} .team-members-grid {
     display: grid;
@@ -145,7 +114,7 @@
 {%- endstyle -%}
 
 <div class="team-section-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="section-header">
       {%- if settings.title != blank -%}
         <h2 class="section-header__title">{{ settings.title | escape }}</h2>
