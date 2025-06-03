@@ -142,7 +142,6 @@ a.btn.btn-primary:hover,
   summary.header__menu-item
   .header__active-menu-item {
   /* color: #d3b574; */
-  font-weight: 500;
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li * {
   color: #002642;
@@ -1137,7 +1136,6 @@ section.shopify-section.section.wall-mount div.banner .banner__content::after {
   ul.header__submenu.list-menu
   li .list-menu__item--active {
   /* color: #d3b574; */
-  font-weight: 500;
 }
 .slider_actions .slide_a_num p::first-letter {
   font-size: 55px;
