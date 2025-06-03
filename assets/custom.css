@@ -2303,7 +2303,7 @@ section.shopify-section.section.you_may_like
 .product .product-form__buttons button.product-form__submit::after {
   display: none;
 }
-.header-menu-area-inn
+/* .header-menu-area-inn
   nav.header__inline-menu
   ul.list-menu li
   summary.header__menu-item:hover
@@ -2315,7 +2315,7 @@ section.shopify-section.section.you_may_like
   svg path {
   color: #d3b574;
   fill: #d3b574;
-}
+} */
 .yrm-btn-wrapper span.yrm-toggle-expand {
   width: 100px;
   height: 32px;
