@@ -7,7 +7,6 @@
 {%- style -%}
   .timeline-section-{{ section.id }} {
     --section-bg: {{ settings.section_bg_color | default: '#FFFFFF' }};
-    --heading-supertitle-color: {{ settings.heading_supertitle_color | default: '#111827' }};
     --heading-title-color: {{ settings.heading_title_color | default: '#111827' }};
     --accent-color: {{ settings.accent_color | default: '#3B5F82' }};
     --year-text-color: {{ settings.year_text_color | default: '#FFFFFF' }};
@@ -36,15 +35,6 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-  }
-
-  .timeline-section-{{ section.id }}
-  .timeline-header__supertitle {
-    display: block;
-    font-size: {{ settings.supertitle_font_size }}px;
-    font-weight: {{ settings.supertitle_font_weight }};
-    line-height: 1.4;
-    color: var(--heading-supertitle-color);
   }
 
   .timeline-section-{{ section.id }}
@@ -198,14 +188,6 @@
   }
 
   @media (max-width: 749px) {
-    .timeline-section-{{ section.id }} .timeline-header__title {
-      font-size: 36px;
-    }
-
-    .timeline-section-{{ section.id }}
-    .timeline-header__supertitle {
-      font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px;
-    }
 
     {% if num_blocks > 2 %}
       .timeline-section-{{ section.id }}
@@ -244,14 +226,9 @@
 
 <div class="timeline-section-{{ section.id }}">
   <div class="page-width pageWidth">
-    {%- if settings.supertitle != blank or settings.title != blank -%}
+    {%- if settings.title != blank -%}
       <div class="timeline-header">
-        {%- if settings.supertitle != blank -%}
-          <span class="timeline-header__supertitle">{{ settings.supertitle }}</span>
-        {%- endif -%}
-        {%- if settings.title != blank -%}
-          <h2 class="timeline-header__title">{{ settings.title }}</h2>
-        {%- endif -%}
+        <h2 class="timeline-header__title" title="{{ settings.title }}">{{ settings.title }}</h2>
       </div>
     {%- endif -%}
 
@@ -261,13 +238,13 @@
           {%- for block in blocks -%}
             <div class="timeline__event-item">
               {%- if block.settings.year != blank -%}
-                <div class="timeline__year-display">
+                <div class="timeline__year-display" title="{{ block.settings.year }}" style="width: var(--year-display-size); height: var(--year-display-size); font-size: var(--year-display-font-size);">
                   {{ block.settings.year }}
                 </div>
               {%- endif -%}
               <div class="timeline__dot"></div>
               {%- if block.settings.description != blank -%}
-                <div class="timeline__description-card">
+                <div class="timeline__description-card" title="{{ block.settings.description }}">
                   {{ block.settings.description }}
                 </div>
               {%- endif -%}
@@ -287,25 +264,9 @@
     "settings": [
       {
         "type": "text",
-        "id": "supertitle",
-        "label": "Superheading",
-        "default": "Built on Experience:"
-      },
-      {
-        "type": "text",
         "id": "title",
-        "label": "Main Heading",
+        "label": "Heading",
         "default": "The Evolution of Golzar Home"
-      },
-      {
-        "type": "range",
-        "id": "supertitle_font_size",
-        "min": 12,
-        "max": 30,
-        "step": 1,
-        "unit": "px",
-        "label": "Superheading Font Size",
-        "default": 18
       },
       {
         "type": "range",
@@ -316,27 +277,8 @@
         "unit": "px",
         "label": "Timeline Line Thickness",
         "default": 2
-      }, {
-        "type": "select",
-        "id": "supertitle_font_weight",
-        "label": "Superheading Font Weight",
-        "options": [
-          {
-            "value": "400",
-            "label": "Regular"
-          }, {
-            "value": "500",
-            "label": "Medium"
-          }, {
-            "value": "600",
-            "label": "Semi-Bold"
-          }, {
-            "value": "700",
-            "label": "Bold"
-          }
-        ],
-        "default": "600"
-      }, {
+      },
+      {
         "type": "select",
         "id": "header_align",
         "label": "Header Alignment",
@@ -344,16 +286,19 @@
           {
             "value": "left",
             "label": "Left"
-          }, {
+          },
+          {
             "value": "center",
             "label": "Center"
           }
         ],
         "default": "left"
-      }, {
+      },
+      {
         "type": "header",
         "content": "Timeline Element Sizes"
-      }, {
+      },
+      {
         "type": "range",
         "id": "year_bubble_size",
         "min": 60,
@@ -362,7 +307,8 @@
         "unit": "px",
         "label": "Year Bubble Size",
         "default": 90
-      }, {
+      },
+      {
         "type": "range",
         "id": "year_font_size",
         "min": 12,
@@ -371,7 +317,8 @@
         "unit": "px",
         "label": "Year Font Size (in Bubble)",
         "default": 16
-      }, {
+      },
+      {
         "type": "range",
         "id": "dot_size",
         "min": 8,
@@ -380,53 +327,58 @@
         "unit": "px",
         "label": "Dot Size (on line)",
         "default": 12
-      }, {
+      },
+      {
         "type": "header",
         "content": "Colors"
-      }, {
+      },
+      {
         "type": "color",
         "id": "section_bg_color",
         "label": "Section Background",
         "default": "#FFFFFF"
-      }, {
-        "type": "color",
-        "id": "heading_supertitle_color",
-        "label": "Superheading Text Color",
-        "default": "#111827"
-      }, {
+      },
+      {
         "type": "color",
         "id": "heading_title_color",
-        "label": "Main Heading Text Color",
+        "label": "Heading Color",
         "default": "#111827"
-      }, {
+      },
+      {
         "type": "color",
         "id": "accent_color",
         "label": "Accent Color (Year Bubbles, Dots)",
         "default": "#3B5F82"
-      }, {
+      },
+      {
         "type": "color",
         "id": "year_text_color",
         "label": "Year Text Color (in Bubble)",
         "default": "#FFFFFF"
-      }, {
+      },
+      {
         "type": "color",
         "id": "card_bg_color",
         "label": "Event Card Background",
         "default": "#F8F9FA"
-      }, {
+      },
+      {
         "type": "color",
         "id": "card_text_color",
         "label": "Event Card Text",
         "default": "#374151"
-      }, {
+      },
+      {
         "type": "color",
         "id": "line_color",
         "label": "Timeline Color",
         "default": "#E5E7EB"
-      }, {
+      },
+      {
         "type": "header",
         "content": "Section Padding"
-      }, {
+      },
+      {
         "type": "range",
         "id": "padding_top",
         "min": 0,
@@ -435,7 +387,8 @@
         "unit": "px",
         "label": "Top Padding",
         "default": 80
-      }, {
+      },
+      {
         "type": "range",
         "id": "padding_bottom",
         "min": 0,
@@ -457,7 +410,8 @@
             "id": "year",
             "label": "Year",
             "default": "2024"
-          }, {
+          },
+          {
             "type": "richtext",
             "id": "description",
             "label": "Description",
@@ -471,8 +425,6 @@
         "name": "Timeline Evolution",
         "settings": {
           "header_align": "left",
-          "supertitle_font_size": 18,
-          "supertitle_font_weight": "600",
           "year_bubble_size": 90,
           "year_font_size": 16,
           "dot_size": 12
@@ -505,7 +457,8 @@
               "year": "2019",
               "description": "<p>Inception of Golzar Home Construction Holding. Importing and Supplying a Wide Range of Construction Industry Products.</p>"
             }
-          }, {
+          },
+          {
             "type": "timeline_event",
             "settings": {
               "year": "2022",
