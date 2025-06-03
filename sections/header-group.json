@@ -44,7 +44,7 @@
       "type": "header",
       "settings": {
         "logo_position": "top-center",
-        "menu_area_bgcolor": "#eff4f8",
+        "menu_area_bgcolor": "#ffffff",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "head_btn": "Contact Us",
