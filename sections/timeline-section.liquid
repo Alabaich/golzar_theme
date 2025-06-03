@@ -31,7 +31,7 @@
     text-align: {{ settings.header_align | default: 'left' }};
   }
 
-  .timeline-section-{{ section.id }} 
+  .timeline-section-{{ section.id }}
   .pageWidth {
     display: flex;
     flex-direction: column;
@@ -132,12 +132,17 @@
     color: var(--card-text-color);
     padding: 20px;
     border-radius: 8px;
-    font-size: 14px;
-    line-height: 1.6;
     width: 95%;
     min-height: 100px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     text-align: left;
+
+    font-family: 'Raleway'
+    , sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.1;
+    letter-spacing: 0;
   }
 
   .timeline-section-{{ section.id }}
