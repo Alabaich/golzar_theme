@@ -5,7 +5,6 @@
 
 {%- style -%}
   .feature-grid-section-{{ section.id }} {
-    --section-bg-color: {{ section.settings.section_bg_color | default: '#FFFFFF' }};
     --card-bg-color: {{ section.settings.card_bg_color | default: '#EBEEEF' }};
     --card-border-color: {{ section.settings.card_border_color | default: '#EBEEEF' }};
     --card-border-radius: {{ section.settings.card_border_radius | default: 12 }}px;
@@ -20,10 +19,6 @@
 
     --block-number-color: {{ section.settings.block_number_color | default: '#6B7280' }};
 
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-color: var(--section-bg-color);
-    font-family: 'Raleway', sans-serif;
   }
 
   .feature-grid-section-{{ section.id }} .page-width {
@@ -32,7 +27,7 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-   @media screen and (min-width: 750px) {
+    @media screen and (min-width: 750px) {
     .feature-grid-section-{{ section.id }} .page-width {
       padding-left: 30px;
       padding-right: 30px;
@@ -158,11 +153,11 @@
     margin: 0;
     font-family: 'Raleway', sans-serif;
   }
-   .feature-grid-section-{{ section.id }} .feature-item__description p {
+    .feature-grid-section-{{ section.id }} .feature-item__description p {
       margin-top:0;
       margin-bottom: 0.5em;
    }
-   .feature-grid-section-{{ section.id }} .feature-item__description p:last-child {
+    .feature-grid-section-{{ section.id }} .feature-item__description p:last-child {
       margin-bottom: 0;
    }
 
