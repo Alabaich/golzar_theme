@@ -89,20 +89,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: {{ settings.button_bg_color | default: '#072A4A' }};
-  color: {{ settings.button_text_color | default: '#FFFFFF' }};
-  text-decoration: none;
   font-family: 'Raleway'
   , sans-serif;
   font-size: {{ settings.button_font_size_desktop | default: 14 }}px;
   font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 8px;
   transition: opacity 0.3s ease
   , transform 0.3s ease;
   line-height: 1.2;
-  border: none;
-  cursor: pointer;
   align-self: flex-start;
 }
 
