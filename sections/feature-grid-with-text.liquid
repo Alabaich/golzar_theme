@@ -30,21 +30,13 @@
     }
 
   .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-    font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    font-size: 50px; 
     line-height: 1.2;
     color: #151515; 
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
   }
 
   .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
     color: #151515; 
     margin-top: 0;
     margin-bottom: 0;
@@ -102,6 +94,9 @@
   .feature-grid-section-{{ section.id }} .feature-item__text-content {
     flex-grow: 1;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__number {
@@ -109,7 +104,6 @@
     font-size: 14px;
     font-weight: 700;
     color: var(--block-number-color);
-    margin-bottom: 6px;
     line-height: 1;
   }
 
