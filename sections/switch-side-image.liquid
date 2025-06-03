@@ -15,17 +15,11 @@
 
 {%- style -%}
   .iwts-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top | default: 60 }}px;
-    --section-padding-bottom: {{ settings.padding_bottom | default: 60 }}px;
     --content-gap: {{ settings.content_gap | default: 30 }}px;
     --text-elements-gap: {{ settings.text_elements_gap | default: 20 }}px;
     --image-border-radius: {{ settings.image_border_radius | default: 12 }}px;
 
     background-color: {{ settings.background_color | default: '#FFFFFF' }};
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway'
-    , sans-serif;
   }
 
   .iwts-section-{{ section.id }}
@@ -165,7 +159,7 @@
 {%- endstyle -%}
 
 <div class="iwts-section-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="iwts__grid">
       <div class="iwts__text-content">
         {%- if heading != blank -%}
