@@ -63,12 +63,66 @@
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
+    },
+    "featured_product_groups_zjRqfN": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_XPX9YN": {
+          "type": "category",
+          "settings": {
+            "collection": "bathroom-sinks"
+          }
+        },
+        "category_NB7fba": {
+          "type": "category",
+          "settings": {
+            "collection": "kitchen-faucets"
+          }
+        },
+        "category_YqdKLc": {
+          "type": "category",
+          "settings": {
+            "collection": "bathroom-faucets"
+          }
+        },
+        "category_xckBrP": {
+          "type": "category",
+          "settings": {
+            "collection": "bathtubs"
+          }
+        },
+        "category_hUgDBV": {
+          "type": "category",
+          "settings": {
+            "collection": "bath-accessories"
+          }
+        },
+        "category_hdPcPF": {
+          "type": "category",
+          "settings": {
+            "collection": "led-mirror"
+          }
+        }
+      },
+      "block_order": [
+        "category_XPX9YN",
+        "category_NB7fba",
+        "category_YqdKLc",
+        "category_xckBrP",
+        "category_hUgDBV",
+        "category_hdPcPF"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Browse by product type"
+      }
     }
   },
   "order": [
     "bocchi_brand_h_gtEJCd",
     "browse_by_options",
     "main",
-    "brand_section_qeMegz"
+    "brand_section_qeMegz",
+    "featured_product_groups_zjRqfN"
   ]
 }
