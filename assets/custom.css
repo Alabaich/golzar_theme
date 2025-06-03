@@ -3902,10 +3902,10 @@ body .catalogues-banner .banner {
   font-weight: 400;
   line-height: 26px;
 }
-.about-us main#MainContent .page-width {
+/* .about-us main#MainContent .page-width {
   max-width: 1140px;
   padding: 0 10px;
-}
+} */
 .content-only-sec-main {
   padding: 10px 0 0;
 }
