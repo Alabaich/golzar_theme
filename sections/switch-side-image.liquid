@@ -55,11 +55,8 @@
   display: block;
 }
 
-.iwts-section-{{ section.id }} .iwts__title {
-  font-family: 'Raleway'
-  , sans-serif;
-  font-weight: 600;
-  font-size: {{ settings.title_font_size_desktop | default: 42 }}px;
+.iwts-section-{{ section.id }}
+.iwts__title {
   line-height: 1.25;
   color: {{ settings.title_color | default: '#101828' }};
   text-align: left;
@@ -166,7 +163,7 @@
           <h2 class="iwts__title">{{ heading | newline_to_br }}</h2>
         {%- endif -%}
         {%- if subheading != blank -%}
-          <div class="iwts__subheading">{{ subheading }}</div>
+          <div class="iwts__subheading bodyText" title="{{ subheading }}">{{ subheading }}</div>
         {%- endif -%}
         {%- if button_text != blank and button_link != blank -%}
           <a href="{{ button_link }}" class="iwts__cta">
