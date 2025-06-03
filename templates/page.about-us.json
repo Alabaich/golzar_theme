@@ -423,7 +423,7 @@
           "settings": {
             "image": "shopify://shop_images/image_5_1x_0c11009a-41f5-410b-a541-53d44e5e2893.webp",
             "name": "Team Member Name",
-            "role": "Job Title",
+            "role": "Sales expert",
             "description": "<p>Brief description about the team member and their expertise.</p>"
           }
         },
@@ -432,7 +432,7 @@
           "settings": {
             "image": "shopify://shop_images/image_6_1x_98a753fa-fb77-4b2b-8455-52fad8d79da2.webp",
             "name": "Team Member Name",
-            "role": "Job Title",
+            "role": "Sales expert",
             "description": "<p>Brief description about the team member and their expertise.</p>"
           }
         },
@@ -441,7 +441,7 @@
           "settings": {
             "image": "shopify://shop_images/image_7_1x_aed61706-8b45-488e-a768-e184151babd5.webp",
             "name": "Team Member Name",
-            "role": "Job Title",
+            "role": "Sales expert",
             "description": "<p>Brief description about the team member and their expertise.</p>"
           }
         },
@@ -450,7 +450,7 @@
           "settings": {
             "image": "shopify://shop_images/image_8_1x_e88c66cf-c0fa-453a-8cf2-db304fc2d0bc.webp",
             "name": "Team Member Name",
-            "role": "Job Title",
+            "role": "Sales expert",
             "description": "<p>Brief description about the team member and their expertise.</p>"
           }
         }
@@ -475,8 +475,6 @@
         "text_color_name": "#333333",
         "text_color_role": "#555555",
         "text_color_description": "#777777",
-        "padding_top": 60,
-        "padding_bottom": 60,
         "show_onboarding_info": true
       }
     },
