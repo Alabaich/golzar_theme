@@ -39,10 +39,6 @@
 
   .brand-hero-section-{{ section.id }}
   .brand-hero__title {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 600;
-    font-size: 52px;
     line-height: 1.25;
     color: #101828;
     text-align: left;
@@ -63,10 +59,6 @@
 
   .brand-hero-section-{{ section.id }}
   .brand-hero__subtitle {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 400;
-    font-size: 14px;
     line-height: 1.6;
     color: #475467;
     margin: 0;
@@ -80,8 +72,6 @@
     background-color: #072A4A;
     color: #FFFFFF;
     text-decoration: none;
-    font-family: 'Raleway'
-    , sans-serif;
     font-size: 14px;
     font-weight: 500;
     padding: 10px 20px;
@@ -146,18 +136,7 @@
     }
 
     .brand-hero-section-{{ section.id }}
-    .brand-hero__title {
-      font-size: 36px;
-    }
-
-    .brand-hero-section-{{ section.id }}
-    .brand-hero__subtitle {
-      font-size: 13px;
-    }
-
-    .brand-hero-section-{{ section.id }}
     .brand-hero__cta {
-      font-size: 13px;
       padding: 9px 18px;
     }
   }
@@ -168,15 +147,18 @@
     <div class="brand-hero__header">
       <div class="brand-hero__title-wrapper">
         {%- if brand_title != blank -%}
-          <h1 class="brand-hero__title">{{ brand_title | newline_to_br }}</h1>
+          <h2 class="brand-hero__title" title="{{ brand_title | escape }}">{{ brand_title | newline_to_br }}</h2>
         {%- endif -%}
       </div>
       <div class="brand-hero__cta-wrapper">
         {%- if brand_subtitle != blank -%}
-          <p class="brand-hero__subtitle">{{ brand_subtitle }}</p>
+          <p class="brand-hero__subtitle" title="{{ brand_subtitle | escape }}">{{ brand_subtitle }}</p>
         {%- endif -%}
         {%- if button_text != blank and brand_link != blank -%}
-          <a href="{{ brand_link }}" class="brand-hero__cta">
+          <a href="{{ brand_link }}" class="brand-hero__cta" title="{{ button_text | escape }}" aria-label="{{ button_text | escape }}">
+            {%- if settings.show_button_arrow -%}
+              <span class="arrow">&gt;</span>
+            {%- endif -%}
             {{ button_text | escape }}
             {%- if settings.show_button_arrow -%}
               <span class="arrow">&gt;</span>
