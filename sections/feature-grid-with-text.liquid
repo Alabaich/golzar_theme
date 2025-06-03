@@ -11,29 +11,12 @@
     --item-title-color: {{ section.settings.item_title_color | default: '#212529' }};
     --item-description-color: {{ section.settings.item_description_color | default: '#495057' }};
     --item-title-size: {{ section.settings.item_title_size | default: 20 }}px;
-    
     --icon-circle-bg-color: {{ section.settings.icon_circle_bg_color | default: '#E0E0E0' }};
     --icon-circle-bg-hover-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color | default: '#212529' }};
     --icon-arrow-color: {{ section.settings.icon_arrow_color | default: '#333333' }};
     --icon-arrow-hover-color: {{ section.settings.icon_arrow_hover_color | default: '#FFFFFF' }};
-
     --block-number-color: {{ section.settings.block_number_color | default: '#6B7280' }};
-
   }
-
-  .feature-grid-section-{{ section.id }} .page-width {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-    @media screen and (min-width: 750px) {
-    .feature-grid-section-{{ section.id }} .page-width {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
 
   .feature-grid-section-{{ section.id }} .feature-grid__header {
     margin-bottom: 40px;
