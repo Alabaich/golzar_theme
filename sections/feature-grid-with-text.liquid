@@ -19,9 +19,15 @@
   }
 
   .feature-grid-section-{{ section.id }} .feature-grid__header {
-    margin-bottom: 40px;
     text-align: left;
   }
+
+    .feature-grid-section-{{ section.id }}
+    .pageWidth {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
 
   .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
     font-family: 'Raleway', sans-serif;
