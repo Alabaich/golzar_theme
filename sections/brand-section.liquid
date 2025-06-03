@@ -27,8 +27,14 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: var(--content-gap);
-    margin-bottom: var(--header-bottom-margin);
+    gap: 25px;
+  }
+
+  .brand-hero-section-{{ section.id }}
+  .pageWidth {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .brand-hero-section-{{ section.id }}
@@ -143,7 +149,7 @@
 {%- endstyle -%}
 
 <div class="brand-hero-section-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="brand-hero__header">
       <div class="brand-hero__title-wrapper">
         {%- if brand_title != blank -%}
@@ -155,7 +161,11 @@
           <p class="brand-hero__subtitle" title="{{ brand_subtitle | escape }}">{{ brand_subtitle }}</p>
         {%- endif -%}
         {%- if button_text != blank and brand_link != blank -%}
-          <a href="{{ brand_link }}" class="brand-hero__cta" title="{{ button_text | escape }}" aria-label="{{ button_text | escape }}">
+          <a
+            href="{{ brand_link }}"
+            class="brand-hero__cta"
+            title="{{ button_text | escape }}"
+            aria-label="{{ button_text | escape }}">
             {%- if settings.show_button_arrow -%}
               <span class="arrow">&gt;</span>
             {%- endif -%}
