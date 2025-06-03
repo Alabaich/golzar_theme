@@ -22,7 +22,7 @@
   }
 
   .brand-hero-section-{{ section.id }}
-  .pageWidth {
+  .brandHeroContainer {
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -126,8 +126,8 @@
   }
 {%- endstyle -%}
 
-<div class="brand-hero-section-{{ section.id }}">
-  <div class="page-width pageWidth">
+<div class="brand-hero-section-{{ section.id }} page-width pageWidth">
+  <div class="brandHeroContainer">
     <div class="brand-hero__header">
       <div class="brand-hero__title-wrapper">
         {%- if brand_title != blank -%}
