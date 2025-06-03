@@ -1,6 +1,6 @@
 <style>
   .image-gallery-rows-content-{{ section.id }} {
-    --image-gap: {{ section.settings.gap_size | default: 25 }}px;
+    --image-gap: 25px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -35,32 +35,16 @@
     margin-bottom: 0;
   }
 
+
   .image-row-{{ section.id }} {
     display: flex;
     gap: var(--image-gap);
     align-items: stretch;
   }
 
-  .image-flex-item-{{ section.id }} {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-  }
-
-  .image-column-{{ section.id }} {
-    flex-direction: column;
-    gap: var(--image-gap);
-  }
-
   .image-container-{{ section.id }} {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    display: flex;
-  }
-
-  .image-column-{{ section.id }}> .image-container-{{ section.id }} {
-    flex: 1;
   }
 
   .image-container-{{ section.id }}
@@ -71,6 +55,19 @@
     object-fit: cover;
     object-position: center;
     border-radius: 12px;
+  }
+
+  .image-container-{{ section.id }} .item-large {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+
+  .image-container-{{ section.id }}
+  .item-small {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
   }
 
   @media (max-width: 749px) {
@@ -85,18 +82,20 @@
   @media (max-width: 768px) {
     .image-row-{{ section.id }} {
       flex-direction: column;
-      align-items: stretch;
+      align-items: center;
     }
 
-    .image-row-{{ section.id }}
-    > .image-flex-item-{{ section.id }} {
+    .image-container-{{ section.id }} .item-large
+    , .image-container-{{ section.id }}
+    .item-small {
       width: 100%;
       margin-bottom: var(--image-gap);
+      flex-basis: auto;
     }
 
-    .image-row-{{ section.id }}> .image-flex-item-{{ section.id }}:last-child {
+    .image-row-{{ section.id }}.image-container-{{ section.id }}:last-child {
       margin-bottom: 0;
-    };
+    }
   }
 </style>
 
@@ -120,7 +119,7 @@
       {% if row1_img_large or row1_img_small1 or row1_img_small2 %}
         <div class="image-row-{{ section.id }}">
           {% if row1_img_large %}
-            <div class="image-container-{{ section.id }} image-flex-item-{{ section.id }}">
+            <div class="image-container-{{ section.id }} item-large">
               <img
                 src="{{ row1_img_large | image_url: width: row1_img_large.width }}"
                 srcset="{%- if row1_img_large.width >= 375 -%}{{ row1_img_large | image_url: width: 375 }} 375w,{%- endif -%}
@@ -136,41 +135,36 @@
                 height="{{ row1_img_large.height }}">
             </div>
           {% endif %}
-
-          {% if row1_img_small1 or row1_img_small2 %}
-            <div class="image-column-{{ section.id }} image-flex-item-{{ section.id }}">
-              {% if row1_img_small1 %}
-                <div class="image-container-{{ section.id }}">
-                  <img
-                    src="{{ row1_img_small1 | image_url: width: row1_img_small1.width }}"
-                    srcset="{%- if row1_img_small1.width >= 375 -%}{{ row1_img_small1 | image_url: width: 375 }} 375w,{%- endif -%}
-                            {%- if row1_img_small1.width >= 550 -%}{{ row1_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
-                            {%- if row1_img_small1.width >= 750 -%}{{ row1_img_small1 | image_url: width: 750 }} 750w,{%- endif -%}
-                            {%- if row1_img_small1.width >= 1100 -%}{{ row1_img_small1 | image_url: width: 1100 }} 1100w,{%- endif -%}
-                             {{ row1_img_small1 | image_url: width: row1_img_small1.width }} {{ row1_img_small1.width }}w"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="{{ row1_img_small1.alt | default: 'Small image 1.1' | escape }}"
-                    loading="lazy"
-                    width="{{ row1_img_small1.width }}"
-                    height="{{ row1_img_small1.height }}">
-                </div>
-              {% endif %}
-              {% if row1_img_small2 %}
-                <div class="image-container-{{ section.id }}">
-                  <img
-                    src="{{ row1_img_small2 | image_url: width: row1_img_small2.width }}"
-                    srcset="{%- if row1_img_small2.width >= 375 -%}{{ row1_img_small2 | image_url: width: 375 }} 375w,{%- endif -%}
-                            {%- if row1_img_small2.width >= 550 -%}{{ row1_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
-                            {%- if row1_img_small2.width >= 750 -%}{{ row1_img_small2 | image_url: width: 750 }} 750w,{%- endif -%}
-                            {%- if row1_img_small2.width >= 1100 -%}{{ row1_img_small2 | image_url: width: 1100 }} 1100w,{%- endif -%}
-                            {{ row1_img_small2 | image_url: width: row1_img_small2.width }} {{ row1_img_small2.width }}w"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="{{ row1_img_small2.alt | default: 'Small image 1.2' | escape }}"
-                    loading="lazy"
-                    width="{{ row1_img_small2.width }}"
-                    height="{{ row1_img_small2.height }}">
-                </div>
-              {% endif %}
+          {% if row1_img_small1 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row1_img_small1 | image_url: width: row1_img_small1.width }}"
+                srcset="{%- if row1_img_small1.width >= 200 -%}{{ row1_img_small1 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 300 -%}{{ row1_img_small1 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 400 -%}{{ row1_img_small1 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row1_img_small1.width >= 550 -%}{{ row1_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row1_img_small1 | image_url: width: row1_img_small1.width }} {{ row1_img_small1.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row1_img_small1.alt | default: 'Small image 1.1' | escape }}"
+                loading="lazy"
+                width="{{ row1_img_small1.width }}"
+                height="{{ row1_img_small1.height }}">
+            </div>
+          {% endif %}
+          {% if row1_img_small2 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row1_img_small2 | image_url: width: row1_img_small2.width }}"
+                srcset="{%- if row1_img_small2.width >= 200 -%}{{ row1_img_small2 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 300 -%}{{ row1_img_small2 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 400 -%}{{ row1_img_small2 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row1_img_small2.width >= 550 -%}{{ row1_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row1_img_small2 | image_url: width: row1_img_small2.width }} {{ row1_img_small2.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row1_img_small2.alt | default: 'Small image 1.2' | escape }}"
+                loading="lazy"
+                width="{{ row1_img_small2.width }}"
+                height="{{ row1_img_small2.height }}">
             </div>
           {% endif %}
         </div>
@@ -182,45 +176,40 @@
 
       {% if row2_img_small1 or row2_img_small2 or row2_img_large %}
         <div class="image-row-{{ section.id }}">
-          {% if row2_img_small1 or row2_img_small2 %}
-            <div class="image-column-{{ section.id }} image-flex-item-{{ section.id }}">
-              {% if row2_img_small1 %}
-                <div class="image-container-{{ section.id }}">
-                  <img
-                    src="{{ row2_img_small1 | image_url: width: row2_img_small1.width }}"
-                    srcset="{%- if row2_img_small1.width >= 375 -%}{{ row2_img_small1 | image_url: width: 375 }} 375w,{%- endif -%}
-                            {%- if row2_img_small1.width >= 550 -%}{{ row2_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
-                            {%- if row2_img_small1.width >= 750 -%}{{ row2_img_small1 | image_url: width: 750 }} 750w,{%- endif -%}
-                            {%- if row2_img_small1.width >= 1100 -%}{{ row2_img_small1 | image_url: width: 1100 }} 1100w,{%- endif -%}
-                            {{ row2_img_small1 | image_url: width: row2_img_small1.width }} {{ row2_img_small1.width }}w"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="{{ row2_img_small1.alt | default: 'Small image 2.1' | escape }}"
-                    loading="lazy"
-                    width="{{ row2_img_small1.width }}"
-                    height="{{ row2_img_small1.height }}">
-                </div>
-              {% endif %}
-              {% if row2_img_small2 %}
-                <div class="image-container-{{ section.id }}">
-                  <img
-                    src="{{ row2_img_small2 | image_url: width: row2_img_small2.width }}"
-                    srcset="{%- if row2_img_small2.width >= 375 -%}{{ row2_img_small2 | image_url: width: 375 }} 375w,{%- endif -%}
-                            {%- if row2_img_small2.width >= 550 -%}{{ row2_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
-                            {%- if row2_img_small2.width >= 750 -%}{{ row2_img_small2 | image_url: width: 750 }} 750w,{%- endif -%}
-                            {%- if row2_img_small2.width >= 1100 -%}{{ row2_img_small2 | image_url: width: 1100 }} 1100w,{%- endif -%}
-                            {{ row2_img_small2 | image_url: width: row2_img_small2.width }} {{ row2_img_small2.width }}w"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="{{ row2_img_small2.alt | default: 'Small image 2.2' | escape }}"
-                    loading="lazy"
-                    width="{{ row2_img_small2.width }}"
-                    height="{{ row2_img_small2.height }}">
-                </div>
-              {% endif %}
+          {% if row2_img_small1 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row2_img_small1 | image_url: width: row2_img_small1.width }}"
+                srcset="{%- if row2_img_small1.width >= 200 -%}{{ row2_img_small1 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 300 -%}{{ row2_img_small1 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 400 -%}{{ row2_img_small1 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row2_img_small1.width >= 550 -%}{{ row2_img_small1 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row2_img_small1 | image_url: width: row2_img_small1.width }} {{ row2_img_small1.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row2_img_small1.alt | default: 'Small image 2.1' | escape }}"
+                loading="lazy"
+                width="{{ row2_img_small1.width }}"
+                height="{{ row2_img_small1.height }}">
             </div>
           {% endif %}
-
+          {% if row2_img_small2 %}
+            <div class="image-container-{{ section.id }} item-small">
+              <img
+                src="{{ row2_img_small2 | image_url: width: row2_img_small2.width }}"
+                srcset="{%- if row2_img_small2.width >= 200 -%}{{ row2_img_small2 | image_url: width: 200 }} 200w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 300 -%}{{ row2_img_small2 | image_url: width: 300 }} 300w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 400 -%}{{ row2_img_small2 | image_url: width: 400 }} 400w,{%- endif -%}
+                        {%- if row2_img_small2.width >= 550 -%}{{ row2_img_small2 | image_url: width: 550 }} 550w,{%- endif -%}
+                        {{ row2_img_small2 | image_url: width: row2_img_small2.width }} {{ row2_img_small2.width }}w"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                alt="{{ row2_img_small2.alt | default: 'Small image 2.2' | escape }}"
+                loading="lazy"
+                width="{{ row2_img_small2.width }}"
+                height="{{ row2_img_small2.height }}">
+            </div>
+          {% endif %}
           {% if row2_img_large %}
-            <div class="image-container-{{ section.id }} image-flex-item-{{ section.id }}">
+            <div class="image-container-{{ section.id }} item-large">
               <img
                 src="{{ row2_img_large | image_url: width: row2_img_large.width }}"
                 srcset="{%- if row2_img_large.width >= 375 -%}{{ row2_img_large | image_url: width: 375 }} 375w,{%- endif -%}
@@ -262,35 +251,35 @@
       },
       {
         "type": "header",
-        "content": "Row 1: 1 large, 2 small (stacked)"
+        "content": "Row 1: 1 large, 2 small"
       },
       {
         "type": "image_picker",
         "id": "row1_img_large",
-        "label": "Large image (left)"
+        "label": "Large image (50%)"
       }, {
         "type": "image_picker",
         "id": "row1_img_small1",
-        "label": "Small image 1 (top right)"
+        "label": "Small image 1 (25%)"
       }, {
         "type": "image_picker",
         "id": "row1_img_small2",
-        "label": "Small image 2 (bottom right)"
+        "label": "Small image 2 (25%)"
       }, {
         "type": "header",
-        "content": "Row 2: 2 small (stacked), 1 large"
+        "content": "Row 2: 2 small, 1 large"
       }, {
         "type": "image_picker",
         "id": "row2_img_small1",
-        "label": "Small image 1 (top left)"
+        "label": "Small image 1 (25%)"
       }, {
         "type": "image_picker",
         "id": "row2_img_small2",
-        "label": "Small image 2 (bottom left)"
+        "label": "Small image 2 (25%)"
       }, {
         "type": "image_picker",
         "id": "row2_img_large",
-        "label": "Large image (right)"
+        "label": "Large image (50%)"
       }, {
         "type": "range",
         "id": "gap_size",
