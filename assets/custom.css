@@ -141,6 +141,7 @@ a.btn.btn-primary:hover,
   summary.header__menu-item
   .header__active-menu-item {
   /* color: #d3b574; */
+  font-weight: 600;
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li * {
   color: #002642;
