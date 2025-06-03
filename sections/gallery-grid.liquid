@@ -54,9 +54,11 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 12px;
   }
 
-  .image-container-{{ section.id }} .item-large {
+  .image-container-{{ section.id }}
+  .item-large {
     flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 0;
@@ -84,7 +86,8 @@
       align-items: center;
     }
 
-    .image-container-{{ section.id }} .item-large
+    .image-container-{{ section.id }}
+    .item-large
     , .image-container-{{ section.id }}
     .item-small {
       width: 100%;
