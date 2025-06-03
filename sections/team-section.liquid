@@ -16,8 +16,13 @@
     background-color: var(--section-background-color);
   }
 
+    .team-section-{{ section.id }} .pageWidth {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
   .team-section-{{ section.id }} .section-header {
-    margin-bottom: 50px;
     text-align: {{ settings.header_align }};
   }
 
@@ -142,13 +147,13 @@
               {%- endif -%}
             </div>
             {%- if block.settings.name != blank -%}
-              <h3 class="team-member__name">{{ block.settings.name | escape }}</h3>
+              <h2 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h2>
             {%- endif -%}
             {%- if block.settings.role != blank -%}
-              <p class="team-member__role">{{ block.settings.role | escape }}</p>
+              <p class="team-member__role" title="{{ block.settings.role | escape }}">{{ block.settings.role | escape }}</p>
             {%- endif -%}
             {%- if block.settings.description != blank -%}
-              <div class="team-member__description">
+              <div class="team-member__description" title="{{ block.settings.description }}">
                 {{ block.settings.description }}
               </div>
             {%- endif -%}
