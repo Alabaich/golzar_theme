@@ -1,6 +1,9 @@
 <style>
   .image-gallery-rows-content-{{ section.id }} {
-    --image-gap: {{ section.settings.gap_size }}px;
+    --image-gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .gallery-header-{{ section.id }} {
