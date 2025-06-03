@@ -1,0 +1,281 @@
+<style>
+  .fpg-schema-class {
+    display: block;
+  }
+
+  .fpg-sec .fpg-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .fpg-sec .fpg-heading h2 {
+    text-align: left;
+    margin: 0;
+    color: #151515;
+  }
+  .fpg-sec .fpg-body,
+  .fpg-sec .fpg-info-s {
+    padding: 0;
+  }
+  .fpg-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .fpg-card {
+    text-decoration: none;
+    display: block;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease
+    , transform 0.3s ease;
+    border-radius: 12px;
+    position: relative;
+  }
+  .fpg-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .fpg-card__media-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 5 / 3;
+    border-radius: 12px;
+    background-color: #e0e0e0;
+  }
+
+  .fpg-card__media-wrapper img,
+  .fpg-card__media-wrapper .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .fpg-card:hover .fpg-card__media-wrapper img {
+    transform: scale(1.08);
+  }
+
+  .fpg-card__overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  }
+
+  .fpg-card__title-text {
+    color: #FFFFFF;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fpg-card__icon-new {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fpg-card__icon-new svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (max-width: 990px) {
+    .fpg-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 750px) {
+    .fpg-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .fpg-card__icon-new svg {
+      width: 24px;
+      height: 24px;
+    }
+    .fpg-card__overlay-content {
+      padding: 12px 15px;
+      min-height: 60px;
+    }
+  }
+
+  .fpg-card__overlay-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 38, 66, 0.5) 0%, rgba(0, 38, 66, 0.2) 60%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .fpg-card:hover .fpg-card__overlay-content::after {
+    opacity: 1;
+  }
+</style>
+
+<div class="page-width pageWidth">
+  <div class="fpg-main fpg-sec">
+    <div class="fpg-inner">
+      {% if section.settings.title != blank %}
+        <div class="fpg-heading">
+          <h2 title="{{ section.settings.title }}">{{ section.settings.title }}</h2>
+        </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <div class="fpg-body">
+          <div class="fpg-info-s">
+            <ul class="fpg-grid">
+              {% for block in section.blocks %}
+                <li {{ block.shopify_attributes }}>
+                  <a
+                    href="{{ block.settings.collection.url | default: '#' }}"
+                    class="fpg-card"
+                    aria-label="{{ block.settings.collection.title | default: 'Category' | escape }}"
+                    title="{{ block.settings.collection.title | default: 'Category' | escape }}">
+                    <div class="fpg-card__media-wrapper">
+                      {%- liquid
+                        assign img_obj = block.settings.image
+                        if img_obj == blank
+                          assign img_obj = block.settings.collection.image
+                        endif
+                        assign img_alt = block.settings.collection.title | default: "Category" | escape
+                      -%}
+
+                      {% if img_obj != blank %}
+                        <img
+                          src="{{ img_obj | image_url: width: 700 }}"
+                          srcset="{% if img_obj.width >= 350 %}{{ img_obj | image_url: width: 350 }} 350w,{% endif %}
+                                  {% if img_obj.width >= 700 %}{{ img_obj | image_url: width: 700 }} 700w,{% endif %}
+                                  {% if img_obj.width >= 1000 %}{{ img_obj | image_url: width: 1000 }} 1000w{% endif %}"
+                          alt="{{ img_alt }}"
+                          loading="lazy"
+                          width="{{ img_obj.width }}"
+                          height="{{ img_obj.height }}"
+                          sizes="(max-width: 750px) calc(50vw - 24px), (max-width: 990px) calc(33.33vw - 20px), calc(25vw - 22px)">
+                      {% else %}
+                        {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+
+                      <div class="fpg-card__overlay-content">
+                        <h5 class="fpg-card__title-text" title="{{ block.settings.collection.title | default: 'Category' }}">
+                          {{ block.settings.collection.title | default: 'Category' }}
+                        </h5>
+                        <div class="fpg-card__icon-new">
+                          <svg
+                            viewBox="0 0 25 25"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            focusable="false">
+                            <g clip-path="url(#clip0_fpg_{{ section.id }}_{{ forloop.index }})">
+                            <mask
+                              id="mask0_fpg_{{ section.id }}_{{ forloop.index }}"
+                              style="mask-type:luminance"
+                              maskUnits="userSpaceOnUse"
+                              x="0"
+                              y="0"
+                              width="24"
+                              height="25">
+                              <path d="M24 0.5H0V24.5H24V0.5Z" fill="white" />
+                            </mask>
+                            <g mask="url(#mask0_fpg_{{ section.id }}_{{ forloop.index }})">
+                              <path
+                                d="M23.5714 12.5C23.5714 6.10929 18.3907 0.928589 12 0.928589C5.60929 0.928589 0.428589 6.10929 0.428589 12.5C0.428589 18.8907 5.60929 24.0714 12 24.0714C18.3907 24.0714 23.5714 18.8907 23.5714 12.5Z"
+                                stroke="#FFFFFF"
+                                stroke-width="1.07143" />
+                              <path
+                                d="M8.36328 16.1366L15.6364 8.86353"
+                                stroke="#FFFFFF"
+                                stroke-width="1.07143"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M8.36334 8.86353H15.6365V16.1366"
+                                stroke="#FFFFFF"
+                                stroke-width="1.07143"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </g>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_fpg_{{ section.id }}_{{ forloop.index }}">
+                              <rect
+                                width="24"
+                                height="24"
+                                fill="white"
+                                transform="translate(0 0.5)" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div></div>{% schema %}
+{
+  "name": "Featured Product Groups",
+  "class": "section fpg-schema-class",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured Groups"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Product Group",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection (for link and title)"
+        }, {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image",
+          "info": "If no image is uploaded, the image from the selected collection will be used automatically."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product Groups"
+    }
+  ]
+}{% endschema %}
