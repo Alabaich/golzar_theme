@@ -524,7 +524,7 @@
         "row2_img_small1": "shopify://shop_images/444.webp",
         "row2_img_small2": "shopify://shop_images/555.webp",
         "row2_img_large": "shopify://shop_images/666.webp",
-        "gap_size": 10
+        "gap_size": 26
       }
     }
   },
