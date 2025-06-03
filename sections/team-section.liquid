@@ -11,7 +11,6 @@
     --role-color: {{ settings.text_color_role }};
     --description-color: {{ settings.text_color_description }};
     --image-border-radius: {{ settings.image_border_radius }}px;
-    --grid-gap: 30px;
 
     background-color: var(--section-background-color);
   }
@@ -98,13 +97,18 @@
     border-radius: var(--image-border-radius);
   }
 
-  .team-section-{{ section.id }}
-  .team-member__name {
+  .team-section-{{ section.id }} .team-member__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-section-{{ section.id }} .team-member__name {
     font-size: 18px;
     font-weight: 600;
     color: var(--name-color);
-    margin: 0 0 5px;
     text-transform: uppercase;
+    margin: 0;
   }
 
   .team-section-{{ section.id }}
@@ -112,7 +116,7 @@
     font-size: 14px;
     font-weight: 400;
     color: var(--role-color);
-    margin: 0 0 10px;
+    margin: 0;
     line-height: 1.4;
   }
 
@@ -159,17 +163,20 @@
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
             </div>
-            {%- if block.settings.name != blank -%}
-              <h2 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h2>
-            {%- endif -%}
-            {%- if block.settings.role != blank -%}
-              <p class="team-member__role" title="{{ block.settings.role | escape }}">{{ block.settings.role | escape }}</p>
-            {%- endif -%}
-            {%- if block.settings.description != blank -%}
-              <div class="team-member__description" title="{{ block.settings.description }}">
-                {{ block.settings.description }}
-              </div>
-            {%- endif -%}
+
+            <div class="team-member__text-content">
+              {%- if block.settings.name != blank -%}
+                <h2 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h2>
+              {%- endif -%}
+              {%- if block.settings.role != blank -%}
+                <p class="team-member__role" title="{{ block.settings.role | escape }}">{{ block.settings.role | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="team-member__description" title="{{ block.settings.description }}">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </div>
           </div>
         {%- endfor -%}
       </div>
