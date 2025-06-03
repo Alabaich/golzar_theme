@@ -60,7 +60,6 @@
     min-width: 260px;
     max-width: 320px;
     text-align: right;
-    padding-top: 3px;
   }
 
   .brand-hero-section-{{ section.id }}
@@ -163,7 +162,7 @@
         {%- if button_text != blank and brand_link != blank -%}
           <a
             href="{{ brand_link }}"
-            class="brand-hero__cta"
+            class="brand-hero__cta customButton blueButton"
             title="{{ button_text | escape }}"
             aria-label="{{ button_text | escape }}">
             {%- if settings.show_button_arrow -%}
