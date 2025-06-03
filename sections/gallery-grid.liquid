@@ -1,17 +1,10 @@
 <style>
-  .image-gallery-outer-wrapper-{{ section.id }} {
-    padding: 20px 0;
-    font-family: 'Raleway'
-    , sans-serif;
-  }
-
   .image-gallery-rows-content-{{ section.id }} {
     --image-gap: {{ section.settings.gap_size }}px;
   }
 
   .gallery-header-{{ section.id }} {
     text-align: left;
-    margin-bottom: 40px;
   }
 
   .gallery-title-{{ section.id }} {
@@ -111,7 +104,7 @@
 </style>
 
 <div class="image-gallery-outer-wrapper-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
 
       <div class="gallery-header-{{ section.id }}">
