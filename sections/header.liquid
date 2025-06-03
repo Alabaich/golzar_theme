@@ -69,31 +69,37 @@
       padding-top: 0.5rem;
     }
   }
-</style>
-
-{%- style -%}
-  .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
-  }
-
-  .section-header {
-    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
-    }
-  }
 
   @media screen and (min-width: 990px) {
-    .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    .header-menu-area .list-menu--inline {
+      justify-content: center;
+      width: 100%;
+
+    .header-menu-area ul.list-menu--inline {
+      padding-left: 0;
+    }
+    
+    .header-menu-area .list-menu__item--link,
+    .header-menu-area summary.list-menu__item {
+      padding: 0.6rem 1.5rem;
+      text-decoration: none;
+      line-height: normal;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      border: none !important;
+    }
+
+    .header-menu-area summary.list-menu__item {
+      padding-right: 1.5rem;
+    }
+
+    .header-menu-area summary.list-menu__item::marker,
+    .header-menu-area summary.list-menu__item::-webkit-details-marker {
+      display: none;
     }
   }
-{%- endstyle -%}
+</style>
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
