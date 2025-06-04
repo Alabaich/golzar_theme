@@ -659,8 +659,8 @@
         "stat_text_color": "",
         "image_main": "shopify://shop_images/About_US-01.webp",
         "image_overlay": "shopify://shop_images/About_US-02.webp",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 26,
+        "padding_bottom": 26
       }
     },
     "17405401850356168b": {
