@@ -135,11 +135,11 @@
                       <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
                     </svg>
                   {%- when 'price_match' -%}
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#002642" stroke-width="{{ icon_stroke_width }}" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M9 15l6 -6" />
-                      <circle cx="9.5" cy="9.5" r=".5" fill="currentColor" />
-                      <circle cx="14.5" cy="14.5" r=".5" fill="currentColor" />
-                      <path d="M12.707 21.707a1 1 0 0 1 -1.414 0l-8.586 -8.586a1 1 0 0 1 0 -1.414l8.586 -8.586a1 1 0 0 1 1.414 0l8.586 8.586a1 1 0 0 1 0 1.414l-8.586 8.586z" />
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18.4386" cy="17.0483" r="4.171"></circle>
+                        <circle cx="29.5614" cy="30.9517" r="4.171"></circle>
+                        <line x1="16.7663" y1="35.1227" x2="31.2258" y2="12.8773"></line>
+                        <circle cx="24" cy="24" r="21.5"></circle>
                     </svg>
                   {%- when 'delivery' -%}
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
@@ -260,7 +260,7 @@
           "options": [
             { "value": "none", "label": "No Icon" },
             { "value": "support", "label": "Support (Phone)" },
-            { "value": "price_match", "label": "Price Match (Percent Tag)" },
+            { "value": "price_match", "label": "Price Match (Custom Percent)" },
             { "value": "delivery", "label": "Delivery (Custom Location Pin)" },
             { "value": "pickup", "label": "Pickup (Custom Box)" }
           ],
