@@ -34,19 +34,15 @@
   }
 
   .slideshow-navigation-wrapper {
-    position: absolute;
-    z-index: 2;
     display: flex;
     gap: 1rem;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
-    bottom: 5%;
-    left: 7%;
-    transform: none;
+    margin-top: auto;
   }
 
-    .slideshow__slide {
+  .slideshow__slide {
     border-radius: 16px;
     overflow: hidden;
   }
@@ -67,6 +63,8 @@
 
   section.shopify-section.section.banner-slideshow slideshow-component div.slideshow .slideshow__text-wrapper {
       min-height: 600px !important;
+      display: flex;
+      flex-direction: column;
   }
 
   .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box .transparentButton{
@@ -87,10 +85,12 @@
     color: white;
   }
 
-    .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box {
+  .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box {
       display: flex;
       gap: 25px;
-    }
+      flex-direction: column;
+      width: 100%;
+  }
 
   .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box h2 {
     margin: 0;
@@ -133,11 +133,6 @@
   }
 
   @media screen and (max-width: 749px) {
-    .slideshow-navigation-wrapper {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     .section.shopify-section.section.banner-slideshow slideshow-component {
       padding: 0;
     }
@@ -145,6 +140,10 @@
     .section.banner-slideshow slideshow-component .slideshow {
       display: flex;
       gap: 25px;
+    }
+    
+    .slideshow-navigation-wrapper {
+      margin-top: 20px;
     }
   }
 </style>
@@ -259,40 +258,41 @@
                   </svg>
                 </a>
             {%- endif -%}
+            
+            {%- if section.blocks.size > 1 -%}
+              <div class="slideshow-navigation-wrapper">
+                <button
+                  class="slider-button slider-button--prev"
+                  name="previous"
+                  aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+                >
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                  </svg>
+                </button>
+                <button
+                  class="slider-button slider-button--next"
+                  name="next"
+                  aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-caret"
+                    viewBox="0 0 10 6"
+                    style="transform: rotate(270deg);"
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                  </svg>
+                </button>
+              </div>
+            {%- endif -%}
           </div>
         </div>
       </div>
     {%- endfor -%}
   </div>
-  {%- if section.blocks.size > 1 -%}
-    <div class="slideshow-navigation-wrapper">
-      <button
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-      >
-        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
-        </svg>
-      </button>
-      <button
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-      >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          role="presentation"
-          class="icon icon-caret"
-          viewBox="0 0 10 6"
-          style="transform: rotate(270deg);"
-        >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
-        </svg>
-      </button>
-    </div>
-  {%- endif -%}
 </slideshow-component>
 
 {%- if request.design_mode -%}
