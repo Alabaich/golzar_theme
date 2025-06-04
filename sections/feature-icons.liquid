@@ -128,7 +128,7 @@
             {%- assign selected_icon = block.settings.icon_preset -%}
             {%- if selected_icon != 'none' and selected_icon != blank -%}
               <div class="feature-icons__icon-wrapper" style="width: {{ block.settings.icon_width }}px; height: {{ block.settings.icon_width }}px;">
-                {%- assign icon_stroke_width = 1.5 -%}
+                {%- assign icon_stroke_width = 1 -%}
                 {%- case selected_icon -%}
                   {%- when 'support' -%}
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
@@ -142,7 +142,7 @@
                       <path d="M12.707 21.707a1 1 0 0 1 -1.414 0l-8.586 -8.586a1 1 0 0 1 0 -1.414l8.586 -8.586a1 1 0 0 1 1.414 0l8.586 8.586a1 1 0 0 1 0 1.414l-8.586 8.586z" />
                     </svg>
                   {%- when 'delivery' -%}
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"> {/* Adjusted stroke-width to 3 for 48x48 viewBox */}
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M24,13.2639l7.2882,4.2092L24,21.6823l-7.2882-4.2092Z"></path>
                         <path d="M16.7118,17.4731v8.4183L24,30.1006l7.2882-4.2092V17.4731"></path>
                         <path d="M24,30.1006V21.6823"></path>
@@ -262,7 +262,7 @@
             { "value": "none", "label": "No Icon" },
             { "value": "support", "label": "Support (Phone)" },
             { "value": "price_match", "label": "Price Match (Percent Tag)" },
-            { "value": "delivery", "label": "Delivery (Truck)" }, // Это значение соответствует вашей кастомной иконке
+            { "value": "delivery", "label": "Delivery (Truck)" },
             { "value": "pickup", "label": "Pickup (Box)" }
           ],
           "default": "support"
