@@ -96,6 +96,40 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+
+  /* --- New golzar theme header start --- */
+
+  .header__inline-menu .list-menu__item > ul,
+  .header__inline-menu .list-menu__item > .header-menu__submenu,
+  .header__inline-menu .list-menu__item > .mega-menu__content
+  {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease-out,
+                transform 0.25s ease-out,
+                visibility 0.25s ease-out;
+    pointer-events: none;
+    will-change: opacity, transform;
+  }
+  .header__inline-menu .list-menu__item:hover > ul,
+  .header__inline-menu .list-menu__item:focus-within > ul,
+  .header__inline-menu .list-menu__item[open] > ul,
+
+  .header__inline-menu .list-menu__item:hover > .header-menu__submenu,
+  .header__inline-menu .list-menu__item:focus-within > .header-menu__submenu,
+  .header__inline-menu .list-menu__item[open] > .header-menu__submenu,
+
+  .header__inline-menu .list-menu__item:hover > .mega-menu__content,
+  .header__inline-menu .list-menu__item:focus-within > .mega-menu__content,
+  .header__inline-menu .list-menu__item[open] > .mega-menu__content
+  {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
