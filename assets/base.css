@@ -3653,7 +3653,7 @@ button.transparentButton, .transparentButton{
   color: var(--white);
   border: 1px solid var(--white);
   text-transform: none;
-    transition: all linear 200ms;
+  transition: all linear 200ms;
 }
 
 button.transparentButton:hover, .transparentButton:hover{
@@ -3680,7 +3680,7 @@ button.blueButton, .blueButton{
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4{
-    font-family: Black Mango;
+  font-family: Black Mango;
   font-weight: 500;
 }
 
@@ -3722,7 +3722,6 @@ h7, .h7{
 p.bodyText{
     font-size: 1em;
   font-weight: 300;
-  
 }
 
 

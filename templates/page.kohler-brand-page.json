@@ -1,1 +1,172 @@
-{"sections":{"bocchi_brand_h_gtEJCd":{"type":"brand-breadcrums","settings":{"color":""}},"browse_by_options":{"type":"browse-by-options","settings":{"show_product_type_options":false,"product_type_title":"Browse By Product Type","show_collection_options":true,"collection_title":"Browse By Product Type","collection_list":["kohler-alcove-bathtubs","kohler-bathtub-shower-kits","kohler-freestanding-bathtubs","kohler-one-piece-toilet","kohler-shower-valves-trim","kohler-single-hole-faucets","kohler-smart-toilets","kohler-two-piece-toilets","kohler-undermount-sinks","kohler-vessel-sinks","kohler-wall-mounted-sinks","kohler-wall-mounted-faucets","kohler-widespread-faucets"]}},"main":{"type":"main-page","settings":{"padding_top":4,"padding_bottom":4}}},"order":["bocchi_brand_h_gtEJCd","browse_by_options","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "kohler-alcove-bathtubs",
+          "kohler-bathtub-shower-kits",
+          "kohler-freestanding-bathtubs",
+          "kohler-one-piece-toilet",
+          "kohler-shower-valves-trim",
+          "kohler-single-hole-faucets",
+          "kohler-smart-toilets",
+          "kohler-two-piece-toilets",
+          "kohler-undermount-sinks",
+          "kohler-vessel-sinks",
+          "kohler-wall-mounted-sinks",
+          "kohler-wall-mounted-faucets",
+          "kohler-widespread-faucets"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_section_qeMegz": {
+      "type": "brand-section",
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Experience the art  \nof living with Kohler",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover brand",
+        "brand_link": "shopify://collections/rough-in-valves",
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/Inspired-Banner-with-Image-versi.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "featured_product_groups_zjRqfN": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_XPX9YN": {
+          "type": "category",
+          "settings": {
+            "collection": "bathroom-sinks"
+          }
+        },
+        "category_NB7fba": {
+          "type": "category",
+          "settings": {
+            "collection": "kitchen-faucets"
+          }
+        },
+        "category_YqdKLc": {
+          "type": "category",
+          "settings": {
+            "collection": "bathroom-faucets"
+          }
+        },
+        "category_xckBrP": {
+          "type": "category",
+          "settings": {
+            "collection": "bathtubs"
+          }
+        },
+        "category_hUgDBV": {
+          "type": "category",
+          "settings": {
+            "collection": "bath-accessories"
+          }
+        },
+        "category_hdPcPF": {
+          "type": "category",
+          "settings": {
+            "collection": "led-mirror"
+          }
+        }
+      },
+      "block_order": [
+        "category_XPX9YN",
+        "category_NB7fba",
+        "category_YqdKLc",
+        "category_xckBrP",
+        "category_hUgDBV",
+        "category_hdPcPF"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Browse by product type"
+      }
+    },
+    "popular_products_BRUd9n": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular products of Kohler",
+        "featured_collection": "sink",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/sink",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Add to Cart"
+      }
+    },
+    "custom_blog_posts_grid_UPatad": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "READ NOW",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_section_qeMegz",
+    "featured_product_groups_zjRqfN",
+    "popular_products_BRUd9n",
+    "custom_blog_posts_grid_UPatad"
+  ]
+}
