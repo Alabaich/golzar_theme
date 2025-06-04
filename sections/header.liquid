@@ -143,6 +143,20 @@
   visibility: visible;
   transform: translateY(0);
 }
+
+.mega-menu__content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  display: block !important;
+}
+
+.list-menu__item:hover .mega-menu__content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
