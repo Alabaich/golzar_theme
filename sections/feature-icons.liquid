@@ -149,12 +149,11 @@
                         <path d="M40.9047,21.4047A16.9047,16.9047,0,1,0,17.5162,37.0161L24,43.5l6.4838-6.4839A16.9058,16.9058,0,0,0,40.9047,21.4047Z"></path>
                     </svg>
                   {%- when 'pickup' -%}
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                      <path d="M12 12l8 -4.5" />
-                      <path d="M12 12l0 9" />
-                      <path d="M12 12l-8 -4.5" />
-                      <path d="M16 5.25l-8 4.5" />
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="8.339 23.276 8.339 34.043 23.993 36.984 23.993 13.519"></polyline>
+                        <polyline points="39.562 23.561 39.562 33.855 23.993 36.984"></polyline>
+                        <path d="M28.7747,22.075l13.3865,1.8439a1.1763,1.1763,0,0,0,1.2355-1.643l-3.8348-8.6315-15.5691-2.628L8.3386,13.77,4.6114,21.7856a1.1764,1.1764,0,0,0,1.1482,1.67l13.3385-.927a1.47,1.47,0,0,0,1.24-.8648l3.6551-8.1441,3.6531,7.7276A1.47,1.47,0,0,0,28.7747,22.075Z"></path>
+                        <line x1="10.904" y1="30.6639" x2="13.8449" y2="30.9768"></line>
                     </svg>
                 {%- endcase -%}
               </div>
@@ -262,8 +261,8 @@
             { "value": "none", "label": "No Icon" },
             { "value": "support", "label": "Support (Phone)" },
             { "value": "price_match", "label": "Price Match (Percent Tag)" },
-            { "value": "delivery", "label": "Delivery (Truck)" },
-            { "value": "pickup", "label": "Pickup (Box)" }
+            { "value": "delivery", "label": "Delivery (Custom Location Pin)" },
+            { "value": "pickup", "label": "Pickup (Custom Box)" }
           ],
           "default": "support"
         },
