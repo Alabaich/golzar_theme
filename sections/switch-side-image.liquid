@@ -87,11 +87,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Raleway'
-  , sans-serif;
-  font-size: {{ settings.button_font_size_desktop | default: 14 }}px;
-  font-weight: 500;
-  line-height: 1.2;
   align-self: flex-start;
 }
 
@@ -122,7 +117,6 @@
   text-align: {{ settings.mobile_text_align | default: 'left' }};
 } .iwts-section-{{ section.id }}
 .iwts__cta {
-  font-size: {{ settings.button_font_size_mobile | default: 14 }}px;
   align-self: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
 }
 }
