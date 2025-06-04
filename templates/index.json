@@ -155,7 +155,7 @@
             "icon_preset": "price_match",
             "icon_width": 52,
             "title": "Price match",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "description": "<p>Found it cheaper? We'll lower the price for you.</p>"
           }
         },
         "feature_item_VHeCta": {
@@ -164,7 +164,7 @@
             "icon_preset": "delivery",
             "icon_width": 52,
             "title": "Free delivery",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "description": "<p>We'll deliver your order for free and quickly.</p>"
           }
         },
         "feature_item_NVFfWx": {
@@ -173,7 +173,7 @@
             "icon_preset": "pickup",
             "icon_width": 52,
             "title": "Same day pick up",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "description": "<p>Pick up your order today at the store.</p>"
           }
         }
       },
