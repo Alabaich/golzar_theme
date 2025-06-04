@@ -25,7 +25,7 @@
   .iwts-section-{{ section.id }}
   .iwts__grid {
     display: flex;
-    align-items: {{ vertical_align | default: 'center' }};
+    align-items: flex-start;
     gap: var(--content-gap);
     flex-direction: {% if image_position == 'left' %}row-reverse{% else %}row{% endif %};
 }
@@ -38,6 +38,7 @@
   align-items: flex-start;
   gap: var(--text-elements-gap);
   min-width: 0;
+  padding: 5rem;
 }
 
 .iwts-section-{{ section.id }}
@@ -64,11 +65,6 @@
 
 .iwts-section-{{ section.id }}
 .iwts__subheading {
-  font-family: 'Raleway'
-  , sans-serif;
-  font-weight: 400;
-  font-size: {{ settings.subheading_font_size_desktop | default: 16 }}px;
-  line-height: 1.6;
   color: {{ settings.subheading_color | default: '#475467' }};
   margin: 0;
   text-align: left;
@@ -77,9 +73,6 @@
 .iwts-section-{{ section.id }}
 .iwts__subheading p {
   margin: 0;
-}
-.iwts-section-{{ section.id }}.iwts__subheading p:not(:last-child) {
-  margin-bottom: 1em;
 }
 
 .iwts-section-{{ section.id }}
@@ -99,23 +92,32 @@
 @media (max-width: 768px) {
   .iwts-section-{{ section.id }} .iwts__grid {
     flex-direction: {% if mobile_stack_order == 'image_first' %}column-reverse{% else %}column{% endif %};
-} .iwts-section-{{ section.id }}
-.iwts__text-content
-, .iwts-section-{{ section.id }}
-.iwts__image-container {
+}
+
+.iwts-section-{{ section.id }}
+.iwts__text-content,
+.iwts-section-{{ section.id }} .iwts__image-container {
   flex-basis: 100%;
   width: 100%;
-} .iwts-section-{{ section.id }}
+}
+
+.iwts-section-{{ section.id }}
 .iwts__text-content {
   align-items: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
-} .iwts-section-{{ section.id }}
+  padding: 2rem;
+}
+
+.iwts-section-{{ section.id }}
 .iwts__title {
   text-align: {{ settings.mobile_text_align | default: 'left' }};
-} .iwts-section-{{ section.id }}
+}
+
+.iwts-section-{{ section.id }}
 .iwts__subheading {
-  font-size: {{ settings.subheading_font_size_mobile | default: 15 }}px;
   text-align: {{ settings.mobile_text_align | default: 'left' }};
-} .iwts-section-{{ section.id }}
+}
+
+.iwts-section-{{ section.id }}
 .iwts__cta {
   align-self: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
 }
