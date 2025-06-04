@@ -3626,6 +3626,9 @@ details-disclosure > details {
 button.customButton, .customButton{
   border-radius: 30px;
   padding: 16px 24px;
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-transform: capitalize;
 } 
 
 button.blueButton, .blueButton{
