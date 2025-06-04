@@ -145,7 +145,7 @@
           "settings": {
             "icon_preset": "support",
             "icon_width": 52,
-            "title": "Acknowledged customer support",
+            "title": "Customer support",
             "description": "<p>Brief description of your benefit or feature.</p>"
           }
         },
@@ -709,7 +709,6 @@
         "title": "Request a free consultation and price estimate!",
         "button_text": "CONTACT US",
         "button_link": "shopify://pages/contact",
-        "show_button_arrow": true,
         "border_radius": 12,
         "text_column_width": 50,
         "image_position_desktop": "right",
@@ -719,7 +718,6 @@
         "image_fit": "cover",
         "image_position_mobile": "bottom",
         "image_min_height_mobile": 250,
-        "title_size": 32,
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
