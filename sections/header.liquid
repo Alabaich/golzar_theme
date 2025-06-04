@@ -100,6 +100,7 @@
 
 /* --- New golzar theme header start --- */
 
+
 .header__inline-menu .list-menu__item {
   position: relative;
 }
@@ -110,15 +111,36 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px);
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.4s linear;
   pointer-events: none;
-  will-change: opacity, transform, visibility;
+  will-change: opacity, transform;
   display: block !important;
   position: absolute;
-  z-index: 999;
-  min-width: 200px;
-  background: #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 220px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow: visible;
+  height: auto;
+  margin-top: 5px;
+}
+
+.header__inline-menu .list-menu__item > ul,
+.header__inline-menu .list-menu__item > .header-menu__submenu {
+  left: 0;
+  top: 100%;
+}
+
+.header__inline-menu .list-menu__item > .mega-menu__content {
+  width: 100%;
+  left: 0;
+  top: 100%;
+  padding: 25px;
+  box-sizing: border-box;
 }
 
 .header__inline-menu .list-menu__item:hover > ul,
@@ -134,19 +156,38 @@
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
-  transition-delay: 0.1s;
+  transition-delay: 0.05s;
 }
 
-.mega-menu__content {
-  width: 100%;
-  left: 0;
-  padding: 20px;
-  box-sizing: border-box;
+.header__inline-menu .list-menu__item .list-menu__item--link {
+  color: #333333;
+  padding: 8px 20px;
+  display: block;
+  transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-.header__inline-menu .list-menu__item > .mega-menu__content,
-.header__inline-menu .list-menu__item > .header-menu__submenu {
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+.header__inline-menu .list-menu__item .list-menu__item--link:hover {
+  color: #38739e;
+  background-color: #f8fafc;
+}
+
+@media screen and (max-width: 989px) {
+  .header__inline-menu .list-menu__item > ul,
+  .header__inline-menu .list-menu__item > .header-menu__submenu,
+  .header__inline-menu .list-menu__item > .mega-menu__content {
+    transition: none !important;
+    transform: none !important;
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__inline-menu .list-menu__item > ul,
+  .header__inline-menu .list-menu__item > .header-menu__submenu,
+  .header__inline-menu .list-menu__item > .mega-menu__content {
+    transition: none !important;
+  }
 }
 {%- endstyle -%}
 
