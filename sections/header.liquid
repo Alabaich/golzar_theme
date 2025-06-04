@@ -125,11 +125,24 @@
   .header__inline-menu .list-menu__item:focus-within > .mega-menu__content,
   .header__inline-menu .list-menu__item[open] > .mega-menu__content
   {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
     pointer-events: auto;
   }
+
+  .header__inline-menu .list-menu__item .header-menu__submenu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.header__inline-menu .list-menu__item:hover .header-menu__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
