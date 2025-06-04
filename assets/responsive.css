@@ -54,7 +54,7 @@
 
 @media (max-width: 1500px) {
   .header-menu-area-inn nav.header__inline-menu ul.list-menu {
-    column-gap: 20px;
+    column-gap: 70px;
   }
 }
 
