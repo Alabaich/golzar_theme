@@ -50,7 +50,6 @@
   .timeline-section-{{ section.id }}
   .timeline-header__title {
     display: block;
-    font-weight: 600;
     line-height: 1.1;
     color: var(--heading-title-color);
     margin: 0;
@@ -205,10 +204,6 @@
   }
 
   @media (max-width: 749px) {
-    .timeline-section-{{ section.id }} .timeline-header__title {
-      font-size: 36px;
-    }
-
     .timeline-section-{{ section.id }}
     .timeline-header__supertitle {
       font-size: {{ settings.supertitle_font_size | times: 0.9 | round }}px;

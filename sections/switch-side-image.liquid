@@ -57,7 +57,6 @@
 
 .iwts-section-{{ section.id }}
 .iwts__title {
-  line-height: 1.25;
   color: {{ settings.title_color | default: '#101828' }};
   text-align: left;
   margin: 0;
@@ -116,7 +115,6 @@
   align-items: {% if settings.mobile_text_align == 'center' %}center{% else %}flex-start{% endif %};
 } .iwts-section-{{ section.id }}
 .iwts__title {
-  font-size: {{ settings.title_font_size_mobile | default: 32 }}px;
   text-align: {{ settings.mobile_text_align | default: 'left' }};
 } .iwts-section-{{ section.id }}
 .iwts__subheading {
