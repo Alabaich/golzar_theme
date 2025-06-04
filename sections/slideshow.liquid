@@ -28,18 +28,24 @@
 <style>
   .section.shopify-section.section.banner-slideshow slideshow-component {
     padding: 0 5rem;
+    position: relative;
   }
+  
   slideshow-component {
     position: relative;
   }
 
-  .slideshow-navigation-wrapper {
+  .slideshow-controls-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     display: flex;
     gap: 1rem;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
-    margin-top: auto;
   }
 
   .slideshow__slide {
@@ -47,8 +53,7 @@
     overflow: hidden;
   }
 
-  .slideshow-navigation-wrapper .slider-button {
-    position: static;
+  .slideshow-controls-container .slider-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,11 +79,11 @@
     margin: 0;
   }
 
-  .slideshow-navigation-wrapper .slider-button:hover {
+  .slideshow-controls-container .slider-button:hover {
     border-color: white;
   }
 
-  .slideshow-navigation-wrapper .slider-button svg {
+  .slideshow-controls-container .slider-button svg {
     width: 12px;
     height: 12px;
     fill: white;
@@ -115,35 +120,13 @@
     min-height: 44px;
   }
 
-  .custom-discover-button span {
-    display: inline-block;
-  }
-
-  .custom-discover-button__icon {
-    width: 1.25em;
-    height: 1.25em;
-  }
-
-  a.custom-discover-button:hover,
-  a.custom-discover-button:focus {
-    background-color: #f0f0f0;
-    color: #002642 !important;
-    border-color: #b0b0b0;
-    text-decoration: none;
-  }
-
   @media screen and (max-width: 749px) {
     .section.shopify-section.section.banner-slideshow slideshow-component {
       padding: 0;
     }
-
-    .section.banner-slideshow slideshow-component .slideshow {
-      display: flex;
-      gap: 25px;
-    }
     
-    .slideshow-navigation-wrapper {
-      margin-top: 20px;
+    .slideshow-controls-container {
+      bottom: 20px;
     }
   }
 </style>
@@ -161,7 +144,6 @@
     aria-atomic="true"
     data-autoplay="{{ section.settings.auto_rotate }}"
     data-speed="{{ section.settings.change_slides_speed }}"
-    style="position: relative;"
   >
     {%- for block in section.blocks -%}
       <style>
@@ -258,46 +240,42 @@
                   </svg>
                 </a>
             {%- endif -%}
-            
-            {%- if section.blocks.size > 1 -%}
-              <div class="slideshow-navigation-wrapper">
-                <button
-                  class="slider-button slider-button--prev"
-                  name="previous"
-                  aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-                >
-                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
-                  </svg>
-                </button>
-                <button
-                  class="slider-button slider-button--next"
-                  name="next"
-                  aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-                >
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    role="presentation"
-                    class="icon icon-caret"
-                    viewBox="0 0 10 6"
-                    style="transform: rotate(270deg);"
-                  >
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
-                  </svg>
-                </button>
-              </div>
-            {%- endif -%}
           </div>
         </div>
       </div>
     {%- endfor -%}
   </div>
+  
+  {%- if section.blocks.size > 1 -%}
+    <div class="slideshow-controls-container">
+      <button
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+      >
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+        </svg>
+      </button>
+      <button
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          role="presentation"
+          class="icon icon-caret"
+          viewBox="0 0 10 6"
+          style="transform: rotate(270deg);"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+  {%- endif -%}
 </slideshow-component>
-
-{%- if request.design_mode -%}
-  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -307,9 +285,7 @@
       slideshowComponent.addEventListener('click', function (event) {
         const button = event.target.closest('.slider-button');
 
-        if (!button || !button.closest('.slideshow-navigation-wrapper')) {
-          return;
-        }
+        if (!button) return;
 
         event.preventDefault();
 
