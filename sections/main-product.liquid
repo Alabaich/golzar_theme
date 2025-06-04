@@ -649,7 +649,7 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {% if product.metafields.custom.call_for_availability == "true" %}
+                {% if product.metafields.custom.call_for_availability == true %}
                   <a href="tel:+1 (416) 700-4346">
                   Call for Availability
                   </a>
