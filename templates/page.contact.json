@@ -1,1 +1,71 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":36,"padding_bottom":36}},"contact_map_address_form_XyHFVK":{"type":"contact-map-address-form","settings":{"title":"Contact Us","title_color":"#7a7a7a","map_iframe":"<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d1440.1433333695074!2d-79.4987415!3d43.7876643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2s!4v1739231553791!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>","show_address":true,"address":"7250 Keele St #86, Vaughan ON L4K 1Z8, Canada","address_link":"https:\/\/maps.app.goo.gl\/Y4eTR1A5pHXCKq6s9","show_phone":true,"phone":"+1 (416) 7004346","show_email":true,"email":"info@bathroomsupplier.ca","title1":"Contact Us","title1_color":"#7a7a7a"}},"custom_overlay_img_text_HrJDCQ":{"type":"custom-overlay-img-text","disabled":true,"settings":{"bgcolor":"#002642","subtitle":"Need help?","subtitle_color":"#ffffff","title":"Request a free consultation and price estimate","title_color":"#ffffff","btn":"Contact Us","btn_color":"#ffffff","btn_link":"","image":"shopify:\/\/shop_images\/Logo-Banner-1-min.jpg"}}},"order":["main","contact_map_address_form_XyHFVK","custom_overlay_img_text_HrJDCQ"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_map_address_form_XyHFVK": {
+      "type": "contact-map-address-form",
+      "disabled": true,
+      "settings": {
+        "title": "Contact Us",
+        "title_color": "#7a7a7a",
+        "map_iframe": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1440.1433333695074!2d-79.4987415!3d43.7876643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2s!4v1739231553791!5m2!1sen!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "show_address": true,
+        "address": "7250 Keele St #86, Vaughan ON L4K 1Z8, Canada",
+        "address_link": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
+        "show_phone": true,
+        "phone": "+1 (416) 7004346",
+        "show_email": true,
+        "email": "info@bathroomsupplier.ca",
+        "title1": "Contact Us",
+        "title1_color": "#7a7a7a"
+      }
+    },
+    "custom_overlay_img_text_HrJDCQ": {
+      "type": "custom-overlay-img-text",
+      "disabled": true,
+      "settings": {
+        "bgcolor": "#002642",
+        "subtitle": "Need help?",
+        "subtitle_color": "#ffffff",
+        "title": "Request a free consultation and price estimate",
+        "title_color": "#ffffff",
+        "btn": "Contact Us",
+        "btn_color": "#ffffff",
+        "btn_link": ""
+      }
+    },
+    "contact_us_section_CHaWQp": {
+      "type": "contactUsSection",
+      "name": "Contact Us",
+      "settings": {
+        "contact_title": "Contact Us",
+        "map_latitude": "43.8031",
+        "map_longitude": "-79.3631",
+        "phone_number": "+1 (416) 700-3046",
+        "showroom_hours": "Mon - Sat: 10am - 6pm\nSun: By appointment",
+        "email": "info@bathroomsupplier.ca"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact_map_address_form_XyHFVK",
+    "custom_overlay_img_text_HrJDCQ",
+    "contact_us_section_CHaWQp"
+  ]
+}
