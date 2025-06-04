@@ -3645,7 +3645,7 @@ button.blueButton, .blueButton{
 button.blueButton:hover, .blueButton:hover{
   background: none;
   color: var(--darkBlue);
-  border: 1px solid var(--darkBlue)
+  border: 1px solid var(--darkBlue);
 }
 
 button.transparentButton, .transparentButton{
