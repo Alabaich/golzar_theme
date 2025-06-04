@@ -650,7 +650,7 @@
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
                 {% if product.metafields.custom.call_for_availability == true %}
-                  <a href="tel:+1 (416) 700-4346">
+                  <a href="tel:+1 (416) 700-4346" style="padding: 12px 24px; border-radius: 24px; background-color: --var(darkBlue); color: white; ">
                   Call for Availability
                   </a>
                   {%  else %}
