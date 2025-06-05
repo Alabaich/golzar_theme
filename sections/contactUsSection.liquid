@@ -1,4 +1,8 @@
-<div class="contact-us-main page-width">
+{%- liquid
+    assign section_id = 'contact-us-' | append: section.id
+-%}
+
+<div class="contact-us-main page-width" id="{{ section_id }}">
     <div class="contact-us-inn pageWidth">
         <div class="contact-us-content">
             <div class="contact-form-area">
@@ -49,8 +53,8 @@
                     </div>
                     <button type="submit" class="form-submit blueButton customButton">
                         Buy now
-                        <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="currentColor"/>
                         </svg>
                     </button>
                 </form>
@@ -365,6 +369,7 @@
 
     .form-input {
     padding: 0.75rem 1rem;
+    }
     }
 {% endstyle %}
 
