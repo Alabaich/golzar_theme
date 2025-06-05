@@ -1,305 +1,300 @@
 {%- liquid
-  assign section_id = 'feature-block-stats-' | append: section.id
-  assign text_alignment = section.settings.text_alignment
-  assign show_stats = false
-  if section.settings.stat1_number != blank or section.settings.stat1_text != blank or section.settings.stat2_number != blank or section.settings.stat2_text != blank
-    assign show_stats = true
-  endif
+    assign section_id = 'feature-block-stats-' | append: section.id
+    assign text_alignment = section.settings.text_alignment
+    assign show_stats = false
+    if section.settings.stat1_number != blank or section.settings.stat1_text != blank or section.settings.stat2_number != blank or section.settings.stat2_text != blank
+        assign show_stats = true
+    endif
 -%}
 
 <style>
-  #{{ section_id }} {
-    background-color: {{ section.settings.section_bg_color }};
-    color: {{ section.settings.text_color }};
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
+    #{{ section_id }} {
+        background-color: {{ section.settings.section_bg_color }};
+        color: {{ section.settings.text_color }};
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
 
-  #{{ section_id }} .feature-block-stats__container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-
-  #{{ section_id }} .feature-block-stats__text-column {
-    flex: 1 1 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #{{ section_id }} .feature-block-stats__heading {
-    font-size: {{ section.settings.heading_size }}px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: {{ section.settings.heading_color | default: section.settings.text_color }};
-    line-height: 1.2;
-  }
-
-  #{{ section_id }} .feature-block-stats__subheading {
-    font-size: {{ section.settings.subheading_size }}px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-  }
-
-  #{{ section_id }} .feature-block-stats__stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-  }
-
-  #{{ section_id }} .feature-block-stats__stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: {{ text_alignment | default: 'flex-start' }};
-  }
-   #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__stat-item {
-    align-items: flex-start;
-  }
-  #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__stat-item {
-    align-items: center;
-  }
-  #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__stat-item {
-    align-items: flex-end;
-  }
-
-  #{{ section_id }} .feature-block-stats__stat-number {
-    font-size: {{ section.settings.stat_number_size }}px;
-    font-weight: bold;
-    color: {{ section.settings.stat_number_color | default: section.settings.heading_color | default: section.settings.text_color }};
-    line-height: 1.1;
-  }
-
-  #{{ section_id }} .feature-block-stats__stat-text {
-    font-size: {{ section.settings.stat_text_size }}px;
-    color: {{ section.settings.stat_text_color | default: section.settings.text_color }};
-    margin-top: 5px;
-  }
-
-  #{{ section_id }} .feature-block-stats__image-column {
-    flex: 1 1 50%;
-    position: relative;
-    min-height: 300px;
-  }
-
-  #{{ section_id }} .feature-block-stats__image-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 60%;
-  }
-
-  #{{ section_id }} .feature-block-stats__image {
-    position: absolute;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  #{{ section_id }} .feature-block-stats__image--main {
-    width: 75%;
-    height: 90%;
-    top: 5%;
-    right: 0;
-    left: auto;
-    z-index: 1;
-  }
-
-  #{{ section_id }} .feature-block-stats__image--overlay {
-    width: 60%;
-    height: 65%;
-    top: 65%;
-    left: 5%;
-    right: auto;
-    z-index: 2;
-    border: 3px solid white;
-  }
-
-  #{{ section_id }} .feature-block-stats__button {
-    background-color: {{ section.settings.button_bg_color }};
-    color: {{ section.settings.button_text_color }};
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    display: inline-block;
-    border: 2px solid {{ section.settings.button_bg_color }};
-    cursor: pointer;
-    line-height: normal;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    margin-bottom: 20px;
-  }
-
-  #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__button {
-    align-self: flex-start;
-  }
-  #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__button {
-    align-self: center;
-  }
-  #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__button {
-    align-self: flex-end;
-  }
-
-  #{{ section_id }} .feature-block-stats__button:hover,
-  #{{ section_id }} .feature-block-stats__button:focus {
-    background-color: {{ section.settings.button_bg_hover_color | default: '#ffffff' }};
-    color: {{ section.settings.button_text_hover_color | default: '#0a2b4c' }};
-    border-color: {{ section.settings.button_border_hover_color | default: '#0a2b4c' }};
-    outline: none;
-  }
-
-  @media (max-width: 990px) {
     #{{ section_id }} .feature-block-stats__container {
-      flex-direction: column;
-      text-align: center;
-      gap: 0px;
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
     }
+
     #{{ section_id }} .feature-block-stats__text-column {
-      order: 2;
-      align-items: center;
-       text-align: center !important;
-    }
-     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__stat-item,
-     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__stat-item,
-     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__stat-item {
-        align-items: center;
-     }
+                          flex: 1 1 50%;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: flex-start;
+                      }
+
+    #{{ section_id }} .feature-block-stats__heading {
+                          font-size: {{ section.settings.heading_size }}px;
+                          margin-bottom: 15px;
+                          margin-top: 0;
+                          font-weight: 600;
+                          color: {{ section.settings.heading_color | default: section.settings.text_color }};
+                          line-height: 1.2;
+                      }
+
+    #{{ section_id }} .feature-block-stats__subheading {
+                          font-size: {{ section.settings.subheading_size }}px;
+                          margin-bottom: 30px;
+                          line-height: 1.6;
+                      }
+
+    #{{ section_id }} .feature-block-stats__stats {
+                          display: flex;
+                          gap: 30px;
+                          margin-top: 30px;
+                          flex-wrap: wrap;
+                      }
+
+    #{{ section_id }} .feature-block-stats__stat-item {
+                          display: flex;
+                          flex-direction: column;
+                          align-items: {{ text_alignment | default: 'flex-start' }};
+                      }
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__stat-item {
+                          align-items: flex-start;
+                      }
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__stat-item {
+                          align-items: center;
+                      }
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__stat-item {
+                          align-items: flex-end;
+                      }
+
+    #{{ section_id }} .feature-block-stats__stat-number {
+                          font-size: {{ section.settings.stat_number_size }}px;
+                          font-weight: bold;
+                          color: {{ section.settings.stat_number_color | default: section.settings.heading_color | default: section.settings.text_color }};
+                          line-height: 1.1;
+                      }
+
+    #{{ section_id }} .feature-block-stats__stat-text {
+                          font-size: {{ section.settings.stat_text_size }}px;
+                          color: {{ section.settings.stat_text_color | default: section.settings.text_color }};
+                          margin-top: 5px;
+                      }
 
     #{{ section_id }} .feature-block-stats__image-column {
-      order: 1;
-      width: 100%;
-      max-width: 500px;
-    }
+                          flex: 1 1 50%;
+                          position: relative;
+                          min-height: 300px;
+                          display: flex;
+                          align-items: flex-start;
+                      }
+
+    #{{ section_id }} .feature-block-stats__image-wrapper {
+                          position: relative;
+                          width: 100%;
+                          padding-top: 60%;
+                      }
+
+    #{{ section_id }} .feature-block-stats__image {
+                          position: absolute;
+                          object-fit: cover;
+                          border-radius: 10px;
+                          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                      }
+
     #{{ section_id }} .feature-block-stats__image--main {
+                          width: 75%;
+                          height: 90%;
+                          top: 0;
+                          right: 0;
+                          left: auto;
+                          z-index: 1;
+                      }
+
+    #{{ section_id }} .feature-block-stats__image--overlay {
+                          width: 60%;
+                          height: 65%;
+                          top: 50%;
+                          left: 5%;
+                          right: auto;
+                          z-index: 2;
+                          border: 3px solid white;
+                      }
+
+    #{{ section_id }} .feature-block-stats__button {
+                          cursor: pointer;
+                          font-size: 16px;
+                          font-weight: 600;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          gap: 0.5rem;
+                          margin-bottom: 20px;
+                      }
+    #{{ section_id }} .feature-block-stats__button:hover .arrow-icon {
+                          fill: #002642;
+                      }
+
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__button {
+                          align-self: flex-start;
+                      }
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__button {
+                          align-self: center;
+                      }
+    #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__button {
+                          align-self: flex-end;
+                      }
+
+    @media (max-width: 990px) {
+        #{{ section_id }} .feature-block-stats__container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+        #{{ section_id }} .feature-block-stats__text-column {
+        order: 2;
+        align-items: center;
+        text-align: center !important;
+    }
+        #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__stat-item,
+        #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__stat-item,
+        #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__stat-item {
+        align-items: center;
+    }
+
+        #{{ section_id }} .feature-block-stats__image-column {
+        order: 1;
+        width: 100%;
+        max-width: 500px;
+        align-items: center;
+    }
+        #{{ section_id }} .feature-block-stats__image--main {
         width: 80%;
         height: auto;
         max-height: 80%;
         left: 5%;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
+        transform: none;
         right: auto;
     }
-    #{{ section_id }} .feature-block-stats__image--overlay {
+        #{{ section_id }} .feature-block-stats__image--overlay {
         width: 60%;
         height: auto;
         max-height: 70%;
         right: 5%;
         left: auto;
-        top: 50%;
-        transform: translateY(-65%);
+        top: 40%;
+        transform: none;
     }
-     #{{ section_id }} .feature-block-stats__stats {
+        #{{ section_id }} .feature-block-stats__stats {
         justify-content: center;
-     }
-  }
+    }
+    }
 
-  @media (max-width: 749px) {
-    #{{ section_id }} .feature-block-stats__heading {
-      font-size: calc({{ section.settings.heading_size }}px * 0.8);
+    @media (max-width: 749px) {
+        #{{ section_id }} .feature-block-stats__heading {
+        font-size: calc({{ section.settings.heading_size }}px * 0.8);
     }
-    #{{ section_id }} .feature-block-stats__subheading {
-      font-size: calc({{ section.settings.subheading_size }}px * 0.9);
+        #{{ section_id }} .feature-block-stats__subheading {
+        font-size: calc({{ section.settings.subheading_size }}px * 0.9);
     }
-    #{{ section_id }} .feature-block-stats__stat-number {
+        #{{ section_id }} .feature-block-stats__stat-number {
         font-size: calc({{ section.settings.stat_number_size }}px * 0.85);
     }
-    #{{ section_id }} .feature-block-stats__image-wrapper {
-      padding-top: 70%;
+        #{{ section_id }} .feature-block-stats__image-wrapper {
+        padding-top: 70%;
     }
-  }
+    }
 </style>
 
-<div id="{{ section_id }}" class="feature-block-stats">
-  <div class="page-width">
-    <div class="feature-block-stats__container">
-      <div class="feature-block-stats__text-column" style="text-align: {{ section.settings.text_alignment }};">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="feature-block-stats__heading">{{ section.settings.heading | escape }}</h2>
-        {%- endif -%}
-        {%- if section.settings.subheading != blank -%}
-          <div class="feature-block-stats__subheading">{{ section.settings.subheading }}</div>
-        {%- endif -%}
-        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-          <a
-            href="{{ section.settings.button_link }}"
-            class="feature-block-stats__button"
-            title="{{ section.settings.button_label | escape }} - Перейти"
-          >
-            {{ section.settings.button_label | escape }}
-          </a>
-        {%- endif -%}
+<div id="{{ section_id }}" class="feature-block-stats pageWidth">
+    <div class="page-width">
+        <div class="feature-block-stats__container">
+            <div class="feature-block-stats__text-column" style="text-align: {{ section.settings.text_alignment }};">
+                {%- if section.settings.heading != blank -%}
+                    <h2 class="feature-block-stats__heading">{{ section.settings.heading | escape }}</h2>
+                {%- endif -%}
+                {%- if section.settings.subheading != blank -%}
+                    <div class="feature-block-stats__subheading">{{ section.settings.subheading }}</div>
+                {%- endif -%}
+                {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+                    <button
+                            class="feature-block-stats__button blueButton customButton"
+                            onclick="window.location.href='{{ section.settings.button_link }}';"
+                            title="{{ section.settings.button_label | escape }} - Перейти"
+                    >
+                        {{ section.settings.button_label | escape }}
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                {%- endif -%}
 
-        {%- if show_stats -%}
-          <div class="feature-block-stats__stats">
-            {%- if section.settings.stat1_number != blank or section.settings.stat1_text != blank -%}
-              <div class="feature-block-stats__stat-item">
-                {%- if section.settings.stat1_number != blank -%}
-                  <span class="feature-block-stats__stat-number">{{ section.settings.stat1_number | escape }}</span>
+                {%- if show_stats -%}
+                    <div class="feature-block-stats__stats">
+                        {%- if section.settings.stat1_number != blank or section.settings.stat1_text != blank -%}
+                            <div class="feature-block-stats__stat-item">
+                                {%- if section.settings.stat1_number != blank -%}
+                                    <span class="feature-block-stats__stat-number">{{ section.settings.stat1_number | escape }}</span>
+                                {%- endif -%}
+                                {%- if section.settings.stat1_text != blank -%}
+                                    <span class="feature-block-stats__stat-text">{{ section.settings.stat1_text | escape }}</span>
+                                {%- endif -%}
+                            </div>
+                        {%- endif -%}
+                        {%- if section.settings.stat2_number != blank or section.settings.stat2_text != blank -%}
+                            <div class="feature-block-stats__stat-item">
+                                {%- if section.settings.stat2_number != blank -%}
+                                    <span class="feature-block-stats__stat-number">{{ section.settings.stat2_number | escape }}</span>
+                                {%- endif -%}
+                                {%- if section.settings.stat2_text != blank -%}
+                                    <span class="feature-block-stats__stat-text">{{ section.settings.stat2_text | escape }}</span>
+                                {%- endif -%}
+                            </div>
+                        {%- endif -%}
+                    </div>
                 {%- endif -%}
-                {%- if section.settings.stat1_text != blank -%}
-                  <span class="feature-block-stats__stat-text">{{ section.settings.stat1_text | escape }}</span>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-            {%- if section.settings.stat2_number != blank or section.settings.stat2_text != blank -%}
-              <div class="feature-block-stats__stat-item">
-                {%- if section.settings.stat2_number != blank -%}
-                  <span class="feature-block-stats__stat-number">{{ section.settings.stat2_number | escape }}</span>
-                {%- endif -%}
-                {%- if section.settings.stat2_text != blank -%}
-                  <span class="feature-block-stats__stat-text">{{ section.settings.stat2_text | escape }}</span>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      </div>
+            </div>
 
-      <div class="feature-block-stats__image-column">
-        {%- if section.settings.image_main != blank or section.settings.image_overlay != blank -%}
-            <div class="feature-block-stats__image-wrapper">
-                {%- if section.settings.image_main != blank -%}
-                <img
-                    src="{{ section.settings.image_main | image_url: width: 800 }}"
-                    alt="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
-                    title="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
-                    class="feature-block-stats__image feature-block-stats__image--main"
-                    loading="lazy"
-                    width="{{ section.settings.image_main.width }}"
-                    height="{{ section.settings.image_main.height }}"
-                >
+            <div class="feature-block-stats__image-column">
+                {%- if section.settings.image_main != blank or section.settings.image_overlay != blank -%}
+                    <div class="feature-block-stats__image-wrapper">
+                        {%- if section.settings.image_main != blank -%}
+                            <img
+                                    src="{{ section.settings.image_main | image_url: width: 800 }}"
+                                    alt="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
+                                    title="{{ section.settings.image_main.alt | default: section.settings.heading | escape }}"
+                                    class="feature-block-stats__image feature-block-stats__image--main"
+                                    loading="lazy"
+                                    width="{{ section.settings.image_main.width }}"
+                                    height="{{ section.settings.image_main.height }}"
+                            >
+                        {%- else -%}
+                            {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--main placeholder' }}
+                        {%- endif -%}
+
+                        {%- if section.settings.image_overlay != blank -%}
+                            <img
+                                    src="{{ section.settings.image_overlay | image_url: width: 600 }}"
+                                    alt="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
+                                    title="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
+                                    class="feature-block-stats__image feature-block-stats__image--overlay"
+                                    loading="lazy"
+                                    width="{{ section.settings.image_overlay.width }}"
+                                    height="{{ section.settings.image_overlay.height }}"
+                            >
+                        {%- endif -%}
+                    </div>
                 {%- else -%}
-                    {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--main placeholder' }}
-                {%- endif -%}
-
-                {%- if section.settings.image_overlay != blank -%}
-                <img
-                    src="{{ section.settings.image_overlay | image_url: width: 600 }}"
-                    alt="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
-                    title="{{ section.settings.image_overlay.alt | default: 'Дополнительное изображение к ' | append: section.settings.heading | escape }}"
-                    class="feature-block-stats__image feature-block-stats__image--overlay"
-                    loading="lazy"
-                    width="{{ section.settings.image_overlay.width }}"
-                    height="{{ section.settings.image_overlay.height }}"
-                >
+                    <div class="feature-block-stats__image-wrapper">
+                        {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--main placeholder' }}
+                        {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--overlay placeholder' }}
+                    </div>
                 {%- endif -%}
             </div>
-        {%- else -%}
-            <div class="feature-block-stats__image-wrapper">
-                {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--main placeholder' }}
-                {{ 'image' | placeholder_svg_tag: 'feature-block-stats__image feature-block-stats__image--overlay placeholder' }}
-            </div>
-        {%- endif -%}
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% schema %}
@@ -447,34 +442,34 @@
       "default": "Transaction Completed"
     },
     {
-        "type": "range",
-        "id": "stat_number_size",
-        "min": 16,
-        "max": 48,
-        "step": 1,
-        "unit": "px",
-        "label": "Stat Number Font Size",
-        "default": 30
+      "type": "range",
+      "id": "stat_number_size",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Stat Number Font Size",
+      "default": 30
     },
     {
-        "type": "color",
-        "id": "stat_number_color",
-        "label": "Stat Number Color"
+      "type": "color",
+      "id": "stat_number_color",
+      "label": "Stat Number Color"
     },
     {
-        "type": "range",
-        "id": "stat_text_size",
-        "min": 10,
-        "max": 20,
-        "step": 1,
-        "unit": "px",
-        "label": "Stat Text Font Size",
-        "default": 14
+      "type": "range",
+      "id": "stat_text_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Stat Text Font Size",
+      "default": 14
     },
     {
-        "type": "color",
-        "id": "stat_text_color",
-        "label": "Stat Text Color"
+      "type": "color",
+      "id": "stat_text_color",
+      "label": "Stat Text Color"
     },
     {
       "type": "header",

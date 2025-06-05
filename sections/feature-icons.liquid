@@ -1,0 +1,332 @@
+<style>
+  .feature-icons__section-title {
+    margin: 0;
+  }
+
+  .feature-icons__grid {
+    display: grid;
+    gap: var(--grid-gap, 25px);
+  }
+
+  .feature-icons--1-columns {
+    grid-template-columns: 1fr;
+  }
+  .feature-icons--2-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-icons--3-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feature-icons--4-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature-icons__item {
+    display: flex;
+    gap: 15px;
+    position: relative;
+  }
+
+  .feature-icons__item--align-left {
+    align-items: center;
+    text-align: left;
+  }
+
+  .feature-icons__item--align-center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .feature-icons__icon-wrapper {
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  .feature-icons__icon-wrapper svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .feature-icons__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap:  5px;
+  }
+
+  .feature-icons__item-title {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .feature-icons__item-description {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .feature-icons__item-description p {
+    margin: 0;
+    color: #757575;
+    font-size: 0.875em;
+  }
+
+  .feature-icons__grid .feature-icons__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: calc(-1 * var(--grid-gap, 25px) / 2 - 0.5px);
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: #d1d1d1;
+  }
+
+  .feature-icons__item--align-center .feature-icons__content {
+    gap: 4px;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    .feature-icons--3-columns,
+    .feature-icons--4-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .feature-icons--2-columns,
+    .feature-icons--3-columns,
+    .feature-icons--4-columns {
+      grid-template-columns: 1fr;
+    }
+    .feature-icons__grid .feature-icons__item:not(:last-child)::after {
+      display: none;
+    }
+  }
+</style>
+
+<div class="page-width pageWidth feature-icons-section color-{{ section.settings.color_scheme }} gradient">
+  <div>
+    {%- if section.settings.title != blank -%}
+      <h2
+        class="feature-icons__section-title title {{ section.settings.heading_size }}"
+        style="text-align: {{ section.settings.heading_alignment }};"
+        title="{{ section.settings.title | escape }}">
+        {%- if section.settings.heading_alignment == 'left' -%}
+          <span class="visually-hidden" title="{{ section.settings.title | escape }}">{{ section.settings.title | escape }}</span>
+        {%- endif -%}
+        {{ section.settings.title | escape }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="feature-icons__grid feature-icons--{{ section.settings.columns_desktop }}-columns" style="--grid-gap: {{ section.settings.grid_gap }}px;">
+        {%- for block in section.blocks -%}
+          <div class="feature-icons__item feature-icons__item--align-{{ section.settings.content_alignment }}" {{ block.shopify_attributes }}>
+            {%- assign selected_icon = block.settings.icon_preset -%}
+            {%- if selected_icon != 'none' and selected_icon != blank -%}
+              <div class="feature-icons__icon-wrapper" style="width: {{ block.settings.icon_width }}px; height: {{ block.settings.icon_width }}px;">
+                {%- assign icon_stroke_width = 1 -%}
+                {%- case selected_icon -%}
+                  {%- when 'support' -%}
+                    <svg viewBox="-4.8 -4.8 57.60 57.60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                      <g transform="translate(24 24) scale(0.9) translate(-24 -24)">
+                        <path d="m40.7061,30.2742c-2.117-.2613-4.219-.6316-6.2978-1.1096-1.0322-.345-2.1697-.1251-2.9989.5798-.5298.5398-2.0593,2.0493-3.6487,3.6087-5.6948-2.7994-10.3003-7.4085-13.0954-13.1054,1.5495-1.5894,2.9989-3.1089,3.5887-3.6387.7049-.8293.9248-1.9667.5798-2.9989-.4786-2.082-.849-4.1874-1.1096-6.3078-.1136-1.0983-1.096-1.8966-2.1943-1.783-.0351.0036-.07.0082-.1048.0137H6.908c-.7257.0655-1.2993.6433-1.3595,1.3695-.5498,7.6873,3.7387,15.9144,4.6084,17.4938h0v.06l.12.2299h0c3.1132,5.3995,7.5959,9.8822,12.9954,12.9954h0l.4398.2499h0c1.9993,1.0596,9.9465,5.0582,17.3739,4.5084.734-.0509,1.3226-.6268,1.3895-1.3595v-8.507c.1715-1.0908-.5738-2.1141-1.6645-2.2855-.0348-.0055-.0698-.01-.1048-.0137Z"></path>
+                      </g>
+                    </svg>
+                  {%- when 'price_match' -%}
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                      <g transform="translate(24 24) scale(0.7) translate(-24 -24)">
+                        <circle cx="18.4386" cy="17.0483" r="4.171"></circle>
+                        <circle cx="29.5614" cy="30.9517" r="4.171"></circle>
+                        <line x1="16.7663" y1="35.1227" x2="31.2258" y2="12.8773"></line>
+                        <circle cx="24" cy="24" r="21.5"></circle>
+                      </g>
+                    </svg>
+                  {%- when 'delivery' -%}
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                      <g transform="translate(24 24) scale(0.9) translate(-24 -24)">
+                        <path d="M24,13.2639l7.2882,4.2092L24,21.6823l-7.2882-4.2092Z"></path>
+                        <path d="M16.7118,17.4731v8.4183L24,30.1006l7.2882-4.2092V17.4731"></path>
+                        <path d="M24,30.1006V21.6823"></path>
+                        <path d="M40.9047,21.4047A16.9047,16.9047,0,1,0,17.5162,37.0161L24,43.5l6.4838-6.4839A16.9058,16.9058,0,0,0,40.9047,21.4047Z"></path>
+                      </g>
+                    </svg>
+                  {%- when 'pickup' -%}
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#002642" stroke-width="{{ icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="8.339 23.276 8.339 34.043 23.993 36.984 23.993 13.519"></polyline>
+                        <polyline points="39.562 23.561 39.562 33.855 23.993 36.984"></polyline>
+                        <path d="M28.7747,22.075l13.3865,1.8439a1.1763,1.1763,0,0,0,1.2355-1.643l-3.8348-8.6315-15.5691-2.628L8.3386,13.77,4.6114,21.7856a1.1764,1.1764,0,0,0,1.1482,1.67l13.3385-.927a1.47,1.47,0,0,0,1.24-.8648l3.6551-8.1441,3.6531,7.7276A1.47,1.47,0,0,0,28.7747,22.075Z"></path>
+                        <line x1="10.904" y1="30.6639" x2="13.8449" y2="30.9768"></line>
+                    </svg>
+                {%- endcase -%}
+              </div>
+            {%- endif -%}
+            <div class="feature-icons__content">
+              {%- if block.settings.title != blank -%}
+                <h5 class="feature-icons__item-title" title="{{ block.settings.title | escape }}">{{ block.settings.title | escape }}</h5>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="feature-icons__item-description rte">
+                  <p class="bodyText" title="{{ block.settings.description | escape }}">{{ block.settings.description }}</p>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature Icons",
+  "tag": "section",
+  "class": "shopify-section--feature-icons",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Our Features"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Section heading size",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Section heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment in item",
+      "options": [
+        { "value": "left", "label": "Left (icon on left)" },
+        { "value": "center", "label": "Center (icon on top)" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature item",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_preset",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "No Icon" },
+            { "value": "support", "label": "Support (Custom Phone)" },
+            { "value": "price_match", "label": "Price Match (Custom Percent)" },
+            { "value": "delivery", "label": "Delivery (Custom Location Pin)" },
+            { "value": "pickup", "label": "Pickup (Custom Box)" }
+          ],
+          "default": "support"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Icon size",
+          "default": 48
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Item title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Item description",
+          "default": "<p>Brief description of your benefit or feature.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Icons",
+      "blocks": [
+        {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,40 +1,27 @@
 <style>
-  .image-gallery-outer-wrapper-{{ section.id }} {
-    padding: 20px 0;
-    font-family: 'Raleway'
-    , sans-serif;
-  }
-
   .image-gallery-rows-content-{{ section.id }} {
-    --image-gap: {{ section.settings.gap_size }}px;
+    --image-gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .gallery-header-{{ section.id }} {
     text-align: left;
-    margin-bottom: 40px;
   }
 
   .gallery-title-{{ section.id }} {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 1.2;
     color: #151515;
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
     text-align: left;
   }
 
   .gallery-subtitle-{{ section.id }} {
-    font-family: 'Raleway'
-    , sans-serif;
     font-weight: 400;
-    font-size: 16px;
     line-height: 1.6;
     letter-spacing: -0.01em;
     color: #151515;
-    margin: 0 auto;
+    margin: 0;
     max-width: 600px;
   }
   .gallery-subtitle-{{ section.id }}
@@ -50,13 +37,13 @@
   .image-row-{{ section.id }} {
     display: flex;
     gap: var(--image-gap);
-    margin-bottom: var(--image-gap);
     align-items: stretch;
   }
 
   .image-container-{{ section.id }} {
     position: relative;
     overflow: hidden;
+    max-height: 240px;
   }
 
   .image-container-{{ section.id }}
@@ -66,6 +53,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 12px;
   }
 
   .image-container-{{ section.id }} .item-large {
@@ -111,7 +99,7 @@
 </style>
 
 <div class="image-gallery-outer-wrapper-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
 
       <div class="gallery-header-{{ section.id }}">
@@ -296,10 +284,10 @@
         "id": "gap_size",
         "min": 0,
         "max": 30,
-        "step": 2,
+        "step": 1,
         "unit": "px",
         "label": "Gap between images",
-        "default": 10
+        "default": 25
       }
     ],
     "presets": [

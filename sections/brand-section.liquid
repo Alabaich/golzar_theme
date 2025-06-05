@@ -9,16 +9,7 @@
 
 {%- style -%}
   .brand-hero-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top | default: 60 }}px;
-    --section-padding-bottom: {{ settings.padding_bottom | default: 60 }}px;
-    --content-gap: {{ settings.content_gap | default: 30 }}px;
-    --header-bottom-margin: {{ settings.header_bottom_margin | default: 40 }}px;
-
     background-color: #FFFFFF;
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway'
-    , sans-serif;
   }
 
   .brand-hero-section-{{ section.id }}
@@ -27,8 +18,14 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: var(--content-gap);
-    margin-bottom: var(--header-bottom-margin);
+    gap: 25px;
+  }
+
+  .brand-hero-section-{{ section.id }}
+  .brandHeroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .brand-hero-section-{{ section.id }}
@@ -39,10 +36,6 @@
 
   .brand-hero-section-{{ section.id }}
   .brand-hero__title {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 600;
-    font-size: 52px;
     line-height: 1.25;
     color: #101828;
     text-align: left;
@@ -58,51 +51,32 @@
     min-width: 260px;
     max-width: 320px;
     text-align: right;
-    padding-top: 3px;
+    gap: 25px;
   }
 
   .brand-hero-section-{{ section.id }}
   .brand-hero__subtitle {
-    font-family: 'Raleway'
-    , sans-serif;
-    font-weight: 400;
-    font-size: 14px;
     line-height: 1.6;
     color: #475467;
     margin: 0;
   }
 
   .brand-hero-section-{{ section.id }}
+  .brand-hero__subtitle p {
+    margin: 0;
+  }
+
+  .brand-hero-section-{{ section.id }}
   .brand-hero__cta {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #072A4A;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: 'Raleway'
-    , sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: opacity 0.3s ease
-    , transform 0.3s ease;
     align-self: flex-end;
     line-height: 1.2;
-    border: none;
     cursor: pointer;
-    margin-top: 15px;
   }
   .brand-hero-section-{{ section.id }}
   .brand-hero__cta .arrow {
     margin-left: 8px;
     display: inline-block;
-  }
-
-  .brand-hero-section-{{ section.id }}.brand-hero__cta:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
   }
 
   .brand-hero-section-{{ section.id }}
@@ -113,10 +87,10 @@
   .brand-hero-section-{{ section.id }}
   .brand-hero__image {
     width: 100%;
-    height: auto;
     border-radius: 20px;
     object-fit: cover;
     display: block;
+    max-height: 500px;
   }
 
   @media (max-width: 768px) {
@@ -142,41 +116,37 @@
     .brand-hero-section-{{ section.id }}
     .brand-hero__cta {
       align-self: {{ settings.mobile_button_align | default: 'flex-start' }};
-      margin-top: 15px;
+    }
+
+    .brand-hero-section-{{ section.id }} .brand-hero__title {
+      line-height: 1;
     }
 
     .brand-hero-section-{{ section.id }}
-    .brand-hero__title {
-      font-size: 36px;
-    }
-
-    .brand-hero-section-{{ section.id }}
-    .brand-hero__subtitle {
-      font-size: 13px;
-    }
-
-    .brand-hero-section-{{ section.id }}
-    .brand-hero__cta {
-      font-size: 13px;
-      padding: 9px 18px;
-    }
+    .brand-hero__image {
+      height: 250px;
+    };
   }
 {%- endstyle -%}
 
-<div class="brand-hero-section-{{ section.id }}">
-  <div class="page-width">
+<div class="brand-hero-section-{{ section.id }} page-width pageWidth">
+  <div class="brandHeroContainer">
     <div class="brand-hero__header">
       <div class="brand-hero__title-wrapper">
         {%- if brand_title != blank -%}
-          <h1 class="brand-hero__title">{{ brand_title | newline_to_br }}</h1>
+          <h2 class="brand-hero__title" title="{{ brand_title | escape }}">{{ brand_title | newline_to_br }}</h2>
         {%- endif -%}
       </div>
       <div class="brand-hero__cta-wrapper">
         {%- if brand_subtitle != blank -%}
-          <p class="brand-hero__subtitle">{{ brand_subtitle }}</p>
+          <div class="brand-hero__subtitle bodyText" title="{{ brand_subtitle | strip_html | escape }}">{{ brand_subtitle }}</div>
         {%- endif -%}
         {%- if button_text != blank and brand_link != blank -%}
-          <a href="{{ brand_link }}" class="brand-hero__cta">
+          <a
+            href="{{ brand_link }}"
+            class="brand-hero__cta customButton blueButton"
+            title="{{ button_text | escape }}"
+            aria-label="{{ button_text | escape }}">
             {{ button_text | escape }}
             {%- if settings.show_button_arrow -%}
               <span class="arrow">&gt;</span>
@@ -248,48 +218,6 @@
         "id": "show_onboarding_image",
         "label": "Show placeholder if no image",
         "default": true
-      }, {
-        "type": "header",
-        "content": "Layout & Spacing"
-      }, {
-        "type": "range",
-        "id": "content_gap",
-        "label": "Gap between heading and CTA columns (Desktop)",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "default": 30
-      }, {
-        "type": "range",
-        "id": "header_bottom_margin",
-        "label": "Space below header/CTA block",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "default": 40
-      }, {
-        "type": "header",
-        "content": "Section Padding"
-      }, {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 150,
-        "step": 5,
-        "unit": "px",
-        "label": "Top Padding",
-        "default": 60
-      }, {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 150,
-        "step": 5,
-        "unit": "px",
-        "label": "Bottom Padding",
-        "default": 60
       }, {
         "type": "header",
         "content": "Mobile Layout"

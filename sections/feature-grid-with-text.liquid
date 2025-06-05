@@ -5,62 +5,36 @@
 
 {%- style -%}
   .feature-grid-section-{{ section.id }} {
-    --section-bg-color: {{ section.settings.section_bg_color | default: '#FFFFFF' }};
     --card-bg-color: {{ section.settings.card_bg_color | default: '#EBEEEF' }};
     --card-border-color: {{ section.settings.card_border_color | default: '#EBEEEF' }};
     --card-border-radius: {{ section.settings.card_border_radius | default: 12 }}px;
     --item-title-color: {{ section.settings.item_title_color | default: '#212529' }};
     --item-description-color: {{ section.settings.item_description_color | default: '#495057' }};
     --item-title-size: {{ section.settings.item_title_size | default: 20 }}px;
-    
     --icon-circle-bg-color: {{ section.settings.icon_circle_bg_color | default: '#E0E0E0' }};
     --icon-circle-bg-hover-color: {{ section.settings.icon_circle_bg_hover_color | default: section.settings.item_title_color | default: '#212529' }};
     --icon-arrow-color: {{ section.settings.icon_arrow_color | default: '#333333' }};
     --icon-arrow-hover-color: {{ section.settings.icon_arrow_hover_color | default: '#FFFFFF' }};
-
     --block-number-color: {{ section.settings.block_number_color | default: '#6B7280' }};
-
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-color: var(--section-bg-color);
-    font-family: 'Raleway', sans-serif;
   }
-
-  .feature-grid-section-{{ section.id }} .page-width {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-   @media screen and (min-width: 750px) {
-    .feature-grid-section-{{ section.id }} .page-width {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
 
   .feature-grid-section-{{ section.id }} .feature-grid__header {
-    margin-bottom: 40px;
     text-align: left;
   }
 
+    .feature-grid-section-{{ section.id }}
+    .pageWidth {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
   .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 50px; 
-    line-height: 1.2;
     color: #151515; 
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
   }
 
   .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
     color: #151515; 
     margin-top: 0;
     margin-bottom: 0;
@@ -79,19 +53,7 @@
   @media screen and (min-width: 750px) {
     .feature-grid-section-{{ section.id }} .feature-grid__list {
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-    .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-      font-size: 50px;
-    }
-  }
-
-  @media screen and (max-width: 749px) {
-    .feature-grid-section-{{ section.id }} .feature-grid__main-heading {
-      font-size: 32px;
-    }
-    .feature-grid-section-{{ section.id }} .feature-grid__main-subtitle {
-      font-size: 15px;
+      gap: 25px;
     }
   }
 
@@ -130,6 +92,9 @@
   .feature-grid-section-{{ section.id }} .feature-item__text-content {
     flex-grow: 1;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__number {
@@ -137,35 +102,27 @@
     font-size: 14px;
     font-weight: 700;
     color: var(--block-number-color);
-    margin-bottom: 6px;
     line-height: 1;
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__title {
-    font-size: var(--item-title-size);
-    font-weight: 600;
     color: var(--item-title-color);
-    margin-top: 0;
-    margin-bottom: 8px;
-    line-height: 1.3;
-    font-family: 'Raleway', sans-serif;
+    margin: 0;
   }
 
   .feature-grid-section-{{ section.id }} .feature-item__description {
-    font-size: 14px;
     color: var(--item-description-color);
     line-height: 1.6;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
   }
-   .feature-grid-section-{{ section.id }} .feature-item__description p {
-      margin-top:0;
-      margin-bottom: 0.5em;
-   }
-   .feature-grid-section-{{ section.id }} .feature-item__description p:last-child {
+    .feature-grid-section-{{ section.id }} .feature-item__description p {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 300;
+  }
+    .feature-grid-section-{{ section.id }} .feature-item__description p:last-child {
       margin-bottom: 0;
-   }
-
+  }
 
   .feature-grid-section-{{ section.id }} .feature-item__icon-wrapper {
     width: 40px;
@@ -198,7 +155,7 @@
 {%- endstyle -%}
 
 <div class="feature-grid-section-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="feature-grid__header">
       {% if main_heading != blank %}
         <h2 class="feature-grid__main-heading">{{ main_heading }}</h2>
@@ -222,10 +179,10 @@
                       <span class="feature-item__number">{{ formatted_number }}</span>
                     {%- endif -%}
                     {% if block.settings.item_title != blank %}
-                      <h3 class="feature-item__title">{{ block.settings.item_title }}</h3>
+                      <h3 class="feature-item__title" title="{{ block.settings.item_title | escape }}">{{ block.settings.item_title }}</h3>
                     {% endif %}
                     {% if block.settings.item_description != blank %}
-                      <div class="feature-item__description">{{ block.settings.item_description }}</div>
+                      <div class="feature-item__description bodyText" title="{{ block.settings.item_description | escape }}">{{ block.settings.item_description }}</div>
                     {% endif %}
                   </div>
                   <span class="feature-item__icon-wrapper">

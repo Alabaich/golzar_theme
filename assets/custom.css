@@ -131,6 +131,7 @@ a.btn.btn-primary:hover,
   text-underline-offset: initial;
   text-decoration: none;
   transition: all ease 0.5s;
+  transition: font-weight 0.3s ease, color 0.3s ease;
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li a:hover,
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li a span:hover,
@@ -140,13 +141,13 @@ a.btn.btn-primary:hover,
   ul.list-menu li
   summary.header__menu-item
   .header__active-menu-item {
-  color: #d3b574;
+  /* color: #d3b574; */
 }
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li * {
   color: #002642;
   fill: #002642;
   letter-spacing: 0px;
-  font-size: 16px;
+  font-size: 1em;
   text-decoration: none;
 }
 .header-menu-area-inn nav.header__inline-menu
@@ -502,6 +503,7 @@ section.shopify-section.section.banner-slideshow
   width: 100%;
   height: 100%;
   content: "";
+  top: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
 section.shopify-section.section.custm-collection-discount {
@@ -1134,7 +1136,7 @@ section.shopify-section.section.wall-mount div.banner .banner__content::after {
   nav.header__inline-menu
   ul.header__submenu.list-menu
   li .list-menu__item--active {
-  color: #d3b574;
+  /* color: #d3b574; */
 }
 .slider_actions .slide_a_num p::first-letter {
   font-size: 55px;
@@ -2302,7 +2304,7 @@ section.shopify-section.section.you_may_like
 .product .product-form__buttons button.product-form__submit::after {
   display: none;
 }
-.header-menu-area-inn
+/* .header-menu-area-inn
   nav.header__inline-menu
   ul.list-menu li
   summary.header__menu-item:hover
@@ -2314,7 +2316,7 @@ section.shopify-section.section.you_may_like
   svg path {
   color: #d3b574;
   fill: #d3b574;
-}
+} */
 .yrm-btn-wrapper span.yrm-toggle-expand {
   width: 100px;
   height: 32px;
@@ -3902,10 +3904,10 @@ body .catalogues-banner .banner {
   font-weight: 400;
   line-height: 26px;
 }
-.about-us main#MainContent .page-width {
+/* .about-us main#MainContent .page-width {
   max-width: 1140px;
   padding: 0 10px;
-}
+} */
 .content-only-sec-main {
   padding: 10px 0 0;
 }

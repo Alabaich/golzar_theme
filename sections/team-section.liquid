@@ -5,108 +5,89 @@
 
 {%- style -%}
   .team-section-{{ section.id }} {
-    --section-padding-top: {{ settings.padding_top }}px;
-    --section-padding-bottom: {{ settings.padding_bottom }}px;
     --section-background-color: {{ settings.section_bg_color }};
     --heading-color: {{ settings.text_color_heading }};
     --name-color: {{ settings.text_color_name }};
     --role-color: {{ settings.text_color_role }};
     --description-color: {{ settings.text_color_description }};
     --image-border-radius: {{ settings.image_border_radius }}px;
-    --grid-gap: 30px;
 
     background-color: var(--section-background-color);
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
-    font-family: 'Raleway', sans-serif;
   }
 
-  .team-section-{{ section.id }} .page-width {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+  .team-section-{{ section.id }}
+  .pageWidth {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
-  @media (min-width: 750px) {
-    .team-section-{{ section.id }} .page-width {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
-  .team-section-{{ section.id }} .section-header {
-    margin-bottom: 50px;
+  .team-section-{{ section.id }}
+  .section-header {
     text-align: {{ settings.header_align }};
   }
 
-  .team-section-{{ section.id }} .section-header__title {
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 1.2;
+  .team-section-{{ section.id }}
+  .section-header__title {
     color: #151515;
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
   }
 
-  .team-section-{{ section.id }} .section-header__subtitle {
+  .team-section-{{ section.id }}
+  .section-header__subtitle {
     font-weight: 400;
-    font-size: 16px;
     line-height: 1.6;
     letter-spacing: -0.01em;
     color: #151515;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
     max-width: 600px;
     {% if settings.header_align == 'center' %}
       margin-left: auto;
       margin-right: auto;
     {% endif %}
   }
-  
-  @media screen and (max-width: 749px) {
-    .team-section-{{ section.id }} .section-header__title {
-      font-size: 32px;
-    }
-    .team-section-{{ section.id }} .section-header__subtitle {
-      font-size: 15px;
-    }
-  }
 
-  .team-section-{{ section.id }} .team-members-grid {
+
+  .team-section-{{ section.id }}
+  .team-members-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: var(--grid-gap);
+    gap: 25px;
   }
 
   @media (min-width: 550px) {
     .team-section-{{ section.id }} .team-members-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
     }
   }
 
   @media (min-width: 990px) {
     .team-section-{{ section.id }} .team-members-grid {
       grid-template-columns: repeat({{ settings.columns_desktop | default: 4 }}, 1fr);
+      gap: 25px;
     }
   }
 
-  .team-section-{{ section.id }} .team-member-item {
+  .team-section-{{ section.id }}
+  .team-member-item {
     display: flex;
     flex-direction: column;
     text-align: {{ settings.member_text_align | default: 'left' }};
   }
 
-  .team-section-{{ section.id }} .team-member__image-wrapper {
+  .team-section-{{ section.id }}
+  .team-member__image-wrapper {
     width: 100%;
     aspect-ratio: {{ settings.image_aspect_ratio | default: '4/3' }};
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: var(--image-border-radius);
     background-color: #f0f0f0;
   }
 
-  .team-section-{{ section.id }} .team-member__image-wrapper img {
+  .team-section-{{ section.id }}
+  .team-member__image-wrapper img {
     display: block;
     width: 100%;
     height: 100%;
@@ -114,38 +95,51 @@
     border-radius: var(--image-border-radius);
   }
 
+  .team-section-{{ section.id }} .team-member__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .team-section-{{ section.id }} .team-member__name {
-    font-size: 18px;
+    font-size: 1.125em;
     font-weight: 600;
     color: var(--name-color);
-    margin: 0 0 5px 0;
     text-transform: uppercase;
-  }
-
-  .team-section-{{ section.id }} .team-member__role {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--role-color);
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-  }
-
-  .team-section-{{ section.id }} .team-member__description {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--description-color);
     margin: 0;
-    line-height: 1.6;
   }
 
-  .team-section-{{ section.id }} .team-member__description p {
+  .team-section-{{ section.id }}
+  .team-member__role {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #5C5C5C;
+    margin: 0;
+  }
+
+  .team-section-{{ section.id }}
+  .team-member__description {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: #667085;
+    margin: 0;
+  }
+
+  .team-section-{{ section.id }}
+  .team-member__description p {
     margin: 0;
   }
 
 {%- endstyle -%}
 
 <div class="team-section-{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width pageWidth">
     <div class="section-header">
       {%- if settings.title != blank -%}
         <h2 class="section-header__title">{{ settings.title | escape }}</h2>
@@ -166,23 +160,25 @@
                   alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
                   loading="lazy"
                   width="500"
-                  height="{{ 500 | divided_by: block.settings.image.aspect_ratio | round }}"
-                >
+                  height="{{ 500 | divided_by: block.settings.image.aspect_ratio | round }}">
               {%- else -%}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
             </div>
-            {%- if block.settings.name != blank -%}
-              <h3 class="team-member__name">{{ block.settings.name | escape }}</h3>
-            {%- endif -%}
-            {%- if block.settings.role != blank -%}
-              <p class="team-member__role">{{ block.settings.role | escape }}</p>
-            {%- endif -%}
-            {%- if block.settings.description != blank -%}
-              <div class="team-member__description">
-                {{ block.settings.description }}
-              </div>
-            {%- endif -%}
+
+            <div class="team-member__text-content">
+              {%- if block.settings.name != blank -%}
+                <h5 class="team-member__name" title="{{ block.settings.name }}">{{ block.settings.name | escape }}</h5>
+              {%- endif -%}
+              {%- if block.settings.role != blank -%}
+                <p class="team-member__role" title="{{ block.settings.role | escape }}">{{ block.settings.role | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="team-member__description" title="{{ block.settings.description }}">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </div>
           </div>
         {%- endfor -%}
       </div>
@@ -197,181 +193,162 @@
 </div>
 
 {% schema %}
-{
-  "name": "Team Section",
-  "tag": "section",
-  "class": "shopify-section-team",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "The Golzar Home team"
-    },
-    {
-      "type": "richtext",
-      "id": "subtitle",
-      "label": "Subtitle (Optional)",
-      "default": "<p>This is an optional subtitle for the team section.</p>"
-    },
-    {
-      "type": "select",
-      "id": "header_align",
-      "label": "Heading Alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "select",
-      "id": "member_text_align",
-      "label": "Team Member Text Alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "label": "Columns on Desktop",
-      "default": 4
-    },
-    {
-      "type": "text",
-      "id": "image_aspect_ratio",
-      "label": "Image Aspect Ratio",
-      "default": "4/3",
-      "info": "Examples: 1/1 (square), 4/3, 3/4, 16/9"
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "label": "Image Border Radius",
-      "default": 8
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "section_bg_color",
-      "label": "Section Background",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "text_color_heading",
-      "label": "Heading Color",
-      "info": "Note: Specific styles from example use #151515 for title/subtitle. Change CSS to use this variable if needed.",
-      "default": "#111111"
-    },
-    {
-      "type": "color",
-      "id": "text_color_name",
-      "label": "Name Color",
-      "default": "#333333"
-    },
-    {
-      "type": "color",
-      "id": "text_color_role",
-      "label": "Role Color",
-      "default": "#555555"
-    },
-    {
-      "type": "color",
-      "id": "text_color_description",
-      "label": "Description Color",
-      "default": "#777777"
-    },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Top Padding",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Bottom Padding",
-      "default": 60
-    },
-    {
-      "type": "checkbox",
-      "id": "show_onboarding_info",
-      "label": "Show onboarding info if no blocks",
-      "default": true
-    }
-  ],
-  "blocks": [
-    {
-      "type": "team_member",
-      "name": "Team Member",
-      "limit": 12,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name",
-          "default": "Team Member Name"
-        },
-        {
-          "type": "text",
-          "id": "role",
-          "label": "Role/Title",
-          "default": "Job Title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description",
-          "default": "<p>Brief description about the team member and their expertise.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Team Section",
-      "settings": {
-         "title": "Meet Our Team",
-         "subtitle": "<p>The dedicated professionals behind our success.</p>"
+  {
+    "name": "Team Section",
+    "tag": "section",
+    "class": "shopify-section-team",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "The Golzar Home team"
       },
-      "blocks": [
-        { "type": "team_member" },
-        { "type": "team_member" },
-        { "type": "team_member" },
-        { "type": "team_member" }
-      ]
-    }
-  ]
-}
+      {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Subtitle (Optional)",
+        "default": "<p>This is an optional subtitle for the team section.</p>"
+      },
+      {
+        "type": "select",
+        "id": "header_align",
+        "label": "Heading Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "member_text_align",
+        "label": "Team Member Text Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "label": "Columns on Desktop",
+        "default": 4
+      }, {
+        "type": "text",
+        "id": "image_aspect_ratio",
+        "label": "Image Aspect Ratio",
+        "default": "4/3",
+        "info": "Examples: 1/1 (square), 4/3, 3/4, 16/9"
+      }, {
+        "type": "range",
+        "id": "image_border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Image Border Radius",
+        "default": 8
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Section Background",
+        "default": "#FFFFFF"
+      }, {
+        "type": "color",
+        "id": "text_color_heading",
+        "label": "Heading Color",
+        "info": "Note: Specific styles from example use #151515 for title/subtitle. Change CSS to use this variable if needed.",
+        "default": "#111111"
+      }, {
+        "type": "color",
+        "id": "text_color_name",
+        "label": "Name Color",
+        "default": "#333333"
+      }, {
+        "type": "color",
+        "id": "text_color_role",
+        "label": "Role Color",
+        "default": "#555555"
+      }, {
+        "type": "color",
+        "id": "text_color_description",
+        "label": "Description Color",
+        "default": "#777777"
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "checkbox",
+        "id": "show_onboarding_info",
+        "label": "Show onboarding info if no blocks",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "team_member",
+        "name": "Team Member",
+        "limit": 12,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "name",
+            "label": "Name",
+            "default": "Team Member Name"
+          }, {
+            "type": "text",
+            "id": "role",
+            "label": "Role/Title",
+            "default": "Job Title"
+          }, {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Brief description about the team member and their expertise.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Team Section",
+        "settings": {
+          "title": "Meet Our Team",
+          "subtitle": "<p>The dedicated professionals behind our success.</p>"
+        },
+        "blocks": [
+          {
+            "type": "team_member"
+          }, {
+            "type": "team_member"
+          }, {
+            "type": "team_member"
+          }, {
+            "type": "team_member"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

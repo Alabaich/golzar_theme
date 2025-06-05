@@ -25,7 +25,7 @@
             "button_label_color": "#ffffff",
             "link": "shopify://pages/grohe-golzar-home",
             "button_style_secondary": false,
-            "box_align": "middle-left",
+            "box_align": "top-left",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -46,7 +46,7 @@
             "button_label_color": "#ffffff",
             "link": "shopify://pages/duravit-golzar-home",
             "button_style_secondary": false,
-            "box_align": "middle-left",
+            "box_align": "top-left",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -67,7 +67,7 @@
             "button_label_color": "#ffffff",
             "link": "shopify://pages/toto-golzar-home",
             "button_style_secondary": false,
-            "box_align": "middle-left",
+            "box_align": "top-left",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -88,7 +88,7 @@
             "button_label_color": "#ffffff",
             "link": "",
             "button_style_secondary": false,
-            "box_align": "middle-left",
+            "box_align": "top-left",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -109,7 +109,7 @@
             "button_label_color": "#ffffff",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
-            "box_align": "middle-left",
+            "box_align": "top-left",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -135,6 +135,63 @@
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "feature_icons_RCwUXD": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_3YQ3dq": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 52,
+            "title": "Customer support",
+            "description": "<p>Our support is always ready to help you</p>"
+          }
+        },
+        "feature_item_BVrRFY": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 52,
+            "title": "Price match",
+            "description": "<p>Found it cheaper? We'll lower the price for you.</p>"
+          }
+        },
+        "feature_item_VHeCta": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 52,
+            "title": "Free delivery",
+            "description": "<p>We'll deliver your order for free and quickly.</p>"
+          }
+        },
+        "feature_item_NVFfWx": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 52,
+            "title": "Same day pick up",
+            "description": "<p>Pick up your order today at the store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_3YQ3dq",
+        "feature_item_BVrRFY",
+        "feature_item_VHeCta",
+        "feature_item_NVFfWx"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
       }
     },
     "logo_slider_EgdLnG": {
@@ -582,7 +639,7 @@
         "heading": "At Golzar Home, we make quality our standard",
         "heading_color": "#151515",
         "heading_size": 32,
-        "subheading": "<p>Welcome to Golzar Home Elevating Canadian bathrooms, Golzar Home specializes in luxury kitchen and bathroom solutions. With many years of experience in the global sanitary ware market, our Vaughan showroom is a trusted name. At Golzar Home, we make quality our standard. At Golzar Home, quality is a standard. We partner with top brands like <strong>TOTO</strong>, <strong>GROHE</strong>, and <strong>DURAVIT </strong>to provide premium fixtures and plumbing accessories. Our knowledgeable staff ensures you make informed choices. We offer personalized consultations and seamless after-sales support, making your shopping experience inspiring and stress-free. Explore our expansive showroom featuring interactive displays. Committed to sustainability, we support eco-friendly practices and community initiatives. Choose Golzar Home for exclusive products, expert guidance, and reliable service in luxury bathroom and kitchen solutions.<br/><br/></p>",
+        "subheading": "<p>Welcome to Golzar Home Elevating Canadian bathrooms, Golzar Home specializes in luxury kitchen and bathroom solutions. With many years of experience in the global sanitary ware market, our Vaughan showroom is a trusted name. At Golzar Home, we make quality our standard. At Golzar Home, quality is a standard. We partner with top brands like <strong>TOTO</strong>, <strong>GROHE</strong>, and <strong>DURAVIT </strong>to provide premium fixtures and plumbing accessories. <br/><br/></p>",
         "subheading_size": 16,
         "text_alignment": "left",
         "button_label": "CONTACT US",
@@ -602,8 +659,8 @@
         "stat_text_color": "",
         "image_main": "shopify://shop_images/About_US-01.webp",
         "image_overlay": "shopify://shop_images/About_US-02.webp",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 26,
+        "padding_bottom": 26
       }
     },
     "17405401850356168b": {
@@ -638,8 +695,8 @@
         "article_title_color": "#101828",
         "excerpt_color": "#52525b",
         "read_more_link_color": "#002642",
-        "padding_top": 100,
-        "padding_bottom": 100,
+        "padding_top": 25,
+        "padding_bottom": 25,
         "section_bg_color": "rgba(0,0,0,0)"
       }
     },
@@ -652,7 +709,6 @@
         "title": "Request a free consultation and price estimate!",
         "button_text": "CONTACT US",
         "button_link": "shopify://pages/contact",
-        "show_button_arrow": true,
         "border_radius": 12,
         "text_column_width": 50,
         "image_position_desktop": "right",
@@ -662,7 +718,6 @@
         "image_fit": "cover",
         "image_position_mobile": "bottom",
         "image_min_height_mobile": 250,
-        "title_size": 32,
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
@@ -682,6 +737,7 @@
   },
   "order": [
     "slideshow_JJwBwz",
+    "feature_icons_RCwUXD",
     "logo_slider_EgdLnG",
     "our_categories_wnJ3DH",
     "text_with_two_img_YrdmHc",
