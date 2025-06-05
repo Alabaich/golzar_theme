@@ -1,0 +1,182 @@
+<div class="overlay-txt-with-img-main">
+  <div class="overlay-txt-with-img-inn page-width">
+    <div class="grid--2-col">
+      <div class="grid__item">
+        <div class="overlay-txt-box"{% if section.settings.bgcolor != blank %} style="background-color: {{ section.settings.bgcolor }};"{% endif %}>
+          <div class="overlay-txt-box-in">
+            <div class="overlay-header">
+              <div class="custom-logo-container">
+                <a href="{{ routes.root_url }}">
+                  {%- if section.settings.header_logo != blank -%}
+                    <img src="{{ section.settings.header_logo | image_url: width: 450 }}" width='auto' height="auto" alt="{{ shop.name | escape }}" class="custom-logo" style="width: {{ section.settings.header_logo_width }}px;">
+                  {%- else -%}
+                    <span class="h2">{{ shop.name }}</span>
+                  {%- endif -%}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid__item">
+        {% if section.settings.image != blank %}
+          <div class="overlay-img-box">
+            <img src="{{ section.settings.image | image_url: width: 450 }}" width='auto' height="auto">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Overlay Image Text",
+  "class": "section overlay-txt-with-img",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logotype",
+      "label": "Header Logo"
+    },
+    {
+      "type": "range",
+      "id": "header_logo_width",
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Header Logo Width"
+    },
+    {
+      "type": "header",
+      "content": "Text block"
+    },
+    {
+      "type": "color",
+      "id": "bgcolor",
+      "label": "Background color",
+      "default": "#002642"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Need help?"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Request a free consultation and price estimate"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "btn",
+      "label": "Button",
+      "default": "Contact Us"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Image block"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .section.overlay-txt-with-img {
+    background-color: #002642;
+  }
+  .overlay-txt-with-img-main {
+    position: relative;
+  }
+  .grid--2-col {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .grid__item {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+  .overlay-txt-box-in h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  .overlay-txt-box {
+    padding: 20px;
+    position: relative;
+  }
+  .overlay-img-box {
+    position: relative;
+  }
+  .overlay-img-box img {
+    width: 100%;
+    height: auto;
+  }
+  .logo-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .logo-contact li img {
+    max-height: 40px;
+    width: auto;
+  }
+  .overlay-header {
+    text-align: center;
+  }
+  .custom-logo-container {
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .custom-logo {
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+  .overlay-txt-box-in a {
+    border: none;
+  }
+</style>
