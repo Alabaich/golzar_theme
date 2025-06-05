@@ -37,8 +37,8 @@
 
   .slideshow-controls-container {
     position: absolute;
-    bottom: 50px;
-    left: 75px;
+    bottom: 75px;
+    left: 100px;
     z-index: 2;
     display: flex;
     gap: 1rem;
@@ -69,6 +69,7 @@
       min-height: 600px !important;
       display: flex;
       flex-direction: column;
+
   }
 
   .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box .transparentButton{
@@ -94,6 +95,8 @@
       gap: 25px;
       flex-direction: column;
       width: 100%;
+      padding: 15px;
+    justify-content: start;
   }
 
   .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box h2 {
@@ -125,8 +128,14 @@
     }
     
     .slideshow-controls-container {
-      bottom: 20px;
+      bottom: 50px;
+      left: 50px;
     }
+
+      section.shopify-section.section.banner-slideshow slideshow-component div.slideshow .slideshow__text-wrapper {
+      transform: translateY(0);
+
+  }
   }
 </style>
 
