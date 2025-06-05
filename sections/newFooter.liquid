@@ -1,0 +1,273 @@
+{% assign social_media = true %}
+{% if settings.social_linkedin_link == blank and settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank %}
+    {% assign social_media = false %}
+{% else %}
+    {% assign social_media = true %}
+{% endif %}
+
+<div class="store-footer-main pageWidth">
+    <div class="store-footer-inn">
+        <div class="menu-and-contact-details">
+            <div class="page-width">
+                <div class="menu-and-contact-details-in">
+                    <div class="menu_list">
+                        <h3>{{ linklists[section.settings.menu1].title }}</h3>
+                        <ul class="menu_links">
+                            {% for link in linklists[section.settings.menu1].links %}
+                                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="menu_list">
+                        <h3>{{ linklists[section.settings.menu2].title }}</h3>
+                        <ul class="menu_links">
+                            {% for link in linklists[section.settings.menu2].links %}
+                                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="store_information">
+                        <h3>{{ section.settings.contact_detail_title }}</h3>
+                        <p><a href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a></p>
+                        <p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+                        <p><a href="{{ section.settings.address_link }}">{{ section.settings.address }}</a></p>
+                    </div>
+
+                    <div class="store_information">
+                        <h3>{{ section.settings.showroom_title }}</h3>
+                        <div class="showroom_desc">{{ section.settings.showroom_desc }}</div>
+                        {% if section.settings.we_are_closed != blank %}
+                            <p class="closed_at">{{ section.settings.we_are_closed }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom page-width">
+            <div class="footer-bottom-in">
+                <div class="footer__copyright caption">
+                    <p class="copyright__content">Copyright © <a href="{{ routes.root_url }}">{{ shop.name }}</a> {{ 'now' | date: '%Y' }} All Rights Reserved.</p>
+                </div>
+                {% if social_media == true %}
+                    <div class="social-connectivity">
+                        <div class="social_connectivity_title">
+                            <h6 style="color: {{ section.settings.social_title_color }};">{{ section.settings.social_title }}</h6>
+                        </div>
+                        <ul class="social_links_list">
+                            {% if settings.social_instagram_link != blank %}
+                                <li class="social_link_item">
+                                    <a href="{{ settings.social_instagram_link }}">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#0F0F0F"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6 19 6C19 5.584 18.5523 5 18 5Z" fill="#0F0F0F"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.46953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.46953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.46953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.46953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14606 5.49684 3.27659 5.18404 3.43596C4.43139 3.81947 3.81947 4.43139 3.43596 5.18404C3.27659 5.49684 3.14606 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3 16.2777 3.0751 17.1779C3.14606 18.0548 3.27659 18.5032 3.43596 18.816C3.18861 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43596C18.5032 3.27659 18.0548 3.14606 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#0F0F0F"></path> </g></svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if settings.social_facebook_link != blank %}
+                                <li class="social_link_item">
+                                    <a href="{{ settings.social_facebook_link }}">
+                                        <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-337 273 123.5 256" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M-260.9,327.8c0-10.3,9.2-14,19.5-14c10.3,0,21.3,3.2,21.3,3.2l6.6-39.2c0,0-14-4.8-47.4-4.8c-20.5,0-32.4,7.8-41.1,19.3 c-8.2,10.9-8.5,28.4-8.5,39.7v25.7H-337V396h26.5v133h49.6V396h39.3l2.9-38.3h-42.2V327.8z"></path> </g></svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if settings.social_youtube_link != blank %}
+                                <li class="social_link_item">
+                                    <a href="{{ settings.social_youtube_link }}">
+                                        <svg viewBox="0 -3 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>youtube [#168]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7442.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289" id="youtube-[#168]"> </path> </g> </g> </g> </g></svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if settings.social_linkedin_link != blank %}
+                                <li class="social_link_item">
+                                    <a href="{{ settings.social_linkedin_link }}">
+                                        <svg fill="#000000" viewBox="-5.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>linkedin</title> <path d="M0 8.219v15.563c0 1.469 1.156 2.625 2.625 2.625h15.563c0.719 0 1.406-0.344 1.844-0.781 0.469-0.469 0.781-1.063 0.781-1.844v-15.563c0-1.469-1.156-2.625-2.625-2.625h-15.563c-0.781 0-1.375 0.313-1.844 0.781-0.438 0.438-0.781 1.125-0.781 1.844zM2.813 10.281c0-1 0.813-1.875 1.813-1.875 1.031 0 1.875 0.875 1.875 1.875 0 1.031-0.844 1.844-1.875 1.844-1 0-1.813-0.813-1.813-1.844zM7.844 23.125v-9.531c0-0.219 0.219-0.406 0.375-0.406h2.656c0.375 0 0.375 0.438 0.375 0.719 0.75-0.75 1.719-0.938 2.719-0.938 2.438 0 4 1.156 4 3.719v6.438c0 0.219-0.188 0.406-0.375 0.406h-2.75c-0.219 0-0.375-0.219-0.375-0.406v-5.813c0-0.969-0.281-1.5-1.375-1.5-1.375 0-1.719 0.906-1.719 2.125v5.188c0 0.219-0.219 0.406-0.438 0.406h-2.719c-0.156 0-0.375-0.219-0.375-0.406zM2.875 23.125v-9.531c0-0.219 0.219-0.406 0.375-0.406h2.719c0.25 0 0.406 0.156 0.406 0.406v9.531c0 0.219-0.188 0.406-0.406 0.406h-2.719c-0.188 0-0.375-0.219-0.375-0.406z"></path> </g></svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if settings.social_pinterest_link != blank %}
+                                <li class="social_link_item">
+                                    <a href="{{ settings.social_pinterest_link }}">
+                                        <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>pinterest [#180]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -7399.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M173.876,7239 C168.399,7239 164,7243.43481 164,7248.95866 C164,7253.05869 166.407,7256.48916 169.893,7258.07936 C169.893,7256.21186 169.88,7256.45286 171.303,7250.38046 C170.521,7248.80236 171.129,7246.19673 172.88,7246.19673 C175.31,7246.19673 173.659,7249.79964 173.378,7251.2174 C173.129,7252.30544 173.959,7253.14238 174.955,7253.14238 C176.864,7253.14238 178.108,7250.71524 178.108,7247.87063 C178.108,7245.69456 176.615,7244.10437 174.042,7244.10437 C169.467,7244.10437 168.307,7249.19966 169.893,7250.79893 C170.292,7251.40294 169.893,7251.43118 169.893,7252.22174 C169.616,7253.05768 167.403,7251.84259 167.403,7248.70757 C167.403,7245.86195 169.727,7242.51518 174.457,7242.51518 C178.191,7242.51518 180.681,7245.27609 180.681,7248.2054 C180.681,7252.13805 178.523,7254.98366 175.37,7254.98366 C174.291,7254.98366 173.295,7254.3978 172.963,7253.72824 C172.36,7256.07371 172.238,7257.26258 171.303,7258.58153 C172.216,7258.83261 173.129,7259 174.125,7259 C179.602,7259 184,7254.56519 184,7249.04235 C183.752,7243.43481 179.353,7239 173.876,7239" id="pinterest-[#180]"> </path> </g> </g> </g> </g></svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section store-footer",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social Title",
+      "default": "Connect with us"
+    },
+    {
+      "type": "color",
+      "id": "social_title_color",
+      "label": "Social Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Menus"
+    },
+    {
+      "type": "link_list",
+      "id": "menu1",
+      "label": "Menu1"
+    },
+    {
+      "type": "link_list",
+      "id": "menu2",
+      "label": "Menu2"
+    },
+    {
+      "type": "header",
+      "content": "Contact Details"
+    },
+    {
+      "type": "text",
+      "id": "contact_detail_title",
+      "label": "Contact Detail Title",
+      "default": "Contact Details"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "+14167004346"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "admin@golzarhome.net"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address"
+    },
+    {
+      "type": "url",
+      "id": "address_link",
+      "label": "Address Link"
+    },
+    {
+      "type": "header",
+      "content": "Showroom info"
+    },
+    {
+      "type": "text",
+      "id": "showroom_title",
+      "label": "Showroom Title",
+      "default": "Showroom Hours"
+    },
+    {
+      "type": "richtext",
+      "id": "showroom_desc",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "we_are_closed",
+      "label": "Closed at"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+    .section.store-footer {
+        background-color: #002642;
+        color: #ffffff;
+        padding-top: 25px;
+    }
+    .store-footer-main {
+        position: relative;
+    }
+    .menu-and-contact-details-in {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .menu_list,
+    .store_information {
+        flex: 1 1 200px;
+        min-width: 200px;
+    }
+    .menu_list h3,
+    .store_information h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+    .menu_links li,
+    .store_information p {
+        padding-bottom: 25px;
+    }
+    .menu_links li a,
+    .store_information p a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .menu_links li a:hover,
+    .store_information p a:hover {
+        text-decoration: underline;
+    }
+    .menu-and-contact-details ul.menu_links li{
+        padding-bottom: 10px;
+    }
+    .footer-bottom {
+    }
+    .footer-bottom-in {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .social_links_list {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .social_link_item svg {
+        width: 24px;
+        height: 24px;
+        fill: #ffffff;
+    }
+    .social_connectivity_title h6 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .footer__copyright {
+        font-size: 12px;
+        margin: 0;
+    }
+    .footer__copyright a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .footer__copyright.caption {
+        border: none;!important;
+    }
+</style>
