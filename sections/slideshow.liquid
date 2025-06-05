@@ -27,27 +27,32 @@
 
 <style>
   .section.shopify-section.section.banner-slideshow slideshow-component {
-    padding: 0;
+    padding: 0 5rem;
+    position: relative;
   }
+  
   slideshow-component {
     position: relative;
   }
 
-  .slideshow-navigation-wrapper {
+  .slideshow-controls-container {
     position: absolute;
-    z-index: 10;
+    bottom: 50px;
+    left: 75px;
+    z-index: 2;
     display: flex;
     gap: 1rem;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 40px;
-    bottom: 7.5rem;
-    left: 9.5rem;
-    transform: none;
   }
 
-  .slideshow-navigation-wrapper .slider-button {
-    position: static;
+  .slideshow__slide {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .slideshow-controls-container .slider-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,21 +65,36 @@
     border-radius: 50%;
   }
 
-  .slideshow-navigation-wrapper .slider-button:hover {
+  section.shopify-section.section.banner-slideshow slideshow-component div.slideshow .slideshow__text-wrapper {
+      min-height: 600px !important;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box .transparentButton{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0;
+  }
+
+  .slideshow-controls-container .slider-button:hover {
     border-color: white;
   }
 
-  .slideshow-navigation-wrapper .slider-button svg {
+  .slideshow-controls-container .slider-button svg {
     width: 12px;
     height: 12px;
     fill: white;
     color: white;
   }
 
-    .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box {
+  .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box {
       display: flex;
       gap: 25px;
-    }
+      flex-direction: column;
+      width: 100%;
+  }
 
   .section.banner-slideshow slideshow-component .slideshow.banner .slideshow__slide .slideshow__text-wrapper .slideshow__text.banner__box h2 {
     margin: 0;
@@ -99,27 +119,13 @@
     min-height: 44px;
   }
 
-  .custom-discover-button span {
-    display: inline-block;
-  }
-
-  .custom-discover-button__icon {
-    width: 1.25em;
-    height: 1.25em;
-  }
-
-  a.custom-discover-button:hover,
-  a.custom-discover-button:focus {
-    background-color: #f0f0f0;
-    color: #002642 !important;
-    border-color: #b0b0b0;
-    text-decoration: none;
-  }
-
   @media screen and (max-width: 749px) {
-    .slideshow-navigation-wrapper {
-      left: 50%;
-      transform: translateX(-50%);
+    .section.shopify-section.section.banner-slideshow slideshow-component {
+      padding: 0;
+    }
+    
+    .slideshow-controls-container {
+      bottom: 20px;
     }
   }
 </style>
@@ -131,13 +137,12 @@
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
   <div
-    class="pageWidth slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    class="pageWidth page-width slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     id="Slider-{{ section.id }}"
     aria-live="polite"
     aria-atomic="true"
     data-autoplay="{{ section.settings.auto_rotate }}"
     data-speed="{{ section.settings.change_slides_speed }}"
-    style="position: relative;"
   >
     {%- for block in section.blocks -%}
       <style>
@@ -208,7 +213,7 @@
                 {{ block.shopify_attributes }}
                 title="{{ block.settings.subheading }}"
               >
-                <p>{{ block.settings.subheading }}</p>
+                <p class="bodyText" title="{{ block.settings.subheading }}">{{ block.settings.subheading }}</p>
               </div>
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
@@ -218,7 +223,7 @@
                   {% else %}
                     role="link" aria-disabled="true"
                   {% endif %}
-                  class="transparentButton"
+                  class="transparentButton customButton"
                   title="{{- block.settings.button_label | escape -}}"
                 >
                   <span>{{- block.settings.button_label | escape -}}</span>
@@ -239,8 +244,9 @@
       </div>
     {%- endfor -%}
   </div>
+  
   {%- if section.blocks.size > 1 -%}
-    <div class="slideshow-navigation-wrapper">
+    <div class="slideshow-controls-container">
       <button
         class="slider-button slider-button--prev"
         name="previous"
@@ -270,10 +276,6 @@
   {%- endif -%}
 </slideshow-component>
 
-{%- if request.design_mode -%}
-  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const slideshowComponent = document.querySelector('#Slider-{{ section.id }}').closest('slideshow-component');
@@ -282,9 +284,7 @@
       slideshowComponent.addEventListener('click', function (event) {
         const button = event.target.closest('.slider-button');
 
-        if (!button || !button.closest('.slideshow-navigation-wrapper')) {
-          return;
-        }
+        if (!button) return;
 
         event.preventDefault();
 
