@@ -281,22 +281,6 @@
         "title_color": "#002642"
       }
     },
-    "text_with_two_img_YrdmHc": {
-      "type": "text-with-two-img",
-      "settings": {
-        "color_background": "#eff4f8",
-        "title": "About Us",
-        "title_color": "#002642",
-        "content": "Welcome to Golzar Home Elevating Canadian bathrooms, Golzar Home specializes in luxury kitchen and bathroom solutions. With many years of experience in the global sanitary ware market, our Vaughan showroom is a trusted name. At Golzar Home, we make quality our standard. At Golzar Home, quality is a standard. We partner with top brands like <strong>TOTO</strong>, <strong>GROHE</strong>, and <strong>DURAVIT </strong>to provide premium fixtures and plumbing accessories.",
-        "content_color": "",
-        "btn_label": "Contact Us",
-        "btn_link": "shopify://pages/contact",
-        "btn_label_color": "#ffffff",
-        "btn_bg_color": "#38739e",
-        "img1": "shopify://shop_images/Brands-29.webp",
-        "img2": "shopify://shop_images/About_US-02.webp"
-      }
-    },
     "featured_collection_promo_PBVXnq": {
       "type": "featured-collection-promo",
       "name": "Unique Promo Slider",
@@ -567,7 +551,7 @@
       "name": "Popular Products",
       "settings": {
         "popular_title": "Popular Products",
-        "featured_collection": "rough-in-valves",
+        "featured_collection": "actuator-plates",
         "products_limit": 4,
         "show_more_link": "shopify://collections/rough-in-valves",
         "show_add_to_cart_button": true,
@@ -579,7 +563,6 @@
     "slideshow_JJwBwz",
     "feature_icons_RCwUXD",
     "our_categories_wnJ3DH",
-    "text_with_two_img_YrdmHc",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
     "collection_data_discount_bERRBy",
