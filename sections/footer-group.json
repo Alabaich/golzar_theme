@@ -15,7 +15,7 @@
       "type": "newCustomOverlay",
       "settings": {
         "logotype": "shopify://shop_images/Golzar-Home-Logo-03-1_svg.svg",
-        "header_logo_width": 100,
+        "header_logo_width": 200,
         "bgcolor": "#002642",
         "subtitle": "",
         "subtitle_color": "#ffffff",
