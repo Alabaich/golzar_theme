@@ -21,7 +21,7 @@
       <div class="grid__item">
         {% if section.settings.image != blank %}
         <div class="overlay-img-box">
-          <img src="{{ section.settings.image | image_url: width: 100}}" height="" width="">
+          <img src="{{ section.settings.image | image_url: width: 300}}" height="" width="">
         </div>
         {% endif %}
 
@@ -31,7 +31,7 @@
           {% if block.settings.logo_image != blank %}
           <a href="{{ block.settings.logo_link }}">
             <li>
-              <img src="{{ block.settings.logo_image | img_url: 'master' }}">
+              <img src="{{ block.settings.logo_image | image_url: width: 300}}" height="" width="">
             </li>
           </a>
           {% endif %}
