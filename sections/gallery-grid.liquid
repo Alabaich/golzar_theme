@@ -105,7 +105,12 @@ grid-template-rows: repeat(5, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
   }
-  .image-gallery-outer-wrapper .imageOne { grid-area: 1 / 1 / 4 / 3; }
+
+  .image-gallery-outer-wrapper .image-gallery-container img{
+    width: 100%;
+    height: 100%;
+  }
+.image-gallery-outer-wrapper .imageOne { grid-area: 1 / 1 / 4 / 3; }
 .image-gallery-outer-wrapper .imageTwo { grid-area: 1 / 3 / 3 / 4; }
 .image-gallery-outer-wrapper .imageThree { grid-area: 1 / 4 / 3 / 5; }
 .image-gallery-outer-wrapper .imageFour { grid-area: 4 / 1 / 6 / 2; }
