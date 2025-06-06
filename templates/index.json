@@ -489,6 +489,18 @@
         "padding_bottom": 26
       }
     },
+    "popular_products_7jxJNT": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Wall-mount Toilets",
+        "featured_collection": "wall-mounted-toilets",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/wall-mounted-toilets",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Add to Cart"
+      }
+    },
     "17405401850356168b": {
       "type": "apps",
       "disabled": true,
@@ -547,18 +559,6 @@
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
-    },
-    "popular_products_7jxJNT": {
-      "type": "popular-products",
-      "name": "Popular Products",
-      "settings": {
-        "popular_title": "Popular Products",
-        "featured_collection": "actuator-plates",
-        "products_limit": 4,
-        "show_more_link": "shopify://collections/rough-in-valves",
-        "show_add_to_cart_button": true,
-        "product_button_text": "Add to Cart"
-      }
     }
   },
   "order": [
@@ -571,9 +571,9 @@
     "featured_blog_yqKkQg",
     "image_banner_MWGE6A",
     "feature_block_with_stats_VM6e6p",
+    "popular_products_7jxJNT",
     "17405401850356168b",
     "custom_blog_posts_grid_eQzdfc",
-    "image_with_text_cta_4dbPbU",
-    "popular_products_7jxJNT"
+    "image_with_text_cta_4dbPbU"
   ]
 }
