@@ -3684,8 +3684,15 @@ button.blueButton, .blueButton{
 }
 
 .pageWidth{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width = 765px){
+  .pageWidth{
   padding-top: 25px;
   padding-bottom: 25px;
+}
 }
 
 .insidePadding{
