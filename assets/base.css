@@ -3665,6 +3665,20 @@ button.transparentButton:hover, .transparentButton:hover{
   border: 1px solid var(--darkBlue);
 }
 
+button.transparentDarkButton, .transparentDarkButton{
+  background: none;
+  color: var(--darkBlue);
+  border: 1px solid var(--darkBlue);
+
+  transition: all linear 200ms;
+}
+
+button.transparentDarkButton:hover, .transparentDarkButton:hover{
+  background-color: var(--darkBlue);
+  color: var(--white);
+  border: 1px solid var(--darkBlue);
+}
+
 button.blueButton, .blueButton{
   background-color: var(--darkBlue);
 }
