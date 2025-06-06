@@ -495,6 +495,12 @@
       "settings": {
         "title": "Discover products in a real-life setting",
         "subtitle": "",
+        "row1_img_large": "shopify://shop_images/1_89c8de6e-ecd6-45e5-9d17-ab620aea239b.webp",
+        "row1_img_small1": "shopify://shop_images/2_69a4a567-24c8-4fca-ada1-919025b151dc.webp",
+        "row1_img_small2": "shopify://shop_images/3_81e5827e-6176-431b-8939-064dc1ef7917.webp",
+        "row2_img_small1": "shopify://shop_images/4_d2d4b080-0a3f-4e90-aa23-8fc31fdfd4f4.webp",
+        "row2_img_small2": "shopify://shop_images/5_1a524423-d887-46e0-b764-d5d443100681.webp",
+        "row2_img_large": "shopify://shop_images/6_4baf432f-cadc-43e7-a5d1-c0e85ac8f32f.webp",
         "gap_size": 25
       }
     }
