@@ -8,7 +8,7 @@
               <div class="custom-logo-container">
                 <a href="{{ routes.root_url }}">
                   {%- if section.settings.header_logo != blank -%}
-                    <img src="{{ section.settings.header_logo | image_url: width: 450 }}" width='auto' height="auto" alt="{{ shop.name | escape }}" class="custom-logo" style="width: {{ section.settings.header_logo_width }}px;">
+                    <img src="{{ section.settings.logotype | image_url: width: 450 }}" width='auto' height="auto" alt="{{ shop.name | escape }}" class="custom-logo" style="width: {{ section.settings.header_logo_width }}px;">
                   {%- else -%}
                     <span class="h2">{{ shop.name }}</span>
                   {%- endif -%}
