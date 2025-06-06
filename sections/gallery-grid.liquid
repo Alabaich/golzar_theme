@@ -102,6 +102,12 @@
   <div class="page-width pageWidth">
     <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
       <div class="image-gallery-container">
+              {%- assign row1_img_large = section.settings.row1_img_large -%}
+      {%- assign row1_img_small1 = section.settings.row1_img_small1 -%}
+      {%- assign row1_img_small2 = section.settings.row1_img_small2 -%}
+            {%- assign row2_img_small1 = section.settings.row2_img_small1 -%}
+      {%- assign row2_img_small2 = section.settings.row2_img_small2 -%}
+      {%- assign row2_img_large = section.settings.row2_img_large -%}
                       <img
                 src="{{ row1_img_large | image_url: width: row1_img_large.width }}"
                 srcset="{%- if row1_img_large.width >= 375 -%}{{ row1_img_large | image_url: width: 375 }} 375w,{%- endif -%}
