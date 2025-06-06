@@ -123,7 +123,17 @@ grid-row-gap: 25px;
 <div class="image-gallery-outer-wrapper-{{ section.id }} image-gallery-outer-wrapper" >
   <div class="page-width pageWidth">
     <div class="image-gallery-rows-content-{{ section.id }}" style="--image-gap: {{ section.settings.gap_size }}px;">
-      <div class="image-gallery-container">
+
+
+      <div class="gallery-header-{{ section.id }}">
+        {% if section.settings.title != blank %}
+          <h2 class="gallery-title-{{ section.id }}" title="{{ section.settings.title | escape }}">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank and section.settings.subtitle != "<p></p>" %}
+          <div class="gallery-subtitle-{{ section.id }}" title="{{ section.settings.subtitle }}">{{ section.settings.subtitle }}</div>
+        {% endif %}
+      </div>
+            <div class="image-gallery-container">
               {%- assign row1_img_large = section.settings.row1_img_large -%}
       {%- assign row1_img_small1 = section.settings.row1_img_small1 -%}
       {%- assign row1_img_small2 = section.settings.row1_img_small2 -%}
@@ -212,16 +222,7 @@ grid-row-gap: 25px;
                         class="imageSix">
       </div>
 
-      <div class="gallery-header-{{ section.id }}">
-        {% if section.settings.title != blank %}
-          <h2 class="gallery-title-{{ section.id }}" title="{{ section.settings.title | escape }}">{{ section.settings.title | escape }}</h2>
-        {% endif %}
-        {% if section.settings.subtitle != blank and section.settings.subtitle != "<p></p>" %}
-          <div class="gallery-subtitle-{{ section.id }}" title="{{ section.settings.subtitle }}">{{ section.settings.subtitle }}</div>
-        {% endif %}
-      </div>
-
-      {%- assign row1_img_large = section.settings.row1_img_large -%}
+      <!-- {%- assign row1_img_large = section.settings.row1_img_large -%}
       {%- assign row1_img_small1 = section.settings.row1_img_small1 -%}
       {%- assign row1_img_small2 = section.settings.row1_img_small2 -%}
 
@@ -335,7 +336,7 @@ grid-row-gap: 25px;
             </div>
           {% endif %}
         </div>
-      {% endif %}
+      {% endif %} -->
     </div>
   </div>
 </div>
