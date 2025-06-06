@@ -218,14 +218,14 @@
         "text_color": "#7a7a7a"
       }
     },
-    "brand_section_9m9dXr": {
-      "type": "brand-section",
-      "name": "Brand Hero",
+    "brand_hero_QAFf7B": {
+      "type": "brand-hero",
+      "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Bath and kitchen essentials showroom",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
-        "button_text": "",
-        "brand_link": "/",
+        "button_text": "Discover Brand",
+        "brand_link": "",
         "show_button_arrow": true,
         "hero_image": "shopify://shop_images/About_US-01.webp",
         "show_onboarding_image": true,
@@ -506,7 +506,7 @@
     "about_history_yLfqi4",
     "about_team_QYXaFF",
     "gallery_lightbox_slider_UNGJCQ",
-    "brand_section_9m9dXr",
+    "brand_hero_QAFf7B",
     "feature_grid_with_text_r8q4cy",
     "switch_side_image_FWNrhr",
     "timeline_section_FQWqKh",
