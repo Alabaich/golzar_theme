@@ -3640,7 +3640,7 @@ button.blueButton, .blueButton{
 button.blueButton, .blueButton{
   background: var(--darkBlue);
   color: var(--white);
-  text-transform: none;
+
   border: 1px solid var(--darkBlue);
   transition: all linear 200ms;
 }
@@ -3655,7 +3655,7 @@ button.transparentButton, .transparentButton{
   background: none;
   color: var(--white);
   border: 1px solid var(--white);
-  text-transform: none;
+
   transition: all linear 200ms;
 }
 
