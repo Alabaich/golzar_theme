@@ -494,6 +494,7 @@
       "name": "Popular Products",
       "settings": {
         "popular_title": "Wall-mount Toilets",
+        "underTitleText": "Maximize Your Bathroom Space with a Wall-Mounted Toilet: This focuses on a key benefit and is ideal for users looking for solutions to small bathroom problems.",
         "featured_collection": "wall-mounted-toilets",
         "products_limit": 4,
         "show_more_link": "shopify://collections/wall-mounted-toilets",
