@@ -3629,6 +3629,7 @@ button.customButton, .customButton{
   font-size: 1.6rem !important;
   font-weight: 300 !important;
   text-transform: capitalize;
+  line-height: normal;
 } 
 
 button.blueButton, .blueButton{
