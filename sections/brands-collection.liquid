@@ -81,50 +81,50 @@
         background-color: #ffffff;
         font-family: Arial, sans-serif;
     }
-    .brands-collection-header {
+    .section.brands-collection .brands-collection-header {
         text-align: left;
     }
-    .brands-collection-header h2 {
+    .section.brands-collection .brands-collection-header h2 {
         margin: 0;
         padding: 20px 0;
     }
-    .brands-collection-header p {
+    .section.brands-collection .brands-collection-header p {
         color: #5C5C5C;
         margin: 0;
         padding-bottom: 25px;
     }
-    .brands-collection-grid {
+    .section.brands-collection .brands-collection-grid {
         padding-top: 25px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
-    .brand-card {
+    .section.brands-collection .brand-card {
         border-radius: 10px;
         overflow: hidden;
         transition: transform 0.3s ease;
         height: 380px;
     }
-    .brand-card:hover {
+    .section.brands-collection .brand-card:hover {
         transform: translateY(-5px);
     }
-    .brand-card-link {
+    .section.brands-collection .brand-card-link {
         display: block;
         height: 100%;
         text-decoration: none;
         color: inherit;
     }
-    .brand-card-image {
+    .section.brands-collection .brand-card-image {
         position: relative;
         height: 100%;
     }
-    .brand-image {
+    .section.brands-collection .brand-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
     }
-    .brand-card-content {
+    .section.brands-collection .brand-card-content {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -132,18 +132,18 @@
         background: rgba(0, 0, 0, 0.2);
         color: #ffffff;
     }
-    .brand-card-content h5 {
+    .section.brands-collection .brand-card-content h5 {
         margin: 0;
         color: white;
         text-align: center;
     }
-    .brand-card-content p {
+    .section.brands-collection .brand-card-content p {
         font-size: 14px;
         margin: 0;
         line-height: 1.4;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     }
-    .brand-card-arrow {
+    .section.brands-collection .brand-card-arrow {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -154,18 +154,18 @@
         align-items: center;
         justify-content: center;
     }
-    .placeholder-image {
+    .section.brands-collection .placeholder-image {
         width: 100%;
         height: 100%;
         background-color: #f0f0f0;
     }
     @media (max-width: 768px) {
-        .brands-collection-grid {
+        .section.brands-collection .brands-collection-grid {
             grid-template-columns: repeat(2, 1fr);
         }
     }
     @media (max-width: 480px) {
-        .brands-collection-grid {
+        .section.brands-collection .brands-collection-grid {
             grid-template-columns: 1fr;
         }
     }

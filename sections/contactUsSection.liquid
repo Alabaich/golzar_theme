@@ -2,8 +2,8 @@
     assign section_id = 'contact-us-' | append: section.id
 -%}
 
-<div class="contact-us-main page-width" id="{{ section_id }}">
-    <div class="contact-us-inn pageWidth">
+<div class="contact-us-main pageWidth" id="{{ section_id }}">
+    <div class="contact-us-inn page-width">
         <div class="contact-us-content">
             <div class="contact-form-area">
                 <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
@@ -170,69 +170,70 @@
 {% endschema %}
 
 {% style %}
-    #shopify-section-{{ section.id }} {
+    .section.contact-us {
+    background-color: #ffffff;
     }
 
-    .contact-us-inn {
+    .section.contact-us .contact-us-inn {
     }
 
-    .colrowvich {
+    .section.contact-us .colrowvich {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     }
 
-    .contact-us-content {
+    .section.contact-us .contact-us-content {
     display: flex;
     gap: 4rem;
     }
 
-    .contact-form-area,
-    .contact-info-area {
+    .section.contact-us .contact-form-area,
+    .section.contact-us .contact-info-area {
     flex: 1;
     }
 
-    .contact-info-area {
+    .section.contact-us .contact-info-area {
     justify-content: space-between;
     display: flex;
     flex-direction: column;
     }
 
-    .contact-title {
+    .section.contact-us .contact-title {
     margin-top: 0;
     text-align: center;
     margin-bottom: 2rem;
     }
 
-    .contact-form {
+    .section.contact-us .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     }
 
-    .form-row {
+    .section.contact-us .form-row {
     display: flex;
     gap: 1.5rem;
     }
 
-    .form-group {
+    .section.contact-us .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
     }
 
-    .form-group.full-width {
+    .section.contact-us .form-group.full-width {
     width: 100%;
     }
 
-    .form-group label {
+    .section.contact-us .form-group label {
     font-size: 14px;
     color: #151515;
     font-weight: 400;
     }
 
-    .form-input {
+    .section.contact-us .form-input {
     padding: 0.75rem 1rem;
     background-color: #E8ECEF;
     border: 1px solid transparent;
@@ -241,17 +242,17 @@
     height: 48px;
     }
 
-    .form-input.full-width {
+    .section.contact-us .form-input.full-width {
     width: 100%;
     }
 
-    .form-input.full-width::placeholder,
-    .form-input::placeholder {
+    .section.contact-us .form-input.full-width::placeholder,
+    .section.contact-us .form-input::placeholder {
     color: #667085;
     }
 
-    .form-input[type="select"],
-    select.form-input {
+    .section.contact-us .form-input[type="select"],
+    .section.contact-us select.form-input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -259,25 +260,25 @@
     background-size: 1em;
     }
 
-    textarea.form-input {
+    .section.contact-us textarea.form-input {
     height: 120px;
     resize: none;
     }
 
-    .checkbox-row {
+    .section.contact-us .checkbox-row {
     align-items: center;
     gap: 0.5rem;
     font-size: 14px;
     color: #333;
     }
 
-    .checkbox-row input[type="checkbox"] {
+    .section.contact-us .checkbox-row input[type="checkbox"] {
     width: 18px;
     height: 18px;
     accent-color: #003087;
     }
 
-    .form-submit {
+    .section.contact-us .form-submit {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -288,30 +289,30 @@
     gap: 0.5rem;
     }
 
-    .form-submit:hover .arrow-icon {
-    fill: #002642; /* Changes the SVG fill color on hover */
+    .section.contact-us .form-submit:hover .arrow-icon {
+    fill: #002642;
     }
 
-    .arrow-icon {
+    .section.contact-us .arrow-icon {
     width: 20px;
     height: 20px;
     display: inline-flex;
     }
 
-    .map-container {
+    .section.contact-us .map-container {
     height: 500px;
     border-radius: 8px;
     overflow: hidden;
     }
 
-    .contact-details {
+    .section.contact-us .contact-details {
     display: flex;
     flex-direction: column;
     align-content: baseline;
     gap: 1rem;
     }
 
-    .contact-detail-item {
+    .section.contact-us .contact-detail-item {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -320,11 +321,11 @@
     gap: 0.25rem;
     }
 
-    .contact-detail-item p {
+    .section.contact-us .contact-detail-item p {
     font-size: 20px;
     }
 
-    .contact-details-title {
+    .section.contact-us .contact-details-title {
     font-size: 16px;
     font-weight: 400;
     color: #00264266;
@@ -332,42 +333,41 @@
     font-family: 'Open Sans', sans-serif;
     }
 
-    .contact-phone,
-    .contact-email,
-    .contact-hours {
+    .section.contact-us .contact-phone,
+    .section.contact-us .contact-email,
+    .section.contact-us .contact-hours {
     color: #002642;
     margin: 0;
     }
 
-    .social-links {
+    .section.contact-us .social-links {
     display: flex;
     gap: 0.25rem;
     }
 
-    .social-links-container {
+    .section.contact-us .social-links-container {
     display: flex;
     gap: 0.5rem;
     }
 
-    .social-icon img {
+    .section.contact-us .social-icon img {
     width: 24px;
     height: 24px;
     }
 
     @media (max-width: 768px) {
-    #shopify-section-{{ section.id }} {
+    .section.contact-us {
     padding: 40px 0;
     }
 
-    .contact-us-inn {
-    padding: 0 5%;
+    .section.contact-us .contact-us-inn {
     }
 
-    .contact-us-content {
+    .section.contact-us .contact-us-content {
     flex-direction: column;
     }
 
-    .form-input {
+    .section.contact-us .form-input {
     padding: 0.75rem 1rem;
     }
     }
