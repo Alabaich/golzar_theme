@@ -510,7 +510,7 @@
         "columns_tablet": 2,
         "grid_gap": 30,
         "show_image": true,
-        "image_aspect_ratio": "4/3",
+        "image_aspect_ratio": "16/9",
         "show_date": true,
         "show_excerpt": true,
         "excerpt_length": 6,
