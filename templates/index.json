@@ -529,6 +529,7 @@
     "image_with_text_cta_4dbPbU": {
       "type": "image-with-text-cta",
       "settings": {
+        "image": "shopify://shop_images/Three-Featured-Images-aad14336_Three-Featured-Images-Desktop.webp",
         "image_alt_text": "Request a free consultation and price estimate!",
         "help_text": "Need help?",
         "title": "Request a free consultation and price estimate!",
