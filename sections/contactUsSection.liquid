@@ -7,57 +7,75 @@
         <div class="contact-us-content">
             <div class="contact-form-area">
                 <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
-                <form class="contact-form" method="post" action="/contact">
-                    <input type="hidden" name="form_type" value="contact">
-                    <input type="hidden" name="utf8" value="✓">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First name</label>
-                            <input type="text" placeholder="John" id="first-name" name="contact[first_name]" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last name</label>
-                            <input type="text" placeholder="Wick" id="last-name" name="contact[last_name]" class="form-input" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="email">Email</label>
-                            <input type="email" placeholder="you@company.com" id="email" name="contact[email]" class="form-input full-width" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="phone">Phone number</label>
-                            <input type="tel" placeholder="+1 (416) 7004346" id="phone" name="contact[phone]" class="form-input full-width" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="subject">Subject (choose from drop-down) *</label>
-                            <select id="subject" name="contact[subject]" class="form-input full-width" required>
-                                <option value="">Select an option</option>
-                                <option value="general">General customer support</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="contact[message]" class="form-input full-width" rows="4" required></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row checkbox-row">
-                        <input type="checkbox" id="privacy-policy" required>
-                        <label for="privacy-policy">I agree to friendly privacy policy</label>
-                    </div>
-                    <button type="submit" class="form-submit blueButton customButton">
-                        Buy now
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="currentColor"/>
-                        </svg>
-                    </button>
-                </form>
+{%- form 'contact', class: 'contact-form' -%}
+
+  <div class="form-messages">
+    {%- if form.posted_successfully? -%}
+      <p class="form-success-message">
+        Thank you for contacting us! We've received your message and will get back to you shortly.
+      </p>
+    {%- endif -%}
+
+    {%- if form.errors -%}
+      <div class="form-error-message">
+        <p>Oops, there was a problem with your submission. Please correct the errors below.</p>
+        {{ form.errors | default_errors }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <input type="hidden" name="form_type" value="contact">
+  <input type="hidden" name="utf8" value="✓">
+
+  <div class="form-row">
+      <div class="form-group">
+          <label for="first-name">First name</label>
+          <input type="text" placeholder="John" id="first-name" name="contact[first_name]" class="form-input" required value="{{ form.first_name }}">
+      </div>
+      <div class="form-group">
+          <label for="last-name">Last name</label>
+          <input type="text" placeholder="Wick" id="last-name" name="contact[last_name]" class="form-input" required value="{{ form.last_name }}">
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group full-width">
+          <label for="email">Email</label>
+          <input type="email" placeholder="you@company.com" id="email" name="contact[email]" class="form-input full-width{% if form.errors contains 'email' %} input-error{% endif %}" required value="{{ form.email }}">
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group full-width">
+          <label for="phone">Phone number</label>
+          <input type="tel" placeholder="+1 (416) 700-4346" id="phone" name="contact[phone]" class="form-input full-width" required value="{{ form.phone }}">
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group full-width">
+          <label for="subject">Subject (choose from drop-down) *</label>
+          <select id="subject" name="contact[subject]" class="form-input full-width" required>
+              <option value="">Select an option</option>
+              <option value="general"{% if form.subject == 'general' %} selected="selected"{% endif %}>General customer support</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" name="contact[message]" class="form-input full-width" rows="4" required>{{ form.body }}</textarea>
+      </div>
+  </div>
+  <div class="form-row checkbox-row">
+      <input type="checkbox" id="privacy-policy" required>
+      <label for="privacy-policy">I agree to friendly privacy policy</label>
+  </div>
+  <button type="submit" class="form-submit blueButton customButton">
+      Send Message
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="currentColor"/>
+      </svg>
+  </button>
+
+{%- endform -%}
             </div>
             <div class="contact-info-area">
                 <!-- <div class="map-container" id="map-{{ section.id }}"></div> -->
