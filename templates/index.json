@@ -57,6 +57,7 @@
         "slide_icK4QX": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/toto-12.jpg",
             "heading": "TOTO Authorized Dealer",
             "heading_color": "#ffffff",
             "heading_size": "h1",
