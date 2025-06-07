@@ -1,6 +1,50 @@
+
+
 {% schema %}
   {
-    "name": "Brands Grid Section",
-    "settings": []
+        "name": "Brands Grid Section",
+    "class": "brands-grid-section",
+  "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Main Heading",
+        "default": "Browse brand catalogues"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "one_brand",
+        "name": "One Brand",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "showcase_image",
+            "label": "Showcase Image (Main Visual)"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Brand Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }, {
+            "type": "url",
+            "id": "linkToBrand",
+            "label": "Link To Brand Page"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brands Grid Section",
+        "category": "Image"
+      }
+    ]
   }
 {% endschema %}
