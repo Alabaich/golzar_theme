@@ -45,7 +45,7 @@
       "settings": {
         "logo_position": "top-center",
         "menu_area_bgcolor": "#ffffff",
-        "menu": "main-menu",
+        "menu": "header-menu",
         "menu_type_desktop": "mega",
         "head_btn": "Contact Us",
         "head_btn_link": "shopify://pages/contact",
