@@ -52,6 +52,8 @@
         "logo_image_3cbFrc": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/Image-and-Text-Block-Variation-1-aae01405_rgb_Image-and-Text-Block-Variation-One-Desktop_6757c818-2681-4bd0-a0ab-a5dff9a58289.webp",
+            "logo_image": "shopify://shop_images/ALPS.svg",
             "logo_heading": "ALPS CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/ALPS-CATALOGUE.pdf?v=1735746886",
@@ -61,6 +63,8 @@
         "logo_image_6AcdVj": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/orans-63-wall-mount-single-sink-vanity-524086.jpg",
+            "logo_image": "shopify://shop_images/ORANS_f873f2ca-2fb8-42c4-bcb3-af562582227e.svg",
             "logo_heading": "ORANS CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Orans-catalogue.pdf?v=1735746961",
@@ -70,6 +74,8 @@
         "logo_image_bnmLWV": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/visentin.jpg",
+            "logo_image": "shopify://shop_images/VISENTIN_7f14ce18-6156-4093-9b1b-dc0a910a98e5.svg",
             "logo_heading": "VISENTIN CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/VISENTIN-WP.pdf?v=1735747042",
@@ -79,6 +85,8 @@
         "logo_image_ia7hDw": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/AP01_KARTELL_LAUFEN_215444_820333_891333_403532_2_LichtAus_t_Ambient_Pictures_TF_Mob_solu_xxl_v2.jpg",
+            "logo_image": "shopify://shop_images/LAUFEN_1ea7b142-c8b1-46ce-bfa2-ea77fb0a43a0.svg",
             "logo_heading": "LAUFEN CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/GOLZAR-HOME-LAUFEN.pdf?v=1735747107",
@@ -88,6 +96,8 @@
         "logo_image_6cFaYm": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/bocchi.jpg",
+            "logo_image": "shopify://shop_images/BOCCHI_88990607-3da0-476d-8856-4870623fed2c.svg",
             "logo_heading": "BOCCHI CATALOGUE",
             "logo_heading_color": "",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Bocchi-Catalogue.pdf?v=1735747260",
@@ -97,6 +107,8 @@
         "logo_image_6Gawnt": {
           "type": "logo_image",
           "settings": {
+            "showcase_image": "shopify://shop_images/Home_Pgae_GOLZAR.ca-04_756951c0-3106-49a1-af4f-6beb7aa87c58.webp",
+            "logo_image": "shopify://shop_images/Golzar-Home-Logo-03.svg",
             "logo_heading": "GOLZAR HOME CATALOGUE",
             "logo_heading_color": "#000000",
             "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Golzar-Home-Products-Catalogue_1__compressed_1.pdf?v=1735748063",
