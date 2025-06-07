@@ -110,9 +110,9 @@ grid-row-gap: 25px;
 
 <div class="brand-grid-list-container pageWidth page-width">
   <div class="brands-grid-heading">
-    <h2>Our Brands Collection</h2>
+    <h2>{{ section.settings.main_heading }}</h2>
     <p class="bodyText">
-      We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style.
+      {{ section.settings.description }}
     </p>
   </div>
   <div class="brands-grid">
@@ -176,6 +176,12 @@ grid-row-gap: 25px;
         "id": "main_heading",
         "label": "Main Heading",
         "default": "Browse brand catalogues"
+      },
+            {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Description brand catalogues"
       }
     ],
     "blocks": [
