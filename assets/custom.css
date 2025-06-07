@@ -90,6 +90,8 @@ a.btn.btn-primary,
   line-height: 1em;
   transition: all ease 0.5s;
   opacity: 1;
+  line-height: normal;
+  font-weight: 300;
 }
 .header-wrapper {
   background-color: #fff;
