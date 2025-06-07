@@ -136,27 +136,33 @@
           "settings": {
             "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
             "logo_image": "shopify://shop_images/DURAVIT.svg",
-            "text": "",
+            "text": "Transform your space with Duravit's German-engineered fixtures and furniture. In partnership with world-class designers",
             "linkToBrand": ""
           }
         },
         "one_brand_pkQJrC": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/img-geberit-selnova-hospital-toilet-sigma10-washbasin-760-760.jpg",
+            "logo_image": "shopify://shop_images/GEBERIT.svg",
+            "text": "Unlock a new level of design with Geberit's Swiss-engineered in-wall systems. Create a more spacious, hygienic, and quieter bathroom",
             "linkToBrand": ""
           }
         },
         "one_brand_E9VfQk": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/grohe-grohtherm-round-thermostatic-shower-kit-27-lmin-71-gpm-147934.webp",
+            "logo_image": "shopify://shop_images/GROHE.svg",
+            "text": "Discover Grohe's German-engineered precision in every drop. From the smooth handling of its faucets to innovative smart showers",
             "linkToBrand": ""
           }
         },
         "one_brand_GDtyaD": {
           "type": "one_brand",
           "settings": {
+            "showcase_image": "shopify://shop_images/vogt_3dbe72a6-9ec0-46f9-954e-283aa006ed24.jpg",
+            "logo_image": "shopify://shop_images/vogt.svg",
             "text": "",
             "linkToBrand": ""
           }
