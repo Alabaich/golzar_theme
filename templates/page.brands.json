@@ -309,7 +309,7 @@
         "feature_item_FKmV4K": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/toilets",
             "item_title": "Sanitary Ware",
             "item_description": "<p>Discover our collection of high-performance toilets and bidets from world-leading brands. We offer advanced solutions combining powerful flushing technology, water efficiency, and sophisticated design.</p><p></p>"
           }
@@ -317,15 +317,15 @@
         "feature_item_G6nyAN": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/faucets-faucets",
             "item_title": "Faucets",
-            "item_description": "<p>From elegant bathroom centerpieces to high-performance kitchen workhorses, explore our vast collection of faucets. Discover precision engineering, lasting finishes, and styles to complement any design.</p>"
+            "item_description": "<p>From elegant bathroom centerpieces to high-performance kitchen workhorses, explore our vast collection of faucets. Discover precision engineering, lasting finishes, and styles to complement any design. Buy Faucets </p>"
           }
         },
         "feature_item_bqE6Ue": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/bathroom-sinks",
             "item_title": "Bathroom Sinks",
             "item_description": "<p>Define your vanity with the perfect bathroom sink. Our curated collection includes vessel, undermount, and wall-mount styles in premium materials to anchor your bathroom's unique design.</p>"
           }
@@ -333,7 +333,7 @@
         "feature_item_cYhQ6x": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/showers",
             "item_title": "Steam Showers",
             "item_description": "<p>Transform your daily routine into a luxurious spa experience with our advanced steam shower systems. Indulge in the therapeutic benefits of steam for ultimate health and relaxation.</p>"
           }
@@ -341,7 +341,7 @@
         "feature_item_hUphjt": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/kitchen-sinks",
             "item_title": "Kitchen Sinks",
             "item_description": "<p>Discover the heart of your kitchen with our collection of durable and stylish sinks. Choose from fireclay farmhouse, modern stainless steel, or composite models designed for superior functionality.</p>"
           }
@@ -349,7 +349,7 @@
         "feature_item_Hicenn": {
           "type": "feature_item",
           "settings": {
-            "item_link": "",
+            "item_link": "shopify://collections/bathtubs-bathtubs",
             "item_title": "Bathtubs",
             "item_description": "<p>Create your personal retreat with a luxurious bathtub as the centerpiece. Explore our collection of stunning freestanding, alcove, and therapeutic soaking tubs designed for ultimate comfort.</p>"
           }
