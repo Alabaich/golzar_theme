@@ -35,6 +35,11 @@
         "show_text_below": true
       }
     },
+    "breadcrumbs_section_yNqTyd": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
     "our-brands": {
       "type": "our-brands",
       "blocks": {
@@ -268,16 +273,19 @@
         "button_font_size_mobile": 14
       }
     },
-    "breadcrumbs_section_yNqTyd": {
-      "type": "breadcrumbs-section",
-      "name": "Breadcrumbs",
-      "settings": {}
+    "brands_grid_section_Kcfijq": {
+      "type": "brands-grid-section",
+      "name": "Brands Grid Section",
+      "settings": {
+        "main_heading": "Browse brand catalogues"
+      }
     }
   },
   "order": [
     "main",
     "image-banner-brands",
     "breadcrumbs_section_yNqTyd",
+    "brands_grid_section_Kcfijq",
     "our-brands",
     "feature_grid_with_text_Ye3pQT",
     "switch_side_image_zVzFg4"
