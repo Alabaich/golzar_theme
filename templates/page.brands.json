@@ -48,28 +48,34 @@
           "settings": {
             "showcase_image": "shopify://shop_images/alps-wall-hung-toilet-kw9003-complete-set-with-duravit-carrier-598534.jpg",
             "logo_image": "shopify://shop_images/ALPS.svg",
-            "text": "With over 150 years of expertise, Kohler delivers iconic design and legendary reliability for your kitchen and bath, creating a legacy of excellence in your home.",
+            "text": "Alps delivers the ultimate fusion of minimalist design and smart technology in its collection of sophisticated smart toilets and space-saving fixtures.",
             "linkToBrand": ""
           }
         },
         "one_brand_ChPyky": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/bocchi.jpg",
+            "logo_image": "shopify://shop_images/BOCCHI_1.svg",
+            "text": "From sleek wall-mounted toilets to beautiful countertop vessel sinks, Bocchi products are the epitome of modern luxury, built with durability.",
             "linkToBrand": ""
           }
         },
         "one_brand_qRQTN9": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/visentin.jpg",
+            "logo_image": "shopify://shop_images/VISENTIN_7f14ce18-6156-4093-9b1b-dc0a910a98e5.svg",
+            "text": "Discover VISENTIN faucets, fusing 50 years of Italian engineering with the timeless elegance and durability of solid-brass craftsmanship.",
             "linkToBrand": ""
           }
         },
         "one_brand_FRgRAF": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/Godi.jpg",
+            "logo_image": "shopify://shop_images/GODI.svg",
+            "text": "GODI specializes in luxurious, hand-crafted bathroom vanities, bringing old-world European charm and timeless, classical elegance to your home.",
             "linkToBrand": ""
           }
         }
@@ -101,13 +107,17 @@
         "one_brand_BLyDjy": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/17_OK.png",
+            "logo_image": "shopify://shop_images/bagno_italia_logo.svg",
+            "text": "Experience Bagno Italia, where authentic Italian design meets modern, functional bathroom furniture.",
             "linkToBrand": ""
           }
         },
         "one_brand_QRyErf": {
           "type": "one_brand",
           "settings": {
+            "showcase_image": "shopify://shop_images/2-59_2f570ddc-81ca-4961-9ffc-94f0d92a8f6c.webp",
+            "logo_image": "shopify://shop_images/oceania.svg",
             "text": "",
             "linkToBrand": ""
           }
@@ -115,13 +125,17 @@
         "one_brand_3mYehq": {
           "type": "one_brand",
           "settings": {
-            "text": "",
+            "showcase_image": "shopify://shop_images/toto-14.jpg",
+            "logo_image": "shopify://shop_images/TOTO.svg",
+            "text": "Elevate your daily routine with TOTO's cutting-edge Japanese technology, from the revolutionary WASHLET bidet to high-efficiency, self-cleaning toilets.",
             "linkToBrand": ""
           }
         },
         "one_brand_LyKPDX": {
           "type": "one_brand",
           "settings": {
+            "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
+            "logo_image": "shopify://shop_images/DURAVIT.svg",
             "text": "",
             "linkToBrand": ""
           }
