@@ -33,7 +33,37 @@ grid-row-gap: 25px;
       We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style.
     </p>
   </div>
-  <div class="brands-grid"></div>
+  <div class="brands-grid">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.linkToBrand | default: '#' }}" class="brand-card" {{ block.shopify_attributes }}>
+
+        {%- if block.settings.showcase_image != blank -%}
+          <img class="showcase-image"
+               src="{{ block.settings.showcase_image | image_url: width: 500 }}"
+               alt="{{ block.settings.showcase_image.alt | default: block.settings.text | escape }}"
+               loading="lazy"
+               width="500"
+               height="{{ 500 | divided_by: block.settings.showcase_image.aspect_ratio | round }}">
+        {%- endif -%}
+
+        <div class="brand-card-content">
+          {%- if block.settings.logo_image != blank -%}
+            <img class="brand-logo"
+                 src="{{ block.settings.logo_image | image_url: width: 200 }}"
+                 alt="{{ block.settings.logo_image.alt | default: 'Logo for ' | append: block.settings.text | escape }}"
+                 loading="lazy"
+                 width="200"
+                 height="{{ 200 | divided_by: block.settings.logo_image.aspect_ratio | round }}">
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <p>{{ block.settings.text | escape }}</p>
+          {%- endif -%}
+        </div>
+
+      </a>
+    {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
