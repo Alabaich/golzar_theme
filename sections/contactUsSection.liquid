@@ -376,24 +376,3 @@
     }
     }
 {% endstyle %}
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const mapContainer = document.getElementById('map-{{ section.id }}');
-        if (mapContainer) {
-            const map = L.map(mapContainer).setView([{{ section.settings.map_latitude }}, {{ section.settings.map_longitude }}], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([{{ section.settings.map_latitude }}, {{ section.settings.map_longitude }}]).addTo(map)
-                .bindPopup('Bathroom Supplier Location')
-                .openPopup();
-        }
-    });
-</script>
