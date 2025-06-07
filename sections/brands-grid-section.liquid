@@ -35,33 +35,50 @@ grid-row-gap: 25px;
   </div>
   <div class="brands-grid">
     {%- for block in section.blocks -%}
-      <a href="{{ block.settings.linkToBrand | default: '#' }}" class="brand-card" {{ block.shopify_attributes }}>
+<a href="{{ block.settings.linkToBrand | default: '#' }}"
+   class="brand-card-new"
+   {{ block.shopify_attributes }}
+   {% if block.settings.showcase_image != blank %}
+     style="background-image: url('{{ block.settings.showcase_image | image_url: width: 800 }}');"
+   {% endif %}>
 
-        {%- if block.settings.showcase_image != blank -%}
-          <img class="showcase-image"
-               src="{{ block.settings.showcase_image | image_url: width: 500 }}"
-               alt="{{ block.settings.showcase_image.alt | default: block.settings.text | escape }}"
-               loading="lazy"
-               width="500"
-               height="{{ 500 | divided_by: block.settings.showcase_image.aspect_ratio | round }}">
-        {%- endif -%}
+  <div class="card-header">
+    {%- if block.settings.logo_image != blank -%}
+      <img class="brand-logo-new"
+           src="{{ block.settings.logo_image | image_url: width: 200 }}"
+           alt="{{ block.settings.logo_image.alt | default: 'Logo' | escape }}"
+           loading="lazy"
+           width="{{ block.settings.logo_image.width }}"
+           height="{{ block.settings.logo_image.height }}">
+    {%- endif -%}
 
-        <div class="brand-card-content">
-          {%- if block.settings.logo_image != blank -%}
-            <img class="brand-logo"
-                 src="{{ block.settings.logo_image | image_url: width: 200 }}"
-                 alt="{{ block.settings.logo_image.alt | default: 'Logo for ' | append: block.settings.text | escape }}"
-                 loading="lazy"
-                 width="200"
-                 height="{{ 200 | divided_by: block.settings.logo_image.aspect_ratio | round }}">
-          {%- endif -%}
+    <div class="arrow-icon-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="37" viewBox="0 0 36 37" fill="none">
+  <g clip-path="url(#clip0_563_2973)">
+    <mask id="mask0_563_2973" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="37">
+      <path d="M36 0.5H0V36.5H36V0.5Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_563_2973)">
+      <path d="M35.3588 18.5C35.3588 8.91388 27.5878 1.14282 18.0017 1.14282C8.41559 1.14282 0.644531 8.91388 0.644531 18.5C0.644531 28.086 8.41559 35.8571 18.0017 35.8571C27.5878 35.8571 35.3588 28.086 35.3588 18.5Z" stroke="white" stroke-width="1.07143"/>
+      <path d="M12.5469 23.9548L23.4566 13.0452" stroke="white" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.5469 13.0452H23.4566V23.9548" stroke="white" stroke-width="1.07143" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0_563_2973">
+      <rect width="36" height="36" fill="white" transform="translate(0 0.5)"/>
+    </clipPath>
+  </defs>
+</svg>
+    </div>
+  </div>
 
-          {%- if block.settings.text != blank -%}
-            <p>{{ block.settings.text | escape }}</p>
-          {%- endif -%}
-        </div>
-
-      </a>
+  <div class="card-footer">
+    {%- if block.settings.text != blank -%}
+      <h3 class="card-text">{{ block.settings.text | escape }}</h3>
+    {%- endif -%}
+  </div>
+</a>
     {%- endfor -%}
   </div>
 </div>
