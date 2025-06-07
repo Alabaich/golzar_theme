@@ -40,6 +40,51 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
+    "brands_grid_section_ktFxMd": {
+      "type": "brands-grid-section",
+      "blocks": {
+        "one_brand_XnNEji": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/alps-wall-hung-toilet-kw9003-complete-set-with-duravit-carrier-598534.jpg",
+            "logo_image": "shopify://shop_images/ALPS.svg",
+            "text": "With over 150 years of expertise, Kohler delivers iconic design and legendary reliability for your kitchen and bath, creating a legacy of excellence in your home.",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_ChPyky": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_qRQTN9": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_FRgRAF": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        }
+      },
+      "block_order": [
+        "one_brand_XnNEji",
+        "one_brand_ChPyky",
+        "one_brand_qRQTN9",
+        "one_brand_FRgRAF"
+      ],
+      "name": "Brands Grid Section",
+      "settings": {
+        "main_heading": "Browse brand catalogues"
+      }
+    },
     "brands_grid_section_Kcfijq": {
       "type": "brands-grid-section",
       "blocks": {
@@ -51,10 +96,66 @@
             "text": "With over 150 years of expertise, Kohler delivers iconic design and legendary reliability for your kitchen and bath, creating a legacy of excellence in your home.",
             "linkToBrand": ""
           }
+        },
+        "one_brand_BLyDjy": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_QRyErf": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_3mYehq": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_LyKPDX": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_pkQJrC": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_E9VfQk": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
+        "one_brand_GDtyaD": {
+          "type": "one_brand",
+          "settings": {
+            "text": "",
+            "linkToBrand": ""
+          }
         }
       },
       "block_order": [
-        "one_brand_G38AKr"
+        "one_brand_G38AKr",
+        "one_brand_BLyDjy",
+        "one_brand_QRyErf",
+        "one_brand_3mYehq",
+        "one_brand_LyKPDX",
+        "one_brand_pkQJrC",
+        "one_brand_E9VfQk",
+        "one_brand_GDtyaD"
       ],
       "name": "Brands Grid Section",
       "settings": {
@@ -299,6 +400,7 @@
     "main",
     "image-banner-brands",
     "breadcrumbs_section_yNqTyd",
+    "brands_grid_section_ktFxMd",
     "brands_grid_section_Kcfijq",
     "our-brands",
     "feature_grid_with_text_Ye3pQT",
