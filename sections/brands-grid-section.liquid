@@ -1,4 +1,63 @@
+<style>
+  
+</style>
 
+
+<div class="brand-grid-list-container">
+  <div class="breadcrumbs">
+    <ol>
+    <li>
+      <a href="{{ routes.root_url }}" title="Home">Home</a>
+    </li>
+
+    {%- comment -%}
+      Logic to display breadcrumbs based on the current page template.
+    {%- endcomment -%}
+    {%- case template.name -%}
+      {%- when 'product' -%}
+        {%- if collection -%}
+          <li>
+            <a href="{{ collection.url }}">{{ collection.title }}</a>
+          </li>
+        {%- endif -%}
+        <li aria-current="page">
+          {{ product.title }}
+        </li>
+
+      {%- when 'collection' -%}
+        <li aria-current="page">
+          {{ collection.title }}
+        </li>
+
+      {%- when 'page' -%}
+        <li aria-current="page">
+          {{ page.title }}
+        </li>
+
+      {%- when 'blog' -%}
+        <li aria-current="page">
+          {{ blog.title }}
+        </li>
+
+      {%- when 'article' -%}
+        <li>
+          <a href="{{ blog.url }}">{{ blog.title }}</a>
+        </li>
+        <li aria-current="page">
+          {{ article.title }}
+        </li>
+
+      {%- when 'cart' -%}
+        <li aria-current="page">
+          Your Cart
+        </li>
+
+    {%- endcase -%}
+  </ol>
+  </div>
+  <div class="brands-grid-heading"></div>
+  <div class="brands-grid"></div>
+</div>
 
 {% schema %}
   {
