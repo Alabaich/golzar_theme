@@ -82,7 +82,8 @@
       ],
       "name": "Brands Grid Section",
       "settings": {
-        "main_heading": "Browse brand catalogues"
+        "main_heading": "Our Brands Collection",
+        "description": "We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style."
       }
     },
     "brands_grid_section_Kcfijq": {
@@ -159,7 +160,8 @@
       ],
       "name": "Brands Grid Section",
       "settings": {
-        "main_heading": "Browse brand catalogues"
+        "main_heading": "Premium Brands We Carry",
+        "description": "We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style."
       }
     },
     "our-brands": {
