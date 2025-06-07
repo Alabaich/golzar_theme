@@ -126,7 +126,7 @@ grid-row-gap: 25px;
   <div class="card-header">
     {%- if block.settings.logo_image != blank -%}
       <img class="brand-logo-new"
-           src="{{ block.settings.logo_image | image_url: width: 200 }}"
+           src="{{ block.settings.logo_image | image_url: width: 400 }}"
            alt="{{ block.settings.logo_image.alt | default: 'Logo' | escape }}"
            loading="lazy"
            width="{{ block.settings.logo_image.width }}"
