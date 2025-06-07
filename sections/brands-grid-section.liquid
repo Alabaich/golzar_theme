@@ -23,6 +23,30 @@ grid-column-gap: 25px;
 grid-row-gap: 25px;
 
   }
+
+  /* --- Less SEO-Friendly Card Styles (using background-image) --- */
+.brand-card-new {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  padding: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  background-color: #eee;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.brand-card-new:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* The rest of the CSS for .card-header, .brand-logo-new, etc. remains the same */
 </style>
 
 
