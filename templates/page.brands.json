@@ -267,11 +267,17 @@
         "subheading_font_size_mobile": 15,
         "button_font_size_mobile": 14
       }
+    },
+    "breadcrumbs_section_yNqTyd": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "image-banner-brands",
+    "breadcrumbs_section_yNqTyd",
     "our-brands",
     "feature_grid_with_text_Ye3pQT",
     "switch_side_image_zVzFg4"
