@@ -150,7 +150,8 @@
             width="{{ image.width }}"
             height="{{ image.height }}"
             loading="lazy"
-            class="iwts__image">
+            class="iwts__image"
+            style="aspect-ratio: 4/3;">
         {%- elsif settings.show_onboarding_image -%}
           <div style="aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--image-border-radius);">
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
