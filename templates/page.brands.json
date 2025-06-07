@@ -40,6 +40,27 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
+    "brands_grid_section_Kcfijq": {
+      "type": "brands-grid-section",
+      "blocks": {
+        "one_brand_G38AKr": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Kohler_Bathtub_Shower_Kits.webp",
+            "logo_image": "shopify://shop_images/KOHLER.svg",
+            "text": "",
+            "linkToBrand": ""
+          }
+        }
+      },
+      "block_order": [
+        "one_brand_G38AKr"
+      ],
+      "name": "Brands Grid Section",
+      "settings": {
+        "main_heading": "Browse brand catalogues"
+      }
+    },
     "our-brands": {
       "type": "our-brands",
       "blocks": {
@@ -271,13 +292,6 @@
         "title_font_size_mobile": 32,
         "subheading_font_size_mobile": 15,
         "button_font_size_mobile": 14
-      }
-    },
-    "brands_grid_section_Kcfijq": {
-      "type": "brands-grid-section",
-      "name": "Brands Grid Section",
-      "settings": {
-        "main_heading": "Browse brand catalogues"
       }
     }
   },
