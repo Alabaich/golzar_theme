@@ -2953,9 +2953,9 @@ body .collection_main_wrap {
   line-height: 110.00000000000001%;
 
 }
-.facet-filters__field .facet-filters__label {
+/* .facet-filters__field .facet-filters__label {
   margin-right: 10px;
-}
+} */
 .facets .facets-vertical-form {
   align-items: center;
 }
