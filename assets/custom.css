@@ -2697,12 +2697,18 @@ div#FacetsWrapperDesktop .list-menu__item label .facet-checkbox__text-label {
 div#FacetsWrapperDesktop .facets-vertical .active-facets__button {
   margin: 5px 5px 5px 0;
 }
-.facets-vertical .active-facets-vertical-filter .facets__heading {
+/* .facets-vertical .active-facets-vertical-filter .facets__heading {
   font-family: Roboto, serif;
   line-height: 1.3em;
   font-size: 15px;
   font-weight: 700;
   color: #6f6f6f;
+} */
+.facets-vertical .active-facets-vertical-filter .facets__heading {
+  line-height: 1.3em;
+  font-family: Raleway;
+  font-weight: 600;
+  font-size: 1.125em;
 }
 .facets-vertical .active-facets-vertical-filter facet-remove a span {
   font-size: 12px;
