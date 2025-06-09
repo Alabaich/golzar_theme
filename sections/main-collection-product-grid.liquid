@@ -23,7 +23,7 @@
 {%- endif -%}
 
 <style>
-  .section-{{ section.id }} summary.facets__summary span {
+  .section-{{ section.id }} .facets__summary span {
     font-family: Raleway;
     font-weight: 600;
     font-size: 18px;
@@ -31,6 +31,10 @@
     vertical-align: middle;
     color: #151515;
   }
+
+    .section-{{ section.id }} .collectionPageTitle {
+      margin: 0;
+    }
 
   .section-{{ section.id }} .facets__item--selected .facets__label {
     background-color: #151515;
