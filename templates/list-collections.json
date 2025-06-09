@@ -19,7 +19,7 @@
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "columns_desktop": 3,
         "columns_mobile": "1"
       }
