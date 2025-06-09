@@ -23,8 +23,7 @@
 {%- endif -%}
 
 <style>
-  .section-{{ section.id }} .facets__summary-text,
-  .facets__price .field__label {
+  .section-{{ section.id }} .facets__summary-label {
     font-family: Raleway;
     font-weight: 600;
     font-size: 18px;
@@ -113,13 +112,13 @@
     {%- endif -%}
 
     {% comment %} 
-      <div class="rte">        
-      {% assign descriptions = collection.description | split: "<!-- split -->" %}
-      {% assign short_desc = descriptions[0] %}
-      {% assign long_desc = descriptions[1] %}
-      {{ short_desc }}
-      </div> 
-    {% endcomment %}
+            <div class="rte">        
+            {% assign descriptions = collection.description | split: "<!-- split -->" %}
+            {% assign short_desc = descriptions[0] %}
+            {% assign long_desc = descriptions[1] %}
+            {{ short_desc }}
+            </div> 
+        {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
