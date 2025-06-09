@@ -25,7 +25,7 @@
         "announce_gMGytj": {
           "type": "announce",
           "settings": {
-            "announcement": "Free shipping on orders over CAD $5,000!",
+            "announcement": "Free shipping on orders from GTA!",
             "announcement_color": "#ffffff",
             "announcement_link": "shopify://policies/shipping-policy"
           }
