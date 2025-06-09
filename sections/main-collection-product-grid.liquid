@@ -223,7 +223,7 @@
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
             <div class="product-count-new">
-              {{ collection.products_count }} {{ 'products.facets.product_count_simple' | t: count: collection.products_count | remove: 'products' | strip }} products
+              {{ collection.products_count }}{{ 'products.facets.product_count_simple' | t: count: collection.products_count | remove: 'products' | strip }} products
             </div>
             <ul
               id="product-grid"
