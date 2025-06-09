@@ -2938,8 +2938,11 @@ body .collection_main_wrap {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.facet-filters__field .select span.svg-wrapper {
+/* .facet-filters__field .select span.svg-wrapper {
   right: 6px;
+} */
+.facet-filters__field .select span.svg-wrapper {
+  right: 1.5em;
 }
 .facet-filters__field .facet-filters__label > label {
   font-size: 14px;
