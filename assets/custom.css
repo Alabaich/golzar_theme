@@ -2888,8 +2888,8 @@ body.products.collection .collection-social {
   display: none;
 }
 body .collection_main_wrap {
-  padding-bottom: 30px;
-  max-width: 1300px;
+  /* padding-bottom: 30px;
+  max-width: 1300px; */
   margin: auto;
 }
 .facet-filters__field .select select {
