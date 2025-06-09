@@ -108,12 +108,12 @@
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort small-hide">
         {% comment %} {% if collection.handle != 'all' %}
-                                                                                {%- if paginate.pages > 1 -%}
-                                                                                  {% render 'pagination'
-                                                                                    , paginate: paginate
-                                                                                    , anchor: '' %}
-                                                                                {%- endif -%}
-                                                                {% endif %} {% endcomment %}
+                                                                                          {%- if paginate.pages > 1 -%}
+                                                                                            {% render 'pagination'
+                                                                                              , paginate: paginate
+                                                                                              , anchor: '' %}
+                                                                                          {%- endif -%}
+                                                                        {% endif %} {% endcomment %}
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
@@ -148,13 +148,13 @@
     {%- endif -%}
 
     {% comment %} 
-      <div class="rte">        
-      {% assign descriptions = collection.description | split: "<!-- split -->" %}
-      {% assign short_desc = descriptions[0] %}
-      {% assign long_desc = descriptions[1] %}
-      {{ short_desc }}
-      </div> 
-    {% endcomment %}
+            <div class="rte">        
+            {% assign descriptions = collection.description | split: "<!-- split -->" %}
+            {% assign short_desc = descriptions[0] %}
+            {% assign long_desc = descriptions[1] %}
+            {{ short_desc }}
+            </div> 
+        {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical {% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
@@ -211,7 +211,7 @@
                 {%- assign final_count = collection.all_products_count -%}
               {%- endif -%}
 
-              {{ final_count }} {{ 'products.facets.product_count_simple' | t: count: final_count }}
+              {{ 'products.facets.product_count_simple' | t: count: final_count }}
             </div>
             <ul
               id="product-grid"
