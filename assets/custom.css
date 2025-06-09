@@ -2615,6 +2615,13 @@ div.product-grid-container ul#product-grid li.grid__item .card .card__inner {
   color: #6f6f6f;
   text-decoration: none !important;
 } */
+summary.facets__summary span {
+  line-height: 1.3em;
+  text-decoration: none !important;
+  font-family: Raleway;
+  font-weight: 600;
+  font-size: 18px;
+}
 div#FacetsWrapperDesktop .list-menu__item label {
   font-size: 12px;
   font-family: "Open Sans";
