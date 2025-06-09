@@ -2905,7 +2905,7 @@ body .collection_main_wrap {
   max-width: 1300px; */
   margin: auto;
 }
-.facet-filters__field .select select {
+/* .facet-filters__field .select select {
   outline: none;
   box-shadow: none;
   border: 1px solid #adb6be;
@@ -2920,6 +2920,20 @@ body .collection_main_wrap {
   overflow: hidden;
   width: 100px;
   padding-right: 12px;
+} */
+.facet-filters__field .select select {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #5C5C5C;
+  padding: 8px;
+  font-size: 14px;
+  font-family: "Raleway";
+  border-radius: 999px;
+  font-weight: 400;
+  display: inline;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .facet-filters__field .select span.svg-wrapper {
   right: 6px;
