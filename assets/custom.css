@@ -2921,11 +2921,14 @@ body .collection_main_wrap {
   width: 100px;
   padding-right: 12px;
 } */
+
+/* new facet-filters__field .select select styles */
+
 .facet-filters__field .select select {
   outline: none;
   box-shadow: none;
   border: 1px solid #5C5C5C;
-  padding: 8px;
+  padding: 10px 16px;
   font-size: 14px;
   font-family: "Raleway";
   border-radius: 999px;
