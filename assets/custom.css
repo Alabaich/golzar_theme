@@ -2607,14 +2607,14 @@ div.product-grid-container ul#product-grid li.grid__item .card .card__inner {
   display: block;
   position: relative;
 }
-summary.facets__summary span {
+/* summary.facets__summary span {
   font-family: "Roboto", serif;
   line-height: 1.3em;
   font-size: 15px;
   font-weight: 700;
   color: #6f6f6f;
   text-decoration: none !important;
-}
+} */
 div#FacetsWrapperDesktop .list-menu__item label {
   font-size: 12px;
   font-family: "Open Sans";
