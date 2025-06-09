@@ -73,7 +73,8 @@
     background-color: #f5f5f5;
   }
 
-  .section-{{ section.id }} .product-count-new {
+  .section-{{ section.id }}
+  .product-count-new {
     font-family: Raleway;
     font-size: 16px;
     margin-bottom: 20px;
@@ -166,13 +167,13 @@
     {%- endif -%}
 
     {% comment %} 
-                                    <div class="rte">        
-                                    {% assign descriptions = collection.description | split: "<!-- split -->" %}
-                                    {% assign short_desc = descriptions[0] %}
-                                    {% assign long_desc = descriptions[1] %}
-                                    {{ short_desc }}
-                                    </div> 
-                        {% endcomment %}
+                                          <div class="rte">        
+                                          {% assign descriptions = collection.description | split: "<!-- split -->" %}
+                                          {% assign short_desc = descriptions[0] %}
+                                          {% assign long_desc = descriptions[1] %}
+                                          {{ short_desc }}
+                                          </div> 
+                            {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical {% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
@@ -223,7 +224,11 @@
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
             <div class="product-count-new">
-              {{ collection.products_count }}{{ 'products.facets.product_count_simple' | t: count: collection.products_count | remove: 'products' | strip }} products
+              {% if collection.results_count %}
+                {{ collection.results_count }} products
+              {% else %}
+                {{ collection.all_products_count }} products
+              {% endif %}
             </div>
             <ul
               id="product-grid"
