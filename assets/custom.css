@@ -2620,7 +2620,7 @@ summary.facets__summary span {
   text-decoration: none !important;
   font-family: Raleway;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.125em;
 }
 div#FacetsWrapperDesktop .list-menu__item label {
   font-size: 12px;
