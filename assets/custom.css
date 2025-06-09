@@ -1656,7 +1656,7 @@ div.product-grid-container ul#product-grid
 .overlay-img-box::after {
   position: absolute;
   content: "";
-  background-color: rgb(0 38 66 / 60%);
+  /* background-color: rgb(0 38 66 / 60%); */
   top: 0;
   left: 0;
   width: 100%;
