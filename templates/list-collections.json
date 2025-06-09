@@ -1,5 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "breadcrumbs_section_bBw7Jh": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
     "main": {
       "type": "main-list-collections",
       "settings": {
@@ -12,6 +26,7 @@
     }
   },
   "order": [
+    "breadcrumbs_section_bBw7Jh",
     "main"
   ]
 }
