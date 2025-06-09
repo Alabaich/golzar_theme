@@ -528,7 +528,7 @@
         "show_date": true,
         "show_excerpt": true,
         "excerpt_length": 6,
-        "read_more_text": "READ NOW",
+        "read_more_text": "Read Now",
         "card_bg_color": "#ffffff",
         "card_border_radius": 6,
         "date_color": "#b9b9b9",
