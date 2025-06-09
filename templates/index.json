@@ -519,7 +519,7 @@
         "heading_size": 32,
         "heading_color": "#2c2d2c",
         "blog_handle": "news",
-        "posts_to_show": 7,
+        "posts_to_show": 4,
         "columns_desktop": 4,
         "columns_tablet": 2,
         "grid_gap": 30,
