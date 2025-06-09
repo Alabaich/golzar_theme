@@ -85,6 +85,7 @@
   .custom-sort-select {
     position: relative;
     min-width: 200px;
+    margin-left: auto;
   }
 
   .section-{{ section.id }}
@@ -93,34 +94,39 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 100%;
-    padding: 12px 16px;
+    padding: 10px 30px 10px 15px;
     font-family: Raleway;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     color: #151515;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
     cursor: pointer;
     outline: none;
+    transition: all 0.2s ease;
   }
 
   .section-{{ section.id }}
   .custom-select-arrow {
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 10px;
     transform: translateY(-50%);
     pointer-events: none;
+    width: 12px;
+    height: 12px;
   }
 
   .section-{{ section.id }}.custom-sort-select select:focus {
-    border-color: #151515;
+    border-bottom-color: #151515;
   }
 
   @media screen and (max-width: 749px) {
     .section-{{ section.id }} .custom-sort-select {
       width: 100%;
+      margin: 15px 0;
     }
   }
 </style>
@@ -166,6 +172,10 @@
                   class="facet-filters__sort select__select caption-large"
                   id="SortBy"
                   aria-describedby="a11y-refresh-page-message">
+                  <option
+                    value=""
+                    disabled
+                    selected>Sort by</option>
                   {%- for option in collection.sort_options -%}
                     <option
                       value="{{ option.value | escape }}"
@@ -186,7 +196,8 @@
                     <path
                       d="M1 1L6 6L11 1"
                       stroke="#151515"
-                      stroke-width="2" />
+                      stroke-width="1.5"
+                      stroke-linecap="round" />
                   </svg>
                 </span>
               </div>
@@ -194,35 +205,35 @@
           </div>
 
         {% comment %} <div class="product-count-vertical light" role="status">
-                                <h2 class="product-count__text text-body">
-                                  <span id="ProductCountDesktop">
-                                    {%- if collection.results_count -%}
-                                      {{ 'templates.search.results_with_count'
-                     | t: terms: collection.terms, count: collection.results_count
-                                      }}
-                                    {%- elsif collection.products_count == collection.all_products_count -%}
-                                      {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
-                                    {%- else -%}
-                                      {{ 'products.facets.product_count'
-                     | t: product_count: collection.products_count, count: collection.all_products_count
-                                      }}
-                                    {%- endif -%}
-                                  </span>
-                                </h2>
-                                {%- render 'loading-spinner' -%}
-                          </div> {% endcomment %}
+                                          <h2 class="product-count__text text-body">
+                                            <span id="ProductCountDesktop">
+                                              {%- if collection.results_count -%}
+                                                {{ 'templates.search.results_with_count'
+                               | t: terms: collection.terms, count: collection.results_count
+                                                }}
+                                              {%- elsif collection.products_count == collection.all_products_count -%}
+                                                {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+                                              {%- else -%}
+                                                {{ 'products.facets.product_count'
+                               | t: product_count: collection.products_count, count: collection.all_products_count
+                                                }}
+                                              {%- endif -%}
+                                            </span>
+                                          </h2>
+                                          {%- render 'loading-spinner' -%}
+                                  </div> {% endcomment %}
         </form>
       </facet-filters-form>
     {%- endif -%}
 
     {% comment %} 
-                                                            <div class="rte">        
-                                                            {% assign descriptions = collection.description | split: "<!-- split -->" %}
-                                                            {% assign short_desc = descriptions[0] %}
-                                                            {% assign long_desc = descriptions[1] %}
-                                                            {{ short_desc }}
-                                                            </div> 
-                                        {% endcomment %}
+                                                                  <div class="rte">        
+                                                                  {% assign descriptions = collection.description | split: "<!-- split -->" %}
+                                                                  {% assign short_desc = descriptions[0] %}
+                                                                  {% assign long_desc = descriptions[1] %}
+                                                                  {{ short_desc }}
+                                                                  </div> 
+                                            {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical {% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
