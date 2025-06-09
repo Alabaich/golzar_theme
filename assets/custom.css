@@ -2956,6 +2956,9 @@ body .collection_main_wrap {
 /* .facet-filters__field .facet-filters__label {
   margin-right: 10px;
 } */
+.facet-filters__field .facet-filters__label {
+  margin: 0px;
+}
 .facets .facets-vertical-form {
   align-items: center;
 }
