@@ -15,7 +15,6 @@
         "slide_rUEQXC": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Wall-Mounted-toilet2.webp",
             "heading": "Wall Mount Toilet",
             "heading_color": "#ffffff",
             "heading_size": "h1",
@@ -36,7 +35,6 @@
         "slide_6dV7k8": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Bathroom-Sink5.webp",
             "heading": "Bathroom Faucet",
             "heading_color": "#ffffff",
             "heading_size": "h1",
@@ -57,7 +55,6 @@
         "slide_XmYgPm": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Vanity-22.webp",
             "heading": "Bathroom Vanity",
             "heading_color": "#ffffff",
             "heading_size": "h1",
@@ -81,6 +78,7 @@
         "slide_6dV7k8",
         "slide_XmYgPm"
       ],
+      "disabled": true,
       "settings": {
         "additional_class": "",
         "layout": "full_bleed",
@@ -92,6 +90,11 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "breadcrumbs_section_Jj6RXX": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
     },
     "main-collection-product-grid": {
       "type": "main-collection-product-grid",
@@ -116,6 +119,7 @@
   },
   "order": [
     "slideshow-collection",
+    "breadcrumbs_section_Jj6RXX",
     "main-collection-product-grid"
   ]
 }
