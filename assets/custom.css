@@ -2677,13 +2677,13 @@ div#FacetsWrapperDesktop .facets__header-vertical {
 .field__input:not(:placeholder-shown) ~ .field__label {
   opacity: 0;
 }
-.active-facets__button--light .active-facets__button-inner {
+/* .active-facets__button--light .active-facets__button-inner {
   font-family: "Roboto";
   font-size: 12px;
   outline: none;
   box-shadow: none !important;
   border: 1px solid #ccc;
-}
+} */
 div#FacetsWrapperDesktop .list-menu__item label .facet-checkbox__text-label {
   text-decoration: none;
 }
