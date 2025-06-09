@@ -2,12 +2,18 @@
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .page-width .collectionPageTitle {
+  .collectionPage .collectionPageTitle {
     margin: 0;
+  }
+
+  .collectionPage {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 </style>
 
-<div class="page-width">
+<div class="page-width collectionPage">
   <h2 class="title collectionPageTitle inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ section.settings.title }}
   </h2>
