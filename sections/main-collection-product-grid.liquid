@@ -32,22 +32,25 @@
     color: #151515;
   }
 
-  .section-{{ section.id }} .facets__item--selected .facets__label {
+  .section-{{ section.id }}
+  .facets__item--selected .facets__label {
     background-color: #151515;
     color: #fff;
     border-color: #151515;
   }
 
-  .section-{{ section.id }} .facets__item--selected .facets__label:hover {
+  .section-{{ section.id }}.facets__item--selected .facets__label:hover {
     background-color: #151515;
     color: #fff;
   }
 
-  .section-{{ section.id }} .facets__item--selected .icon-checkmark {
+  .section-{{ section.id }}
+  .facets__item--selected .icon-checkmark {
     color: #fff;
   }
 
-  .section-{{ section.id }} .facets__summary-label {
+  .section-{{ section.id }}
+  .facets__summary-label {
     font-family: Raleway;
     font-weight: 600;
     font-size: 18px;
@@ -56,7 +59,8 @@
     color: #151515;
   }
 
-  .section-{{ section.id }} .facets__label {
+  .section-{{ section.id }}
+  .facets__label {
     font-family: Raleway;
     font-size: 16px;
     padding: 8px 12px;
@@ -65,8 +69,15 @@
     transition: all 0.2s ease;
   }
 
-  .section-{{ section.id }} .facets__label:hover {
+  .section-{{ section.id }}.facets__label:hover {
     background-color: #f5f5f5;
+  }
+
+  .section-{{ section.id }} .product-count {
+    font-family: Raleway;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #151515;
   }
 </style>
 
@@ -155,13 +166,13 @@
     {%- endif -%}
 
     {% comment %} 
-                        <div class="rte">        
-                        {% assign descriptions = collection.description | split: "<!-- split -->" %}
-                        {% assign short_desc = descriptions[0] %}
-                        {% assign long_desc = descriptions[1] %}
-                        {{ short_desc }}
-                        </div> 
-                {% endcomment %}
+                                    <div class="rte">        
+                                    {% assign descriptions = collection.description | split: "<!-- split -->" %}
+                                    {% assign short_desc = descriptions[0] %}
+                                    {% assign long_desc = descriptions[1] %}
+                                    {{ short_desc }}
+                                    </div> 
+                        {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical {% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
@@ -211,6 +222,9 @@
         {%- else -%}
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
+            <div class="product-count">
+              {{ collection.products_count }} {{ 'products.facets.product_count_simple' | t: count: collection.products_count | remove: 'products' | strip }} products
+            </div>
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
