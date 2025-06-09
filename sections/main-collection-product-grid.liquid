@@ -43,49 +43,8 @@
   .collectionPageTitle {
     margin: 0;
   }
-  
-  .active-filters-wrapper {
-    margin-bottom: 20px;
-  }
 
-  .section-{{ section.id }}
-  .active-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .section-{{ section.id }}
-  .active-filters__clear {
-    color: #151515;
-    text-decoration: underline;
-    font-size: 14px;
-    margin-right: 15px;
-  }
-
-  .section-{{ section.id }}
-  .active-filters__remove-filter {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    background: #f5f5f5;
-    border-radius: 4px;
-    color: #151515;
-    font-size: 14px;
-    text-decoration: none;
-  }
-
-  .section-{{ section.id }}
-  .active-filters__remove-icon {
-    margin-left: 6px;
-    font-size: 12px;
-  }
-
-  .active-filters__remove-filter:hover {
-    background: #e0e0e0;
-  }
-  </style > @media screen and (min-width: 750px) {
+  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -96,35 +55,6 @@
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }} collection_main_wrap page-width pageWidth">
   <h2 class="collectionPageTitle">{{ collection.title }}</h2>
   {%- paginate collection.products by section.settings.products_per_page -%}
-    {%- if section.settings.enable_filtering -%}
-      <div class="active-filters-wrapper page-width">
-        <div class="active-filters">
-          <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">
-            {{ 'products.facets.clear_all' | t }}
-          </a>
-
-          {%- for filter in collection.filters -%}
-            {%- if filter.type == "price_range" -%}
-              {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-                <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
-                  {%- assign min_value = filter.min_value.value | default: 0 -%}
-                  {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
-                  {{ min_value | money }} - {{ max_value | money }}
-                  <span class="active-filters__remove-icon">✕</span>
-                </a>
-              {%- endif -%}
-            {%- else -%}
-              {%- for filter_value in filter.active_values -%}
-                <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
-                  {{ filter_value.label }}
-                  <span class="active-filters__remove-icon">✕</span>
-                </a>
-              {%- endfor -%}
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </div>
-    {%- endif -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
@@ -188,13 +118,13 @@
     {%- endif -%}
 
     {% comment %} 
-                              <div class="rte">        
-                              {% assign descriptions = collection.description | split: "<!-- split -->" %}
-                              {% assign short_desc = descriptions[0] %}
-                              {% assign long_desc = descriptions[1] %}
-                              {{ short_desc }}
-                              </div> 
-                    {% endcomment %}
+                  <div class="rte">        
+                  {% assign descriptions = collection.description | split: "<!-- split -->" %}
+                  {% assign short_desc = descriptions[0] %}
+                  {% assign long_desc = descriptions[1] %}
+                  {{ short_desc }}
+                  </div> 
+            {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
