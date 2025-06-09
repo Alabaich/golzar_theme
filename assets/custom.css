@@ -2945,9 +2945,13 @@ body .collection_main_wrap {
   right: 1.5em;
 }
 .facet-filters__field .facet-filters__label > label {
-  font-size: 14px;
-  font-family: "Raleway";
-  font-weight: 600;
+  /* font-size: 14px;
+  font-weight: 600; */
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110.00000000000001%;
+
 }
 .facet-filters__field .facet-filters__label {
   margin-right: 10px;
