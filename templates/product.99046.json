@@ -1,1 +1,268 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"shipping_refund_ij6BDq":{"type":"shipping_refund","settings":{"shiiping_text":"Shipping cost at checkout","refund_text":"Return Policy"}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"swatch","swatch_shape":"square"}},"price":{"type":"price","settings":{}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"see_product_components_986tRR":{"type":"see-product-components","settings":{"enable_sectiono":true,"title11":"See Product Components","title11_color":"#000000"}},"required_items_9nVkDq":{"type":"required-items","settings":{"enable_prodcut":true,"title_pro":"Required items","title_pro_color":"#000000"}},"product_information_gjpgNk":{"type":"product_information","settings":{"product_info":"<p>You can find the full product details below. If you have any questions, feel free to reach out to us via <strong>online chat, <\/strong><a href=\"https:\/\/www.bathroomsupplier.ca\/pages\/contact\" title=\"contact us\"><strong>email<\/strong><\/a><strong>, support ticket, or phone.<\/strong> Your feedback is valuable and helps us enhance the quality of our services.<\/p>","linkedin":"https:\/\/www.linkedin.com\/company\/89937042\/admin\/feed\/posts\/","youtube":"https:\/\/www.youtube.com\/@GolzarHome","instagram":"https:\/\/www.instagram.com\/golzarhome.ca\/","facebook":"https:\/\/m.facebook.com\/golzarhomecanada","pinterest":"https:\/\/www.pinterest.ca\/golzarhomecanada\/"}},"delivery_time_mgFT4i":{"type":"delivery_time","settings":{}}},"block_order":["title","shipping_refund_ij6BDq","variant_picker","price","quantity_selector","buy_buttons","see_product_components_986tRR","required_items_9nVkDq","product_information_gjpgNk","delivery_time_mgFT4i"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","enable_read":false,"char_limit":200,"media_size":"medium","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"hide","hide_variants":false,"enable_video_looping":false,"padding_top":20,"padding_bottom":44}},"multirow_BaXyEQ":{"type":"multirow","blocks":{"row_WNTE6k":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Pro_Pages-01.jpg","caption":"ALPS Soft-Close Toilet Seat","heading":"Enjoy a quiet, slam-free","text":"<p>The ALPS Soft-Close Toilet Seat features tensioned hinges for a smooth, quiet close, preventing any noise or disturbances—ideal for a peaceful bathroom environment.<\/p>","button_label":"Explore The Brand","button_link":"shopify:\/\/pages\/bocchi-golzar-home"}},"row_6bzVYB":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Pro_Pages-08.jpg","caption":"{{ product.vendor }}","heading":"<strong>Compatible with Most In-Wall Carrier Brands<\/strong>","text":"<p>The ALPS Wall-Hung Toilet Bowl is designed for seamless compatibility with most in-wall carrier systems, including Geberit or Duravit. For a complete installation, an in-wall tank and flush plate (sold separately) are required. Enjoy a sleek, space-saving design that enhances both functionality and aesthetics in any modern bathroom.<\/p>","button_label":"More Options","button_link":"shopify:\/\/collections\/wall-mounted-toilets"}},"row_N9YXL3":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Pro_Pages-03.jpg","caption":"Victoria Series","heading":"ALPS Space-Saving Wall-Hung Toilet","text":"<p>Maximize your bathroom space with the ALPS Wall-Hung Toilet. Its sleek design extends just 22 inches from the wall, saving up to 6 inches compared to traditional toilets. Perfect for modern, compact bathrooms.<\/p>","button_label":"Button label","button_link":""}},"row_GyQCdK":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Pro_Pages-05.jpg","caption":"Wall-Mounted Toilets","heading":"ALPS Wall-Hung Toilet – Strength Meets Elegance","text":"<p>Experience durability and modern design with the ALPS Wall-Hung Toilet, engineered to support up to <strong>400KG<\/strong> for exceptional reliability. Crafted with premium materials, this space-saving fixture enhances both style and functionality in any bathroom. Elevate your comfort with ALPS—where strength meets sophistication.<\/p>","button_label":"Buy Now","button_link":"shopify:\/\/products\/bocchi-wall-hung-toilet-with-seat-milano"}},"row_aFJmYg":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Pro_Pages-10.jpg","caption":"ALPS Quick-Release Toilet Seat","heading":"Effortless Cleaning Made Simple","text":"<p>Enjoy hassle-free maintenance with the <strong>ALPS Quick-Release Toilet Seat<\/strong>! Featuring a <strong>removable push-button seat<\/strong>, this innovative design allows for <strong>easy detachment<\/strong> with a simple press, ensuring thorough cleaning and improved hygiene. Upgrade your bathroom with convenience and functionality—because cleanliness should be effortless!<\/p>","button_label":"Button label","button_link":""}},"row_XLJGEN":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/alps_info-08_66508037-3ec5-41b2-ab0e-12f41efcd1b1.jpg","caption":"ALPS Wall-Hung Toilet","heading":"Sleek, Quiet & Easy to Install","text":"<p>Upgrade your bathroom with the <strong>ALPS Wall-Hung Toilet<\/strong>, designed for both style and functionality. Featuring a <strong>soft-close seat<\/strong> for a quiet experience, a <strong>fully skirted trapway<\/strong> for a sleek, easy-to-clean design, and <strong>hassle-free installation<\/strong>, this toilet is the perfect blend of modern elegance and convenience. Transform your space with ALPS—where innovation meets comfort.<\/p>","button_label":"Button label","button_link":""}}},"block_order":["row_WNTE6k","row_6bzVYB","row_N9YXL3","row_GyQCdK","row_aFJmYg","row_XLJGEN"],"settings":{"image_height":"medium","desktop_image_width":"medium","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","image_layout":"alternate-left","section_color_scheme":"","row_color_scheme":"","mobile_content_alignment":"left","padding_top":24,"padding_bottom":24}},"1735585868466f2cf4":{"type":"apps","blocks":{"judge_me_reviews_review_widget_Xg9Nwa":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{}}},"block_order":["judge_me_reviews_review_widget_Xg9Nwa"],"settings":{"include_margins":true}},"related-products":{"type":"related-products","settings":{"bg_color":"#f3f3f3","heading":"Related Products","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":68}},"1740848736d2c50bbe":{"type":"apps","blocks":{"judge_me_reviews_featured_carousel_M9CtkQ":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{"maxwidth":1080}}},"block_order":["judge_me_reviews_featured_carousel_M9CtkQ"],"settings":{"include_margins":true}}},"order":["main","multirow_BaXyEQ","1735585868466f2cf4","related-products","1740848736d2c50bbe"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "shipping_refund_ij6BDq": {
+          "type": "shipping_refund",
+          "settings": {
+            "shiiping_text": "Shipping cost at checkout",
+            "refund_text": "Return Policy"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "swatch",
+            "swatch_shape": "square"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "see_product_components_986tRR": {
+          "type": "see-product-components",
+          "settings": {
+            "enable_sectiono": true,
+            "title11": "See Product Components",
+            "title11_color": "#000000"
+          }
+        },
+        "required_items_9nVkDq": {
+          "type": "required-items",
+          "settings": {
+            "enable_prodcut": true,
+            "title_pro": "Required items",
+            "title_pro_color": "#000000"
+          }
+        },
+        "product_information_gjpgNk": {
+          "type": "product_information",
+          "settings": {
+            "product_info": "<p>You can find the full product details below. If you have any questions, feel free to reach out to us via <strong>online chat, </strong><a href=\"https://www.bathroomsupplier.ca/pages/contact\" title=\"contact us\"><strong>email</strong></a><strong>, support ticket, or phone.</strong> Your feedback is valuable and helps us enhance the quality of our services.</p>",
+            "linkedin": "https://www.linkedin.com/company/89937042/admin/feed/posts/",
+            "youtube": "https://www.youtube.com/@GolzarHome",
+            "instagram": "https://www.instagram.com/golzarhome.ca/",
+            "facebook": "https://m.facebook.com/golzarhomecanada",
+            "pinterest": "https://www.pinterest.ca/golzarhomecanada/"
+          }
+        },
+        "delivery_time_mgFT4i": {
+          "type": "delivery_time",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_Ab3yPi": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "shipping_refund_ij6BDq",
+        "variant_picker",
+        "price",
+        "quantity_selector",
+        "buy_buttons",
+        "see_product_components_986tRR",
+        "required_items_9nVkDq",
+        "product_information_gjpgNk",
+        "delivery_time_mgFT4i",
+        "judge_me_reviews_preview_badge_Ab3yPi"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "enable_read": false,
+        "char_limit": 200,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 20,
+        "padding_bottom": 44
+      }
+    },
+    "multirow_BaXyEQ": {
+      "type": "multirow",
+      "blocks": {
+        "row_WNTE6k": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Pro_Pages-01.jpg",
+            "caption": "ALPS Soft-Close Toilet Seat",
+            "heading": "Enjoy a quiet, slam-free",
+            "text": "<p>The ALPS Soft-Close Toilet Seat features tensioned hinges for a smooth, quiet close, preventing any noise or disturbances—ideal for a peaceful bathroom environment.</p>",
+            "button_label": "Explore The Brand",
+            "button_link": "shopify://pages/bocchi-golzar-home"
+          }
+        },
+        "row_6bzVYB": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Pro_Pages-08.jpg",
+            "caption": "{{ product.vendor }}",
+            "heading": "<strong>Compatible with Most In-Wall Carrier Brands</strong>",
+            "text": "<p>The ALPS Wall-Hung Toilet Bowl is designed for seamless compatibility with most in-wall carrier systems, including Geberit or Duravit. For a complete installation, an in-wall tank and flush plate (sold separately) are required. Enjoy a sleek, space-saving design that enhances both functionality and aesthetics in any modern bathroom.</p>",
+            "button_label": "More Options",
+            "button_link": "shopify://collections/wall-mounted-toilets"
+          }
+        },
+        "row_N9YXL3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Pro_Pages-03.jpg",
+            "caption": "Victoria Series",
+            "heading": "ALPS Space-Saving Wall-Hung Toilet",
+            "text": "<p>Maximize your bathroom space with the ALPS Wall-Hung Toilet. Its sleek design extends just 22 inches from the wall, saving up to 6 inches compared to traditional toilets. Perfect for modern, compact bathrooms.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_GyQCdK": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Pro_Pages-05.jpg",
+            "caption": "Wall-Mounted Toilets",
+            "heading": "ALPS Wall-Hung Toilet – Strength Meets Elegance",
+            "text": "<p>Experience durability and modern design with the ALPS Wall-Hung Toilet, engineered to support up to <strong>400KG</strong> for exceptional reliability. Crafted with premium materials, this space-saving fixture enhances both style and functionality in any bathroom. Elevate your comfort with ALPS—where strength meets sophistication.</p>",
+            "button_label": "Buy Now",
+            "button_link": "shopify://products/bocchi-wall-hung-toilet-with-seat-milano"
+          }
+        },
+        "row_aFJmYg": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Pro_Pages-10.jpg",
+            "caption": "ALPS Quick-Release Toilet Seat",
+            "heading": "Effortless Cleaning Made Simple",
+            "text": "<p>Enjoy hassle-free maintenance with the <strong>ALPS Quick-Release Toilet Seat</strong>! Featuring a <strong>removable push-button seat</strong>, this innovative design allows for <strong>easy detachment</strong> with a simple press, ensuring thorough cleaning and improved hygiene. Upgrade your bathroom with convenience and functionality—because cleanliness should be effortless!</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_XLJGEN": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/alps_info-08_66508037-3ec5-41b2-ab0e-12f41efcd1b1.jpg",
+            "caption": "ALPS Wall-Hung Toilet",
+            "heading": "Sleek, Quiet & Easy to Install",
+            "text": "<p>Upgrade your bathroom with the <strong>ALPS Wall-Hung Toilet</strong>, designed for both style and functionality. Featuring a <strong>soft-close seat</strong> for a quiet experience, a <strong>fully skirted trapway</strong> for a sleek, easy-to-clean design, and <strong>hassle-free installation</strong>, this toilet is the perfect blend of modern elegance and convenience. Transform your space with ALPS—where innovation meets comfort.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_WNTE6k",
+        "row_6bzVYB",
+        "row_N9YXL3",
+        "row_GyQCdK",
+        "row_aFJmYg",
+        "row_XLJGEN"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "1735585868466f2cf4": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Xg9Nwa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Xg9Nwa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "bg_color": "#f3f3f3",
+        "heading": "Related Products",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 68
+      }
+    },
+    "1740848736d2c50bbe": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_M9CtkQ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_M9CtkQ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multirow_BaXyEQ",
+    "1735585868466f2cf4",
+    "related-products",
+    "1740848736d2c50bbe"
+  ]
+}
