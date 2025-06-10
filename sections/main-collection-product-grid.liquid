@@ -2,6 +2,15 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+<style>
+  @media and (max-width: 768px){
+    .grid{
+      column-gap: 15px;
+    row-gap: 15px;
+    }
+  }
+</style>
+
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
