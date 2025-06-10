@@ -897,6 +897,15 @@ summary::-webkit-details-marker {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .grid {
+    /* column-gap: var(--grid-desktop-horizontal-spacing);
+    row-gap: var(--grid-desktop-vertical-spacing); */
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+}
+
 .grid:last-child {
   margin-bottom: 0;
 }
