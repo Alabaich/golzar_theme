@@ -2,8 +2,125 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
 <style>
-  .collection-grid-3col {
+  .section-{{ section.id }} .facets__summary span {
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 110.00000000000001%;
+    vertical-align: middle;
+    color: #151515;
+  }
+
+  .section-{{ section.id }}
+  .facets__item--selected .facets__label {
+    background-color: #151515;
+    color: #fff;
+    border-color: #151515;
+  }
+
+  .section-{{ section.id }}.facets__item--selected .facets__label:hover {
+    background-color: #151515;
+    color: #fff;
+  }
+
+  .section-{{ section.id }}
+  .facets__item--selected .icon-checkmark {
+    color: #fff;
+  }
+
+  .section-{{ section.id }}
+  .facets__summary-label {
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 110.00000000000001%;
+    vertical-align: middle;
+    color: #151515;
+  }
+
+  .section-{{ section.id }}
+  .facets__label {
+    font-family: Raleway;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .section-{{ section.id }}.facets__label:hover {
+    background-color: #f5f5f5;
+  }
+
+  .section-{{ section.id }}
+  .product-count-new {
+    font-family: Raleway;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #151515;
+  }
+
+  .collection-info-bottom .collection-info-bottom__image-wrapper img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .collection-grid-item__add-to-cart-button {
+    background-color: #002642;
+    color: white;
+    border: none;
+    border-radius: 12px;
+  }
+
+  .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  .collection-grid-item__add-to-cart-button.button--disabled {
+    background-color: #ebebeb;
+    color: #555555;
+    border: 2px solid #d0d0d0;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  .collection-grid-item__add-to-cart-button svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+  }
+</style>
+
+{%- style -%}
+  .section-{{ section.id }} .collectionPageTitle {
+    margin: 0;
+  }
+
+   .collection-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
@@ -209,124 +326,9 @@
       display: none;
     }
   }
-</style>
 
-{% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
-
-{%- unless section.settings.quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-{%- endunless -%}
-
-{%- if section.settings.quick_add == 'standard' -%}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-{%- if section.settings.quick_add == 'bulk' -%}
-  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-<style>
-  .section-{{ section.id }} .facets__summary span {
-    font-family: Raleway;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 110.00000000000001%;
-    vertical-align: middle;
-    color: #151515;
-  }
-
-  .section-{{ section.id }}
-  .facets__item--selected .facets__label {
-    background-color: #151515;
-    color: #fff;
-    border-color: #151515;
-  }
-
-  .section-{{ section.id }}.facets__item--selected .facets__label:hover {
-    background-color: #151515;
-    color: #fff;
-  }
-
-  .section-{{ section.id }}
-  .facets__item--selected .icon-checkmark {
-    color: #fff;
-  }
-
-  .section-{{ section.id }}
-  .facets__summary-label {
-    font-family: Raleway;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 110.00000000000001%;
-    vertical-align: middle;
-    color: #151515;
-  }
-
-  .section-{{ section.id }}
-  .facets__label {
-    font-family: Raleway;
-    font-size: 16px;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-
-  .section-{{ section.id }}.facets__label:hover {
-    background-color: #f5f5f5;
-  }
-
-  .section-{{ section.id }}
-  .product-count-new {
-    font-family: Raleway;
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #151515;
-  }
-
-  .collection-info-bottom .collection-info-bottom__image-wrapper img {
-    max-width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  .collection-grid-item__add-to-cart-button {
-    background-color: #002642;
-    color: white;
-    border: none;
-    border-radius: 12px;
-  }
-
-  .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
-    opacity: 0.9;
-  }
-
-  .collection-grid-item__add-to-cart-button.button--disabled {
-    background-color: #ebebeb;
-    color: #555555;
-    border: 2px solid #d0d0d0;
-    cursor: not-allowed;
-    opacity: 1;
-  }
-
-  .collection-grid-item__add-to-cart-button svg {
-    width: 12px;
-    height: 12px;
-    fill: currentColor;
-    transition: fill 0.3s ease;
-  }
-</style>
-
-{%- style -%}
-  .section-{{ section.id }} .collectionPageTitle {
-    margin: 0;
+  .collection_main_wrap .facets-vertical {
+    gap: 25px;
   }
 {%- endstyle -%}
 

@@ -3122,8 +3122,11 @@ body ul.social_links_list.brandss-social a {
 body ul.brandss-social a svg path {
   fill: #fff !important;
 }
-.collection .facets-vertical .facets-wrapper {
+/* .collection .facets-vertical .facets-wrapper {
   padding-right: 20px;
+} */
+.collection .facets-vertical .facets-wrapper {
+  padding-right: 0px;
 }
 
 /* Brands page-css */
