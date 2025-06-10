@@ -262,6 +262,12 @@
           "settings": {
             "collection": "led-mirror-1"
           }
+        },
+        "category_6FbBGQ": {
+          "type": "category",
+          "settings": {
+            "collection": "kitchen-accessories"
+          }
         }
       },
       "block_order": [
@@ -275,7 +281,8 @@
         "category_a3tzib",
         "category_yNMibA",
         "category_eFpa9D",
-        "category_xH3wiK"
+        "category_xH3wiK",
+        "category_6FbBGQ"
       ],
       "settings": {
         "title": "Our Categories",
