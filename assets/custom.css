@@ -1406,10 +1406,10 @@ section.shopify-section.section.contact-us-page {
   border-radius: 10px;
 }
 section.shopify-section.section.product_main_sec .page-width {
-  max-width: 1140px;
-  margin: 0 auto;
+  /* max-width: 1140px;
   padding: 0 10px;
-  overflow-x: hidden;
+  overflow-x: hidden; */
+    margin: 0 auto;
 }
 .markdown h3,
 .markdown h4 {
