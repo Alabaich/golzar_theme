@@ -327,12 +327,13 @@
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
-                  {% if card_product.metafields.custom.call_for_availability == true %}
-                    {% else %}
-                    {% endif %}
+
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">
-            {%- liquid
+                            {% if card_product.metafields.custom.call_for_availability == true %}
+                          <span style="width: 100%; text-align: center;">Call For Availability</span>
+                    {% else %}
+                                          {%- liquid
               assign qty_rules = false
               if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
                 assign qty_rules = true
@@ -428,6 +429,8 @@
                 {%- endform -%}
               </product-form>
             {%- endif -%}
+                    {% endif %}
+
           </div>
         {% elsif quick_add == 'bulk' %}
           {% if card_product.variants.size == 1 %}
