@@ -22,6 +22,14 @@
             "announcement_link": ""
           }
         },
+        "announce_7dHtUj": {
+          "type": "announce",
+          "settings": {
+            "announcement": "Price Match!",
+            "announcement_color": "#ffffff",
+            "announcement_link": "tel:+14167004346"
+          }
+        },
         "announce_gMGytj": {
           "type": "announce",
           "settings": {
@@ -33,6 +41,7 @@
       },
       "block_order": [
         "announce_JJjKfF",
+        "announce_7dHtUj",
         "announce_gMGytj"
       ],
       "settings": {
