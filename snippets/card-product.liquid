@@ -327,6 +327,9 @@
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
+                  {% if card_product.metafields.custom.call_for_availability == true %}
+                    {% else %}
+                    {% endif %}
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">
             {%- liquid
