@@ -83,9 +83,11 @@
 
   .collection-info-bottom .collection-info-bottom__image-wrapper img {
     max-width: 100%;
-    height: 300px;
+    width: 100%;
     object-fit: cover;
     border-radius: 12px;
+    height: 100%;
+    aspect-ratio: 4 / 1;
   }
 
   .collection-grid-item__add-to-cart-button {
@@ -120,7 +122,7 @@
     margin: 0;
   }
 
-   .collection-grid-3col {
+  .collection-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
@@ -137,7 +139,7 @@
 
   @media (max-width: 550px) {
     .collection-grid-3col {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(var(--columns-mobile, 2), 1fr);
     }
   }
 
@@ -151,9 +153,11 @@
     , box-shadow 0.3s ease;
   }
 
-  .collection-grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  @media (min-width: 991px) {
+    .collection-grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
   }
 
   .collection-grid-item__link {
@@ -175,6 +179,22 @@
     height: auto;
     aspect-ratio: var(--product-image-aspect-ratio, 4 / 3);
     object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .collection-grid-item__image--secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .collection-grid-item:hover .collection-grid-item__image--primary {
+    opacity: 0;
+  }
+
+  .collection-grid-item:hover .collection-grid-item__image--secondary {
+    opacity: 1;
   }
 
   .collection-grid-item__badge-info {
@@ -263,7 +283,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 20px;
     gap: 8px;
     width: 100%;
     font-size: 1em;
@@ -273,10 +292,8 @@
     , color 0.3s ease
     , border-color 0.3s ease;
     text-align: center;
-    background-color: #002642;
     color: white;
     border: none;
-    border-radius: 12px;
   }
 
   .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
@@ -316,6 +333,10 @@
     margin: 0;
   }
 
+  .collection_main_wrap .facets-vertical {
+    gap: 25px;
+  }
+
   @media screen and (max-width: 768px) {
     .grid {
       column-gap: 12px;
@@ -325,10 +346,10 @@
     .product-count-new {
       display: none;
     }
-  }
 
-  .collection_main_wrap .facets-vertical {
-    gap: 25px;
+    .collection-grid-item__add-to-cart-button span {
+      font-size: 0.875em;
+    }
   }
 {%- endstyle -%}
 
@@ -425,7 +446,8 @@
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
-              class="collection-grid-3col">
+              class="collection-grid-3col"
+              style="--columns-mobile: {{ section.settings.columns_mobile }};">
               {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
@@ -450,12 +472,21 @@
                     class="collection-grid-item__link"
                     title="{{ product.vendor | escape }}">
                     <div class="collection-grid-item__image-wrapper">
+
+                      {%- assign hover_image = product.images[1] | default: nil -%}
                       {% if product.featured_image %}
                         {{ product.featured_image | image_url: width: 500 | image_tag:
  loading: 'lazy',
  widths: '200, 300, 400, 500',
- class: 'collection-grid-item__image'
+ class: 'collection-grid-item__image collection-grid-item__image--primary'
                         }}
+                        {% if hover_image != nil %}
+                          {{ hover_image | image_url: width: 500 | image_tag:
+ loading: 'lazy',
+ widths: '200, 300, 400, 500',
+ class: 'collection-grid-item__image collection-grid-item__image--secondary'
+                          }}
+                        {% endif %}
                       {% else %}
                         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg collection-grid-item__image' }}
                       {% endif %}
@@ -479,7 +510,6 @@
                     <a href="{{ product.url | within: collection }}" class="collection-grid-item__link">
                       <h3 class="collection-grid-item__title">{{ product.title | escape }}</h3>
                     </a>
-
                     <div class="collection-grid-item__price-wrapper">
                       {%- if current_variant.compare_at_price > current_variant.price -%}
                         <span class="price--sale">
@@ -512,7 +542,7 @@
                           min="1">
                         <button
                           type="submit"
-                          class="collection-grid-item__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                          class="customButton blueButton collection-grid-item__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
                           {% unless current_variant.available %}
                           disabled
                           aria-disabled="true"
@@ -544,24 +574,6 @@
             {%- endif -%}
           </div>
         {%- endif -%}
-
-        {%- if collection.image and collection.description != blank -%}
-          <div class="collection-info-bottom">
-            <div class="collection-info-bottom__image-wrapper">
-              <img
-                src="{{ collection.image | image_url: width: 1200 }}"
-                alt="{{ collection.image.alt | escape }}"
-                width="{{ collection.image.width }}"
-                height="{{ collection.image.height }}"
-                loading="lazy">
-            </div>
-            <div class="collection-info-bottom__text-wrapper">
-              <div class="collection-info-bottom__description">
-                {{ collection.description }}
-              </div>
-            </div>
-          </div>
-        {%- endif -%}
       </div>
     </div>
   {%- endpaginate -%}
@@ -569,6 +581,24 @@
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+{%- if collection.image and collection.description != blank -%}
+  <div class="collection-info-bottom page-width pageWidth">
+    <div class="collection-info-bottom__image-wrapper">
+      <img
+        src="{{ collection.image | image_url: width: 1200 }}"
+        alt="{{ collection.image.alt | escape }}"
+        width="{{ collection.image.width }}"
+        height="{{ collection.image.height }}"
+        loading="lazy">
+    </div>
+    <div class="collection-info-bottom__text-wrapper">
+      <div class="collection-info-bottom__description">
+        {{ collection.description }}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 
 <ul class="social_links_list collection-social">
   {% if settings.social_linkedin_link != blank %}
