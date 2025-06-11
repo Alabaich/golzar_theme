@@ -90,13 +90,6 @@
     aspect-ratio: 4 / 1;
   }
 
-  .collection-grid-item__add-to-cart-button {
-    background-color: #002642;
-    color: white;
-    border: none;
-    border-radius: 12px;
-  }
-
   .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
     opacity: 0.9;
   }
@@ -279,23 +272,6 @@
     flex-grow: 1;
   }
 
-  .collection-grid-item__add-to-cart-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
-    text-align: center;
-    color: white;
-    border: none;
-  }
-
   .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
     opacity: 0.9;
   }
@@ -350,6 +326,35 @@
     .collection-grid-item__add-to-cart-button span {
       font-size: 0.875em;
     }
+  }
+  .collection-grid-item__add-to-cart-button {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: Raleway
+    , sans-serif;
+    cursor: pointer;
+  }
+
+  .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  .collection-grid-item__add-to-cart-button.button--disabled {
+    background-color: #ebebeb;
+    color: #555555;
+    border: 2px solid #d0d0d0;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  .collection-grid-item__add-to-cart-button svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
   }
 {%- endstyle -%}
 
@@ -526,41 +531,38 @@
                     </div>
 
                     <div class="collection-grid-item__form-container">
-                      <form
-                        action="{{ routes.cart_add_url }}"
-                        method="post"
-                        enctype="multipart/form-data"
-                        class="collection-grid-item__form">
-                        <input
-                          type="hidden"
-                          name="id"
-                          value="{{ current_variant.id }}">
-                        <input
-                          type="hidden"
-                          name="quantity"
-                          value="1"
-                          min="1">
-                        <button
-                          type="submit"
-                          class="customButton blueButton collection-grid-item__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
-                          {% unless current_variant.available %}
-                          disabled
-                          aria-disabled="true"
-                          {% endunless %}>
-                          {% if current_variant.available %}
-                            <span>Add to Cart</span>
-                            <svg
-                              viewBox="0 0 12 12"
-                              xmlns="http://www.w3.org/2000/svg"
-                              focusable="false"
-                              aria-hidden="true">
-                              <path d="M0.589844 10.59L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.59Z" />
-                            </svg>
-                          {% else %}
-                            <span>Sold Out</span>
-                          {% endif %}
-                        </button>
-                      </form>
+                      {% if product.metafields.custom.call_for_availability == true %}
+                        <a href="https://bathroomsupplier.ca/pages/contact" class="collection-grid-item__add-to-cart-button customButton blueButton">Call For Availability</a>
+                      {% else %}
+                        <form
+                          action="{{ routes.cart_add_url }}"
+                          method="post"
+                          enctype="multipart/form-data"
+                          class="collection-grid-item__form">
+                          <input
+                            type="hidden"
+                            name="id"
+                            value="{{ current_variant.id }}">
+                          <input
+                            type="hidden"
+                            name="quantity"
+                            value="1"
+                            min="1">
+                          <button
+                            type="submit"
+                            class="collection-grid-item__add-to-cart-button customButton blueButton collection-grid-item__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                            {% unless current_variant.available %}
+                            disabled
+                            aria-disabled="true"
+                            {% endunless %}>
+                            {% if current_variant.available %}
+                              <span>Buy Now</span>
+                            {% else %}
+                              <span>Sold Out</span>
+                            {% endif %}
+                          </button>
+                        </form>
+                      {% endif %}
                     </div>
                   </div>
                 </li>
