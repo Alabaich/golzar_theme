@@ -51,12 +51,11 @@
     },
     "contact_us_section_CHaWQp": {
       "type": "contactUsSection",
-      "name": "Contact Us",
       "settings": {
         "contact_title": "Contact Us",
         "map_latitude": "43.8031",
         "map_longitude": "-79.3631",
-        "phone_number": "+1 (416) 700-3046",
+        "phone_number": "+1 (416) 7004346",
         "showroom_hours": "Mon - Sat: 10am - 6pm\nSun: By appointment",
         "email": "info@bathroomsupplier.ca"
       }
