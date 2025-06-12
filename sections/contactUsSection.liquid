@@ -1,396 +1,475 @@
 {%- liquid
-    assign section_id = 'contact-us-' | append: section.id
+  assign section_id = 'contact-us-' | append: section.id
 -%}
 
 <div class="contact-us-main page-width" id="{{ section_id }}">
-    <div class="contact-us-inn pageWidth">
-        <div class="contact-us-content">
-            <div class="contact-form-area">
-                <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
-{%- form 'contact', class: 'contact-form' -%}
+  <div class="contact-us-inn pageWidth">
+    <div class="contact-us-content">
+      <div class="contact-form-area">
+        <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
+        {%- form 'contact'
+          , class: 'contact-form' -%}
 
-  <div class="form-messages">
-    {%- if form.posted_successfully? -%}
-      <p class="form-success-message" style="padding: 5px; background: #DCFFDB; color: green; border-radius: 15px;">
-        Thank you for contacting us! We've received your message and will get back to you shortly.
-      </p>
-    {%- endif -%}
+          <div class="form-messages">
+            {%- if form.posted_successfully? -%}
+              <p class="form-success-message" style="padding: 5px; background: #DCFFDB; color: green; border-radius: 15px;">
+                Thank you for contacting us! We've received your message and will get back to you shortly.
+              </p>
+            {%- endif -%}
 
-    {%- if form.errors -%}
-      <div class="form-error-message">
-        <p>Oops, there was a problem with your submission. Please correct the errors below.</p>
-        {{ form.errors | default_errors }}
-      </div>
-    {%- endif -%}
-  </div>
+            {%- if form.errors -%}
+              <div class="form-error-message">
+                <p>Oops, there was a problem with your submission. Please correct the errors below.</p>
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+          </div>
 
-  <input type="hidden" name="form_type" value="contact">
-  <input type="hidden" name="utf8" value="✓">
+          <input
+            type="hidden"
+            name="form_type"
+            value="contact">
+          <input
+            type="hidden"
+            name="utf8"
+            value="✓">
 
-  <div class="form-row">
-      <div class="form-group">
-          <label for="first-name">First name</label>
-          <input type="text" placeholder="John" id="first-name" name="contact[first_name]" class="form-input" required value="{{ form.first_name }}">
-      </div>
-      <div class="form-group">
-          <label for="last-name">Last name</label>
-          <input type="text" placeholder="Wick" id="last-name" name="contact[last_name]" class="form-input" required value="{{ form.last_name }}">
-      </div>
-  </div>
-  <div class="form-row">
-      <div class="form-group full-width">
-          <label for="email">Email</label>
-          <input type="email" placeholder="you@company.com" id="email" name="contact[email]" class="form-input full-width{% if form.errors contains 'email' %} input-error{% endif %}" required value="{{ form.email }}">
-      </div>
-  </div>
-  <div class="form-row">
-      <div class="form-group full-width">
-          <label for="phone">Phone number</label>
-          <input type="tel" placeholder="+1 (416) 700-4346" id="phone" name="contact[phone]" class="form-input full-width" required value="{{ form.phone }}">
-      </div>
-  </div>
-  <div class="form-row">
-      <div class="form-group full-width">
-          <label for="subject">Subject (choose from drop-down) *</label>
-          <select id="subject" name="contact[subject]" class="form-input full-width" required>
-              <option value="">Select an option</option>
-              <option value="general"{% if form.subject == 'general' %} selected="selected"{% endif %}>General customer support</option>
-          </select>
-      </div>
-  </div>
-  <div class="form-row">
-      <div class="form-group full-width">
-          <label for="message">Message</label>
-          <textarea id="message" name="contact[message]" class="form-input full-width" rows="4" required>{{ form.body }}</textarea>
-      </div>
-  </div>
-  <div class="form-row checkbox-row">
-      <input type="checkbox" id="privacy-policy" required>
-      <label for="privacy-policy">I agree to friendly privacy policy</label>
-  </div>
-  <button type="submit" class="form-submit blueButton customButton">
-      Send Message
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="currentColor"/>
-      </svg>
-  </button>
-
-{%- endform -%}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input
+                type="text"
+                placeholder="John"
+                id="first-name"
+                name="contact[first_name]"
+                class="form-input"
+                required
+                value="{{ form.first_name }}">
             </div>
-            <div class="contact-info-area">
-                <!-- <div class="map-container" id="map-{{ section.id }}"></div> -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.2914579043895!2d-79.5002145236359!3d43.787564871096116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2sca!4v1749256069131!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="contact-details">
-                    <div class="colrowvich">
-                        <div class="contact-detail-item">
-                            <h4 class="contact-details-title">Phone number:</h4>
-                            <p class="contact-phone">{{ section.settings.phone_number | escape }}</p>
-                        </div>
-                        <div class="contact-detail-item">
-                            <h4 class="contact-details-title">Social media:</h4>
-                            <div class="social-links">
-                                {% for block in section.blocks %}
-                                    {% if block.type == 'social_link' and block.settings.social_url != blank %}
-                                        <div class="social-links-container">
-                                            <a href="{{ block.settings.social_url }}" class="social-icon">
-                                                {% if block.settings.social_icon != blank %}
-                                                    <img src="{{ block.settings.social_icon | image_url: width: 24 }}" alt="Social Icon">
-                                                {% endif %}
-                                            </a>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="colrowvich">
-                        <div class="contact-detail-item">
-                            <h4 class="contact-details-title">Showroom hours:</h4>
-                            <p class="contact-hours">{{ section.settings.showroom_hours | escape | newline_to_br }}</p>
-                        </div>
-                        <div class="contact-detail-item">
-                            <h4 class="contact-details-title">Email:</h4>
-                            <p class="contact-email">{{ section.settings.email | escape }}</p>
-                        </div>
-                    </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input
+                type="text"
+                placeholder="Wick"
+                id="last-name"
+                name="contact[last_name]"
+                class="form-input"
+                required
+                value="{{ form.last_name }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                placeholder="you@company.com"
+                id="email"
+                name="contact[email]"
+                class="form-input full-width{% if form.errors contains 'email' %} input-error{% endif %}"
+                required
+                value="{{ form.email }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="phone">Phone number</label>
+              <input
+                type="tel"
+                placeholder="+1 (416) 700-4346"
+                id="phone"
+                name="contact[phone]"
+                class="form-input full-width"
+                required
+                value="{{ form.phone }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="subject">Subject (choose from drop-down) *</label>
+              <select
+                id="subject"
+                name="contact[subject]"
+                class="form-input full-width"
+                required>
+                <option value="">Select an option</option>
+                <option
+                  value="general"
+                  {% if form.subject == 'general' %}
+                  selected="selected"
+                  {% endif %}>General customer support</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="contact[message]"
+                class="form-input full-width"
+                rows="4"
+                required>{{ form.body }}</textarea>
+            </div>
+          </div>
+          <div class="form-row checkbox-row">
+            <input
+              type="checkbox"
+              id="privacy-policy"
+              required>
+            <label for="privacy-policy">I agree to friendly privacy policy</label>
+          </div>
+          <button type="submit" class="form-submit blueButton customButton">
+            Send Message
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-icon">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z"
+                fill="currentColor" />
+            </svg>
+          </button>
+
+        {%- endform -%}
+      </div>
+      <div class="contact-info-area">
+        <!-- <div class="map-container" id="map-{{ section.id }}"></div> -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.2914579043895!2d-79.5002145236359!3d43.787564871096116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2sca!4v1749256069131!5m2!1sen!2sca"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="contact-details">
+          <div class="colrowvich">
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Phone number:</h4>
+              <p class="contact-phone">{{ section.settings.phone_number | escape }}</p>
+            </div>
+            <div class="contact-detail-item">
+              {%- assign social_links_count = 0 -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'social_link' and block.settings.social_url != blank -%}
+                  {%- assign social_links_count = social_links_count | plus: 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if social_links_count > 0 -%}
+                <h4 class="contact-details-title">Social media:</h4>
+                <div class="social-links">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'social_link' and block.settings.social_url != blank %}
+                      <div class="social-links-container">
+                        <a href="{{ block.settings.social_url }}" class="social-icon">
+                          {% if block.settings.social_icon != blank %}
+                            <img src="{{ block.settings.social_icon | image_url: width: 24 }}" alt="Social Icon">
+                          {% endif %}
+                        </a>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
                 </div>
+              {%- endif -%}
             </div>
+          </div>
+          <div class="colrowvich">
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Showroom hours:</h4>
+              <p class="contact-hours">{{ section.settings.showroom_hours | escape | newline_to_br }}</p>
+            </div>
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Email:</h4>
+              <p class="contact-email">{{ section.settings.email | escape }}</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 {% schema %}
-{
-  "name": "Contact Us",
-  "class": "section contact-us",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "contact_title",
-      "label": "Contact Title",
-      "default": "Contact Us"
-    },
-    {
-      "type": "text",
-      "id": "map_latitude",
-      "label": "Map Latitude",
-      "default": "43.8031"
-    },
-    {
-      "type": "text",
-      "id": "map_longitude",
-      "label": "Map Longitude",
-      "default": "-79.3631"
-    },
-    {
-      "type": "text",
-      "id": "phone_number",
-      "label": "Phone Number",
-      "default": "+1 (416) 700-3046"
-    },
-    {
-      "type": "textarea",
-      "id": "showroom_hours",
-      "label": "Showroom Hours",
-      "default": "Mon - Sat: 10am - 6pm\nSun: By appointment"
-    },
-    {
-      "type": "text",
-      "id": "email",
-      "label": "Email Address",
-      "default": "info@bathroomsupplier.ca"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "social_link",
-      "name": "Social Link",
-      "settings": [
-        {
-          "type": "url",
-          "id": "social_url",
-          "label": "Social Media URL"
-        },
-        {
-          "type": "image_picker",
-          "id": "social_icon",
-          "label": "Social Media Icon"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Contact Us"
-    }
-  ]
-}
+  {
+    "name": "Contact Us",
+    "class": "section contact-us",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_title",
+        "label": "Contact Title",
+        "default": "Contact Us"
+      },
+      {
+        "type": "text",
+        "id": "map_latitude",
+        "label": "Map Latitude",
+        "default": "43.8031"
+      },
+      {
+        "type": "text",
+        "id": "map_longitude",
+        "label": "Map Longitude",
+        "default": "-79.3631"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone Number",
+        "default": "+1 (416) 700-3046"
+      }, {
+        "type": "textarea",
+        "id": "showroom_hours",
+        "label": "Showroom Hours",
+        "default": "Mon - Sat: 10am - 6pm\nSun: By appointment"
+      }, {
+        "type": "text",
+        "id": "email",
+        "label": "Email Address",
+        "default": "info@bathroomsupplier.ca"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "social_link",
+        "name": "Social Link",
+        "settings": [
+          {
+            "type": "url",
+            "id": "social_url",
+            "label": "Social Media URL"
+          }, {
+            "type": "image_picker",
+            "id": "social_icon",
+            "label": "Social Media Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Us"
+      }
+    ]
+  }
 {% endschema %}
 
 {% style %}
-    #shopify-section-{{ section.id }} {
-    }
+  #shopify-section-{{ section.id }} {}
 
-    .contact-us-inn {
-    }
+.contact-us-inn {}
 
-    .colrowvich {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    }
+.colrowvich {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
 
-    .contact-us-content {
-    display: flex;
-    gap: 4rem;
-    }
+.contact-us-content {
+  display: flex;
+  gap: 4rem;
+}
 
-    .contact-form-area,
-    .contact-info-area {
-    flex: 1;
-    }
+.contact-form-area,
+.contact-info-area {
+  flex: 1;
+}
 
-    .contact-info-area {
-    justify-content: space-between;
-    display: flex;
+.contact-info-area {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-title {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #151515;
+  font-weight: 400;
+}
+
+.form-input {
+  padding: 0.75rem 1rem;
+  background-color: #E8ECEF;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  font-size: 16px;
+  height: 48px;
+}
+
+.form-input.full-width {
+  width: 100%;
+}
+
+.form-input.full-width::placeholder,
+.form-input::placeholder {
+  color: #667085;
+}
+
+.form-input[type="select"],
+select.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #E8ECEF url('data:image/svg+xml;charset=UTF-8, %3csvg xmlns="http://www.w3.org / 2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e') no-repeat right 1rem center;
+  background-size: 1em;
+}
+
+textarea.form-input {
+  height: 120px;
+  resize: none;
+}
+
+.checkbox-row {
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #003087;
+}
+
+.form-submit {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.form-submit:hover .arrow-icon {
+  fill: #002642;
+  /* Changes the SVG fill color on hover */
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+
+.map-container {
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  align-content: baseline;
+  gap: 1rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+
+.contact-detail-item p {
+  font-size: 20px;
+}
+
+.contact-details-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #00264266;
+  margin: 0;
+  font-family: 'Open Sans'
+  , sans-serif;
+}
+
+.contact-phone,
+.contact-email,
+.contact-hours {
+  color: #002642;
+  margin: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.social-links-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  #shopify-section-{{ section.id }} .form-row {
     flex-direction: column;
-    }
+  }
 
-    .contact-title {
-    margin-top: 0;
-    text-align: center;
-    margin-bottom: 2rem;
-    }
-
-    .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    }
-
-    .form-row {
-    display: flex;
-    gap: 1.5rem;
-    }
-
-    .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-    }
-
-    .form-group.full-width {
-    width: 100%;
-    }
-
-    .form-group label {
-    font-size: 14px;
-    color: #151515;
-    font-weight: 400;
-    }
-
-    .form-input {
-    padding: 0.75rem 1rem;
-    background-color: #E8ECEF;
-    border: 1px solid transparent;
-    border-radius: 15px;
-    font-size: 16px;
-    height: 48px;
-    }
-
-    .form-input.full-width {
-    width: 100%;
-    }
-
-    .form-input.full-width::placeholder,
-    .form-input::placeholder {
-    color: #667085;
-    }
-
-    .form-input[type="select"],
-    select.form-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: #E8ECEF url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e') no-repeat right 1rem center;
-    background-size: 1em;
-    }
-
-    textarea.form-input {
-    height: 120px;
-    resize: none;
-    }
-
-    .checkbox-row {
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 14px;
-    color: #333;
-    }
-
-    .checkbox-row input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #003087;
-    }
-
-    .form-submit {
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    }
-
-    .form-submit:hover .arrow-icon {
-    fill: #002642; /* Changes the SVG fill color on hover */
-    }
-
-    .arrow-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    }
-
-    .map-container {
-    height: 500px;
-    border-radius: 8px;
-    overflow: hidden;
-    }
-
-    .contact-details {
-    display: flex;
-    flex-direction: column;
-    align-content: baseline;
-    gap: 1rem;
-    }
-
-    .contact-detail-item {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.25rem;
-    }
-
-    .contact-detail-item p {
-    font-size: 20px;
-    }
-
-    .contact-details-title {
-    font-size: 16px;
-    font-weight: 400;
-    color: #00264266;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    }
-
-    .contact-phone,
-    .contact-email,
-    .contact-hours {
-    color: #002642;
-    margin: 0;
-    }
-
-    .social-links {
-    display: flex;
-    gap: 0.25rem;
-    }
-
-    .social-links-container {
-    display: flex;
-    gap: 0.5rem;
-    }
-
-    .social-icon img {
-    width: 24px;
-    height: 24px;
-    }
-
-    @media (max-width: 768px) {
-          #shopify-section-{{ section.id }} .form-row {
-      flex-direction:column;
-    }
-
-      #shopify-section-{{ section.id }} iFrame{
-        margin-bottom: 15px;
-      }
-    #shopify-section-{{ section.id }} {
+  #shopify-section-{{ section.id }}
+  iFrame {
+    margin-bottom: 15px;
+  }
+  #shopify-section-{{ section.id }} {
     padding: 40px 0;
-    }
+  }
 
-    .contact-us-content {
+  .contact-us-content {
     flex-direction: column;
-    }
+  }
 
-    .form-input {
+  .form-input {
     padding: 0.75rem 1rem;
-    }
-    }
+  }
+
+  .colrowvich {
+    flex-direction: column;
+  }
+}
 {% endstyle %}
