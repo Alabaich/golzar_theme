@@ -267,9 +267,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .section.product_main_sec .product__info-wrapper .product--vendor {
+  /* .section.product_main_sec .product__info-wrapper .product--vendor {
     margin: 10px 0 0;
-  }
+  } */
 
   .product .sku-or-tags {
     margin-bottom: 15px;
@@ -863,7 +863,7 @@
   .product .refundss-shiipings {
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: 5px;
+    /* margin-top: 5px; */
   }
   .product-description h4,
   .product-description h3 {

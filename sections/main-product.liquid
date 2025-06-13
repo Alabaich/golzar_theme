@@ -86,6 +86,30 @@
   position: relative;
 }
 
+.main-required-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inner-content .sku-pro {
+  margin: 0;
+}
+
+.inner-content .product-form__submit {
+  width: fit-content;
+}
+
+.product-content-right .inner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-content-right .inner-content .price__container .price__regular .price-item {
+  font-size: 18px;
+}
+
 @media (max-width: 768px) {
   .refundss-shiipings {
     grid-template-columns: 1fr;
@@ -99,8 +123,66 @@
     margin-bottom: 10px;
   }
 
+  .refundss-shiipings {
+    justify-content: center;
+  }
+
   .refundss-shiipings > *:not(:last-child)::after {
     display: none;
+  }
+}
+
+.custom-add-to-cart {
+  background-color: #002642 !important;
+  transition: all 0.3 ease-in-out !important;
+}
+
+.custom-add-to-cart:hover {
+  background-color: transparent !important;
+  border: 1px solid #002642 !important;
+}
+
+.custom-add-to-cart:hover svg path {
+  fill: #002642 !important;
+  /* stroke: #002642 !important; */
+}
+.custom-add-to-cart::after {
+  display: none !important;
+}
+.custom-add-to-cart::before {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .refundss-shiipings {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 15px 10px;
+  }
+    .refundss-shiipings .shippingg{
+      width: 100%;
+      justify-content: center;
+    }
+
+    .product .refundss-shiipings {
+      padding: 20px;
+    }
+
+  .shippingg,
+  .refundss,
+  .same-day-pickup {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+  }
+
+  .refundss-shiipings > *:not(:last-child)::after {
+    display: none;
+  }
+
+  .refundss-shiipings > *:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 </style>
@@ -441,58 +523,72 @@
               {% endif %}
               {% endif %}
               
-              {%- when 'required-items' -%}
-              {% if block.settings.enable_prodcut == true %}
-                {% if product.metafields.custom.required_items.value != blank %}
-              <div class="requiredd-itemss">
-                <div class="main-required-pro">
-                  <div class="title-reqiueed">
-                    <h3 style="color:{{ block.settings.title_pro_color }}">{{ block.settings.title_pro }}</h3>
-                  </div>
-                  {% for required_pro in product.metafields.custom.required_items.value %}
-                  <div class="inner-main-required">
-                    {% if required_pro.featured_image != blank %}
-                    <div class="product-img-left">
-                      <a href="{{ required_pro.url }}">
-                        <img src="{{ required_pro.featured_image | img_url: 'master' }}">
-                      </a>
-                    </div>
-                    {% endif %}
-                    
-                    <div class="product-content-right">
-                      <span class="out-sold" style="display: none;">sold out</span>
-                      <div class="inner-content">
-                      {% assign current_variant_sku = required_pro.selected_or_first_available_variant %}
-                        {% if current_variant_sku != blank %}
-                        <span class="sku-pro"><a href="{{ required_pro.url }}">{{ current_variant_sku.sku }}</a></span>
-                        {% endif %}
-                         <span class="price-pro">
-                          {%- render 'price', product: required_pro,
-                          use_variant: true, show_badges: true,
-                          price_class: 'price--large'
-                        -%}
-                         </span>
-                        
-                        <span class="cart-count-pro">0 item(s) in your cart</span>
+ {%- when 'required-items' -%}
+  {% if block.settings.enable_prodcut == true %}
+    {% comment %}
+    {% if product.metafields.custom.required_items.value != blank %}
+    {% endcomment %}
+    
+    {% comment %} Temporary solution - display first 2 random products {% endcomment %}
+    {% assign random_products = collections.all.products | sample: 2 %}
+    
+    <div class="requiredd-itemss">
+      <div class="main-required-pro">
+        <div class="title-reqiueed">
+          <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
+        </div>
+        {% for required_pro in random_products limit: 2 %}
+        <div class="inner-main-required">
+          {% if required_pro.featured_image != blank %}
+          <div class="product-img-left">
+            <a href="{{ required_pro.url }}">
+              <img src="{{ required_pro.featured_image | img_url: 'master' }}">
+            </a>
+          </div>
+          {% endif %}
+          
+          <div class="product-content-right">
+            <span class="out-sold" style="display: none;">sold out</span>
+            <div class="inner-content">
+            {% assign current_variant_sku = required_pro.selected_or_first_available_variant %}
+              {% if current_variant_sku != blank %}
+              <h4 class="sku-pro"><a href="{{ required_pro.url }}">{{ current_variant_sku.sku }}</a></h4>
+              {% endif %}
+               <span class="price-pro">
+                {%- render 'price', product: required_pro,
+                use_variant: true, show_badges: true,
+                price_class: 'price--large'
+              -%}
+               </span>
+              
+              <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
 
-                        <form method="post" action="{{ routes.cart_add_url }}">
-                          <input type="hidden" class="variantss-id" value="{{ required_pro.variants.first.id }}" />
-                          <div class="required-item-quantity-selector">
-                            <button type="button" class="required-item-quantity-minus">−</button>
-                            <input type="number" name="quantity" class="required-item-quantity-qty" id="required-item-quantity" value="1" min="1">
-                            <button type="button" class="required-item-quantity-plus">+</button>
-                          </div>
-                          <input type="submit" value="Add to cart" class="required-item-cart product-form__submit button button--full-width button--primary" />
-                        </form>
-                       </div>
-                      </div>
-                    </div>
-                    {% endfor %}
-                  </div>
- 
+              <form method="post" action="{{ routes.cart_add_url }}">
+                <input type="hidden" class="variantss-id" value="{{ required_pro.variants.first.id }}" />
+                <div class="required-item-quantity-selector">
+                  <button type="button" class="required-item-quantity-minus">−</button>
+                  <input type="number" name="quantity" class="required-item-quantity-qty" id="required-item-quantity" value="1" min="1">
+                  <button type="button" class="required-item-quantity-plus">+</button>
                 </div>
-                {% endif %}
-                {% endif %}
+                <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                    <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                    <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                  </svg>
+                </button>
+              </form>
+             </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% comment %}
+    {% endif %}
+    {% endcomment %}
+  {% endif %}
 
                 {%- when 'product_information' -%}
               {% if block.settings.product_info != blank %}

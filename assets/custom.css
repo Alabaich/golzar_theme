@@ -1908,7 +1908,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   position: relative;
 }
 .main-required-pro .inner-main-required.sold-out {
@@ -1946,24 +1946,27 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   display: block;
   height: auto;
 }
-.main-required-pro .title-reqiueed {
+/* .main-required-pro .title-reqiueed {
   border-bottom: 1px solid #adb6be;
   margin-bottom: 15px;
-}
+} */
 .title-reqiueed h3 {
   font-size: 18px;
   color: #333;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  margin: 0;
   font-weight: 400;
   font-family: "Open Sans";
 }
 .main-required-pro .inner-main-required .product-content-right {
-  width: auto;
+  /* width: auto; */
+  width: 100%;
   position: relative;
 }
 .main-required-pro .inner-main-required .product-content-right form {
   display: flex;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .main-required-pro
@@ -1977,8 +1980,8 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
 }
 .main-required-pro .inner-main-required .product-content-right .sku-pro a {
   color: #333;
-  font-family: "Open Sans";
-  font-size: 14px;
+  /* font-family: "Open Sans"; */
+  font-size: 1em;
   font-weight: 400;
   line-height: normal;
 }
@@ -2026,7 +2029,7 @@ body
   font-size: 14px;
   font-weight: 600;
   color: #5f6d7c;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   letter-spacing: 0;
   line-height: 1;
   display: inline-block;
@@ -2053,11 +2056,11 @@ body
   background-color: #f1f1f1;
   border: 1px solid #ccc;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 1em;
   color: #333;
-  border-radius: 4px;
+  border-radius: 30px;
   line-height: 1;
-  width: 33px;
+  /* width: 33px; */
 }
 .main-required-pro
   .inner-main-required
@@ -2489,7 +2492,7 @@ section.shopify-section.section.you_may_like
 .product__info-wrapper.grid__item .product__info-container variant-selects label {
   height: auto;
   padding: 10px 18px;
-  font-size: 1.125em;
+  font-size: 1em;
   font-weight: 500;
   line-height: 1.3;
   display: inline-flex;
