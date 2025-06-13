@@ -547,26 +547,30 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
                   
-              {%- when 'see-product-components' -%}
-              {% if block.settings.enable_sectiono == true%}
-               {% if product.metafields.custom.see_product2_components.value != blank %}
-              <div id="faq-list" class="main-aacrodaian">
-                <div class="acc-head card p-3 rounded-0 active" id="Q{{ forloop.index }}" style="color:{{ block.settings.title11_color }}">
-                  {{  block.settings.title11 }}
-                </div> 
-                
-                <div class="acc-body rounded-0 answer" style="display: none;">
-                  <div class="acc_content">
-                     {% for product_components in product.metafields.custom.see_product2_components.value %}
-                     <span class="titlee">
-                     {{ product_components.title }}: <a href="{{ product_components.url }}">{{ product_components.selected_or_first_available_variant.sku }}</a>
-                     </span><br/><br/>
-                    {% endfor %}
-                  </div>
-                </div>  
-              </div>
-              {% endif %}
-              {% endif %}
+     {%- when 'see-product-components' -%}
+  {% if block.settings.enable_sectiono == true %}
+    <div id="faq-list" class="main-aacrodaian">
+      <div class="acc-head" style="color:{{ block.settings.title11_color }}">
+        <h5 style="margin: 0;">{{ block.settings.title11 | default: "Компоненты продукта (Пример)" }}</h5>
+      </div>
+      <div class="acc-body answer">
+        <div class="acc_content">
+          {% assign placeholder_products = collections.all.products | sample: 2 %}
+          
+          {% if placeholder_products.size > 0 %}
+            {% for product_component in placeholder_products %}
+              <span class="titlee">
+                {{ product_component.title }}: <a href="{{ product_component.url }}" target="_blank">{{ product_component.selected_or_first_available_variant.sku | default: "SKU-123" }}</a>
+              </span>
+              {% unless forloop.last %}<br><br>{% endunless %}
+            {% endfor %}
+          {% else %}
+             <p>Example component</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
               
 {%- when 'required-items' -%}
   {% if block.settings.enable_prodcut == true %}

@@ -2088,9 +2088,9 @@ input[type="number"] {
 .product__info-container #faq-list .acc-head {
   background-color: #f9f9f9;
   color: #1f2124 !important;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1;
-  font-family: Open Sans;
+  /* font-family: Open Sans; */
   font-weight: 400;
   padding: 11px 10px 11px 35px;
   position: relative;
