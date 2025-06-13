@@ -178,6 +178,52 @@
   margin: 0;
 }
 
+.main-aacrodaian {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.acc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  position: relative;
+  z-index: 2;
+}
+
+.acc-head h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.acc-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.acc-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-aacrodaian.active .acc-icon {
+  transform: rotate(45deg);
+}
+
+.acc-body {
+  transition: max-height 0.4s ease-out !important;
+  background-color: #ffffff;
+}
+
+.acc_content {
+  padding: 20px;
+}
+
 @media (max-width: 768px) {
   .refundss-shiipings {
     grid-template-columns: 1fr;
@@ -547,29 +593,33 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
                   
-     {%- when 'see-product-components' -%}
+{%- when 'see-product-components' -%}
   {% if block.settings.enable_sectiono == true %}
-    <div id="faq-list" class="main-aacrodaian">
-      <div class="acc-head" style="color:{{ block.settings.title11_color }}">
-        <h5 style="margin: 0;">{{ block.settings.title11 | default: "Компоненты продукта (Пример)" }}</h5>
-      </div>
-      <div class="acc-body answer">
-        <div class="acc_content">
-          {% assign placeholder_products = collections.all.products | sample: 2 %}
-          
-          {% if placeholder_products.size > 0 %}
-            {% for product_component in placeholder_products %}
+    {% if product.metafields.custom.see_product2_components.value != blank %}
+
+      <div class="main-aacrodaian active">
+        <div class="acc-head" style="color:{{ block.settings.title11_color }};">
+          <h5 style="margin: 0;">{{ block.settings.title11 | default: "Компоненты продукта" }}</h5>
+          <svg class="acc-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="acc-icon-h" d="M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path class="acc-icon-v" d="M8 2V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="acc-body">
+          <div class="acc_content">
+            
+            {% for product_component in product.metafields.custom.see_product2_components.value %}
               <span class="titlee">
-                {{ product_component.title }}: <a href="{{ product_component.url }}" target="_blank">{{ product_component.selected_or_first_available_variant.sku | default: "SKU-123" }}</a>
+                {{ product_component.title }}: <a href="{{ product_component.url }}" target="_blank">{{ product_component.selected_or_first_available_variant.sku }}</a>
               </span>
               {% unless forloop.last %}<br><br>{% endunless %}
             {% endfor %}
-          {% else %}
-             <p>Example component</p>
-          {% endif %}
+
+          </div>
         </div>
       </div>
-    </div>
+
+    {% endif %}
   {% endif %}
               
 {%- when 'required-items' -%}
@@ -1044,40 +1094,37 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const quantitySelectors = document.querySelectorAll('.custom-quantity-selector');
-
+  
   quantitySelectors.forEach(selector => {
     const input = selector.querySelector('.custom-quantity-input');
     const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
     const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
-    const min = parseInt(input.min, 10) || 1;
+    const min = parseInt(input.min) || 1;
 
-    btnPlus.addEventListener('click', function() {
-      let currentValue = parseInt(input.value, 10);
-      input.value = currentValue + 1;
-    });
+    if (btnPlus && btnMinus) {
+        btnPlus.addEventListener('click', function() {
+        let currentValue = parseInt(input.value);
+        input.value = currentValue + 1;
+        });
 
-    btnMinus.addEventListener('click', function() {
-      let currentValue = parseInt(input.value, 10);
-      if (currentValue > min) {
-        input.value = currentValue - 1;
-      }
-    });
-
-    input.addEventListener('keydown', function(e) {
-      if (!((e.keyCode > 95 && e.keyCode < 106)
-        || (e.keyCode > 47 && e.keyCode < 58)
-        || e.keyCode === 8)) {
-          e.preventDefault();
-      }
-    });
+        btnMinus.addEventListener('click', function() {
+        let currentValue = parseInt(input.value);
+        if (currentValue > min) {
+            input.value = currentValue - 1;
+        }
+        });
+    }
   });
 
   document.querySelectorAll('form[method="post"][action*="/cart/add"]').forEach(form => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      const variantId = this.querySelector('.variantss-id').value;
+      const variantIdInput = this.querySelector('.variantss-id');
       const quantityInput = this.querySelector('.custom-quantity-input');
+      
+      if (!variantIdInput) return;
+
+      const variantId = variantIdInput.value;
       const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
       
       const formData = new FormData();
@@ -1087,9 +1134,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fetch('/cart/add.js', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       })
       .then(response => response.json())
       .then(data => {
@@ -1099,6 +1144,28 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       });
     });
+  });
+
+  const accordions = document.querySelectorAll('.main-aacrodaian');
+
+  accordions.forEach(accordion => {
+    const head = accordion.querySelector('.acc-head');
+    const body = accordion.querySelector('.acc-body');
+
+    if (head && body) {
+      head.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isActive = accordion.classList.contains('active');
+
+        if (isActive) {
+          accordion.classList.remove('active');
+          body.style.maxHeight = null;
+        } else {
+          accordion.classList.add('active');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    }
   });
 });
 </script>

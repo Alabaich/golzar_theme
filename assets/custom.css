@@ -2090,15 +2090,14 @@ input[type="number"] {
   color: #1f2124 !important;
   font-size: 1em;
   line-height: 1;
-  /* font-family: Open Sans; */
   font-weight: 400;
-  padding: 11px 10px 11px 35px;
+  padding: 10px 15px;
   position: relative;
   transition: ease 0.3s;
   cursor: pointer;
   border: 1px solid #d5d8dc;
 }
-.product__info-container #faq-list .acc-head:before {
+/* .product__info-container #faq-list .acc-head:before {
   position: absolute;
   content: "";
   border-bottom: 3px solid #000 !important;
@@ -2120,20 +2119,19 @@ input[type="number"] {
   top: 50%;
   transform: translateY(-50%);
   transition: ease 0.3s;
-}
+} */
 .product__info-container #faq-list .acc-body {
   border: 1px solid #d5d8dc;
   padding: 17px 17px 30px;
   color: #7a7a7a;
   font-size: 12px;
-  font-family: "Open Sans";
   letter-spacing: 0;
   font-weight: 600;
 }
-.product__info-container #faq-list .acc-body .acc_content {
+/* .product__info-container #faq-list .acc-body .acc_content {
   height: 108px;
   overflow-y: scroll;
-}
+} */
 .product__info-container #faq-list .acc-body .titlee {
   color: #7a7a7a;
   font-size: 12px;
