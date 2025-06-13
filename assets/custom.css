@@ -4444,63 +4444,56 @@ section.shopify-section.section.product_main_sec
 .tabs {
   display: flex;
   overflow: hidden;
+  border-bottom: 1px solid #d5d8dc; 
 }
 .tab {
-  padding: 20px 25px;
+    padding: 15px 15px;
   cursor: pointer;
-  transition: background-color 0.3s;
   line-height: 1;
   position: relative;
   font-size: 18px;
-  color: #002642;
+  color: #5f6c7b;
   font-weight: 600;
-  font-family: Open Sans;
   text-transform: capitalize;
   letter-spacing: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
+
+.tab:not(.active):hover {
+  color: #002642;
+  border-bottom-color: #002642;
+}
+
 .tab.active {
-  border: 1px solid #d5d8dc;
-  border-bottom: none;
+  color: #002642;
+  border-bottom: 2px solid #002642;
 }
-.tab.active:before {
-  content: "";
-  border: 1px solid #d5d8dc;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  height: 0;
-  width: 999em;
-  right: 100%;
-  border-bottom: 0;
-}
-.tab.active:after {
-  content: "";
-  bottom: 0;
-  height: 0;
-  width: 999em;
-  left: 100%;
-  position: absolute;
-  border: 1px solid #d5d8dc;
-  border-bottom: 0;
-}
+
 .tab-content {
-  padding: 20px;
-  border: 1px solid #d5d8dc;
+  padding: 25px 20px;
   background-color: #fff;
-  border-top: none;
   position: relative;
 }
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
 .tab-content h2 {
   margin: 0 0 28px;
   line-height: 26px;
-  font-family: "Open Sans";
   font-weight: 600;
 }
 
 .tab-content p a {
   margin: 0;
   color: #fff;
-  font-family: "Open Sans";
   display: flex;
   align-items: center;
   gap: 5px;
@@ -4509,7 +4502,6 @@ section.shopify-section.section.product_main_sec
 
 .tab-content p {
   margin: 0;
-  font-family: "Open Sans";
   display: inline-flex;
   align-items: center;
   gap: 5px;
