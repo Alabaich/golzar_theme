@@ -2053,8 +2053,8 @@ body
 }
 .main-required-pro .inner-main-required .product-content-right form button {
   padding: 10px 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
+  /* background-color: #f1f1f1;
+  border: 1px solid #ccc; */
   cursor: pointer;
   font-size: 1em;
   color: #333;
