@@ -2866,14 +2866,20 @@ show-more-button .button-show-more span {
 .pagination-wrapper .pagination__list a.pagination__item:after {
   content: inherit;
 }
-.pagination-wrapper .pagination__list a.pagination__item {
+/* .pagination-wrapper .pagination__list a.pagination__item {
   padding: 2px 10px 0 !important;
   font-size: 16px;
   font-weight: 400;
   font-family: "Open Sans";
   color: #334155;
+} */
+.pagination-wrapper .pagination__list a.pagination__item {
+  padding: 2px 10px 0 !important;
+  font-size: 1em;
+  font-weight: 400;
+  color: #151515;
 }
-.pagination-wrapper .pagination__list a.pagination__item--current {
+/* .pagination-wrapper .pagination__list a.pagination__item--current {
   height: 30px;
   width: 30px;
   text-decoration: none;
@@ -2884,6 +2890,18 @@ show-more-button .button-show-more span {
   background: #002642;
   box-shadow: rgba(0, 18, 46, 0.18) 0px 2px 20px 0px;
   opacity: 1;
+} */
+.pagination-wrapper .pagination__list a.pagination__item--current {
+    height: 30px;
+    width: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #F5F7F9 !important;
+    border-radius: 9999px;
+    color: #151515;
+    background: #F5F7F9;
+    opacity: 1;
+    font-family: Raleway;
 }
 .pagination-wrapper .pagination__list li {
   max-width: inherit;
@@ -3104,8 +3122,11 @@ body ul.social_links_list.brandss-social a {
 body ul.brandss-social a svg path {
   fill: #fff !important;
 }
-.collection .facets-vertical .facets-wrapper {
+/* .collection .facets-vertical .facets-wrapper {
   padding-right: 20px;
+} */
+.collection .facets-vertical .facets-wrapper {
+  padding-right: 0px;
 }
 
 /* Brands page-css */
