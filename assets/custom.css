@@ -2167,9 +2167,9 @@ input[type="number"] {
 .product .product_information .product_information_inn p a {
   color: #667d8e;
 }
-.product .product_information .social-icon-pro {
+/* .product .product_information .social-icon-pro {
   margin: 22px 0 0 0;
-}
+} */
 .product .product_information .social-icon-pro ul {
   margin: 0;
   padding: 0;
@@ -2178,22 +2178,22 @@ input[type="number"] {
   gap: 5px;
 }
 .product .product_information .social-icon-pro ul li svg {
-  height: 18px;
+  height: 32px;
   display: block;
 }
 .product .product_information .social-icon-pro ul li a {
   display: inline-block;
-  background-color: #4c4e4f8f;
-  width: 30px;
-  height: 30px;
+  /* background-color: #4c4e4f8f; */
+  /* width: 30px;
+  height: 30px; */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
 }
-.product .product_information .social-icon-pro ul li svg path {
+/* .product .product_information .social-icon-pro ul li svg path {
   fill: #fff;
-}
+} */
 .product .product_information .social-icon-pro ul li {
   display: inline-flex;
 }
