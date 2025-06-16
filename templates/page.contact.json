@@ -51,6 +51,17 @@
     },
     "contact_us_section_CHaWQp": {
       "type": "contactUsSection",
+      "blocks": {
+        "social_link_tqdBKe": {
+          "type": "social_link",
+          "settings": {
+            "social_url": "https://ca.pinterest.com/golzarhomecanada/"
+          }
+        }
+      },
+      "block_order": [
+        "social_link_tqdBKe"
+      ],
       "settings": {
         "contact_title": "Contact Us",
         "map_latitude": "43.8031",
