@@ -2,266 +2,6 @@
   assign section_id = 'contact-us-' | append: section.id
 -%}
 
-<div class="contact-us-main page-width" id="{{ section_id }}">
-  <div class="contact-us-inn pageWidth">
-    <div class="contact-us-content">
-      <div class="contact-form-area">
-        <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
-        {%- form 'contact'
-          , class: 'contact-form' -%}
-
-          <div class="form-messages">
-            {%- if form.posted_successfully? -%}
-              <p class="form-success-message" style="padding: 5px; background: #DCFFDB; color: green; border-radius: 15px;">
-                Thank you for contacting us! We've received your message and will get back to you shortly.
-              </p>
-            {%- endif -%}
-
-            {%- if form.errors -%}
-              <div class="form-error-message">
-                <p>Oops, there was a problem with your submission. Please correct the errors below.</p>
-                {{ form.errors | default_errors }}
-              </div>
-            {%- endif -%}
-          </div>
-
-          <input
-            type="hidden"
-            name="form_type"
-            value="contact">
-          <input
-            type="hidden"
-            name="utf8"
-            value="✓">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First name</label>
-              <input
-                type="text"
-                placeholder="John"
-                id="first-name"
-                name="contact[first_name]"
-                class="form-input"
-                required
-                value="{{ form.first_name }}">
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last name</label>
-              <input
-                type="text"
-                placeholder="Wick"
-                id="last-name"
-                name="contact[last_name]"
-                class="form-input"
-                required
-                value="{{ form.last_name }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group full-width">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                placeholder="you@company.com"
-                id="email"
-                name="contact[email]"
-                class="form-input full-width{% if form.errors contains 'email' %} input-error{% endif %}"
-                required
-                value="{{ form.email }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group full-width">
-              <label for="phone">Phone number</label>
-              <input
-                type="tel"
-                placeholder="+1 (416) 700-4346"
-                id="phone"
-                name="contact[phone]"
-                class="form-input full-width"
-                required
-                value="{{ form.phone }}">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group full-width">
-              <label for="subject">Subject (choose from drop-down) *</label>
-              <select
-                id="subject"
-                name="contact[subject]"
-                class="form-input full-width"
-                required>
-                <option value="">Select an option</option>
-                <option
-                  value="general"
-                  {% if form.subject == 'general' %}
-                  selected="selected"
-                  {% endif %}>General customer support</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group full-width">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="contact[message]"
-                class="form-input full-width"
-                rows="4"
-                required>{{ form.body }}</textarea>
-            </div>
-          </div>
-          <div class="form-row checkbox-row">
-            <input
-              type="checkbox"
-              id="privacy-policy"
-              required>
-            <label for="privacy-policy">I agree to friendly privacy policy</label>
-          </div>
-          <button type="submit" class="form-submit blueButton customButton">
-            Send Message
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="arrow-icon">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z"
-                fill="currentColor" />
-            </svg>
-          </button>
-
-        {%- endform -%}
-      </div>
-      <div class="contact-info-area">
-        <!-- <div class="map-container" id="map-{{ section.id }}"></div> -->
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.2914579043895!2d-79.5002145236359!3d43.787564871096116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2sca!4v1749256069131!5m2!1sen!2sca"
-          width="100%"
-          height="450"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="contact-details">
-          <div class="colrowvich">
-            <div class="contact-detail-item">
-              <h4 class="contact-details-title">Phone number:</h4>
-              <p class="contact-phone">{{ section.settings.phone_number | escape }}</p>
-            </div>
-            <div class="contact-detail-item">
-              {%- assign social_links_count = 0 -%}
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'social_link' and block.settings.social_url != blank -%}
-                  {%- assign social_links_count = social_links_count | plus: 1 -%}
-                {%- endif -%}
-              {%- endfor -%}
-
-              {%- if social_links_count > 0 -%}
-                <h4 class="contact-details-title">Social media:</h4>
-                <div class="social-links">
-                  {% for block in section.blocks %}
-                    {% if block.type == 'social_link' and block.settings.social_url != blank %}
-                      <div class="social-links-container">
-                        <a href="{{ block.settings.social_url }}" class="social-icon">
-                          {% if block.settings.social_icon != blank %}
-                            <img src="{{ block.settings.social_icon | image_url: width: 24 }}" alt="Social Icon">
-                          {% endif %}
-                        </a>
-                      </div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {%- endif -%}
-            </div>
-          </div>
-          <div class="colrowvich">
-            <div class="contact-detail-item">
-              <h4 class="contact-details-title">Showroom hours:</h4>
-              <p class="contact-hours">{{ section.settings.showroom_hours | escape | newline_to_br }}</p>
-            </div>
-            <div class="contact-detail-item">
-              <h4 class="contact-details-title">Email:</h4>
-              <p class="contact-email">{{ section.settings.email | escape }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% schema %}
-  {
-    "name": "Contact Us",
-    "class": "section contact-us",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "contact_title",
-        "label": "Contact Title",
-        "default": "Contact Us"
-      },
-      {
-        "type": "text",
-        "id": "map_latitude",
-        "label": "Map Latitude",
-        "default": "43.8031"
-      },
-      {
-        "type": "text",
-        "id": "map_longitude",
-        "label": "Map Longitude",
-        "default": "-79.3631"
-      },
-      {
-        "type": "text",
-        "id": "phone_number",
-        "label": "Phone Number",
-        "default": "+1 (416) 700-3046"
-      }, {
-        "type": "textarea",
-        "id": "showroom_hours",
-        "label": "Showroom Hours",
-        "default": "Mon - Sat: 10am - 6pm\nSun: By appointment"
-      }, {
-        "type": "text",
-        "id": "email",
-        "label": "Email Address",
-        "default": "info@bathroomsupplier.ca"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "social_link",
-        "name": "Social Link",
-        "settings": [
-          {
-            "type": "url",
-            "id": "social_url",
-            "label": "Social Media URL"
-          }, {
-            "type": "image_picker",
-            "id": "social_icon",
-            "label": "Social Media Icon"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Contact Us"
-      }
-    ]
-  }
-{% endschema %}
-
 {% style %}
   #shopify-section-{{ section.id }} {}
 
@@ -284,7 +24,8 @@
 }
 
 .contact-info-area {
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 25px;
   display: flex;
   flex-direction: column;
 }
@@ -434,7 +175,7 @@ textarea.form-input {
 
 .social-links {
   display: flex;
-  gap: 0.25rem;
+  gap: 10px;
 }
 
 .social-links-container {
@@ -445,6 +186,31 @@ textarea.form-input {
 .social-icon img {
   width: 24px;
   height: 24px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #002642;
+  transition: background-color 0.3s ease
+  , color 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #002642;
+  color: #FFFFFF;
+}
+
+.social-icon:hover svg path {
+  fill: #fff;
+}
+
+.social-icon svg {
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -476,6 +242,388 @@ textarea.form-input {
 
   .colrowvich {
     flex-direction: column;
+    gap: 25px;
   }
 }
 {% endstyle %}
+
+<div class="contact-us-main page-width" id="{{ section_id }}">
+  <div class="contact-us-inn pageWidth">
+    <div class="contact-us-content">
+      <div class="contact-form-area">
+        <h2 class="contact-title">{{ section.settings.contact_title | escape }}</h2>
+        {%- form 'contact'
+          , class: 'contact-form' -%}
+
+          <div class="form-messages">
+            {%- if form.posted_successfully? -%}
+              <p class="form-success-message" style="padding: 5px; background: #DCFFDB; color: green; border-radius: 15px;">
+                Thank you for contacting us! We've received your message and will get back to you shortly.
+              </p>
+            {%- endif -%}
+
+            {%- if form.errors -%}
+              <div class="form-error-message">
+                <p>Oops, there was a problem with your submission. Please correct the errors below.</p>
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <input
+            type="hidden"
+            name="form_type"
+            value="contact">
+          <input
+            type="hidden"
+            name="utf8"
+            value="✓">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input
+                type="text"
+                placeholder="John"
+                id="first-name"
+                name="contact[first_name]"
+                class="form-input"
+                required
+                value="{{ form.first_name }}">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input
+                type="text"
+                placeholder="Wick"
+                id="last-name"
+                name="contact[last_name]"
+                class="form-input"
+                required
+                value="{{ form.last_name }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                placeholder="you@company.com"
+                id="email"
+                name="contact[email]"
+                class="form-input full-width{% if form.errors contains 'email' %} input-error{% endif %}"
+                required
+                value="{{ form.email }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="phone">Phone number</label>
+              <input
+                type="tel"
+                placeholder="+1 (416) 700-4346"
+                id="phone"
+                name="contact[phone]"
+                class="form-input full-width"
+                required
+                value="{{ form.phone }}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="subject">Subject (choose from drop-down) *</label>
+              <select
+                id="subject"
+                name="contact[subject]"
+                class="form-input full-width"
+                required>
+                <option value="">Select an option</option>
+                <option
+                  value="general"
+                  {% if form.subject == 'general' %}
+                  selected="selected"
+                  {% endif %}>General customer support</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="contact[message]"
+                class="form-input full-width"
+                rows="4"
+                required>{{ form.body }}</textarea>
+            </div>
+          </div>
+          <div class="form-row checkbox-row">
+            <input
+              type="checkbox"
+              id="privacy-policy"
+              required>
+            <label for="privacy-policy">I agree to friendly privacy policy</label>
+          </div>
+          <button type="submit" class="form-submit blueButton customButton">
+            Send Message
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-icon">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z"
+                fill="currentColor" />
+            </svg>
+          </button>
+
+        {%- endform -%}
+      </div>
+      <div class="contact-info-area">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.2914579043895!2d-79.5002145236359!3d43.787564871096116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2fc4b5fedf1d%3A0xe3aa09c3c32421b5!2sGolzar%20Home!5e0!3m2!1sen!2sca!4v1749256069131!5m2!1sen!2sca"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="contact-details">
+          <div class="colrowvich">
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Phone number:</h4>
+              <p class="contact-phone">{{ section.settings.phone_number | escape }}</p>
+            </div>
+            <div class="contact-detail-item">
+              {%- assign social_links_count = 0 -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'social_link' and block.settings.social_url != blank -%}
+                  {%- assign social_links_count = social_links_count | plus: 1 -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if social_links_count > 0 -%}
+                <h4 class="contact-details-title">Social media:</h4>
+                <div class="social-links">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'social_link' and block.settings.social_url != blank %}
+                      <div class="social-links-container">
+                        <a
+                          href="{{ block.settings.social_url }}"
+                          class="social-icon"
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          {% if block.settings.social_url contains 'facebook.com' %}
+                            <svg
+                              width="40"
+                              height="40"
+                              viewBox="0 0 40 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="39"
+                                height="39"
+                                rx="19.5"
+                                stroke="#002642" />
+                              <path d="M21.1211 14.2812C21.1211 13.4766 21.8398 13.1875 22.6445 13.1875C23.4492 13.1875 24.3086 13.4375 24.3086 13.4375L24.8242 10.375C24.8242 10.375 23.7305 10 21.1211 10C19.5195 10 18.5898 10.6094 17.9102 11.5078C17.2695 12.3594 17.2461 13.7266 17.2461 14.6094V16.6172H15.1758V19.6094H17.2461V30H21.1211V19.6094H24.1914L24.418 16.6172H21.1211V14.2812Z" fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'instagram.com' %}
+                            <svg
+                              width="40"
+                              height="40"
+                              viewBox="0 0 40 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="39"
+                                height="39"
+                                rx="19.5"
+                                stroke="#002642" />
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M19.876 10C14.399 10 10 14.4346 10 19.9585C10 24.0585 12.407 27.4894 15.893 29.0796C15.893 27.2121 15.88 27.4528 17.303 21.3804C16.521 19.8023 17.129 17.1968 18.88 17.1968C21.31 17.1968 19.659 20.7995 19.378 22.2173C19.129 23.3053 19.959 24.1426 20.955 24.1426C22.864 24.1426 24.108 21.7152 24.108 18.8706C24.108 16.6945 22.615 15.1045 20.042 15.1045C15.467 15.1045 14.307 20.1996 15.893 21.7988C16.292 22.4028 15.893 22.4311 15.893 23.2217C15.616 24.0576 13.403 22.8425 13.403 19.7075C13.403 16.8619 15.727 13.5151 20.457 13.5151C24.191 13.5151 26.681 16.2763 26.681 19.2056C26.681 23.1382 24.523 25.9839 21.37 25.9839C20.291 25.9839 19.295 25.3976 18.963 24.728C18.36 27.0735 18.238 28.2626 17.303 29.5815C18.216 29.8326 19.129 30 20.125 30C25.602 30 30 25.5653 30 20.0425C29.752 14.4349 25.353 10 19.876 10Z"
+                                fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'twitter.com' or block.settings.social_url contains 'x.com' %}
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M18.901 1.152H22.581L14.541 10.342L24 22.846H16.594L10.794 15.262L4.156 22.846H0.474L9.074 13.016L0 1.154H7.594L12.837 8.086L18.901 1.152ZM17.61 20.644H19.649L6.486 3.24H4.298L17.61 20.644Z" fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'linkedin.com' %}
+                            <svg
+                              width="40"
+                              height="40"
+                              viewBox="0 0 40 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="39"
+                                height="39"
+                                rx="19.5"
+                                stroke="#002642" />
+                              <path d="M13.4375 15.1369V24.8638C13.4375 25.7819 14.16 26.5044 15.0781 26.5044H24.805C25.2544 26.5044 25.6838 26.2894 25.9575 26.0163C26.2506 25.7232 26.4456 25.3519 26.4456 24.8638V15.1369C26.4456 14.2188 25.7231 13.4963 24.805 13.4963H15.0781C14.59 13.4963 14.2188 13.6919 13.9256 13.9844C13.6519 14.2582 13.4375 14.6875 13.4375 15.1369ZM15.1956 16.4257C15.1956 15.8007 15.7037 15.2538 16.3287 15.2538C16.9731 15.2538 17.5006 15.8007 17.5006 16.4257C17.5006 17.07 16.9731 17.5782 16.3287 17.5782C15.7037 17.5782 15.1956 17.07 15.1956 16.4257ZM18.34 24.4532V18.4963C18.34 18.3594 18.4769 18.2425 18.5744 18.2425H20.2344C20.4688 18.2425 20.4688 18.5163 20.4688 18.6919C20.9375 18.2232 21.5431 18.1057 22.1681 18.1057C23.6919 18.1057 24.6681 18.8282 24.6681 20.43V24.4538C24.6681 24.5907 24.5506 24.7075 24.4338 24.7075H22.715C22.5781 24.7075 22.4806 24.5707 22.4806 24.4538V20.8207C22.4806 20.215 22.305 19.8832 21.6213 19.8832C20.7619 19.8832 20.5469 20.4494 20.5469 21.2113V24.4538C20.5469 24.5907 20.41 24.7075 20.2731 24.7075H18.5738C18.4763 24.7075 18.3394 24.5707 18.3394 24.4538L18.34 24.4532ZM15.2344 24.4532V18.4963C15.2344 18.3594 15.3713 18.2425 15.4688 18.2425H17.1681C17.3244 18.2425 17.4219 18.34 17.4219 18.4963V24.4532C17.4219 24.59 17.3044 24.7069 17.1681 24.7069H15.4688C15.3513 24.7069 15.2344 24.57 15.2344 24.4532Z" fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'pinterest.com' %}
+                            <svg
+                              width="40"
+                              height="40"
+                              viewBox="0 0 40 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="39"
+                                height="39"
+                                rx="19.5"
+                                stroke="#002642" />
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M19.876 10C14.399 10 10 14.4346 10 19.9585C10 24.0585 12.407 27.4894 15.893 29.0796C15.893 27.2121 15.88 27.4528 17.303 21.3804C16.521 19.8023 17.129 17.1968 18.88 17.1968C21.31 17.1968 19.659 20.7995 19.378 22.2173C19.129 23.3053 19.959 24.1426 20.955 24.1426C22.864 24.1426 24.108 21.7152 24.108 18.8706C24.108 16.6945 22.615 15.1045 20.042 15.1045C15.467 15.1045 14.307 20.1996 15.893 21.7988C16.292 22.4028 15.893 22.4311 15.893 23.2217C15.616 24.0576 13.403 22.8425 13.403 19.7075C13.403 16.8619 15.727 13.5151 20.457 13.5151C24.191 13.5151 26.681 16.2763 26.681 19.2056C26.681 23.1382 24.523 25.9839 21.37 25.9839C20.291 25.9839 19.295 25.3976 18.963 24.728C18.36 27.0735 18.238 28.2626 17.303 29.5815C18.216 29.8326 19.129 30 20.125 30C25.602 30 30 25.5653 30 20.0425C29.752 14.4349 25.353 10 19.876 10Z"
+                                fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'youtube.com' %}
+                            <svg
+                              width="41"
+                              height="40"
+                              viewBox="0 0 41 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <rect
+                                x="1"
+                                y="0.5"
+                                width="39"
+                                height="39"
+                                rx="19.5"
+                                stroke="#002642" />
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M18.4884 22.5861V16.9743C20.4806 17.9117 22.0236 18.8173 23.8485 19.7936C22.3433 20.6283 20.4806 21.5649 18.4884 22.5861ZM29.591 14.1833C29.2474 13.7305 28.6617 13.3781 28.0381 13.2614C26.2053 12.9134 14.771 12.9124 12.9392 13.2614C12.4391 13.3551 11.9938 13.5817 11.6113 13.9338C9.99964 15.4297 10.5047 23.4517 10.8931 24.7512C11.0565 25.3136 11.2677 25.7193 11.5337 25.9855C11.8763 26.3376 12.3455 26.58 12.8844 26.6887C14.3935 27.0008 22.168 27.1753 28.0062 26.7355C28.5441 26.6418 29.0202 26.3916 29.3958 26.0246C30.8859 24.5347 30.7843 16.0621 29.591 14.1833Z"
+                                fill="#002642" />
+                            </svg>
+                          {% elsif block.settings.social_url contains 'tiktok.com' %}
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.525 0H9.472V16.459C9.472 17.997 8.213 19.256 6.675 19.256C5.137 19.256 3.878 17.997 3.878 16.459C3.878 14.921 5.137 13.662 6.675 13.662C6.979 13.662 7.269 13.715 7.54 13.807V10.645C7.255 10.593 6.967 10.565 6.675 10.565C3.365 10.565 0.675 13.255 0.675 16.565C0.675 19.875 3.365 22.565 6.675 22.565C9.985 22.565 12.675 19.875 12.675 16.565V8.093C14.247 9.299 16.225 10.011 18.375 10.011V6.958C15.355 6.958 12.525 4.128 12.525 1.108V0Z" fill="#002642" />
+                            </svg>
+                          {% else %}
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24C18.627 24 24 18.627 24 12C24 5.373 18.627 0 12 0ZM12 22C6.486 22 2 17.514 2 12C2 6.486 6.486 2 12 2C17.514 2 22 6.486 22 12C22 17.514 17.514 22 12 22Z" fill="#002642" />
+                              <path d="M12 5C8.141 5 5 8.141 5 12C5 15.859 8.141 19 12 19C15.859 19 19 15.859 19 12C19 8.141 15.859 5 12 5ZM12 17C9.243 17 7 14.757 7 12C7 9.243 9.243 7 12 7C14.757 7 17 9.243 17 12C17 14.757 14.757 17 12 17Z" fill="#002642" />
+                            </svg>
+                          {% endif %}
+                        </a>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="colrowvich">
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Showroom hours:</h4>
+              <p class="contact-hours">{{ section.settings.showroom_hours | escape | newline_to_br }}</p>
+            </div>
+            <div class="contact-detail-item">
+              <h4 class="contact-details-title">Email:</h4>
+              <p class="contact-email">{{ section.settings.email | escape }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Us",
+    "class": "section contact-us",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_title",
+        "label": "Contact Title",
+        "default": "Contact Us"
+      },
+      {
+        "type": "text",
+        "id": "map_latitude",
+        "label": "Map Latitude",
+        "default": "43.8031"
+      },
+      {
+        "type": "text",
+        "id": "map_longitude",
+        "label": "Map Longitude",
+        "default": "-79.3631"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone Number",
+        "default": "+1 (416) 700-3046"
+      }, {
+        "type": "textarea",
+        "id": "showroom_hours",
+        "label": "Showroom Hours",
+        "default": "Mon - Sat: 10am - 6pm\nSun: By appointment"
+      }, {
+        "type": "text",
+        "id": "email",
+        "label": "Email Address",
+        "default": "info@bathroomsupplier.ca"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "social_link",
+        "name": "Social Link",
+        "settings": [
+          {
+            "type": "url",
+            "id": "social_url",
+            "label": "Social Media URL"
+          }, {
+            "type": "image_picker",
+            "id": "social_icon",
+            "label": "Social Media Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Us"
+      }
+    ]
+  }
+{% endschema %}

@@ -130,19 +130,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 20px;
-    border-radius: 50px;
     text-decoration: none;
-    font-size: 0.9em;
     border: none;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: auto;
     width: 100%;
-    max-width: 250px;
     box-sizing: border-box;
     background-color: #072D4B;
     color: #FFFFFF;
+  }
+
+  .catalogue-card__download-button:hover .download-icon svg path {
+    fill: #072D4B;
   }
 
   .catalogue-card__download-button:hover {
@@ -153,6 +153,7 @@
     margin-left: 8px;
     line-height: 1;
     width: 16px;
+    display: flex;
   }
   .catalogue-card__download-button .download-icon svg path {
     fill: #FFFFFF;
@@ -218,13 +219,13 @@
               {% endif %}
 
               {% if block.settings.logo_heading != blank %}
-                <h3 class="catalogue-card__name">{{ block.settings.logo_heading }}</h3>
+                <p class="bodyText catalogue-card__name">{{ block.settings.logo_heading }}</p>
               {% endif %}
 
               {% if block.settings.down_pdf != blank %}
                 <a
                   href="{{ block.settings.down_pdf }}"
-                  class="catalogue-card__download-button"
+                  class="catalogue-card__download-button customButton blueButton"
                   {% if block.settings.down_pdf contains '.pdf' %}
                   target="_blank"
                   {% endif %}>
