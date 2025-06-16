@@ -69,12 +69,19 @@
           "settings": {
             "social_url": "https://www.youtube.com/@GolzarHome"
           }
+        },
+        "social_link_ebjyW6": {
+          "type": "social_link",
+          "settings": {
+            "social_url": "https://www.linkedin.com/company/golzarhome/"
+          }
         }
       },
       "block_order": [
         "social_link_tqdBKe",
         "social_link_wBDG46",
-        "social_link_cy6TB3"
+        "social_link_cy6TB3",
+        "social_link_ebjyW6"
       ],
       "settings": {
         "contact_title": "Contact Us",
