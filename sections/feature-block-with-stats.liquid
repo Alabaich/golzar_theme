@@ -49,13 +49,18 @@
         margin-top: auto;
     }
 
+    #{{ section_id }} .feature-block-stats__stats h3 {
+      margin: 0;
+    }
+
     #{{ section_id }} .feature-block-stats__stat-item {
       display: flex;
-      flex-direction: column;
       align-items: {{ text_alignment | default: 'flex-start' }};
+      gap: 10px;
     }
     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: left"] .feature-block-stats__stat-item {
-      align-items: flex-start;
+      /* align-items: flex-start; */
+      align-items: center;
     }
     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: center"] .feature-block-stats__stat-item {
       align-items: center;
@@ -75,6 +80,10 @@
       font-size: {{ section.settings.stat_text_size }}px;
       color: {{ section.settings.stat_text_color | default: section.settings.text_color }};
       margin-top: 5px;
+      height: 2.8em;
+      line-height: 1.4em;
+      overflow: hidden;
+      max-width: 90px;
     }
 
     #{{ section_id }} .feature-block-stats__image-column {
@@ -122,8 +131,6 @@
 
     #{{ section_id }} .feature-block-stats__button {
       cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -140,8 +147,8 @@
       align-self: center;
     }
     #{{ section_id }} .feature-block-stats__text-column[style*="text-align: right"] .feature-block-stats__button {
-                                  align-self: flex-end;
-                              }
+      align-self: flex-end;
+    }
 
     @media (max-width: 990px) {
         #{{ section_id }} .feature-block-stats__container {
@@ -219,7 +226,7 @@
                     <button
                             class="feature-block-stats__button blueButton customButton"
                             onclick="window.location.href='{{ section.settings.button_link }}';"
-                            title="{{ section.settings.button_label | escape }} - Перейти"
+                            title="{{ section.settings.button_label | escape }} - Follow this link to contact us'"
                     >
                         {{ section.settings.button_label | escape }}
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
@@ -233,7 +240,7 @@
                         {%- if section.settings.stat1_number != blank or section.settings.stat1_text != blank -%}
                             <div class="feature-block-stats__stat-item">
                                 {%- if section.settings.stat1_number != blank -%}
-                                    <span class="feature-block-stats__stat-number">{{ section.settings.stat1_number | escape }}</span>
+                                    <h3 class="feature-block-stats__stat-number">{{ section.settings.stat1_number | escape }}</h3>
                                 {%- endif -%}
                                 {%- if section.settings.stat1_text != blank -%}
                                     <span class="feature-block-stats__stat-text">{{ section.settings.stat1_text | escape }}</span>
@@ -243,7 +250,7 @@
                         {%- if section.settings.stat2_number != blank or section.settings.stat2_text != blank -%}
                             <div class="feature-block-stats__stat-item">
                                 {%- if section.settings.stat2_number != blank -%}
-                                    <span class="feature-block-stats__stat-number">{{ section.settings.stat2_number | escape }}</span>
+                                    <h3 class="feature-block-stats__stat-number">{{ section.settings.stat2_number | escape }}</h3>
                                 {%- endif -%}
                                 {%- if section.settings.stat2_text != blank -%}
                                     <span class="feature-block-stats__stat-text">{{ section.settings.stat2_text | escape }}</span>
