@@ -9,6 +9,11 @@
  */
 {
   "sections": {
+    "breadcrumbs_section_8dCEbk": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -259,6 +264,7 @@
     }
   },
   "order": [
+    "breadcrumbs_section_8dCEbk",
     "main",
     "multirow_BaXyEQ",
     "1735585868466f2cf4",
