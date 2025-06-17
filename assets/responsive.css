@@ -45,7 +45,8 @@
     .product.product--medium .product__info-wrapper {
     max-height: 690px;
     overflow-y: auto;
-    padding-right: 10px;
+    /* padding-right: 10px; */
+    padding-right: 5px;
   }
   nav.breadcrumb {
     margin: 6px 0 0;
@@ -231,7 +232,8 @@
     .product.product--medium .product__info-wrapper {
     width: 60%;
     max-width: 60%;
-    padding-left: 10px;
+    /* padding-left: 10px; */
+    padding-left: 50px;
   }
   body main#MainContent .team-sec-main .team-sec-inn .page-width {
     padding: 0 20px;
@@ -265,9 +267,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .section.product_main_sec .product__info-wrapper .product--vendor {
+  /* .section.product_main_sec .product__info-wrapper .product--vendor {
     margin: 10px 0 0;
-  }
+  } */
 
   .product .sku-or-tags {
     margin-bottom: 15px;
@@ -861,7 +863,7 @@
   .product .refundss-shiipings {
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: 5px;
+    /* margin-top: 5px; */
   }
   .product-description h4,
   .product-description h3 {

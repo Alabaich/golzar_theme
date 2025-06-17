@@ -54,35 +54,43 @@
               <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
             </li>
           {%- endif -%}
-                    <li>/</li>
+          
+          {%- if product.vendor -%}
+            <li>/</li>
+            <li>
+              <a href="{{ product.vendor | url_for_vendor }}" title="{{ product.vendor | escape }}">{{ product.vendor }}</a>
+            </li>
+          {%- endif -%}
+          
+          <li>/</li>
           <li aria-current="page" title="{{ product.title | escape }}">
             {{ product.title }}
           </li>
 
         {%- when 'collection' -%}
-                    <li>/</li>
+          <li>/</li>
           <li aria-current="page" title="{{ collection.title | escape }}">
             {{ collection.title }}
           </li>
 
         {%- when 'page' -%}
-                    <li>/</li>
+          <li>/</li>
           <li aria-current="page" title="{{ page.title | escape }}">
             {{ page.title }}
           </li>
 
         {%- when 'blog' -%}
-                    <li>/</li>
+          <li>/</li>
           <li aria-current="page" title="{{ blog.title | escape }}">
             {{ blog.title }}
           </li>
 
         {%- when 'article' -%}
-                    <li>/</li>
+          <li>/</li>
           <li>
             <a href="{{ blog.url }}" title="{{ blog.title | escape }}">{{ blog.title }}</a>
           </li>
-                  <li>/</li>
+          <li>/</li>
           <li aria-current="page" title="{{ article.title | escape }}">
             {{ article.title }}
           </li>
@@ -115,6 +123,17 @@
             }
             {%- assign position_counter = position_counter | plus: 1 -%}
           {%- endif -%}
+          
+          {%- if product.vendor -%}
+            ,{
+              "@type": "ListItem",
+              "position": {{ position_counter }},
+              "name": "{{ product.vendor | escape }}",
+              "item": "{{ product.vendor | url_for_vendor | prepend: shop.url }}"
+            }
+            {%- assign position_counter = position_counter | plus: 1 -%}
+          {%- endif -%}
+          
           ,{
             "@type": "ListItem",
             "position": {{ position_counter }},
@@ -160,7 +179,6 @@
   }
   </script>
 {%- endunless -%}
-
 
 {% schema %}
  {
