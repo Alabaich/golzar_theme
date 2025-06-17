@@ -33,6 +33,10 @@
             "text_style": "body"
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -53,10 +57,6 @@
             "picker_type": "swatch",
             "swatch_shape": "square"
           }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -99,10 +99,10 @@
         "title",
         "vendor_Fmtz9A",
         "sku_QMiVi7",
+        "price",
         "buy_buttons",
         "shipping_refund_ij6BDq",
         "variant_picker",
-        "price",
         "quantity_selector",
         "delivery_time_Jjb7JP",
         "see_product_components_986tRR",
