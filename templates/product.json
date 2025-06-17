@@ -33,6 +33,13 @@
             "text_style": "body"
           }
         },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
         "shipping_refund_ij6BDq": {
           "type": "shipping_refund",
           "settings": {
@@ -57,14 +64,8 @@
         },
         "delivery_time_Jjb7JP": {
           "type": "delivery_time",
+          "disabled": true,
           "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
-          }
         },
         "see_product_components_986tRR": {
           "type": "see-product-components",
@@ -98,12 +99,12 @@
         "title",
         "vendor_Fmtz9A",
         "sku_QMiVi7",
+        "buy_buttons",
         "shipping_refund_ij6BDq",
         "variant_picker",
         "price",
         "quantity_selector",
         "delivery_time_Jjb7JP",
-        "buy_buttons",
         "see_product_components_986tRR",
         "required_items_9nVkDq",
         "product_information_gjpgNk"
