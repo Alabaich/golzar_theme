@@ -3698,8 +3698,8 @@ body .catalogues-banner .banner {
   border-radius: 15px;
   box-shadow: 0px 0px 64px -35px rgba(0, 0, 0, 0.5);
 }
-.article-template .article-template__title,
-/* .article .article-template h2, */
+/* .article-template .article-template__title,
+.article .article-template h2,
 .article .article-template h3,
 .article .article-template h4,
 .article .article-template h5,
@@ -3713,7 +3713,7 @@ body .catalogues-banner .banner {
   width: 100%;
   margin: 15px 0;
   letter-spacing: -1px;
-}
+} */
 .article-template h2 a {
   color: #667d8e;
 }
