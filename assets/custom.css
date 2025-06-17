@@ -3398,12 +3398,12 @@ body .catalogues-banner .banner {
   height: 100%;
   margin: 0;
 }
-.blog .main-blog {
+/* .blog .main-blog {
   max-width: 1140px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
-}
+} */
 .main-blog .title--primary {
   margin: 0;
   text-align: center;
