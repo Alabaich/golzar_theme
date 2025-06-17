@@ -185,6 +185,10 @@
   margin-bottom: 20px;
 }
 
+.mainProductContainer {
+  padding-top: 0 !important;
+}
+
 .acc-head {
   display: flex;
   justify-content: space-between;
@@ -289,7 +293,7 @@
 </style>
   
 <product-info id="MainProduct-{{ section.id }}"
-  class="page-width pageWidth section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="page-width pageWidth mainProductContainer section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}" data-product-id="{{ product.id }}"
   data-update-url="true" data-url="{{ product.url }}"
   {% if section.settings.image_zoom == 'hover' %}
