@@ -77,6 +77,23 @@
 .article-template header.page-width span {
   color: #5C5C5C !important;
 }
+.prev_next_articles {
+  padding: 25px !important;
+}
+
+.article-template .article-template__hero-container {
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 749px) {
+.article-template>*:first-child:not(.article-template__hero-container) {
+    margin-top: 0 !important;
+  }
+
+  .article-template__hero-container .media {
+    padding-bottom: 200px !important;
+  }
+}
 </style>
 
 <article class="article-template">
@@ -183,18 +200,20 @@
     {%- endcase -%}
   {%- endfor -%}
                             
-  <div class="featured-image-comm">
-    <a href="{{ article.metafields.custom.button_link }}">                      
-      <div class="blog_featured_img" style="background-image: url('{{ article.metafields.custom.image | img_url: 'master' }}')">
-        <div class="blog_featured_content">
-          <h2>{{ article.metafields.custom.heading }}</h2>
-          <div class="blog_img_btn">
-            <span class="button-click">Click here</span>
+  {%- if article.metafields.custom.image != blank -%}
+    <div class="featured-image-comm">
+      <a href="{{ article.metafields.custom.button_link }}">
+        <div class="blog_featured_img" style="background-image: url('{{ article.metafields.custom.image | img_url: 'master' }}')">
+          <div class="blog_featured_content">
+              <h2>{{ article.metafields.custom.heading }}</h2>
+              <div class="blog_img_btn">
+                <span class="button-click">Click here</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
-    </a>
-  </div>
+  {%- endif -%}
                             
   <div class="share_blogs">
     <ul>
