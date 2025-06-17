@@ -33,12 +33,9 @@
             "text_style": "body"
           }
         },
-        "shipping_refund_ij6BDq": {
-          "type": "shipping_refund",
-          "settings": {
-            "shiiping_text": "Shipping cost at checkout",
-            "refund_text": "Return Policy"
-          }
+        "price": {
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -47,9 +44,19 @@
             "swatch_shape": "square"
           }
         },
-        "price": {
-          "type": "price",
-          "settings": {}
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "shipping_refund_ij6BDq": {
+          "type": "shipping_refund",
+          "settings": {
+            "shiiping_text": "Shipping cost at checkout",
+            "refund_text": "Return Policy"
+          }
         },
         "delivery_time_yrfaV4": {
           "type": "delivery_time",
@@ -58,13 +65,6 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
-          }
         },
         "see_product_components_986tRR": {
           "type": "see-product-components",
@@ -98,12 +98,12 @@
         "title",
         "vendor_Jb388i",
         "sku_zq3c6F",
-        "shipping_refund_ij6BDq",
-        "variant_picker",
         "price",
+        "variant_picker",
+        "buy_buttons",
+        "shipping_refund_ij6BDq",
         "delivery_time_yrfaV4",
         "quantity_selector",
-        "buy_buttons",
         "see_product_components_986tRR",
         "required_items_9nVkDq",
         "product_information_gjpgNk"
