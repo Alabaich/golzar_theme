@@ -9,6 +9,11 @@
  */
 {
   "sections": {
+    "breadcrumbs_section_fCNVLP": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
     "main": {
       "type": "main-article",
       "blocks": {
@@ -46,6 +51,7 @@
     }
   },
   "order": [
+    "breadcrumbs_section_fCNVLP",
     "main",
     "blogs_faq_VyYGbp"
   ]
