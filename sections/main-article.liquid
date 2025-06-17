@@ -207,6 +207,16 @@
     margin-left: auto;
   }
 
+  .caption-with-letter-spacing {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+    .article-template__hero-container .media {
+      padding-bottom: 450px !important;
+    }
+
   @media screen and (max-width: 749px) {
     .articleTemplate >*:first-child:not(.article-template__hero-container) {
       margin-top: 0 !important;
@@ -223,6 +233,25 @@
     .sidebar-column {
       width: 100%;
       position: static;
+    }
+
+    .truncate-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .articleTemplate .autor-date {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .article-template__content {
+      margin: 0;
+      padding: 0;
     }
   }
 </style>
@@ -385,7 +414,7 @@
           </svg>
           <span>Previous</span>
         </span>
-        <span class="link-title">{{ blog.next_article.title }}</span>
+        <span class="link-title truncate-title">{{ blog.next_article.title }}</span>
       </a>
     {% endif %}
 
@@ -397,7 +426,7 @@
           </svg>
           <span>Next</span>
         </span>
-        <span class="link-title">{{ blog.previous_article.title }}</span>
+        <span class="link-title truncate-title">{{ blog.previous_article.title }}</span>
       </a>
     {% endif %}
   </div>
@@ -444,6 +473,23 @@
 
 <script type="application/ld+json">
   {{ article | structured_data }}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const truncateTitles = function() {
+    const titles = document.querySelectorAll('.truncate-title');
+    const maxLength = 50;
+    
+    titles.forEach(title => {
+      if (title.textContent.length > maxLength) {
+        title.textContent = title.textContent.substring(0, maxLength) + '...';
+      }
+    });
+  };
+  
+  truncateTitles();
+});
 </script>
 
 {% schema %}
