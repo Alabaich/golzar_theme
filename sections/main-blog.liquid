@@ -8,156 +8,501 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .main-blog .blogHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+
+  .main-blog .blogHeader .formNewsletterSubscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .main-blog .blogHeader h2,
+  .main-blog .blogHeader p {
+    margin: 0;
+  }
+
+  .main-blog .subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .main-blog .subscribe-form input[type="email"] {
+    border: 1px solid #cccccc;
+    border-radius: 150px;
+    padding: 16px 15px;
+    font-size: 16px;
+    min-width: 280px;
+    font-family: 'Raleway'
+    , sans-serif;
+    transition: border-color 0.3s ease;
+    background: #F5F7F9;
+  }
+
+  .main-blog .subscribe-form input[type="email"]:focus {
+    border-color: #004a8f;
+    outline: none;
+  }
+
+  .main-blog .blog-articles {
+    padding-top: 25px !important;
+  }
+
+  .main-blog .article-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease-out
+    , box-shadow 0.3s ease-out;
+    position: relative;
+    gap: 25px;
+  }
+
+  .main-blog .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .main-blog .article-card__image-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 1px solid var(--Color-Grey, #CCCCCC);
+  }
+
+  .main-blog .article-card__image-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    height: 220px;
+  }
+
+  .main-blog .article-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .main-blog .article-card__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 0 15px 15px;
+  }
+
+  .main-blog .article-card__date {
+    font-family: Raleway;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .main-blog .article-card__title {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .main-blog .article-card__title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .main-blog .article-card__title a:hover {
+    text-decoration: underline;
+  }
+
+  .main-blog .article-card__excerpt {
+    margin: 0;
+  }
+
+  .main-blog .article-card__excerpt p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .main-blog .article-card__read-more {
+    font-size: 16px;
+    font-weight: bold;
+    color: {{ section.settings.read_more_link_color }};
+    text-decoration: none;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .main-blog .article-card__read-more:hover {
+    text-decoration: underline;
+  }
+
+  .main-blog .article-card__arrow {
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .main-blog .article-card:hover .article-card__arrow {
+    transform: translateX(3px);
+  }
+
+  .main-blog .autor-date {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main-blog .autor-date .caption-with-letter-spacing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #5C5C5C !important;
+  }
+
+  .main-blog .autor-date .caption-with-letter-spacing svg {
+    width: 15px !important;
+    height: 16px !important;
+    stroke: #5C5C5C;
+  }
+
+  @media screen and (max-width: 749px) {
+    .main-blog .subscribe-form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+    }
+
+    .main-blog .subscribe-form input[type="email"] {
+      min-width: 100%;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+      border-bottom: none;
+    }
+
+    .main-blog .subscribe-form button {
+      width: 100%;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .main-blog .blog-articles {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  .main-blog .blog-articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    .main-blog .blog-articles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .main-blog .blog-articles {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+
+    .main-blog .article-card:nth-child(1) .article-card__image-container,
+    .main-blog .article-card:nth-child(2) .article-card__image-container {
+      height: 350px;
+    }
+
+    .main-blog .blog-articles .article-card:nth-child(1),
+    .main-blog .blog-articles .article-card:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    .main-blog .blog-articles .article-card:nth-child(n + 3) {
+      grid-column: span 2;
     }
   }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}" style="color: {{ section.settings.heading_color }}; {% if section.settings.blog_banner != blank %} background-image:url('{{ section.settings.blog_banner | img_url: 'master' }} {% endif %}')">
-      {{ blog.title | escape }}
-    </h1>
+{%- paginate blog.articles by 8 -%}
+  <div class="main-blog page-width pageWidth">
+    <div class="blogHeader">
+      <p style="font-family: Raleway;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 110.00000000000001%;
+        letter-spacing: 0%;
+        text-align: center;">
+        Our blog
+      </p>
+      <h2>Stories and interviews</h2>
+      <p class="bodyText">Subscribe to learn about new product features, the latest in technology, solutions, and updates.</p>
+      <div class="formNewsletterSubscribe">
+        {% form 'customer'
+          , class: 'subscribe-form' %}
+          <input
+            type="hidden"
+            style="margin-right: 15px;"
+            name="contact[tags]"
+            value="newsletter">
+          <div class="newsletter-form__field-wrapper">
+            <div>
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                placeholder="Enter your email"
+                required>
+              <button
+                type="submit"
+                class="customButton blueButton"
+                name="commit"
+                id="Subscribe"
+                style="cursor: pointer;"
+                aria-label="Subscribe">
+                Subscribe
+              </button>
+            </div>
+            {%- if form.errors -%}
+              <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                <span class="svg-wrapper" style="margin-right: 10px;">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z" fill="#DC2626" />
+                  </svg>
+                </span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+          </div>
+          {%- if form.posted_successfully? -%}
+            <h3
+              class="newsletter-form__message newsletter-form__message--success form__message"
+              id="Newsletter-success--{{ section.id }}"
+              tabindex="-1"
+              autofocus>
+              <span class="svg-wrapper">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM8 15L3 10L4.41 8.59L8 12.17L15.59 4.58L17 6L8 15Z" fill="#16A34A" />
+                </svg>
+              </span>
+              {{- 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+        {% endform %}
+        <p class="bodyText" style="font-size: 14px;">We care about your data in our privacy policy</p>
+      </div>
+    </div>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+    <div class="blog-articles">
       {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
-        </div>
+        <article class="article-card">
+          {%- if section.settings.show_image and article.image -%}
+            <a href="{{ article.url }}" class="article-card__image-link">
+              <div class="article-card__image-container">
+                <img
+                  src="{{ article.image | image_url: width: 800 }}"
+                  alt="{{ article.image.alt | default: article.title | escape }}"
+                  loading="lazy"
+                  class="article-card__image"
+                  width="{{ article.image.width }}"
+                  height="{{ article.image.height }}">
+              </div>
+            </a>
+          {%- endif -%}
+          <div class="article-card__content">
+            {%- if section.settings.show_date -%}
+              <div class="autor-date">
+                {%- liquid
+                  assign word_count = article.content | strip_html | split: ' ' | size
+                  assign reading_time = word_count | divided_by: 200 | at_least: 1
+                -%}
+
+                <span class="caption-with-letter-spacing">
+                  <svg
+                    width="15"
+                    height="16"
+                    viewBox="0 0 15 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect
+                      x="1.875"
+                      y="3.95532"
+                      width="11.25"
+                      height="9.375"
+                      rx="1.25"
+                      stroke="#5C5C5C" />
+                    <path
+                      d="M2.5 7.08032H12.5"
+                      stroke="#5C5C5C"
+                      stroke-linecap="round" />
+                    <path
+                      d="M5.625 10.2053H9.375"
+                      stroke="#5C5C5C"
+                      stroke-linecap="round" />
+                    <path
+                      d="M5 2.08032L5 4.58032"
+                      stroke="#5C5C5C"
+                      stroke-linecap="round" />
+                    <path
+                      d="M10 2.08032L10 4.58032"
+                      stroke="#5C5C5C"
+                      stroke-linecap="round" />
+                  </svg>
+                  {{- article.published_at | time_tag: format: 'date' -}}
+                </span>
+
+                <span class="caption-with-letter-spacing">
+                  <svg
+                    width="15"
+                    height="16"
+                    viewBox="0 0 15 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle
+                      cx="7.5"
+                      cy="7.70532"
+                      r="5.5"
+                      stroke="#5C5C5C" />
+                    <path
+                      d="M10.3125 7.70532H7.65625C7.56996 7.70532 7.5 7.63537 7.5 7.54907V5.51782"
+                      stroke="#5C5C5C"
+                      stroke-linecap="round" />
+                  </svg>
+                  {{ reading_time }} min read
+                </span>
+              </div>
+            {%- endif -%}
+            <h4 class="article-card__title">
+              <a href="{{ article.url }}">{{ article.title | truncate: 50, "…" }}</a>
+            </h4>
+            <div class="article-card__excerpt">
+              <p class="bodyText">{{ article.excerpt | default: article.content | strip_html | truncatewords: 15, "&hellip;" }}</p>
+            </div>
+            <a
+              href="{{ article.url }}"
+              class="article-card__read-more"
+              style="font-family: Raleway;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 100%;
+              letter-spacing: 0%;
+              color: #002642;">
+              Read now
+              <span class="article-card__arrow">&gt;</span>
+            </a>
+          </div>
+        </article>
       {%- endfor -%}
     </div>
 
     {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
+      {%- render 'pagination'
+        , paginate: paginate -%}
     {%- endif -%}
   </div>
 {%- endpaginate -%}
 
 {% schema %}
-{
-  "name": "t:sections.main-blog.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-     {
-      "type": "image_picker",
-      "id": "blog_banner",
-      "label": "Banner Image"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.main-blog.settings.header.content"
-    },
+  {
+    "name": "t:sections.main-blog.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
       {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading Color"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label",
-      "info": "t:sections.main-blog.settings.layout.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label",
-      "info": "t:sections.main-blog.settings.image_height.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.main-blog.settings.paragraph.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
+        "type": "header",
+        "content": "t:sections.main-blog.settings.header.content"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading Color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image",
+        "default": true,
+        "label": "t:sections.main-blog.settings.show_image.label"
+      },
+      {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.main-blog.settings.image_height.options__1.label"
+          }, {
+            "value": "small",
+            "label": "t:sections.main-blog.settings.image_height.options__2.label"
+          }, {
+            "value": "medium",
+            "label": "t:sections.main-blog.settings.image_height.options__3.label"
+          }, {
+            "value": "large",
+            "label": "t:sections.main-blog.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "medium",
+        "label": "t:sections.main-blog.settings.image_height.label",
+        "info": "t:sections.main-blog.settings.image_height.info"
+      }, {
+        "type": "checkbox",
+        "id": "show_date",
+        "default": true,
+        "label": "t:sections.main-blog.settings.show_date.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_author",
+        "default": false,
+        "label": "t:sections.main-blog.settings.show_author.label"
+      }, {
+        "type": "paragraph",
+        "content": "t:sections.main-blog.settings.paragraph.content"
+      }, {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }
+    ]
+  }
 {% endschema %}

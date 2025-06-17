@@ -993,9 +993,9 @@
   
   /* article-page-css */
   .article-template .article-template__title,
-  .article .article-template h2,
+  /* .article .article-template h2, */
   .article .article-template h3,
-  .article .article-template h4,
+  /* .article .article-template h4, */
   .article .article-template h5 {
     font-size: 22px;
     margin: 15px 0;
@@ -1101,7 +1101,7 @@
     width: 100%;
   }
   .share_blogs {
-    margin-top: 20px;
+    margin-top: 25px;
   }
   .article .blog_featured_content h2 {
     font-size: 23px !important;
