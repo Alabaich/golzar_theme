@@ -28,6 +28,10 @@
             "refund_text": "Return Policy"
           }
         },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -35,20 +39,17 @@
             "swatch_shape": "square"
           }
         },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
           }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
         },
         "see_product_components_986tRR": {
           "type": "see-product-components",
@@ -79,16 +80,17 @@
         },
         "delivery_time_GcEbfH": {
           "type": "delivery_time",
+          "disabled": true,
           "settings": {}
         }
       },
       "block_order": [
         "title",
         "shipping_refund_ij6BDq",
-        "variant_picker",
         "price",
-        "quantity_selector",
+        "variant_picker",
         "buy_buttons",
+        "quantity_selector",
         "see_product_components_986tRR",
         "required_items_9nVkDq",
         "product_information_gjpgNk",
