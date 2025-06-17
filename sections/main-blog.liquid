@@ -30,7 +30,7 @@
   .main-blog .subscribe-form input[type="email"] {
     border: 1px solid #cccccc;
     border-radius: 150px;
-    padding: 10px 15px;
+    padding: 16px 15px;
     font-size: 16px;
     min-width: 280px;
     font-family: 'Raleway'
@@ -178,15 +178,25 @@
     .main-blog .subscribe-form {
       flex-direction: column;
       align-items: stretch;
+      gap: 0;
+      width: 100%;
     }
 
     .main-blog .subscribe-form input[type="email"] {
       min-width: 100%;
       text-align: center;
+      border-radius: 8px 8px 0 0;
+      border-bottom: none;
     }
 
     .main-blog .subscribe-form button {
       width: 100%;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .main-blog .blog-articles {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
   }
 
@@ -204,12 +214,28 @@
 
   @media screen and (min-width: 990px) {
     .main-blog .blog-articles {
-      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+    }
+
+    .main-blog .article-card:nth-child(1) .article-card__image-container,
+    .main-blog .article-card:nth-child(2) .article-card__image-container {
+      height: 350px;
+    }
+
+    .main-blog .blog-articles .article-card:nth-child(1),
+    .main-blog .blog-articles .article-card:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    .main-blog .blog-articles .article-card:nth-child(n + 3) {
+      grid-column: span 2;
     }
   }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
+{%- paginate blog.articles by 8 -%}
   <div class="main-blog page-width pageWidth">
     <div class="blogHeader">
       <p style="font-family: Raleway;
@@ -230,7 +256,10 @@
           name="email"
           placeholder="Enter your email"
           required>
-        <button type="submit" class="customButton blueButton">Subscribe</button>
+        <button
+          type="submit"
+          style="cursor: pointer;"
+          class="customButton blueButton">Subscribe</button>
       </form>
     </div>
 
@@ -314,7 +343,7 @@
               </div>
             {%- endif -%}
             <h4 class="article-card__title">
-              <a href="{{ article.url }}">{{ article.title }}</a>
+              <a href="{{ article.url }}">{{ article.title | truncate: 50, "…" }}</a>
             </h4>
             <div class="article-card__excerpt">
               <p class="bodyText">{{ article.excerpt | default: article.content | strip_html | truncatewords: 15, "&hellip;" }}</p>
