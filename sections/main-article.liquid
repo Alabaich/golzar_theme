@@ -262,7 +262,12 @@
         </svg>
         <span style="transition: color 0.3s ease;">Previous</span>
       </div>
-      <span style="transition: color 0.3s ease;">{{ blog.next_article.title }}</span>
+      <span style="transition: color 0.3s ease; font-family: Raleway;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 110.00000000000001%;
+      letter-spacing: 0%;
+      text-align: right;">{{ blog.next_article.title }}</span>
     </a>
   </div>
   {% endif %}
@@ -276,7 +281,13 @@
             </svg>
             <span style="transition: color 0.3s ease;">Next</span>
           </div>
-          <span style="transition: color 0.3s ease;">{{ blog.previous_article.title }}</span>
+          <span style="transition: color 0.3s ease; 
+          font-family: Raleway;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 110.00000000000001%;
+          letter-spacing: 0%;
+          text-align: right;">{{ blog.previous_article.title }}</span>
         </a>
       </div>
     {% endif %}
