@@ -993,7 +993,7 @@
   
   /* article-page-css */
   .article-template .article-template__title,
-  .article .article-template h2,
+  /* .article .article-template h2, */
   .article .article-template h3,
   .article .article-template h4,
   .article .article-template h5 {

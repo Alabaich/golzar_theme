@@ -3667,7 +3667,7 @@ body .catalogues-banner .banner {
   position: relative;
   height: inherit;
   padding-bottom: 325px;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 20px;
   box-shadow: 0px 0px 64px -35px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
@@ -3699,7 +3699,7 @@ body .catalogues-banner .banner {
   box-shadow: 0px 0px 64px -35px rgba(0, 0, 0, 0.5);
 }
 .article-template .article-template__title,
-.article .article-template h2,
+/* .article .article-template h2, */
 .article .article-template h3,
 .article .article-template h4,
 .article .article-template h5,
