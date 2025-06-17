@@ -37,6 +37,13 @@
           "type": "price",
           "settings": {}
         },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "swatch",
+            "swatch_shape": "square"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -49,13 +56,6 @@
           "settings": {
             "shiiping_text": "Shipping cost at checkout",
             "refund_text": "Return Policy"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "swatch",
-            "swatch_shape": "square"
           }
         },
         "quantity_selector": {
@@ -100,9 +100,9 @@
         "vendor_Fmtz9A",
         "sku_QMiVi7",
         "price",
+        "variant_picker",
         "buy_buttons",
         "shipping_refund_ij6BDq",
-        "variant_picker",
         "quantity_selector",
         "delivery_time_Jjb7JP",
         "see_product_components_986tRR",
