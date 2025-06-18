@@ -21,13 +21,6 @@
           "type": "title",
           "settings": {}
         },
-        "shipping_refund_ij6BDq": {
-          "type": "shipping_refund",
-          "settings": {
-            "shiiping_text": "Shipping cost at checkout",
-            "refund_text": "Return Policy"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -44,6 +37,13 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
+          }
+        },
+        "shipping_refund_ij6BDq": {
+          "type": "shipping_refund",
+          "settings": {
+            "shiiping_text": "Shipping cost at checkout",
+            "refund_text": "Return Policy"
           }
         },
         "quantity_selector": {
@@ -90,10 +90,10 @@
       },
       "block_order": [
         "title",
-        "shipping_refund_ij6BDq",
         "price",
         "variant_picker",
         "buy_buttons",
+        "shipping_refund_ij6BDq",
         "quantity_selector",
         "see_product_components_986tRR",
         "required_items_9nVkDq",
