@@ -1,1 +1,157 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"shipping_refund_ij6BDq":{"type":"shipping_refund","settings":{"shiiping_text":"Shipping cost at checkout","refund_text":"Return Policy"}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"swatch","swatch_shape":"square"}},"price":{"type":"price","settings":{}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"see_product_components_986tRR":{"type":"see-product-components","settings":{"enable_sectiono":true,"title11":"See Product Components","title11_color":"#000000"}},"required_items_9nVkDq":{"type":"required-items","settings":{"enable_prodcut":true,"title_pro":"Required items","title_pro_color":"#000000"}},"product_information_gjpgNk":{"type":"product_information","settings":{"product_info":"<p>You can read the rest of the product information below.<br\/>Also, if you have any questions, you can <a href=\"https:\/\/golzarhome.net\/contact-us\/\"><span style=\"text-decoration:underline\">contact us<\/span><\/a> (online, email, ticket , contact number).<br\/>Also Your comments help us to improve the quality of our services.<\/p>","linkedin":"https:\/\/www.linkedin.com\/company\/89937042\/admin\/feed\/posts\/","youtube":"https:\/\/www.youtube.com\/@GolzarHome","instagram":"https:\/\/www.instagram.com\/golzarhome.ca\/","facebook":"https:\/\/m.facebook.com\/golzarhomecanada","pinterest":"https:\/\/www.pinterest.ca\/golzarhomecanada\/"}},"delivery_time_kN7VGD":{"type":"delivery_time","settings":{}}},"block_order":["title","shipping_refund_ij6BDq","variant_picker","price","quantity_selector","buy_buttons","see_product_components_986tRR","required_items_9nVkDq","product_information_gjpgNk","delivery_time_kN7VGD"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","enable_read":false,"char_limit":200,"media_size":"medium","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"hide","hide_variants":false,"enable_video_looping":false,"padding_top":36,"padding_bottom":44}},"1735585868466f2cf4":{"type":"apps","blocks":{"judge_me_reviews_review_widget_Xg9Nwa":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{}}},"block_order":["judge_me_reviews_review_widget_Xg9Nwa"],"settings":{"include_margins":true}},"related-products":{"type":"related-products","settings":{"bg_color":"#f3f3f3","heading":"Related Products","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":68}}},"order":["main","1735585868466f2cf4","related-products"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_section_DD8J9K": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "swatch",
+            "swatch_shape": "square"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "shipping_refund_ij6BDq": {
+          "type": "shipping_refund",
+          "settings": {
+            "shiiping_text": "Shipping cost at checkout",
+            "refund_text": "Return Policy"
+          }
+        },
+        "see_product_components_986tRR": {
+          "type": "see-product-components",
+          "settings": {
+            "enable_sectiono": true,
+            "title11": "See Product Components",
+            "title11_color": "#000000"
+          }
+        },
+        "required_items_9nVkDq": {
+          "type": "required-items",
+          "settings": {
+            "enable_prodcut": true,
+            "title_pro": "Required items",
+            "title_pro_color": "#000000"
+          }
+        },
+        "product_information_gjpgNk": {
+          "type": "product_information",
+          "settings": {
+            "product_info": "<p>You can read the rest of the product information below.<br/>Also, if you have any questions, you can <a href=\"https://golzarhome.net/contact-us/\"><span style=\"text-decoration:underline\">contact us</span></a> (online, email, ticket , contact number).<br/>Also Your comments help us to improve the quality of our services.</p>",
+            "linkedin": "https://www.linkedin.com/company/89937042/admin/feed/posts/",
+            "youtube": "https://www.youtube.com/@GolzarHome",
+            "instagram": "https://www.instagram.com/golzarhome.ca/",
+            "facebook": "https://m.facebook.com/golzarhomecanada",
+            "pinterest": "https://www.pinterest.ca/golzarhomecanada/"
+          }
+        },
+        "delivery_time_kN7VGD": {
+          "type": "delivery_time",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "variant_picker",
+        "price",
+        "quantity_selector",
+        "buy_buttons",
+        "shipping_refund_ij6BDq",
+        "see_product_components_986tRR",
+        "required_items_9nVkDq",
+        "product_information_gjpgNk",
+        "delivery_time_kN7VGD"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "enable_read": false,
+        "char_limit": 200,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 44
+      }
+    },
+    "1735585868466f2cf4": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Xg9Nwa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Xg9Nwa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "bg_color": "#f3f3f3",
+        "heading": "Related Products",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 68
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_section_DD8J9K",
+    "main",
+    "1735585868466f2cf4",
+    "related-products"
+  ]
+}
