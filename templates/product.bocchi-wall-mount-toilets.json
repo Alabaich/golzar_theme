@@ -1,1 +1,246 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"shipping_refund_ij6BDq":{"type":"shipping_refund","settings":{"shiiping_text":"Shipping cost at checkout","refund_text":"Return Policy"}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"swatch","swatch_shape":"square"}},"price":{"type":"price","settings":{}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"see_product_components_986tRR":{"type":"see-product-components","settings":{"enable_sectiono":true,"title11":"See Product Components","title11_color":"#000000"}},"required_items_9nVkDq":{"type":"required-items","settings":{"enable_prodcut":true,"title_pro":"Required items","title_pro_color":"#000000"}},"product_information_gjpgNk":{"type":"product_information","settings":{"product_info":"<p>You can find the full product details below. If you have any questions, feel free to reach out to us via <strong>online chat, <\/strong><a href=\"https:\/\/www.bathroomsupplier.ca\/pages\/contact\" title=\"contact us\"><strong>email<\/strong><\/a><strong>, support ticket, or phone.<\/strong> Your feedback is valuable and helps us enhance the quality of our services.<\/p>","linkedin":"https:\/\/www.linkedin.com\/company\/89937042\/admin\/feed\/posts\/","youtube":"https:\/\/www.youtube.com\/@GolzarHome","instagram":"https:\/\/www.instagram.com\/golzarhome.ca\/","facebook":"https:\/\/m.facebook.com\/golzarhomecanada","pinterest":"https:\/\/www.pinterest.ca\/golzarhomecanada\/"}},"delivery_time_c4qJjd":{"type":"delivery_time","settings":{}}},"block_order":["title","shipping_refund_ij6BDq","variant_picker","price","quantity_selector","buy_buttons","see_product_components_986tRR","required_items_9nVkDq","product_information_gjpgNk","delivery_time_c4qJjd"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","enable_read":false,"char_limit":200,"media_size":"medium","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"hide","hide_variants":false,"enable_video_looping":false,"padding_top":20,"padding_bottom":44}},"multirow_BaXyEQ":{"type":"multirow","blocks":{"row_WNTE6k":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/1632-001-0129.PT01.png","caption":"Super Smooth Surface","heading":"Milano Wall Hung Toilet","text":"<p>Super Smooth Surface technology was developed by BOCCHI to minimize unwanted stains and lime formation on the surfaces of glazed porcelains that contact with dirtfor. Created through years of R&D work, Super Smooth surface is 19 times smoother than normal glazed porcelain surface.<\/p>","button_label":"Explore The Brand","button_link":"shopify:\/\/pages\/bocchi-golzar-home"}},"row_6bzVYB":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/25.jpg","caption":"Clean Plus+","heading":"Sparkle just like the first day…","text":"<p>Washbasin and toilets maintain their bright state of the first day for a much longer period thanks to the Clean Plus+ technology, the innovation of BOCCHI R&D family. Clean Plus surface coating technology makes ceramic surfaces twice as smooth while increasing surface tension of liquids.<\/p>","button_label":"More Options","button_link":"shopify:\/\/collections\/wall-mounted-toilets"}},"row_N9YXL3":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/23.jpg","caption":"Stronger Functions","heading":"Jet Flush System","text":"<p>Thanks to the \"jet flush system\" in the Bocchi Jet Flush toilets, bowl cleaning water and siphon cleaning water come through separate channels and enter from the closest and most effective points of the flushing area. Moreover, the bowl cleaning water, which flushes by rotating in the same direction, does not slow down by colliding with other water bodies, as in standard toilets. Thus, Jet Flush toilets flush more strongly compared to other toilets.<\/p>","button_label":"Button label","button_link":""}},"row_GyQCdK":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/21.jpg","caption":"XL Toilet","heading":"Comfort Seat","text":"<p>BOCCHI takes comfort in bathroom one step further. BOCCHI XL toilet offers 30% larger sitting area with its 42 cm width and 60 cm length compared to standard sized toilets. The new design makes the time spent in the bathroom more comfortable and convenient for users exceeding standard body sizes.<\/p>","button_label":"Buy Now","button_link":"shopify:\/\/products\/bocchi-wall-hung-toilet-with-seat-milano"}}},"block_order":["row_WNTE6k","row_6bzVYB","row_N9YXL3","row_GyQCdK"],"settings":{"image_height":"medium","desktop_image_width":"medium","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","image_layout":"alternate-left","section_color_scheme":"","row_color_scheme":"","mobile_content_alignment":"left","padding_top":24,"padding_bottom":24}},"1735585868466f2cf4":{"type":"apps","blocks":{"judge_me_reviews_review_widget_Xg9Nwa":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{}}},"block_order":["judge_me_reviews_review_widget_Xg9Nwa"],"settings":{"include_margins":true}},"related-products":{"type":"related-products","settings":{"bg_color":"#f3f3f3","heading":"Related Products","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":68}},"1740848736d2c50bbe":{"type":"apps","blocks":{"judge_me_reviews_featured_carousel_M9CtkQ":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{"maxwidth":1080}}},"block_order":["judge_me_reviews_featured_carousel_M9CtkQ"],"settings":{"include_margins":true}}},"order":["main","multirow_BaXyEQ","1735585868466f2cf4","related-products","1740848736d2c50bbe"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_section_agCrLg": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "swatch",
+            "swatch_shape": "square"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "shipping_refund_ij6BDq": {
+          "type": "shipping_refund",
+          "settings": {
+            "shiiping_text": "Shipping cost at checkout",
+            "refund_text": "Return Policy"
+          }
+        },
+        "see_product_components_986tRR": {
+          "type": "see-product-components",
+          "settings": {
+            "enable_sectiono": true,
+            "title11": "See Product Components",
+            "title11_color": "#000000"
+          }
+        },
+        "required_items_9nVkDq": {
+          "type": "required-items",
+          "settings": {
+            "enable_prodcut": true,
+            "title_pro": "Required items",
+            "title_pro_color": "#000000"
+          }
+        },
+        "product_information_gjpgNk": {
+          "type": "product_information",
+          "settings": {
+            "product_info": "<p>You can find the full product details below. If you have any questions, feel free to reach out to us via <strong>online chat, </strong><a href=\"https://www.bathroomsupplier.ca/pages/contact\" title=\"contact us\"><strong>email</strong></a><strong>, support ticket, or phone.</strong> Your feedback is valuable and helps us enhance the quality of our services.</p>",
+            "linkedin": "https://www.linkedin.com/company/89937042/admin/feed/posts/",
+            "youtube": "https://www.youtube.com/@GolzarHome",
+            "instagram": "https://www.instagram.com/golzarhome.ca/",
+            "facebook": "https://m.facebook.com/golzarhomecanada",
+            "pinterest": "https://www.pinterest.ca/golzarhomecanada/"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "delivery_time_c4qJjd": {
+          "type": "delivery_time",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "shipping_refund_ij6BDq",
+        "see_product_components_986tRR",
+        "required_items_9nVkDq",
+        "product_information_gjpgNk",
+        "quantity_selector",
+        "delivery_time_c4qJjd"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "enable_read": false,
+        "char_limit": 200,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 20,
+        "padding_bottom": 44
+      }
+    },
+    "multirow_BaXyEQ": {
+      "type": "multirow",
+      "blocks": {
+        "row_WNTE6k": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/1632-001-0129.PT01.png",
+            "caption": "Super Smooth Surface",
+            "heading": "Milano Wall Hung Toilet",
+            "text": "<p>Super Smooth Surface technology was developed by BOCCHI to minimize unwanted stains and lime formation on the surfaces of glazed porcelains that contact with dirtfor. Created through years of R&D work, Super Smooth surface is 19 times smoother than normal glazed porcelain surface.</p>",
+            "button_label": "Explore The Brand",
+            "button_link": "shopify://pages/bocchi-golzar-home"
+          }
+        },
+        "row_6bzVYB": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/25.jpg",
+            "caption": "Clean Plus+",
+            "heading": "Sparkle just like the first day…",
+            "text": "<p>Washbasin and toilets maintain their bright state of the first day for a much longer period thanks to the Clean Plus+ technology, the innovation of BOCCHI R&D family. Clean Plus surface coating technology makes ceramic surfaces twice as smooth while increasing surface tension of liquids.</p>",
+            "button_label": "More Options",
+            "button_link": "shopify://collections/wall-mounted-toilets"
+          }
+        },
+        "row_N9YXL3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/23.jpg",
+            "caption": "Stronger Functions",
+            "heading": "Jet Flush System",
+            "text": "<p>Thanks to the \"jet flush system\" in the Bocchi Jet Flush toilets, bowl cleaning water and siphon cleaning water come through separate channels and enter from the closest and most effective points of the flushing area. Moreover, the bowl cleaning water, which flushes by rotating in the same direction, does not slow down by colliding with other water bodies, as in standard toilets. Thus, Jet Flush toilets flush more strongly compared to other toilets.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_GyQCdK": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/21.jpg",
+            "caption": "XL Toilet",
+            "heading": "Comfort Seat",
+            "text": "<p>BOCCHI takes comfort in bathroom one step further. BOCCHI XL toilet offers 30% larger sitting area with its 42 cm width and 60 cm length compared to standard sized toilets. The new design makes the time spent in the bathroom more comfortable and convenient for users exceeding standard body sizes.</p>",
+            "button_label": "Buy Now",
+            "button_link": "shopify://products/bocchi-wall-hung-toilet-with-seat-milano"
+          }
+        }
+      },
+      "block_order": [
+        "row_WNTE6k",
+        "row_6bzVYB",
+        "row_N9YXL3",
+        "row_GyQCdK"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "1735585868466f2cf4": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Xg9Nwa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Xg9Nwa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "bg_color": "#f3f3f3",
+        "heading": "Related Products",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 68
+      }
+    },
+    "1740848736d2c50bbe": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_M9CtkQ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_M9CtkQ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_section_agCrLg",
+    "main",
+    "multirow_BaXyEQ",
+    "1735585868466f2cf4",
+    "related-products",
+    "1740848736d2c50bbe"
+  ]
+}
