@@ -53,10 +53,10 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Bath and kitchen essentials showroom",
+        "brand_title": "Experience the art  \nof living with Kohler",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
-        "brand_link": "",
+        "brand_link": "shopify://collections/kohler-one-piece-toilet",
         "show_button_arrow": true,
         "hero_image": "shopify://shop_images/GBH_SQTemplate_11461562-3262-4aaa-b833-5ee00e5978e4.webp",
         "show_onboarding_image": true,
