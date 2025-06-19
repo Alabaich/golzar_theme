@@ -1,1 +1,127 @@
-{"sections":{"brand-breadcrums":{"type":"brand-breadcrums","settings":{"color":"#ffffff"}},"collection_list_CHaL3W":{"type":"collection-list","blocks":{"featured_collection_D7DLK4":{"type":"featured_collection","settings":{"collection":"armadi-art-double-sink-vanity"}},"featured_collection_DfdXze":{"type":"featured_collection","settings":{"collection":"armadi-art-single-sink-vanity"}}},"block_order":["featured_collection_D7DLK4","featured_collection_DfdXze"],"name":"t:sections.collection-list.presets.name","settings":{"title":"Armadi Art Bathroom Vanities","heading_size":"h1","image_ratio":"square","columns_desktop":3,"color_scheme":"","show_view_all":false,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"armadi-art-brand":{"type":"armadi-art-brand","disabled":true,"settings":{"tags":"Armadi Art","quick_add":"standard"}},"main":{"type":"main-page","settings":{"padding_top":36,"padding_bottom":36}}},"order":["brand-breadcrums","collection_list_CHaL3W","armadi-art-brand","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "brand-breadcrums": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "collection_list_CHaL3W": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_D7DLK4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "armadi-art-double-sink-vanity"
+          }
+        },
+        "featured_collection_DfdXze": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "armadi-art-single-sink-vanity"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_D7DLK4",
+        "featured_collection_DfdXze"
+      ],
+      "disabled": true,
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Armadi Art Bathroom Vanities",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "armadi-art-brand": {
+      "type": "armadi-art-brand",
+      "disabled": true,
+      "settings": {
+        "tags": "Armadi Art",
+        "quick_add": "standard"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "brand_hero_3wqiCG": {
+      "type": "brand-hero",
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Bagno Italia: Experience the art of Italian design.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "shopify://collections/bagno-italia",
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/VERS-150_2.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "featured_product_groups_jrnDqW": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_Tk3e8G": {
+          "type": "category",
+          "settings": {
+            "collection": "bagno-italia",
+            "image": "shopify://shop_images/VERS-150_2.webp"
+          }
+        }
+      },
+      "block_order": [
+        "category_Tk3e8G"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_VXBqKB": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "bagno-italia",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/bagno-italia",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Add to Cart"
+      }
+    }
+  },
+  "order": [
+    "brand-breadcrums",
+    "collection_list_CHaL3W",
+    "armadi-art-brand",
+    "main",
+    "brand_hero_3wqiCG",
+    "featured_product_groups_jrnDqW",
+    "popular_products_VXBqKB"
+  ]
+}
