@@ -1,1 +1,133 @@
-{"sections":{"brand-breadcrums":{"type":"brand-breadcrums","settings":{"color":"#ffffff"}},"rich_text_iRGJkG":{"type":"rich-text","blocks":{"heading_U63Uej":{"type":"heading","settings":{"heading":"<strong>Browse Duravit by Product Type<\/strong>","heading_size":"h1"}}},"block_order":["heading_U63Uej"],"settings":{"desktop_content_position":"left","content_alignment":"left","color_scheme":"","full_width":true,"padding_top":20,"padding_bottom":20}},"duravitbrand":{"type":"duravitbrand","blocks":{"duravitbrand_nCUX3H":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-17.webp","title":"One Piece Toilet","link":"shopify:\/\/collections\/duravit-one-piece-toilets"}},"duravitbrand_dAUxJt":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-18.webp","title":"Two piece toilet","link":"shopify:\/\/collections\/duravit-two-piece-toilets"}},"duravitbrand_yjc7yC":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-19.webp","title":"Wall Mounted Toilet","link":"shopify:\/\/collections\/duravit-wall-mounted-toilets"}},"duravitbrand_6qzGNx":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-20.webp","title":"Senso Wash","link":"shopify:\/\/collections\/duravit-washlet"}},"duravitbrand_Q4FwaU":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Screenshot_2025-04-17_043859.png","title":"In-wall Carrier","link":"shopify:\/\/collections\/duravit-in-wall-tank-carriers"}},"duravitbrand_pXtBbp":{"type":"duravitbrand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-22.webp","title":"Bathroom Sinks","link":"shopify:\/\/collections\/duravit-bathroom-sinks"}}},"block_order":["duravitbrand_nCUX3H","duravitbrand_dAUxJt","duravitbrand_yjc7yC","duravitbrand_6qzGNx","duravitbrand_Q4FwaU","duravitbrand_pXtBbp"],"settings":{}},"main":{"type":"main-page","settings":{"padding_top":36,"padding_bottom":36}}},"order":["brand-breadcrums","rich_text_iRGJkG","duravitbrand","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "brand-breadcrums": {
+      "type": "brand-breadcrums",
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "rich_text_iRGJkG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_U63Uej": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Browse Duravit by Product Type</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_U63Uej"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "duravitbrand": {
+      "type": "duravitbrand",
+      "blocks": {
+        "duravitbrand_nCUX3H": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-17.webp",
+            "title": "One Piece Toilet",
+            "link": "shopify://collections/duravit-one-piece-toilets"
+          }
+        },
+        "duravitbrand_dAUxJt": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-18.webp",
+            "title": "Two piece toilet",
+            "link": "shopify://collections/duravit-two-piece-toilets"
+          }
+        },
+        "duravitbrand_yjc7yC": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-19.webp",
+            "title": "Wall Mounted Toilet",
+            "link": "shopify://collections/duravit-wall-mounted-toilets"
+          }
+        },
+        "duravitbrand_6qzGNx": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-20.webp",
+            "title": "Senso Wash",
+            "link": "shopify://collections/duravit-washlet"
+          }
+        },
+        "duravitbrand_Q4FwaU": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Screenshot_2025-04-17_043859.png",
+            "title": "In-wall Carrier",
+            "link": "shopify://collections/duravit-in-wall-tank-carriers"
+          }
+        },
+        "duravitbrand_pXtBbp": {
+          "type": "duravitbrand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-22.webp",
+            "title": "Bathroom Sinks",
+            "link": "shopify://collections/duravit-bathroom-sinks"
+          }
+        }
+      },
+      "block_order": [
+        "duravitbrand_nCUX3H",
+        "duravitbrand_dAUxJt",
+        "duravitbrand_yjc7yC",
+        "duravitbrand_6qzGNx",
+        "duravitbrand_Q4FwaU",
+        "duravitbrand_pXtBbp"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "brand_hero_V7teLV": {
+      "type": "brand-hero",
+      "disabled": true,
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Duravit: Experience the art of living design.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "shopify://collections/duravit-in-wall-tank-carriers",
+        "show_button_arrow": true,
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    }
+  },
+  "order": [
+    "brand-breadcrums",
+    "rich_text_iRGJkG",
+    "duravitbrand",
+    "main",
+    "brand_hero_V7teLV"
+  ]
+}
