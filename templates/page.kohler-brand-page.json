@@ -49,16 +49,16 @@
         "padding_bottom": 4
       }
     },
-    "brand_section_qeMegz": {
-      "type": "brand-section",
+    "brand_hero_dc3rWA": {
+      "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Experience the art  \nof living with Kohler",
+        "brand_title": "Bath and kitchen essentials showroom",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
-        "button_text": "Discover brand",
-        "brand_link": "shopify://collections/rough-in-valves",
+        "button_text": "Discover Brand",
+        "brand_link": "",
         "show_button_arrow": true,
-        "hero_image": "shopify://shop_images/Inspired-Banner-with-Image-versi.webp",
+        "hero_image": "shopify://shop_images/GBH_SQTemplate_11461562-3262-4aaa-b833-5ee00e5978e4.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
@@ -122,6 +122,7 @@
       "name": "Popular Products",
       "settings": {
         "popular_title": "Popular products of Kohler",
+        "underTitleText": "Under Title Text",
         "featured_collection": "sink",
         "products_limit": 4,
         "show_more_link": "shopify://collections/sink",
@@ -164,7 +165,7 @@
     "bocchi_brand_h_gtEJCd",
     "browse_by_options",
     "main",
-    "brand_section_qeMegz",
+    "brand_hero_dc3rWA",
     "featured_product_groups_zjRqfN",
     "popular_products_BRUd9n",
     "custom_blog_posts_grid_UPatad"
