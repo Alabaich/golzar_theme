@@ -1,1 +1,66 @@
-{"sections":{"bocchi_brand_h_gtEJCd":{"type":"brand-breadcrums","settings":{"color":""}},"browse_by_options":{"type":"browse-by-options","settings":{"show_product_type_options":false,"product_type_title":"Browse By Product Type","show_collection_options":true,"collection_title":"Browse By Product Type","collection_list":["toto-smart-toilet-washlets","toto-one-piece-toilets-1","toto-two-piece-toilets","toto-wall-mounted-toilets","toto-wall-carrier-plates"]}},"main":{"type":"main-page","settings":{"padding_top":4,"padding_bottom":4}}},"order":["bocchi_brand_h_gtEJCd","browse_by_options","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets-1",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "shopify://collections/toto-wall-carrier-plates",
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC"
+  ]
+}
