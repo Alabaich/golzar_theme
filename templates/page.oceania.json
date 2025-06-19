@@ -1,1 +1,111 @@
-{"sections":{"bocchi_brand_h_gtEJCd":{"type":"brand-breadcrums","settings":{"color":"#ffffff"}},"brand_info_kg33jK":{"type":"alps-brand","blocks":{"brand_eHbQ73":{"type":"brand","settings":{"brand_img":"shopify:\/\/shop_images\/alps-wall-hung-toilet-kw-99046-complete-set-with-geberit-carrier-690226.jpg","title":"Wall-mounted Toilets","link":"shopify:\/\/collections\/alps-wall-mounted-toilets"}},"brand_MyPxjr":{"type":"brand","settings":{"brand_img":"shopify:\/\/shop_images\/07H_O_AE_3_001_fb586a21-ba61-4384-b487-adde06739372.webp","title":"Smart Toilets","link":"shopify:\/\/collections\/alps-smart-toilets"}}},"block_order":["brand_eHbQ73","brand_MyPxjr"],"settings":{}},"main":{"type":"main-page","settings":{"padding_top":4,"padding_bottom":4}}},"order":["bocchi_brand_h_gtEJCd","brand_info_kg33jK","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "brand_info_kg33jK": {
+      "type": "alps-brand",
+      "blocks": {
+        "brand_eHbQ73": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/alps-wall-hung-toilet-kw-99046-complete-set-with-geberit-carrier-690226.jpg",
+            "title": "Wall-mounted Toilets",
+            "link": "shopify://collections/alps-wall-mounted-toilets"
+          }
+        },
+        "brand_MyPxjr": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/07H_O_AE_3_001_fb586a21-ba61-4384-b487-adde06739372.webp",
+            "title": "Smart Toilets",
+            "link": "shopify://collections/alps-smart-toilets"
+          }
+        }
+      },
+      "block_order": [
+        "brand_eHbQ73",
+        "brand_MyPxjr"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_kzgg49": {
+      "type": "brand-hero",
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Discover your personal sanctuary with Oceania.",
+        "brand_subtitle": "",
+        "button_text": "Discover Brand",
+        "brand_link": "",
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/oceaniawebp.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "featured_product_groups_WRiNR3": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_DBEtHh": {
+          "type": "category",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_DBEtHh"
+      ],
+      "disabled": true,
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_ePbGLA": {
+      "type": "popular-products",
+      "disabled": true,
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "",
+        "products_limit": 4,
+        "show_more_link": "",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Add to Cart"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "brand_info_kg33jK",
+    "main",
+    "brand_hero_kzgg49",
+    "featured_product_groups_WRiNR3",
+    "popular_products_ePbGLA"
+  ]
+}
