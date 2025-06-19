@@ -121,6 +121,36 @@
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#FFFFFF",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
@@ -129,6 +159,7 @@
     "main",
     "brand_hero_nq7tiC",
     "featured_product_groups_7FBk6H",
-    "popular_products_HTNHPY"
+    "popular_products_HTNHPY",
+    "custom_blog_posts_grid_8PkfHz"
   ]
 }
