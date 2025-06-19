@@ -55,12 +55,80 @@
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-carrier-plates"
+          }
+        },
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-one-piece-toilets-1"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-smart-toilet-washlets"
+          }
+        },
+        "category_inz6n7": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-two-piece-toilets"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-mounted-toilets"
+          }
+        },
+        "category_t8jLap": {
+          "type": "category",
+          "settings": {
+            "collection": "two-piece-toilets"
+          }
+        }
+      },
+      "block_order": [
+        "category_B9xPCm",
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_inz6n7",
+        "category_LJKbDK",
+        "category_t8jLap"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "toto-smart-toilet-washlets",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
     }
   },
   "order": [
     "bocchi_brand_h_gtEJCd",
     "browse_by_options",
     "main",
-    "brand_hero_nq7tiC"
+    "brand_hero_nq7tiC",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY"
   ]
 }
