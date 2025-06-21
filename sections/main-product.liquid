@@ -826,7 +826,27 @@
                   <a href="tel:+1 (416) 700-4346" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; ">
                   Call for Availability
                   </a>
-
+    <button onclick="openChatBox(event)">Open Chat</button>
+                  <script>
+                      function openChatBox(event) {
+        event.preventDefault();
+        try {
+            const shopifyChatHost = document.querySelector('inbox-online-store-chat');
+            if (shopifyChatHost && shopifyChatHost.shadowRoot) {
+                const chatToggleButton = shopifyChatHost.shadowRoot.querySelector('button.chat-toggle');
+                if (chatToggleButton) {
+                    chatToggleButton.click();
+                } else {
+                    console.error('Shopify Inbox: Internal chat toggle button not found.');
+                }
+            } else {
+                console.error('Shopify Inbox: Chat host element not found or shadowRoot not accessible.');
+            }
+        } catch (error) {
+            console.error('Error opening Shopify chat:', error);
+        }
+    }
+                  </script>
             
                   </div>
                   <p><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
