@@ -97,11 +97,12 @@
                       {% endif %}
                     </td>
 
-                    {% if item.metafields.custom.call_for_availability == true %}
-                      
-                    {% endif %}
+
 
                     <td class="cart-item__details">
+                                      {% if item.metafields.custom.call_for_availability == true %}
+                      <h1>Here</h1>
+                    {% endif %}
                       {%- if settings.show_vendor -%}
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
