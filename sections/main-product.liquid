@@ -826,44 +826,74 @@
                   <a href="tel:+1 (416) 700-4346" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; ">
                   Call for Availability
                   </a>
-    <button id="customChatButton">Chat with us about availability!</button>
+      <button id="customChatButton">Chat with us about availability!</button>
 
-    <inbox-online-store-chat title="Shopify online store chat" id="ShopifyChat" button-vertical-position="lowest" button-position="bottom_left" is-open="false" is-mobile="Android" class="needsclick" style="position: fixed; bottom: 16px; z-index: 2147483647; left: 16px; height: 65px;"></inbox-online-store-chat>
+    <div id="shopify-chat" style="">
+        <inbox-online-store-chat title="Shopify online store chat" id="ShopifyChat" button-vertical-position="lowest" button-position="bottom_left" is-open="false" is-mobile="Android" class="needsclick" style="position: fixed; bottom: 16px; z-index: 2147483647; left: 16px; height: 65px;"></inbox-online-store-chat>
+    </div>
+    <link rel="stylesheet" href="https://cdn.shopify.com/extensions/ca001aef-6799-4e4c-bc7d-92ac861e488c/inbox-1238/assets/style.css">
+    <style>
+        :host { --secondary-color: #FFFFFF; --ternary-color: #6A6A6A; display: block !important; }
+    </style>
+    <audio src="https://cdn.shopify.com/shopifycloud/shopify_chat/storefront/incoming-message-tone.mp3" preload="none" __source="[object Object]" style="display: none;"><track src="https://cdn.shopify.com/shopifycloud/shopify_chat/storefront/incoming-message-tone.mp3" kind="captions" __source="[object Object]"></audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const customChatButton = document.getElementById('customChatButton');
-            const shopifyChatElement = document.querySelector('inbox-online-store-chat'); // Get the main component element
 
-            if (customChatButton && shopifyChatElement) {
-                customChatButton.addEventListener('click', function() {
-                    // Check if the element exists and has an 'open' method
-                    if (typeof shopifyChatElement.open === 'function') {
-                        shopifyChatElement.open(); // Directly call the open method
-                        console.log('Shopify chat opened using direct .open() method.');
-                    } else {
-                        console.error('Shopify Inbox: The "open" method is not available on the chat component. It might be an older version or a different chat app, or not yet initialized.');
-                        // Fallback to clicking the internal button, just in case
-                        try {
-                            if (shopifyChatElement.shadowRoot) {
-                                const chatToggleButton = shopifyChatElement.shadowRoot.querySelector('button[data-spec="toggle-button"]');
-                                if (chatToggleButton) {
-                                    chatToggleButton.click();
-                                    console.log('Shopify chat opened by clicking internal Shadow DOM button.');
-                                } else {
-                                    console.error('Shopify Inbox: Shadow DOM button not found as a fallback.');
-                                }
-                            } else {
-                                console.error('Shopify Inbox: Neither direct .open() nor Shadow DOM button found.');
-                            }
-                        } catch (e) {
-                             console.error('Shopify Inbox: Error during fallback click:', e);
-                        }
+            if (!customChatButton) {
+                console.error("Custom chat button not found. Ensure element with id 'customChatButton' exists.");
+                return;
+            }
+
+            let chatOpened = false;
+
+            // Function to try and open the chat
+            function tryOpenShopifyChat() {
+                const shopifyChatElement = document.querySelector('inbox-online-store-chat');
+
+                if (shopifyChatElement && typeof shopifyChatElement.open === 'function') {
+                    shopifyChatElement.open(); // This is the direct API call
+                    console.log('Shopify chat opened using direct .open() method.');
+                    chatOpened = true;
+                    return true;
+                } else {
+                    console.warn('Shopify Inbox: Direct .open() method not yet available on <inbox-online-store-chat> or element not found. Retrying...');
+                }
+                return false;
+            }
+
+            // Add event listener to your custom button
+            customChatButton.addEventListener('click', function() {
+                chatOpened = false; // Reset flag for each click
+
+                // Attempt to open immediately
+                if (tryOpenShopifyChat()) {
+                    return; // If successful, stop here
+                }
+
+                // If not successful immediately, set up a minimal observer to wait for the chat component
+                // (This is less aggressive than previous MutationObservers, only watching for the host element)
+                console.log('Shopify Inbox: Attempting to observe for the chat component to become ready...');
+
+                const observer = new MutationObserver((mutationsList, observer) => {
+                    if (tryOpenShopifyChat()) {
+                        observer.disconnect(); // Chat opened, stop observing
                     }
                 });
-            } else {
-                console.error("Custom chat button or Shopify chat host element (<inbox-online-store-chat>) not found on the page.");
-            }
+
+                // Observe the body for changes, specifically if the inbox-online-store-chat element appears
+                // We'll also try setting it up in a short interval in case observer misses it or it initializes later
+                observer.observe(document.body, { childList: true, subtree: true });
+
+                // Set a timeout to stop observing after a certain period if chat doesn't open
+                setTimeout(() => {
+                    if (!chatOpened) {
+                        console.error('Shopify Inbox: Failed to open chat after timeout. The component might not be initializing correctly or the .open() method is unavailable.');
+                    }
+                    observer.disconnect(); // Clean up observer
+                }, 7000); // Give it a bit more time, e.g., 7 seconds
+            });
         });
     </script>
                   </div>
