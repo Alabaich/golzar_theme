@@ -826,79 +826,44 @@
                   <a href="tel:+1 (416) 700-4346" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; ">
                   Call for Availability
                   </a>
-<button id="customChatButton">Chat with us about availability!</button>
+    <button id="customChatButton">Chat with us about availability!</button>
 
     <inbox-online-store-chat title="Shopify online store chat" id="ShopifyChat" button-vertical-position="lowest" button-position="bottom_left" is-open="false" is-mobile="Android" class="needsclick" style="position: fixed; bottom: 16px; z-index: 2147483647; left: 16px; height: 65px;"></inbox-online-store-chat>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const customChatButton = document.getElementById('customChatButton');
+            const shopifyChatElement = document.querySelector('inbox-online-store-chat'); // Get the main component element
 
-            if (!customChatButton) {
-                console.error("Custom chat button not found. Please ensure the element with id 'customChatButton' exists.");
-                return;
-            }
-
-            // Function to attempt opening the chat
-            function openShopifyChat() {
-                const shopifyChatHost = document.querySelector('inbox-online-store-chat');
-
-                if (shopifyChatHost && shopifyChatHost.shadowRoot) {
-                    const chatToggleButton = shopifyChatHost.shadowRoot.querySelector('button[data-spec="toggle-button"]');
-                    // Based on the HTML you provided for the original button, the class 'chat-toggle' is also good
-                    // const chatToggleButton = shopifyChatHost.shadowRoot.querySelector('button.chat-toggle');
-
-                    if (chatToggleButton) {
-                        chatToggleButton.click(); // Click the actual button inside the Shadow DOM
-                        console.log('Shopify chat opened successfully!');
-                        return true; // Indicate success
+            if (customChatButton && shopifyChatElement) {
+                customChatButton.addEventListener('click', function() {
+                    // Check if the element exists and has an 'open' method
+                    if (typeof shopifyChatElement.open === 'function') {
+                        shopifyChatElement.open(); // Directly call the open method
+                        console.log('Shopify chat opened using direct .open() method.');
                     } else {
-                        console.warn('Shopify Inbox: Chat toggle button not found within Shadow DOM. Retrying...');
-                    }
-                } else {
-                    console.warn('Shopify Inbox: Chat host element not found or shadowRoot not accessible. Retrying...');
-                }
-                return false; // Indicate failure
-            }
-
-            // Add event listener to your custom button
-            customChatButton.addEventListener('click', function() {
-                // Try to open immediately
-                if (openShopifyChat()) {
-                    return; // If successful, stop here
-                }
-
-                // If not successful immediately, set up an observer
-                console.log('Attempting to observe for Shopify chat component...');
-                const observer = new MutationObserver((mutationsList, observer) => {
-                    // Look through all mutations for added nodes
-                    for (const mutation of mutationsList) {
-                        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                            for (const node of mutation.addedNodes) {
-                                // Check if the added node is the chat host element or contains it
-                                if (node.nodeType === 1 && (node.tagName === 'INBOX-ONLINE-STORE-CHAT' || node.querySelector('inbox-online-store-chat'))) {
-                                    if (openShopifyChat()) {
-                                        observer.disconnect(); // Chat opened, stop observing
-                                        return;
-                                    }
+                        console.error('Shopify Inbox: The "open" method is not available on the chat component. It might be an older version or a different chat app, or not yet initialized.');
+                        // Fallback to clicking the internal button, just in case
+                        try {
+                            if (shopifyChatElement.shadowRoot) {
+                                const chatToggleButton = shopifyChatElement.shadowRoot.querySelector('button[data-spec="toggle-button"]');
+                                if (chatToggleButton) {
+                                    chatToggleButton.click();
+                                    console.log('Shopify chat opened by clicking internal Shadow DOM button.');
+                                } else {
+                                    console.error('Shopify Inbox: Shadow DOM button not found as a fallback.');
                                 }
+                            } else {
+                                console.error('Shopify Inbox: Neither direct .open() nor Shadow DOM button found.');
                             }
+                        } catch (e) {
+                             console.error('Shopify Inbox: Error during fallback click:', e);
                         }
                     }
                 });
-
-                // Start observing the body for changes
-                // This means it will watch for when the <inbox-online-store-chat> element gets added to the DOM
-                observer.observe(document.body, { childList: true, subtree: true });
-
-                // Add a timeout just in case it never appears or the observer fails
-                setTimeout(() => {
-                    if (!openShopifyChat()) {
-                        console.error('Shopify Inbox: Failed to open chat after multiple attempts or timeout.');
-                    }
-                    observer.disconnect(); // Ensure observer is cleaned up
-                }, 5000); // Stop trying after 5 seconds
-            });
+            } else {
+                console.error("Custom chat button or Shopify chat host element (<inbox-online-store-chat>) not found on the page.");
+            }
         });
     </script>
                   </div>
