@@ -826,82 +826,8 @@
                   <a href="tel:+1 (416) 700-4346" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; ">
                   Call for Availability
                   </a>
-      <button id="customChatButton">Chat with us about availability!</button>
 
-    <div id="shopify-chat" style="">
-        <inbox-online-store-chat title="Shopify online store chat" id="ShopifyChat" button-vertical-position="lowest" button-position="bottom_left" is-open="false" is-mobile="Android" class="needsclick" style="position: fixed; bottom: 16px; z-index: 2147483647; left: 16px; height: 65px;"></inbox-online-store-chat>
-    </div>
-    <link rel="stylesheet" href="https://cdn.shopify.com/extensions/ca001aef-6799-4e4c-bc7d-92ac861e488c/inbox-1238/assets/style.css">
-    <style>
-        :host { --secondary-color: #FFFFFF; --ternary-color: #6A6A6A; display: block !important; }
-    </style>
-    <audio src="https://cdn.shopify.com/shopifycloud/shopify_chat/storefront/incoming-message-tone.mp3" preload="none" __source="[object Object]" style="display: none;"><track src="https://cdn.shopify.com/shopifycloud/shopify_chat/storefront/incoming-message-tone.mp3" kind="captions" __source="[object Object]"></audio>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const customChatButton = document.getElementById('customChatButton');
-
-            if (!customChatButton) {
-                console.error("Custom chat button not found. Ensure element with id 'customChatButton' exists.");
-                return;
-            }
-
-            let chatOpened = false;
-
-            // Function to try and open the chat
-            function tryOpenShopifyChat() {
-                const shopifyChatElement = document.querySelector('inbox-online-store-chat');
-
-                if (shopifyChatElement && typeof shopifyChatElement.open === 'function') {
-                    shopifyChatElement.open(); // This is the direct API call
-                    console.log('Shopify chat opened using direct .open() method.');
-                    chatOpened = true;
-                    return true;
-                } else {
-                    console.warn('Shopify Inbox: Direct .open() method not yet available on <inbox-online-store-chat> or element not found. Retrying...');
-                }
-                return false;
-            }
-
-            // Add event listener to your custom button
-            customChatButton.addEventListener('click', function() {
-                chatOpened = false; // Reset flag for each click
-
-                // Attempt to open immediately
-                if (tryOpenShopifyChat()) {
-                    return; // If successful, stop here
-                }
-
-                // If not successful immediately, set up a minimal observer to wait for the chat component
-                // (This is less aggressive than previous MutationObservers, only watching for the host element)
-                console.log('Shopify Inbox: Attempting to observe for the chat component to become ready...');
-
-                const observer = new MutationObserver((mutationsList, observer) => {
-                    if (tryOpenShopifyChat()) {
-                        observer.disconnect(); // Chat opened, stop observing
-                    }
-                });
-
-                // Observe the body for changes, specifically if the inbox-online-store-chat element appears
-                // We'll also try setting it up in a short interval in case observer misses it or it initializes later
-                observer.observe(document.body, { childList: true, subtree: true });
-
-                // Set a timeout to stop observing after a certain period if chat doesn't open
-                setTimeout(() => {
-                    if (!chatOpened) {
-                        console.error('Shopify Inbox: Failed to open chat after timeout. The component might not be initializing correctly or the .open() method is unavailable.');
-                    }
-                    observer.disconnect(); // Clean up observer
-                }, 7000); // Give it a bit more time, e.g., 7 seconds
-            });
-        });
-    </script>
-                  <script>
-  $("#shopify-section-template--16899887431903__e121a7dd-8497-4596-b0d0-0e692ea415df .btn--primary").on('click', function (event) {
-    event.preventDefault();
-    $( "#shopify-chat-dummy").trigger( "click");
-  });
-</script>
+            
                   </div>
                   <p><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
                   {%- render 'buy-buttons',
