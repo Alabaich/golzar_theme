@@ -232,6 +232,23 @@
       padding-bottom: 450px !important;
     }
 
+    .recent-news-widget .featured-image-comm .blog_featured_content h4 {
+      font-size: 1em;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .recent-news-widget .blog_featured_img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px; 
+    }
+
   @media screen and (max-width: 749px) {
     .articleTemplate >*:first-child:not(.article-template__hero-container) {
       margin-top: 0 !important;
@@ -466,22 +483,37 @@
     </article>
   </main>
 
-  <aside class="sidebar-column">
-    <div class="recent-news-widget">
-      <h3>Recent news</h3>
-      <ul>
-        {%- assign current_article_handle = article.handle -%}
-        {%- for article in blogs.news.articles limit: 4 -%}
-          {%- unless article.handle == current_article_handle -%}
-            <li>
-              <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ article.url }}">{{ article.title }}</a>
-              <span class="news-date">{{ article.published_at | time_tag: format: 'date' }}</span>
-            </li>
-          {%- endunless -%}
-        {%- endfor -%}
-      </ul>
-    </div>
-  </aside>
+<aside class="sidebar-column">
+  <div class="recent-news-widget">
+    <h3>Recent news</h3>
+    <ul>
+      {%- assign current_article_handle = article.handle -%}
+      {%- for article_item in blogs.news.articles limit: 3 -%}
+        {%- unless article_item.handle == current_article_handle -%}
+          <li>
+            <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ article_item.url }}">{{ article_item.title }}</a>
+            <span class="news-date">{{ article_item.published_at | time_tag: format: 'date' }}</span>
+            {%- if article_item.metafields.custom.image != blank -%}
+              <div class="featured-image-comm" style="margin-top: 15px;">
+                <a href="{{ article_item.metafields.custom.button_link }}">
+                  <div class="blog_featured_img" style="background-image: url('{{ article_item.metafields.custom.image | img_url: 'master' }}')">
+                    <div class="blog_featured_content">
+                      <h2>{{ article_item.metafields.custom.heading }}</h2>
+                      <div class="blog_img_btn">
+                        <span class="button-click">Click here</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            {%- endif -%}
+
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</aside>
 
 </div>
 
