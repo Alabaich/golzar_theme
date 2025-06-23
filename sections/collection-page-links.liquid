@@ -5,6 +5,11 @@
     grid-template-columns: repeat(8, 1fr);
   }
 
+  .collectionPageLinks {
+    padding-bottom: 25px !important;
+    padding-top: 25px !important;
+  }
+
   .collection-page-links-section .collection-link-item {
     position: relative;
     display: block;
@@ -82,7 +87,7 @@
 </style>
 
 <div class="collection-page-links-section">
-  <div class="pageWidth page-width">
+  <div class="pageWidth page-width collectionPageLinks">
     <slider-component class="slider-mobile-only">
       <ul class="collection-links-container slider" role="list">
         {%- for block in section.blocks -%}
