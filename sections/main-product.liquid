@@ -1218,7 +1218,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         {% if product.description != blank %}
         <div class="tab-pane data-read-only active" id="tab1">
           <div class="product-description">
-
+{{ product.description }}
+          {% comment %}
           {% if section.settings.enable_read == true %}
           {% assign char_limit = section.settings.char_limit %}
             
@@ -1238,6 +1239,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
           {% else %}
           {{ product.description }}
           {% endif %}
+          {% endcomment %}
           </div>
         </div>
         {% endif %}
