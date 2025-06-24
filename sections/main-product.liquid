@@ -322,6 +322,36 @@
     justify-content: center;
   }
 }
+
+.inner-main-required {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.main-required-pro .inner-main-required {
+    gap: 25px !important;
+}
+
+.main-required-pro .product-img-left {
+    width: 120px !important;
+}
+
+.product-img-left {
+  width: 100px !important;
+  flex-shrink: 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-img-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 </style>
   
 <product-info id="MainProduct-{{ section.id }}"
@@ -723,7 +753,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
       <div class="main-aacrodaian active">
         <div class="acc-head" style="color:{{ block.settings.title11_color }};">
-          <h5 style="margin: 0;">{{ block.settings.title11 | default: "Компоненты продукта" }}</h5>
+          <h5 style="margin: 0;">{{ block.settings.title11 | default: "Product Components" }}</h5>
           <svg class="acc-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="acc-icon-h" d="M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <path class="acc-icon-v" d="M8 2V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -752,7 +782,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       <div class="requiredd-itemss">
         <div class="main-required-pro">
           <div class="title-reqiueed">
-            <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
+            <h5 style="margin: 0; font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" title="{{ block.settings.title_pro }}">{{ block.settings.title_pro }}</h5>
           </div>
           {% for required_pro in product.metafields.custom.required_items.value %}
           <div class="inner-main-required">
