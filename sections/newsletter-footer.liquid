@@ -1,0 +1,172 @@
+<style>
+  .newsletter-footer {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    background: #F5F7F9;
+  }
+
+  .newsletter-footer__container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    align-items: center;
+  }
+
+  .newsletter-footer__heading {
+    margin: 0;
+  }
+
+  .newsletter-footer__subheading {
+    margin: 0;
+  }
+
+  .newsletter-footer__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+  }
+
+  .newsletter-footer__input {
+    flex-grow: 1;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+  }
+
+  .newsletter-footer__input:focus {
+    outline: none;
+    border-color: #111827;
+  }
+
+  .newsletter-footer__button {
+    height: 48px;
+    width: 55px;
+    border: none;
+    background-color: #1f2937;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .newsletter-footer__button:hover {
+    background-color: #374151;
+  }
+
+  .newsletter-footer__button-icon {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+  }
+
+  .newsletter-footer__message {
+    font-size: 14px;
+  }
+
+  .newsletter-footer__message--success {
+    color: #16a34a;
+    font-weight: 500;
+  }
+
+  .newsletter-footer__message--error {
+    color: #dc2626;
+  }
+</style>
+
+<div class="newsletter-footer">
+  <div class="newsletter-footer__container">
+    <h3 class="newsletter-footer__heading">Get 5% Off</h3>
+    <p class="newsletter-footer__subheading bodyText">
+      Subscribe to our newsletter to be the first to know about promotions, new arrivals, and receive exclusive offers.
+    </p>
+
+    {%- form 'customer'
+      , id: 'ContactFooter'
+      , class: 'newsletter-footer__form' -%}
+      <input
+        type="hidden"
+        name="contact[tags]"
+        value="newsletter">
+      <label for="NewsletterForm--{{ section.id }}" class="visually-hidden">Email</label>
+      <input
+        id="NewsletterForm--{{ section.id }}"
+        type="email"
+        name="contact[email]"
+        class="newsletter-footer__input"
+        value="{{ form.email }}"
+        aria-required="true"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="email"
+        {% if form.errors %}
+        aria-invalid="true"
+        aria-describedby="ContactFooter-error"
+        {% elsif form.posted_successfully? %}
+        aria-describedby="ContactFooter-success"
+        {% endif %}
+        placeholder="Your e-mail"
+        required>
+      <button
+        type="submit"
+        class="newsletter-footer__button"
+        name="commit"
+        aria-label="Subscribe">
+        <svg
+          class="newsletter-footer__button-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
+    {%- endform -%}
+
+    {%- if form.posted_successfully? -%}
+      <p
+        id="ContactFooter-success"
+        class="newsletter-footer__message newsletter-footer__message--success"
+        tabindex="-1"
+        autofocus>
+        Thank you for subscribing! Please check your email for your discount code.
+      </p>
+    {%- endif -%}
+
+    {%- if form.errors -%}
+      <p
+        id="ContactFooter-error"
+        class="newsletter-footer__message newsletter-footer__message--error"
+        tabindex="-1"
+        autofocus>
+        {{ form.errors | default_errors }}
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter Footer",
+    "class": "newsletter-footer-section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Newsletter Footer"
+      }
+    ]
+  }
+{% endschema %}
