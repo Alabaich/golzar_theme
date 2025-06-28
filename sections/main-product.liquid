@@ -1247,7 +1247,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         {% if product.metafields.custom.spec_sheet != blank %}
         <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
           <h3 style="margin:0;">Product Spec Sheet</h3>
-📥 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0;" class="customButton" target="_blank" rel="noopener">Download PDF</a >
+<a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0;" class="customButton" target="_blank" rel="noopener"> 📥  Download PDF</a >
         </div>
         {% endif %}
   
