@@ -568,6 +568,16 @@
         "button_bg_color": "#0a2b4c",
         "button_text_color": "#ffffff"
       }
+    },
+    "featured_blog_posts_V3fccC": {
+      "type": "featured-blog-posts",
+      "name": "Featured Blog Posts",
+      "settings": {
+        "heading": "Ideas & Inspiration",
+        "blog": "blog",
+        "post_limit": 3,
+        "button_text": "Read All Articles"
+      }
     }
   },
   "order": [
@@ -583,6 +593,7 @@
     "popular_products_7jxJNT",
     "17405401850356168b",
     "custom_blog_posts_grid_eQzdfc",
-    "image_with_text_cta_4dbPbU"
+    "image_with_text_cta_4dbPbU",
+    "featured_blog_posts_V3fccC"
   ]
 }
