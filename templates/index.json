@@ -464,27 +464,6 @@
         "show_text_below": true
       }
     },
-    "featured_smart_toilets_4MgFHP": {
-      "type": "featured-smart-toilets",
-      "blocks": {
-        "product_mqBTbB": {
-          "type": "product",
-          "settings": {
-            "product": "veil"
-          }
-        }
-      },
-      "block_order": [
-        "product_mqBTbB"
-      ],
-      "name": "Featured Smart Toilets",
-      "settings": {
-        "heading": "The Future of Comfort",
-        "subheading": "<p>Discover our new collection, combining innovative design and unparalleled features.</p>",
-        "featured_collection": "smart-toilets-bidets",
-        "button_text": "View Entire Collection"
-      }
-    },
     "feature_block_with_stats_VM6e6p": {
       "type": "feature-block-with-stats",
       "name": "Feature Block with Stats",
@@ -590,6 +569,27 @@
         "button_text_color": "#ffffff"
       }
     },
+    "featured_smart_toilets_4MgFHP": {
+      "type": "featured-smart-toilets",
+      "blocks": {
+        "product_mqBTbB": {
+          "type": "product",
+          "settings": {
+            "product": "veil"
+          }
+        }
+      },
+      "block_order": [
+        "product_mqBTbB"
+      ],
+      "name": "Featured Smart Toilets",
+      "settings": {
+        "heading": "The Future of Comfort",
+        "subheading": "<p>Discover our new collection, combining innovative design and unparalleled features.</p>",
+        "featured_collection": "smart-toilets-bidets",
+        "button_text": "View Entire Collection"
+      }
+    },
     "featured_blog_posts_V3fccC": {
       "type": "featured-blog-posts",
       "name": "Featured Blog Posts",
@@ -610,12 +610,12 @@
     "collection_data_discount_bERRBy",
     "featured_blog_yqKkQg",
     "image_banner_MWGE6A",
-    "featured_smart_toilets_4MgFHP",
     "feature_block_with_stats_VM6e6p",
     "popular_products_7jxJNT",
     "17405401850356168b",
     "custom_blog_posts_grid_eQzdfc",
     "image_with_text_cta_4dbPbU",
+    "featured_smart_toilets_4MgFHP",
     "featured_blog_posts_V3fccC"
   ]
 }
