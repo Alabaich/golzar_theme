@@ -11,6 +11,11 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "newsletter_footer_FU4yxB": {
+      "type": "newsletter-footer",
+      "name": "Newsletter Footer",
+      "settings": {}
+    },
     "custom-overlay-img-text": {
       "type": "newCustomOverlay",
       "settings": {
@@ -46,6 +51,7 @@
     }
   },
   "order": [
+    "newsletter_footer_FU4yxB",
     "custom-overlay-img-text",
     "footer"
   ]
