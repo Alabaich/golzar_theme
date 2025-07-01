@@ -471,7 +471,7 @@
       <h3>Recent news</h3>
       <ul>
         {%- assign current_article_handle = article.handle -%}
-        {%- for article in blogs.blogs.articles limit: 4 -%}
+        {%- for article in blogs.blog.articles limit: 4 -%}
           {%- unless article.handle == current_article_handle -%}
             <li>
               <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ article.url }}">{{ article.title }}</a>
