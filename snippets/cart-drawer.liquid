@@ -26,7 +26,7 @@
       role="dialog" aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
       tabindex="-1">
-        <h1>Here</h1>
+
       {%- if cart == empty -%}
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
@@ -141,6 +141,7 @@
                               {{ item.final_price | money }}
                             </strong>
                           </div>
+                                    <h1>Here</h1>
                           {%- else -%}
                           <div class="product-option">
                             {{ item.original_price | money }}
