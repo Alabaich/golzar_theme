@@ -188,7 +188,7 @@
 
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
-                          {% if item.metafields.custom.call_for_availability == true %}
+                          {% if item.product.metafields.custom.call_for_availability == true %}
                             <p style="color:red;"><b>On Backorder – Delivery in up to 6 weeks.</b></p>
                           {% endif %}
                           <ul class="discounts list-unstyled" role="list"
