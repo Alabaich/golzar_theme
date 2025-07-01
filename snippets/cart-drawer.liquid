@@ -141,7 +141,7 @@
                               {{ item.final_price | money }}
                             </strong>
                           </div>
-                                    <h1>Here</h1>
+                                    
                           {%- else -%}
                           <div class="product-option">
                             {{ item.original_price | money }}
@@ -188,7 +188,7 @@
 
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
-
+<h1>Here</h1>
                           <ul class="discounts list-unstyled" role="list"
                             aria-label="{{ 'customer.order.discount' | t }}">
                             {%- for discount in item.line_level_discount_allocations -%}
