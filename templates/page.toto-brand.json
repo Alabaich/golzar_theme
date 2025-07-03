@@ -92,7 +92,8 @@
         "category_t8jLap": {
           "type": "category",
           "settings": {
-            "collection": "two-piece-toilets"
+            "collection": "toto-bathroom-sinks",
+            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
           }
         }
       },
@@ -141,7 +142,7 @@
         "show_excerpt": true,
         "excerpt_length": 12,
         "read_more_text": "Read now",
-        "card_bg_color": "#FFFFFF",
+        "card_bg_color": "#ffffff",
         "card_border_radius": 6,
         "date_color": "#777777",
         "article_title_color": "#222222",
