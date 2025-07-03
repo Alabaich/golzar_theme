@@ -897,8 +897,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                            {% if product.metafields.custom.call_for_availability == true %}
-                <h1>Here</h1>
+                            {% if product.selected_or_first_available_variant.metafields.custom.discontinued == true %}
+<h1>Here</h1>
                 {% endif %}
                 {% if product.metafields.custom.call_for_availability == true %}
                   <div style="margin: 15px 0 0; width: 100%;">
