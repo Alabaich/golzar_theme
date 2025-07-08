@@ -5,6 +5,13 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
+<style>
+  .menu-drawer__menu-item a{
+    text-align: left;
+    max-width: 50%;
+  }
+</style>
+
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
