@@ -184,7 +184,7 @@ a.btn.btn-primary:hover,
   color: #002642;
   position: relative;
   display: block;
-  text-align: center;
+  text-align: left;
   padding: 11px 20px !important;
   background: transparent;
 }
