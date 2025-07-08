@@ -195,7 +195,7 @@ a.btn.btn-primary:hover,
   color: #002642;
   position: relative;
   display: block;
-  text-align: center;
+  text-align: left;
   background: transparent;
 }
 .store-footer-main ul.social_links_list li.social_link_item a {
