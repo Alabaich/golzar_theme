@@ -113,19 +113,11 @@
         "enable_sorting": true,
         "columns_mobile": "2"
       }
-    },
-    "featured_product_groups_GyncLm": {
-      "type": "featured-product-groups",
-      "name": "Featured Product Groups",
-      "settings": {
-        "title": "Featured Groups"
-      }
     }
   },
   "order": [
     "slideshow-collection",
     "breadcrumbs_section_Jj6RXX",
-    "main-collection-product-grid",
-    "featured_product_groups_GyncLm"
+    "main-collection-product-grid"
   ]
 }
