@@ -96,6 +96,57 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
+    "collection_page_links_ANi3Bw": {
+      "type": "collection-page-links",
+      "blocks": {
+        "collection_UKYVLF": {
+          "type": "collection",
+          "settings": {
+            "collection": "one-piece-toilets"
+          }
+        },
+        "collection_cKgbKV": {
+          "type": "collection",
+          "settings": {
+            "collection": "two-piece-toilets"
+          }
+        },
+        "collection_EmhBrV": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-mounted-toilets"
+          }
+        },
+        "collection_kUXkDp": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-toilets-bidets"
+          }
+        },
+        "collection_KkXbEk": {
+          "type": "collection",
+          "settings": {
+            "collection": "bidet-seats"
+          }
+        },
+        "collection_4f8iGt": {
+          "type": "collection",
+          "settings": {
+            "collection": "toilet-seats"
+          }
+        }
+      },
+      "block_order": [
+        "collection_UKYVLF",
+        "collection_cKgbKV",
+        "collection_EmhBrV",
+        "collection_kUXkDp",
+        "collection_KkXbEk",
+        "collection_4f8iGt"
+      ],
+      "name": "Collection Page Links",
+      "settings": {}
+    },
     "main-collection-product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -118,6 +169,7 @@
   "order": [
     "slideshow-collection",
     "breadcrumbs_section_Jj6RXX",
+    "collection_page_links_ANi3Bw",
     "main-collection-product-grid"
   ]
 }
