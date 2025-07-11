@@ -513,7 +513,7 @@
 
 
 
-        custom.sidebararticles
+        {{ article.metafields.custom.sidebararticles }}
         {%- assign current_article_handle = article.handle -%}
         {%- for article in blogs.blog.articles limit: 4 -%}
           {%- unless article.handle == current_article_handle -%}
