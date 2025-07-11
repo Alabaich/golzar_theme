@@ -496,19 +496,18 @@
       {% endcomment %}
       {%- for link in resource_links -%}
         <li class="product-resources__item">
-          {% comment %}
-            5. Construct the anchor tag. Use link.url for the href
-               and link.text for the visible anchor text.
-          {% endcomment %}
-          <a href="{{ link.url }}" class="product-resources__link" target="_blank" rel="noopener">
-            {{- link.text -}}
-          </a>
+
+          
         </li>
+                  <li>
+              <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">{{- link.text -}}</a>
+
+            </li>
       {%- endfor -%}
     </ul>
   </div>
 {%- endif -%}
-{{ article.metafields.custom.sidebararticles }}
+
 
 
 
