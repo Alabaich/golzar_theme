@@ -472,23 +472,9 @@
       <ul>
         {{ article.metafields.custom.sidebararticles[0] }}
 
-{%- assign sidebar_links = article.metafields.custom.sidebararticles -%}
-
-
-  <div class="sidebar-articles-section">
-    <h3>Helpful Resources</h3>
-    <ul>
-      {% for link_url in sidebar_links %}
-        <li>
-          {% comment %}
-            The link's text will be the URL itself, since that's all that is stored.
-          {% endcomment %}
-          <a href="{{ link_url }}">{{ link_url }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-
+<a href="{{ article.metafields.custom.sidebararticles[0] }}">
+  {{ article.metafields.custom.sidebararticles_text[0] }}
+</a>
 
 
 
