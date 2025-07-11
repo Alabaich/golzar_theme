@@ -473,36 +473,15 @@
 
 
 
+        {{ article.metafields.custom.sidebararticles }}
 {%- assign sidebar_links_json = article.metafields.custom.sidebararticles -%}
 {%- assign sidebar_links = sidebar_links_json | json -%} {%- comment -%} Parse the JSON string into a Liquid object/array {%- endcomment -%}
-{%- assign current_article_handle = article.handle -%} {%- comment -%} Ensure current_article_handle is defined {%- endcomment -%}
 
-{%- if sidebar_links.size > 0 -%}
-  <ul>
-    {%- for link in sidebar_links limit: 4 -%}
-      {%- comment -%}
-        Attempt to get the article object from the link's URL.
-        This is a common pattern in Shopify to get full article details
-        when only a link is available.
-      {%- endcomment -%}
-      {%- assign linked_article_handle = link.url | split: '/' | last -%}
-      {%- assign linked_article = blog.articles[linked_article_handle] -%}
-
-      {%- unless linked_article.handle == current_article_handle -%}
-        <li>
-          <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">{{ link.text }}</a>
-          {%- if linked_article and linked_article.published_at -%}
-            <span class="news-date">{{ linked_article.published_at | time_tag: format: 'date' }}</span>
-          {%- endif -%}
-        </li>
-      {%- endunless -%}
-    {%- endfor -%}
-  </ul>
-{%- else -%}
-  <p>No sidebar articles configured.</p>
-{%- endif -%}
-
-
+{%- for link in sidebar_links -%}
+  <p>
+    <a href="{{ link.url }}">{{ link.text }}</a>
+  </p>
+{%- endfor -%}
 
 
 
