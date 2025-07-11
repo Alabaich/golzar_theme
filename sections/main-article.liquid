@@ -472,51 +472,14 @@
       <ul>
 
 
-<div>{% comment %}
-  Debugging starts here.
-{% endcomment %}
+{%- assign sidebar_links = article.metafields.custom.sidebararticles.value -%}
 
-<p><strong>Debugging Output:</strong></p>
+{% comment %} Get the very first page from the list {% endcomment %}
+{%- assign first_link = sidebar_links.first -%}
 
-<p>1. Raw Metafield Output (should be JSON string if you fill it out):</p>
-<pre>{{ article.metafields.custom.sidebararticles | json }}</pre>
-
-{% assign sidebar_articles = article.metafields.custom.sidebararticles %}
-
-<p>2. Type of assigned 'sidebar_articles': {{ sidebar_articles | type }}</p>
-<p>3. Is 'sidebar_articles' blank? {% if sidebar_articles == blank %}Yes{% else %}No{% endif %}</p>
-<p>4. Size of 'sidebar_articles': {{ sidebar_articles.size }}</p>
-
-{% comment %}
-  Original code follows, using the assigned variable
-{% endcomment %}
-
-{% if sidebar_articles != blank and sidebar_articles.size > 0 %}
-  <div class="sidebar-articles-section">
-    <h3>Helpful Resources</h3>
-    <ul>
-      {% for article_link in sidebar_articles %}
-        <li>
-          <a href="{{ article_link.url }}"
-             {% if article_link.url contains 'myshopify.com' or article_link.url contains shop.url %}
-               {# Internal link, no target="_blank" #}
-             {% else %}
-               target="_blank" rel="noopener" {# External link, open in new tab #}
-             {% endif %}
-          >
-            {{ article_link.title }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-{% else %}
-  <p><em>No sidebar articles found or list is empty after assignment.</em></p>
+{% if first_link %}
+  <a href="{{ first_link.url }}">{{ first_link.title }}</a>
 {% endif %}
-
-{% comment %}
-  Debugging ends here.
-{% endcomment %}</div>
 
 
 
