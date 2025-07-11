@@ -470,52 +470,16 @@
     <div class="recent-news-widget">
       <h3>Recent news</h3>
       <ul>
-{%- assign sidebar_links_json = article.metafields.custom.sidebararticles -%}
-{%- assign sidebar_links = sidebar_links_json | json -%} {%- comment -%} Parse the JSON string into a Liquid object/array {%- endcomment -%}
-{%- assign current_article_handle = article.handle -%} {%- comment -%} Ensure current_article_handle is defined {%- endcomment -%}
 
-{%- comment -%} --- DEBUGGING OUTPUT START --- {%- endcomment -%}
-
-<p><strong>DEBUG:</strong> sidebar_links_json (raw): {{ sidebar_links_json }}</p>
-<p><strong>DEBUG:</strong> sidebar_links type (after json filter): {{ sidebar_links.class }}</p>
-<p><strong>DEBUG:</strong> sidebar_links size (after json filter): {{ sidebar_links.size }}</p>
-{%- if sidebar_links.size > 0 -%}
-  <p><strong>DEBUG:</strong> First link text: {{ sidebar_links.first.text }}</p>
-  <p><strong>DEBUG:</strong> First link url: {{ sidebar_links.first.url }}</p>
-{%- else -%}
-  <p><strong>DEBUG:</strong> sidebar_links is empty or not a list after parsing.</p>
-{%- endif -%}
-{%- comment -%} --- DEBUGGING OUTPUT END --- {%- endcomment -%}
 
 {%- if sidebar_links.size > 0 -%}
-  <ul>
-    {%- for link in sidebar_links limit: 4 -%}
-      {%- comment -%}
-        Attempt to get the article object from the link's URL.
-        This is a common pattern in Shopify to get full article details
-        when only a link is available.
-      {%- endcomment -%}
-      {%- assign linked_article_handle = link.url | split: '/' | last -%}
-      {%- assign linked_article = blog.articles[linked_article_handle] -%}
-
-      {%- unless linked_article.handle == current_article_handle -%}
-        <li>
-          <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">{{ link.text }}</a> {%- comment -%} Changed link.title to link.text {%- endcomment -%}
-          {%- if linked_article and linked_article.published_at -%}
-            <span class="news-date">{{ linked_article.published_at | time_tag: format: 'date' }}</span>
-          {%- endif -%}
-        </li>
-      {%- endunless -%}
-    {%- endfor -%}
-  </ul>
-{%- else -%}
-  <p>No sidebar articles configured.</p>
-{%- endif -%}
-
-
-
-
         {{ article.metafields.custom.sidebararticles }}
+{%- endif -%}
+
+
+
+
+
         {%- assign current_article_handle = article.handle -%}
         {%- for article in blogs.blog.articles limit: 4 -%}
           {%- unless article.handle == current_article_handle -%}
