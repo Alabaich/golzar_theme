@@ -471,14 +471,13 @@
       <h3>Recent news</h3>
       <ul>
 
+{%- assign list_of_pages = article.metafields.custom.sidebararticles -%}
 
-{%- assign sidebar_links = article.metafields.custom.sidebararticles.value -%}
+{% comment %} Get the first page object from the list {% endcomment %}
+{%- assign first_page = list_of_pages.first -%}
 
-{% comment %} Get the very first page from the list {% endcomment %}
-{%- assign first_link = sidebar_links.first -%}
-
-{% if first_link %}
-  <a href="{{ first_link.url }}">{{ first_link.title }}</a>
+{% if first_page %}
+  <a href="{{ first_page.url }}">{{ first_page.title }}</a>
 {% endif %}
 
 
