@@ -476,7 +476,7 @@
   1. Assign the metafield's value to a variable for readability and to avoid repeated lookups.
      The.value is CRITICAL to access the array of links.
 {% endcomment %}
-{%- assign resource_links = article.metafields.custom.sidebararticles -%}
+{%- assign resource_links = article.metafields.custom.sidebararticles.value -%}
 
 {% comment %}
   2. Check if the list is not empty before rendering any markup.
