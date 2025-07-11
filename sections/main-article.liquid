@@ -484,27 +484,24 @@
 {% endcomment %}
 {%- if resource_links!= blank -%}
   <div class="product-resources">
-    <h3 class="product-resources__title">Additional Resources</h3>
+
     
     {% comment %}
       3. Use a semantic <ul> for an unordered list of links.
          This is best practice for accessibility and SEO.
     {% endcomment %}
-    <ul class="product-resources__list">
+
       {% comment %}
         4. Loop through each 'link' object in the 'resource_links' array.
       {% endcomment %}
       {%- for link in resource_links -%}
-        <li class="product-resources__item">
 
-          
-        </li>
                   <li>
               <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">{{- link.text -}}</a>
 
             </li>
       {%- endfor -%}
-    </ul>
+
   </div>
 {%- endif -%}
 
