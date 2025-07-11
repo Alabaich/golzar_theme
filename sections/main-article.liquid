@@ -470,6 +470,35 @@
     <div class="recent-news-widget">
       <h3>Recent news</h3>
       <ul>
+{%- assign sidebar_links = blog.metafields.custom.sidebararticles -%}
+
+{%- if sidebar_links.size > 0 -%}
+  <ul>
+    {%- for link in sidebar_links limit: 4 -%}
+      {%- comment -%}
+        Attempt to get the article object from the link's URL.
+        This is a common pattern in Shopify to get full article details
+        when only a link is available.
+      {%- endcomment -%}
+      {%- assign article_handle = link.url | split: '/' | last -%}
+      {%- assign article = blog.articles[article_handle] -%}
+
+      {%- unless article.handle == current_article_handle -%}
+        <li>
+          <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">{{ link.title }}</a>
+          {%- if article and article.published_at -%}
+            <span class="news-date">{{ article.published_at | time_tag: format: 'date' }}</span>
+          {%- endif -%}
+        </li>
+      {%- endunless -%}
+    {%- endfor -%}
+  </ul>
+{%- else -%}
+  {%- comment -%} Optional: Display a message if no sidebar articles are found in the metafield {%- endcomment -%}
+  <p>No sidebar articles configured.</p>
+{%- endif -%}
+
+        custom.sidebararticles
         {%- assign current_article_handle = article.handle -%}
         {%- for article in blogs.blog.articles limit: 4 -%}
           {%- unless article.handle == current_article_handle -%}
