@@ -471,6 +471,18 @@
       <h3>Recent news</h3>
       <ul>
 {%- assign sidebar_links = article.metafields.custom.sidebararticles -%}
+{%- assign current_article_handle = article.handle -%} {%- comment -%} Ensure current_article_handle is defined {%- endcomment -%}
+
+{%- comment -%} --- DEBUGGING OUTPUT START --- {%- endcomment -%}
+<p><strong>DEBUG:</strong> sidebar_links type: {{ sidebar_links.class }}</p>
+<p><strong>DEBUG:</strong> sidebar_links size: {{ sidebar_links.size }}</p>
+{%- if sidebar_links.size > 0 -%}
+  <p><strong>DEBUG:</strong> First link title: {{ sidebar_links.first.title }}</p>
+  <p><strong>DEBUG:</strong> First link url: {{ sidebar_links.first.url }}</p>
+{%- else -%}
+  <p><strong>DEBUG:</strong> sidebar_links is empty or not a list.</p>
+{%- endif -%}
+{%- comment -%} --- DEBUGGING OUTPUT END --- {%- endcomment -%}
 
 {%- if sidebar_links.size > 0 -%}
   <ul>
@@ -494,9 +506,9 @@
     {%- endfor -%}
   </ul>
 {%- else -%}
-  {%- comment -%} Optional: Display a message if no sidebar articles are found in the metafield {%- endcomment -%}
   <p>No sidebar articles configured.</p>
 {%- endif -%}
+
 
 
         custom.sidebararticles
