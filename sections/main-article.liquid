@@ -471,14 +471,23 @@
       <h3>Recent news</h3>
       <ul>
 
-{%- assign list_of_pages = article.metafields.custom.sidebararticles -%}
+{%- assign sidebar_links = article.metafields.custom.sidebararticles -%}
 
-{% comment %} Get the first page object from the list {% endcomment %}
-{%- assign first_page = list_of_pages.first -%}
 
-{% if first_page %}
-  <a href="{{ first_page.url }}">{{ first_page.title }}</a>
-{% endif %}
+  <div class="sidebar-articles-section">
+    <h3>Helpful Resources</h3>
+    <ul>
+      {% for link_url in sidebar_links %}
+        <li>
+          {% comment %}
+            The link's text will be the URL itself, since that's all that is stored.
+          {% endcomment %}
+          <a href="{{ link_url }}">{{ link_url }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
 
 
 
