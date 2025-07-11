@@ -470,11 +470,44 @@
     <div class="recent-news-widget">
       <h3>Recent news</h3>
       <ul>
-        {{ article.metafields.custom.sidebararticles }}
 
-<a href="{{ article.metafields.custom.sidebararticles[0] }}">
-  {{ article.metafields.custom.sidebararticles_text.value }}
-</a>
+
+        {% comment %}
+  1. Assign the metafield's value to a variable for readability and to avoid repeated lookups.
+     The.value is CRITICAL to access the array of links.
+{% endcomment %}
+{%- assign resource_links = article.metafields.custom.sidebararticles -%}
+
+{% comment %}
+  2. Check if the list is not empty before rendering any markup.
+     This prevents empty <ul> tags from being added to the page.
+{% endcomment %}
+{%- if resource_links!= blank -%}
+  <div class="product-resources">
+    <h3 class="product-resources__title">Additional Resources</h3>
+    
+    {% comment %}
+      3. Use a semantic <ul> for an unordered list of links.
+         This is best practice for accessibility and SEO.
+    {% endcomment %}
+    <ul class="product-resources__list">
+      {% comment %}
+        4. Loop through each 'link' object in the 'resource_links' array.
+      {% endcomment %}
+      {%- for link in resource_links -%}
+        <li class="product-resources__item">
+          {% comment %}
+            5. Construct the anchor tag. Use link.url for the href
+               and link.text for the visible anchor text.
+          {% endcomment %}
+          <a href="{{ link.url }}" class="product-resources__link" target="_blank" rel="noopener">
+            {{- link.text -}}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
 
 
 
