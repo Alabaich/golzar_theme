@@ -1018,7 +1018,13 @@
   .article-template__content p {
     margin: 0 0 15px;
   }
-  .article-template__content * {
+  .article-template__content p,
+  .article-template__content span,
+  .article-template__content a,
+  .article-template__content b,
+  .article-template__content label,
+  .article-template__content li,
+  {
     font-size: 14px;
   }
   .article-template__content h3 {
