@@ -474,16 +474,27 @@
 
 
         {{ article.metafields.custom.sidebararticles }}
-{% assign sidebar_link = product.metafields.custom.sidebararticles %}
+{% assign sidebar_articles = product.metafields.custom.sidebararticles %}
 
 
-  <div class="sidebar-article-link">
-    <h3>Related Article</h3>
-    <a href="{{ sidebar_link.url }}" target="_blank" rel="noopener">
-      {{ sidebar_link.title }}
-    </a>
+  <div class="sidebar-articles-section">
+    <h3>Helpful Resources</h3>
+    <ul>
+      {% for article_link in sidebar_articles %}
+        <li>
+          <a href="{{ article_link.url }}"
+             {% if article_link.url contains 'myshopify.com' or article_link.url contains shop.url %}
+               {# Internal link, no target="_blank" #}
+             {% else %}
+               target="_blank" rel="noopener" {# External link, open in new tab #}
+             {% endif %}
+          >
+            {{ article_link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
-
 
 
 
