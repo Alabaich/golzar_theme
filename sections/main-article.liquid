@@ -473,10 +473,26 @@
 
 
 
-        {{ article.metafields.custom.sidebararticles }}
-{% assign sidebar_articles = product.metafields.custom.sidebararticles %}
+{% comment %}
+  Debugging starts here.
+{% endcomment %}
 
+<p><strong>Debugging Output:</strong></p>
 
+<p>1. Raw Metafield Output (should be JSON string if you fill it out):</p>
+<pre>{{ article.metafields.custom.sidebararticles | json }}</pre>
+
+{% assign sidebar_articles = article.metafields.custom.sidebararticles %}
+
+<p>2. Type of assigned 'sidebar_articles': {{ sidebar_articles | type }}</p>
+<p>3. Is 'sidebar_articles' blank? {% if sidebar_articles == blank %}Yes{% else %}No{% endif %}</p>
+<p>4. Size of 'sidebar_articles': {{ sidebar_articles.size }}</p>
+
+{% comment %}
+  Original code follows, using the assigned variable
+{% endcomment %}
+
+{% if sidebar_articles != blank and sidebar_articles.size > 0 %}
   <div class="sidebar-articles-section">
     <h3>Helpful Resources</h3>
     <ul>
@@ -495,6 +511,13 @@
       {% endfor %}
     </ul>
   </div>
+{% else %}
+  <p><em>No sidebar articles found or list is empty after assignment.</em></p>
+{% endif %}
+
+{% comment %}
+  Debugging ends here.
+{% endcomment %}
 
 
 
