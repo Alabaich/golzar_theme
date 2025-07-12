@@ -352,7 +352,6 @@
         "heading_i6JydC",
         "buttons_6R9PHE"
       ],
-      "disabled": true,
       "settings": {
         "additional_class": "",
         "image": "shopify://shop_images/Wall-Mounted_Toilets-03.webp",
@@ -370,7 +369,6 @@
     },
     "collection_data_discount_bERRBy": {
       "type": "collection-data-discount",
-      "disabled": true,
       "settings": {
         "title": "Our Products",
         "title_color": "#002642",
@@ -390,7 +388,6 @@
     },
     "featured_blog_yqKkQg": {
       "type": "featured-blog",
-      "disabled": true,
       "custom_css": [
         ".article-card .card__heading {margin-bottom: 0.6rem; font-size: small;}",
         ".article-card__excerpt {width: 100%; margin-top: 1.2rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; text-overflow: ellipsis;}"
@@ -449,7 +446,6 @@
         "heading_4rpzMq",
         "buttons_mqCMLh"
       ],
-      "disabled": true,
       "settings": {
         "additional_class": "",
         "image_overlay_opacity": 0,
@@ -512,7 +508,6 @@
     },
     "17405401850356168b": {
       "type": "apps",
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
