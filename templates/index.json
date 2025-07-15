@@ -369,6 +369,7 @@
     },
     "collection_data_discount_bERRBy": {
       "type": "collection-data-discount",
+      "disabled": true,
       "settings": {
         "title": "Our Products",
         "title_color": "#002642",
@@ -383,7 +384,7 @@
         "discount_btn_lbl_color": "#38739e",
         "discount_btn_bg_color": "#eff4f8",
         "discount_btn_link": "shopify://products/bocchi-wall-hung-toilet-complete-set-white",
-        "collection": "bestsellers"
+        "collection": "bathroom-bathroom"
       }
     },
     "featured_blog_yqKkQg": {
@@ -448,8 +449,9 @@
       ],
       "settings": {
         "additional_class": "",
+        "image": "shopify://shop_images/AP005_122.0571.056_7346d49a-ffe4-40ee-8ab0-11d8530f32d6.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "small",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
