@@ -1,0 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow-collection": {
+      "type": "slideshow-collection",
+      "blocks": {
+        "slide_rUEQXC": {
+          "type": "slide",
+          "settings": {
+            "heading": "Wall Mount Toilet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Achieve Harmony: Wall-hung Toilets Balancing Form And Function",
+            "subheading_color": "#ffffff",
+            "button_label": "See More Products",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/wall-mounted-toilets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_6dV7k8": {
+          "type": "slide",
+          "settings": {
+            "heading": "Bathroom Faucet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Faucet Renaissance: A Poetic Delight",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore Bathroom Faucets",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/bathroom-faucets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_XmYgPm": {
+          "type": "slide",
+          "settings": {
+            "heading": "Bathroom Vanity",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Elevate Your Aesthetic With Sleek Vanity Designs",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore More Vanities",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/vanity",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_rUEQXC",
+        "slide_6dV7k8",
+        "slide_XmYgPm"
+      ],
+      "disabled": true,
+      "settings": {
+        "additional_class": "",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "breadcrumbs_section_Jj6RXX": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
+    "collection_page_links_ANi3Bw": {
+      "type": "collection-page-links",
+      "blocks": {
+        "collection_UKYVLF": {
+          "type": "collection",
+          "settings": {
+            "collection": "one-piece-toilets"
+          }
+        },
+        "collection_cKgbKV": {
+          "type": "collection",
+          "settings": {
+            "collection": "two-piece-toilets"
+          }
+        },
+        "collection_EmhBrV": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-mounted-toilets"
+          }
+        },
+        "collection_kUXkDp": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-toilets-bidets"
+          }
+        },
+        "collection_KkXbEk": {
+          "type": "collection",
+          "settings": {
+            "collection": "bidet-seats"
+          }
+        },
+        "collection_4f8iGt": {
+          "type": "collection",
+          "settings": {
+            "collection": "toilet-seats"
+          }
+        }
+      },
+      "block_order": [
+        "collection_UKYVLF",
+        "collection_cKgbKV",
+        "collection_EmhBrV",
+        "collection_kUXkDp",
+        "collection_KkXbEk",
+        "collection_4f8iGt"
+      ],
+      "name": "Collection Page Links",
+      "settings": {}
+    },
+    "main-collection-product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "slideshow-collection",
+    "breadcrumbs_section_Jj6RXX",
+    "collection_page_links_ANi3Bw",
+    "main-collection-product-grid"
+  ]
+}
