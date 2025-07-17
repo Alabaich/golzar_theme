@@ -1258,6 +1258,21 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   data-vendor="{% if product and product.vendor != blank %}{{ product.vendor | handleize }}{% endif %}" 
   aria-labelledby="product-info-section-{{ product.id }}">Product Spec Sheet</h4>
 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
+
+
+          <h3>Product Downloads & Manuals:</h3>
+{%- assign resource_links = article.metafields.custom.useful_links.value -%}
+{%- if resource_links != blank -%}
+  <div class="product-resources">
+    <ul>
+      {%- for link in resource_links -%}
+        <li>
+          <a style="..." href="{{ link }}">Document {{ forloop.index }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
         </div>
 
         {% endif %}
