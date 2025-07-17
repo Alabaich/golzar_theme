@@ -1266,10 +1266,11 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 {%- assign resource_links = article.metafields.custom.useful_links.value -%}
 {%- if resource_links != blank -%}
   <div class="product-resources">
+    <p>DEBUG: {{ article.metafields.custom.useful_links }}</p>
     <ul>
       {%- for link in resource_links -%}
         <li>
-          <a style="..." href="{{ link }}">Document {{ forloop.index }}</a>
+          <a href="{{ link }}">Document {{ forloop.index }}</a>
         </li>
       {%- endfor -%}
     </ul>
