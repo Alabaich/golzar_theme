@@ -1212,7 +1212,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="tab" data-tab="tab2">Spec Sheet</div>
         {% endif %}
   
-        {% if product.metafields.custom.technical_drawing != blank %}
+        {% if product.metafields.custom.technical_drawing != blank or product.metafields.custom.useful_links != blank %}
         <div class="tab" data-tab="tab3">Technical Drawing</div>
         {% endif %}
   
