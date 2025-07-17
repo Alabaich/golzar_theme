@@ -1208,11 +1208,11 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="tab active" data-tab="tab1">Description</div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
+        {% if product.metafields.custom.spec_sheet != blank %}
         <div class="tab" data-tab="tab2">Spec Sheet</div>
         {% endif %}
   
-        {% if product.metafields.custom.technical_drawing != blank  %}
+        {% if product.metafields.custom.technical_drawing != blank %}
         <div class="tab" data-tab="tab3">Technical Drawing</div>
         {% endif %}
   
@@ -1249,7 +1249,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         </div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
+        {% if product.metafields.custom.spec_sheet != blank %}
         <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
           <h4 style="margin:0;" 
             {% if product.type %}{{ product.type | handleize }}-specs{% endif %} 
@@ -1258,25 +1258,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   data-vendor="{% if product and product.vendor != blank %}{{ product.vendor | handleize }}{% endif %}" 
   aria-labelledby="product-info-section-{{ product.id }}">Product Spec Sheet</h4>
 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
-
-
-          
-        {%- assign resource_links = article.metafields.custom.useful_links.value -%}
-
-          <h3>Product Downloads & Manuals:</h3>
-  <div class="product-resources">
-<ul>
-      {%- for link in resource_links -%}
-
-                  <li>
-              <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">Document {{ forloop.index }}</a>
-
-            </li>
-      {%- endfor -%}
-</ul>
-  </div>
-          </div>
-   
+        </div>
 
         {% endif %}
   
