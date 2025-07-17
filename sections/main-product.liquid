@@ -1208,7 +1208,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="tab active" data-tab="tab1">Description</div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank  %}
+        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links %}
         <div class="tab" data-tab="tab2">Spec Sheet</div>
         {% endif %}
   
@@ -1259,6 +1259,20 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   aria-labelledby="product-info-section-{{ product.id }}">Product Spec Sheet</h4>
 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
 
+
+          <h3>Product Downloads & Manuals:</h3>
+{%- assign resource_links = article.metafields.custom.useful_links.value -%}
+{%- if resource_links != blank -%}
+  <div class="product-resources">
+    <ul>
+      {%- for link in resource_links -%}
+        <li>
+          <a style="..." href="{{ link }}">Document {{ forloop.index }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
         </div>
 
         {% endif %}
