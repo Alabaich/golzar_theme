@@ -1259,6 +1259,22 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   aria-labelledby="product-info-section-{{ product.id }}">Product Spec Sheet</h4>
 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
         </div>
+        {% elsif product.metafields.custom.useful_links != blank %}
+          <h3>Product Downloads & Manuals:</h3>
+        {%- assign resource_links = article.metafields.custom.useful_links.value -%}
+{%- if resource_links!= blank -%}
+  <div class="product-resources">
+<ul>
+      {%- for link in resource_links -%}
+
+                  <li>
+              <a style="font-family: Raleway; font-weight: 600; font-size: 18px; line-height: 100%; letter-spacing: 0%;" href="{{ link.url }}">Document {{ forloop.index }}</a>
+
+            </li>
+      {%- endfor -%}
+</ul>
+  </div>
+{%- endif -%}
         {% endif %}
   
         {% if product.metafields.custom.technical_drawing != blank %}
