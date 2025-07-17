@@ -1263,13 +1263,14 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
           {% elsif product.metafields.custom.useful_links != blank %}
 <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
           <h3>Product Downloads & Manuals:</h3>
-{%- assign resource_links = article.metafields.custom.useful_links.value -%}
+          {{ product.metafields.custom.useful_links }}
+{%- assign resource_links = product.metafields.custom.useful_links.value -%}
 {%- if resource_links != blank -%}
   <div class="product-resources">
     <ul>
       {%- for link in resource_links -%}
         <li>
-          <a style="..." href="{{ link }}">Document {{ forloop.index }}</a>
+          <a href="{{ link }}">Document {{ forloop.index }}</a>
         </li>
       {%- endfor -%}
     </ul>
