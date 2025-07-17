@@ -1260,9 +1260,10 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
 </div>
         {% elsif product.metafields.custom.useful_links != blank %}
-          <h3>Product Downloads & Manuals:</h3>
+          
         {%- assign resource_links = article.metafields.custom.useful_links.value -%}
         <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
+          <h3>Product Downloads & Manuals:</h3>
   <div class="product-resources">
 <ul>
       {%- for link in resource_links -%}
