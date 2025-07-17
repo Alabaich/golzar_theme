@@ -1262,7 +1262,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         </div>
           {% elsif product.metafields.custom.useful_links != blank %}
 <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
-          <h4>Product Downloads & Manuals:</h4>
+          <h4 style="margin:0;" >Product Downloads & Manuals:</h4>
           <!-- {{ product.metafields.custom.useful_links }} -->
 {%- assign resource_links = product.metafields.custom.useful_links.value -%}
 {%- if resource_links != blank -%}
