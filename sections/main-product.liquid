@@ -1208,7 +1208,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="tab active" data-tab="tab1">Description</div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank or custom.useful_links %}
+        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links %}
         <div class="tab" data-tab="tab2">Spec Sheet</div>
         {% endif %}
   
