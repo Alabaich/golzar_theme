@@ -1208,7 +1208,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="tab active" data-tab="tab1">Description</div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank %}
+        {% if product.metafields.custom.spec_sheet != blank or custom.useful_links %}
         <div class="tab" data-tab="tab2">Spec Sheet</div>
         {% endif %}
   
@@ -1249,7 +1249,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         </div>
         {% endif %}
   
-        {% if product.metafields.custom.spec_sheet != blank %}
+        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
         <div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
           <h4 style="margin:0;" 
             {% if product.type %}{{ product.type | handleize }}-specs{% endif %} 
