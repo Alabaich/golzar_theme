@@ -1270,7 +1270,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     <ul style="display:flex; flex-direction: column; gap: 15px;">
       {%- for link in resource_links -%}
         <li>
-          <a href="{{ link.url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Document {{ forloop.index }}</a >
+          <a href="{{ link.url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Resource - {{ current_variant_sku.sku }} - {{ forloop.index }}</a >
         </li>
       {%- endfor -%}
     </ul>
