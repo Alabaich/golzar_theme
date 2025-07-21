@@ -392,7 +392,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper" style="postion:relative;">
+      <div class="grid__item product__media-wrapper" style="position:relative;">
                 {% if product.vendor == 'Alps' or product.vendor == 'Bocchi' or product.vendor == 'Visentin' or product.vendor == 'Kodaen' %}
                     <span style="position: absolute; z-index: 10;  top:25px; right: 25px; padding: 15px; border-radius: 10px; background: #fff;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
