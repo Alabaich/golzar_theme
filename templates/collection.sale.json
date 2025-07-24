@@ -115,45 +115,46 @@
             "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Integrated+Sink&filter.p.product_type=Kitchen+Faucets&filter.p.product_type=Drop-In+Kitchen+Sinks&filter.p.product_type=Farmhouse+Kitchen+Sinks&filter.p.product_type=Faucets%2C+Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+%26+Utility+Sink%2C+Kitchen+%26+Utility+Sinks%2C+Sinks&filter.p.product_type=Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+Sinks&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
-        "collection_cKgbKV": {
-          "type": "collection",
+        "custom_link_jjfDYB": {
+          "type": "custom_link",
           "settings": {
-            "collection": "two-piece-toilets"
+            "image": "shopify://shop_images/13544_23824ena-lineare-single-handle-bathroom-faucet-xs-size-brushed-nickel-infinityfinish_CDNwebp.webp",
+            "title": "Bathroom Faucets",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Deck-Mount+Tub+Faucets&filter.p.product_type=Floor-Mount+Tub+Faucets&filter.p.product_type=Single+Hole+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets%2C+Faucets&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
-        "collection_EmhBrV": {
-          "type": "collection",
+        "custom_link_q3tFAU": {
+          "type": "custom_link",
           "settings": {
-            "collection": "wall-mounted-toilets"
+            "image": "shopify://shop_images/F55127GG-W10ATS_845x845_3464a825-335c-4599-a726-07c458561860.webp",
+            "title": "Showers & Parts",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Floor-Mount+Tub+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets%2C+Faucets&filter.p.product_type=Shower+Bases&filter.p.product_type=Shower+Door&filter.p.product_type=Shower+Parts&filter.p.product_type=Shower+Screens&filter.p.product_type=Shower+Walls&filter.p.product_type=Smart+Showers&filter.p.product_type=Tub+Shower&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
-        "collection_kUXkDp": {
-          "type": "collection",
+        "custom_link_qhYCmW": {
+          "type": "custom_link",
           "settings": {
-            "collection": "smart-toilets-bidets"
+            "image": "shopify://shop_images/TSO6033FA001-1_ZITTA_BATHTUB_SOFFIO2_FREESTANDING_60_GLOSSY_WHITE.jpg",
+            "title": "Bathtubs",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Drop-In+Bathtubs&filter.p.product_type=Alcove+Tubs&filter.p.product_type=Bathtub+Drains&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
-        "collection_KkXbEk": {
-          "type": "collection",
+        "custom_link_e9qX3M": {
+          "type": "custom_link",
           "settings": {
-            "collection": "bidet-seats"
-          }
-        },
-        "collection_4f8iGt": {
-          "type": "collection",
-          "settings": {
-            "collection": "toilet-seats"
+            "image": "shopify://shop_images/AB00132_Zitta_Accessories_StainlessSteelCaddy.jpg",
+            "title": "Accessories",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Actuator+Plates&filter.p.product_type=LED+Mirror&filter.p.product_type=Flushometeres&filter.p.product_type=Glass+Holder&filter.p.product_type=Medicine+Cabinets&filter.p.product_type=Sauna+Accessories&filter.p.product_type=Soap+%26+Lotion+Dispensers&filter.p.product_type=Soap+Dish&filter.p.product_type=Towel+Bars&filter.p.product_type=Towel+Rail&filter.p.product_type=Towel+Rings&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         }
       },
       "block_order": [
         "custom_link_nfdHaL",
         "custom_link_DnPr9d",
-        "collection_cKgbKV",
-        "collection_EmhBrV",
-        "collection_kUXkDp",
-        "collection_KkXbEk",
-        "collection_4f8iGt"
+        "custom_link_jjfDYB",
+        "custom_link_q3tFAU",
+        "custom_link_qhYCmW",
+        "custom_link_e9qX3M"
       ],
       "name": "Collection Page Links",
       "settings": {}
