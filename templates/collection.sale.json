@@ -103,14 +103,16 @@
           "type": "custom_link",
           "settings": {
             "image": "shopify://shop_images/mmdnxsxblkfjcnfbcwwq.png",
-            "title": "Toilets",
-            "link": ""
+            "title": "Toilets & Parts",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Bidets&filter.p.product_type=Floor-Standing+Bidets&filter.p.product_type=One-Piece+Toilets&filter.p.product_type=One-Piece+Toilets+%26+Bidets&filter.p.product_type=Two-Piece+Toilets&filter.p.product_type=Two-Piece+Toilets+%26+Bidets&filter.p.product_type=Wall-Mounted+Bidets&filter.p.product_type=Wall-Mounted+Toilet+Kits&filter.p.product_type=Wall-Mounted+Toilet+Kits+%26+Bidets&filter.p.product_type=Wall-Mounted+Toilets&filter.p.product_type=Toilets&filter.p.product_type=Two-Piece+Toilets+Bowl+Only&filter.p.product_type=Two-Piece+Toilets+Tank+Only&filter.p.product_type=Urinals&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
-        "collection_UKYVLF": {
-          "type": "collection",
+        "custom_link_DnPr9d": {
+          "type": "custom_link",
           "settings": {
-            "collection": "one-piece-toilets"
+            "image": "shopify://shop_images/F23128GG_1_817x817_449b15b0-34a8-4597-acc7-025a12bbab89.webp",
+            "title": "Kitchen Sinks & Faucets",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Integrated+Sink&filter.p.product_type=Kitchen+Faucets&filter.p.product_type=Drop-In+Kitchen+Sinks&filter.p.product_type=Farmhouse+Kitchen+Sinks&filter.p.product_type=Faucets%2C+Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+%26+Utility+Sink%2C+Kitchen+%26+Utility+Sinks%2C+Sinks&filter.p.product_type=Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+Sinks&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
         "collection_cKgbKV": {
@@ -146,7 +148,7 @@
       },
       "block_order": [
         "custom_link_nfdHaL",
-        "collection_UKYVLF",
+        "custom_link_DnPr9d",
         "collection_cKgbKV",
         "collection_EmhBrV",
         "collection_kUXkDp",
