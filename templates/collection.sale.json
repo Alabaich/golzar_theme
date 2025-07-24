@@ -96,67 +96,17 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
-    "image_banner_gwHpiM": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_xXDhqb": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_color": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_BRPRN3": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_color": "",
-            "text_style": "body"
-          }
-        },
-        "buttons_PhehXb": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_label_1_color": "",
-            "button_1_bg_color": "",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_label_2_color": "",
-            "button_2_bg_color": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_xXDhqb",
-        "text_BRPRN3",
-        "buttons_PhehXb"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "additional_class": "",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "collection_page_links_ANi3Bw": {
       "type": "collection-page-links",
       "blocks": {
+        "custom_link_nfdHaL": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/mmdnxsxblkfjcnfbcwwq.png",
+            "title": "Toilets",
+            "link": ""
+          }
+        },
         "collection_UKYVLF": {
           "type": "collection",
           "settings": {
@@ -195,6 +145,7 @@
         }
       },
       "block_order": [
+        "custom_link_nfdHaL",
         "collection_UKYVLF",
         "collection_cKgbKV",
         "collection_EmhBrV",
@@ -227,7 +178,6 @@
   "order": [
     "slideshow-collection",
     "breadcrumbs_section_Jj6RXX",
-    "image_banner_gwHpiM",
     "collection_page_links_ANi3Bw",
     "main-collection-product-grid"
   ]
