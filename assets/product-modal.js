@@ -4,10 +4,25 @@ if (!customElements.get('product-modal')) {
     class ProductModal extends ModalDialog {
       constructor() {
         super();
+
+        // Добавляем обработчик pointerup на фазе capture, чтобы остановить событие до родителя
+        this._stopPointerUp = (event) => {
+          // Проверяем, если клик вне deferred-media или product-model — блокируем закрытие
+          if (
+            event.pointerType === 'mouse' &&
+            !event.target.closest('deferred-media, product-model')
+          ) {
+            event.stopImmediatePropagation();
+            // Можно также event.preventDefault();
+          }
+        };
+
+        this.addEventListener('pointerup', this._stopPointerUp, { capture: true });
       }
 
-      hide() {
-        super.hide();
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        this.removeEventListener('pointerup', this._stopPointerUp, { capture: true });
       }
 
       show(opener) {
@@ -34,8 +49,9 @@ if (!customElements.get('product-modal')) {
           activeMedia.nodeName == 'DEFERRED-MEDIA' &&
           activeMediaContent &&
           activeMediaContent.querySelector('.js-youtube')
-        )
+        ) {
           activeMedia.loadContent();
+        }
       }
     }
   );
