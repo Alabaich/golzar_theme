@@ -1,17 +1,118 @@
-{% comment %}
-  Renders a product media modal. Also see 'product-media-gallery'
-
-  Accepts:
-  - product: {Object} Product liquid object
-  - variant_images: {Array} Product images associated with a variant
-
-  Usage:
-  {% render 'product-media-modal' %}
-{% endcomment %}
+<style>
+  .product-media-gallery-{{ section.id }} {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .product-media-thumbs-{{ section.id }} {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 80%;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 20;
+  }
+  
+  .product-media-thumb-{{ section.id }} {
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .product-media-thumb-{{ section.id }}.active {
+    border-color: #000;
+    opacity: 1;
+  }
+  
+  .product-media-thumb-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-media-thumb-icon-{{ section.id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+  }
+  
+  .product-media-slider-{{ section.id }} {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: 120px;
+    overflow: hidden;
+  }
+  
+  .product-media-slide-{{ section.id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .product-media-slide-{{ section.id }}.active {
+    opacity: 1;
+    position: relative;
+  }
+  
+  .product-media-slider-arrow-{{ section.id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .product-media-slider-arrow-{{ section.id }}:hover {
+    background: #fff;
+  }
+  
+  .product-media-slider-arrow-{{ section.id }}.prev {
+    left: 135px;
+  }
+  
+  .product-media-slider-arrow-{{ section.id }}.next {
+    right: 100px;
+  }
+  
+  .product-media-slider-arrow-{{ section.id }} svg {
+    width: 20px;
+    height: 20px;
+  }
+</style>
 
 <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
   <div
-    class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
+    class="product-media-modal__dialog"
     role="dialog"
     aria-label="{{ 'products.modal.label' | t }}"
     aria-modal="true"
@@ -26,32 +127,110 @@
       {{ 'icon-close.svg' | inline_asset_content }}
     </button>
 
-    <div
-      class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
-      role="document"
-      aria-label="{{ 'products.modal.label' | t }}"
-      tabindex="0"
-    >
-      {%- liquid
-        if product.selected_or_first_available_variant.featured_media != null
-          assign media = product.selected_or_first_available_variant.featured_media
-          render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
-        endif
-      -%}
+    <div class="product-media-modal__content">
+      <div class="product-media-gallery-{{ section.id }}">
+        <div class="product-media-thumbs-{{ section.id }}">
+          {%- for media in product.media -%}
+            <div class="product-media-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}">
+              {%- if media.media_type == 'image' -%}
+                <img
+                  src="{{ media | image_url: width: 100 }}"
+                  alt="{{ media.alt | escape }}"
+                  loading="lazy"
+                  width="80"
+                  height="{{ 80 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                >
+              {%- else -%}
+                <div class="product-media-thumb-icon-{{ section.id }}">
+                  {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                    {{ 'icon-play.svg' | inline_asset_content }}
+                  {%- elsif media.media_type == 'model' -%}
+                    {{ 'icon-3d-model' | inline_asset_content }}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
 
-      {%- for media in product.media -%}
-        {%- liquid
-          if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
-            assign variant_image = true
-          else
-            assign variant_image = false
-          endif
-
-          unless media.id == product.selected_or_first_available_variant.featured_media.id
-            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
-          endunless
-        -%}
-      {%- endfor -%}
+        <div class="product-media-slider-{{ section.id }}">
+          {%- for media in product.media -%}
+            <div class="product-media-slide-{{ section.id }}{% if forloop.first %} active{% endif %}" data-media-id="{{ media.id }}">
+              {% render 'product-media', media: media, loop: section.settings.enable_video_looping %}
+            </div>
+          {%- endfor -%}
+          
+          {% if product.media.size > 1 %}
+            <button class="product-media-slider-arrow-{{ section.id }} prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </button>
+            <button class="product-media-slider-arrow-{{ section.id }} next" aria-label="{{ 'general.slider.next_slide' | t }}">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </button>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 </product-modal>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.querySelector('#ProductModal-{{ section.id }}');
+  if (!modal) return;
+
+  const slides = modal.querySelectorAll('.product-media-slide-{{ section.id }}');
+  const thumbs = modal.querySelectorAll('.product-media-thumb-{{ section.id }}');
+  const prevBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.prev');
+  const nextBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.next');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === index);
+    });
+    
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    let newIndex = (currentSlide + 1) % slides.length;
+    showSlide(newIndex);
+  }
+
+  function prevSlide() {
+    let newIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(newIndex);
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      prevSlide();
+    });
+    
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      nextSlide();
+    });
+  }
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showSlide(index);
+    });
+  });
+
+  const gallery = modal.querySelector('.product-media-gallery-{{ section.id }}');
+  if (gallery) {
+    gallery.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
+});
+</script>
