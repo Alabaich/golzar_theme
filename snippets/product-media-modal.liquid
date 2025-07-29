@@ -7,7 +7,7 @@
   
   .product-media-thumbs-{{ section.id }} {
     position: absolute;
-    left: 0;
+    left: -45px;
     top: 50%;
     transform: translateY(-50%);
     width: 100px;
@@ -107,6 +107,36 @@
   .product-media-slider-arrow-{{ section.id }} svg {
     width: 20px;
     height: 20px;
+  }
+
+  @media screen and (max-width: 750px) {
+  .product-media-modal__content > *:not(.active) {
+    display: block !important;
+  }
+
+  .product-media-thumbs-{{ section.id }} {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    max-height: 80%;
+    overflow-x: auto;
+    padding: 10px;
+    z-index: 20;
+    top: auto;
+}
+
+  .product-media-slider-arrow-{{ section.id }}.prev {
+    left: 25px;
+  }
+  
+  .product-media-slider-arrow-{{ section.id }}.next {
+    right: 25px;
+  }
   }
 </style>
 
