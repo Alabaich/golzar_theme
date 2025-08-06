@@ -956,6 +956,14 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+                                {% elsif product.metafields.custom.call_for_availability == false %}
+                                  <p><b>On Backorder – Delivery in up to 4 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
+                                                    {%- render 'buy-buttons',
+                  block: block, product: product,
+                  product_form_id: product_form_id,
+                  section_id: section.id,
+                  show_pickup_availability: true
+                -%}
 
                   {%  else %}
                 {%- render 'buy-buttons',
@@ -964,6 +972,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+
                   {%  endif %}
 
 {% if product.tags contains 'no_free_shipping' %}
