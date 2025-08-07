@@ -742,7 +742,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
       <div class="main-aacrodaian active">
         <div class="acc-head" style="color:{{ block.settings.title11_color }};">
-          <h5 style="margin: 0;">{{ block.settings.title11 | default: "Компоненты продукта" }}</h5>
+          <h5 style="margin: 0;">{{ block.settings.title11 | default: "Compatible Items" }}</h5>
           <svg class="acc-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="acc-icon-h" d="M2 8H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <path class="acc-icon-v" d="M8 2V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -843,7 +843,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       <div class="requiredd-itemss">
         <div class="main-required-pro">
           <div class="title-reqiueed">
-            <h5 style="margin: 0;">{{ block.settings.title_compatible | default: "Совместимые товары" }}</h5>
+            <h5 style="margin: 0;">{{ block.settings.title_compatible | default: "Compatible Items" }}</h5>
           </div>
           {% for compatible_pro in product.metafields.custom.compatible_items.value %}
           <div class="inner-main-required">
