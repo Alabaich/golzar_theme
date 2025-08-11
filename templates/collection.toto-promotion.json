@@ -110,7 +110,7 @@
         "custom_link_weYQbQ": {
           "type": "custom_link",
           "settings": {
-            "image": "shopify://shop_images/qvx1ot4fbjcy0xkxgfkx_b7349b9d-2f65-46bc-b826-7dcdeb9130ce.png",
+            "image": "shopify://shop_images/CST404CUFRG_01_600_600_10238771-ebf4-4197-8aee-2a78b31ff008.webp",
             "title": "Two-Piece Toilets",
             "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=Two-Piece+Toilets&filter.p.product_type=Two-Piece+Toilets+%26+Bidets&filter.p.product_type=Two-Piece+Toilets+Bowl+Only&filter.p.product_type=Two-Piece+Toilets+Tank+Only&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
@@ -134,8 +134,9 @@
         "custom_link_FyXM9p": {
           "type": "custom_link",
           "settings": {
-            "title": "Custom Title",
-            "link": ""
+            "image": "shopify://shop_images/ABF964_01_600_600_167398a9-7a25-43c8-a1e2-c5b15649f0d5.webp",
+            "title": "Bathtubs",
+            "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=Bathtub+Accessories&filter.p.product_type=Free-Standing+Bathtubs&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         }
       },
