@@ -118,15 +118,17 @@
         "custom_link_GnahP8": {
           "type": "custom_link",
           "settings": {
-            "title": "Custom Title",
-            "link": ""
+            "image": "shopify://shop_images/TBS01201U_CP_600_600.webp",
+            "title": "Sinks & Faucets",
+            "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=Deck-Mount+Tub+Faucets&filter.p.product_type=Undermount+Sinks&filter.p.product_type=Vessel+Sink+Faucets&filter.p.product_type=Vessel+Sinks&filter.p.product_type=Wall-Mounted+Faucets&filter.p.product_type=Wall-Mounted+Sinks&filter.p.product_type=Widespread+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
         "custom_link_jXrk8F": {
           "type": "custom_link",
           "settings": {
-            "title": "Custom Title",
-            "link": ""
+            "image": "shopify://shop_images/CWT4264736CMFG_01_600_600.webp",
+            "title": "Wall-Mounted Toilets",
+            "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=Wall-Mounted+Toilet+Kits&filter.p.product_type=Wall-Mounted+Toilet+Kits+%26+Bidets&filter.p.product_type=Wall-Mounted+Toilets&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
           }
         },
         "custom_link_FyXM9p": {
