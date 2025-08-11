@@ -96,6 +96,57 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
+    "collection_page_links_cQBb8N": {
+      "type": "collection-page-links",
+      "blocks": {
+        "custom_link_y9U96B": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-128-gpf-round-bowl-626088.webp",
+            "title": "One-Piece Toilets",
+            "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=One-Piece+Toilets&filter.p.product_type=One-Piece+Toilets+%26+Bidets&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_weYQbQ": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/qvx1ot4fbjcy0xkxgfkx_b7349b9d-2f65-46bc-b826-7dcdeb9130ce.png",
+            "title": "Two-Piece Toilets",
+            "link": "https://bathroomsupplier.ca/collections/toto-toilets-bidets-bathroom-fixtures?filter.p.product_type=Two-Piece+Toilets&filter.p.product_type=Two-Piece+Toilets+%26+Bidets&filter.p.product_type=Two-Piece+Toilets+Bowl+Only&filter.p.product_type=Two-Piece+Toilets+Tank+Only&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_GnahP8": {
+          "type": "custom_link",
+          "settings": {
+            "title": "Custom Title",
+            "link": ""
+          }
+        },
+        "custom_link_jXrk8F": {
+          "type": "custom_link",
+          "settings": {
+            "title": "Custom Title",
+            "link": ""
+          }
+        },
+        "custom_link_FyXM9p": {
+          "type": "custom_link",
+          "settings": {
+            "title": "Custom Title",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_link_y9U96B",
+        "custom_link_weYQbQ",
+        "custom_link_GnahP8",
+        "custom_link_jXrk8F",
+        "custom_link_FyXM9p"
+      ],
+      "name": "Collection/Link Grid",
+      "settings": {}
+    },
     "rich_text_giUjVa": {
       "type": "rich-text",
       "blocks": {
@@ -141,6 +192,7 @@
   "order": [
     "slideshow-collection",
     "breadcrumbs_section_Jj6RXX",
+    "collection_page_links_cQBb8N",
     "rich_text_giUjVa",
     "main-collection-product-grid"
   ]
