@@ -67,6 +67,14 @@
             "title_pro_color": "#000000"
           }
         },
+        "compatible_items_4cw4EQ": {
+          "type": "compatible-items",
+          "settings": {
+            "enable_compatible_items": false,
+            "title_compatible": "Compatible Items",
+            "title_compatible_color": ""
+          }
+        },
         "product_information_gjpgNk": {
           "type": "product_information",
           "settings": {
@@ -88,6 +96,7 @@
         "see_product_components_986tRR",
         "quantity_selector",
         "required_items_9nVkDq",
+        "compatible_items_4cw4EQ",
         "product_information_gjpgNk"
       ],
       "settings": {
@@ -113,7 +122,10 @@
       "blocks": {
         "judge_me_reviews_review_widget_Xg9Nwa": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [
