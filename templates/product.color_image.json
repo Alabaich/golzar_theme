@@ -87,7 +87,7 @@
         "compatible_items_FyfNrL": {
           "type": "compatible-items",
           "settings": {
-            "enable_compatible_items": false,
+            "enable_compatible_items": true,
             "title_compatible": "Compatible Items",
             "title_compatible_color": ""
           }
