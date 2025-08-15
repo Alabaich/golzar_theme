@@ -70,7 +70,7 @@
         "compatible_items_4cw4EQ": {
           "type": "compatible-items",
           "settings": {
-            "enable_compatible_items": false,
+            "enable_compatible_items": true,
             "title_compatible": "Compatible Items",
             "title_compatible_color": ""
           }
