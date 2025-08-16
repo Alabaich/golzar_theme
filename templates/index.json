@@ -389,6 +389,7 @@
     },
     "featured_blog_yqKkQg": {
       "type": "featured-blog",
+      "disabled": true,
       "custom_css": [
         ".article-card .card__heading {margin-bottom: 0.6rem; font-size: small;}",
         ".article-card__excerpt {width: 100%; margin-top: 1.2rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; text-overflow: ellipsis;}"
