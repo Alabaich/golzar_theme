@@ -989,7 +989,10 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                            {% if product.selected_or_first_available_variant.metafields.custom.discontinued == true %}
+
+                {% if product.metafields.custom.expected_delivery %}
+                  In stock! Get it in just {{ product.metafields.custom.expected_delivery }}.
+                {% elsif product.selected_or_first_available_variant.metafields.custom.discontinued == true %}
 <div style="margin: 15px 0 0; width: 100%;">
                               <span  style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white; cursor: pointer;">Discontinued</span>
 </div>
