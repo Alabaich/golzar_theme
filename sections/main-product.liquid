@@ -1010,24 +1010,24 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 <div id="availability-container">
 
   <p id="delivery-time-block" style="display: none;">
-    ¡En stock! Recíbelo en solo <b id="delivery-time-value"></b>.
+    In stock! Get it in just <b id="delivery-time-value"></b>.
   </p>
 
   <div id="discontinued-block" style="display: none; margin: 15px 0 0; width: 100%;">
     <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white;">
-      Discontinuado
+      Discontinued
     </span>
   </div>
 
   <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
     <span onclick="openChatBox(event)" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;">
-      Chatea para disponibilidad
+      Chat for Availability
     </span>
-    <p style="margin-top: 10px;"><b>En espera – Entrega en hasta 6 semanas.</b> <br> Para una fecha más precisa, contáctanos.</p>
+    <p style="margin-top: 10px;"><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
   </div>
 
   <div id="in-stock-block" style="display: none;">
-     <p><b>Disponible,</b> en stock. Listo para enviar.</p>
+     <p><b>Available,</b> in stock. Ready to Ship.</p>
   </div>
 
   <div id="buy-buttons-block" style="display: none;">
@@ -1040,6 +1040,13 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   </div>
 
 </div>
+
+<script>
+    function openChatBox(event) {
+      event.preventDefault();
+      // Your existing chatbox logic here...
+    }
+</script>
 
 <script>
     function openChatBox(event) {
