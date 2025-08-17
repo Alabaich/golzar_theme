@@ -1121,9 +1121,11 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (variantData.discontinued === true) {
       // Variant is discontinued
       blocks.discontinued.style.display = 'block';
+      
     } else if (productData.call_for_availability === true) {
       // Product requires call for availability
       blocks.chat.style.display = 'block';
+            blocks.buyButtons.style.display = 'block';
     } else if (productData.call_for_availability === false) {
       // Product is explicitly available
       blocks.inStock.style.display = 'block';
