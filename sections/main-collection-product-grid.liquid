@@ -519,9 +519,7 @@
                         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg collection-grid-item__image' }}
                       {% endif %}
                       <div class="collection-grid-item__badge-info">
-                        {% if section.settings.show_vendor %}
-                          <span class="collection-grid-item__badge collection-grid-item__badge--vendor" title="{{ product.vendor | escape }}">{{ product.vendor | escape }}</span>
-                        {% endif %}
+
                         {% if discount_percentage > 0 %}
                           <span class="collection-grid-item__badge collection-grid-item__badge--discount">-{{ discount_percentage }}%</span>
                         {% endif %}
