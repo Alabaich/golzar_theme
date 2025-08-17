@@ -990,7 +990,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
                 {%  if product.selected_or_first_available_variant.metafields.custom.expected_delivery %}
-                    In stock! Get it in just {{ product.selected_or_first_available_variant.metafields.custom.expected_delivery }}.
+                    <p>In stock! Get it in just <b>{{ product.selected_or_first_available_variant.metafields.custom.expected_delivery }}</b>.</p>
               {% elsif product.metafields.custom.expected_delivery %}
                   In stock! Get it in just {{ product.metafields.custom.expected_delivery }}.
                 {% elsif product.selected_or_first_available_variant.metafields.custom.discontinued == true %}
