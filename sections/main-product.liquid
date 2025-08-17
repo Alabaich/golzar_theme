@@ -989,7 +989,124 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {%  if product.selected_or_first_available_variant.metafields.custom.expected_delivery %}
+
+<script>
+  // Data for each specific variant
+  const productVariantsData = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {
+        "delivery": "{{ variant.metafields.custom.expected_delivery }}",
+        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
+      },
+    {% endfor %}
+  };
+
+  // Fallback data for the whole product
+  const productData = {
+    "delivery": "{{ product.metafields.custom.expected_delivery }}",
+    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
+  };
+</script>
+<div id="availability-container">
+
+  <p id="delivery-time-block" style="display: none;">
+    ¡En stock! Recíbelo en solo <b id="delivery-time-value"></b>.
+  </p>
+
+  <div id="discontinued-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white;">
+      Discontinuado
+    </span>
+  </div>
+
+  <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span onclick="openChatBox(event)" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;">
+      Chatea para disponibilidad
+    </span>
+    <p style="margin-top: 10px;"><b>En espera – Entrega en hasta 6 semanas.</b> <br> Para una fecha más precisa, contáctanos.</p>
+  </div>
+
+  <div id="in-stock-block" style="display: none;">
+     <p><b>Disponible,</b> en stock. Listo para enviar.</p>
+  </div>
+
+  <div id="buy-buttons-block" style="display: none;">
+    {%- render 'buy-buttons',
+        block: block, product: product,
+        product_form_id: product_form_id,
+        section_id: section.id,
+        show_pickup_availability: true
+    -%}
+  </div>
+
+</div>
+
+<script>
+    function openChatBox(event) {
+      event.preventDefault();
+      // Your existing chatbox logic here...
+    }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  const variantIdInput = productForm ? productForm.querySelector('[name="id"]') : null;
+  if (!productForm || !variantIdInput) return;
+
+  // Get all our HTML blocks
+  const blocks = {
+    delivery: document.getElementById('delivery-time-block'),
+    deliveryValue: document.getElementById('delivery-time-value'),
+    discontinued: document.getElementById('discontinued-block'),
+    chat: document.getElementById('chat-block'),
+    inStock: document.getElementById('in-stock-block'),
+    buyButtons: document.getElementById('buy-buttons-block')
+  };
+
+  const updateAvailability = () => {
+    const currentVariantId = variantIdInput.value;
+    const variantData = productVariantsData[currentVariantId] || {};
+
+    // 1. First, hide everything to reset the state
+    Object.values(blocks).forEach(el => el && (el.style.display = 'none'));
+
+    // 2. Now, decide what to show based on your logic
+    if (variantData.delivery) {
+      // Variant has a specific delivery time
+      blocks.deliveryValue.textContent = variantData.delivery;
+      blocks.delivery.style.display = 'block';
+      blocks.buyButtons.style.display = 'block';
+    } else if (productData.delivery) {
+      // Product has a fallback delivery time
+      blocks.deliveryValue.textContent = productData.delivery;
+      blocks.delivery.style.display = 'block';
+      blocks.buyButtons.style.display = 'block';
+    } else if (variantData.discontinued === true) {
+      // Variant is discontinued
+      blocks.discontinued.style.display = 'block';
+    } else if (productData.call_for_availability === true) {
+      // Product requires call for availability
+      blocks.chat.style.display = 'block';
+    } else if (productData.call_for_availability === false) {
+      // Product is explicitly available
+      blocks.inStock.style.display = 'block';
+      blocks.buyButtons.style.display = 'block';
+    } else {
+      // Default case if no other rules match
+      blocks.buyButtons.style.display = 'block';
+    }
+  };
+
+  // Listen for changes and run on page load
+  productForm.addEventListener('change', updateAvailability);
+  updateAvailability();
+});
+</script>
+
+
+
+                {% comment %} {%  if product.selected_or_first_available_variant.metafields.custom.expected_delivery %}
                     <p>In stock! Get it in just <b>{{ product.selected_or_first_available_variant.metafields.custom.expected_delivery }}</b>.</p>
               {% elsif product.metafields.custom.expected_delivery %}
                   In stock! Get it in just {{ product.metafields.custom.expected_delivery }}.
@@ -1050,7 +1167,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   show_pickup_availability: true
                 -%}
 
-                  {%  endif %}
+                  {%  endif %} {% endcomment %}
 
 {% if product.tags contains 'no_free_shipping' %}
   <div class="product-tag-disclaimer" style="margin-top: 15px; font-size: 0.9em; color: #666; font-style: italic;">
