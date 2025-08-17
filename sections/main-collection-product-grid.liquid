@@ -536,6 +536,9 @@
                     <a href="{{ product.url | within: collection }}" class="collection-grid-item__link">
                       <h3 class="collection-grid-item__title">{{ product.title | escape }}</h3>
                     </a>
+                        {% if section.settings.show_vendor %}
+                          <span class="" title="{{ product.vendor | escape }}">{{ product.vendor | escape }}</span>
+                        {% endif %}
                     <div class="collection-grid-item__price-wrapper">
                       {%- if current_variant.compare_at_price > current_variant.price -%}
                         <span class="price--sale">
