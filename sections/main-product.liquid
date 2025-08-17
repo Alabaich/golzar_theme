@@ -1042,18 +1042,45 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 </div>
 
 <script>
-    function openChatBox(event) {
-      event.preventDefault();
-      // Your existing chatbox logic here...
-    }
+
+function openChatBox(event) {
+
+event.preventDefault();
+
+try {
+
+const shopifyChatHost = document.querySelector('inbox-online-store-chat');
+
+if (shopifyChatHost && shopifyChatHost.shadowRoot) {
+
+const chatToggleButton = shopifyChatHost.shadowRoot.querySelector('button.chat-toggle');
+
+if (chatToggleButton) {
+
+chatToggleButton.click();
+
+} else {
+
+console.error('Shopify Inbox: Internal chat toggle button not found.');
+
+}
+
+} else {
+
+console.error('Shopify Inbox: Chat host element not found or shadowRoot not accessible.');
+
+}
+
+} catch (error) {
+
+console.error('Error opening Shopify chat:', error);
+
+}
+
+}
+
 </script>
 
-<script>
-    function openChatBox(event) {
-      event.preventDefault();
-      // Your existing chatbox logic here...
-    }
-</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1071,6 +1098,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buyButtons: document.getElementById('buy-buttons-block')
   };
 
+  console.log(blocks.deliveryValue)
   const updateAvailability = () => {
     const currentVariantId = variantIdInput.value;
     const variantData = productVariantsData[currentVariantId] || {};
