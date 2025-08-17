@@ -989,8 +989,9 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-
-                {% if product.metafields.custom.expected_delivery %}
+                {%  if product.selected_or_first_available_variant.metafields.custom.expected_delivery %}
+                    In stock! Get it in just {{ product.selected_or_first_available_variant.metafields.custom.expected_delivery }}.
+              {% elsif product.metafields.custom.expected_delivery %}
                   In stock! Get it in just {{ product.metafields.custom.expected_delivery }}.
                 {% elsif product.selected_or_first_available_variant.metafields.custom.discontinued == true %}
 <div style="margin: 15px 0 0; width: 100%;">
