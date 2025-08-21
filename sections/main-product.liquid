@@ -1118,6 +1118,7 @@ document.addEventListener('DOMContentLoaded', function() {
       blocks.deliveryValue.textContent = productData.delivery;
       blocks.delivery.style.display = 'block';
       blocks.buyButtons.style.display = 'block';
+            blocks.deliveryValue.style.display = 'inline'; 
     } else if (variantData.discontinued === true) {
       // Variant is discontinued
       blocks.discontinued.style.display = 'block';
