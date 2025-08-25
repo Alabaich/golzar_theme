@@ -15,6 +15,7 @@
         "slide_MqbaYh": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/promotion_4e3605ff-1527-482f-9b05-b6179ddd29fa.webp",
             "heading": "Summer Sale",
             "heading_color": "#ffffff",
             "heading_size": "h1",
@@ -141,7 +142,6 @@
         "slide_46wzxy": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/pexels-photo-1358912.webp",
             "heading": "Your Heading Here",
             "button_label": "Shop Now",
             "button_url": ""
@@ -150,7 +150,6 @@
         "slide_dFLKgw": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Inspired-Banner-with-Image-versi.webp",
             "heading": "Your Heading Here",
             "button_label": "Shop Now",
             "button_url": ""
@@ -159,7 +158,6 @@
         "slide_EKHj4K": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/222.webp",
             "heading": "Your Heading Here",
             "button_label": "Shop Now",
             "button_url": ""
