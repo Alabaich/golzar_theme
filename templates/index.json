@@ -135,6 +135,45 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "hero_slider_BJVfLM": {
+      "type": "heroSlider",
+      "blocks": {
+        "slide_46wzxy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pexels-photo-1358912.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_dFLKgw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Inspired-Banner-with-Image-versi.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_EKHj4K": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/222.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_46wzxy",
+        "slide_dFLKgw",
+        "slide_EKHj4K"
+      ],
+      "name": "Hero Slider",
+      "settings": {}
+    },
     "feature_icons_RCwUXD": {
       "type": "feature-icons",
       "blocks": {
@@ -596,6 +635,7 @@
   },
   "order": [
     "slideshow_JJwBwz",
+    "hero_slider_BJVfLM",
     "feature_icons_RCwUXD",
     "our_categories_wnJ3DH",
     "featured_collection_promo_PBVXnq",
