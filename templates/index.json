@@ -484,6 +484,7 @@
       ],
       "settings": {
         "additional_class": "",
+        "image": "shopify://shop_images/home2.webp",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "desktop_content_position": "middle-center",
@@ -581,6 +582,7 @@
     "image_with_text_cta_4dbPbU": {
       "type": "image-with-text-cta",
       "settings": {
+        "image": "shopify://shop_images/home1.webp",
         "image_alt_text": "Request a free consultation and price estimate!",
         "help_text": "Need help?",
         "title": "Request a free consultation and price estimate!",
