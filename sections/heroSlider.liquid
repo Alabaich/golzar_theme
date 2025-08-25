@@ -12,16 +12,14 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    text-indent: -9999px;
-    /* Hides text for SEO */
+    text-indent: -9999px; /* Hides text for SEO */
   }
   .slide-content {
     position: absolute;
     bottom: 20%;
     left: 10%;
     color: #fff;
-    z-index: 2;
-    /* Above the link */
+    z-index: 2; /* Above the link */
   }
   .slide-content h2 {
     font-size: 2rem;
@@ -42,18 +40,15 @@
 <div class="hero-slider splide">
   <div class="splide__track">
     <ul class="splide__list">
-      {% for i in (1..5) %}
-        {% assign image = section.settings['slide_' | append: i | append: '_image'] %}
-        {% assign heading = section.settings['slide_' | append: i | append: '_heading'] %}
-        {% assign button_label = section.settings['slide_' | append: i | append: '_button_label'] %}
-        {% assign button_url = section.settings['slide_' | append: i | append: '_button_url'] %}
+      {% for block in section.blocks %}
+        {% assign image = block.settings.image %}
+        {% assign heading = block.settings.heading %}
+        {% assign button_label = block.settings.button_label %}
+        {% assign button_url = block.settings.button_url %}
         {% if image != blank %}
           <li class="splide__slide" title="{{ heading }}">
             {% if button_url != blank %}
-              <a
-                href="{{ button_url }}"
-                class="slide-link"
-                title="{{ heading }}">Slide Link</a>
+              <a href="{{ button_url }}" class="slide-link" title="{{ heading }}">Slide Link</a>
             {% endif %}
             <img
               src="{{ image | img_url: '1600x' }}"
@@ -62,10 +57,7 @@
             <div class="slide-content">
               <h2>{{ heading }}</h2>
               {% if button_label != blank %}
-                <a
-                  href="{{ button_url }}"
-                  class="btn"
-                  title="{{ heading }}">{{ button_label }}</a>
+                <a href="{{ button_url }}" class="btn" title="{{ heading }}">{{ button_label }}</a>
               {% endif %}
             </div>
           </li>
@@ -80,44 +72,59 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-  new Splide('.splide', {
-    type: 'loop',
-    padding: '20%',
-  }).mount();
+    new Splide('.splide', {
+      type: 'loop',
+      padding: '20%',
+    }).mount();
   });
 </script>
 
 {% schema %}
-  {
-    "name": "Hero Slider",
-    "settings": [
-      {% for i in (1..5) %}
+{
+  "name": "Hero Slider",
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
         {
           "type": "image_picker",
-          "id": "slide_{{ i }} _image",
-          "label": "Slide {{ i }} Image"
-        }, {
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
           "type": "text",
-          "id": "slide_{{ i }} _heading",
-          "label": "Slide {{ i }} Heading",
+          "id": "heading",
+          "label": "Slide Heading",
           "default": "Your Heading Here"
-        }, {
+        },
+        {
           "type": "text",
-          "id": "slide_{{ i }} _button_label",
-          "label": "Slide {{ i }} Button Label",
+          "id": "button_label",
+          "label": "Button Label",
           "default": "Shop Now"
-        }, {
+        },
+        {
           "type": "url",
-          "id": "slide_{{ i }} _button_url",
-          "label": "Slide {{ i }} Button URL"
-        }{% if i < 5 %},{% endif %}
-      {% endfor %}
-    ],
-    "presets": [
-      {
-        "name": "Hero Slider",
-        "category": "Slideshow"
-      }
-    ]
-  }
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider",
+      "category": "Slideshow",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
