@@ -188,9 +188,42 @@
 
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
-                          {% if item.product.metafields.custom.call_for_availability == true %}
+                          {% comment %} {% if item.product.metafields.custom.call_for_availability == true %}
                             <p style="color:red;"><b>On Backorder – Delivery in up to 6 weeks.</b></p>
-                          {% endif %}
+                          {% endif %} {% endcomment %}
+                          {% comment %}
+  ============================================================
+  CART ITEM AVAILABILITY LOGIC
+  - Replicates product page logic in a text-only format.
+  - Uses unique classes to avoid conflicts.
+  ============================================================
+{% endcomment %}
+
+{%- liquid
+  assign variant_delivery = item.variant.metafields.custom.expected_delivery
+  assign product_delivery = item.product.metafields.custom.expected_delivery
+  assign is_discontinued = item.variant.metafields.custom.discontinued
+  assign call_for_availability = item.product.metafields.custom.call_for_availability
+-%}
+
+<div class="cart-item-availability-info">
+  {%- if variant_delivery != blank -%}
+    <p class="cart-item__availability">In stock! Get it in just <b>{{ variant_delivery }}</b>.</p>
+
+  {%- elsif product_delivery != blank -%}
+    <p class="cart-item__availability">In stock! Get it in just <b>{{ product_delivery }}</b>.</p>
+
+  {%- elsif is_discontinued == true -%}
+    <p class="cart-item__availability cart-item__availability--discontinued">Discontinued</p>
+
+  {%- elsif call_for_availability == true -%}
+    <p class="cart-item__availability cart-item__availability--backorder"><b>On Backorder – Delivery in up to 6 weeks.</b></p>
+
+  {%- elsif call_for_availability == false -%}
+    <p class="cart-item__availability cart-item__availability--instock"><b>Available,</b> in stock. Ready to Ship.</p>
+
+  {%- endif -%}
+</div>
                           <ul class="discounts list-unstyled" role="list"
                             aria-label="{{ 'customer.order.discount' | t }}">
                             {%- for discount in item.line_level_discount_allocations -%}
