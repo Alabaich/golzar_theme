@@ -143,6 +143,7 @@
         "slide_46wzxy": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
             "heading": "Your Heading Here",
             "button_label": "Shop Now",
             "button_url": ""
