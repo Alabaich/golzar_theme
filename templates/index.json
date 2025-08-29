@@ -444,35 +444,6 @@
         "post_limit": 3,
         "button_text": "Read All Articles"
       }
-    },
-    "hero_slider_wDrcnj": {
-      "type": "heroSlider",
-      "blocks": {
-        "slide_pha6nG": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/labour_day_promotion.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        },
-        "slide_RRYqPM": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/What_are_best_Duravit_bathroom_sinks.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_pha6nG",
-        "slide_RRYqPM"
-      ],
-      "name": "Hero Slider",
-      "settings": {}
     }
   },
   "order": [
@@ -488,7 +459,6 @@
     "custom_blog_posts_grid_eQzdfc",
     "image_with_text_cta_4dbPbU",
     "featured_smart_toilets_4MgFHP",
-    "featured_blog_posts_V3fccC",
-    "hero_slider_wDrcnj"
+    "featured_blog_posts_V3fccC"
   ]
 }
