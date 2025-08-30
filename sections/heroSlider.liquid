@@ -1,9 +1,9 @@
 <style>
-  .hero-slider {
+  .hs-hero-slider {
     position: relative;
   }
 
-  .hero-slider .splide__slide {
+  .hs-hero-slider .splide__slide {
     position: relative;
     width: 100%;
     height: 500px;
@@ -11,7 +11,7 @@
     border-radius: 12px;
   }
 
-  .hero-slider .splide__slide img {
+  .hs-hero-slider .splide__slide img {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     display: block;
   }
 
-  .hero-slider .splide__slide .slide-link {
+  .hs-hero-slider .splide__slide .hs-slide-link {
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +32,7 @@
     text-indent: -9999px;
   }
 
-  .slide-content {
+  .hs-slide-content {
     position: absolute;
     top: 15%;
     left: 5%;
@@ -44,14 +44,14 @@
     flex-direction: column;
   }
 
-  .slide-content h2 {
+  .hs-slide-content h2 {
     margin: 0;
     line-height: 1.2;
     color: #fff;
     text-align: left;
   }
 
-  .slide-content .btnHeroSlider {
+  .hs-slide-content .hs-btn-hero-slider {
     width: fit-content;
     text-align: center;
     align-items: center;
@@ -59,31 +59,27 @@
     gap: 5px;
   }
 
-  .hero-slider .splide__arrow {
+  .hs-hero-slider .splide__arrow {
     height: 3em;
     width: 3em;
   }
 
-  .hero-slider .splide__arrow--next {
+  .hs-hero-slider .splide__arrow--next {
     right: -2em;
   }
 
-  .hero-slider .splide__arrow--prev {
+  .hs-hero-slider .splide__arrow--prev {
     left: -2em;
   }
 
-  .splide__pagination__page.is-active {
-    background: #667D8E !important;
-  }
-
-  .three-blocks-section {
+  .hs-three-blocks-section {
     display: flex;
     gap: 20px;
     margin-top: 40px;
     flex-wrap: wrap;
   }
 
-  .three-blocks-section .block-item {
+  .hs-three-blocks-section .hs-block-item {
     flex: 1;
     min-width: 300px;
     position: relative;
@@ -92,14 +88,14 @@
     height: 250px;
   }
 
-  .block-item img {
+  .hs-block-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .three-blocks-section .block-content {
+  .hs-three-blocks-section .hs-block-content {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -112,17 +108,17 @@
     gap: 15px;
   }
 
-  .three-blocks-section .block-content h3 {
+  .hs-three-blocks-section .hs-block-content h3 {
     margin: 0;
     color: #fff;
   }
 
-  .three-blocks-section .block-content p {
+  .hs-three-blocks-section .hs-block-content p {
     margin: 0;
     font-size: 16px;
   }
 
-  .three-blocks-section .block-item::before {
+  .hs-three-blocks-section .hs-block-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -135,68 +131,74 @@
     border-radius: 12px;
   }
 
-  .three-blocks-section .block-content {
+  .hs-three-blocks-section .hs-block-content {
     z-index: 2;
   }
 
-  .block-btn {
+  .hs-block-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background-color: #fff;
-    color: #333;
+    background-color: transparent;
+    color: #fff;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
     width: fit-content;
     transition: all 0.3s ease;
+    border: 2px solid #fff;
   }
 
-  .block-btn:hover {
-    background-color: #f5f5f5;
+  .hs-block-btn:hover {
+    background-color: #fff;
+    color: #333;
     transform: translateY(-2px);
   }
 
+  .hs-block-btn:hover svg path {
+    fill: #333;
+  }
+
   @media (max-width: 1600px) {
-    .hero-slider .splide__arrow--next {
+    .hs-hero-slider .splide__arrow--next {
       right: 0;
     }
 
-    .hero-slider .splide__arrow--prev {
+    .hs-hero-slider .splide__arrow--prev {
       left: 0;
     }
   }
 
   @media (max-width: 990px) {
-    .hero-slider .splide__arrow--next {
+    .hs-hero-slider .splide__arrow--next {
       right: 1em;
     }
 
-    .hero-slider .splide__arrow--prev {
+    .hs-hero-slider .splide__arrow--prev {
       left: 1em;
     }
   }
 
   @media (max-width: 768px) {
-    .hero-slider .splide__slide {
+    .hs-hero-slider .splide__slide {
       height: auto;
       aspect-ratio: 16 / 9;
     }
   }
 
   @media (max-width: 768px) {
-    .three-blocks-section {
+    .hs-three-blocks-section {
       flex-direction: column;
     }
 
-    .block-item {
+    .hs-block-item {
       height: 300px;
     }
   }
 </style>
 
-<div class="hero-slider splide page-width pageWidth">
+<div class="hs-hero-slider splide page-width pageWidth">
   <div class="splide__track">
     <ul class="splide__list">
       {% for block in section.blocks %}
@@ -207,12 +209,12 @@
           {% assign button_url = block.settings.button_url %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
-              <a href="{{ button_url }}" class="hero-slider-link">
+              <a href="{{ button_url }}" class="hs-slide-link">
                 <img
                   src="{{ image | img_url: '1600x' }}"
                   alt="{{ heading }}"
                   title="{{ heading }}">
-                <div class="slide-content">
+                <div class="hs-slide-content">
                   {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
                 </div>
               </a>
@@ -223,7 +225,7 @@
                 src="{{ image | img_url: '1600x' }}"
                 alt="{{ heading }}"
                 title="{{ heading }}">
-              <div class="slide-content">
+              <div class="hs-slide-content">
                 {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
               </div>
             </li>
@@ -235,23 +237,18 @@
 </div>
 
 <div class="page-width pageWidth">
-  <div class="three-blocks-section">
+  <div class="hs-three-blocks-section">
     {% for block in section.blocks %}
       {% if block.type == 'promo_block' %}
-        <div class="block-item">
+        <div class="hs-block-item">
           <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
-          <div class="block-content">
+          <div class="hs-block-content">
             <h3>{{ block.settings.heading }}</h3>
             <p>{{ block.settings.text }}</p>
-            <a href="{{ block.settings.button_url }}" class="block-btn">
+            <a href="{{ block.settings.button_url }}" class="hs-block-btn">
               {{ block.settings.button_label }}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor" />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.19526 4.19526C6.45561 3.93491 6.87772 3.93491 7.13807 4.19526L10.4714 7.5286C10.7318 7.78894 10.7318 8.21106 10.4714 8.4714L7.13807 11.8047C6.87772 12.0651 6.45561 12.0651 6.19526 11.8047C5.93491 11.5444 5.93491 11.1223 6.19526 10.8619L9.05719 8L6.19526 5.13807C5.93491 4.87772 5.93491 4.45561 6.19526 4.19526Z" fill="white"/>
               </svg>
             </a>
           </div>
