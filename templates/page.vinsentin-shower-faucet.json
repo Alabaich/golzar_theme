@@ -29,51 +29,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "hero_slider_ae93x3": {
-      "type": "heroSlider",
-      "blocks": {
-        "slide_bef3Px": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/labour_day_promotion.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        },
-        "slide_JA8qti": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/What_are_best_Duravit_bathroom_sinks.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        },
-        "slide_z3fqP9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/labour_day_promotion.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_bef3Px",
-        "slide_JA8qti",
-        "slide_z3fqP9"
-      ],
-      "name": "Hero Slider",
-      "settings": {}
     }
   },
   "order": [
     "brand-breadcrums",
     "armadi-art-brand",
-    "main",
-    "hero_slider_ae93x3"
+    "main"
   ]
 }

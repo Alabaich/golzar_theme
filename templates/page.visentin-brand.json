@@ -1,1 +1,106 @@
-{"sections":{"bocchi_brand_h_gtEJCd":{"type":"brand-breadcrums","settings":{"color":"#ffffff"}},"visentin":{"type":"visentin-brand","blocks":{"brand_LE7zPn":{"type":"brand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-07.webp","title":"Single Hole Faucets","link":"shopify:\/\/collections\/visentin-bathroom-faucets"}},"brand_dMCNX9":{"type":"brand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-08.webp","title":"Shower Faucet","link":"shopify:\/\/collections\/visentin-shower-faucets"}},"brand_pQ3UMk":{"type":"brand","settings":{"brand_img":"shopify:\/\/shop_images\/Brands-09.webp","title":"Kitchen Faucet","link":"shopify:\/\/collections\/visentin-kitchen-faucets"}}},"block_order":["brand_LE7zPn","brand_dMCNX9","brand_pQ3UMk"],"settings":{}},"main":{"type":"main-page","settings":{"padding_top":4,"padding_bottom":4}}},"order":["bocchi_brand_h_gtEJCd","visentin","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "visentin": {
+      "type": "visentin-brand",
+      "blocks": {
+        "brand_LE7zPn": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-07.webp",
+            "title": "Single Hole Faucets",
+            "link": "shopify://collections/visentin-bathroom-faucets"
+          }
+        },
+        "brand_dMCNX9": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-08.webp",
+            "title": "Shower Faucet",
+            "link": "shopify://collections/visentin-shower-faucets"
+          }
+        },
+        "brand_pQ3UMk": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-09.webp",
+            "title": "Kitchen Faucet",
+            "link": "shopify://collections/visentin-kitchen-faucets"
+          }
+        }
+      },
+      "block_order": [
+        "brand_LE7zPn",
+        "brand_dMCNX9",
+        "brand_pQ3UMk"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "hero_slider_gMCX8y": {
+      "type": "heroSlider",
+      "blocks": {
+        "slide_VN3fp7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_HY6UGc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/What_are_best_Duravit_bathroom_sinks.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_BDNCWA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_VN3fp7",
+        "slide_HY6UGc",
+        "slide_BDNCWA"
+      ],
+      "name": "Hero Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "visentin",
+    "main",
+    "hero_slider_gMCX8y"
+  ]
+}
