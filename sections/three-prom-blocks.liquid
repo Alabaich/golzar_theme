@@ -12,6 +12,23 @@
     border-radius: 12px;
     overflow: hidden;
     height: 250px;
+    transition: transform 0.3s ease;
+  }
+
+  .pageWidth.hs-three-blocks-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hs-block-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .hs-block-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
   }
 
   .hs-block-item img {
@@ -19,6 +36,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .hs-block-item:hover img {
+    transform: scale(1.05);
   }
 
   .hs-three-blocks-section .hs-block-content {
@@ -55,48 +77,6 @@
     font-size: 16px;
   }
 
-  .hs-three-blocks-section .hs-block-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
-    z-index: 1;
-    pointer-events: none;
-    border-radius: 12px;
-  }
-
-  .hs-three-blocks-section .hs-block-content {
-    z-index: 2;
-  }
-
-  .hs-block-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background-color: transparent;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 150px;
-    font-weight: 600;
-    width: fit-content;
-    transition: all 0.3s ease;
-    border: 1px solid #fff;
-  }
-
-  .hs-block-btn:hover {
-    background-color: #fff;
-    color: #2c2d2c;
-    transform: translateY(-2px);
-  }
-
-  .hs-block-btn:hover svg path {
-    fill: #2c2d2c;
-  }
-
   @media (max-width: 768px) {
     .hs-three-blocks-section {
       flex-direction: column;
@@ -113,30 +93,15 @@
     {% for block in section.blocks %}
       {% if block.type == 'promo_block' %}
         <div class="hs-block-item">
-          <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
-          <div class="hs-block-content">
-            <div class="hs-block-content-top">
-              <h3>{{ block.settings.heading }}</h3>
-              <p>{{ block.settings.text }}</p>
+          <a href="{{ block.settings.button_url }}">
+            <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
+            <div class="hs-block-content">
+              <div class="hs-block-content-top">
+                <h3>{{ block.settings.heading }}</h3>
+                <p>{{ block.settings.text }}</p>
+              </div>
             </div>
-            <div class="hs-block-content-bottom">
-              <a href="{{ block.settings.button_url }}" class="hs-block-btn">
-                {{ block.settings.button_label }}
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M0.195262 0.195262C0.455612 -0.0650874 0.877722 -0.0650874 1.13807 0.195262L4.4714 3.5286C4.73175 3.78894 4.73175 4.21106 4.4714 4.4714L1.13807 7.80474C0.877722 8.06509 0.455612 8.06509 0.195262 7.80474C-0.0650874 7.54439 -0.0650874 7.12228 0.195262 6.86193L3.05719 4L0.195262 1.13807C-0.0650871 0.877722 -0.0650871 0.455612 0.195262 0.195262Z"
-                    fill="white" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </a>
         </div>
       {% endif %}
     {% endfor %}
@@ -146,6 +111,14 @@
 {% schema %}
   {
     "name": "Three Promo Blocks",
+    "class": "index-section",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Add up to 3 promo blocks with full image links"
+      }
+    ],
     "blocks": [
       {
         "type": "promo_block",
@@ -167,14 +140,9 @@
             "label": "Block Text"
           },
           {
-            "type": "text",
-            "id": "button_label",
-            "label": "Button Label",
-            "default": "Shop Now"
-          }, {
             "type": "url",
             "id": "button_url",
-            "label": "Button URL"
+            "label": "Block Link URL"
           }
         ]
       }
@@ -182,13 +150,15 @@
     "presets": [
       {
         "name": "Three Promo Blocks",
-        "category": "Layout",
+        "category": "Custom",
         "blocks": [
           {
             "type": "promo_block"
-          }, {
+          },
+          {
             "type": "promo_block"
-          }, {
+          },
+          {
             "type": "promo_block"
           }
         ]
