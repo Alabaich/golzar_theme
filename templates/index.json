@@ -57,6 +57,46 @@
       "name": "Hero Slider",
       "settings": {}
     },
+    "three_prom_blocks_fL7ayY": {
+      "type": "three-prom-blocks",
+      "blocks": {
+        "promo_block_zzzVEF": {
+          "type": "promo_block",
+          "settings": {
+            "heading": "",
+            "text": "",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "promo_block_dykMjL": {
+          "type": "promo_block",
+          "settings": {
+            "heading": "",
+            "text": "",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "promo_block_BpCRhp": {
+          "type": "promo_block",
+          "settings": {
+            "heading": "",
+            "text": "",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "promo_block_zzzVEF",
+        "promo_block_dykMjL",
+        "promo_block_BpCRhp"
+      ],
+      "disabled": true,
+      "name": "Three Promo Blocks",
+      "settings": {}
+    },
     "slideshow_JJwBwz": {
       "type": "slideshow",
       "blocks": {
@@ -497,6 +537,7 @@
   },
   "order": [
     "hero_slider_ditAGH",
+    "three_prom_blocks_fL7ayY",
     "slideshow_JJwBwz",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
