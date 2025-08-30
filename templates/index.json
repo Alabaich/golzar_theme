@@ -35,6 +35,7 @@
         "slide_9Ed4gP",
         "slide_Vrd9hE"
       ],
+      "disabled": true,
       "name": "Hero Slider",
       "settings": {}
     },
@@ -154,7 +155,6 @@
         "slide_yG3jCn",
         "slide_TyqwW7"
       ],
-      "disabled": true,
       "settings": {
         "additional_class": "",
         "layout": "grid",
