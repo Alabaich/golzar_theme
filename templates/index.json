@@ -74,18 +74,20 @@
         "promo_block_QcTBGY": {
           "type": "promo_block",
           "settings": {
+            "image": "shopify://shop_images/kitchen.webp",
             "heading": "",
             "text": "",
-            "button_label": "Shop Now",
+            "button_label": "",
             "button_url": ""
           }
         },
         "promo_block_MnqjNh": {
           "type": "promo_block",
           "settings": {
+            "image": "shopify://shop_images/sale.webp",
             "heading": "",
             "text": "",
-            "button_label": "Shop Now",
+            "button_label": "",
             "button_url": ""
           }
         }
