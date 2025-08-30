@@ -89,7 +89,7 @@
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    height: 300px;
+    height: 250px;
   }
 
   .block-item img {
@@ -120,6 +120,23 @@
   .three-blocks-section .block-content p {
     margin: 0;
     font-size: 16px;
+  }
+
+  .three-blocks-section .block-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 12px;
+  }
+
+  .three-blocks-section .block-content {
+    z-index: 2;
   }
 
   .block-btn {
