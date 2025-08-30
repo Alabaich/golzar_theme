@@ -86,12 +86,45 @@
             "button_label": "Shop Now",
             "button_url": ""
           }
+        },
+        "promo_block_gffHrx": {
+          "type": "promo_block",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Block Heading",
+            "text": "Description text for this block",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "promo_block_gVzTQM": {
+          "type": "promo_block",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Block Heading",
+            "text": "Description text for this block",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "promo_block_FtkxYt": {
+          "type": "promo_block",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Block Heading",
+            "text": "Description text for this block",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
         }
       },
       "block_order": [
         "slide_VN3fp7",
         "slide_HY6UGc",
-        "slide_BDNCWA"
+        "slide_BDNCWA",
+        "promo_block_gffHrx",
+        "promo_block_gVzTQM",
+        "promo_block_FtkxYt"
       ],
       "name": "Hero Slider",
       "settings": {}
