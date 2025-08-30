@@ -9,6 +9,36 @@
  */
 {
   "sections": {
+    "hero_slider_ditAGH": {
+      "type": "heroSlider",
+      "blocks": {
+        "slide_9Ed4gP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_Vrd9hE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Duravit-04-04.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_9Ed4gP",
+        "slide_Vrd9hE"
+      ],
+      "disabled": true,
+      "name": "Hero Slider",
+      "settings": {}
+    },
     "slideshow_JJwBwz": {
       "type": "slideshow",
       "blocks": {
@@ -447,6 +477,7 @@
     }
   },
   "order": [
+    "hero_slider_ditAGH",
     "slideshow_JJwBwz",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
