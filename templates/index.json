@@ -24,18 +24,36 @@
         "slide_Vrd9hE": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Duravit-04-04.webp",
+            "image": "shopify://shop_images/duravit.webp",
             "heading": "Duravit Brand Buy",
             "button_label": "Duravit Brand Buy",
-            "button_url": "shopify://collections/duravit-bathroom-sinks"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Duravit"
+          }
+        },
+        "slide_ywQwcF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/toto.webp",
+            "heading": "TOTO Authorized Dealer",
+            "button_label": "Shop Now Toto",
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+          }
+        },
+        "slide_kFJGHx": {
+          "type": "slide",
+          "settings": {
+            "heading": "The bold look  of Kohler",
+            "button_label": "Express your personality with our range of styles and finishes.",
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Kohler"
           }
         }
       },
       "block_order": [
         "slide_9Ed4gP",
-        "slide_Vrd9hE"
+        "slide_Vrd9hE",
+        "slide_ywQwcF",
+        "slide_kFJGHx"
       ],
-      "disabled": true,
       "name": "Hero Slider",
       "settings": {}
     },
