@@ -15,8 +15,8 @@
         "slide_MqbaYh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/promotion_4e3605ff-1527-482f-9b05-b6179ddd29fa.webp",
-            "heading": "Summer Sale",
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Labour Day Sale",
             "heading_color": "#ffffff",
             "heading_size": "h1",
             "subheading": "",
@@ -57,7 +57,7 @@
         "slide_icK4QX": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/toto-12.jpg",
+            "image": "shopify://shop_images/download.webp",
             "heading": "TOTO Authorized Dealer",
             "heading_color": "#ffffff",
             "heading_size": "h1",
@@ -137,158 +137,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "feature_icons_RCwUXD": {
-      "type": "feature-icons",
-      "blocks": {
-        "feature_item_3YQ3dq": {
-          "type": "feature_item",
-          "settings": {
-            "icon_preset": "support",
-            "icon_width": 52,
-            "title": "Customer support",
-            "description": "<p>Our support is always ready to help you</p>"
-          }
-        },
-        "feature_item_BVrRFY": {
-          "type": "feature_item",
-          "settings": {
-            "icon_preset": "price_match",
-            "icon_width": 52,
-            "title": "Price match",
-            "description": "<p>Found it cheaper? We'll lower the price for you.</p>"
-          }
-        },
-        "feature_item_VHeCta": {
-          "type": "feature_item",
-          "settings": {
-            "icon_preset": "delivery",
-            "icon_width": 52,
-            "title": "Free delivery",
-            "description": "<p>We'll deliver your order for free and quickly.</p>"
-          }
-        },
-        "feature_item_NVFfWx": {
-          "type": "feature_item",
-          "settings": {
-            "icon_preset": "pickup",
-            "icon_width": 52,
-            "title": "Same day pick up",
-            "description": "<p>Pick up your order today at the store.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "feature_item_3YQ3dq",
-        "feature_item_BVrRFY",
-        "feature_item_VHeCta",
-        "feature_item_NVFfWx"
-      ],
-      "name": "Feature Icons",
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "columns_desktop": 4,
-        "grid_gap": 32,
-        "content_alignment": "left",
-        "color_scheme": ""
-      }
-    },
-    "our_categories_wnJ3DH": {
-      "type": "our-categories",
-      "blocks": {
-        "category_3dLbHF": {
-          "type": "category",
-          "settings": {
-            "collection": "shower-faucets"
-          }
-        },
-        "category_NXpKz6": {
-          "type": "category",
-          "settings": {
-            "collection": "toilets"
-          }
-        },
-        "category_fqPfmY": {
-          "type": "category",
-          "settings": {
-            "collection": "wall-mounted-toilets"
-          }
-        },
-        "category_FcAATF": {
-          "type": "category",
-          "settings": {
-            "collection": "vanity"
-          }
-        },
-        "category_cGMRhY": {
-          "type": "category",
-          "settings": {
-            "collection": "bath-accessories"
-          }
-        },
-        "category_NcRm8A": {
-          "type": "category",
-          "settings": {
-            "collection": "bathroom-faucets"
-          }
-        },
-        "category_CN7myG": {
-          "type": "category",
-          "settings": {
-            "collection": "bathroom-sinks"
-          }
-        },
-        "category_a3tzib": {
-          "type": "category",
-          "settings": {
-            "collection": "bathtubs"
-          }
-        },
-        "category_yNMibA": {
-          "type": "category",
-          "settings": {
-            "collection": "kitchen-faucets"
-          }
-        },
-        "category_eFpa9D": {
-          "type": "category",
-          "settings": {
-            "collection": "kitchen-sinks"
-          }
-        },
-        "category_xH3wiK": {
-          "type": "category",
-          "settings": {
-            "collection": "led-mirror-1"
-          }
-        },
-        "category_6FbBGQ": {
-          "type": "category",
-          "settings": {
-            "collection": "kitchen-accessories"
-          }
-        }
-      },
-      "block_order": [
-        "category_3dLbHF",
-        "category_NXpKz6",
-        "category_fqPfmY",
-        "category_FcAATF",
-        "category_cGMRhY",
-        "category_NcRm8A",
-        "category_CN7myG",
-        "category_a3tzib",
-        "category_yNMibA",
-        "category_eFpa9D",
-        "category_xH3wiK",
-        "category_6FbBGQ"
-      ],
-      "settings": {
-        "title": "Our Categories",
-        "title_color": "#002642"
-      }
-    },
     "featured_collection_promo_PBVXnq": {
       "type": "featured-collection-promo",
       "name": "Unique Promo Slider",
@@ -298,7 +146,6 @@
         "promo_subheading": "<p>Discover a wide range of premium bathroom accessories to elevate your space. From sleek faucets and towel racks to elegant mirrors and organizers.</p>",
         "promo_button_text": "Discover more",
         "promo_button_link": "shopify://collections/sales-sales",
-        "promo_image": "shopify://shop_images/MS7631CEMFG_GAL_01b_600_600.webp",
         "promo_bg_color": "#002642",
         "promo_heading_color": "#ffffff",
         "promo_subheading_color": "#ffffff",
@@ -450,7 +297,7 @@
       ],
       "settings": {
         "additional_class": "",
-        "image": "shopify://shop_images/70087_B-23084001_1_CDNwebp_42833c01-3bee-4eb5-b0b4-e556ee5154cd.webp",
+        "image": "shopify://shop_images/home2.webp",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "desktop_content_position": "middle-center",
@@ -548,7 +395,7 @@
     "image_with_text_cta_4dbPbU": {
       "type": "image-with-text-cta",
       "settings": {
-        "image": "shopify://shop_images/Three-Featured-Images-aad14336_Three-Featured-Images-Desktop.webp",
+        "image": "shopify://shop_images/home1.webp",
         "image_alt_text": "Request a free consultation and price estimate!",
         "help_text": "Need help?",
         "title": "Request a free consultation and price estimate!",
@@ -601,8 +448,6 @@
   },
   "order": [
     "slideshow_JJwBwz",
-    "feature_icons_RCwUXD",
-    "our_categories_wnJ3DH",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
     "collection_data_discount_bERRBy",

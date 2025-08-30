@@ -1,1 +1,79 @@
-{"sections":{"brand-breadcrums":{"type":"brand-breadcrums","settings":{"color":"#ffffff"}},"armadi-art-brand":{"type":"vinsentin-shower-faucet","settings":{"tags":"VISENTIN","collection_selcted":"shower-faucets","quick_add":"standard"}},"main":{"type":"main-page","settings":{"padding_top":36,"padding_bottom":36}}},"order":["brand-breadcrums","armadi-art-brand","main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "brand-breadcrums": {
+      "type": "brand-breadcrums",
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "armadi-art-brand": {
+      "type": "vinsentin-shower-faucet",
+      "settings": {
+        "tags": "VISENTIN",
+        "collection_selcted": "shower-faucets",
+        "quick_add": "standard"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "hero_slider_ae93x3": {
+      "type": "heroSlider",
+      "blocks": {
+        "slide_bef3Px": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_JA8qti": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/What_are_best_Duravit_bathroom_sinks.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        },
+        "slide_z3fqP9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/labour_day_promotion.webp",
+            "heading": "Your Heading Here",
+            "button_label": "Shop Now",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bef3Px",
+        "slide_JA8qti",
+        "slide_z3fqP9"
+      ],
+      "name": "Hero Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "brand-breadcrums",
+    "armadi-art-brand",
+    "main",
+    "hero_slider_ae93x3"
+  ]
+}
