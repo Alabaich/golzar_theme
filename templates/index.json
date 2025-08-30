@@ -16,18 +16,18 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/labour_day_promotion.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
+            "heading": "labour Day Sale",
+            "button_label": "Labour Day Sale Page",
+            "button_url": "shopify://collections/summer-sale-2025-bathroom-supplier"
           }
         },
         "slide_Vrd9hE": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Duravit-04-04.webp",
-            "heading": "Your Heading Here",
-            "button_label": "Shop Now",
-            "button_url": ""
+            "heading": "Duravit Brand Buy",
+            "button_label": "Duravit Brand Buy",
+            "button_url": "shopify://collections/duravit-bathroom-sinks"
           }
         }
       },
@@ -35,7 +35,6 @@
         "slide_9Ed4gP",
         "slide_Vrd9hE"
       ],
-      "disabled": true,
       "name": "Hero Slider",
       "settings": {}
     },
