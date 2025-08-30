@@ -114,7 +114,7 @@
             "heading": "Block Heading",
             "text": "Description text for this block",
             "button_label": "Shop Now",
-            "button_url": ""
+            "button_url": "shopify://pages/contact-us"
           }
         }
       },
