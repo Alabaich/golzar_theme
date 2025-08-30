@@ -58,7 +58,7 @@
     gap: 15px;
   }
 
-  .pageWidth.3hs-three {
+  .hs-three .pageWidth {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -88,23 +88,25 @@
   }
 </style>
 
-<div class="page-width pageWidth 3hs-three">
-  <div class="hs-three-blocks-section">
-    {% for block in section.blocks %}
-      {% if block.type == 'promo_block' %}
-        <div class="hs-block-item">
-          <a href="{{ block.settings.button_url }}">
-            <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
-            <div class="hs-block-content">
-              <div class="hs-block-content-top">
-                <h3>{{ block.settings.heading }}</h3>
-                <p>{{ block.settings.text }}</p>
+<div class="hs-three">
+  <div class="page-width pageWidth">
+    <div class="hs-three-blocks-section">
+      {% for block in section.blocks %}
+        {% if block.type == 'promo_block' %}
+          <div class="hs-block-item">
+            <a href="{{ block.settings.button_url }}">
+              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
+              <div class="hs-block-content">
+                <div class="hs-block-content-top">
+                  <h3>{{ block.settings.heading }}</h3>
+                  <p>{{ block.settings.text }}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
-      {% endif %}
-    {% endfor %}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
