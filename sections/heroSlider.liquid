@@ -83,13 +83,13 @@
     flex-wrap: wrap;
   }
 
-  .block-item {
+  .three-blocks-section .block-item {
     flex: 1;
     min-width: 300px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    height: 400px;
+    height: 300px;
   }
 
   .block-item img {
@@ -99,7 +99,7 @@
     display: block;
   }
 
-  .block-content {
+  .three-blocks-section .block-content {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -112,16 +112,14 @@
     gap: 15px;
   }
 
-  .block-content h3 {
+  .three-blocks-section .block-content h4 {
     margin: 0;
-    font-size: 24px;
-    line-height: 1.2;
+    color: #fff;
   }
 
-  .block-content p {
+  .three-blocks-section .block-content p {
     margin: 0;
     font-size: 16px;
-    line-height: 1.5;
   }
 
   .block-btn {
@@ -260,95 +258,89 @@
 </script>
 
 {% schema %}
-{
-  "name": "Hero Slider",
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Slide Image"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Slide Heading",
-          "default": "Your Heading Here"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL"
-        }
-      ]
-    },
-    {
-      "type": "promo_block",
-      "name": "Promo Block",
-      "limit": 3,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Block Image"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Block Heading",
-          "default": "Block Heading"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Block Text",
-          "default": "Description text for this block"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero Slider",
-      "category": "Slideshow",
-      "blocks": [
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "promo_block"
-        },
-        {
-          "type": "promo_block"
-        },
-        {
-          "type": "promo_block"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "Hero Slider",
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Slide Image"
+          }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Slide Heading",
+            "default": "Your Heading Here"
+          }, {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Shop Now"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          }
+        ]
+      }, {
+        "type": "promo_block",
+        "name": "Promo Block",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Block Image"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Block Heading",
+            "default": "Block Heading"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Block Text",
+            "default": "Description text for this block"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Shop Now"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Slider",
+        "category": "Slideshow",
+        "blocks": [
+          {
+            "type": "slide"
+          },
+          {
+            "type": "slide"
+          },
+          {
+            "type": "promo_block"
+          },
+          {
+            "type": "promo_block"
+          }, {
+            "type": "promo_block"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
