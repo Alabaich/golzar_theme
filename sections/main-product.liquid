@@ -992,14 +992,24 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 <script>
   // Data for each specific variant
-  const productVariantsData = {
+  {% comment %} const productVariantsData = {
     {% for variant in product.variants %}
       "{{ variant.id }}": {
         "delivery": "{{ variant.metafields.custom.expected_delivery }}",
         "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
       },
     {% endfor %}
-  };
+  }; {% endcomment %}
+
+  const productVariantsData = {
+  {% for variant in product.variants %}
+    "{{ variant.id }}": {
+      "available": {{ variant.available }}, // <-- ADD THIS LINE
+      "delivery": "{{ variant.metafields.custom.expected_delivery }}",
+      "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
+    },
+  {% endfor %}
+};
 
   // Fallback data for the whole product
   const productData = {
@@ -1007,6 +1017,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
   };
 </script>
+
+
 <div id="availability-container">
 
   <p id="delivery-time-block" style="display: none;">
@@ -1038,6 +1050,12 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         show_pickup_availability: true
     -%}
   </div>
+
+  <div id="sold-out-block" style="display: none; margin: 15px 0 0; width: 100%;">
+  <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black;">
+    Sold Out
+  </span>
+</div>
 
 </div>
 
@@ -1096,6 +1114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     chat: document.getElementById('chat-block'),
     inStock: document.getElementById('in-stock-block'),
     buyButtons: document.getElementById('buy-buttons-block')
+    soldOut: document.getElementById('sold-out-block') 
   };
 
   console.log(blocks.deliveryValue)
@@ -1113,7 +1132,12 @@ document.addEventListener('DOMContentLoaded', function() {
       blocks.delivery.style.display = 'block';
       blocks.buyButtons.style.display = 'block';
       blocks.deliveryValue.style.display = 'inline'; 
-    } else if (productData.delivery) {
+    }else if (variantData.available === false) { // <-- NEW, CRUCIAL CHECK!
+      // SECOND PRIORITY: If variant is unavailable (sold out), show that.
+      blocks.soldOut.style.display = 'block';
+      // Buy buttons remain hidden
+
+    }else if (productData.delivery) {
       // Product has a fallback delivery time
       blocks.deliveryValue.textContent = productData.delivery;
       blocks.delivery.style.display = 'block';
