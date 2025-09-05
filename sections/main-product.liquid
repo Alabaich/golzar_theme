@@ -992,14 +992,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 <script>
   // Data for each specific variant
-  {% comment %} const productVariantsData = {
-    {% for variant in product.variants %}
-      "{{ variant.id }}": {
-        "delivery": "{{ variant.metafields.custom.expected_delivery }}",
-        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
-      },
-    {% endfor %}
-  }; {% endcomment %}
 
   const productVariantsData = {
   {% for variant in product.variants %}
