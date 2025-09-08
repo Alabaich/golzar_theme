@@ -1142,7 +1142,7 @@ document.addEventListener('DOMContentLoaded', function() {
       blocks.chat.style.display = 'block';
       blocks.buyButtons.style.display = 'block';
       if (productData.delivery) {
-        backorderMessage.innerHTML = `<b>On Back Order – Delivery in ${productData.delivery}.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.`;
+        backorderMessage.innerHTML = `<b>On Back Order – Delivery in ${productData.deliveryValue}.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.`;
       } else {
         backorderMessage.innerHTML = '<b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.';
       }
