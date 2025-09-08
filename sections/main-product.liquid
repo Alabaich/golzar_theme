@@ -1109,6 +1109,8 @@ document.addEventListener('DOMContentLoaded', function() {
     soldOut: document.getElementById('sold-out-block') 
   };
 
+   const backorderMessage = blocks.chat.querySelector('p');
+
   console.log(blocks.deliveryValue)
   const updateAvailability = () => {
     const currentVariantId = variantIdInput.value;
@@ -1129,22 +1131,30 @@ document.addEventListener('DOMContentLoaded', function() {
       blocks.soldOut.style.display = 'block';
       // Buy buttons remain hidden
 
-    }else if (productData.delivery) {
-      // Product has a fallback delivery time
-      blocks.deliveryValue.textContent = productData.delivery;
-      blocks.delivery.style.display = 'block';
-      blocks.buyButtons.style.display = 'block';
-            blocks.deliveryValue.style.display = 'inline'; 
+// ADD THIS NEW CHUNK IN ITS PLACE
     } else if (variantData.discontinued === true) {
       // Variant is discontinued
       blocks.discontinued.style.display = 'block';
-      
+
+    // --- PRODUCT-LEVEL LOGIC (Fallback) ---
     } else if (productData.call_for_availability === true) {
-      // Product requires call for availability
+      // SCENARIO 1: Show "On Back Order" message
       blocks.chat.style.display = 'block';
-            blocks.buyButtons.style.display = 'block';
+      blocks.buyButtons.style.display = 'block';
+      if (productData.delivery) {
+        backorderMessage.innerHTML = `<b>On Back Order – Delivery in ${productData.delivery}.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.`;
+      } else {
+        backorderMessage.innerHTML = '<b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.';
+      }
+
+    } else if (productData.delivery) {
+      // SCENARIO 2: Show "In stock" message
+      blocks.deliveryValue.textContent = productData.delivery;
+      blocks.delivery.style.display = 'block';
+      blocks.buyButtons.style.display = 'block';
+
     } else if (productData.call_for_availability === false) {
-      // Product is explicitly available
+      // Fallback for "in stock" with no specific delivery time
       blocks.inStock.style.display = 'block';
       blocks.buyButtons.style.display = 'block';
     } else {
