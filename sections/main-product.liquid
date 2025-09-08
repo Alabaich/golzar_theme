@@ -1152,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', function() {
       blocks.deliveryValue.textContent = productData.delivery;
       blocks.delivery.style.display = 'block';
       blocks.buyButtons.style.display = 'block';
+      blocks.deliveryValue.style.display = 'inline';
 
     } else if (productData.call_for_availability === false) {
       // Fallback for "in stock" with no specific delivery time
