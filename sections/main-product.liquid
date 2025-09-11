@@ -990,7 +990,225 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
 
+
+
+
+
+{% comment %}
+  This file contains the HTML structure and JavaScript logic for displaying
+  dynamic product availability information on a Shopify product page.
+{% endcomment %}
+
+{% comment %}
+  Data Generation Script Block
+  This script gathers all necessary data from Shopify's Liquid objects
+  and stores them in JavaScript variables for easy access.
+  - productVariantsData: Holds availability, delivery, and discontinued status for each variant.
+  - productData: Holds fallback delivery time and the crucial "call_for_availability" flag for the entire product.
+{% endcomment %}
 <script>
+  // Data for each specific variant
+  const productVariantsData = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {
+        "available": {{ variant.available }},
+        "delivery": "{{ variant.metafields.custom.expected_delivery }}",
+        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
+      },
+    {% endfor %}
+  };
+
+  // Fallback data for the whole product
+  const productData = {
+    "delivery": "{{ product.metafields.custom.expected_delivery }}",
+    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
+  };
+</script>
+
+{% comment %}
+  HTML Structure for Availability Blocks
+  These are the containers for different availability messages. JavaScript will
+  show or hide them based on the logic. Each block has a unique ID.
+{% endcomment %}
+<div id="availability-container">
+
+  <p id="delivery-time-block" style="display: none;">
+    In stock! Get it in just <b id="delivery-time-value"></b>.
+  </p>
+
+  <div id="discontinued-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white;">
+      Discontinued
+    </span>
+  </div>
+
+  <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span onclick="openChatBox(event)" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;">
+      Chat for Availability
+    </span>
+    <p style="margin-top: 10px;" id="backorder-message"><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
+  </div>
+
+  <div id="in-stock-block" style="display: none;">
+     <p><b>Available,</b> in stock. Ready to Ship.</p>
+  </div>
+
+  <div id="buy-buttons-block" style="display: block;">
+    {%- render 'buy-buttons',
+        block: block, product: product,
+        product_form_id: product_form_id,
+        section_id: section.id,
+        show_pickup_availability: true
+    -%}
+  </div>
+
+  <div id="sold-out-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black;">
+      Sold Out
+    </span>
+  </div>
+
+</div>
+
+
+
+{% comment %}
+  JavaScript for opening the Shopify chat widget.
+{% endcomment %}
+<script>
+  function openChatBox(event) {
+    event.preventDefault();
+    try {
+      const shopifyChatHost = document.querySelector('inbox-online-store-chat');
+      if (shopifyChatHost && shopifyChatHost.shadowRoot) {
+        const chatToggleButton = shopifyChatHost.shadowRoot.querySelector('button.chat-toggle');
+        if (chatToggleButton) {
+          chatToggleButton.click();
+        } else {
+          console.error('Shopify Inbox: Internal chat toggle button not found.');
+        }
+      } else {
+        console.error('Shopify Inbox: Chat host element not found or shadowRoot not accessible.');
+      }
+    } catch (error) {
+      console.error('Error opening Shopify chat:', error);
+    }
+  }
+</script>
+
+{% comment %}
+  Core Availability Logic Script
+  This is the main script that implements the desired display logic.
+  It listens for the DOM to be ready and for changes in the product form (e.g., selecting a new variant).
+{% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  const variantIdInput = productForm ? productForm.querySelector('[name="id"]') : null;
+  if (!productForm || !variantIdInput) return;
+
+  // Get all our HTML blocks for easy manipulation
+  const blocks = {
+    delivery: document.getElementById('delivery-time-block'),
+    deliveryValue: document.getElementById('delivery-time-value'),
+    discontinued: document.getElementById('discontinued-block'),
+    chat: document.getElementById('chat-block'),
+    backorderMessage: document.getElementById('backorder-message'),
+    inStock: document.getElementById('in-stock-block'),
+    buyButtons: document.getElementById('buy-buttons-block'),
+    soldOut: document.getElementById('sold-out-block')
+  };
+
+  const updateAvailability = () => {
+    const currentVariantId = variantIdInput.value;
+    const variantData = productVariantsData[currentVariantId] || {};
+
+    // 1. First, hide all message blocks to reset the state.
+    blocks.delivery.style.display = 'none';
+    blocks.discontinued.style.display = 'none';
+    blocks.chat.style.display = 'none';
+    blocks.inStock.style.display = 'none';
+    blocks.soldOut.style.display = 'none';
+    blocks.buyButtons.style.display = 'block';
+
+
+    // --- HIGH PRIORITY CHECKS ---
+    // These override all other logic.
+
+    // 2. Check if the variant is discontinued.
+    if (variantData.discontinued === true) {
+      blocks.discontinued.style.display = 'block';
+      blocks.buyButtons.style.display = 'none';
+      return; // Stop execution
+    }
+
+    // 3. Check if the variant is sold out.
+    if (variantData.available === false) {
+      blocks.soldOut.style.display = 'block';
+      blocks.buyButtons.style.display = 'none';
+      return; // Stop execution
+    }
+
+    // --- MAIN LOGIC BRANCH (NEW) ---
+    // We check for a delivery time first, from variant then product.
+    // THEN we use call_for_availability to decide *how* to display that time.
+    const deliveryTime = variantData.delivery || productData.delivery;
+
+    if (deliveryTime) {
+      if (productData.call_for_availability === true) {
+        // We have a time, and it's a backorder.
+        blocks.chat.style.display = 'block';
+        blocks.backorderMessage.innerHTML = `<b>On Backorder – Delivery in ${deliveryTime}.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.`;
+      } else {
+        // We have a time, and it's in stock.
+        blocks.delivery.style.display = 'block';
+        blocks.deliveryValue.textContent = deliveryTime;
+      }
+    } else {
+      // No delivery time specified, so we show a generic message.
+      if (productData.call_for_availability === true) {
+        // Generic backorder message.
+        blocks.chat.style.display = 'block';
+        blocks.backorderMessage.innerHTML = '<b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.';
+      } else {
+        // Generic in-stock message.
+        blocks.inStock.style.display = 'block';
+      }
+    }
+  };
+
+  // Listen for changes and run on page load.
+  productForm.addEventListener('change', updateAvailability);
+  updateAvailability();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <script>
   // Data for each specific variant
 
   const productVariantsData = {
@@ -1169,6 +1387,28 @@ document.addEventListener('DOMContentLoaded', function() {
   updateAvailability();
 });
 </script>
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
