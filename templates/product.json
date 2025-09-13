@@ -141,7 +141,10 @@
       "blocks": {
         "judge_me_reviews_review_widget_Xg9Nwa": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [
@@ -149,6 +152,42 @@
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "faq_section_rB86jU": {
+      "type": "faqSection",
+      "blocks": {
+        "faq_item_yPQb3T": {
+          "type": "faq_item",
+          "settings": {
+            "question": "<p>What is your return policy?</p>",
+            "answer": "<p>We offer a 30-day return policy on all of our products. If you are not satisfied with your purchase, you can return it for a full refund. Use this area to link to your full <a href=\"#\">Return Policy page</a>.</p>"
+          }
+        },
+        "faq_item_gNeQVk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "<p>How long does shipping take?</p>",
+            "answer": "<p>Shipping times vary depending on your location. Typically, orders arrive within <strong>3-5 business days</strong> for domestic shipping and 7-14 business days for international shipping.</p>"
+          }
+        },
+        "faq_item_UjaA7g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "<p>Do you offer international shipping?</p>",
+            "answer": "<p>Yes, we ship to most countries worldwide. Please proceed to checkout to see if we ship to your location and to calculate shipping costs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_yPQb3T",
+        "faq_item_gNeQVk",
+        "faq_item_UjaA7g"
+      ],
+      "name": "FAQ Section (SEO)",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "first_item_open": false
       }
     },
     "related-products": {
@@ -175,6 +214,7 @@
     "breadcrumbs_section_AprXKk",
     "main",
     "1735585868466f2cf4",
+    "faq_section_rB86jU",
     "related-products"
   ]
 }
