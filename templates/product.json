@@ -168,7 +168,7 @@
           "type": "faq_item",
           "settings": {
             "question": "<p>What is your return policy?</p>",
-            "answer": "<p>We offer a 30-day return policy on all of our products. If you are not satisfied with your purchase, you can return it for a full refund. Use this area to link to your full <a href=\"#\">Return Policy page</a>.</p>"
+            "answer": "<p>We want you to love your purchase! Here is a summary of our return and exchange policy:</p><ul><li><strong>Returns:</strong> Eligible items can be returned for a full refund within <strong>7 days</strong> of delivery.</li><li><strong>Exchanges:</strong> Eligible items can be exchanged within <strong>30 days</strong> of delivery.</li><li><strong>Condition:</strong> All items must be unused, uninstalled, and in their original packaging with the invoice.</li><li><strong>Please Note:</strong> Final sale, clearance, and \"By Order\" items are non-returnable. Customers are responsible for return shipping costs.</li></ul><p>We highly recommend you <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\"><strong>see the full return & exchange policy here</strong></a> for complete details on eligibility, restocking fees, and how to handle a return.</p>"
           }
         },
         "faq_item_UjaA7g": {
