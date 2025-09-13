@@ -3698,6 +3698,7 @@ button.blueButton, .blueButton{
 }
 
 .pageWidth{
+  width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
 }
