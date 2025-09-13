@@ -12,10 +12,6 @@
     background-color: #f9f9f9;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
-  .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
   .faq-main-heading {
     text-align: center;
     font-size: 2.5rem;
@@ -38,7 +34,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
   .faq-question {
-    font-size: 1.1rem;
     font-weight: 600;
     padding: 20px;
     cursor: pointer;
@@ -111,7 +106,7 @@
   id="section-{{ section.id }}"
   aria-label="{{ section.settings.heading | default: 'Frequently Asked Questions' | escape }}"
 >
-  <div class="faq-container">
+  <div class="faq-container page-width">
     {% if section.settings.heading != blank %}
       <h2 class="faq-main-heading" id="faq-heading-{{ section.id }}">
         {{ section.settings.heading | escape }}
