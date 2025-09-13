@@ -182,7 +182,14 @@
           "type": "faq_item",
           "settings": {
             "question": "<p>Do you recommend professional installers for your products?</p>",
-            "answer": "<p>Yes, we absolutely do. A professional installation is the best way to ensure your new vanity, faucet, or shower functions perfectly and that your product warranty is protected.</p><p>Because we work closely with a network of the best local professionals, we can confidently recommend trusted and experienced installers for your project. We have recommendations for skilled plumbers and contractors serving the Durham Region, Oshawa, and across the Greater Toronto Area (GTA).</p><p>Please <a href=\"/pages/contact-us\" title=\"Contact Us\">contact us</a> after your purchase, and we will be happy to connect you with a qualified professional to ensure your project is completed correctly.</p>"
+            "answer": "<p>Yes, we absolutely do. A professional installation is the best way to ensure your new vanity, faucet, or shower functions perfectly and that your product warranty is protected.</p><p>Because we work closely with a network of the best local professionals, we can confidently recommend trusted and experienced installers for your project. We have recommendations for skilled plumbers and contractors serving the Mississauga, Vaughan, North York, Toronto, Durham Region, Oshawa, and across the Greater Toronto Area (GTA).</p><p>Please <a href=\"/pages/contact-us\" title=\"Contact Us\">contact us</a> after your purchase, and we will be happy to connect you with a qualified professional to ensure your project is completed correctly.</p>"
+          }
+        },
+        "faq_item_C8pnXR": {
+          "type": "faq_item",
+          "settings": {
+            "question": "",
+            "answer": ""
           }
         }
       },
@@ -190,7 +197,8 @@
         "faq_item_gNeQVk",
         "faq_item_yPQb3T",
         "faq_item_UjaA7g",
-        "faq_item_ipJwPd"
+        "faq_item_ipJwPd",
+        "faq_item_C8pnXR"
       ],
       "name": "FAQ Section (SEO)",
       "settings": {
