@@ -177,12 +177,20 @@
             "question": "<p>Do you offer international shipping?</p>",
             "answer": "<p>Yes, we ship to most countries worldwide. Please proceed to checkout to see if we ship to your location and to calculate shipping costs.</p>"
           }
+        },
+        "faq_item_ipJwPd": {
+          "type": "faq_item",
+          "settings": {
+            "question": "<p>Why it's not working</p>",
+            "answer": "<p>Because you untalanted piece of shit</p>"
+          }
         }
       },
       "block_order": [
         "faq_item_yPQb3T",
         "faq_item_gNeQVk",
-        "faq_item_UjaA7g"
+        "faq_item_UjaA7g",
+        "faq_item_ipJwPd"
       ],
       "name": "FAQ Section (SEO)",
       "settings": {
