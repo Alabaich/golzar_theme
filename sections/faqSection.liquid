@@ -109,7 +109,7 @@
   id="section-{{ section.id }}"
   aria-label="{{ section.settings.heading | default: 'Frequently Asked Questions' | escape }}"
 >
-  <div class="faq-container page-width">
+  <div class="faq-container page-width pageWidth">
     {% if section.settings.heading != blank %}
       <h2 class="faq-main-heading" id="faq-heading-{{ section.id }}">
         {{ section.settings.heading | escape }}
