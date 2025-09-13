@@ -191,6 +191,13 @@
             "question": "<p>Can I visit a physical showroom or store?</p>",
             "answer": "<p>Yes, we invite you to visit our showroom to experience the quality of our products firsthand. It's the perfect place to get inspired for your project and see stunning fixtures from world-class brands.</p><p>We proudly display a wide range of products from industry leaders like <strong>Riobel, Toto, Duravit, Moen, and Delta</strong>. Our expert team is on-site to help you compare styles and finishes in person.</p><p>Our showroom is open Monday through Saturday from 10 AM to 6 PM. Sunday visits are also available by appointment.</p><p>You can find us at: <strong>7250 Keele St #86, Vaughan, ON L4K 1Z8, Canada.</strong></p>"
           }
+        },
+        "faq_item_bGLHkc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "<p>What is your price match policy?</p>",
+            "answer": "<p>Yes, we price match authorized Canadian retailers. To request a match, please send our team a link to the identical, in-stock item <strong>before</strong> you place your order.</p><p>The item must be regularly priced (not clearance or a timed sale). Our match is based on the final price, including shipping, to ensure you always get the best value.</p>"
+          }
         }
       },
       "block_order": [
@@ -198,7 +205,8 @@
         "faq_item_yPQb3T",
         "faq_item_UjaA7g",
         "faq_item_ipJwPd",
-        "faq_item_C8pnXR"
+        "faq_item_C8pnXR",
+        "faq_item_bGLHkc"
       ],
       "name": "FAQ Section (SEO)",
       "settings": {
