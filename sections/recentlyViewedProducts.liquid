@@ -29,6 +29,13 @@
         </div>
       </div>
     </section>
+
+    {% if original_price > discounted_price %}
+
+       {% assign discount_percentage = original_price | minus: discounted_price | times: 100 | divided_by: original_price %}
+       
+
+     {% endif %}
   
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -222,16 +229,13 @@
         text-align: center;
       }
       .rv-product-vendor {
-        font-size: 0.8rem;
-        color: rgba(var(--color-foreground), 0.75);
-        margin-bottom: 4px;
-        text-transform: uppercase;
       }
       .rv-product-title {
         font-size: 16px;
         color: #000;
         text-transform: capitalize;
         line-height: 1.3em;
+        text-align: left;
       }
       .rv-product-price {
         font-family: var(--font-body-family);
