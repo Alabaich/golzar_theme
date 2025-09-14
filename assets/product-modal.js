@@ -38,15 +38,26 @@ if (!customElements.get('product-modal')) {
         ).forEach((element) => {
           element.classList.remove('active');
         });
+        
         const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute('data-media-id')}"]`);
+        
+        // Exit if for some reason the active media can't be found
+        if (!activeMedia) return;
+      
         const activeMediaTemplate = activeMedia.querySelector('template');
         const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
         activeMedia.classList.add('active');
         activeMedia.scrollIntoView();
-
+      
         const container = this.querySelector('[role="document"]');
-        container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
-
+      
+        // --- THIS IS THE FIX ---
+        // Only try to adjust scrollLeft if the container element was found
+        if (container) {
+          container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
+        }
+        // -----------------------
+      
         if (
           activeMedia.nodeName == 'DEFERRED-MEDIA' &&
           activeMediaContent &&
