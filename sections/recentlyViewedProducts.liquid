@@ -15,6 +15,7 @@
       {% if template.name == 'product' %}
         data-current-product-handle="{{ product.handle }}"
       {% endif %}
+
     >
       <div class="recently-viewed-container page-width">
         {% if section.settings.heading != blank %}
@@ -106,9 +107,22 @@
                           width="400"
                           height="400"
                         >
+                        ${product.vendor ? `<div class="rv-product-vendor" style="position: absolute; z-index: 2; top:10px; left: 10px; background-color: #fff;
+    color: #334155;
+    font-size: .87em;
+    padding: .4em .8em;
+    display: flex
+;
+    align-items: center;
+    line-height: normal;
+    border-radius: 100px;
+    box-shadow: 0 4px 4px #00000026;
+    opacity: 1;
+    visibility: visible;
+    transform: inherit;">${product.vendor}</div>` : ''}
                       </div>
                       <div class="rv-product-info">
-                        ${product.vendor ? `<div class="rv-product-vendor">${product.vendor}</div>` : ''}
+                        
                         <h3 class="rv-product-title">${product.title}</h3>
                         <div class="rv-product-price">
                           <span class="rv-final-price">${price}</span>
@@ -214,10 +228,10 @@
         text-transform: uppercase;
       }
       .rv-product-title {
-        font-family: var(--font-heading-family);
-        font-weight: var(--font-heading-weight);
-        font-size: 0.95rem;
-        margin: 0 0 8px 0;
+        font-size: 16px;
+        color: #000;
+        text-transform: capitalize;
+        line-height: 1.3em;
       }
       .rv-product-price {
         font-family: var(--font-body-family);
