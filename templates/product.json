@@ -154,6 +154,15 @@
         "include_margins": true
       }
     },
+    "recently_viewed_products_6jRWHP": {
+      "type": "recentlyViewedProducts",
+      "name": "Recently Viewed Products",
+      "settings": {
+        "show_recently_viewed": true,
+        "heading": "Recently Viewed",
+        "max_products": 4
+      }
+    },
     "faq_section_rB86jU": {
       "type": "faqSection",
       "blocks": {
@@ -246,6 +255,7 @@
     "breadcrumbs_section_AprXKk",
     "main",
     "1735585868466f2cf4",
+    "recently_viewed_products_6jRWHP",
     "faq_section_rB86jU",
     "related-products"
   ]
