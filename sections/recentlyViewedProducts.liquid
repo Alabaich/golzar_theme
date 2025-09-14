@@ -17,7 +17,7 @@
       {% endif %}
 
     >
-      <div class="recently-viewed-container page-width">
+      <div class="recently-viewed-container page-width pageWidth">
         {% if section.settings.heading != blank %}
           <h2 class="recently-viewed-main-heading title">
             {{ section.settings.heading | escape }}
@@ -132,8 +132,9 @@
                         
                         <h3 class="rv-product-title">${product.title}</h3>
                         <div class="rv-product-price">
-                          <span class="rv-final-price">${price}</span>
+                          
                           ${compareAtPrice ? `<s class="rv-compare-price">${compareAtPrice}</s>` : ''}
+                          <span class="rv-final-price">${price}</span>
                         </div>
                       </div>
                     </a>
@@ -163,11 +164,7 @@
         padding: 50px 0;
         background-color: var(--card-background-color);
       }
-      .recently-viewed-container.page-width {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
+
       .recently-viewed-main-heading.title {
         text-align: center;
         font-family: var(--font-heading-family);
@@ -240,16 +237,22 @@
       .rv-product-price {
         font-family: var(--font-body-family);
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: baseline;
         gap: 8px;
       }
       .rv-final-price {
-        font-weight: var(--font-body-weight-bold);
+        font-weight: 500;
+        font-size: 17px;
+
+    font-family: Montserrat;
       }
       .rv-compare-price {
-        color: rgba(var(--color-foreground), 0.75);
-        font-size: 0.9rem;
+        font-size: 17px;
+    font-weight: 400;
+    color: #053f58;
+    opacity: .5;
+        text-decoration: line-through;
       }
   
       @media (max-width: 990px) {
