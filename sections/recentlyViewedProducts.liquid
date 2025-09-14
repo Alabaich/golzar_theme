@@ -3,7 +3,7 @@
   - Uses JavaScript and the browser's localStorage to track viewed products.
   - Fetches product data asynchronously to avoid slowing down page loads.
   - The section will automatically hide itself if there are no products to show.
-  - Fully self-contained with HTML, JavaScript, CSS, and Schema settings.
+  - CSS now uses theme variables for design consistency.
 {% endcomment %}
 
 {%- if section.settings.show_recently_viewed -%}
@@ -16,9 +16,9 @@
         data-current-product-handle="{{ product.handle }}"
       {% endif %}
     >
-      <div class="recently-viewed-container">
+      <div class="recently-viewed-container page-width">
         {% if section.settings.heading != blank %}
-          <h2 class="recently-viewed-main-heading">
+          <h2 class="recently-viewed-main-heading title">
             {{ section.settings.heading | escape }}
           </h2>
         {% endif %}
@@ -89,31 +89,34 @@
                 return response.json();
               })
               .then(product => {
-                // --- CARD HTML STRUCTURE UPDATED ---
                 const onSale = product.compare_at_price && product.compare_at_price > product.price;
                 const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.price / 100);
                 const compareAtPrice = onSale ? new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.compare_at_price / 100) : '';
   
+                // Card structure now includes vendor and uses more standard classes
                 const cardHtml = `
-                  <a href="${product.url}" class="rv-product-card">
-                    <div class="rv-product-image-wrapper">
-                      ${onSale ? '<div class="rv-sale-badge">Sale</div>' : ''}
-                      <img
-                        src="${product.featured_image}?width=300"
-                        alt="${product.featured_image.alt || product.title}"
-                        loading="lazy"
-                        width="300"
-                        height="300"
-                      >
-                    </div>
-                    <div class="rv-product-info">
-                      <h3 class="rv-product-title">${product.title}</h3>
-                      <div class="rv-product-price">
-                        <span class="rv-final-price">${price}</span>
-                        ${compareAtPrice ? `<s class="rv-compare-price">${compareAtPrice}</s>` : ''}
+                  <div class="rv-grid-item">
+                    <a href="${product.url}" class="rv-product-card">
+                      <div class="rv-product-image-wrapper">
+                        ${onSale ? '<div class="rv-sale-badge">Sale</div>' : ''}
+                        <img
+                          src="${product.featured_image}?width=400"
+                          alt="${product.featured_image.alt || product.title}"
+                          loading="lazy"
+                          width="400"
+                          height="400"
+                        >
                       </div>
-                    </div>
-                  </a>
+                      <div class="rv-product-info">
+                        ${product.vendor ? `<div class="rv-product-vendor">${product.vendor}</div>` : ''}
+                        <h3 class="rv-product-title">${product.title}</h3>
+                        <div class="rv-product-price">
+                          <span class="rv-final-price">${price}</span>
+                          ${compareAtPrice ? `<s class="rv-compare-price">${compareAtPrice}</s>` : ''}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
                 `;
                 gridEl.innerHTML += cardHtml;
                 productsRendered++;
@@ -127,46 +130,57 @@
     </script>
   
     <style>
+      /* Using CSS variables to inherit theme styles */
       .recently-viewed-section {
-        padding: 50px 20px;
-        background-color: #f9f9f9;
+        --card-text-color: rgb(var(--color-foreground));
+        --card-background-color: rgb(var(--color-background));
+        --card-border-color: rgb(var(--color-border));
+        --card-corner-radius: var(--card-corner-radius, 4px);
+        --card-shadow-hover: var(--shadow-hover);
+        --card-image-padding: var(--image-padding, 1rem);
+  
+        padding: 50px 0;
+        background-color: var(--card-background-color);
       }
-      .recently-viewed-container {
+      .recently-viewed-container.page-width {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 1.5rem;
       }
-      .recently-viewed-main-heading {
+      .recently-viewed-main-heading.title {
         text-align: center;
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
         font-size: 2.2rem;
-        margin-bottom: 40px;
-        color: #1a1a1a;
+        margin: 0 auto 40px auto;
+        color: var(--card-text-color);
       }
       .recently-viewed-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
       }
       .rv-product-card {
-        background-color: #ffffff;
-        border-radius: 4px;
-        overflow: hidden;
+        background-color: var(--card-background-color);
+        border-radius: var(--card-corner-radius);
         text-decoration: none;
-        color: #333;
+        color: var(--card-text-color);
         display: flex;
         flex-direction: column;
+        height: 100%;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border: 1px solid #ebebeb;
+        position: relative;
       }
       .rv-product-card:hover {
+        box-shadow: var(--card-shadow-hover);
         transform: translateY(-4px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.07);
-        border-color: transparent;
       }
       .rv-product-image-wrapper {
         width: 100%;
-        padding-top: 100%; /* Creates a 1:1 aspect ratio */
+        padding-top: 100%; /* 1:1 aspect ratio */
         position: relative;
-        background-color: #eee;
+        background-color: rgba(var(--color-foreground), 0.03);
+        border-radius: var(--card-corner-radius);
         overflow: hidden;
       }
       .rv-product-image-wrapper img {
@@ -176,62 +190,59 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-      .rv-product-card:hover .rv-product-image-wrapper img {
-        transform: scale(1.05);
       }
       .rv-sale-badge {
         position: absolute;
         top: 12px;
         left: 12px;
-        background-color: #c81f1f;
-        color: #fff;
+        background-color: rgb(var(--color-sale-background));
+        color: rgb(var(--color-sale-text));
         padding: 4px 8px;
         font-size: 0.75rem;
-        font-weight: 600;
+        font-weight: var(--font-body-weight-bold);
         border-radius: 4px;
         z-index: 2;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
       }
       .rv-product-info {
-        padding: 15px;
+        padding: 15px 5px;
         text-align: center;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      }
+      .rv-product-vendor {
+        font-size: 0.8rem;
+        color: rgba(var(--color-foreground), 0.75);
+        margin-bottom: 4px;
+        text-transform: uppercase;
       }
       .rv-product-title {
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin: 0 0 10px 0;
-        line-height: 1.4;
-        color: #1a1a1a;
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
+        font-size: 0.95rem;
+        margin: 0 0 8px 0;
       }
       .rv-product-price {
-        font-size: 1rem;
+        font-family: var(--font-body-family);
         display: flex;
         justify-content: center;
         align-items: baseline;
         gap: 8px;
       }
       .rv-final-price {
-        font-weight: 600;
+        font-weight: var(--font-body-weight-bold);
       }
       .rv-compare-price {
-        color: #777;
-        font-size: 0.85rem;
+        color: rgba(var(--color-foreground), 0.75);
+        font-size: 0.9rem;
       }
   
-      @media (max-width: 480px) {
+      @media (max-width: 990px) {
         .recently-viewed-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 750px) {
+         .recently-viewed-grid {
           grid-template-columns: repeat(2, 1fr);
           gap: 15px;
-        }
-        .rv-product-title {
-          font-size: 0.85rem;
         }
       }
     </style>
@@ -259,7 +270,7 @@
         "type": "range",
         "id": "max_products",
         "min": 2,
-        "max": 10,
+        "max": 8,
         "step": 1,
         "label": "Max products to show",
         "default": 4
