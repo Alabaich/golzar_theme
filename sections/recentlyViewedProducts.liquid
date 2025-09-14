@@ -111,27 +111,24 @@
                   <div class="rv-grid-item">
                     <a href="${product.url}" class="rv-product-card">
 
-                      <div class="card__media">
-                        <div class="media media--transparent media--hover-effect">
-                          <img
-                            src="${featuredImage.src}?width=550"
-                            alt="${featuredImage.alt || product.title}"
-                            class="motion-reduce"
-                            loading="lazy"
-                            width="${featuredImage.width}"
-                            height="${featuredImage.height}"
-                          >
-                          ${secondImage ? `
-                            <img
-                              src="${secondImage.src}?width=550"
-                              alt="${secondImage.alt || product.title}"
-                              class="motion-reduce"
-                              loading="lazy"
-                              width="${secondImage.width}"
-                              height="${secondImage.height}"
-                            >
-                          ` : ''}
-                        </div>
+div class="rv-product-image-wrapper">
+                      <img
+                        src="${featuredImage.src}?width=400"
+                        alt="${featuredImage.alt || product.title}"
+                        loading="lazy"
+                        class="rv-first-image"
+                      >
+                      ${secondImage ? `
+                        <img
+                          src="${secondImage.src}?width=400"
+                          alt="${secondImage.alt || product.title}"
+                          loading="lazy"
+                          class="rv-second-image"
+                        >
+                      ` : ''}
+                      ${onSale ? '<div class="rv-sale-badge">Sale</div>' : ''}
+                      ${product.vendor ? `<div class="rv-product-vendor">${product.vendor}</div>` : ''}
+
 
                         ${product.vendor ? `<div class="rv-product-vendor" style="position: absolute; z-index: 2; top:10px; left: 10px; background-color: #fff;
     color: #334155;
@@ -274,6 +271,16 @@
     opacity: .5;
         text-decoration: line-through;
       }
+
+      .rv-second-image {
+      opacity: 0;
+    }
+    .rv-product-card:hover .rv-second-image {
+      opacity: 1;
+    }
+    .rv-product-card:hover .rv-first-image {
+      opacity: 0;
+    }
   
       @media (max-width: 990px) {
         .recently-viewed-grid {
