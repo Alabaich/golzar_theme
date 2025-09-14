@@ -100,20 +100,39 @@
                 const onSale = product.compare_at_price && product.compare_at_price > product.price;
                 const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.price / 100);
                 const compareAtPrice = onSale ? new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.compare_at_price / 100) : '';
-  
+                const productImages = product.media.filter(m => m.media_type === 'image');
+              const featuredImage = productImages.length > 0 ? productImages[0] : null;
+              const secondImage = productImages.length > 1 ? productImages[1] : null;
+
+              // If there's no featured image, we can't render the card.
+              if (!featuredImage) return;
                 // Card structure now includes vendor and uses more standard classes
                 const cardHtml = `
                   <div class="rv-grid-item">
                     <a href="${product.url}" class="rv-product-card">
-                      <div class="rv-product-image-wrapper">
-                        ${onSale ? '<div class="rv-sale-badge">Sale</div>' : ''}
-                        <img
-                          src="${product.featured_image}?width=400"
-                          alt="${product.featured_image.alt || product.title}"
-                          loading="lazy"
-                          width="400"
-                          height="400"
-                        >
+
+                      <div class="card__media">
+                        <div class="media media--transparent media--hover-effect">
+                          <img
+                            src="${featuredImage.src}?width=550"
+                            alt="${featuredImage.alt || product.title}"
+                            class="motion-reduce"
+                            loading="lazy"
+                            width="${featuredImage.width}"
+                            height="${featuredImage.height}"
+                          >
+                          ${secondImage ? `
+                            <img
+                              src="${secondImage.src}?width=550"
+                              alt="${secondImage.alt || product.title}"
+                              class="motion-reduce"
+                              loading="lazy"
+                              width="${secondImage.width}"
+                              height="${secondImage.height}"
+                            >
+                          ` : ''}
+                        </div>
+
                         ${product.vendor ? `<div class="rv-product-vendor" style="position: absolute; z-index: 2; top:10px; left: 10px; background-color: #fff;
     color: #334155;
     font-size: .87em;
