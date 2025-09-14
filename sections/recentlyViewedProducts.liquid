@@ -1,278 +1,287 @@
 {% comment %}
   ** Recently Viewed Products Section **
-  - This version is designed to perfectly match the theme's native product card styles.
-  - It uses the theme's component CSS files instead of custom styles.
-  - It renders a product card using a structure identical to the 'card-product' snippet.
+  - Uses JavaScript and the browser's localStorage to track viewed products.
+  - Fetches product data asynchronously to avoid slowing down page loads.
+  - The section will automatically hide itself if there are no products to show.
+  - CSS now uses theme variables for design consistency.
 {% endcomment %}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 {%- if section.settings.show_recently_viewed -%}
-  <div class="color-{{ section.settings.color_scheme }} gradient">
     <section
-      class="recently-viewed-section page-width section-{{ section.id }}-padding"
+      class="recently-viewed-section"
       id="recently-viewed-section-{{ section.id }}"
-      data-max-products="{{ section.settings.products_to_show }}"
+      data-section-id="{{ section.id }}"
+      data-max-products="{{ section.settings.max_products }}"
       {% if template.name == 'product' %}
         data-current-product-handle="{{ product.handle }}"
       {% endif %}
-      style="display: none;"
     >
-      {% if section.settings.heading != blank %}
-        <h2 class="recently-viewed-main-heading inline-richtext {{ section.settings.heading_size }}">
-          {{ section.settings.heading | escape }}
-        </h2>
-      {% endif %}
-
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        id="recently-viewed-grid-{{ section.id }}"
-        role="list"
-      >
-        {% comment %} Product cards will be injected here by JavaScript as <li> elements {% endcomment %}
-      </ul>
+      <div class="recently-viewed-container page-width">
+        {% if section.settings.heading != blank %}
+          <h2 class="recently-viewed-main-heading title">
+            {{ section.settings.heading | escape }}
+          </h2>
+        {% endif %}
+  
+        <div class="recently-viewed-grid" id="recently-viewed-grid-{{ section.id }}">
+          {% comment %} Products will be injected here by JavaScript {% endcomment %}
+        </div>
+      </div>
     </section>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sectionEl = document.getElementById('recently-viewed-section-{{ section.id }}');
-      const gridEl = document.getElementById('recently-viewed-grid-{{ section.id }}');
-      
-      const LS_KEY = 'shopify_recently_viewed';
-      const MAX_PRODUCTS = parseInt(sectionEl.dataset.maxProducts, 10) || 4;
-      const currentProductHandle = sectionEl.dataset.currentProductHandle || null;
-
-      // 1. Get existing product handles from localStorage
-      let recentlyViewedHandles = [];
-      try {
-        const storedHandles = localStorage.getItem(LS_KEY);
-        if (storedHandles) {
-          recentlyViewedHandles = JSON.parse(storedHandles);
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const sectionEl = document.getElementById('recently-viewed-section-{{ section.id }}');
+        const gridEl = document.getElementById('recently-viewed-grid-{{ section.id }}');
+        
+        const LS_KEY = 'shopify_recently_viewed';
+        const MAX_PRODUCTS = parseInt(sectionEl.dataset.maxProducts, 10) || 4;
+        const currentProductHandle = sectionEl.dataset.currentProductHandle || null;
+  
+        // 1. Get existing product handles from localStorage
+        let recentlyViewedHandles = [];
+        try {
+          const storedHandles = localStorage.getItem(LS_KEY);
+          if (storedHandles) {
+            recentlyViewedHandles = JSON.parse(storedHandles);
+          }
+        } catch (error) {
+          console.error('Error parsing recently viewed products from localStorage:', error);
+          recentlyViewedHandles = [];
         }
-      } catch (error) {
-        console.error('Error parsing recently viewed products from localStorage:', error);
-      }
-      
-      // 2. If we are on a product page, add its handle
-      if (currentProductHandle) {
-        const index = recentlyViewedHandles.indexOf(currentProductHandle);
-        if (index > -1) {
-          recentlyViewedHandles.splice(index, 1);
+        
+        // 2. If we are on a product page, add its handle to the list
+        if (currentProductHandle) {
+          // Remove the handle if it already exists, to move it to the front
+          const index = recentlyViewedHandles.indexOf(currentProductHandle);
+          if (index > -1) {
+            recentlyViewedHandles.splice(index, 1);
+          }
+  
+          // Add the current product handle to the beginning of the array
+          recentlyViewedHandles.unshift(currentProductHandle);
+  
+          // Trim the array to the max number of products
+          if (recentlyViewedHandles.length > MAX_PRODUCTS + 1) { // +1 to account for the current product
+            recentlyViewedHandles.pop();
+          }
+  
+          // Save the updated list back to localStorage
+          try {
+            localStorage.setItem(LS_KEY, JSON.stringify(recentlyViewedHandles));
+          } catch (error) {
+            console.error('Error saving recently viewed products to localStorage:', error);
+          }
         }
-        recentlyViewedHandles.unshift(currentProductHandle);
-        if (recentlyViewedHandles.length > MAX_PRODUCTS + 1) {
-          recentlyViewedHandles.pop();
-        }
-        localStorage.setItem(LS_KEY, JSON.stringify(recentlyViewedHandles));
-      }
-
-      // 3. Filter out the current product from the display list
-      const handlesToDisplay = recentlyViewedHandles.filter(handle => handle !== currentProductHandle).slice(0, MAX_PRODUCTS);
-      
-      // 4. If there are products to display, fetch and render them
-      if (handlesToDisplay.length > 0) {
-        sectionEl.style.display = 'block';
-
-        handlesToDisplay.forEach(handle => {
-          fetch(`/products/${handle}.js`)
-            .then(response => response.json())
-            .then(product => {
-              const onSale = product.compare_at_price && product.compare_at_price > product.price;
-              const price = new Intl.NumberFormat('en-CA', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.price / 100);
-              const compareAtPrice = onSale ? new Intl.NumberFormat('en-CA', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.compare_at_price / 100) : '';
-
-              const cardHtml = `
-                <div class="card-wrapper underline-links-hover">
-                  <div class="card card--standard card--media">
-                    <div class="card__inner color-{{ section.settings.card_color_scheme }} gradient ratio">
-                      <div class="card__media">
-                        <div class="media media--transparent media--hover-effect">
-                          <img
-                            src="${product.featured_image}?width=550"
-                            alt="${product.featured_image.alt || product.title}"
-                            class="motion-reduce"
-                            loading="lazy"
-                            width="550"
-                            height="${550 / product.featured_image.aspect_ratio}"
-                          >
+  
+        // 3. Filter out the current product from the display list
+        const handlesToDisplay = recentlyViewedHandles.filter(handle => handle !== currentProductHandle).slice(0, MAX_PRODUCTS);
+        
+        // 4. If there are products to display, fetch and render them
+        if (handlesToDisplay.length > 0) {
+          sectionEl.style.display = 'block';
+          let productsRendered = 0;
+  
+          handlesToDisplay.forEach(handle => {
+            fetch(`/products/${handle}.js`)
+              .then(response => {
+                if (!response.ok) { throw new Error('Product not found'); }
+                return response.json();
+              })
+              .then(product => {
+                const onSale = product.compare_at_price && product.compare_at_price > product.price;
+                const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.price / 100);
+                const compareAtPrice = onSale ? new Intl.NumberFormat('en-US', { style: 'currency', currency: '{{ cart.currency.iso_code }}' }).format(product.compare_at_price / 100) : '';
+  
+                // Card structure now includes vendor and uses more standard classes
+                const cardHtml = `
+                  <div class="rv-grid-item">
+                    <a href="${product.url}" class="rv-product-card">
+                      <div class="rv-product-image-wrapper">
+                        ${onSale ? '<div class="rv-sale-badge">Sale</div>' : ''}
+                        <img
+                          src="${product.featured_image}?width=400"
+                          alt="${product.featured_image.alt || product.title}"
+                          loading="lazy"
+                          width="400"
+                          height="400"
+                        >
+                      </div>
+                      <div class="rv-product-info">
+                        ${product.vendor ? `<div class="rv-product-vendor">${product.vendor}</div>` : ''}
+                        <h3 class="rv-product-title">${product.title}</h3>
+                        <div class="rv-product-price">
+                          <span class="rv-final-price">${price}</span>
+                          ${compareAtPrice ? `<s class="rv-compare-price">${compareAtPrice}</s>` : ''}
                         </div>
                       </div>
-                      <div class="card__content">
-                        <div class="card__information">
-                          <h3 class="card__heading">
-                            <a href="${product.url}" class="full-unstyled-link">${product.title}</a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card__badge bottom left">
-                      ${onSale ? `<span class="badge badge--on-sale">Sale</span>` : ''}
-                    </div>
+                    </a>
                   </div>
-                   <div class="card-information">
-                      <span class="caption-large light">${product.vendor}</span>
-                      <div class="price">
-                         <div class="price__container">
-                           <div class="price__regular">
-                             <span class="visually-hidden">Regular price</span>
-                             <span class="price-item price-item--regular">${price}</span>
-                           </div>
-                           <div class="price__sale">
-                             ${onSale ? `<span class="visually-hidden">Sale price</span><span class="price-item price-item--sale price-item--last">${price}</span>` : ''}
-                             ${onSale ? `<span class="visually-hidden">Regular price</span><s><span class="price-item price-item--regular">${compareAtPrice}</span></s>` : ''}
-                           </div>
-                         </div>
-                       </div>
-                    </div>
-                </div>
-              `;
-              
-              const listItem = document.createElement('li');
-              listItem.className = 'grid__item';
-              listItem.innerHTML = cardHtml;
-              gridEl.appendChild(listItem);
-            })
-            .catch(error => {
-              console.warn(`Could not load recently viewed product with handle: ${handle}`, error);
-            });
-        });
+                `;
+                gridEl.innerHTML += cardHtml;
+                productsRendered++;
+              })
+              .catch(error => {
+                console.warn(`Could not load recently viewed product with handle: ${handle}`, error);
+              });
+          });
+        }
+      });
+    </script>
+  
+    <style>
+      /* Using CSS variables to inherit theme styles */
+      .recently-viewed-section {
+        --card-text-color: rgb(var(--color-foreground));
+        --card-background-color: rgb(var(--color-background));
+        --card-border-color: rgb(var(--color-border));
+        --card-corner-radius: var(--card-corner-radius, 4px);
+        --card-shadow-hover: var(--shadow-hover);
+        --card-image-padding: var(--image-padding, 1rem);
+  
+        padding: 50px 0;
+        background-color: var(--card-background-color);
       }
-    });
-  </script>
-{%- endif -%}
-
-{% schema %}
-{
-  "name": "Recently Viewed Products",
-  "tag": "section",
-  "class": "shopify-section-recently-viewed",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_recently_viewed",
-      "label": "Show Recently Viewed Products section",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Recently Viewed"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "label": "Heading size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "Small"
-        },
-        {
-          "value": "h1",
-          "label": "Medium"
-        },
-        {
-          "value": "h0",
-          "label": "Large"
+      .recently-viewed-container.page-width {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .recently-viewed-main-heading.title {
+        text-align: center;
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
+        font-size: 2.2rem;
+        margin: 0 auto 40px auto;
+        color: var(--card-text-color);
+      }
+      .recently-viewed-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+      .rv-product-card {
+        background-color: var(--card-background-color);
+        border-radius: var(--card-corner-radius);
+        text-decoration: none;
+        color: var(--card-text-color);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+      }
+      .rv-product-card:hover {
+        box-shadow: var(--card-shadow-hover);
+        transform: translateY(-4px);
+      }
+      .rv-product-image-wrapper {
+        width: 100%;
+        padding-top: 100%; /* 1:1 aspect ratio */
+        position: relative;
+        background-color: rgba(var(--color-foreground), 0.03);
+        border-radius: var(--card-corner-radius);
+        overflow: hidden;
+      }
+      .rv-product-image-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .rv-sale-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background-color: rgb(var(--color-sale-background));
+        color: rgb(var(--color-sale-text));
+        padding: 4px 8px;
+        font-size: 0.75rem;
+        font-weight: var(--font-body-weight-bold);
+        border-radius: 4px;
+        z-index: 2;
+      }
+      .rv-product-info {
+        padding: 15px 5px;
+        text-align: center;
+      }
+      .rv-product-vendor {
+        font-size: 0.8rem;
+        color: rgba(var(--color-foreground), 0.75);
+        margin-bottom: 4px;
+        text-transform: uppercase;
+      }
+      .rv-product-title {
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
+        font-size: 0.95rem;
+        margin: 0 0 8px 0;
+      }
+      .rv-product-price {
+        font-family: var(--font-body-family);
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 8px;
+      }
+      .rv-final-price {
+        font-weight: var(--font-body-weight-bold);
+      }
+      .rv-compare-price {
+        color: rgba(var(--color-foreground), 0.75);
+        font-size: 0.9rem;
+      }
+  
+      @media (max-width: 990px) {
+        .recently-viewed-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
-      ],
-      "default": "h1"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 8,
-      "step": 1,
-      "label": "Products to show",
-      "default": 4
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "label": "Number of columns on desktop",
-      "default": 4
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "1 column"
-        },
-        {
-          "value": "2",
-          "label": "2 columns"
+      }
+      @media (max-width: 750px) {
+         .recently-viewed-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
         }
-      ],
-      "default": "2",
-      "label": "Number of columns on mobile"
-    },
-    {
-      "type": "header",
-      "content": "Color"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Section color scheme"
-    },
-    {
-      "type": "color_scheme",
-      "id": "card_color_scheme",
-      "label": "Card color scheme"
-    },
-    {
-      "type": "header",
-      "content": "Section Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 36
-    }
-  ],
-  "presets": [
-    {
-      "name": "Recently Viewed Products"
-    }
-  ]
-}
-{% endschema %}
-
+      }
+    </style>
+  {%- endif -%}
+  
+  {% schema %}
+  {
+    "name": "Recently Viewed Products",
+    "tag": "section",
+    "class": "shopify-section-recently-viewed",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_recently_viewed",
+        "label": "Show Recently Viewed Products section",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Recently Viewed"
+      },
+      {
+        "type": "range",
+        "id": "max_products",
+        "min": 2,
+        "max": 8,
+        "step": 1,
+        "label": "Max products to show",
+        "default": 4
+      }
+    ],
+    "presets": [
+      {
+        "name": "Recently Viewed Products"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  
