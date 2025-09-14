@@ -21,7 +21,9 @@ if (!customElements.get('product-modal')) {
       }
 
       disconnectedCallback() {
-       super.disconnectedCallback();
+        if (super.disconnectedCallback && typeof super.disconnectedCallback === 'function') {
+          super.disconnectedCallback();
+        }
         this.removeEventListener('pointerup', this._stopPointerUp, { capture: true });
       }
 
