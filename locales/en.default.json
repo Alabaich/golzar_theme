@@ -534,5 +534,15 @@
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "shipping_errors": {
+        "shipping_method_not_available_updated": {
+          "one": "Looks like this item needs a special shipping quote! Please contact us to complete the order, and we may be able to offer a discount for the inconvenience.",
+          "other": "Looks like your order needs a special shipping quote! Please contact us to complete the order, and we may be able to offer a discount for the inconvenience."
+        }
+      }
+    }
   }
 }
