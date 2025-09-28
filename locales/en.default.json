@@ -543,7 +543,10 @@
           "other": "Looks like your order needs a special shipping quote! Please contact us to complete the order, and we may be able to offer a discount for the inconvenience."
         },
         "title": "Let's Find Your Shipping Rate",
-        "unavailable_selected_address": "We couldn't find a shipping rate for your address, which is likely our system's error. Please contact us to complete your order, and be sure to ask about a special discount for the trouble."
+        "unavailable_selected_address": "We couldn't find a shipping rate for your address, which is likely our system's error. Please contact us to complete your order, and be sure to ask about a special discount for the trouble.",
+        "shipping_method_not_available_generic": {
+          "one": "Looks like your order needs a special shipping quote! Please contact us to complete the order, and we may be able to offer a discount for the inconvenience."
+        }
       }
     }
   }
