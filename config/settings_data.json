@@ -169,9 +169,14 @@
         "disabled": false,
         "settings": {}
       },
+      "15891388892413262111": {
+        "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+        "disabled": false,
+        "settings": {}
+      },
       "3838990611052461119": {
         "type": "shopify://apps/c-hub-customer-accounts/blocks/app-embed/0fb3ba0b-4c65-4919-a85a-48bc2d368e9c",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "account_primary_page": "",
           "main_element": "",
@@ -180,11 +185,6 @@
           "proxy_element": "",
           "mount_json_code": ""
         }
-      },
-      "15891388892413262111": {
-        "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
