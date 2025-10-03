@@ -181,20 +181,9 @@
           "mount_json_code": ""
         }
       },
-      "3795735913601552490": {
-        "type": "shopify://apps/sc-loyalty-rewards/blocks/referral_claim/21842f98-987a-4ad6-91bf-a00b77123261",
-        "disabled": true,
-        "settings": {
-          "bgcolour": "#ffffff",
-          "bordercolour": "",
-          "textcolour": "#000000",
-          "borderradius": 0,
-          "preview": "off"
-        }
-      },
-      "3574802870912500141": {
-        "type": "shopify://apps/sc-loyalty-rewards/blocks/enable_storefront_widget/21842f98-987a-4ad6-91bf-a00b77123261",
-        "disabled": true,
+      "15891388892413262111": {
+        "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+        "disabled": false,
         "settings": {}
       }
     },
