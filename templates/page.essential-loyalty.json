@@ -12,10 +12,118 @@
   "sections": {
     "essential-loyalty-landing-page": {
       "type": "essential-loyalty-landing-page",
-      "settings": {}
+      "settings": {
+        "heading_font_family": "",
+        "text_font_family": "",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "page_background_color": "",
+        "page_max_width": 1200,
+        "border_radius": 14,
+        "heading_font_size": 28,
+        "text_font_size": 14,
+        "heading_font_size_mobile": 24,
+        "text_font_size_mobile": 14,
+        "button_background_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_hover_background_color": "#000000",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "",
+        "button_font_size": 14,
+        "button_padding_y": 10,
+        "button_padding_x": 32,
+        "input_background_color": "#ffffff",
+        "input_text_color": "#000000",
+        "input_border_color": "#000000",
+        "input_font_size": 14,
+        "input_padding_x": 6,
+        "input_padding_y": 20,
+        "card_background_color": "#ffffff",
+        "card_heading_color": "#000000",
+        "card_text_color": "#000000",
+        "card_icon_color": "#000000",
+        "card_border_color": "#c6c6c6",
+        "card_heading_font_size": 16,
+        "card_text_font_size": 14,
+        "card_image_height": 50,
+        "table_thead_background_color": "#000000",
+        "table_thead_text_color": "#ffffff",
+        "table_tbody_text_color": "#000000",
+        "table_border_color": "#000000",
+        "modal_background_color": "#ffffff",
+        "modal_text_color": "#000000",
+        "modal_icon_color": "#000000",
+        "modal_icon_position_top": 15,
+        "modal_icon_position_right": 15,
+        "modal_heading_font_size": 22,
+        "modal_text_font_size": 14
+      }
+    },
+    "1759508439d4dbde5d": {
+      "type": "apps",
+      "blocks": {
+        "essential_loyalty_landing_page_hero_Kw3Grp": {
+          "type": "shopify://apps/essential-loyalty/blocks/landing-page-hero/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+          "settings": {
+            "hero_background_color": "#f8f8f8",
+            "hero_background_image_brightness": 100,
+            "hero_card_background_color": "#ffffff",
+            "hero_card_heading_color": "#000000",
+            "hero_card_text_color": "#000000",
+            "hero_card_position": "left",
+            "hero_card_vertical_position": "center",
+            "hero_card_text_align": "left",
+            "hero_card_gap": 20,
+            "hero_height": 500,
+            "hero_padding": 50,
+            "hero_heading_font_size": 32,
+            "hero_text_font_size": 16,
+            "hero_height_mobile": 300,
+            "hero_padding_mobile": 20,
+            "hero_heading_font_size_mobile": 24,
+            "hero_text_font_size_mobile": 14,
+            "hero_mobile_container_position": "below_hero"
+          }
+        }
+      },
+      "block_order": [
+        "essential_loyalty_landing_page_hero_Kw3Grp"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1759508457b1eddb1e": {
+      "type": "apps",
+      "blocks": {
+        "essential_loyalty_landing_page_how_it_works_V9chyn": {
+          "type": "shopify://apps/essential-loyalty/blocks/landing-page-how-it-works/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+          "settings": {
+            "hiw_background_color": "",
+            "hiw_section_heading_color": "#000000",
+            "hiw_section_text_color": "#000000",
+            "hiw_sequence_type": "numbers",
+            "hiw_step_number_color": "#000000",
+            "hiw_step_heading_color": "#000000",
+            "hiw_step_text_color": "#000000",
+            "hiw_step_number_font_size": 24,
+            "hiw_step_heading_font_size": 20,
+            "hiw_step_text_font_size": 16,
+            "hiw_step_image_height": 50
+          }
+        }
+      },
+      "block_order": [
+        "essential_loyalty_landing_page_how_it_works_V9chyn"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
-    "essential-loyalty-landing-page"
+    "essential-loyalty-landing-page",
+    "1759508439d4dbde5d",
+    "1759508457b1eddb1e"
   ]
 }
