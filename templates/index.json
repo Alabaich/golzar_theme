@@ -67,7 +67,6 @@
             "image": "shopify://shop_images/bathroom_ca69b2a6-7461-43f7-9bea-f5cf921a657b.webp",
             "heading": "",
             "text": "",
-            "button_label": "",
             "button_url": "shopify://collections/bathroom-bathroom"
           }
         },
@@ -77,7 +76,6 @@
             "image": "shopify://shop_images/kitchen.webp",
             "heading": "",
             "text": "",
-            "button_label": "",
             "button_url": "shopify://collections/kitchen-kitchen"
           }
         },
@@ -87,7 +85,6 @@
             "image": "shopify://shop_images/sale.webp",
             "heading": "",
             "text": "",
-            "button_label": "",
             "button_url": "shopify://collections/summer-sale-2025-bathroom-supplier"
           }
         }
@@ -536,6 +533,30 @@
         "post_limit": 3,
         "button_text": "Read All Articles"
       }
+    },
+    "17595044683f4f593f": {
+      "type": "apps",
+      "blocks": {
+        "sc_loyalty_rewards_points_balance_nfxVJH": {
+          "type": "shopify://apps/sc-loyalty-rewards/blocks/points_balance/21842f98-987a-4ad6-91bf-a00b77123261",
+          "settings": {
+            "title": "Points Balance",
+            "description": "",
+            "bgcolour": "",
+            "bordercolour": "",
+            "width": 100,
+            "borderradius": 0,
+            "alignment": "center",
+            "preview": "off"
+          }
+        }
+      },
+      "block_order": [
+        "sc_loyalty_rewards_points_balance_nfxVJH"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -553,6 +574,7 @@
     "custom_blog_posts_grid_eQzdfc",
     "image_with_text_cta_4dbPbU",
     "featured_smart_toilets_4MgFHP",
-    "featured_blog_posts_V3fccC"
+    "featured_blog_posts_V3fccC",
+    "17595044683f4f593f"
   ]
 }
