@@ -557,6 +557,30 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "17595045230034b4dd": {
+      "type": "apps",
+      "blocks": {
+        "sc_loyalty_rewards_activity_8rdrcg": {
+          "type": "shopify://apps/sc-loyalty-rewards/blocks/activity/21842f98-987a-4ad6-91bf-a00b77123261",
+          "settings": {
+            "title": "Activity",
+            "description": "",
+            "bgcolour": "",
+            "bordercolour": "",
+            "width": 100,
+            "borderradius": 0,
+            "alignment": "center",
+            "preview": "off"
+          }
+        }
+      },
+      "block_order": [
+        "sc_loyalty_rewards_activity_8rdrcg"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -575,6 +599,7 @@
     "image_with_text_cta_4dbPbU",
     "featured_smart_toilets_4MgFHP",
     "featured_blog_posts_V3fccC",
-    "17595044683f4f593f"
+    "17595044683f4f593f",
+    "17595045230034b4dd"
   ]
 }
