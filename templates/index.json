@@ -18,7 +18,7 @@
             "image": "shopify://shop_images/labour_day_promotion.webp",
             "heading": "labour Day Sale",
             "button_label": "Labour Day Sale Page",
-            "button_url": "shopify://collections/summer-sale-2025-bathroom-supplier"
+            "button_url": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier"
           }
         },
         "slide_Vrd9hE": {
@@ -85,7 +85,7 @@
             "image": "shopify://shop_images/sale.webp",
             "heading": "",
             "text": "",
-            "button_url": "shopify://collections/summer-sale-2025-bathroom-supplier"
+            "button_url": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier"
           }
         }
       },
@@ -111,7 +111,7 @@
             "subheading_color": "#ffffff",
             "button_label": "Save Now",
             "button_label_color": "#ffffff",
-            "link": "shopify://collections/summer-sale-2025-bathroom-supplier",
+            "link": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier",
             "button_style_secondary": false,
             "box_align": "top-left",
             "show_text_box": false,
@@ -536,48 +536,12 @@
     },
     "17595044683f4f593f": {
       "type": "apps",
-      "blocks": {
-        "sc_loyalty_rewards_points_balance_nfxVJH": {
-          "type": "shopify://apps/sc-loyalty-rewards/blocks/points_balance/21842f98-987a-4ad6-91bf-a00b77123261",
-          "settings": {
-            "title": "Points Balance",
-            "description": "",
-            "bgcolour": "",
-            "bordercolour": "",
-            "width": 100,
-            "borderradius": 0,
-            "alignment": "center",
-            "preview": "off"
-          }
-        }
-      },
-      "block_order": [
-        "sc_loyalty_rewards_points_balance_nfxVJH"
-      ],
       "settings": {
         "include_margins": true
       }
     },
     "17595045230034b4dd": {
       "type": "apps",
-      "blocks": {
-        "sc_loyalty_rewards_activity_8rdrcg": {
-          "type": "shopify://apps/sc-loyalty-rewards/blocks/activity/21842f98-987a-4ad6-91bf-a00b77123261",
-          "settings": {
-            "title": "Activity",
-            "description": "",
-            "bgcolour": "",
-            "bordercolour": "",
-            "width": 100,
-            "borderradius": 0,
-            "alignment": "center",
-            "preview": "off"
-          }
-        }
-      },
-      "block_order": [
-        "sc_loyalty_rewards_activity_8rdrcg"
-      ],
       "settings": {
         "include_margins": true
       }
