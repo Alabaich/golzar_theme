@@ -15,9 +15,9 @@
         "slide_9Ed4gP": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/labour_day_promotion.webp",
-            "heading": "labour Day Sale",
-            "button_label": "Labour Day Sale Page",
+            "image": "shopify://shop_images/thanksgivingsale.webp",
+            "heading": "Thanks Giving Sale",
+            "button_label": "Thanks Giving Sale Page",
             "button_url": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier"
           }
         },
