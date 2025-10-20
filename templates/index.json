@@ -303,69 +303,6 @@
         "show_text_below": true
       }
     },
-    "brand_logo_list_AcRjKh": {
-      "type": "brandLogoList",
-      "blocks": {
-        "brand_logo_nHkbV3": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        },
-        "brand_logo_pkqVCm": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        },
-        "brand_logo_JeRGqL": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        },
-        "brand_logo_weEmQd": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        },
-        "brand_logo_QMrfXb": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        },
-        "brand_logo_8i7UCp": {
-          "type": "brand_logo",
-          "settings": {
-            "brand_name": "",
-            "brand_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "brand_logo_nHkbV3",
-        "brand_logo_pkqVCm",
-        "brand_logo_JeRGqL",
-        "brand_logo_weEmQd",
-        "brand_logo_QMrfXb",
-        "brand_logo_8i7UCp"
-      ],
-      "disabled": true,
-      "name": "Brand Logo List",
-      "settings": {
-        "heading": "Our Top Brands",
-        "subheading": "Browse our most popular brands",
-        "all_brands_text": "View All Brands",
-        "all_brands_url": ""
-      }
-    },
     "collection_data_discount_bERRBy": {
       "type": "collection-data-discount",
       "disabled": true,
@@ -406,6 +343,83 @@
         "show_view_all": true,
         "padding_top": 20,
         "padding_bottom": 36
+      }
+    },
+    "brand_logo_list_Hn3rYe": {
+      "type": "brandLogoList",
+      "blocks": {
+        "brand_logo_rypMyQ": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MOEN.webp",
+            "brand_name": "MOEN",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Moen"
+          }
+        },
+        "brand_logo_znPV3N": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/RIOBEL.webp",
+            "brand_name": "RIOBEL",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Riobel"
+          }
+        },
+        "brand_logo_8FGWwW": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/KOHLER_04ed6840-c539-4081-a45d-1bfdb58d9c8f.webp",
+            "brand_name": "KOHLER",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Kohler"
+          }
+        },
+        "brand_logo_HYVQfk": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/DELTA.webp",
+            "brand_name": "DELTA",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Delta"
+          }
+        },
+        "brand_logo_NYFXd3": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/TOTO_4bba4b45-f613-4b52-a68f-75d30d309c94.webp",
+            "brand_name": "TOTO",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+          }
+        },
+        "brand_logo_CPRrUB": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/GROHE.webp",
+            "brand_name": "GROHE",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Grohe"
+          }
+        },
+        "brand_logo_RhqQkg": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MAAX.webp",
+            "brand_name": "MAAX",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Maax"
+          }
+        }
+      },
+      "block_order": [
+        "brand_logo_rypMyQ",
+        "brand_logo_znPV3N",
+        "brand_logo_8FGWwW",
+        "brand_logo_HYVQfk",
+        "brand_logo_NYFXd3",
+        "brand_logo_CPRrUB",
+        "brand_logo_RhqQkg"
+      ],
+      "name": "Brand Logo List",
+      "settings": {
+        "heading": "Our Top Brands",
+        "subheading": "Browse our most popular brands",
+        "all_brands_text": "View All Brands",
+        "all_brands_url": ""
       }
     },
     "image_banner_MWGE6A": {
@@ -616,9 +630,9 @@
     "slideshow_JJwBwz",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
-    "brand_logo_list_AcRjKh",
     "collection_data_discount_bERRBy",
     "featured_blog_yqKkQg",
+    "brand_logo_list_Hn3rYe",
     "image_banner_MWGE6A",
     "feature_block_with_stats_VM6e6p",
     "popular_products_7jxJNT",
