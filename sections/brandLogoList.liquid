@@ -105,10 +105,16 @@
             {% if block.settings.logo != blank %}
               {%- liquid
                 assign brand_seo_text = block.settings.brand_name | escape
-                if brand_seo_text == blank and block.settings.logo.filename
-                  assign brand_seo_text = block.settings.logo.filename | split: '.' | first | replace: '-', ' ' | replace: '_', ' ' | capitalize
-                elsif brand_seo_text == blank
-                  assign brand_seo_text = 'Brand logo'
+                
+                if brand_seo_text == blank
+                  assign original_url = block.settings.logo | img_url: 'original'
+                  assign filename_from_url = original_url | split: '/' | last | split: '?' | first | url_decode
+                  
+                  if filename_from_url != blank
+                    assign brand_seo_text = filename_from_url | split: '.' | first | split: ' ' | first | replace: '-', ' ' | replace: '_', ' ' | capitalize
+                  else
+                    assign brand_seo_text = 'Brand logo'
+                  endif
                 endif
               -%}
               <img 
