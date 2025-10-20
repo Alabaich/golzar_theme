@@ -103,7 +103,18 @@
         <div class="hs-brand-item" {{ block.shopify_attributes }}>
           <a href="{{ block.settings.brand_url | default: '#' }}">
             {% if block.settings.logo != blank %}
-              <img src="{{ block.settings.logo | img_url: '300x' }}" alt="{{ block.settings.brand_name | escape | default: 'Brand logo' }}">
+              {%- liquid
+                assign brand_seo_text = block.settings.brand_name | escape
+                if brand_seo_text == blank and block.settings.logo.filename
+                  assign brand_seo_text = block.settings.logo.filename | split: '.' | first | replace: '-', ' ' | replace: '_', ' ' | capitalize
+                elsif brand_seo_text == blank
+                  assign brand_seo_text = 'Brand logo'
+                endif
+              -%}
+              <img 
+                src="{{ block.settings.logo | img_url: '300x' }}" 
+                alt="{{ brand_seo_text }}"
+                title="{{ brand_seo_text }}">
             {% else %}
               {% assign placeholder_svg = 'logo-set-placeholder-' | append: forloop.index | modulo: 4 | plus: 1 %}
               {{ placeholder_svg | placeholder_svg_tag: 'placeholder-svg' }}
@@ -125,77 +136,84 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Brand Logo List",
-    "class": "index-section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Our Top Brands"
-      }, {
-        "type": "text",
-        "id": "subheading",
-        "label": "Subheading",
-        "default": "Browse our most popular brands"
-      }, {
-        "type": "text",
-        "id": "all_brands_text",
-        "label": "Footer Link Text",
-        "default": "View All Brands"
-      }, {
-        "type": "url",
-        "id": "all_brands_url",
-        "label": "Footer Link URL"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "brand_logo",
-        "name": "Brand Logo",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "logo",
-            "label": "Logo Image"
-          }, {
-            "type": "text",
-            "id": "brand_name",
-            "label": "Brand Name (for SEO alt text)",
-            "info": "This is crucial for SEO and accessibility."
-          }, {
-            "type": "url",
-            "id": "brand_url",
-            "label": "Brand Link URL",
-            "info": "Links to the brand's collection page."
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Brand Logo List",
-        "category": "Image",
-        "blocks": [
-          {
-            "type": "brand_logo"
-          },
-          {
-            "type": "brand_logo"
-          },
-          {
-            "type": "brand_logo"
-          },
-          {
-            "type": "brand_logo"
-          }, {
-            "type": "brand_logo"
-          }, {
-            "type": "brand_logo"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Brand Logo List",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Top Brands"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Browse our most popular brands"
+    },
+    {
+      "type": "text",
+      "id": "all_brands_text",
+      "label": "Footer Link Text",
+      "default": "View All Brands"
+    },
+    {
+      "type": "url",
+      "id": "all_brands_url",
+      "label": "Footer Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand_logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name (for SEO alt text)",
+          "info": "This is crucial for SEO and accessibility."
+        },
+        {
+          "type": "url",
+          "id": "brand_url",
+          "label": "Brand Link URL",
+          "info": "Links to the brand's collection page."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logo List",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "brand_logo"
+        },
+        {
+          "type": "brand_logo"
+        },
+        {
+          "type": "brand_logo"
+        },
+        {
+          "type": "brand_logo"
+        },
+        {
+          "type": "brand_logo"
+        },
+        {
+          "type": "brand_logo"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
