@@ -89,7 +89,7 @@
   {% if section.settings.heading != blank or section.settings.subheading != blank %}
     <div class="hs-brand-header">
       {% if section.settings.heading != blank %}
-        <h2>{{ section.settings.heading | escape }}</h2>
+        <h2 style="margin: 0;">{{ section.settings.heading | escape }}</h2>
       {% endif %}
       {% if section.settings.subheading != blank %}
         <p>{{ section.settings.subheading | escape }}</p>
