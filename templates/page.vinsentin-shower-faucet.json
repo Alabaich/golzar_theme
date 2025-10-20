@@ -29,11 +29,89 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "brand_logo_list_JLgVC4": {
+      "type": "brandLogoList",
+      "blocks": {
+        "brand_logo_nP7MkQ": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MOEN.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_mdBJXU": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/RIOBEL.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_XBgfGi": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/RIOBEL.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_6KGLX9": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MOEN.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_WFedaY": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MOEN.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_AbF3Wa": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/RIOBEL.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_KpQDp7": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/MOEN.webp",
+            "brand_name": "",
+            "brand_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_logo_nP7MkQ",
+        "brand_logo_mdBJXU",
+        "brand_logo_XBgfGi",
+        "brand_logo_6KGLX9",
+        "brand_logo_WFedaY",
+        "brand_logo_AbF3Wa",
+        "brand_logo_KpQDp7"
+      ],
+      "name": "Brand Logo List",
+      "settings": {
+        "heading": "Our Top Brands",
+        "subheading": "Browse our most popular brands",
+        "all_brands_text": "View All Brands",
+        "all_brands_url": "shopify://pages/armadi-art-golzar-home"
+      }
     }
   },
   "order": [
     "brand-breadcrums",
     "armadi-art-brand",
-    "main"
+    "main",
+    "brand_logo_list_JLgVC4"
   ]
 }

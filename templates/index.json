@@ -303,6 +303,69 @@
         "show_text_below": true
       }
     },
+    "brand_logo_list_AcRjKh": {
+      "type": "brandLogoList",
+      "blocks": {
+        "brand_logo_nHkbV3": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_pkqVCm": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_JeRGqL": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_weEmQd": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_QMrfXb": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        },
+        "brand_logo_8i7UCp": {
+          "type": "brand_logo",
+          "settings": {
+            "brand_name": "",
+            "brand_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_logo_nHkbV3",
+        "brand_logo_pkqVCm",
+        "brand_logo_JeRGqL",
+        "brand_logo_weEmQd",
+        "brand_logo_QMrfXb",
+        "brand_logo_8i7UCp"
+      ],
+      "disabled": true,
+      "name": "Brand Logo List",
+      "settings": {
+        "heading": "Our Top Brands",
+        "subheading": "Browse our most popular brands",
+        "all_brands_text": "View All Brands",
+        "all_brands_url": ""
+      }
+    },
     "collection_data_discount_bERRBy": {
       "type": "collection-data-discount",
       "disabled": true,
@@ -553,6 +616,7 @@
     "slideshow_JJwBwz",
     "featured_collection_promo_PBVXnq",
     "image_banner_JPJCMg",
+    "brand_logo_list_AcRjKh",
     "collection_data_discount_bERRBy",
     "featured_blog_yqKkQg",
     "image_banner_MWGE6A",
