@@ -403,6 +403,47 @@
             "brand_name": "MAAX",
             "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Maax"
           }
+        },
+        "brand_logo_xdgf9C": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/BOCCHI_1_3cfce80b-9e49-442c-8912-66c42da2dbb0.svg",
+            "brand_name": "BOCCHI",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Bocchi"
+          }
+        },
+        "brand_logo_TtQAJj": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/ALPS_e716de5d-7150-476a-9957-2cd1bc67c455.svg",
+            "brand_name": "ALPS",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Alps"
+          }
+        },
+        "brand_logo_bW8XhY": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/vogt_90eb8363-c807-4191-9eb3-f18e443b0cd9.svg",
+            "brand_name": "VOGT",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Vogt"
+          }
+        },
+        "brand_logo_DK8txn": {
+          "type": "brand_logo",
+          "settings": {
+            "logo": "shopify://shop_images/GEBERIT_7d84aee8-8ffe-4841-87ea-ab3419f7f6fb.svg",
+            "brand_name": "GEBERIT",
+            "brand_url": "https://bathroomsupplier.ca/collections/vendors?q=Geberit"
+          }
+        },
+        "brand_logo_PFib3U": {
+          "type": "brand_logo",
+          "disabled": true,
+          "settings": {
+            "logo": "shopify://shop_images/oceania_7fcffbdf-beeb-45cc-9aa2-a365bc4d14ce.svg",
+            "brand_name": "OCEANIA",
+            "brand_url": ""
+          }
         }
       },
       "block_order": [
@@ -412,7 +453,12 @@
         "brand_logo_HYVQfk",
         "brand_logo_NYFXd3",
         "brand_logo_CPRrUB",
-        "brand_logo_RhqQkg"
+        "brand_logo_RhqQkg",
+        "brand_logo_xdgf9C",
+        "brand_logo_TtQAJj",
+        "brand_logo_bW8XhY",
+        "brand_logo_DK8txn",
+        "brand_logo_PFib3U"
       ],
       "name": "Brand Logo List",
       "settings": {
