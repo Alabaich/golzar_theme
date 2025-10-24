@@ -324,7 +324,7 @@
 }
 </style>
 
-<script src="https://cdn.enjob.ca/bathroomsupplierProductPage.js" async></script>
+
   
 <product-info id="MainProduct-{{ section.id }}"
   class="page-width pageWidth mainProductContainer section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -994,7 +994,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 
 
-
+{% comment %} 
 
 {% comment %}
   This file contains the HTML structure and JavaScript logic for displaying
@@ -1185,6 +1185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script src="https://cdn.enjob.ca/bathroomsupplierProductPage.js" async></script> {% endcomment %}
 
 
 
@@ -1195,8 +1196,175 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+{% comment %}
+  File: product-availability.liquid
+  This snippet displays dynamic availability information.
+  It provides data to the external script: product-availability.js
+{% endcomment %}
 
+{% comment %}
+  1. DATA GENERATION
+  This script MUST come BEFORE the external .js file.
+  It passes server-side Liquid data to browser-side JavaScript variables.
+{% endcomment %}
+<script>
+  // Data for each specific variant
+  const productVariantsData = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {
+        "available": {{ variant.available }},
+        "delivery": "{{ variant.metafields.custom.expected_delivery | escape }}",
+        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
+      },
+    {% endfor %}
+  };
 
+  // Fallback data for the whole product
+  const productData = {
+    "delivery": "{{ product.metafields.custom.expected_delivery | escape }}",
+    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
+  };
+</script>
+
+{% comment %}
+  2. HTML STRUCTURE
+  These are the containers that the external script will show/hide.
+{% endcomment %}
+<div id="availability-container">
+
+  <p id="delivery-time-block" style="display: none;">
+    In stock! Get it in just <b id="delivery-time-value"></b>.
+  </p>
+
+  <div id="discontinued-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white;">
+      Discontinued
+    </span>
+  </div>
+
+  <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span onclick="openChatBox(event)" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;">
+      Chat for Availability
+    </span>
+    <p style="margin-top: 10px;" id="backorder-message"><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
+  </div>
+
+  <div id="in-stock-block" style="display: none;">
+     <p><b>Available,</b> in stock. Ready to Ship.</p>
+  </div>
+
+  <div id="sold-out-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black;">
+      Sold Out
+    </span>
+  </div>
+  
+  {% comment %} 
+    The buy buttons are left here, to be shown/hidden by the script.
+    (Note: The 'render' tag inside the div was in your original code)
+  {% endcomment %}
+  <div id="buy-buttons-block" style="display: block;">
+    {%- render 'buy-buttons',
+        block: block, product: product,
+        product_form_id: product_form_id,
+        section_id: section.id,
+        show_pickup_availability: true
+    -%}
+  </div>
+
+</div>
+
+{% comment %}
+  3. EXTERNAL LOGIC
+  This loads the JavaScript file from your CDN.
+  Using 'defer' ensures it runs AFTER the HTML is parsed
+  and after the data script above has run.
+{% endcomment %}
+<script src="https://cdn.enjob.ca/product-availability.js" defer></script>{% comment %}
+  File: product-availability.liquid
+  This snippet displays dynamic availability information.
+  It provides data to the external script: product-availability.js
+{% endcomment %}
+
+{% comment %}
+  1. DATA GENERATION
+  This script MUST come BEFORE the external .js file.
+  It passes server-side Liquid data to browser-side JavaScript variables.
+{% endcomment %}
+<script>
+  // Data for each specific variant
+  const productVariantsData = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {
+        "available": {{ variant.available }},
+        "delivery": "{{ variant.metafields.custom.expected_delivery | escape }}",
+        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
+      },
+    {% endfor %}
+  };
+
+  // Fallback data for the whole product
+  const productData = {
+    "delivery": "{{ product.metafields.custom.expected_delivery | escape }}",
+    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
+  };
+</script>
+
+{% comment %}
+  2. HTML STRUCTURE
+  These are the containers that the external script will show/hide.
+{% endcomment %}
+<div id="availability-container">
+
+  <p id="delivery-time-block" style="display: none;">
+    In stock! Get it in just <b id="delivery-time-value"></b>.
+  </p>
+
+  <div id="discontinued-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: gray; color: white;">
+      Discontinued
+    </span>
+  </div>
+
+  <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span onclick="openChatBox(event)" style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;">
+      Chat for Availability
+    </span>
+    <p style="margin-top: 10px;" id="backorder-message"><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
+  </div>
+
+  <div id="in-stock-block" style="display: none;">
+     <p><b>Available,</b> in stock. Ready to Ship.</p>
+  </div>
+
+  <div id="sold-out-block" style="display: none; margin: 15px 0 0; width: 100%;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black;">
+      Sold Out
+    </span>
+  </div>
+  
+  {% comment %} 
+    The buy buttons are left here, to be shown/hidden by the script.
+    (Note: The 'render' tag inside the div was in your original code)
+  {% endcomment %}
+  <div id="buy-buttons-block" style="display: block;">
+    {%- render 'buy-buttons',
+        block: block, product: product,
+        product_form_id: product_form_id,
+        section_id: section.id,
+        show_pickup_availability: true
+    -%}
+  </div>
+
+</div>
+
+{% comment %}
+  3. EXTERNAL LOGIC
+  This loads the JavaScript file from your CDN.
+  Using 'defer' ensures it runs AFTER the HTML is parsed
+  and after the data script above has run.
+{% endcomment %}
+<script src="https://cdn.enjob.ca/product-availability.js" defer></script>
 
 
 
