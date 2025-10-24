@@ -21,6 +21,18 @@
           "type": "title",
           "settings": {}
         },
+        "vendor_UL6cDG": {
+          "type": "vendor",
+          "settings": {
+            "brand_list": ""
+          }
+        },
+        "sku_WEYUpw": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -86,6 +98,8 @@
       },
       "block_order": [
         "title",
+        "vendor_UL6cDG",
+        "sku_WEYUpw",
         "price",
         "variant_picker",
         "buy_buttons",
@@ -213,7 +227,12 @@
       "blocks": {
         "judge_me_reviews_review_widget_Xg9Nwa": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [
