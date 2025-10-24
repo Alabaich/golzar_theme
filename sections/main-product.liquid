@@ -1078,7 +1078,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   Load the external logic script from our CDN.
   The 'async' attribute helps prevent it from blocking page load.
 {% endcomment %}
-<script src="https://cdn.enjob.ca/bathroomsupplierProductPage.js" async></script>
+{% comment %} <script src="https://cdn.enjob.ca/bathroomsupplierProductPage.js" async></script> {% endcomment %}
 
 {% if product.tags contains 'no_free_shipping' %}
   <div class="product-tag-disclaimer" style="margin-top: 15px; font-size: 0.9em; color: #666; font-style: italic;">
