@@ -1291,24 +1291,7 @@ document.addEventListener('DOMContentLoaded', function() {
   This script MUST come BEFORE the external .js file.
   It passes server-side Liquid data to browser-side JavaScript variables.
 {% endcomment %}
-<script>
-  // Data for each specific variant
-  const productVariantsData = {
-    {% for variant in product.variants %}
-      "{{ variant.id }}": {
-        "available": {{ variant.available }},
-        "delivery": "{{ variant.metafields.custom.expected_delivery | escape }}",
-        "discontinued": {{ variant.metafields.custom.discontinued | default: false }}
-      },
-    {% endfor %}
-  };
 
-  // Fallback data for the whole product
-  const productData = {
-    "delivery": "{{ product.metafields.custom.expected_delivery | escape }}",
-    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }}
-  };
-</script>
 
 {% comment %}
   2. HTML STRUCTURE
