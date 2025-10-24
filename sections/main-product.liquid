@@ -861,9 +861,9 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
             <div class="product-content-right">
               <span class="out-sold" style="display: none;">sold out</span>
               <div class="inner-content">
-              {% assign current_variant_sku = compatible_pro.selected_or_first_available_variant %}
-                {% if current_variant_sku != blank %}
-                <h4 class="sku-pro"><a href="{{ compatible_pro.url }}">{{ current_variant_sku.sku }}</a></h4>
+              {% assign current_variant_sku_comp = compatible_pro.selected_or_first_available_variant %}
+                {% if current_variant_sku_comp != blank %}
+                <h4 class="sku-pro"><a href="{{ compatible_pro.url }}">{{ current_variant_sku_comp.sku }}</a></h4>
                 {% endif %}
                   <span class="price-pro">
                     {%- render 'price', product: compatible_pro,
