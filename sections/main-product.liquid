@@ -457,9 +457,9 @@
     {% if product.selected_or_first_available_variant.sku != blank %}
       <div class="sku-or-tags" style="color: #2c2d2c;">
         <span class="skuu"> SKU:
-          <!-- <span class="product__sku alerrt" id="Sku-{{ section.id }}">
+          {% comment %} <span class="product__sku alerrt" id="Sku-{{ section.id }}">
             {{- product.selected_or_first_available_variant.sku -}}
-          </span> -->
+          </span>  {% endcomment %}
           <span class="product__sku alerrt" id="Sku-{{ section.id }}" onclick="copySkuToClipboard(this)" style="cursor: pointer;" title="Click to copy SKU">
   {{- product.selected_or_first_available_variant.sku -}}
 </span>
