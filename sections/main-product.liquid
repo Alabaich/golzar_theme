@@ -14,6 +14,10 @@
   flex-wrap: wrap;
 }
 
+.product-tag-disclaimer p {
+  margin: 0;
+}
+
 .product__media-item.grid__item.slider__slide.is-active {
   border-radius: 25px;
     border: none;
@@ -951,7 +955,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/accordion-logic.js" async></script>
 
 {% if product.tags contains 'no_free_shipping' %}
-  <div class="product-tag-disclaimer" style="margin-top: 15px; font-size: 0.9em; color: #666; font-style: italic;">
+  <div class="product-tag-disclaimer" style="font-size: 0.9em; color: #666; font-style: italic;">
     <p><b>Please note:</b> Due to special pricing, some options for this item may not be eligible for free shipping promotions.</p>
   </div>
 {% endif %}
