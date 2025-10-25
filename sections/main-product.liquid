@@ -1079,6 +1079,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   The 'async' attribute helps prevent it from blocking page load.
 {% endcomment %}
 <script src="https://cdn.enjob.ca/bathroomsupplierProductPage.js" async></script>
+<script src="http://72.60.163.188/cdn/accordion-logic.js" async></script>
 
 {% if product.tags contains 'no_free_shipping' %}
   <div class="product-tag-disclaimer" style="margin-top: 15px; font-size: 0.9em; color: #666; font-style: italic;">
@@ -1487,28 +1488,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       });
     });
-  });
-
-  const accordions = document.querySelectorAll('.main-aacrodaian');
-
-  accordions.forEach(accordion => {
-    const head = accordion.querySelector('.acc-head');
-    const body = accordion.querySelector('.acc-body');
-
-    if (head && body) {
-      head.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isActive = accordion.classList.contains('active');
-
-        if (isActive) {
-          accordion.classList.remove('active');
-          body.style.maxHeight = null;
-        } else {
-          accordion.classList.add('active');
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
-      });
-    }
   });
 });
 </script>
