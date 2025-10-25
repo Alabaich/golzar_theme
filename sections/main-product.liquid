@@ -74,66 +74,6 @@
   border-radius: 12px;
 }
 
-.refundss-shiipings {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 20px;
-  padding: 15px 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.shippingg,
-.refundss {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  font-size: 14px;
-  text-decoration: none;
-  height: 100%;
-}
-
-.shippingg svg,
-.refundss svg,
-.same-day-pickup svg {
-  width: 32px;
-  height: 32px;
-  margin-right: 0;
-  stroke-width: 1;
-}
-
-.refundss a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.refundss-shiipings {
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
-
-.refundss-shiipings > *:not(:last-child)::after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: -10px;
-  top: 15%;
-  bottom: 15%;
-  width: 1px;
-  background-color: #e0e0e0;
-}
-
-.refundss-shiipings {
-  position: relative;
-}
-
-.shippingg,
-.refundss,
-.same-day-pickup {
-  position: relative;
-}
-
 .main-required-pro {
   display: flex;
   flex-direction: column;
@@ -171,7 +111,6 @@
 
 .custom-add-to-cart:hover svg path {
   fill: #002642 !important;
-  /* stroke: #002642 !important; */
 }
 .custom-add-to-cart::after {
   display: none !important;
@@ -284,57 +223,6 @@
 }
 
 @media (max-width: 768px) {
-  .refundss-shiipings {
-    grid-template-columns: 1fr;
-  }
-
-  .shippingg,
-  .refundss,
-  .same-day-pickup {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-  }
-
-  .refundss-shiipings {
-    justify-content: center;
-  }
-
-  .refundss-shiipings > *:not(:last-child)::after {
-    display: none;
-  }
-  
-  .refundss-shiipings {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 15px 10px;
-  }
-    .refundss-shiipings .shippingg{
-      width: 100%;
-      justify-content: center;
-    }
-
-    .product .refundss-shiipings {
-      padding: 20px;
-    }
-
-  .shippingg,
-  .refundss,
-  .same-day-pickup {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 15px;
-  }
-
-  .refundss-shiipings > *:not(:last-child)::after {
-    display: none;
-  }
-
-  .refundss-shiipings > *:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
   .product .product_information .social-icon-pro ul {
     justify-content: center;
   }
@@ -588,68 +476,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   </span>
 
                 </div>
-
-{%- when 'shipping_refund' -%}
-  <div style="display: flex; flex-direction: column; gap: 10px;">
-    <div class="refundss-shiipings">
-      <span class="shippingg">
-<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-  <g clip-path="url(#clip0_251_2)">
-    <path d="M10.3784 12.1896C11.8784 12.1896 13.0944 10.9736 13.0944 9.47357C13.0944 7.97356 11.8784 6.75757 10.3784 6.75757C8.87835 6.75757 7.66235 7.97356 7.66235 9.47357C7.66235 10.9736 8.87835 12.1896 10.3784 12.1896Z" stroke="#002642" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M17.6213 21.2425C19.1213 21.2425 20.3373 20.0266 20.3373 18.5265C20.3373 17.0265 19.1213 15.8105 17.6213 15.8105C16.1213 15.8105 14.9053 17.0265 14.9053 18.5265C14.9053 20.0266 16.1213 21.2425 17.6213 21.2425Z" stroke="#002642" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M9.28931 21.2429L18.7048 6.75757" stroke="#002642" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M14 1.25C21.0416 1.25 26.75 6.95837 26.75 14C26.75 21.0416 21.0416 26.75 14 26.75C6.95837 26.75 1.25 21.0416 1.25 14C1.25 6.95837 6.95837 1.25 14 1.25Z" stroke="#002642" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  <defs>
-    <clipPath id="clip0_251_2">
-      <rect width="28" height="28" fill="white"/>
-    </clipPath>
-  </defs>
-</svg>
-        Price Match
-      </span>
-
-      <span class="shippingg">
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14 0C21.7322 0 28 6.2678 28 14C28 21.7322 21.7322 28 14 28C6.2678 28 0 21.7322 0 14C0 6.2678 6.2678 0 14 0ZM14 2.8C11.0296 2.8 8.18081 3.98 6.0804 6.0804C3.98 8.18081 2.8 11.0296 2.8 14C2.8 16.9704 3.98 19.8192 6.0804 21.9196C8.18081 24.02 11.0296 25.2 14 25.2C16.9704 25.2 19.8192 24.02 21.9196 21.9196C24.02 19.8192 25.2 16.9704 25.2 14C25.2 11.0296 24.02 8.18081 21.9196 6.0804C19.8192 3.98 16.9704 2.8 14 2.8ZM14 5.6C14.3429 5.60005 14.6739 5.72594 14.9301 5.9538C15.1864 6.18166 15.3501 6.49565 15.3902 6.8362L15.4 7V13.4204L19.1898 17.2102C19.4409 17.4621 19.5867 17.8002 19.5975 18.1557C19.6084 18.5113 19.4835 18.8576 19.2483 19.1244C19.013 19.3912 18.685 19.5584 18.3309 19.5922C17.9768 19.6259 17.6232 19.5236 17.3418 19.306L17.2102 19.1898L13.0102 14.9898C12.7926 14.772 12.6529 14.4886 12.6126 14.1834L12.6 14V7C12.6 6.6287 12.7475 6.2726 13.0101 6.01005C13.2726 5.7475 13.6287 5.6 14 5.6Z"
-            fill="#002642"
-          />
-        </svg>
-        Delivered in 1-2 business days
-      </span>
-
-      <span class="shippingg">
-        <svg style="height: 24px;" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.0003 16L26.7643 9.83332M16.0003 16V28.3333M16.0003 16L10.6177 12.9173M26.7643 9.83332C26.3908 9.19209 25.8551 8.66049 25.211 8.29198L21.667 6.26132M26.7643 9.83332C27.131 10.4626 27.3337 11.1866 27.3337 11.94V20.06C27.3333 20.8013 27.1367 21.5293 26.7638 22.17C26.391 22.8107 25.8553 23.3413 25.211 23.708L18.123 27.7693C17.4768 28.1393 16.745 28.3338 16.0003 28.3333M16.0003 28.3333C15.2557 28.3338 14.5239 28.1393 13.8777 27.7693L6.78966 23.708C5.47633 22.956 4.66699 21.5666 4.66699 20.06V11.94C4.6668 11.1999 4.86279 10.473 5.23499 9.83332M10.6177 12.9173L5.23499 9.83332M10.6177 12.9173L21.667 6.26132M21.667 6.26132L18.123 4.23065C17.4769 3.86012 16.7451 3.66516 16.0003 3.66516C15.2555 3.66516 14.5237 3.86012 13.8777 4.23065L6.78966 8.29198C6.14506 8.66031 5.60886 9.19192 5.23499 9.83332" stroke="#002642" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
-        Same day pick up
-      </span>
-    </div>
-
-    {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-      <div class="product__tax caption rte">
-        {%- if cart.duties_included and cart.taxes_included -%}
-          {{ 'products.product.duties_and_taxes_included' | t }}
-        {%- elsif cart.taxes_included -%}
-          {{ 'products.product.taxes_included' | t }}
-        {%- elsif cart.duties_included -%}
-          {{ 'products.product.duties_included' | t }}
-        {%- endif -%}
-        {%- if shop.shipping_policy.body != blank -%}
-          {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-  </div>
-
-                <!-- Shipping and Refunds end -->
 
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
