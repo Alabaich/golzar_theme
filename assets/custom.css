@@ -137,7 +137,7 @@ a.btn.btn-primary:hover,
   transition: all ease 0.5s;
   transition: font-weight 0.3s ease, color 0.3s ease;
 }
-.header-menu-area-inn nav.header__inline-menu ul.list-menu li a:hover,
+/* .header-menu-area-inn nav.header__inline-menu ul.list-menu li a:hover,
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li a span:hover,
 .header-menu-area-inn
   nav.header__inline-menu
@@ -151,8 +151,9 @@ a.btn.btn-primary:hover,
   li
   summary.header__menu-item
   .header__active-menu-item {
-  /* color: #d3b574; */
-}
+   color: #d3b574; 
+} 
+*/
 .header-menu-area-inn nav.header__inline-menu ul.list-menu li * {
   color: #002642;
   fill: #002642;
@@ -1182,13 +1183,13 @@ section.shopify-section.section.wall-mount div.banner .banner__content::after {
   padding-bottom: 8px;
   border-left: 8px solid transparent;
 }
-.header-menu-area-inn
+/* .header-menu-area-inn
   nav.header__inline-menu
   ul.header__submenu.list-menu
   li
   .list-menu__item--active {
-  /* color: #d3b574; */
-}
+   color: #d3b574; 
+} */
 .slider_actions .slide_a_num p::first-letter {
   font-size: 55px;
   line-height: 1;
