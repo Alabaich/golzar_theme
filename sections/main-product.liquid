@@ -16,7 +16,7 @@
 
 .product__media-item.grid__item.slider__slide.is-active {
   border-radius: 25px;
-  border: none;
+    border: none;
 }
 
 .product-main-flex-container > .grid__item {
@@ -313,7 +313,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} {% unless product.media.size > 0 %}product--no-media{% endunless %} product-main-flex-container">
       <div class="grid__item product__media-wrapper" style="position:relative;">
                 {% if product.vendor == 'Alps' or product.vendor == 'Bocchi' or product.vendor == 'Visentin' or product.vendor == 'Kodaen' %}
                     <span style="position: absolute; z-index: 3;  top:5px; right: 5px; padding: 15px; border-radius: 10px; background: rgba(255, 255, 255, 0.5); display: flex; justify-content: center; align-items: center; gap: 10px;">
