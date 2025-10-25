@@ -13,6 +13,19 @@
   {% render 'price', product: product %}
 {% endcomment %}
 
+<style>
+  .price__badge-savings {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-left: 10px;
+    background-color: #FDEEED;
+    color: #D9534F;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 500;
+  }
+</style>
+
 {%- liquid
   if use_variant
     assign target = product.selected_or_first_available_variant
@@ -38,6 +51,19 @@
 
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+
+  assign savings = 0
+  assign savings_percentage = 0
+  assign money_savings = ''
+  if compare_at_price > price
+    assign savings = compare_at_price | minus: price
+    assign savings_percentage = savings | times: 100.0 | divided_by: compare_at_price | round
+    
+    assign money_savings = savings | money
+    if settings.currency_code_enabled
+      assign money_savings = savings | money_with_currency
+    endif
   endif
 -%}
 
@@ -105,6 +131,13 @@
         <span class="price-item price-item--sale price-item--last">
           {{ money_price }}
         </span>
+
+        {%- if savings > 0 -%}
+          <span class="price__badge-savings">
+            Save {{ money_savings }} ({{ savings_percentage }}%)
+          </span>
+        {%- endif -%}
+
       </div>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
