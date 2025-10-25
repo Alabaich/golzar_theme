@@ -61,10 +61,21 @@
   gap: 15px;
 }
 
+.product-main-flex-container > .product__info-wrapper {
+  position: relative;
+  align-self: stretch; 
+}
+
 .product__info-container {
   gap: 25px;
   display: flex !important;
   flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
 }
 
 .brand-sku-wrapper {
