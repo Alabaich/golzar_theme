@@ -43,7 +43,7 @@
   }
   section.shopify-section.section.product_main_sec
     .product.product--medium .product__info-wrapper {
-    max-height: 690px;
+    max-height: 100%;
     overflow-y: auto;
     /* padding-right: 10px; */
     padding-right: 5px;
