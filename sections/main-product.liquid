@@ -8,9 +8,25 @@
     display: none !important;
   } */
 
+  .product-main-flex-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
 .product__media-item.grid__item.slider__slide.is-active {
   border-radius: 25px;
     border: none;
+}
+
+.product-main-flex-container > .grid__item {
+  flex: 1 1 400px; 
+  min-width: 0;
+}
+@media (max-width: 749px) {
+  .product-main-flex-container {
+    flex-direction: column;
+  }
 }
 
   .product-description .slick-track{
