@@ -25,6 +25,9 @@ product-info {
     position: sticky;
     top: 3rem;
     z-index: 2;
+    background: #fff;
+    border-radius: 25px;
+    padding-bottom: 25px;
   }
 
   .product--thumbnail .thumbnail-list {
