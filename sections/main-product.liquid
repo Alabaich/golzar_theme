@@ -1318,98 +1318,93 @@ background: rgba(255, 59, 59, 0.10);
   </div>
 </product-info>
 
-{% if product.description != blank or product.metafields.custom.spec_sheet != blank or product.metafields.custom.technical_drawing  != blank %}
+{% comment %}
+  Визначаємо, чи є взагалі контент для показу,
+  включаючи useful_links.
+{% endcomment %}
+{%- assign has_content = false -%}
+{%- if product.description != blank or product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank or product.metafields.custom.technical_drawing != blank -%}
+  {%- assign has_content = true -%}
+{%- endif -%}
+
+{% if has_content %}
 <div class="page-width">
   <div class="tab-container">
-      <!-- Tab Links -->
-      <div class="tabs">
-        {% if product.description != blank %}
-        <div class="tab active" data-tab="tab1">Description</div>
-        {% endif %}
-  
-        {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links %}
-        <div class="tab" data-tab="tab2">Spec Sheet</div>
-        {% endif %}
-  
-        {% if product.metafields.custom.technical_drawing != blank %}
-        <div class="tab" data-tab="tab3">Technical Drawing</div>
-        {% endif %}
-  
-      </div>
+    <div class="tabs">
+      {%- assign is_first_tab = true -%}
 
-      <!-- Tab Content -->
-      <div class="tab-content">
-        {% if product.description != blank %}
-        <div class="tab-pane data-read-only active" id="tab1">
-          <div class="product-description">
-{{ product.description }}
-          {% comment %}
-          {% if section.settings.enable_read == true %}
-          {% assign char_limit = section.settings.char_limit %}
-            
-          {% if product.description.size > char_limit %}
-          <div class="product-description-short">
-            {{ product.description | truncate: 500, ". . ." }}
-            <br><a class="prd_readmore" href="#">Read More</a>
-          </div>
-          <div class="product-description-full" style="display:none;">
-            {{ product.description }}
-            <br><a class="prd_readless" href="#">Read Less</a>
-          </div>
-          {% else %}
-          {{ product.description }}
-          {% endif %} 
-        
-          {% else %}
-          {{ product.description }}
-          {% endif %}
-          {% endcomment %}
-          </div>
-        </div>
-        {% endif %}
-  
-{% if product.metafields.custom.spec_sheet != blank %}
-<div class="tab-pane file_download" id="tab2" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
-    <h4 style="margin:0;" 
-        {% if product.type %}{{ product.type | handleize }}-specs{% endif %} 
-        data-product-id="{% if product %}{{ product.id }}{% endif %}" 
-        data-product-handle="{% if product %}{{ product.handle }}{% endif %}" 
-        data-vendor="{% if product and product.vendor != blank %}{{ product.vendor | handleize }}{% endif %}" 
-        aria-labelledby="product-info-section-{{ product.id }}">Product Spec Sheet</h4>
-    <a href="{{ product.metafields.custom.spec_sheet | file_url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>   Download PDF</a >
-</div>
-{% endif %}
+      {% if product.description != blank %}
+        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab1">Description</div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
 
-{% if product.metafields.custom.useful_links != blank %}
-<div class="tab-pane file_download" id="tab3" style="display: flex; gap: 15px; flex-direction:column; padding: 15px 0;">
-    <h4 style="margin:0;" >Product Downloads & Manuals:</h4>
-    {%- assign resource_links = product.metafields.custom.useful_links.value -%}
-    {%- if resource_links != blank -%}
-    <div class="product-resources">
-        <ul style="display:flex; flex-direction: column; gap: 15px;">
-            {%- for link in resource_links -%}
-            <li>
-                <a href="{{ link.url }}" style="margin:0; display: flex; align-items: center; gap: 15px; width: fit-content;" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span>             {% if link.url contains "SpecSheet" %}
-                    Spec Sheet {%  elsif link.text %} {{ link.text }}
-                    {% else %}Resource - {{ product.selected_or_first_available_variant.sku }} - {{ forloop.index }}{% endif %}</a >
-            </li>
-            {%- endfor -%}
-        </ul>
+      {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
+        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab2">Downloads</div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
+
+      {% if product.metafields.custom.technical_drawing != blank %}
+        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab3">Technical Drawing</div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
     </div>
-    {%- endif -%}
-</div>
-{% endif %}
-  
-        {% if product.metafields.custom.technical_drawing != blank %}
-        <div class="tab-pane file_download" id="tab3">
-          <h2>Technical Drawing:</h2>
-          <p>📥 <a href="{{ product.metafields.custom.technical_drawing | file_url }}" target="_blank" rel="noopener">Download ZIP</a></p>
-        </div>
-        {% endif %}
-  
-      </div>
-  </div>
 
+    <div class="tab-content">
+      {%- assign is_first_tab = true -%}
+
+      {% if product.description != blank %}
+        <div class="tab-pane {% if is_first_tab %}active{% endif %}" id="tab1">
+          <div class="product-description">
+            {{ product.description }}
+          </div>
+        </div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
+
+      {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
+        <div class="tab-pane file_download {% if is_first_tab %}active{% endif %}" id="tab2" style="display: flex; gap: 30px; flex-direction:column; padding: 15px 0;">
+          
+          {% if product.metafields.custom.spec_sheet != blank %}
+            <div>
+              <h4 style="margin:0 0 15px 0;">Product Spec Sheet</h4>
+              <a href="{{ product.metafields.custom.spec_sheet | file_url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> Download PDF</a>
+            </div>
+          {% endif %}
+
+          {% if product.metafields.custom.useful_links != blank %}
+            <div>
+              <h4 style="margin:0 0 15px 0;">Product Downloads & Manuals</h4>
+              {%- assign resource_links = product.metafields.custom.useful_links.value -%}
+              <ul style="display:flex; flex-direction: column; gap: 15px; margin:0; padding:0; list-style:none;">
+                {%- for link in resource_links -%}
+                  <li>
+                    <a href="{{ link.url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> 
+                      {%- if link.text != blank -%}
+                        {{ link.text }}
+                      {%- else -%}
+                        Resource - {{ forloop.index }}
+                      {%- endif -%}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {% endif %}
+
+        </div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
+
+      {% if product.metafields.custom.technical_drawing != blank %}
+        <div class="tab-pane file_download {% if is_first_tab %}active{% endif %}" id="tab3">
+          <h4 style="margin:0 0 15px 0;">Technical Drawing</h4>
+          <a href="{{ product.metafields.custom.technical_drawing | file_url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> Download ZIP</a>
+        </div>
+        {%- assign is_first_tab = false -%}
+      {% endif %}
+
+    </div>
+  </div>
 </div>
 {% endif %}
 
