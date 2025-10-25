@@ -906,9 +906,30 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   These are the containers for different availability messages. JavaScript will
   show or hide them based on the logic. Each block has a unique ID.
 {% endcomment %}
+
+<style>
+  #delivery-time-block, #in-stock-block, #discontinued-block, #backorder-message{
+    border-radius: 15px;
+    font-size: 0.75em;
+    padding: 5px 9px;
+  }
+
+  #delivery-time-block, #in-stock-block{
+    color: #34C759;
+background: rgba(52, 199, 89, 0.10);
+  }
+
+  #discontinued-block, #backorder-message{
+    color: #FF3B30;
+background: rgba(255, 59, 59, 0.10);
+  }
+</style>
 <div id="availability-container">
 
   <p id="delivery-time-block" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12C3 14.3869 3.94821 16.6761 5.63604 18.364C7.32387 20.0518 9.61305 21 12 21ZM11.768 15.64L16.768 9.64L15.232 8.36L10.932 13.519L8.707 11.293L7.293 12.707L10.293 15.707L11.067 16.481L11.768 15.64Z" fill="#34C759"/>
+</svg>
     In stock! Get it in just <b id="delivery-time-value"></b>.
   </p>
 
@@ -923,10 +944,17 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       <!-- This span's content will now be changed by the script -->
       <span id="chat-button-text">Chat for Availability</span>
     </span>
-    <p style="margin-top: 10px;" id="backorder-message"><b>On Backorder – Delivery in up to 6 weeks.</b> <br> For a more precise or expedited delivery timeframe, please contact us directly.</p>
+    <p style="margin-top: 10px;" id="backorder-message">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.9998 21C16.9148 21 21 16.9235 21 12C21 7.08513 16.9058 3 11.9908 3C7.06752 3 3 7.08513 3 12C3 16.9235 7.07618 21 11.9998 21ZM11.9915 13.3237C11.5236 13.3237 11.2679 13.05 11.2499 12.582L11.1264 8.22396C11.1087 7.73831 11.4791 7.39459 11.9821 7.39459C12.4764 7.39459 12.8556 7.74734 12.8382 8.23262L12.7144 12.5828C12.6967 13.059 12.432 13.3241 11.9912 13.3241M11.9912 16.5712C11.4791 16.5712 11.0025 16.1653 11.0025 15.6179C11.0025 15.0705 11.4705 14.6654 11.9912 14.6654C12.5028 14.6654 12.979 15.0622 12.979 15.6179C12.979 16.174 12.4938 16.5712 11.9912 16.5712Z" fill="#FF3B3B"/>
+</svg>  
+    <b>On Backorder – Delivery in up to 6 weeks.</b> For a more precise or expedited delivery timeframe, please contact us directly.</p>
   </div>
 
   <div id="in-stock-block" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12C3 14.3869 3.94821 16.6761 5.63604 18.364C7.32387 20.0518 9.61305 21 12 21ZM11.768 15.64L16.768 9.64L15.232 8.36L10.932 13.519L8.707 11.293L7.293 12.707L10.293 15.707L11.067 16.481L11.768 15.64Z" fill="#34C759"/>
+</svg>
      <p><b>Available,</b> in stock. Ready to Ship.</p>
   </div>
 
