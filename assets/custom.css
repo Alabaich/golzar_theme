@@ -2478,7 +2478,7 @@ section.shopify-section.section.you_may_like
 .product__info-wrapper.grid__item .product__info-container variant-selects .product-form__input {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 5px;
 }
 
 .product__info-wrapper.grid__item .product__info-container variant-selects input[type="radio"] {
