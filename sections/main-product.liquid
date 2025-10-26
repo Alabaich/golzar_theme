@@ -533,8 +533,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                       {{ product.title | escape }}
                     </h2>
                   </a>
-                  <span style="display: none;" class="saving-total-price badge price__badge-sale color-scheme-5">
-                    <img src="{{ 'sales-svgrepo-com-1_1.svg' | file_url }}" alt="Sale Icon">
                     {% assign original_price = product.compare_at_price %}
                     {% assign discounted_price = product.price %}
                     
