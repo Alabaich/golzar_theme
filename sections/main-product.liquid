@@ -1350,8 +1350,10 @@ background: rgba(255, 59, 59, 0.10);
 <style>
   .product-tabs-container {
     margin-top: 30px;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 20px;
+    padding:25px;
+    max-width: 50%;
+    border-radius: 15px;
+    background: #fff;
   }
   .product-tab-links {
     display: flex;
@@ -1410,10 +1412,9 @@ background: rgba(255, 59, 59, 0.10);
       align-items: center;
       gap: 10px; /* Adjusted gap */
       width: fit-content;
-      text-decoration: none; /* Ensure no underline */
-      padding: 8px 15px; /* Example padding */
-      border-radius: 5px; /* Example border-radius */
-      /* Add other button styles as needed */
+      text-decoration: none;
+      padding: 8px 15px; 
+      border-radius: 5px; 
   }
   .document-section a.customButton span {
       display: inline-block; /* Ensure span behaves correctly */
@@ -1424,9 +1425,9 @@ background: rgba(255, 59, 59, 0.10);
     to { opacity: 1; }
   }
 </style>
-
-<div class="page-width product-tabs-container">
-  <div class="product-tab-links" role="tablist">
+<div class="page-width">
+  <div class="product-tabs-container">
+    <div class="product-tab-links" role="tablist">
     {% assign is_first_active = true %}
 
     {% if show_description_tab %}
@@ -1529,6 +1530,8 @@ background: rgba(255, 59, 59, 0.10);
 
   </div>
 </div>
+</div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
