@@ -954,7 +954,6 @@ background: rgba(255, 59, 59, 0.10);
         <b>On Backorder – Delivery in up to 6 weeks.</b>
          For a more precise or expedited delivery timeframe, please contact us directly.
       </span>
-
     </p>
   </div>
 
@@ -1470,6 +1469,7 @@ background: rgba(255, 59, 59, 0.10);
       .product-tabs-container,
       .secondPartProduct .rightSecondPart{
     width: 100%;
+    padding: 15px;
   }
 
   .product__info-container{
@@ -1591,39 +1591,7 @@ background: rgba(255, 59, 59, 0.10);
 </div>
 </div>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabLinks = document.querySelectorAll('.product-tab-link');
-    const tabPanes = document.querySelectorAll('.product-tab-pane');
-
-    tabLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-        const targetId = event.currentTarget.getAttribute('data-target');
-
-        // Update tab links
-        tabLinks.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        event.currentTarget.classList.add('active');
-        event.currentTarget.setAttribute('aria-selected', 'true');
-
-        // Update tab panes
-        tabPanes.forEach(pane => {
-          if (pane.id === targetId) {
-            pane.classList.add('active');
-          } else {
-            pane.classList.remove('active');
-          }
-        });
-      });
-    });
-
-    // Ensure the first active elements are correctly displayed on load
-    // (Liquid already handles adding the 'active' class initially)
-  });
-</script>
+<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/descriptionTabs.js" async></script>
 
 {% endif %}
 
