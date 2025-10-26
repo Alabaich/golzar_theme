@@ -1189,8 +1189,8 @@ background: rgba(255, 59, 59, 0.10);
     </div>
 
 
-<div class="page-width">
-  {%- for block in section.blocks -%}
+ <div class="page-width">
+ {% comment %} {%- for block in section.blocks -%}
     {%- if block.type == 'product_information' -%}
       <div class="product__info-wrapper grid__item" style="flex-basis: 100%; margin-top: 25px; padding-left: 0; padding-right: 0;">
         <section class="product__info-container">
@@ -1265,7 +1265,7 @@ background: rgba(255, 59, 59, 0.10);
               </div>
             {%- endif -%}
           {%- endfor -%}
-    </div>
+    </div> {% endcomment %}
 
     {% render 'product-media-modal', variant_images: variant_images %}
 
