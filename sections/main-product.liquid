@@ -347,91 +347,92 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-          {%- for block in section.blocks unless block.type == 'product_information' -%}
+          {%- for block in section.blocks -%}
+  {%- unless block.type == 'product_information' -%}
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
-{%- when 'text' -%}
-  <p
-    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-    {{ block.shopify_attributes }}
-  >
-    {{- block.settings.text -}}
-  </p>
-{%- when 'vendor' -%}
-  <div class="brand-sku-wrapper">
-    {% if product.vendor != blank %}
-      {% if block.settings.brand_list != blank %}
-        {% assign vendor_matched = false %}
-        {% assign vendor_link = '' %}
-        {% assign brand_list = block.settings.brand_list | split: ',' %}
-        {% for brand in brand_list %}
-          {% assign brand_parts = brand | split: ';' %}
-          {% assign brand_name = brand_parts[0] | strip %}
-          {% assign page_handle = brand_parts[1] | strip %}
-          {% if brand_name == product.vendor %}
-            {% assign vendor_matched = true %}
-            {% assign vendor_link = page_handle %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
+              {%- when 'text' -%}
+                <p
+                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{- block.settings.text -}}
+                </p>
+              {%- when 'vendor' -%}
+                <div class="brand-sku-wrapper">
+                  {% if product.vendor != blank %}
+                    {% if block.settings.brand_list != blank %}
+                      {% assign vendor_matched = false %}
+                      {% assign vendor_link = '' %}
+                      {% assign brand_list = block.settings.brand_list | split: ',' %}
+                      {% for brand in brand_list %}
+                        {% assign brand_parts = brand | split: ';' %}
+                        {% assign brand_name = brand_parts[0] | strip %}
+                        {% assign page_handle = brand_parts[1] | strip %}
+                        {% if brand_name == product.vendor %}
+                          {% assign vendor_matched = true %}
+                          {% assign vendor_link = page_handle %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
 
-      <div class="product--vendor">
-        {% if vendor_matched %}
-          <p>Brand: <span><a href="/pages/{{ vendor_link }}">{{ product.vendor }}</a></span></p>
-        {% else %}
-          <p>Brand: <span>{{ product.vendor }}</span></p>
-        {% endif %}
-      </div>
-    {% endif %}
-  </div>
+                    <div class="product--vendor">
+                      {% if vendor_matched %}
+                        <p>Brand: <span><a href="/pages/{{ vendor_link }}">{{ product.vendor }}</a></span></p>
+                      {% else %}
+                        <p>Brand: <span>{{ product.vendor }}</span></p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
 
-{%- when 'sku' -%}
-  <div class="brand-sku-wrapper">
-    {% if product.selected_or_first_available_variant.sku != blank %}
-      <div class="sku-or-tags" style="color: #2c2d2c;">
-        <span class="skuu"> SKU:
-          {% comment %} <span class="product__sku alerrt" id="Sku-{{ section.id }}">
-            {{- product.selected_or_first_available_variant.sku -}}
-          </span>  {% endcomment %}
-          <span class="product__sku alerrt" id="Sku-{{ section.id }}" onclick="copySkuToClipboard(this)" style="cursor: pointer;" title="Click to copy SKU">
-  {{- product.selected_or_first_available_variant.sku -}}
-</span>
-        </span>
-      </div>
-      <script>
-        function copySkuToClipboard(skuElement) {
-    if (!skuElement) {
-        console.error('SKU element not found.');
-        return;
-    }
+              {%- when 'sku' -%}
+                <div class="brand-sku-wrapper">
+                  {% if product.selected_or_first_available_variant.sku != blank %}
+                    <div class="sku-or-tags" style="color: #2c2d2c;">
+                      <span class="skuu"> SKU:
+                        {% comment %} <span class="product__sku alerrt" id="Sku-{{ section.id }}">
+                          {{- product.selected_or_first_available_variant.sku -}}
+                        </span>  {% endcomment %}
+                        <span class="product__sku alerrt" id="Sku-{{ section.id }}" onclick="copySkuToClipboard(this)" style="cursor: pointer;" title="Click to copy SKU">
+                          {{- product.selected_or_first_available_variant.sku -}}
+                        </span>
+                      </span>
+                    </div>
+                    <script>
+                      function copySkuToClipboard(skuElement) {
+                  if (!skuElement) {
+                      console.error('SKU element not found.');
+                      return;
+                  }
 
-    const sku = skuElement.textContent.trim(); // Get the text content and remove leading/trailing whitespace
-    const originalText = skuElement.textContent; // Store original text for restoration
+                  const sku = skuElement.textContent.trim(); // Get the text content and remove leading/trailing whitespace
+                  const originalText = skuElement.textContent; // Store original text for restoration
 
-    // Use the modern Clipboard API
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(sku)
-            .then(() => {
-                // Provide visual feedback to the user
-                skuElement.textContent = 'Copied!';
-                setTimeout(() => {
-                    skuElement.textContent = originalText; // Revert text after a short delay
-                }, 1500); // Display "Copied!" for 1.5 seconds
-                console.log('SKU copied to clipboard:', sku);
-            })
-            .catch(err => {
-                console.error('Failed to copy SKU:', err);
-                // Fallback for older browsers or if permission is denied
-                fallbackCopyTextToClipboard(skuElement, sku, originalText);
-            });
-    } else {
-        // Fallback for older browsers (less reliable and might show a prompt)
-        console.warn('Clipboard API not supported. Using fallback method.');
-        fallbackCopyTextToClipboard(skuElement, sku, originalText);
-    }
-}
+                  // Use the modern Clipboard API
+                  if (navigator.clipboard && navigator.clipboard.writeText) {
+                      navigator.clipboard.writeText(sku)
+                          .then(() => {
+                              // Provide visual feedback to the user
+                              skuElement.textContent = 'Copied!';
+                              setTimeout(() => {
+                                  skuElement.textContent = originalText; // Revert text after a short delay
+                              }, 1500); // Display "Copied!" for 1.5 seconds
+                              console.log('SKU copied to clipboard:', sku);
+                          })
+                          .catch(err => {
+                              console.error('Failed to copy SKU:', err);
+                              // Fallback for older browsers or if permission is denied
+                              fallbackCopyTextToClipboard(skuElement, sku, originalText);
+                          });
+                  } else {
+                      // Fallback for older browsers (less reliable and might show a prompt)
+                      console.warn('Clipboard API not supported. Using fallback method.');
+                      fallbackCopyTextToClipboard(skuElement, sku, originalText);
+                  }
+              }
 
 // Fallback function for older browsers that don't support navigator.clipboard.writeText
 function fallbackCopyTextToClipboard(skuElement, text, originalText) {
@@ -1188,6 +1189,7 @@ background: rgba(255, 59, 59, 0.10);
       </div>
     </div>
 
+
 <div class="page-width">
   {%- for block in section.blocks -%}
     {%- if block.type == 'product_information' -%}
@@ -1478,7 +1480,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "limit": 1
     },
     {
-      "name": "app",
       "type": "@app"
     },
     {
