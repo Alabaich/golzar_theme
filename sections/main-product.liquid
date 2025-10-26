@@ -1358,7 +1358,7 @@ background: rgba(255, 59, 59, 0.10);
 
   .product-tabs-container {
     padding:25px;
-    max-width: 50%;
+    width: 50%;
     border-radius: 15px;
     background: #fff;
   }
@@ -1430,6 +1430,13 @@ background: rgba(255, 59, 59, 0.10);
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  .secondPartProduct .rightSecondPart{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 </style>
 <div class="page-width secondPartProduct">
@@ -1536,6 +1543,13 @@ background: rgba(255, 59, 59, 0.10);
     {% endif %}
 
   </div>
+</div>
+<div class="rightSecondPart">
+  <div class="shippingAndDelivery">
+  <h3>Shipping & Returns</h3>
+  <p> We do our best to ensure your order arrives safely and efficiently. Our dedicated team and trusted shipping partners work together to deliver your items from our warehouse to your doorstep, anywhere in Canada. For more detailed information, please review our <a href="https://bathroomsupplier.ca/policies/shipping-policy">Shipping Policy</a> and <a href="https://bathroomsupplier.ca/policies/refund-policy">Refund Policy</a>.</p>
+  </div>
+
 </div>
 </div>
 
