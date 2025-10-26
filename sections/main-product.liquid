@@ -1319,95 +1319,258 @@ background: rgba(255, 59, 59, 0.10);
   </div>
 </product-info>
 
-{% comment %}
-  Визначаємо, чи є взагалі контент для показу,
-  включаючи useful_links.
-{% endcomment %}
-{%- assign has_content = false -%}
-{%- if product.description != blank or product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank or product.metafields.custom.technical_drawing != blank -%}
-  {%- assign has_content = true -%}
-{%- endif -%}
 
-{% if has_content %}
-<div class="page-width">
-  <div class="tab-container">
-    <div class="tabs">
-      {%- assign is_first_tab = true -%}
 
-      {% if product.description != blank %}
-        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab1">Description</div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
 
-      {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
-        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab2">Downloads</div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
 
-      {% if product.metafields.custom.technical_drawing != blank %}
-        <div class="tab {% if is_first_tab %}active{% endif %}" data-tab="tab3">Technical Drawing</div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
-    </div>
 
-    <div class="tab-content">
-      {%- assign is_first_tab = true -%}
 
-      {% if product.description != blank %}
-        <div class="tab-pane {% if is_first_tab %}active{% endif %}" id="tab1">
-          <div class="product-description">
-            {{ product.description }}
-          </div>
+
+
+{% liquid
+  assign show_description_tab = false
+  if product.description != blank
+    assign show_description_tab = true
+  endif
+
+  assign show_documents_tab = false
+  if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank or product.metafields.custom.technical_drawing != blank
+    assign show_documents_tab = true
+  endif
+
+  assign show_brand_tab = true
+
+  assign show_tabs_block = false
+  if show_description_tab or show_documents_tab or show_brand_tab
+    assign show_tabs_block = true
+  endif
+%}
+
+{% if show_tabs_block %}
+<style>
+  .product-tabs-container {
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+  }
+  .product-tab-links {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  .product-tab-link {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1em;
+    color: #666;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  }
+  .product-tab-link.active {
+    color: #002642;
+    font-weight: 600;
+    border-bottom-color: #002642;
+  }
+  .product-tab-link:hover:not(.active) {
+    color: #002642;
+  }
+  .product-tab-pane {
+    display: none;
+    padding: 15px 0;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  .product-tab-pane.active {
+    display: block;
+  }
+  .product-tab-pane h4 {
+    margin: 0 0 15px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  .product-documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Added gap between document sections */
+  }
+  .document-section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  .document-section a.customButton {
+      margin: 0;
+      display: inline-flex; /* Changed to inline-flex */
+      align-items: center;
+      gap: 10px; /* Adjusted gap */
+      width: fit-content;
+      text-decoration: none; /* Ensure no underline */
+      padding: 8px 15px; /* Example padding */
+      border-radius: 5px; /* Example border-radius */
+      /* Add other button styles as needed */
+  }
+  .document-section a.customButton span {
+      display: inline-block; /* Ensure span behaves correctly */
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<div class="page-width product-tabs-container">
+  <div class="product-tab-links" role="tablist">
+    {% assign is_first_active = true %}
+
+    {% if show_description_tab %}
+      <button class="product-tab-link {% if is_first_active %}active{% endif %}" data-target="product-description-content" role="tab" aria-selected="{% if is_first_active %}true{% else %}false{% endif %}">
+        Description
+      </button>
+      {% assign is_first_active = false %}
+    {% endif %}
+
+    {% if show_documents_tab %}
+      <button class="product-tab-link {% if is_first_active %}active{% endif %}" data-target="product-documents-content" role="tab" aria-selected="{% if is_first_active %}true{% else %}false{% endif %}">
+        Documents
+      </button>
+      {% assign is_first_active = false %}
+    {% endif %}
+
+    {% if show_brand_tab %}
+      <button class="product-tab-link {% if is_first_active %}active{% endif %}" data-target="product-brand-content" role="tab" aria-selected="{% if is_first_active %}true{% else %}false{% endif %}">
+        Brand
+      </button>
+      {% assign is_first_active = false %}
+    {% endif %}
+  </div>
+
+  <div class="product-tab-content">
+    {% assign is_first_active = true %}
+
+    {% if show_description_tab %}
+      <div id="product-description-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
+        <div class="product-description-content rte">
+          {{ product.description }}
         </div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
+      </div>
+      {% assign is_first_active = false %}
+    {% endif %}
 
-      {% if product.metafields.custom.spec_sheet != blank or product.metafields.custom.useful_links != blank %}
-        <div class="tab-pane file_download {% if is_first_tab %}active{% endif %}" id="tab2" style="display: flex; gap: 30px; flex-direction:column; padding: 15px 0;">
-          
+    {% if show_documents_tab %}
+      <div id="product-documents-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
+        <div class="product-documents-list">
+
           {% if product.metafields.custom.spec_sheet != blank %}
-            <div>
-              <h4 style="margin:0 0 15px 0;">Product Spec Sheet</h4>
-              <a href="{{ product.metafields.custom.spec_sheet | file_url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> Download PDF</a>
+            <div class="document-section spec-sheet-section">
+              <h4>Product Spec Sheet</h4>
+              <a href="{{ product.metafields.custom.spec_sheet | file_url }}" class="customButton blueButton" target="_blank" rel="noopener">
+                <span>📥</span> Download PDF
+              </a>
             </div>
           {% endif %}
 
           {% if product.metafields.custom.useful_links != blank %}
-            <div>
-              <h4 style="margin:0 0 15px 0;">Product Downloads & Manuals</h4>
-              {%- assign resource_links = product.metafields.custom.useful_links.value -%}
-              <ul style="display:flex; flex-direction: column; gap: 15px; margin:0; padding:0; list-style:none;">
-                {%- for link in resource_links -%}
+            <div class="document-section useful-links-section">
+              <h4>Product Downloads & Manuals</h4>
+              {% assign resource_links = product.metafields.custom.useful_links.value %}
+              <ul>
+                {% for link in resource_links %}
                   <li>
-                    <a href="{{ link.url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> 
-                      {%- if link.text != blank -%}
+                    <a href="{{ link.url }}" class="customButton blueButton" target="_blank" rel="noopener">
+                      <span>📥</span>
+                      {% if link.text != blank %}
                         {{ link.text }}
-                      {%- else -%}
+                      {% else %}
                         Resource - {{ forloop.index }}
-                      {%- endif -%}
+                      {% endif %}
                     </a>
                   </li>
-                {%- endfor -%}
+                {% endfor %}
               </ul>
             </div>
           {% endif %}
 
-        </div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
+          {% if product.metafields.custom.technical_drawing != blank %}
+            <div class="document-section technical-drawing-section">
+              <h4>Technical Drawing</h4>
+              <a href="{{ product.metafields.custom.technical_drawing | file_url }}" class="customButton blueButton" target="_blank" rel="noopener">
+                <span>📥</span> Download ZIP
+              </a>
+            </div>
+          {% endif %}
 
-      {% if product.metafields.custom.technical_drawing != blank %}
-        <div class="tab-pane file_download {% if is_first_tab %}active{% endif %}" id="tab3">
-          <h4 style="margin:0 0 15px 0;">Technical Drawing</h4>
-          <a href="{{ product.metafields.custom.technical_drawing | file_url }}" class="customButton blueButton" target="_blank" rel="noopener"><span>📥</span> Download ZIP</a>
         </div>
-        {%- assign is_first_tab = false -%}
-      {% endif %}
+      </div>
+      {% assign is_first_active = false %}
+    {% endif %}
 
-    </div>
+    {% if show_brand_tab %}
+      <div id="product-brand-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
+        <h4>About the Brand</h4>
+        <div class="brand-description-content rte">
+          {% comment %}
+            <<<<< ADD BRAND DESCRIPTION CONTENT HERE >>>>>
+            Ви можете додати сюди текст, зображення або інший контент,
+            що описує бренд {{ product.vendor }}.
+            Наприклад: <p>Опис бренду {{ product.vendor }}...</p>
+          {% endcomment %}
+          <p>Information about the brand {{ product.vendor }} will be displayed here.</p>
+        </div>
+      </div>
+      {% assign is_first_active = false %}
+    {% endif %}
+
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabLinks = document.querySelectorAll('.product-tab-link');
+    const tabPanes = document.querySelectorAll('.product-tab-pane');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        const targetId = event.currentTarget.getAttribute('data-target');
+
+        // Update tab links
+        tabLinks.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        event.currentTarget.classList.add('active');
+        event.currentTarget.setAttribute('aria-selected', 'true');
+
+        // Update tab panes
+        tabPanes.forEach(pane => {
+          if (pane.id === targetId) {
+            pane.classList.add('active');
+          } else {
+            pane.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Ensure the first active elements are correctly displayed on load
+    // (Liquid already handles adding the 'active' class initially)
+  });
+</script>
+
 {% endif %}
+
+
+
+
+
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
