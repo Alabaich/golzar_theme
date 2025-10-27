@@ -49,6 +49,17 @@
     "catalogues-grids": {
       "type": "catalogues-grids",
       "blocks": {
+        "logo_image_96VNxi": {
+          "type": "logo_image",
+          "settings": {
+            "showcase_image": "shopify://shop_images/canluxe-smart-toilet-638654.webp",
+            "logo_image": "shopify://shop_images/ALPS.svg",
+            "logo_heading": "ALPS CATALOGUE",
+            "logo_heading_color": "#000000",
+            "down_pdf": "https://cdn.shopify.com/s/files/1/0848/7193/8321/files/Alps_Smart_Toilet_Catalogue_2025.pdf?v=1761587880",
+            "button_text": "Download"
+          }
+        },
         "logo_image_3cbFrc": {
           "type": "logo_image",
           "settings": {
@@ -128,6 +139,7 @@
         }
       },
       "block_order": [
+        "logo_image_96VNxi",
         "logo_image_3cbFrc",
         "logo_image_HPQEcy",
         "logo_image_6AcdVj",
