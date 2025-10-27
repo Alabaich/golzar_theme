@@ -415,10 +415,9 @@
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <section id="ProductInfo-{{ section.id }}"
-        {% if section.settings.enable_sticky_info %} class="product__column-sticky"{% endif %}
-      >
-        <div class="product__info-container">
+        <section id="ProductInfo-{{ section.id }}"
+          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+        >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
           <div class="product-main-details-wrapper">
@@ -1334,12 +1333,12 @@ background: rgba(255, 59, 59, 0.10);
     {% endif %}
   {%- endif -%}
 {%- endfor -%}
-            <a href="{{ product.url }}" class="link product__view-details animate-arrow">
-              {{ 'products.product.view_full_details' | t }}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </a>
-          </div>
+          <a href="{{ product.url }}" class="link product__view-details animate-arrow">
+            {{ 'products.product.view_full_details' | t }}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </a>
         </section>
+      </div>
     </div>
 
 
