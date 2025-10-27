@@ -3,6 +3,23 @@
     line-height: normal !important;
   }
 
+  .show-more-toggle {
+  display: none;
+  color: #666;
+  cursor: pointer;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.show-more-toggle.visible {
+  display: block;
+}
+
+[data-show-more-item].hidden {
+  display: none;
+}
+
   /* .product-description .plmr-c-carousel-mega-title-copy__description,
   .product-description .plmr-c-carousel-mega-title-copy__item-content{
     display: none !important;
@@ -697,7 +714,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
             <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
           </div>
           {% for required_pro in product.metafields.custom.required_items.value %}
-          <div class="inner-main-required">
+          <div class="inner-main-required" data-show-more-item>
             {% if required_pro.featured_image != blank %}
             <div class="product-img-left">
               <a href="{{ required_pro.url }}">
@@ -751,6 +768,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
             </div>
             {% endfor %}
           </div>
+          <span class="show-more-toggle" data-show-more-toggle></span>
         </div>
     {% endif %}
   {% endif %}
@@ -769,7 +787,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
             <h5 style="margin: 0;">{{ block.settings.title_compatible | default: "Compatible Items" }}</h5>
           </div>
           {% for compatible_pro in product.metafields.custom.compatible_items.value %}
-          <div class="inner-main-required">
+          <div class="inner-main-required" data-show-more-item>
             {% if compatible_pro.featured_image != blank %}
             <div class="product-img-left">
               <a href="{{ compatible_pro.url }}">
@@ -1711,13 +1729,13 @@ background: rgba(255, 59, 59, 0.10);
   {%- for block in section.blocks -%}
   {%- if block.type == 'required-items' -%}
     {% if block.settings.enable_prodcut == true and product.metafields.custom.required_items.value != blank %}
-      <div class="product-additional-box">
+      <div class="product-additional-box" data-show-more-container="2">
         <div class="title-reqiueed">
           <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
         </div>
         <div class="main-required-pro">
           {% for required_pro in product.metafields.custom.required_items.value %}
-            <div class="inner-main-required">
+            <div class="inner-main-required" data-show-more-item>
               {% if required_pro.featured_image != blank %}
                 <div class="product-img-left">
                   <a href="{{ required_pro.url }}">
@@ -1765,17 +1783,18 @@ background: rgba(255, 59, 59, 0.10);
             </div>
           {% endfor %}
         </div>
+        <span class="show-more-toggle" data-show-more-toggle></span>
       </div>
     {% endif %}
   {%- elsif block.type == 'compatible-items' -%}
     {% if block.settings.enable_compatible_items == true and product.metafields.custom.compatible_items.value != blank %}
-      <div class="product-additional-box">
+      <div class="product-additional-box" data-show-more-container="2">
         <div class="title-reqiueed">
           <h5 style="margin: 0;">{{ block.settings.title_compatible | default: "Compatible Items" }}</h5>
         </div>
         <div class="main-required-pro">
           {% for compatible_pro in product.metafields.custom.compatible_items.value %}
-            <div class="inner-main-required">
+            <div class="inner-main-required" data-show-more-item>
               {% if compatible_pro.featured_image != blank %}
                 <div class="product-img-left">
                   <a href="{{ compatible_pro.url }}">
@@ -1836,6 +1855,7 @@ background: rgba(255, 59, 59, 0.10);
 </div>
 
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/descriptionTabs.js" async></script>
+<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/additional-items-toggle.js" async></script>
 
 {% endif %}
 
