@@ -552,11 +552,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   </a>
                     {% assign original_price = product.compare_at_price %}
                     {% assign discounted_price = product.price %}
-                    
-                    {% if original_price > discounted_price %}
-                      {% assign discount_percentage = original_price | minus: discounted_price | times: 100 | divided_by: original_price %}
-                      <p>{{ discount_percentage | round }}% OFF</p>
-                    {% endif %}
                   </span>
 
                 </div>
