@@ -1928,14 +1928,10 @@ background: rgba(255, 59, 59, 0.10);
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-  const allCustomButtons = document.querySelectorAll('form.custom-ajax-form button[type="submit"]');
+  const customForms = document.querySelectorAll('form.custom-ajax-form');
 
-  allCustomButtons.forEach(button => {
+  customForms.forEach(form => {
     
-    const form = button.closest('form.custom-ajax-form');
-    if (!form) return;
-
     const quantitySelector = form.querySelector('.custom-quantity-selector');
     const input = quantitySelector ? quantitySelector.querySelector('input[name="quantity"]') : null;
     const btnMinus = quantitySelector ? quantitySelector.querySelector('.custom-quantity-button[name="minus"]') : null;
@@ -1957,25 +1953,21 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    button.addEventListener('click', function(e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      
-      const currentButton = this;
-      const currentForm = currentButton.closest('form');
-      
-      if (!currentForm) return;
 
-      const variantIdInput = currentForm.querySelector('.variantss-id');
-      const quantityInput = currentForm.querySelector('input[name="quantity"]');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const variantIdInput = form.querySelector('.variantss-id');
+      const quantityInput = form.querySelector('input[name="quantity"]');
       
       if (!variantIdInput) return;
 
       const variantId = variantIdInput.value;
       const quantity = quantityInput ? parseInt(quantityInput.value) : 1; 
       
-      currentButton.setAttribute('disabled', 'true');
-      currentButton.classList.add('loading');
+      submitButton.setAttribute('disabled', 'true');
+      submitButton.classList.add('loading');
 
       const formData = new FormData();
       formData.append('id', variantId);
@@ -1997,6 +1989,8 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error('Error:', data.description);
         } else {
           
+          const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+          
           if (cart) {
             cart.renderContents(data);
           }
@@ -2012,8 +2006,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       })
       .finally(() => {
-        currentButton.removeAttribute('disabled');
-        currentButton.classList.remove('loading');
+        submitButton.removeAttribute('disabled');
+        submitButton.classList.remove('loading');
       });
     });
   });
