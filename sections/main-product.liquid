@@ -358,10 +358,10 @@
 }
 
 .acc-body {
-  background-color: #ffffff;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #ffffff;
 }
 
 .main-aacrodaian.active .acc-icon {
@@ -370,6 +370,15 @@
 
 .acc_content {
   padding: 20px;
+}
+
+.acc-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.main-aacrodaian.active .acc-icon {
+  transform: rotate(45deg);
 }
 
 .product__info-container .product_information {
