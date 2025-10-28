@@ -1750,16 +1750,12 @@ background: rgba(255, 59, 59, 0.10);
                   <span class="price-pro">
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
-                  
                   <product-form class="product-form">
-                    <form method="post" action="{{ routes.cart_add_url }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
-                      
+                    <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}-{{ compatible_pro.id }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
                       <script type="application/json">
                         {{ required_pro.variants | json }}
                       </script>
-
                       <input type="hidden" name="id" value="{{ current_variant_sku_pro.id }}" class="product-variant-id">
-                      
                       <div class="custom-quantity-selector">
                         <button type="button" class="custom-quantity-button" name="minus">
                           <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1823,7 +1819,7 @@ background: rgba(255, 59, 59, 0.10);
                   </span>
 
                   <product-form class="product-form">
-                    <form method="post" action="{{ routes.cart_add_url }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
+                    <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}-{{ required_pro.id }}" class="form" novalidate="novalidate" data-type="add-to-cart-form">
                       
                       <script type="application/json">
                         {{ compatible_pro.variants | json }}
