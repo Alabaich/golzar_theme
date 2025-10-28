@@ -1919,12 +1919,6 @@ background: rgba(255, 59, 59, 0.10);
 {% endif %}
 
 
-
-
-
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -1964,7 +1958,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!variantIdInput) return;
 
       const variantId = variantIdInput.value;
-      const quantity = quantityInput ? parseInt(quantityInput.value) : 1; 
+      const quantityInput = form.querySelector('input[name="quantity"]');
+      const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
       
       submitButton.setAttribute('disabled', 'true');
       submitButton.classList.add('loading');
@@ -1990,9 +1985,12 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           
           const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-          
+
           if (cart) {
             cart.renderContents(data);
+            if (cart.tagName === 'CART-DRAWER') {
+              cart.open();
+            }
           }
           
           document.dispatchEvent(new CustomEvent('cart:updated', { 
