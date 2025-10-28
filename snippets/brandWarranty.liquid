@@ -11,8 +11,20 @@
   This prevents issues if a vendor is "Nike" in one product and "nike" in another.
 {% endcomment %}
 {%- assign vendor_handle = vendor_name | downcase -%}
+<style>
+  .brand-warranty-wrapper{
+    padding: 25px;
+    border-radius: 25px;
+    background:white;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
 
-<div class="brand-description-wrapper">
+  }
+</style>
+<div class="brand-warranty-wrapper">
+  <h4>{{vendor.nsme}} Warranty Information</h4>
   {%- if vendor_handle == 'american standard' -%}
 
     <p><strong>American Standard Warranty:</strong> American Standard products are backed by robust, industry-leading warranties. Most faucets feature a Limited Lifetime Warranty on function and finish, while toilets and sinks often carry comprehensive 10-year or lifetime warranties. Enjoy peace of mind knowing your investment is protected by a brand that stands firmly behind its craftsmanship. (Please refer to specific product documentation for detailed warranty terms.)</p>
