@@ -1947,37 +1947,6 @@ background: rgba(255, 59, 59, 0.10);
 
 
 
-
-
-
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const quantitySelectors = document.querySelectorAll('.custom-quantity-selector');
-  quantitySelectors.forEach(selector => {
-    const input = selector.querySelector('.custom-quantity-input');
-    const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
-    const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
-    const min = parseInt(input.min) || 1;
-
-    if (btnPlus && btnMinus) {
-      btnPlus.addEventListener('click', function() {
-        let currentValue = parseInt(input.value);
-        input.value = currentValue + 1;
-      });
-
-      btnMinus.addEventListener('click', function() {
-        let currentValue = parseInt(input.value);
-        if (currentValue > min) {
-          input.value = currentValue - 1;
-        }
-      });
-    }
-  });
-});
-</script>
-
 {% schema %}
 {
   "name": "t:sections.main-product.name",
