@@ -1843,13 +1843,8 @@ background: rgba(255, 59, 59, 0.10);
       <div id="product-brand-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
         <h4>About the Brand</h4>
         <div class="brand-description-content rte">
-          {% comment %}
-            <<<<< ADD BRAND DESCRIPTION CONTENT HERE >>>>>
-            Ви можете додати сюди текст, зображення або інший контент,
-            що описує бренд {{ product.vendor }}.
-            Наприклад: <p>Опис бренду {{ product.vendor }}...</p>
-          {% endcomment %}
-          <p>Information about the brand {{ product.vendor }} will be displayed here.</p>
+          {%- render 'brand-description', vendor_name: product.vendor -%}
+          {% comment %} <p>Information about the brand {{ product.vendor }} will be displayed here.</p> {% endcomment %}
         </div>
       </div>
       {% assign is_first_active = false %}
@@ -1978,6 +1973,15 @@ background: rgba(255, 59, 59, 0.10);
     {% endif %}
   {%- endif -%}
 {%- endfor -%}
+
+<style>
+  .shippingAndDelivery{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+  }
+</style>
   <div class="shippingAndDelivery">
   <h4>Shipping & Returns</h4>
   <p> We do our best to ensure your order arrives safely and efficiently. Our dedicated team and trusted shipping partners work together to deliver your items from our warehouse to your doorstep, anywhere in Canada. For more detailed information, please review our <a href="https://bathroomsupplier.ca/policies/shipping-policy">Shipping Policy</a> and <a href="https://bathroomsupplier.ca/policies/refund-policy">Refund Policy</a>.</p>

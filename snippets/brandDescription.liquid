@@ -1,0 +1,203 @@
+{% comment %}
+  This snippet displays a unique brand description based on the
+  vendor name that is passed to it.
+
+  Accepts:
+  - vendor_name: The name of the vendor (e.g., product.vendor)
+{% endcomment %}
+
+{% comment %}
+  We use the 'downcase' filter to make the comparison case-insensitive.
+  This prevents issues if a vendor is "Nike" in one product and "nike" in another.
+{% endcomment %}
+{%- assign vendor_handle = vendor_name | downcase -%}
+
+<div class="brand-description-wrapper">
+  {%- if vendor_handle == 'american standard' -%}
+
+    <p><strong>About American Standard:</strong> For over 150 years, American Standard has been a hallmark of innovation and quality in the luxury plumbing industry. As a leader in high-performance fixtures, their products are trusted in homes and commercial spaces worldwide. From water-saving toilets and high-efficiency faucets to durable sinks and relaxing bathtubs, American Standard designs blend thoughtful features with timeless style, helping you create a bathroom and kitchen that is both beautiful and reliable.</p>
+
+  {%- elsif vendor_handle == 'aquabrass' -%}
+
+    <p><strong>About Aquabrass:</strong> Aquabrass is a beacon of innovative design and superior craftsmanship in the luxury bathroom and kitchen space. Specializing in high-end faucets, sophisticated shower systems, and elegant accessories, Aquabrass blends European-inspired aesthetics with robust engineering. Each piece is crafted from premium materials, offering striking finishes and flawless performance. Elevate your home with Aquabrass, where every fixture is a statement of style and enduring quality.</p>
+
+  {%- elsif vendor_handle == 'bagno italia' -%}
+
+<p><strong>About Bagno Italia:</strong> Bringing contemporary Italian luxury into your home, <a href="https://www.bagnoitalia.ca/" target="_blank">Bagno Italia</a> specializes in high-end bathroom vanities, bathtubs, and accessories. Their designs blend modern lines with timeless details, focusing on quality materials like solid wood construction and elegant finishes. Known for their sophisticated vanities and striking freestanding tubs, Bagno Italia offers pieces that create a focal point in any luxury bathroom.</p>
+   
+   
+    {%- elsif vendor_handle == 'baril' -%}
+
+  <p><strong>About Baril:</strong> Discover the art of modern design with <a href="https://barildesign.com/en/" target="_blank">BARiL</a>, a leader in contemporary faucets, shower systems, and luxury bathroom accessories. Imagined by their Montreal-based designers, BARiL combines sleek, minimalist aesthetics with high-performance engineering to create fixtures that are both beautiful and durable. Elevate your bathroom with their sophisticated and innovative plumbing solutions.</p>
+
+
+
+  {%- elsif vendor_handle == 'blanco' -%}
+
+  <p><strong>About Blanco:</strong> A global leader in kitchen solutions, <a href="https://www.blanco.com/us-en/" target="_blank">Blanco</a> is renowned for its blend of German engineering and sophisticated design. They are the creators of the revolutionary <strong>SILGRANIT®</strong> sinks, a granite composite material prized for its unmatched durability and resistance to scratches, stains, and heat. From award-winning faucets to premium stainless steel sinks, Blanco elevates the kitchen to be the true heart of the home.</p>
+
+
+  {%- elsif vendor_handle == 'bosco' -%}
+
+  <p><strong>About Bosco:</strong> Specializing in durable and elegant kitchen solutions, <a href="https://www.boscocanada.com/" target="_blank">Bosco</a> is a premier name in stainless steel sinks. Known for their high-quality craftsmanship, functional designs, and heavy-gauge stainless steel construction, Bosco sinks are built to withstand the demands of a busy kitchen while maintaining a timeless, professional look. They offer a wide range of single and double-bowl sinks perfect for any home chef.</p>
+
+  {%- elsif vendor_handle == 'contrac' -%}
+
+  <p><strong>About Contrac:</strong> Trusted by professionals, <a href="https://contracplumbing.com/" target="_blank">Contrac</a> is a leading name in high-performance plumbing solutions. They specialize in durable, reliable vitreous china toilets, sinks, and urinals designed to meet the demanding needs of both residential and commercial projects. Contrac is known for its commitment to quality and water conservation, offering a wide range of products that deliver lasting reliability.</p>
+
+
+  {%- elsif vendor_handle == 'delta' -%}
+
+  <p><strong>About Delta:</strong> As a leader in plumbing innovation, <a href="https://www.deltafaucet.com/" target="_blank">Delta</a> is renowned for smart and stylish solutions that enhance everyday life. From their revolutionary <strong>Touch2O® Technology</strong> to water-saving <strong>H2Okinetic®</strong> showers and durable <strong>DIAMOND™ Seal Technology</strong>, Delta faucets for the kitchen and bath are designed with human-centric features to make life easier and more beautiful.</p>
+
+
+  {%- elsif vendor_handle == 'duravit' -%}
+
+  <p><strong>About Duravit:</strong> A world-leading name in luxury bathrooms, <a href="https://www.duravit.us/" target="_blank">Duravit</a> collaborates with renowned designers like Philippe Starck to create award-winning bathroom solutions. Known for their exceptional quality, timeless design, and sophisticated functionality, Duravit transforms the bathroom into a place of wellness with its high-end sanitary ceramics, furniture, and wellness systems.</p>
+
+
+  {%- elsif vendor_handle == 'ecoway' -%}
+
+  <p><strong>About Ecoway:</strong> Redefining modern hygiene, <a href="https://ecowaybath.com/" target="_blank">Ecoway</a> specializes in advanced smart toilets and bidet seats. Their products combine eco-friendly technology with luxury comfort features like heated seats, customizable bidet washing, and hands-free operation. Ecoway is focused on creating a cleaner, more sustainable, and more comfortable bathroom experience at an accessible price point.</p>
+
+
+  {%- elsif vendor_handle == 'franke' -%}
+
+  <p><strong>About Franke:</strong> A world-leading provider of intelligent kitchen systems, <a href="https://www.franke.com/" target="_blank">Franke</a> is synonymous with Swiss precision, quality, and innovative design. They are masters of materials, specializing in high-end stainless steel sinks, as well as stunning <strong>Granite (Fragranite)</strong> composite sinks, faucets, and workstation solutions that make life in the kitchen wonderful.</p>
+
+
+  {%- elsif vendor_handle == 'geberit' -%}
+
+  <p><strong>About Geberit:</strong> As the European leader in sanitary technology, <a href="https://www.geberitnorthamerica.com/" target="_blank">Geberit</a> is world-renowned for its high-end, concealed in-wall toilet systems.  This Swiss innovation hides the tank and plumbing, creating a minimalist, space-saving, and exceptionally hygienic bathroom. Their systems are the gold standard for modern design, reliability, and quiet operation.</p>
+
+  {%- elsif vendor_handle == 'grohe' -%}
+
+  <p><strong>About Grohe:</strong> As a leading global brand for complete bathroom solutions and kitchen fittings, <a href="https://www.grohe.ca/en_ca/" target="_blank">Grohe</a> is synonymous with German-engineered quality, innovative technology, and stunning design.  From water-saving EcoJoy™ faucets to luxurious smart showers, Grohe products offer a perfect balance of form and function to elevate your home's water experience.</p>
+
+
+  {%- elsif vendor_handle == 'hansgrohe' -%}
+
+  <p><strong>About Hansgrohe:</strong> With a passion for water and German engineering, <a href="https://www.hansgrohe.ca/en/" target="_blank">Hansgrohe</a> is a world-renowned premium brand for luxury faucets, showers, and kitchen sinks.  They are celebrated for their innovative technologies like <strong>AirPower</strong> and <strong>Select</strong> buttons, minimalist design, and an uncompromising commitment to quality that enhances the beauty of water in any home.</p>
+
+
+  {%- elsif vendor_handle == 'house of rohl' -%}
+
+  <p><strong>About House of Rohl:</strong> <a href="https://houseofrohl.ca/" target="_blank">House of Rohl</a> is a portfolio of the world's finest luxury plumbing brands. It curates collections that tell stories of craft and provenance, bringing together the Canadian innovation of <strong>Riobel</strong>, the classic British craftsmanship of <strong>Perrin & Rowe</strong>, the iconic fireclay sinks of <strong>Shaws</strong>, and the authentic luxury of <strong>ROHL</strong>.</p>
+
+
+  {%- elsif vendor_handle == 'kindred' -%}
+
+  <p><strong>About Kindred:</strong> Known for reliable and durable sinks manufactured in North America for over 100 years, <a href="https://www.kindred-sinkware.com/ca/en/" target="_blank">Kindred</a> offers practical and hardworking kitchen, bar, and utility sinks.  Trusted by homeowners and professionals alike, Kindred sinks are built to withstand daily use, featuring quality materials like stainless steel and granite composite, along with sound-dampening technology for a quieter kitchen experience.</p>
+
+
+  {%- elsif vendor_handle == 'kodaen' -%}
+
+  <p><strong>About Kodaen:</strong> <a href="https://kodaen.com/" target="_blank">Kodaen</a> focuses on modern bathroom solutions, offering beautifully designed faucets, shower systems, and accessories.  Their products emphasize contemporary aesthetics, quality materials, and innovative features, aiming to elevate the everyday bathroom experience with a touch of minimalist luxury.</p>
+
+
+  {%- elsif vendor_handle == 'kohler' -%}
+
+  <p><strong>About Kohler:</strong> A global leader in kitchen and bath design for over 150 years, <a href="https://www.kohler.com/en" target="_blank">Kohler</a> offers a vast array of innovative and stylish plumbing fixtures.  Known for their commitment to quality, performance, and bold design, Kohler products range from efficient toilets and luxurious showers to elegant faucets and durable sinks, suitable for both residential and commercial projects.</p>
+
+
+  {%- elsif vendor_handle == 'laufen' -%}
+
+  <p><strong>About Laufen:</strong> A premium Swiss brand established in 1892, <a href="https://www.laufen.com/" target="_blank">Laufen</a> represents precision, quality, design, and sustainability in the bathroom. They collaborate with renowned designers to create innovative and elegant bathroom solutions, including ceramics, faucets, furniture, and bathtubs, known for their high-end aesthetic and functionality.</p>
+
+
+  {%- elsif vendor_handle == 'maax' -%}
+
+  <p><strong>About Maax:</strong> A leading North American manufacturer of bathroom products for over 50 years, <a href="https://maax.com/en/" target="_blank">Maax</a> offers a wide range of stylish and innovative bathtubs, showers, shower doors, and bases. They are known for combining quality materials, functional design, and modern aesthetics to create inspiring and relaxing bathroom spaces.</p>
+
+
+  {%- elsif vendor_handle == 'moen' -%}
+
+  <p><strong>About Moen:</strong> A leading brand in North America, <a href="https://www.moen.ca/" target="_blank">Moen</a> offers a diverse portfolio of thoughtfully designed kitchen and bath faucets, showerheads, accessories, bath safety products, and smart home water solutions. Known for innovation, reliability, and stylish designs that blend performance with aesthetics, Moen aims to enhance everyday experiences with water.</p>
+
+
+  {%- elsif vendor_handle == 'neptune' -%}
+
+  <p><strong>About Neptune:</strong> Designing and manufacturing bathroom products for over 20 years, <a href="https://produitsneptune.com/en/" target="_blank">Neptune</a> focuses on the art of bathing, offering a refined selection of high-quality bathtubs, showers, sinks, and toilets. Based in Quebec, Canada, they are known for contemporary designs, customizable options (like whirlpool and massage systems), and durable materials, aiming to create personalized wellness experiences.</p>
+
+
+  {%- elsif vendor_handle == 'orans' -%}
+
+  <p><strong>About Orans:</strong> <a href="https://www.orans.com/" target="_blank">Orans</a> specializes in modern and intelligent bathroom solutions, offering a range of products including smart toilets, massage bathtubs, steam shower cabins, and vanities. They focus on integrating technology with contemporary design to create luxurious, comfortable, and hygienic bathroom experiences.</p>
+
+
+  {%- elsif vendor_handle == 'perrin & rowe' -%}
+
+  <p><strong>About Perrin & Rowe:</strong> Renowned for exquisite British craftsmanship, <a href="https://houseofrohl.ca/perrin-rowe" target="_blank">Perrin & Rowe</a> (part of House of Rohl) offers luxury kitchen and bath faucets, fixtures, and porcelainware. Each piece blends traditional manufacturing techniques with modern engineering, resulting in flawless functionality and timeless design detail favored in high-end residential projects.</p>
+
+
+  {%- elsif vendor_handle == 'pfister' -%}
+
+  <p><strong>About Pfister:</strong> A long-standing name in plumbing, <a href="https://www.pfisterfaucets.com/" target="_blank">Pfister</a> offers a wide variety of stylish and affordable kitchen and bathroom faucets, shower systems, and accessories. Known for balancing design trends with reliable functionality, they provide options for various tastes and budgets, often incorporating features like Pforever Seal™ ceramic disc valves for durability.</p>
+
+
+  {%- elsif vendor_handle == 'riobel' -%}
+
+  <p><strong>About Riobel:</strong> Designed and engineered in Canada, <a href="https://houseofrohl.ca/riobel" target="_blank">Riobel</a> (part of House of Rohl) is known for its modern and elegant kitchen and bathroom faucets and shower systems. They blend sophisticated styling with innovative engineering, offering a wide range of fixtures that emphasize clean lines, quality performance, and lasting durability.</p>
+
+
+  {%- elsif vendor_handle == 'rohl' -%}
+
+  <p><strong>About Rohl:</strong> As a flagship brand within the <a href="https://houseofrohl.ca/" target="_blank">House of Rohl</a> portfolio, <a href="https://houseofrohl.ca/rohl" target="_blank">Rohl</a> sources exceptional, handcrafted kitchen and bath faucets and fixtures from around the world. Known for authentic luxury, Rohl collections often draw inspiration from specific regions and design traditions, blending classic styling with modern functionality for a truly distinctive aesthetic.</p>
+
+
+  {%- elsif vendor_handle == 'rubinet' -%}
+
+  <p><strong>About Rubinet:</strong> Passionately designed and manufactured in Canada, <a href="https://rubinet.com/" target="_blank">The Rubinet Faucet Company</a> is renowned for its high-quality, handcrafted faucets for kitchens and bathrooms. They offer an extensive range of styles, from traditional to modern, and are particularly known for their wide array of custom finish options, allowing for unique personalization.</p>
+
+
+  {%- elsif vendor_handle == 'shaws' -%}
+
+  <p><strong>About Shaws:</strong> With a heritage dating back to 1897, <a href="https://houseofrohl.ca/shaws" target="_blank">Shaws of Darwen</a> (part of House of Rohl) is world-renowned for its handcrafted fireclay kitchen sinks. Each sink is meticulously made by a single artisan, bearing their name, using traditional techniques passed down through generations. Shaws sinks are celebrated for their durability, timeless design, and unique character.</p>
+
+
+  {%- elsif vendor_handle == 'toto' -%}
+
+  <p><strong>About Toto:</strong> A global leader in plumbing, <a href="https://www.totousa.com/" target="_blank">Toto</a> is renowned for its innovation, particularly in bathroom technology. They are famous for the WASHLET® bidet seat, high-efficiency TORNADO FLUSH® systems, and CeFiONtect ceramic glaze for easier cleaning. Toto combines sophisticated design with advanced functionality and a commitment to water conservation.</p>
+
+
+  {%- elsif vendor_handle == 'victoria albert' -%}
+
+  <p><strong>About Victoria + Albert:</strong> A British brand within the House of Rohl, <a href="https://houseofrohl.ca/victoria-albert" target="_blank">Victoria + Albert</a> is synonymous with luxurious, freestanding bathtubs and basins. They are renowned for their unique QUARRYCAST™ material, a blend of Volcanic Limestone™ and high-performance resins, offering exceptional strength, durability, and natural insulation. Their designs range from classic to contemporary, often available in a wide array of custom colours.</p>
+
+
+  {%- elsif vendor_handle == 'visentin' -%}
+
+  <p><strong>About Visentin:</strong> Visentin specializes in modern and contemporary bathroom fixtures, known for their Italian design influence. They offer a range of products including vanities, toilets, faucets, and showers, focusing on sleek aesthetics, innovative features, and quality materials to create stylish and functional bathroom spaces.</p>
+  <p><em>(Note: A specific official brand website for 'Visentin' focusing solely on bathroom fixtures was not readily found during the search; the link might need adjustment if a more specific URL is known.)</em></p>
+
+
+  {%- elsif vendor_handle == 'vogt' -%}
+
+  <p><strong>About Vogt:</strong> <a href="https://vogtindustries.com/" target="_blank">Vogt</a> offers a diverse range of high-quality kitchen and bathroom fixtures, including sinks, faucets, and accessories. They focus on combining elegant design with durable materials like stainless steel and granite composite, aiming to provide functional and stylish solutions for modern homes. Vogt emphasizes performance, reliability, and sophisticated aesthetics in their product lines.</p>
+
+
+  {%- elsif vendor_handle == 'zitta' -%}
+
+  <p><strong>About Zitta:</strong> <a href="https://zitta.ca/" target="_blank">Zitta</a> is a Canadian company specializing in the design and manufacturing of shower doors, shower bases, and bathtubs. They focus on innovation, quality, and modern aesthetics, offering a variety of customizable options to fit different bathroom styles and configurations. Zitta emphasizes ease of installation and maintenance in their product designs.</p>
+
+
+  {%- elsif vendor_handle == 'villeroy & boch' -%}
+
+    <p><strong>About Villeroy & Boch:</strong> Representing premium porcelain and ceramic design since 1748, Villeroy & Boch combines timeless elegance with innovative design to create high-quality bathroom and wellness products that enrich everyday life.</p>
+  
+  {%- comment %}
+    You can add as many 'elsif' blocks as you need for other brands.
+    Just follow the pattern above.
+  {% endcomment %}
+
+  {%- else -%}
+
+    {% comment %}
+      This 'else' block is a fallback. It will display if the vendor
+      doesn't match any of the 'if' or 'elsif' conditions above.
+      This is useful for new brands you haven't written a description for yet.
+    {% endcomment %}
+    <p>We are proud to feature <strong>{{ vendor_name | escape }}</strong>, a brand committed to quality and craftsmanship in all their products.</p>
+
+  {%- endif -%}
+</div>

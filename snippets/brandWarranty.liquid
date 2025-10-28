@@ -1,0 +1,190 @@
+{% comment %}
+  This snippet displays a unique brand description based on the
+  vendor name that is passed to it.
+
+  Accepts:
+  - vendor_name: The name of the vendor (e.g., product.vendor)
+{% endcomment %}
+
+{% comment %}
+  We use the 'downcase' filter to make the comparison case-insensitive.
+  This prevents issues if a vendor is "Nike" in one product and "nike" in another.
+{% endcomment %}
+{%- assign vendor_handle = vendor_name | downcase -%}
+
+<div class="brand-description-wrapper">
+  {%- if vendor_handle == 'american standard' -%}
+
+    <p><strong>American Standard Warranty:</strong> American Standard products are backed by robust, industry-leading warranties. Most faucets feature a Limited Lifetime Warranty on function and finish, while toilets and sinks often carry comprehensive 10-year or lifetime warranties. Enjoy peace of mind knowing your investment is protected by a brand that stands firmly behind its craftsmanship. (Please refer to specific product documentation for detailed warranty terms.)</p>
+
+  {%- elsif vendor_handle == 'aquabrass' -%}
+
+    <p><strong>Aquabrass Warranty:</strong> Aquabrass stands behind its products with a comprehensive warranty, ensuring a lasting luxury experience. Most faucets and fixtures come with a Limited Lifetime Warranty on both mechanical components and finishes against manufacturing defects for residential use. This commitment to quality ensures your Aquabrass products will perform beautifully for years to come. (We recommend consulting the specific product details for complete warranty terms.)</p>
+
+  {%- elsif vendor_handle == 'bagno italia' -%}
+
+    <p><strong>Bagno Italia Warranty:</strong> Bagno Italia stands by its craftsmanship with a solid warranty, offering protection against defects in materials and workmanship for a period of five years from the date of purchase. This warranty ensures your fixtures are built to last and provides confidence in your investment. For full terms and conditions, please review the <a href="https://static1.squarespace.com/static/5a4d67417131a517cf75e499/t/5ea9e905b6d6df0d657d9c92/1588193541695/Warranty+%2B+Care+and+Maintenance.pdf" target="_blank">official Bagno Italia warranty documentation</a>.</p>
+
+    {%- elsif vendor_handle == 'baril' -%}
+
+  <p><strong>Baril Warranty:</strong> BARiL proudly offers a <strong>limited lifetime warranty</strong> on its faucets and shower systems, covering manufacturing defects and cartridges. Most finishes are also guaranteed for life, with the exception of matte black and polished nickel (guaranteed for five (5) years). This exceptional coverage reflects their commitment to quality. For complete details, please visit <a href="https://barildesign.com/en/warranty" target="_blank">BARiL's official warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'blanco' -%}
+
+  <p><strong>Blanco Warranty:</strong> Blanco stands behind its products with a comprehensive <strong>Limited Lifetime Warranty</strong>. This covers their SILGRANIT® and Stainless Steel sinks against manufacturing defects for as long as the original purchaser owns their home. Their kitchen faucets are also backed by a Limited Lifetime Warranty on function and finish. For complete details and terms, please review <a href="https://www.blanco.com/us-en/service/warranty-registration/warranty/" target="_blank">Blanco's official warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'bosco' -%}
+
+  <p><strong>Bosco Warranty:</strong> <a href="https://www.boscocanada.com/" target="_blank">Bosco</a> stainless steel sinks are backed by a <strong>limited lifetime warranty</strong> for as long as the original purchaser owns the home. This warranty covers defects in materials or workmanship, ensuring your sink is a long-lasting and reliable centerpiece for your kitchen. For complete terms, please visit the <a href="https://www.boscocanada.com/warranty/" target="_blank">Bosco official warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'contrac' -%}
+
+  <p><strong>Contrac Warranty:</strong> <a href="https://contracplumbing.com/" target="_blank">Contrac</a> warrants its Vitreous China products to be free from defects for a period of <strong>5 years</strong>, and parts/fittings for <strong>1 year</strong>, from the date of purchase. This warranty covers defects in material or workmanship under normal use. For complete details on terms and exclusions, please visit the <a href="https://contracplumbing.com/warranty-information/" target="_blank">official Contrac warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'delta' -%}
+
+  <p><strong>Delta Warranty:</strong> <a href="https://www.deltafaucet.com/" target="_blank">Delta Faucet</a> provides one of the strongest warranties in the industry with its <strong>Lifetime Limited Warranty</strong> for residential installations. This warranty covers the faucet and finish to be free from defects in material and workmanship for as long as the original consumer purchaser owns their home. For full details, please review the <a href="https://www.deltafaucet.com/service-parts/warranty" target="_blank">official Delta warranty information</a>.</p>
+
+
+  {%- elsif vendor_handle == 'duravit' -%}
+
+  <p><strong>Duravit Warranty:</strong> <a href="https://www.duravit.us/" target="_blank">Duravit</a> stands by its exceptional quality with a <strong>Lifetime Limited Warranty</strong> on its sanitary ceramics for residential use. This warranty covers materials and manufacturing defects, ensuring your investment is protected for life. Other products, like furniture and faucets, carry separate warranties. For full details and registration, please review the <a href="https://www.duravit.com/en-en/service/our-warranty-promise/" target="_blank">official Duravit warranty promise</a>.</p>
+
+
+  {%- elsif vendor_handle == 'ecoway' -%}
+
+  <p><strong>Ecoway Warranty:</strong> <a href="https://ecowaybath.com/" target="_blank">Ecoway</a> provides a <strong>Three-Year Limited Warranty</strong> on their smart toilet products. This typically includes a one-year full replacement warranty for factory defaults and replacement parts for the following two years. The porcelain base often carries a lifetime warranty for the original installation. For complete terms, please consult the <a href="https://ecowaybath.com/pages/warranty" target="_blank">official Ecoway warranty statement</a>.</p>
+
+
+  {%- elsif vendor_handle == 'franke' -%}
+
+  <p><strong>Franke Warranty:</strong> <a href="https://www.franke.com/" target="_blank">Franke</a> offers an outstanding <strong>50-Year Limited Warranty</strong> on their stainless steel sinks against manufacturing defects for residential use. Other products, like composite sinks and accessories, are covered by different terms (e.g., 12 months for accessories). For complete details, please review the <a href="https://uploads-ssl.webflow.com/5e3b56d7113df566ef58afe3/62216525a121413cce21566f_Warranty_Franke%20Stainless%20Steel%20Sink.pdf" target="_blank">official Franke Stainless Steel Sink warranty</a>.</p>
+
+
+  {%- elsif vendor_handle == 'geberit' -%}
+
+  <p><strong>Geberit Warranty:</strong> <a href="https://www.geberitnorthamerica.com/" target="_blank">Geberit</a>'s legendary reliability is backed by a comprehensive warranty, often including a <strong>Lifetime Limited Warranty</strong> on concealed tanks (against leaks) and ten (10) years on the carrier frame. Flush plates and valves carry a separate warranty. Crucially, Geberit guarantees spare part availability for 50 years on replaceable tank parts. For full details, please review the <a href="https://www.geberitnorthamerica.com/service-parts/support/warranty-information/" target="_blank">official Geberit North America warranty</a>.</p>
+
+
+  {%- elsif vendor_handle == 'grohe' -%}
+
+  <p><strong>Grohe Warranty:</strong> <a href="https://www.grohe.ca/en_ca/" target="_blank">Grohe</a> stands behind its products with a <strong>Limited Lifetime Warranty</strong> on its faucets and shower components, covering defects in material and workmanship for the original consumer purchaser. This comprehensive warranty ensures your peace of mind and the long-lasting performance of your fixtures. For complete terms and conditions, please visit the <a href="https://www.grohe.ca/en_ca/our-service/grohe-limited-lifetime-warranty.html" target="_blank">official Grohe Limited Lifetime Warranty page</a>.</p>
+{%- elsif vendor_handle == 'hansgrohe' -%}
+
+  <p><strong>Hansgrohe Warranty:</strong> <a href="https://www.hansgrohe.ca/en/" target="_blank">Hansgrohe</a> offers a comprehensive <strong>Limited Lifetime Warranty</strong> to the original consumer purchaser for products purchased in the US or Canada. This warranty covers defects in material and workmanship for as long as you own your product and your home. For full terms and conditions, please visit the <a href="httpsm_20_20warranty</a>." target="_blank">official Hansgrohe North America warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'house of rohl' -%}
+
+  <p><strong>House of Rohl Warranty:</strong> Warranties for <a href="https://houseofrohl.ca/" target="_blank">House of Rohl</a> products are managed by each individual brand (e.g., Riobel, ROHL, Perrin & Rowe). Most brands, like <strong>Riobel</strong> and <strong>ROHL</strong>, offer a comprehensive <strong>Limited Lifetime Warranty</strong> on their faucets. For the most accurate and complete terms for your specific product, please visit the <a href="https://houseofrohl.ca/support" target="_blank">official House of Rohl support page</a> to find the warranty for your brand.</p>
+
+
+  {%- elsif vendor_handle == 'kindred' -%}
+
+  <p><strong>Kindred Warranty:</strong> <a href="https://www.kindred-sinkware.com/ca/en/" target="_blank">Kindred</a> stands behind its sinks with a comprehensive <strong>Limited Lifetime Warranty</strong> against manufacturing defects in material and workmanship for the original purchaser in residential applications. Accessories and other components typically have shorter warranty periods. For full terms, conditions, and details on specific products, please visit the <a href="https://www.kindred-sinkware.com/ca/en/contact/warranty.html" target="_blank">official Kindred warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'kodaen' -%}
+
+  <p><strong>Kodaen Warranty:</strong> <a href="https://kodaen.com/" target="_blank">Kodaen</a> offers a warranty on its products against manufacturing defects. While specific terms can vary, they generally stand behind the quality and craftsmanship of their fixtures. For the most accurate and detailed warranty information for your specific Kodaen product, please consult the documentation provided with your purchase or visit the <a href="https://kodaen.com/pages/warranty" target="_blank">official Kodaen warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'kohler' -%}
+
+  <p><strong>Kohler Warranty:</strong> <a href="https://www.kohler.com/en" target="_blank">Kohler</a> generally offers a robust <strong>Limited Lifetime Warranty</strong> for its faucets and fixtures against defects in material and workmanship for the original consumer purchaser. Specific components and commercial applications may have different warranty periods. For complete details applicable to your specific product, please refer to the <a href="https://www.kohler.com/en/support/warranty" target="_blank">official Kohler warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'laufen' -%}
+
+  <p><strong>Laufen Warranty:</strong> <a href="https://www.laufen.com/" target="_blank">Laufen</a> provides warranties covering manufacturing defects for its products. Specific warranty periods and terms can vary by product type (ceramics often have longer coverage than faucets or furniture). For precise details regarding your product, please refer to the documentation included with your purchase or visit Laufen's official website for <a href="https://www.laufen.com/service/warranty" target="_blank">warranty information</a>.</p>
+
+
+  {%- elsif vendor_handle == 'maax' -%}
+
+  <p><strong>Maax Warranty:</strong> <a href="https://maax.com/en/" target="_blank">Maax</a> provides warranties against manufacturing defects for their extensive line of bathroom products. Warranty duration often varies depending on the specific product category (e.g., acrylic tubs vs. shower doors). For detailed terms and conditions applicable to your Maax product, please refer to the documentation included or visit the <a href="https://maax.com/en/warranty-registration/" target="_blank">official Maax warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'moen' -%}
+
+  <p><strong>Moen Warranty:</strong> <a href="https://www.moen.ca/" target="_blank">Moen</a> products are typically backed by a comprehensive <strong>Limited Lifetime Warranty</strong> against leaks, drips, and finish defects for the original homeowner in residential applications. Commercial installations and specific components may have different terms. For full details specific to your product, please visit the <a href="https://www.moen.ca/customer-support/warranty" target="_blank">official Moen warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'neptune' -%}
+
+  <p><strong>Neptune Warranty:</strong> <a href="https://produitsneptune.com/en/" target="_blank">Neptune</a> offers warranties covering manufacturing defects on their bathroom products. The duration and specifics vary depending on the product material (e.g., acrylic vs. WETMAR BiO™) and components (e.g., electronic systems). For precise warranty details applicable to your specific Neptune product, consult the documentation provided or visit their <a href="https://produitsneptune.com/en/warranty" target="_blank">official warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'orans' -%}
+
+  <p><strong>Orans Warranty:</strong> <a href="https://www.orans.com/" target="_blank">Orans</a> provides warranties against manufacturing defects for their bathroom products. The specific terms and duration often depend on the product type (e.g., smart toilet electronics vs. bathtub structure). For the most accurate warranty information regarding your Orans product, please consult the official documentation provided with the item or contact Orans customer service directly, as specific warranty details might not be readily available on their main website.</p>
+
+
+  {%- elsif vendor_handle == 'perrin & rowe' -%}
+
+  <p><strong>Perrin & Rowe Warranty:</strong> <a href="https://houseofrohl.ca/perrin-rowe" target="_blank">Perrin & Rowe</a> products typically come with a Limited Lifetime Warranty on mechanical parts and finishes for the original owner in residential settings, reflecting their commitment to quality. Specific terms may apply to certain components or commercial use. For detailed information, please refer to the <a href="https://houseofrohl.ca/perrin-rowe/support/warranty" target="_blank">official Perrin & Rowe warranty page</a> within the House of Rohl site.</p>
+
+
+  {%- elsif vendor_handle == 'pfister' -%}
+
+  <p><strong>Pfister Warranty:</strong> <a href="https://www.pfisterfaucets.com/" target="_blank">Pfister</a> famously offers its Pforever Warranty®, which covers the finish and function of their faucets for life, for the original purchaser in a residential setting. This reflects their confidence in the longevity of their products. For complete details, including specifics for electronic parts or commercial use, visit the <a href="https://www.pfisterfaucets.com/support/warranty" target="_blank">official Pfister warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'riobel' -%}
+
+  <p><strong>Riobel Warranty:</strong> <a href="https://houseofrohl.ca/riobel" target="_blank">Riobel</a> offers a Limited Lifetime Warranty on chrome, PVD finishes, blacks, and all working parts against manufacturing defects for the original purchaser in a residential setting. Other finishes and components (like plastic or electronic parts) have shorter warranty periods (typically 1 or 5 years). Commercial installations also have a shorter warranty. For full details, please visit the <a href="https://houseofrohl.ca/riobel/support/warranty/" target="_blank">official Riobel warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'rohl' -%}
+
+  <p><strong>Rohl Warranty:</strong> <a href="https://houseofrohl.ca/rohl" target="_blank">Rohl</a> generally offers a Limited Lifetime Warranty on the mechanical parts and finishes of its faucets for the original purchaser in a residential application. Other products like sinks (stainless steel/fireclay), accessories, and specific components (soap dispensers, drains, hot water dispensers) carry varying warranty periods (ranging from 1 year to lifetime depending on the item). Commercial applications typically have shorter warranty terms. For precise details specific to your product, please consult the <a href="https://houseofrohl.ca/rohl/support/warranty/" target="_blank">official Rohl warranty page</a> on the House of Rohl website.</p>
+
+
+  {%- elsif vendor_handle == 'rubinet' -%}
+
+  <p><strong>Rubinet Warranty:</strong> <a href="https://rubinet.com/" target="_blank">Rubinet</a> offers a Limited Lifetime Warranty on the mechanical and operational aspects of its faucets, as well as on its Chrome and PVD finishes, for the original purchaser in a residential setting. Other finishes typically have a warranty period of 10 years, while specific components like cartridges, hoses, and showerheads may have varying warranty durations (often 10 years or less). Commercial installations have a shorter warranty period. For the most accurate and detailed information, please refer to the <a href="https://rubinet.com/warranty/" target="_blank">official Rubinet warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'shaws' -%}
+
+  <p><strong>Shaws Warranty:</strong> <a href="https://houseofrohl.ca/shaws" target="_blank">Shaws</a> offers a robust warranty on its fireclay sinks. Typically, this includes a Limited Lifetime Warranty against manufacturing defects for the original owner in a residential setting. They often also provide specific warranties against fading/staining (e.g., 10 years) and finish defects (e.g., 1 year). Due to the handcrafted nature, slight variations are normal and not considered defects. For precise terms, please consult the <a href="https://houseofrohl.ca/shaws/support/warranty/" target="_blank">official Shaws warranty page</a> on the House of Rohl website.</p>
+
+
+  {%- elsif vendor_handle == 'toto' -%}
+
+  <p><strong>Toto Warranty:</strong> <a href="https://www.totousa.com/" target="_blank">Toto</a> generally offers a One-Year Limited Warranty for most residential products, covering defects in materials and workmanship. However, specific components like vitreous china may have longer warranties (e.g., 5 years or limited lifetime). WASHLET® bidet seats and electronic components often have their own specific warranty terms (typically 1-3 years). Commercial warranties are usually shorter. Always verify the specific warranty details for your purchased product on the <a href="https://www.totousa.com/support/warranty" target="_blank">official Toto warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'victoria albert' -%}
+
+  <p><strong>Victoria + Albert Warranty:</strong> <a href="https://houseofrohl.ca/victoria-albert" target="_blank">Victoria + Albert</a> offers a substantial warranty on its QUARRYCAST™ products, typically a 25-Year Limited Residential Warranty against manufacturing defects for baths and basins. Finishes, accessories, and components like wastes or overflows usually carry shorter warranty periods (e.g., 2-5 years). Commercial warranties are also generally shorter. For complete details, please refer to the <a href="https://houseofrohl.ca/victoria-albert/support/warranty/" target="_blank">official Victoria + Albert warranty page</a> on the House of Rohl website.</p>
+
+
+  {%- elsif vendor_handle == 'visentin' -%}
+
+  <p><strong>Visentin Warranty:</strong> Warranty information for Visentin products often depends on the specific product category (e.g., ceramics, faucets, furniture) and the distributor. Generally, warranties cover manufacturing defects under normal residential use. Ceramics might have a longer warranty (e.g., 5+ years), while mechanical parts, finishes, or furniture could range from 1-5 years. It's best to consult the documentation provided with the specific product or contact the retailer for precise warranty terms, as a dedicated central warranty page was not immediately located.</p>
+
+
+  {%- elsif vendor_handle == 'vogt' -%}
+
+  <p><strong>Vogt Warranty:</strong> <a href="https://vogtindustries.com/" target="_blank">Vogt</a> typically offers robust warranties on their products, often including a Limited Lifetime Warranty on items like stainless steel sinks and faucets against manufacturing defects for residential use. Specific components (like cartridges) or finishes might have different terms (e.g., 5-10 years). Commercial warranties are usually shorter. For the most accurate and detailed information, please consult the <a href="https://vogtindustries.com/pages/warranty-information" target="_blank">official Vogt warranty page</a>.</p>
+
+
+  {%- elsif vendor_handle == 'zitta' -%}
+
+  <p><strong>Zitta Warranty:</strong> <a href="https://zitta.ca/" target="_blank">Zitta</a> typically offers a strong warranty on their products, often a 10-Year Limited Warranty for residential use, covering manufacturing defects on items like shower doors, bases, and tubs. Components like seals or hardware might have shorter terms. Commercial warranties are usually more limited (e.g., 1 year). For precise details and conditions, it's best to consult the <a href="https://zitta.ca/en/warranty/" target="_blank">official Zitta warranty page</a>.</p>
+
+  {%- else -%}
+
+    {% comment %}
+      This 'else' block is a fallback. It will display if the vendor
+      doesn't match any of the 'if' or 'elsif' conditions above.
+      This is useful for new brands you haven't written a description for yet.
+    {% endcomment %}
+    <p>We are proud to feature <strong>{{ vendor_name | escape }}</strong>, a brand committed to quality and craftsmanship in all their products. Contact Us for Warranty Information</p>
+
+  {%- endif -%}
+</div>
