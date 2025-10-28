@@ -1752,7 +1752,7 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}">
+                  <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
                   <input type="hidden" class="variantss-id" value="{{ current_variant_sku_pro.id }}" />
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus">
@@ -1811,7 +1811,7 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: compatible_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}">
+                  <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
                     <input type="hidden" class="variantss-id" value="{{ current_variant_sku_comp.id }}" />
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus">
@@ -1949,63 +1949,62 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-  const customForms = document.querySelectorAll('.inner-content form[method="post"][action*="/cart/add"]');
+  const customForms = document.querySelectorAll('form.custom-ajax-form');
 
   customForms.forEach(form => {
-    if (form.closest('product-form') && !form.closest('product-form').classList.contains('product-form')) {
-      return; 
-    }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    if (!form.closest('product-form') || form.closest('.inner-content')) {
+      const submitButton = this.querySelector('button[type="submit"]');
+      const variantIdInput = this.querySelector('.variantss-id');
+      const quantityInput = this.querySelector('.custom-quantity-input');
       
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
+      if (!variantIdInput) return;
 
-        const variantIdInput = this.querySelector('.variantss-id');
-        const quantityInput = this.querySelector('.custom-quantity-input');
-        
-        if (!variantIdInput) {
-          console.log('No variantss-id found, skipping custom submit');
-          return;
+      const variantId = variantIdInput.value;
+      const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+      
+      submitButton.setAttribute('disabled', 'true');
+      submitButton.classList.add('loading');
+
+      const formData = new FormData();
+      formData.append('id', variantId);
+      formData.append('quantity', quantity);
+      formData.append('sections', 'cart-notification-product,cart-notification-button,cart-icon-bubble');
+      formData.append('sections_url', window.location.pathname);
+
+      fetch('{{ routes.cart_add_url }}', {
+        method: 'POST',
+        body: formData,
+        headers: { 
+          'Accept': 'application/javascript',
+          'X-Requested-With': 'XMLHttpRequest'
         }
-
-        const variantId = variantIdInput.value;
-        const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-        
-        const formData = new FormData();
-        formData.append('id', variantId);
-        formData.append('quantity', quantity);
-        formData.append('sections', 'cart-notification-product,cart-notification-button,cart-icon-bubble');
-        formData.append('sections_url', window.location.pathname);
-
-        fetch('{{ routes.cart_add_url }}', {
-          method: 'POST',
-          body: formData,
-          headers: { 
-            'Accept': 'application/javascript',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status) {
-            console.error('Error:', data.description);
-          } else {
-            console.log('Added to cart:', data);
-            
-            if (cart) {
-              cart.renderContents(data);
-            }
-            
-            document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true, detail: data }));
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status) {
+          console.error('Error:', data.description);
+          submitButton.removeAttribute('disabled');
+          submitButton.classList.remove('loading');
+        } else {
+          console.log('Added to cart:', data);
+          
+          document.dispatchEvent(new CustomEvent('cart:updated', { 
+            bubbles: true, 
+            detail: { cart: data } 
+          }));
+          
+          submitButton.removeAttribute('disabled');
+          submitButton.classList.remove('loading');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        submitButton.removeAttribute('disabled');
+        submitButton.classList.remove('loading');
       });
-    }
+    });
   });
 });
 </script>
