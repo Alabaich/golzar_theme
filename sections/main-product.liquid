@@ -355,19 +355,30 @@
 
 .acc-icon {
   transition: transform 0.3s ease-in-out;
-}
-
-.main-aacrodaian.active .acc-icon {
-  transform: rotate(45deg);
+  rotate: 45deg;
 }
 
 .acc-body {
-  transition: max-height 0.4s ease-out !important;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #ffffff;
+}
+
+.main-aacrodaian.active .acc-icon {
+  transform: rotate(45deg);
 }
 
 .acc_content {
   padding: 20px;
+}
+
+.acc-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.main-aacrodaian.active .acc-icon {
+  transform: rotate(45deg);
 }
 
 .product__info-container .product_information {
@@ -774,146 +785,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         </div>
       </div>
 
-    {% endif %}
-  {% endif %}
-              
-{%- when 'required-items' -%}
-  {% if block.settings.enable_prodcut == true %}
-    {% if product.metafields.custom.required_items.value != blank %}
-      <div class="requiredd-itemss">
-        <div class="main-required-pro">
-          <div class="title-reqiueed">
-            <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
-          </div>
-          {% for required_pro in product.metafields.custom.required_items.value %}
-          <div class="inner-main-required" data-show-more-item>
-            {% if required_pro.featured_image != blank %}
-            <div class="product-img-left">
-              <a href="{{ required_pro.url }}">
-                <img src="{{ required_pro.featured_image | img_url: 'master' }}">
-              </a>
-            </div>
-            {% endif %}
-            
-            <div class="product-content-right">
-              <span class="out-sold" style="display: none;">sold out</span>
-              <div class="inner-content">
-              {% assign current_variant_sku_pro = required_pro.selected_or_first_available_variant %}
-                {% if current_variant_sku_pro != blank %}
-                <h4 class="sku-pro"><a href="{{ required_pro.url }}">{{ current_variant_sku_pro.sku }}</a></h4>
-                {% endif %}
-                 <span class="price-pro">
-                   {%- render 'price', product: required_pro,
-                   use_variant: true, show_badges: true,
-                   price_class: 'price--large'
-                 -%}
-                 </span>
-                
-                <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-
-                <form method="post" action="{{ routes.cart_add_url }}">
-                  <input type="hidden" class="variantss-id" value="{{ required_pro.variants.first.id }}" />
-<div class="custom-quantity-selector">
-  <button type="button" class="custom-quantity-button" name="minus">
-    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <input type="number" name="quantity" class="custom-quantity-input" value="1" min="1">
-  <button type="button" class="custom-quantity-button" name="plus">
-    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-</div>
-                  <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                      <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                      <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                    </svg>
-                  </button>
-                </form>
-               </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-          <span class="show-more-toggle" data-show-more-toggle></span>
-        </div>
-    {% endif %}
-  {% endif %}
-
-
-{%- when 'compatible-items' -%}
-  {% comment %}
-    This block displays a list of compatible products based on a metafield.
-    It uses the same layout as the 'required-items' block.
-  {% endcomment %}
-  {% if block.settings.enable_compatible_items == true %}
-    {% if product.metafields.custom.compatible_items.value != blank %}
-      <div class="requiredd-itemss">
-        <div class="main-required-pro">
-          <div class="title-reqiueed">
-            <h5 style="margin: 0;">{{ block.settings.title_compatible | default: "Compatible Items" }}</h5>
-          </div>
-          {% for compatible_pro in product.metafields.custom.compatible_items.value %}
-          <div class="inner-main-required" data-show-more-item>
-            {% if compatible_pro.featured_image != blank %}
-            <div class="product-img-left">
-              <a href="{{ compatible_pro.url }}">
-                <img src="{{ compatible_pro.featured_image | img_url: 'master' }}">
-              </a>
-            </div>
-            {% endif %}
-            
-            <div class="product-content-right">
-              <span class="out-sold" style="display: none;">sold out</span>
-              <div class="inner-content">
-              {% assign current_variant_sku_comp = compatible_pro.selected_or_first_available_variant %}
-                {% if current_variant_sku_comp != blank %}
-                <h4 class="sku-pro"><a href="{{ compatible_pro.url }}">{{ current_variant_sku_comp.sku }}</a></h4>
-                {% endif %}
-                  <span class="price-pro">
-                    {%- render 'price', product: compatible_pro,
-                    use_variant: true, show_badges: true,
-                    price_class: 'price--large'
-                    -%}
-                  </span>
-                
-                  <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-
-                  <form method="post" action="{{ routes.cart_add_url }}">
-                    <input type="hidden" class="variantss-id" value="{{ compatible_pro.variants.first.id }}" />
-<div class="custom-quantity-selector">
-  <button type="button" class="custom-quantity-button" name="minus">
-    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <input type="number" name="quantity" class="custom-quantity-input" value="1" min="1">
-  <button type="button" class="custom-quantity-button" name="plus">
-    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-</div>
-                    <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                        <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                        <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                      </svg>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
     {% endif %}
   {% endif %}
 
@@ -1881,8 +1752,8 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}">
-                    <input type="hidden" class="variantss-id" value="{{ required_pro.variants.first.id }}" />
+                  <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
+                  <input type="hidden" class="variantss-id" value="{{ current_variant_sku_pro.id }}" />
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus">
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1897,13 +1768,13 @@ background: rgba(255, 59, 59, 0.10);
                         </svg>
                       </button>
                     </div>
-                    <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                        <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                        <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                      </svg>
-                    </button>
+                      <button type="submit" name="add" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                          <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                          <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                        </svg>
+                      </button>
                   </form>
                 </div>
               </div>
@@ -1940,8 +1811,8 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: compatible_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}">
-                    <input type="hidden" class="variantss-id" value="{{ compatible_pro.variants.first.id }}" />
+                  <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
+                    <input type="hidden" class="variantss-id" value="{{ current_variant_sku_comp.id }}" />
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus">
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1956,12 +1827,13 @@ background: rgba(255, 59, 59, 0.10);
                         </svg>
                       </button>
                     </div>
-                    <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                        <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                        <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                      </svg>
+                      <button type="submit" name="add" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                          <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                          <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                        </svg>
+                      </button>
                     </button>
                   </form>
                 </div>
@@ -2055,55 +1927,87 @@ background: rgba(255, 59, 59, 0.10);
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const quantitySelectors = document.querySelectorAll('.custom-quantity-selector');
-  
-  quantitySelectors.forEach(selector => {
-    const input = selector.querySelector('.custom-quantity-input');
-    const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
-    const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
-    const min = parseInt(input.min) || 1;
 
-    if (btnPlus && btnMinus) {
-        btnPlus.addEventListener('click', function() {
+  const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+  const customForms = document.querySelectorAll('form.custom-ajax-form');
+
+  customForms.forEach(form => {
+    
+    const quantitySelector = form.querySelector('.custom-quantity-selector');
+    const input = quantitySelector ? quantitySelector.querySelector('input[name="quantity"]') : null;
+    const btnMinus = quantitySelector ? quantitySelector.querySelector('.custom-quantity-button[name="minus"]') : null;
+    const btnPlus = quantitySelector ? quantitySelector.querySelector('.custom-quantity-button[name="plus"]') : null;
+
+    if (input && btnMinus && btnPlus) {
+      const min = parseInt(input.min) || 1;
+
+      btnPlus.addEventListener('click', function() {
         let currentValue = parseInt(input.value);
         input.value = currentValue + 1;
-        });
+      });
 
-        btnMinus.addEventListener('click', function() {
+      btnMinus.addEventListener('click', function() {
         let currentValue = parseInt(input.value);
         if (currentValue > min) {
-            input.value = currentValue - 1;
+          input.value = currentValue - 1;
         }
-        });
+      });
     }
-  });
 
-  document.querySelectorAll('form[method="post"][action*="/cart/add"]').forEach(form => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const variantIdInput = this.querySelector('.variantss-id');
-      const quantityInput = this.querySelector('.custom-quantity-input');
+      e.stopImmediatePropagation();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const variantIdInput = form.querySelector('.variantss-id');
+      const quantityInput = form.querySelector('input[name="quantity"]');
       
       if (!variantIdInput) return;
 
       const variantId = variantIdInput.value;
-      const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+      const quantity = quantityInput ? parseInt(quantityInput.value) : 1; 
       
+      submitButton.setAttribute('disabled', 'true');
+      submitButton.classList.add('loading');
+
       const formData = new FormData();
       formData.append('id', variantId);
       formData.append('quantity', quantity);
-      
-      fetch('/cart/add.js', {
+      formData.append('sections', 'cart-notification-product,cart-notification-button,cart-icon-bubble');
+      formData.append('sections_url', window.location.pathname);
+
+      fetch('{{ routes.cart_add_url }}', {
         method: 'POST',
         body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: { 
+          'Accept': 'application/javascript',
+          'X-Requested-With': 'XMLHttpRequest'
+        }
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Added to cart:', data);
+        if (data.status) {
+          console.error('Error:', data.description);
+        } else {
+          console.log('Added to cart:', data);
+          
+          if (cart) {
+            cart.renderContents(data);
+          }
+          
+          document.dispatchEvent(new CustomEvent('cart:updated', { 
+            bubbles: true, 
+            detail: { cart: data } 
+          }));
+
+        }
       })
       .catch(error => {
         console.error('Error:', error);
+      })
+      .finally(() => {
+        submitButton.removeAttribute('disabled');
+        submitButton.classList.remove('loading');
       });
     });
   });
