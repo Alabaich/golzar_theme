@@ -1753,28 +1753,15 @@ background: rgba(255, 59, 59, 0.10);
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
                   <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
-                  <input type="hidden" class="variantss-id" value="{{ current_variant_sku_pro.id }}" />
-                    <div class="custom-quantity-selector">
-                      <button type="button" class="custom-quantity-button" name="minus">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                      <input type="number" name="quantity" class="custom-quantity-input" value="1" min="1">
-                      <button type="button" class="custom-quantity-button" name="plus">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                    </div>
-                      <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                          <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                          <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                        </svg>
-                      </button>
+                    <input type="hidden" name="id" value="{{ current_variant_sku_pro.id }}" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                        <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                        <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                      </svg>
+                    </button>
                   </form>
                 </div>
               </div>
@@ -1812,28 +1799,14 @@ background: rgba(255, 59, 59, 0.10);
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
                   <form method="post" action="{{ routes.cart_add_url }}" class="custom-ajax-form">
-                    <input type="hidden" class="variantss-id" value="{{ current_variant_sku_comp.id }}" />
-                    <div class="custom-quantity-selector">
-                      <button type="button" class="custom-quantity-button" name="minus">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                      <input type="number" name="quantity" class="custom-quantity-input" value="1" min="1">
-                      <button type="button" class="custom-quantity-button" name="plus">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                    </div>
-                      <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                          <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                          <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                        </svg>
-                      </button>
+                    <input type="hidden" name="id" value="{{ current_variant_sku_comp.id }}" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button type="submit" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                        <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.83333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                        <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                      </svg>
                     </button>
                   </form>
                 </div>
