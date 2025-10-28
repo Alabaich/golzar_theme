@@ -1929,13 +1929,12 @@ background: rgba(255, 59, 59, 0.10);
 document.addEventListener('DOMContentLoaded', function() {
 
   const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-
   const customForms = document.querySelectorAll('form.custom-ajax-form');
 
   customForms.forEach(form => {
-
+    
     const quantitySelector = form.querySelector('.custom-quantity-selector');
-    const input = quantitySelector ? quantitySelector.querySelector('.custom-quantity-input') : null;
+    const input = quantitySelector ? quantitySelector.querySelector('input[name="quantity"]') : null;
     const btnMinus = quantitySelector ? quantitySelector.querySelector('.custom-quantity-button[name="minus"]') : null;
     const btnPlus = quantitySelector ? quantitySelector.querySelector('.custom-quantity-button[name="plus"]') : null;
 
@@ -1957,17 +1956,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      e.stopImmediatePropagation();
 
       const submitButton = form.querySelector('button[type="submit"]');
       const variantIdInput = form.querySelector('.variantss-id');
-
-      const quantityInput = form.querySelector('.custom-quantity-input');
-
+      const quantityInput = form.querySelector('input[name="quantity"]');
+      
       if (!variantIdInput) return;
 
       const variantId = variantIdInput.value;
       const quantity = quantityInput ? parseInt(quantityInput.value) : 1; 
-
+      
       submitButton.setAttribute('disabled', 'true');
       submitButton.classList.add('loading');
 
@@ -1991,11 +1990,11 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error('Error:', data.description);
         } else {
           console.log('Added to cart:', data);
-
+          
           if (cart) {
             cart.renderContents(data);
           }
-
+          
           document.dispatchEvent(new CustomEvent('cart:updated', { 
             bubbles: true, 
             detail: { cart: data } 
