@@ -1751,6 +1751,11 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
+                  {%- form 'product', required_pro, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                    <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
+                    <div class="custom-quantity-selector">
+                       </div>
+                  {%- endform -%}
                     {%- form 'product', required_pro, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                       <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
                       <div class="custom-quantity-selector">
