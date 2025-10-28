@@ -1954,11 +1954,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const submitButton = form.querySelector('button[type="submit"]');
       const variantIdInput = form.querySelector('.variantss-id');
       const quantityInput = form.querySelector('input[name="quantity"]');
-      
+            
       if (!variantIdInput) return;
-
+      
       const variantId = variantIdInput.value;
-      const quantityInput = form.querySelector('input[name="quantity"]');
       const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
       
       submitButton.setAttribute('disabled', 'true');
