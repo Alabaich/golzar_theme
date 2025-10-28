@@ -1589,25 +1589,25 @@ background: rgba(255, 59, 59, 0.10);
   }
   .product-tab-links {
     display: flex;
-    border-bottom: 1px solid #e0e0e0;
     margin-bottom: 20px;
     gap: 20px;
   }
   .product-tab-link {
-    padding: 10px 15px;
+    display: flex;
+    padding: 10px;
     cursor: pointer;
     border: none;
-    background: none;
     font-size: 1em;
-    color: #666;
+    border-radius: 15px;
+    background-color: #F5F7F9;
+    color: #808080;
     position: relative;
-    border-bottom: 3px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
   .product-tab-link.active {
-    color: #002642;
+    background-color: #002642;
     font-weight: 600;
-    border-bottom-color: #002642;
+    color: #fff;
   }
   .product-tab-link:hover:not(.active) {
     color: #002642;
