@@ -1930,21 +1930,20 @@ background: rgba(255, 59, 59, 0.10);
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Custom Add to Cart script initialized (v3 - Final).");
+  console.log("Custom Add to Cart script initialized (v4 - items array).");
 
   document.querySelectorAll('form.required-compatible-form').forEach(form => {
-    console.log("Attaching listener (v3) to form:", form);
+    console.log("Attaching listener (v4) to form:", form);
     
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      e.stopPropagation();
+      e.stopPropagation(); 
       
-      console.log("Form submitted (v3):", form); 
+      console.log("Form submitted (v4):", form); 
 
       const submitButton = form.querySelector('button[type="submit"]');
       const variantIdInput = form.querySelector('input[name="id"]');
       const quantityInput = form.querySelector('input[name="quantity"]');
-      
       const addUrl = form.dataset.cartAddUrl; 
       
       if (!variantIdInput || !submitButton || !addUrl) {
@@ -1964,8 +1963,10 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.classList.add('loading');
 
       const bodyData = {
-        id: variantId,
-        quantity: quantity
+        items: [{
+          id: variantId,
+          quantity: quantity
+        }]
       };
 
       fetch(addUrl + '.js', {
