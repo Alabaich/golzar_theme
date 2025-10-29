@@ -1941,7 +1941,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const submitButton = currentForm.querySelector('button[type="submit"]');
       const variantIdInput = currentForm.querySelector('input[name="id"]');
       const quantityInput = currentForm.querySelector('input[name="quantity"]');
-      const addUrl = currentForm.dataset.cartAddUrl || '/cart/add.js';
+      const addUrl = currentForm.dataset.cartAddUrl || '/cart/add.js'; // Use '/cart/add.js' as default
 
       if (!variantIdInput || !submitButton) {
         console.error('Form is missing variant ID input or submit button.');
@@ -1952,6 +1952,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const variantId = variantIdInput.value;
       const quantity = quantityInput ? (parseInt(quantityInput.value, 10) || 1) : 1;
 
+      // Basic validation
       if (!variantId || isNaN(parseInt(variantId, 10)) || variantId === 'null') {
           console.error('Invalid Variant ID:', variantId);
           alert('Cannot add item: Invalid product variant.');
@@ -1963,14 +1964,19 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
       }
 
+      // Prepare data in the correct JSON format for a single item
       const requestBody = {
-        id: parseInt(variantId, 10),
+        id: parseInt(variantId, 10), // Ensure ID is an integer
         quantity: quantity
+        // If you need line item properties, add them here:
+        // properties: {
+        //   '_some_property': 'some_value'
+        // }
       };
 
       submitButton.classList.add('loading');
       submitButton.disabled = true;
-      const originalButtonContent = submitButton.innerHTML;
+      const originalButtonContent = submitButton.innerHTML; // Store original content
 
       fetch(addUrl.endsWith('.js') ? addUrl : addUrl + '.js', {
         method: 'POST',
@@ -1978,27 +1984,35 @@ document.addEventListener('DOMContentLoaded', function() {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify(requestBody) // Send the JSON object
       })
       .then(response => {
         if (!response.ok) {
+          // Try to get error details from Shopify's JSON response
           return response.json().then(errorData => {
             console.error('Shopify API Error:', errorData);
             throw new Error(errorData.description || errorData.message || `HTTP error ${response.status}`);
           }).catch(() => {
+            // Fallback if response is not JSON
             throw new Error(`HTTP error ${response.status}`);
           });
         }
-        return response.json();
+        return response.json(); // Product added successfully
       })
       .then(data => {
         console.log('Item added successfully:', data);
-        submitButton.innerHTML = '<span>Added!</span>';
+        submitButton.innerHTML = '<span>Added!</span>'; // Visual feedback
 
+        // Optional: Update cart icon/drawer after success
         document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true }));
 
+        // You might want to update the cart count display specific to this item here
         const cartCountElement = currentForm.closest('.inner-main-required')?.querySelector('.cart-count-pro');
         if (cartCountElement) {
+            // This part is tricky as the response 'data' might just be the item added,
+            // not the total cart quantity for that item. Fetching cart.js might be needed
+            // to get the true total quantity if the item was already in the cart.
+            // For simplicity, just indicate it was added, or fetch cart count separately.
             cartCountElement.textContent = `${data.quantity} added. Total in cart might differ.`;
         }
 
@@ -2006,8 +2020,8 @@ document.addEventListener('DOMContentLoaded', function() {
          setTimeout(() => {
            submitButton.innerHTML = originalButtonContent;
            // Decide if you want to re-enable it or not
-           submitButton.disabled = false;
-         }, 1500);
+           // submitButton.disabled = false;
+         }, 1500); // Revert after 1.5 seconds
 
         setTimeout(() => {
         const cartDrawer = document.querySelector('cart-drawer');
@@ -2020,8 +2034,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .catch(error => {
         console.error('Fetch Error:', error);
         alert('Error adding item: ' + error.message);
-        submitButton.innerHTML = originalButtonContent;
-        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonContent; // Revert button text on error
+        submitButton.disabled = false; // Re-enable button on error
       })
       .finally(() => {
         submitButton.classList.remove('loading');
