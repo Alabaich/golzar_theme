@@ -1751,11 +1751,6 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  {%- form 'product', required_pro, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                    <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
-                    <div class="custom-quantity-selector">
-                       </div>
-                  {%- endform -%}
                     {%- form 'product', required_pro, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                       <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
                       <div class="custom-quantity-selector">
@@ -1952,54 +1947,96 @@ background: rgba(255, 59, 59, 0.10);
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const quantitySelectors = document.querySelectorAll('.custom-quantity-selector');
-  
   quantitySelectors.forEach(selector => {
     const input = selector.querySelector('.custom-quantity-input');
     const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
     const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
     const min = parseInt(input.min) || 1;
 
-    if (btnPlus && btnMinus) {
-        btnPlus.addEventListener('click', function() {
+    if (btnPlus && btnMinus && input) {
+      btnPlus.addEventListener('click', function() {
         let currentValue = parseInt(input.value);
         input.value = currentValue + 1;
-        });
+      });
 
-        btnMinus.addEventListener('click', function() {
+      btnMinus.addEventListener('click', function() {
         let currentValue = parseInt(input.value);
         if (currentValue > min) {
-            input.value = currentValue - 1;
+          input.value = currentValue - 1;
         }
-        });
+      });
     }
   });
 
-  document.querySelectorAll('form[method="post"][action*="/cart/add"]').forEach(form => {
+  document.querySelectorAll('form.required-compatible-form').forEach(form => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const variantIdInput = this.querySelector('.variantss-id');
-      const quantityInput = this.querySelector('.custom-quantity-input');
-      
-      if (!variantIdInput) return;
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const variantIdInput = form.querySelector('input[name="id"]');
+      const quantityInput = form.querySelector('.custom-quantity-input');
+
+      if (!variantIdInput || !submitButton) return;
+
+      submitButton.classList.add('loading');
 
       const variantId = variantIdInput.value;
       const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-      
+
       const formData = new FormData();
       formData.append('id', variantId);
       formData.append('quantity', quantity);
-      
-      fetch('/cart/add.js', {
+      formData.append('sections', 'cart-icon-bubble');
+      formData.append('sections_url', window.location.pathname);
+
+      fetch('{{ routes.cart_add_url }}.js', {
         method: 'POST',
         body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/javascript' }
       })
-      .then(response => response.json())
+      .then(response => {
+         if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); }
+         return response.json();
+       })
       .then(data => {
-        console.log('Added to cart:', data);
+        console.log('Added via custom form:', data);
+
+        if (data.sections && data.sections['cart-icon-bubble']) {
+            const cartBubble = document.getElementById('cart-icon-bubble');
+             const newBubble = new DOMParser().parseFromString(data.sections['cart-icon-bubble'], 'text/html').querySelector('.shopify-section');
+             if (cartBubble && newBubble && newBubble.innerHTML.trim() !== '') {
+                cartBubble.innerHTML = newBubble.innerHTML;
+             }
+        }
+
+        document.dispatchEvent(new CustomEvent('cart:added', {
+          bubbles: true,
+          detail: {
+            cart: data
+          }
+        }));
+
+         if (data.sections) {
+            document.dispatchEvent(new CustomEvent('cart:section:updated', {
+                 bubbles: true,
+                 detail: { sections: data.sections }
+             }));
+         }
+
+         setTimeout(() => {
+             const cartIconLink = document.querySelector('#cart-icon-bubble a');
+             if (cartIconLink && !document.querySelector('cart-drawer[open]')) { 
+                 cartIconLink.click();
+             }
+         }, 1000);
+
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('Error adding item via custom form:', error);
+        alert('Error adding item to cart.');
+      })
+      .finally(() => {
+        submitButton.classList.remove('loading');
       });
     });
   });
