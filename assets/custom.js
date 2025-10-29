@@ -185,8 +185,8 @@ $(document).ready(function(){
     $(this).addClass("addingitem");
     var current_click = $(this);
     event.preventDefault();
-    var VAR_ID = $(this).parents('.inner-main-required').find('.variantss-id').val();
-    var QTY = $(this).parents('.inner-main-required').find('.required-item-quantity-qty').val();
+    var VAR_ID = $(this).closest('.inner-main-required').find('input[name="id"]').val();
+    var QTY = $(this).closest('.inner-main-required').find('input[name="quantity"]').val();
     $.ajax({
       type: 'POST',
       url: '/cart/add.js',
