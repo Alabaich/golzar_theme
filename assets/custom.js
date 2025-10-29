@@ -190,10 +190,15 @@ $(document).ready(function(){
     $.ajax({
       type: 'POST',
       url: '/cart/add.js',
-      data: {
-        id: VAR_ID,
-        quantity: QTY
-      },
+      data: JSON.stringify({
+        items: [
+          {
+            id: VAR_ID,
+            quantity: QTY
+          }
+        ]
+      }),
+      contentType: 'application/json',
       dataType: 'json',
       beforeSend: function(){
         $('.required-item-cart.addingitem').attr('value','Adding Item...');
