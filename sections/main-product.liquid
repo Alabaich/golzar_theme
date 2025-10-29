@@ -1928,24 +1928,19 @@ background: rgba(255, 59, 59, 0.10);
 {% endif %}
 
 
-
-
-
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Custom Add to Cart script initialized.");
+  console.log("Custom Add to Cart script initialized (v2)."); // v2
 
   document.querySelectorAll('.custom-quantity-selector').forEach(selector => {
     const input = selector.querySelector('.custom-quantity-input');
     const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
     const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
-    const min = parseInt(input?.min) || 1;
-
+    
     if (btnPlus && btnMinus && input) {
-        if (!btnMinus.hasAttribute('onclick')) {
+        const min = parseInt(input.min) || 1;
+
+        if (!btnPlus.hasAttribute('onclick')) {
             btnPlus.addEventListener('click', function() {
                 let currentValue = parseInt(input.value) || min;
                 input.value = currentValue + 1;
@@ -1954,12 +1949,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btnMinus.addEventListener('click', function() {
                 let currentValue = parseInt(input.value) || min;
                 if (currentValue > min) {
-                input.value = currentValue - 1;
+                    input.value = currentValue - 1;
                 }
             });
         }
     } else {
-        console.warn("Quantity selector +/- buttons or input not found in:", selector);
+        console.warn("Quantity selector parts not found in:", selector);
     }
   });
 
@@ -1971,41 +1966,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const submitButton = form.querySelector('button[type="submit"]');
       const variantIdInput = form.querySelector('input[name="id"]');
-      const quantityInput = form.querySelector('.custom-quantity-input');
+      const quantityInput = form.querySelector('input[name="quantity"]');
 
       if (!variantIdInput || !submitButton) {
-          console.error("Variant ID input or submit button not found in form:", form);
+          console.error("Variant ID input or submit button not found!");
           return;
       }
-      if (!quantityInput) {
-          console.warn("Quantity input not found in form, defaulting to 1:", form);
-      }
-
-      submitButton.classList.add('loading');
-
+      
       const variantId = variantIdInput.value;
       const quantity = quantityInput ? (parseInt(quantityInput.value) || 1) : 1;
+      
+      if (!variantId) {
+          console.error("Variant ID is empty!");
+          return;
+      }
 
       console.log(`Preparing fetch for variant ID: ${variantId}, quantity: ${quantity}`);
+      submitButton.classList.add('loading');
 
-      const formData = new FormData();
-      formData.append('id', variantId);
-      formData.append('quantity', quantity);
-      
+      const bodyData = {
+        id: variantId,
+        quantity: quantity
+      };
+
       fetch('{{ routes.cart_add_url }}.js', {
         method: 'POST',
-        body: formData,
         headers: {
-          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
-        }
+        },
+        body: JSON.stringify(bodyData)
       })
       .then(response => {
         console.log("Fetch response status:", response.status); 
         if (!response.ok) {
            return response.json().then(errorData => {
                console.error("Fetch response JSON (error):", errorData);
-               throw new Error(errorData.description || `HTTP error ${response.status}`);
+               let errorMessage = errorData.description || errorData.message || `HTTP error ${response.status}`;
+               throw new Error(errorMessage);
            });
         }
         return response.json(); 
@@ -2028,12 +2026,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 console.warn("Could not find cart icon link or drawer to open.");
             }
-        }, 500);
+        }, 300);
 
       })
       .catch(error => {
         console.error('Error in fetch process:', error);
-        alert(`Error: ${error.message}`);
+        alert(`Error: ${error.message}`); 
       })
       .finally(() => {
         submitButton.classList.remove('loading'); 
