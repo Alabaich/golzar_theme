@@ -181,62 +181,121 @@ $(document).ready(function(){
   });
 
   // product page add to cart required product 
-  $('.required-item-cart').click(function(event){
-    $(this).addClass("addingitem");
-    var current_click = $(this);
-    event.preventDefault();
-    var VAR_ID = $(this).closest('.inner-main-required').find('input[name="id"]').val();
-    var QTY = $(this).closest('.inner-main-required').find('input[name="quantity"]').val();
-    $.ajax({
-      type: 'POST',
-      url: '/cart/add.js',
-      data: JSON.stringify({
-        items: [
-          {
-            id: VAR_ID,
-            quantity: QTY
-          }
-        ]
-      }),
-      contentType: 'application/json',
-      dataType: 'json',
-      beforeSend: function(){
-        $('.required-item-cart.addingitem').attr('value','Adding Item...');
-        console.log('Adding to cart...');
-      },
-      success: function(response){
-        console.log('responseresponse',response);
-        console.log('Item added to cart!', response);
-        $('.inner-main-required').removeClass('sold-out');
-        $(current_click).parents('.inner-main-required').find('.out-sold').hide();
-        $.each(response, function (key, value) {
-          if(key == 'quantity'){
-            $(current_click).parents('.inner-main-required').find('.cart-count-pro').text(value+' item(s) in your cart');
-            $.ajax({
-              type: 'GET',
-              url: '/cart.js',
-              cache: false,
-              dataType: 'json',
-              success: function(cart) {
-                console.log('cart',cart.item_count);
-                $('.cart-count-bubble').html('<span aria-hidden="true">"'+cart.item_count+'"</span><span class="visually-hidden">"'+cart.item_count+'" items</span>');
-              }
-            });
-          }
-        });
-      },
-      complete: function () {
-        console.log('Request complete.');
-        $('.required-item-cart.addingitem').attr('value','Add to cart');
-        $('.required-item-cart.addingitem').removeClass("addingitem");
-      },
-      error: function (xhr, status, error) {
-        console.log('Error:', error);
-        $(current_click).parents('.inner-main-required').addClass('sold-out');
-        $(current_click).parents('.inner-main-required').find('.out-sold').show();
+$('.required-item-cart').click(function(event){
+  $(this).addClass("addingitem");
+  var current_click = $(this);
+  event.preventDefault();
+
+  var VAR_ID = $(this).closest('.inner-main-required').find('input[name="id"]').val();
+  var QTY = $(this).closest('.inner-main-required').find('input[name="quantity"]').val();
+
+  const parsedVarId = parseInt(VAR_ID);
+  const parsedQty = parseInt(QTY);
+
+  if (isNaN(parsedVarId) || parsedVarId <= 0 || VAR_ID === null || VAR_ID === '') {
+      console.error('Invalid Variant ID found:', VAR_ID);
+      alert('Cannot add item: Invalid product variant ID.');
+      $(this).removeClass("addingitem");
+      return;
+  }
+   if (isNaN(parsedQty) || parsedQty <= 0) {
+      console.error('Invalid Quantity found:', QTY);
+      alert('Cannot add item: Quantity must be greater than 0.');
+      $(this).removeClass("addingitem");
+      return;
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: JSON.stringify({
+      items: [
+        {
+          id: parsedVarId,
+          quantity: parsedQty
+        }
+      ]
+    }),
+    contentType: 'application/json',
+    dataType: 'json',
+    beforeSend: function(){
+       $(current_click).html('Adding Item...');
+      console.log('Adding to cart...');
+    },
+    success: function(response){
+      console.log('Success Response:', response);
+      let addedItem = null;
+      if (response && Array.isArray(response.items) && response.items.length > 0) {
+         addedItem = response.items.find(item => item.variant_id === parsedVarId);
+      } else if (response && response.variant_id === parsedVarId) {
+         addedItem = response;
       }
-    });
+
+      if (addedItem) {
+          console.log('Item added to cart!', addedItem);
+          $(current_click).closest('.inner-main-required').find('.cart-count-pro').text(addedItem.quantity + ' item(s) in your cart').show();
+      } else {
+          console.warn('Could not confirm item addition details from response.');
+          $(current_click).closest('.inner-main-required').find('.cart-count-pro').text('Added').show();
+      }
+
+      $(current_click).closest('.inner-main-required').removeClass('sold-out');
+      $(current_click).closest('.inner-main-required').find('.out-sold').hide();
+
+      $.ajax({
+        type: 'GET',
+        url: '/cart.js',
+        cache: false,
+        dataType: 'json',
+        success: function(cart) {
+          console.log('Cart updated, item_count:', cart.item_count);
+          
+          const cartCountBubble = $('.cart-count-bubble');
+          if (cartCountBubble.length > 0) {
+              cartCountBubble.find('span[aria-hidden="true"]').text(cart.item_count);
+              cartCountBubble.find('span.visually-hidden').text(cart.item_count + ' items');
+              if (cart.item_count > 0) {
+                 cartCountBubble.removeClass('hidden');
+              } else {
+                 cartCountBubble.addClass('hidden');
+              }
+          }
+
+          const cartDrawer = document.querySelector('cart-drawer');
+          if (cartDrawer && typeof cartDrawer.open === 'function' && !cartDrawer.hasAttribute('open')) {
+            cartDrawer.open();
+          }
+        }
+      });
+
+       $(current_click).html('Added!');
+       $(current_click).prop('disabled', true); 
+
+        setTimeout(function() {
+          $(current_click).html('<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/><path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/><path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/></svg>');
+          $(current_click).prop('disabled', false);
+        }, 2000);
+    },
+    complete: function () {
+      console.log('Request complete.');
+      $(current_click).removeClass("addingitem");
+    },
+    error: function (xhr, status, error) {
+       console.error('AJAX Error:', status, error);
+       console.error('Response Text:', xhr.responseText);
+       let errorMsg = 'Error adding item.';
+       try {
+           const shopifyError = JSON.parse(xhr.responseText);
+           errorMsg = shopifyError.description || shopifyError.message || errorMsg;
+       } catch (e) { }
+       alert(errorMsg); 
+
+       $(current_click).html('<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/><path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/><path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/></svg>');
+       $(current_click).removeClass("addingitem");
+       $(current_click).prop('disabled', false);
+    }
   });
+});
   
   // brands page slider collection products 
   $('.brands-collection-slider').slick({
