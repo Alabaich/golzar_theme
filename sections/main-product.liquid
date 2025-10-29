@@ -1930,10 +1930,10 @@ background: rgba(255, 59, 59, 0.10);
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Custom Add to Cart script initialized (v3 - JSON).");
+  console.log("Custom Add to Cart script initialized (v3 - Final).");
 
   document.querySelectorAll('form.required-compatible-form').forEach(form => {
-    console.log("Attaching listener to form:", form);
+    console.log("Attaching listener (v3) to form:", form);
     
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -2027,8 +2027,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnPlus && btnMinus && input) {
         if (btnMinus.getAttribute('onclick') === null) {
             console.log("Attaching +/- listeners (fallback) for selector:", selector);
-            btnPlus.addEventListener('click', () => input.stepUp() );
-            btnMinus.addEventListener('click', () => input.stepDown() );
+            const min = parseInt(input.min) || 1;
+            btnPlus.addEventListener('click', () => {
+                let val = parseInt(input.value) || min;
+                input.value = val + 1;
+            });
+            btnMinus.addEventListener('click', () => {
+                 let val = parseInt(input.value) || min;
+                 if (val > min) input.value = val - 1;
+            });
         }
     }
   });
