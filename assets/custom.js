@@ -217,12 +217,6 @@ $('.required-item-cart').click(function(event){
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.98750 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.96020 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.51480 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/><path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/><path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/></svg>
   `;
 
-  const addedIconSvg = `
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
-
   $.ajax({
     type: 'POST',
     url: '/cart/add.js',
@@ -282,15 +276,11 @@ $('.required-item-cart').click(function(event){
           if (cartDrawer && typeof cartDrawer.open === 'function' && !cartDrawer.hasAttribute('open')) {
             cartDrawer.open();
           }
+          
+          $(current_click).html(cartIconSvg);
+          $(current_click).prop('disabled', false);
         }
       });
-
-      $(current_click).html(addedIconSvg);
-
-      setTimeout(function() {
-        $(current_click).html(cartIconSvg);
-        $(current_click).prop('disabled', false);
-      }, 2000);
     },
     complete: function () {
       console.log('Request complete.');
