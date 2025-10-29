@@ -1751,7 +1751,7 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}" class="required-compatible-form" data-product-id="{{ required_pro.id }}">
+                  <form method="post" class="required-compatible-form" data-product-id="{{ required_pro.id }}" data-cart-add-url="{{ routes.cart_add_url }}">
                     <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepDown()">
@@ -1815,7 +1815,7 @@ background: rgba(255, 59, 59, 0.10);
                     {%- render 'price', product: compatible_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </span>
                   <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" action="{{ routes.cart_add_url }}" class="required-compatible-form" data-product-id="{{ compatible_pro.id }}">
+                  <form method="post" class="required-compatible-form" data-product-id="{{ compatible_pro.id }}" data-cart-add-url="{{ routes.cart_add_url }}">
                     <input type="hidden" name="id" value="{{ compatible_pro.selected_or_first_available_variant.id }}">
                     <div class="custom-quantity-selector">
                       <button type="button" class="custom-quantity-button" name="minus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepDown()">
@@ -1930,46 +1930,25 @@ background: rgba(255, 59, 59, 0.10);
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Custom Add to Cart script initialized (v2)."); // v2
-
-  document.querySelectorAll('.custom-quantity-selector').forEach(selector => {
-    const input = selector.querySelector('.custom-quantity-input');
-    const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
-    const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
-    
-    if (btnPlus && btnMinus && input) {
-        const min = parseInt(input.min) || 1;
-
-        if (!btnPlus.hasAttribute('onclick')) {
-            btnPlus.addEventListener('click', function() {
-                let currentValue = parseInt(input.value) || min;
-                input.value = currentValue + 1;
-            });
-
-            btnMinus.addEventListener('click', function() {
-                let currentValue = parseInt(input.value) || min;
-                if (currentValue > min) {
-                    input.value = currentValue - 1;
-                }
-            });
-        }
-    } else {
-        console.warn("Quantity selector parts not found in:", selector);
-    }
-  });
+  console.log("Custom Add to Cart script initialized (v3 - JSON).");
 
   document.querySelectorAll('form.required-compatible-form').forEach(form => {
     console.log("Attaching listener to form:", form);
+    
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      console.log("Form submitted:", form); 
+      e.stopPropagation();
+      
+      console.log("Form submitted (v3):", form); 
 
       const submitButton = form.querySelector('button[type="submit"]');
       const variantIdInput = form.querySelector('input[name="id"]');
       const quantityInput = form.querySelector('input[name="quantity"]');
-
-      if (!variantIdInput || !submitButton) {
-          console.error("Variant ID input or submit button not found!");
+      
+      const addUrl = form.dataset.cartAddUrl; 
+      
+      if (!variantIdInput || !submitButton || !addUrl) {
+          console.error("Form is missing 'id' input, submit button, or 'data-cart-add-url'!");
           return;
       }
       
@@ -1981,7 +1960,7 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
       }
 
-      console.log(`Preparing fetch for variant ID: ${variantId}, quantity: ${quantity}`);
+      console.log(`Preparing fetch for: ${addUrl}.js, ID: ${variantId}, Qty: ${quantity}`);
       submitButton.classList.add('loading');
 
       const bodyData = {
@@ -1989,7 +1968,7 @@ document.addEventListener('DOMContentLoaded', function() {
         quantity: quantity
       };
 
-      fetch('{{ routes.cart_add_url }}.js', {
+      fetch(addUrl + '.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -2039,6 +2018,21 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+  document.querySelectorAll('.custom-quantity-selector').forEach(selector => {
+    const input = selector.querySelector('.custom-quantity-input');
+    const btnMinus = selector.querySelector('.custom-quantity-button[name="minus"]');
+    const btnPlus = selector.querySelector('.custom-quantity-button[name="plus"]');
+    
+    if (btnPlus && btnMinus && input) {
+        if (btnMinus.getAttribute('onclick') === null) {
+            console.log("Attaching +/- listeners (fallback) for selector:", selector);
+            btnPlus.addEventListener('click', () => input.stepUp() );
+            btnMinus.addEventListener('click', () => input.stepDown() );
+        }
+    }
+  });
+
 });
 </script>
 
