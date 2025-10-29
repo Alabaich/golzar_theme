@@ -1930,64 +1930,112 @@ background: rgba(255, 59, 59, 0.10);
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('form.required-compatible-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
+  const forms = document.querySelectorAll('form.required-compatible-form');
 
-      const submitButton = form.querySelector('button[type="submit"]');
-      const variantIdInput = form.querySelector('input[name="id"]');
-      const quantityInput = form.querySelector('input[name="quantity"]');
-      const addUrl = form.dataset.cartAddUrl || '/cart/add.js';
+  forms.forEach(form => {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const currentForm = event.target;
+      const submitButton = currentForm.querySelector('button[type="submit"]');
+      const variantIdInput = currentForm.querySelector('input[name="id"]');
+      const quantityInput = currentForm.querySelector('input[name="quantity"]');
+      const addUrl = currentForm.dataset.cartAddUrl || '/cart/add.js'; // Use '/cart/add.js' as default
 
       if (!variantIdInput || !submitButton) {
-        alert('Missing variant ID or submit button!');
+        console.error('Form is missing variant ID input or submit button.');
+        alert('Could not add item. Form configuration error.');
         return;
       }
 
       const variantId = variantIdInput.value;
-      const quantity = quantityInput ? (parseInt(quantityInput.value) || 1) : 1;
+      const quantity = quantityInput ? (parseInt(quantityInput.value, 10) || 1) : 1;
+
+      // Basic validation
+      if (!variantId || isNaN(parseInt(variantId, 10)) || variantId === 'null') {
+          console.error('Invalid Variant ID:', variantId);
+          alert('Cannot add item: Invalid product variant.');
+          return;
+      }
+      if (isNaN(quantity) || quantity <= 0) {
+          console.error('Invalid Quantity:', quantity);
+          alert('Cannot add item: Quantity must be greater than 0.');
+          return;
+      }
+
+      // Prepare data in the correct JSON format for a single item
+      const requestBody = {
+        id: parseInt(variantId, 10), // Ensure ID is an integer
+        quantity: quantity
+        // If you need line item properties, add them here:
+        // properties: {
+        //   '_some_property': 'some_value'
+        // }
+      };
 
       submitButton.classList.add('loading');
+      submitButton.disabled = true;
+      const originalButtonContent = submitButton.innerHTML; // Store original content
 
-      fetch(addUrl.endsWith('.js') ? addUrl : (addUrl + '.js'), {
+      fetch(addUrl.endsWith('.js') ? addUrl : addUrl + '.js', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-        body: JSON.stringify({
-          id: variantId,
-          quantity: quantity
-        })
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(requestBody) // Send the JSON object
       })
       .then(response => {
         if (!response.ok) {
+          // Try to get error details from Shopify's JSON response
           return response.json().then(errorData => {
+            console.error('Shopify API Error:', errorData);
             throw new Error(errorData.description || errorData.message || `HTTP error ${response.status}`);
+          }).catch(() => {
+            // Fallback if response is not JSON
+            throw new Error(`HTTP error ${response.status}`);
           });
         }
-        return response.json();
+        return response.json(); // Product added successfully
       })
       .then(data => {
-        submitButton.innerHTML = '<span>Added!</span>';
-        submitButton.disabled = true;
-        setTimeout(() => {
-          submitButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/><path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/><path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/></svg> Add to Cart`;
-          submitButton.disabled = false;
-        }, 1200);
+        console.log('Item added successfully:', data);
+        submitButton.innerHTML = '<span>Added!</span>'; // Visual feedback
+
+        // Optional: Update cart icon/drawer after success
+        document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true }));
+
+        // You might want to update the cart count display specific to this item here
+        const cartCountElement = currentForm.closest('.inner-main-required')?.querySelector('.cart-count-pro');
+        if (cartCountElement) {
+            // This part is tricky as the response 'data' might just be the item added,
+            // not the total cart quantity for that item. Fetching cart.js might be needed
+            // to get the true total quantity if the item was already in the cart.
+            // For simplicity, just indicate it was added, or fetch cart count separately.
+            cartCountElement.textContent = `${data.quantity} added. Total in cart might differ.`;
+        }
+
+
+         setTimeout(() => {
+           submitButton.innerHTML = originalButtonContent;
+           // Decide if you want to re-enable it or not
+           // submitButton.disabled = false;
+         }, 1500); // Revert after 1.5 seconds
 
         setTimeout(() => {
-          const cartDrawer = document.querySelector('cart-drawer');
-          const cartIconLink = document.querySelector('#cart-icon-bubble a');
-          if (cartDrawer && typeof cartDrawer.open === 'function' && !cartDrawer.hasAttribute('open')) {
-            cartDrawer.open();
-          } else if (cartIconLink) {
-            cartIconLink.click();
-          }
+        const cartDrawer = document.querySelector('cart-drawer');
+        if (cartDrawer && typeof cartDrawer.open === 'function' && !cartDrawer.hasAttribute('open')) {
+        cartDrawer.open();
+        }
         }, 300);
 
-        document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true }));
       })
       .catch(error => {
-        alert('Error: ' + error.message);
+        console.error('Fetch Error:', error);
+        alert('Error adding item: ' + error.message);
+        submitButton.innerHTML = originalButtonContent; // Revert button text on error
+        submitButton.disabled = false; // Re-enable button on error
       })
       .finally(() => {
         submitButton.classList.remove('loading');
