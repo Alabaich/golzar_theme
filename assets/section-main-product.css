@@ -1192,6 +1192,7 @@ a.product__text {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin: 0;
 }
 
 .product__inventory .svg-wrapper,
@@ -1206,7 +1207,7 @@ a.product__text {
 
 /* This keeps the container from getting display: none; applied to it and to make sure we're not introducing some layout shift when switching to an unavailable variant */
 .product__inventory.visibility-hidden:empty {
-  display: block;
+  display: none;
 }
 
 .product__inventory.visibility-hidden:empty::after {
