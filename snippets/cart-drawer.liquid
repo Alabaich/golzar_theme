@@ -198,7 +198,7 @@
   - Uses unique classes to avoid conflicts.
   ============================================================
 {% endcomment %}
-
+{% comment %} 
 {%- liquid
   assign variant_delivery = item.variant.metafields.custom.expected_delivery
   assign product_delivery = item.product.metafields.custom.expected_delivery
@@ -223,7 +223,7 @@
     <p class="cart-item__availability cart-item__availability--instock"><b>Available,</b> in stock. Ready to Ship.</p>
 
   {%- endif -%}
-</div>
+</div> {% endcomment %}
                           <ul class="discounts list-unstyled" role="list"
                             aria-label="{{ 'customer.order.discount' | t }}">
                             {%- for discount in item.line_level_discount_allocations -%}

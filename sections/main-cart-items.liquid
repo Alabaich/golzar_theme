@@ -100,9 +100,9 @@
 
 
                     <td class="cart-item__details">
-                                      {% if item.product.metafields.custom.call_for_availability == true %}
+                                      {% comment %} {% if item.product.metafields.custom.call_for_availability == true %}
                            <p style="color: red;"><b>On Backorder – Delivery in up to 6 weeks.</b> For a more precise or expedited delivery timeframe, please contact us directly.</p>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                       {%- if settings.show_vendor -%}
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
