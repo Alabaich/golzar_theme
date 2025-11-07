@@ -14,12 +14,12 @@
     "announcement-bar": {
       "type": "custom-announce-bar",
       "blocks": {
-        "announce_JJjKfF": {
+        "announce_gMGytj": {
           "type": "announce",
           "settings": {
-            "announcement": "Open 7 days/week.",
+            "announcement": "Free shipping on orders from GTA!",
             "announcement_color": "#ffffff",
-            "announcement_link": ""
+            "announcement_link": "shopify://policies/shipping-policy"
           }
         },
         "announce_7dHtUj": {
@@ -30,19 +30,37 @@
             "announcement_link": "tel:+14167004346"
           }
         },
-        "announce_gMGytj": {
+        "announce_WhTiHV": {
           "type": "announce",
           "settings": {
-            "announcement": "Free shipping on orders from GTA!",
+            "announcement": "Free Shipping Over $1000 in Ontario",
             "announcement_color": "#ffffff",
-            "announcement_link": "shopify://policies/shipping-policy"
+            "announcement_link": ""
+          }
+        },
+        "announce_JJjKfF": {
+          "type": "announce",
+          "settings": {
+            "announcement": "Open 7 days/week.",
+            "announcement_color": "#ffffff",
+            "announcement_link": ""
+          }
+        },
+        "announce_rrjzNN": {
+          "type": "announce",
+          "settings": {
+            "announcement": "Free Shipping Over $3000 Canada Wide",
+            "announcement_color": "#ffffff",
+            "announcement_link": ""
           }
         }
       },
       "block_order": [
-        "announce_JJjKfF",
+        "announce_gMGytj",
         "announce_7dHtUj",
-        "announce_gMGytj"
+        "announce_WhTiHV",
+        "announce_JJjKfF",
+        "announce_rrjzNN"
       ],
       "settings": {
         "color_background": "#002642",
