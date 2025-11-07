@@ -27,6 +27,14 @@
             "brand_list": "Delta;delta-golzar-home,Orans;orans-golzar-home,Ecoway;ecoway-golzar-home,Vogt;vogt-golzar-home,Visentin;visentin-golzar-home,Grohe;grohe-golzar-home,Armadi Art;armadi-art-golzar-home,Duravit;duravit-golzar-home,Riobel;riobel-golzar-home,Kodaen;kodaen-golzar-home,Bocchi;bocchi-golzar-home,Alps;alps-golzar-home,Laufen;laufen-golzar-home,Toto;toto-golzar-home,Geberit;geberit-golzar-home,Visentin;visentin-golzar-home"
           }
         },
+        "inventory_KGyAgV": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 1,
+            "show_inventory_quantity": true
+          }
+        },
         "sku_QMiVi7": {
           "type": "sku",
           "settings": {
@@ -106,6 +114,7 @@
       "block_order": [
         "title",
         "vendor_Fmtz9A",
+        "inventory_KGyAgV",
         "sku_QMiVi7",
         "price",
         "variant_picker",
@@ -143,7 +152,9 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
-            "max_width": 1200
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
