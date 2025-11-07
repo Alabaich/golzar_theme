@@ -27,6 +27,14 @@
             "brand_list": "Delta;delta-golzar-home,Laufen;laufen-golzar-home,Alps;alps-golzar-home,Toto;toto-golzar-home,Grohe;grohe-golzar-home,Vogt;vogt-golzar-home,Vinsentin;visentin-faucets-golzar-home,Kodaen;kodaen-golzar-home,"
           }
         },
+        "inventory_WdnChm": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 1,
+            "show_inventory_quantity": true
+          }
+        },
         "sku_ewbbJK": {
           "type": "sku",
           "settings": {
@@ -107,6 +115,7 @@
       "block_order": [
         "title",
         "vendor_NMhiAf",
+        "inventory_WdnChm",
         "sku_ewbbJK",
         "price",
         "variant_picker",
@@ -144,7 +153,9 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
-            "max_width": 1200
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
