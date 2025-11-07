@@ -49,9 +49,9 @@
         <fieldset class="js product-form__input product-form__input--pill{% if template.suffix == 'color_image' or template.suffix == 'product_image' %}{% if option.name contains 'Color' or option.name contains 'Colour' %} product-form__input--color{% endif %}{% endif %}">
            <legend class="form__label">
             {{ option.name }}:
-            {% comment %} <span data-selected-value>
+            <span data-selected-value>
               {{- option.selected_value -}}
-            </span> {% endcomment %}
+            </span>
           </legend> 
           {% render 'product-variant-options',
             product: product, option: option,
