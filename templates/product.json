@@ -27,14 +27,6 @@
             "brand_list": "Delta;delta-golzar-home,Orans;orans-golzar-home,Ecoway;ecoway-golzar-home,Vogt;vogt-golzar-home,Visentin;visentin-golzar-home,Grohe;grohe-golzar-home,Armadi Art;armadi-art-golzar-home,Duravit;duravit-golzar-home,Riobel;riobel-golzar-home,Kodaen;kodaen-golzar-home,Bocchi;bocchi-golzar-home,Alps;alps-golzar-home,Laufen;laufen-golzar-home,Toto;toto-golzar-home,Geberit;geberit-golzar-home,Visentin;visentin-golzar-home"
           }
         },
-        "inventory_KGyAgV": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 1,
-            "show_inventory_quantity": true
-          }
-        },
         "sku_QMiVi7": {
           "type": "sku",
           "settings": {
@@ -75,6 +67,14 @@
           "disabled": true,
           "settings": {}
         },
+        "inventory_KGyAgV": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 1,
+            "show_inventory_quantity": true
+          }
+        },
         "see_product_components_986tRR": {
           "type": "see-product-components",
           "settings": {
@@ -114,7 +114,6 @@
       "block_order": [
         "title",
         "vendor_Fmtz9A",
-        "inventory_KGyAgV",
         "sku_QMiVi7",
         "price",
         "variant_picker",
@@ -122,6 +121,7 @@
         "shipping_refund_ij6BDq",
         "quantity_selector",
         "delivery_time_Jjb7JP",
+        "inventory_KGyAgV",
         "see_product_components_986tRR",
         "required_items_9nVkDq",
         "compatible_items_grVTge",
