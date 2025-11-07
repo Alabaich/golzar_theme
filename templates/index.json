@@ -64,7 +64,7 @@
         "promo_block_fzVhU4": {
           "type": "promo_block",
           "settings": {
-            "image": "shopify://shop_images/bathroom_ca69b2a6-7461-43f7-9bea-f5cf921a657b.webp",
+            "image": "shopify://shop_images/shop_bathroom.webp",
             "heading": "",
             "text": "",
             "button_url": "shopify://collections/bathroom-bathroom"
@@ -73,7 +73,7 @@
         "promo_block_QcTBGY": {
           "type": "promo_block",
           "settings": {
-            "image": "shopify://shop_images/kitchen.webp",
+            "image": "shopify://shop_images/shop_kitchen.webp",
             "heading": "",
             "text": "",
             "button_url": "shopify://collections/kitchen-kitchen"
@@ -82,7 +82,7 @@
         "promo_block_MnqjNh": {
           "type": "promo_block",
           "settings": {
-            "image": "shopify://shop_images/sale.webp",
+            "image": "shopify://shop_images/shop_sale.webp",
             "heading": "",
             "text": "",
             "button_url": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier"
