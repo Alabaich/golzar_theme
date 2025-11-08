@@ -85,7 +85,7 @@
             "image": "shopify://shop_images/shop_sale.webp",
             "heading": "",
             "text": "",
-            "button_url": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier"
+            "button_url": "shopify://collections/sale-2025-bathroom-supplier"
           }
         }
       },
@@ -111,7 +111,7 @@
             "subheading_color": "#ffffff",
             "button_label": "Save Now",
             "button_label_color": "#ffffff",
-            "link": "shopify://collections/thanksgiving-sale-2025-bathroom-supplier",
+            "link": "shopify://collections/sale-2025-bathroom-supplier",
             "button_style_secondary": false,
             "box_align": "top-left",
             "show_text_box": false,
