@@ -993,7 +993,26 @@ background: rgba(255, 59, 59, 0.10);
       Sold Out
     </span>
   </div>
+{% assign READY_TO_SHIP_TAG = 'ready_to_ship' %}
 
+{% if product.tags contains READY_TO_SHIP_TAG %}
+  <div class="ready-to-ship-indicator" style="
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background-color: #38a169; /* A nice, vibrant green */
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  ">
+    📦 This item is Ready to Ship!
+  </div>
+{% endif %}
 </div>
 
 {% comment %}
