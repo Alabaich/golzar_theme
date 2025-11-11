@@ -975,7 +975,7 @@ background: rgba(255, 59, 59, 0.10);
         </svg>
      <p><b>Available,</b> in stock. Ready to Ship.</p>
   </div>
-
+{% assign READY_TO_SHIP_TAG = 'ready_to_ship' %}
   {% if product.tags contains READY_TO_SHIP_TAG %}
   <div class="ready-to-ship-indicator" style="
       display: inline-block;
@@ -1008,7 +1008,7 @@ background: rgba(255, 59, 59, 0.10);
       Sold Out
     </span>
   </div>
-{% assign READY_TO_SHIP_TAG = 'ready_to_ship' %}
+
 
 
 </div>
