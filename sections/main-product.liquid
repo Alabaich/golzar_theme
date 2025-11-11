@@ -977,7 +977,7 @@ background: rgba(255, 59, 59, 0.10);
   </div>
 {% assign READY_TO_SHIP_TAG = 'ready_to_ship' %}
   {% if product.tags contains READY_TO_SHIP_TAG %}
-  <div class="ready-to-ship-indicator" style="
+  <p class="ready-to-ship-indicator" style="
       display: inline-block;
       padding: 5px 9px;
       border-radius: 15px;
@@ -986,9 +986,10 @@ background: rgba(255, 59, 59, 0.10);
       letter-spacing: 0.5px;
       margin-top: 5px;
       margin-bottom: 5px;
+      font-size: 0.75em;
   ">
     📦 This item is Ready to Ship!
-  </div>
+  </p>
 {% endif %}
 
   <div id="buy-buttons-block" style="display: block;">
