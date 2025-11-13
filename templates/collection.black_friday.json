@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow-collection": {
+      "type": "slideshow-collection",
+      "blocks": {
+        "slide_rUEQXC": {
+          "type": "slide",
+          "settings": {
+            "heading": "Wall Mount Toilet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Achieve Harmony: Wall-hung Toilets Balancing Form And Function",
+            "subheading_color": "#ffffff",
+            "button_label": "See More Products",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/wall-mounted-toilets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_6dV7k8": {
+          "type": "slide",
+          "settings": {
+            "heading": "Bathroom Faucet",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Faucet Renaissance: A Poetic Delight",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore Bathroom Faucets",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/bathroom-faucets",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_XmYgPm": {
+          "type": "slide",
+          "settings": {
+            "heading": "Bathroom Vanity",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "subheading": "Elevate Your Aesthetic With Sleek Vanity Designs",
+            "subheading_color": "#ffffff",
+            "button_label": "Explore More Vanities",
+            "button_label_color": "#ffffff",
+            "link": "shopify://collections/vanity",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_rUEQXC",
+        "slide_6dV7k8",
+        "slide_XmYgPm"
+      ],
+      "disabled": true,
+      "settings": {
+        "additional_class": "",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "breadcrumbs_section_Jj6RXX": {
+      "type": "breadcrumbs-section",
+      "name": "Breadcrumbs",
+      "settings": {}
+    },
+    "collection_page_links_ANi3Bw": {
+      "type": "collection-page-links",
+      "blocks": {
+        "custom_link_nfdHaL": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/mmdnxsxblkfjcnfbcwwq.png",
+            "title": "Toilets & Parts",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Bidets&filter.p.product_type=Floor-Standing+Bidets&filter.p.product_type=One-Piece+Toilets&filter.p.product_type=One-Piece+Toilets+%26+Bidets&filter.p.product_type=Two-Piece+Toilets&filter.p.product_type=Two-Piece+Toilets+%26+Bidets&filter.p.product_type=Wall-Mounted+Bidets&filter.p.product_type=Wall-Mounted+Toilet+Kits&filter.p.product_type=Wall-Mounted+Toilet+Kits+%26+Bidets&filter.p.product_type=Wall-Mounted+Toilets&filter.p.product_type=Toilets&filter.p.product_type=Two-Piece+Toilets+Bowl+Only&filter.p.product_type=Two-Piece+Toilets+Tank+Only&filter.p.product_type=Urinals&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_DnPr9d": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/F23128GG_1_817x817_449b15b0-34a8-4597-acc7-025a12bbab89.webp",
+            "title": "Kitchen Sinks & Faucets",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Integrated+Sink&filter.p.product_type=Kitchen+Faucets&filter.p.product_type=Drop-In+Kitchen+Sinks&filter.p.product_type=Farmhouse+Kitchen+Sinks&filter.p.product_type=Faucets%2C+Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+%26+Utility+Sink%2C+Kitchen+%26+Utility+Sinks%2C+Sinks&filter.p.product_type=Kitchen+Sink+Faucets&filter.p.product_type=Kitchen+Sinks&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_jjfDYB": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/13544_23824ena-lineare-single-handle-bathroom-faucet-xs-size-brushed-nickel-infinityfinish_CDNwebp.webp",
+            "title": "Bathroom Faucets",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Deck-Mount+Tub+Faucets&filter.p.product_type=Floor-Mount+Tub+Faucets&filter.p.product_type=Single+Hole+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets%2C+Faucets&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_q3tFAU": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/F55127GG-W10ATS_845x845_3464a825-335c-4599-a726-07c458561860.webp",
+            "title": "Showers & Parts",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Floor-Mount+Tub+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets&filter.p.product_type=Bathtub+%26+Shower+Faucets%2C+Faucets&filter.p.product_type=Shower+Bases&filter.p.product_type=Shower+Door&filter.p.product_type=Shower+Parts&filter.p.product_type=Shower+Screens&filter.p.product_type=Shower+Walls&filter.p.product_type=Smart+Showers&filter.p.product_type=Tub+Shower&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_qhYCmW": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/TSO6033FA001-1_ZITTA_BATHTUB_SOFFIO2_FREESTANDING_60_GLOSSY_WHITE.jpg",
+            "title": "Bathtubs",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Drop-In+Bathtubs&filter.p.product_type=Alcove+Tubs&filter.p.product_type=Bathtub+Drains&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        },
+        "custom_link_e9qX3M": {
+          "type": "custom_link",
+          "settings": {
+            "image": "shopify://shop_images/AB00132_Zitta_Accessories_StainlessSteelCaddy.jpg",
+            "title": "Accessories",
+            "link": "https://bathroomsupplier.ca/collections/summer-sale-2025-bathroom-supplier?filter.p.product_type=Actuator+Plates&filter.p.product_type=LED+Mirror&filter.p.product_type=Flushometeres&filter.p.product_type=Glass+Holder&filter.p.product_type=Medicine+Cabinets&filter.p.product_type=Sauna+Accessories&filter.p.product_type=Soap+%26+Lotion+Dispensers&filter.p.product_type=Soap+Dish&filter.p.product_type=Towel+Bars&filter.p.product_type=Towel+Rail&filter.p.product_type=Towel+Rings&filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "custom_link_nfdHaL",
+        "custom_link_DnPr9d",
+        "custom_link_jjfDYB",
+        "custom_link_q3tFAU",
+        "custom_link_qhYCmW",
+        "custom_link_e9qX3M"
+      ],
+      "name": "Collection Page Links",
+      "settings": {}
+    },
+    "main-collection-product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "slideshow-collection",
+    "breadcrumbs_section_Jj6RXX",
+    "collection_page_links_ANi3Bw",
+    "main-collection-product-grid"
+  ]
+}
