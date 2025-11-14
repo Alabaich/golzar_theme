@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_AdYdMJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/promotion_35b517b4-d244-4dc8-a11b-4b6867734498.webp",
+            "heading": "Biggest Sale Of The Year",
+            "button_label": "Black Friday",
+            "button_url": "https://bathroomsupplier.ca/collections/black-friday-2025-biggest-sale-of-the-year"
+          }
+        },
         "slide_9Ed4gP": {
           "type": "slide",
           "settings": {
@@ -50,6 +59,7 @@
         }
       },
       "block_order": [
+        "slide_AdYdMJ",
         "slide_9Ed4gP",
         "slide_Vrd9hE",
         "slide_ywQwcF",
