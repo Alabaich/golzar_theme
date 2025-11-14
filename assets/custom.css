@@ -215,7 +215,7 @@ a.btn.btn-primary:hover,
   font-size: 11px;
   font-weight: 400;
   line-height: 24px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   text-transform: capitalize;
   margin: 0px 8px 8px 8px;
@@ -1337,7 +1337,7 @@ button#scrollToTopBtn:hover {
   border-radius: 5px;
   padding: 14px 30px 14px 12px;
   font-size: 16px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   color: #7a7a7a;
   outline: none;
@@ -1562,7 +1562,7 @@ section.shopify-section.section.product_main_sec
 body .quick-add-modal__content-info > product-info a.product__title h2 {
   font-size: 21px;
   font-weight: 400;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   color: #575756;
 }
 body .quick-add-modal__content-info > product-info a.product__title {
@@ -1861,7 +1861,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
 } */
 .sku-or-tags span {
   font-family: Raleway;
@@ -2220,7 +2220,7 @@ h2.des-pro {
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   border-color: #ddd;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
 }
 .product-description p strong {
   color: #7a7a7a;
@@ -2505,7 +2505,7 @@ section.shopify-section.section.you_may_like
   height: auto;
   padding: 5px 9px;
   font-size: 0.75em;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 500;
   line-height: 1.3;
   display: inline-flex;
@@ -2550,7 +2550,7 @@ section.shopify-section.section.you_may_like
   margin: 20px auto 0;
   color: #7a7a7a;
   font-weight: 600;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   line-height: 26px;
 }
 .tab-content a.prd_readmore,
@@ -3233,7 +3233,7 @@ body .product-count-vertical {
   font-size: 26px;
   color: #002642;
   line-height: 1.3em;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
 }
 .collection-header h2 a {
@@ -3687,7 +3687,7 @@ body .catalogues-banner .banner {
   .card__content
   .card__information
   .article-card__excerpt {
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   color: #777;
   font-size: 14px;
   line-height: 1.5em;
@@ -3712,7 +3712,7 @@ body .catalogues-banner .banner {
   color: #adadad;
   font-size: 12px;
   line-height: 1.3em;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   text-transform: inherit;
   letter-spacing: 0;
@@ -3930,7 +3930,7 @@ body .catalogues-banner .banner {
 .article-template header.page-width span {
   color: #54595f;
   font-size: 16px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   line-height: 26px;
   padding-right: 10px;
@@ -4111,7 +4111,7 @@ body .catalogues-banner .banner {
   font-weight: 700;
   line-height: 1;
   color: #fff;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   margin: 0 0 30px !important;
 }
 .blog_img_btn .button-click {
@@ -4737,7 +4737,7 @@ section.shopify-section.section.product_main_sec
   line-height: 1.3em;
   font-weight: 600;
   margin: 0 0 20px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-size: 28px;
   letter-spacing: 0px;
   text-transform: capitalize;
@@ -4874,7 +4874,7 @@ section.shopify-section.section.product_main_sec
   font-size: 15px;
   color: #6a6a6a;
   text-align: left;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   line-height: 1;
   font-weight: 600;
   display: block;
@@ -4942,7 +4942,7 @@ section.shopify-section.section.product_main_sec
   font-size: 14px;
   font-weight: 400;
   text-decoration: none !important;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   line-height: 17px;
 }
 .drawer .cart-drawer .cart-items th {
@@ -5029,7 +5029,7 @@ section.shopify-section.section.product_main_sec
   display: block;
   padding: 8px;
   font-size: 16px;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   line-height: 26px;
   background: #54595fa8;
@@ -5160,7 +5160,7 @@ body.type-product_image
 .inventory-shipping-block p {
   margin: 0;
   font-weight: 500;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   color: #7a7a7a;
   font-size: 14px;
 }
@@ -5192,7 +5192,7 @@ body.type-product_image
   letter-spacing: 0px;
   font-size: 16px;
   font-weight: 600;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   margin: 10px 0;
   line-height: 26px;
 }
@@ -5200,7 +5200,7 @@ body.type-product_image
 div.data-read-only .product-description > * {
   letter-spacing: 0px;
   font-weight: 600;
-  font-family: Open Sans;
+    font-family: "Inter Tight", sans-serif;
   margin: 10px 0;
   line-height: 26px;
   background: transparent;
