@@ -531,11 +531,15 @@
                     </div>
                   </a>
                   <div class="collection-grid-item__info">
-                    {% if current_variant.available %}
+                    {% if product.tags contains 'ready_to_ship' %}
+  
+  <p class="collection-grid-item__availability collection-grid-item__availability--in-stock">Ready To Ship</p>
+{% endif %}
+                    {% comment %} {% if current_variant.available %}
                       <p class="collection-grid-item__availability collection-grid-item__availability--in-stock">In Stock</p>
                     {% else %}
                       <p class="collection-grid-item__availability collection-grid-item__availability--out-of-stock">Sold Out</p>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
 
                     <a href="{{ product.url | within: collection }}" class="collection-grid-item__link">
                       <h3 class="collection-grid-item__title">{{ product.title | escape }}</h3>
