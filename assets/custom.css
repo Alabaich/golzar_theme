@@ -1087,7 +1087,7 @@ header-drawer {
   justify-content: center;
   line-height: normal;
   background: #d9534f;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .header__icons .header__icon {
   margin: 0;
@@ -1145,7 +1145,7 @@ body .header--has-social .menu-drawer__utility-links svg path {
 .header--has-social .menu-drawer__utility-links .menu-drawer__account {
   color: #fff;
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   font-size: 15px;
   line-height: 1;
@@ -1241,7 +1241,7 @@ button#scrollToTopBtn:hover {
   font-size: 30px;
   font-weight: 600;
   margin: 30px 0;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
 }
 .contact-page-map iframe {
@@ -1301,7 +1301,7 @@ button#scrollToTopBtn:hover {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .contact-us-page-inn {
   max-width: 1140px;
@@ -1327,7 +1327,7 @@ button#scrollToTopBtn:hover {
 }
 .contact-pg-form .contact-pg-form-inn .form_field label {
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   font-weight: 400;
   color: #7a7a7a;
@@ -1416,7 +1416,7 @@ ul.social_links_list li.social_link_item a:hover {
   border-color: #555f68;
   border-radius: 5px;
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
 }
 .form-submit-btn button::after,
@@ -1478,7 +1478,7 @@ section.shopify-section.section.product_main_sec .page-width {
 .markdown h3,
 .markdown h4 {
   color: #1e293b;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 26px;
   margin: 0;
   font-weight: 700;
@@ -1494,7 +1494,7 @@ section.shopify-section.section.product_main_sec .page-width {
   font-size: 16px;
   color: #7a7a7a;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 26px;
   margin: 10px 0 10px;
 }
@@ -1804,7 +1804,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb a,
 body.type-product .bredcrums-product-main nav.breadcrumb span {
   color: #777;
   text-decoration: none;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -1896,7 +1896,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   line-height: normal;
   color: #6b6b6b;
   text-decoration: none;
-  /* font-family: "Open Sans"; */
+  /*   font-family: "Inter Tight", sans-serif; */
 }
 /* .product_main_sec .product .product__info-wrapper .price-item {
   font-size: 22px;
@@ -1940,7 +1940,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   text-align: center;
   width: fit-content;
   display: inline-block;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: capitalize;
@@ -1970,7 +1970,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   /* margin-bottom: 5px; */
   margin: 0;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .main-required-pro .inner-main-required .product-content-right {
   /* width: auto; */
@@ -1994,7 +1994,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
 }
 .main-required-pro .inner-main-required .product-content-right .sku-pro a {
   color: #333;
-  /* font-family: "Open Sans"; */
+  /*   font-family: "Inter Tight", sans-serif; */
   font-size: 1em;
   font-weight: 400;
   line-height: normal;
@@ -2043,7 +2043,7 @@ body
   font-size: 14px;
   font-weight: 600;
   color: #5f6d7c;
-  /* font-family: "Open Sans"; */
+  /*   font-family: "Inter Tight", sans-serif; */
   letter-spacing: 0;
   line-height: 1;
   display: inline-block;
@@ -2058,7 +2058,7 @@ body
   border: none;
   cursor: pointer;
   border-radius: 4px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   line-height: 1;
   min-height: inherit;
@@ -2149,7 +2149,7 @@ input[type="number"] {
 .product__info-container #faq-list .acc-body .titlee {
   color: #7a7a7a;
   font-size: 12px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   font-weight: 600;
 }
@@ -2170,7 +2170,7 @@ input[type="number"] {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 26px; */
   font-family: Raleway;
   font-weight: 400;
@@ -2229,7 +2229,7 @@ h2.des-pro {
   letter-spacing: 0px;
   /* color: #7a7a7a; */
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   margin: 10px 0;
   line-height: 26px;
 }
@@ -2239,7 +2239,7 @@ h2.des-pro {
   font-size: 24px;
   color: #002642;
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   margin: 10px 0;
   line-height: 26px;
 }
@@ -2256,7 +2256,7 @@ h2.specification-pro {
   border-style: solid;
   border-width: 0px 0px 2px 0px;
   border-color: #ddd;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .yrm-btn-wrapper span.yrm-toggle-expand .yrm-button-text-span {
   display: inline-block;
@@ -2608,11 +2608,11 @@ section.shopify-section.section.you_may_like
   font-size: 16px;
 }
 .product-form__quantity .form__label {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
 }
 .product__tax {
-  /* font-family: "Open Sans";
+  /*   font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   margin: 0 10px;
   display: inline-block; */
@@ -2685,7 +2685,7 @@ facet-filters-form.facets.facets-vertical-sort .pagination-wrapper {
   font-size: 11px;
   font-weight: 400;
   line-height: 24px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   text-transform: capitalize;
 }
@@ -2694,7 +2694,7 @@ facet-filters-form.facets.facets-vertical-sort .pagination-wrapper {
   font-size: 14px;
   font-weight: 400;
   text-decoration: none !important;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 17px;
   text-transform: capitalize;
   text-align: left;
@@ -2718,7 +2718,7 @@ facet-filters-form.facets.facets-vertical-sort .pagination-wrapper {
 }
 .card-wrapper .card__content s.price-item {
   font-size: 13px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   color: #717070;
   margin: 0;
@@ -2728,7 +2728,7 @@ facet-filters-form.facets.facets-vertical-sort .pagination-wrapper {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .quick-add__submit:before,
 .quick-add__submit:after {
@@ -2817,7 +2817,7 @@ summary.facets__summary span {
 }
 div#FacetsWrapperDesktop .list-menu__item label {
   font-size: 12px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #334155;
   font-weight: 400;
   text-decoration: none !important;
@@ -2861,17 +2861,17 @@ div#FacetsWrapperDesktop .facets__header-vertical {
   border: 1px solid #ccc;
   outline: none;
   box-shadow: none;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 14px;
 }
 .facets__price .field__label {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 14px;
 }
 .facets-vertical .facets__price {
   padding: 0.5rem 0.5rem 0.5rem 0;
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #334155;
 }
 .field__input:not(:placeholder-shown) ~ .field__label {
@@ -2952,7 +2952,7 @@ div#FacetsWrapperDesktop .facets-vertical .active-facets__button {
   color: #fff;
   opacity: 1;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   background: transparent;
 }
 .collectin_slideshow .slideshow__text-wrapper .slideshow__text {
@@ -3020,7 +3020,7 @@ show-more-button .button-show-more {
   color: #f0702c !important;
   margin: 0;
   text-decoration: none;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: normal;
@@ -3063,7 +3063,7 @@ show-more-button .button-show-more span {
   padding: 2px 10px 0 !important;
   font-size: 16px;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #334155;
 } */
 .pagination-wrapper .pagination__list a.pagination__item {
@@ -3190,7 +3190,7 @@ body .product-count-vertical {
   font-weight: 400;
   color: #ffffff;
   line-height: 1.4em;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   text-transform: uppercase;
 }
 .breadcrums_inner:has(nav) .title_coll {
@@ -3202,7 +3202,7 @@ body .product-count-vertical {
   text-decoration: none;
   font-size: 15px;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .breadcrums_inner nav.breadcrumb a:after,
 .breadcrums_inner nav.breadcrumb span:after {
@@ -3249,7 +3249,7 @@ body .product-count-vertical {
   line-height: 1.3em;
   margin: 0 0 20px;
   font-size: 26px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #002642;
 }
 .collection-description h3 strong,
@@ -3265,7 +3265,7 @@ body .product-count-vertical {
   border: 1px solid #ccc;
   font-size: 14px;
   font-weight: normal;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   padding: 8px 8px;
   line-height: 1;
   color: #7a7a7a;
@@ -3278,7 +3278,7 @@ body .product-count-vertical {
   font-size: 18px;
   color: #7a7a7a;
   line-height: 26px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .collection-description a {
   text-decoration: none;
@@ -3359,7 +3359,7 @@ body .brands_banner .banner {
   padding: 30px 10px 60px;
 }
 .brand_wrapper h2 {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   line-height: 1.3em;
   font-size: 32px;
@@ -3368,7 +3368,7 @@ body .brands_banner .banner {
 .brand_wrapper p {
   margin: 0 0 25px;
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #7a7a7a;
   font-weight: 400;
 }
@@ -3475,7 +3475,7 @@ body .catalogues-banner .banner {
   font-weight: 400;
   text-shadow: 0px 0px 10px #ffffff;
   color: #ffffff;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 1.3em;
 }
 .catelogues_logo_grid {
@@ -3546,7 +3546,7 @@ body .catalogues-banner .banner {
 .shopify-policy__body .rte > *,
 .transactions-and-payment-policy .page-width .rte > * {
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #7a7a7a;
   line-height: 26px;
   font-weight: 600;
@@ -3664,7 +3664,7 @@ body .catalogues-banner .banner {
   .card__information
   .card__heading {
   font-size: 21px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   color: #54595f;
   font-weight: 600;
   line-height: 1.3em;
@@ -3706,7 +3706,7 @@ body .catalogues-banner .banner {
   margin-bottom: 20px;
   font-size: 12px;
   font-weight: 700;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .blog .blog-articles .article-card__info {
   color: #adadad;
@@ -3915,7 +3915,7 @@ body .catalogues-banner .banner {
   font-size: 28px;
   color: #1e293b;
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 1.2em;
   width: 100%;
   margin: 15px 0;
@@ -3951,7 +3951,7 @@ body .catalogues-banner .banner {
   .article-template__content label,
   .article-template__content li{
   font-size: 16px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 26px;
   font-weight: 400;
   color: #7a7a7a;
@@ -3973,7 +3973,7 @@ body .catalogues-banner .banner {
   color: #1e293b;
   font-weight: 600;
   line-height: 1.3em;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 26px;
   letter-spacing: 0;
   margin: 0;
@@ -4011,7 +4011,7 @@ body .catalogues-banner .banner {
   align-items: center;
   font-size: 12px;
   color: #54595f;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 26px;
   gap: 15px;
 }
@@ -4038,7 +4038,7 @@ body .catalogues-banner .banner {
   padding: 15px 30px;
   line-height: 1em;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   border-radius: 3px;
   font-size: 16px;
 }
@@ -4120,7 +4120,7 @@ body .catalogues-banner .banner {
   padding: 15px 30px;
   line-height: 1;
   font-weight: 400;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   border-radius: 3px;
   border: 2px solid #fff;
   font-size: 16px;
@@ -4167,7 +4167,7 @@ body .catalogues-banner .banner {
   font-size: 35px;
   font-weight: 400;
   text-shadow: 0px 0px 10px #ffffff;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -4588,7 +4588,7 @@ section.shopify-section.section.product_main_sec
   padding: 5px 10px;
   border-radius: 4px;
   display: inline-block;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 16px;
   line-height: 26px;
 }
@@ -4605,7 +4605,7 @@ section.shopify-section.section.product_main_sec
 .cart .cart-item__name {
   text-decoration: none !important;
   color: #667d8e;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   letter-spacing: 0;
   font-size: 16px;
@@ -4615,7 +4615,7 @@ section.shopify-section.section.product_main_sec
   color: #7a7a7a;
   font-weight: 500;
   font-size: 18px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   line-height: 1;
 }
 .cart .cart-item__details dl > .product-option {
@@ -4632,14 +4632,14 @@ section.shopify-section.section.product_main_sec
 .cart .title-wrapper-with-link a {
   font-size: 15px;
   line-height: 1;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   font-weight: 600;
   color: #002642;
 }
 .cart .cart-items thead th {
   color: #7a7a7a;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   line-height: 1;
   font-size: 16px;
@@ -4647,19 +4647,19 @@ section.shopify-section.section.product_main_sec
   letter-spacing: 0;
 }
 .cart .cart__footer .totals__total {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1;
 }
 .cart .cart__footer .totals__total-value {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   line-height: 1;
   font-size: 20px;
 }
 .cart .cart__footer .tax-note {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   font-size: 12px;
   line-height: 1;
@@ -4670,7 +4670,7 @@ section.shopify-section.section.product_main_sec
   width: 100%;
   background: #002642;
   letter-spacing: 0;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-size: 16px;
   font-weight: 600;
   text-transform: capitalize;
@@ -4745,7 +4745,7 @@ section.shopify-section.section.product_main_sec
 .page-main-data h5 {
   color: #1e293b;
   font-size: 20px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   letter-spacing: 0;
   margin: 0 0 10px;
@@ -4759,7 +4759,7 @@ section.shopify-section.section.product_main_sec
   font-weight: 400;
   color: #737373;
   line-height: 1.3em;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   margin: 0 0 30px;
 }
 .browse-by-options-main .brand-item h3 {
@@ -4789,7 +4789,7 @@ section.shopify-section.section.product_main_sec
   font-weight: 500;
   line-height: 1em;
   border-radius: 3px;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
 }
 .brands-collection-slider {
@@ -4930,7 +4930,7 @@ section.shopify-section.section.product_main_sec
 }
 .drawer .drawer__heading {
   margin: 0 0 1rem;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: -1px;
   font-weight: 600;
   color: #002642;
@@ -4946,7 +4946,7 @@ section.shopify-section.section.product_main_sec
   line-height: 17px;
 }
 .drawer .cart-drawer .cart-items th {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 0;
@@ -4977,14 +4977,14 @@ section.shopify-section.section.product_main_sec
   content: inherit;
 }
 .drawer .cart-drawer__footer .totals__total {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   line-height: 1;
   font-size: 18px;
   text-transform: capitalize;
 }
 .drawer .cart-drawer .tax-note {
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   text-align: center;
   font-weight: 600;
   letter-spacing: 0;
@@ -4999,12 +4999,12 @@ section.shopify-section.section.product_main_sec
 .drawer .cart-drawer.cart-drawer .cart-item__price-wrapper > .price {
   font-size: 16px;
   letter-spacing: 0;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
 }
 .drawer .product-option {
   font-size: 13px;
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   letter-spacing: 0;
   line-height: normal;
 }
@@ -5081,7 +5081,7 @@ body.type-product_image
   color: #000;
   letter-spacing: 0;
   font-weight: 600;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   margin: 0;
 }
 .product--vendor span a {
@@ -5166,7 +5166,7 @@ body.type-product_image
 }
 .inventory-shipping-block label {
   color: #ef394a;
-  font-family: "Open Sans";
+    font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   line-height: 1.2em;
   font-size: 15px;

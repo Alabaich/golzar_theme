@@ -736,7 +736,7 @@
     font-weight: 700;
     color: #6f6f6f;
     text-decoration: none !important;
-    font-family: "Open Sans";
+      font-family: "Inter Tight", sans-serif;
   }
   .mobile-facets__header-inner .mobile-facets__heading {
     font-family: "Montserrat";
@@ -775,14 +775,14 @@
   }
   .mobile-facets__open span.mobile-facets__open-label {
     font-size: 13px;
-    font-family: "Open Sans";
+      font-family: "Inter Tight", sans-serif;
     font-weight: 600;
     color: #002642;
     margin: 0px 0px 0 3px;
   }
   span#ProductCount {
     color: #002642;
-    font-family: "Open Sans";
+      font-family: "Inter Tight", sans-serif;
     font-weight: 600;
     font-size: 13px;
     display: inline-block;
