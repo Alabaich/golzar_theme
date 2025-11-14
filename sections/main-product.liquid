@@ -639,6 +639,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                   </span>
 
                 </div>
+                {% render 'blackFridayCounter' %}
 
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

@@ -1,0 +1,156 @@
+<!--
+  This entire block will only be rendered by Shopify
+  if the product's tags include 'black_friday_sale'
+-->
+{% if product.tags contains 'black_friday_sale' %}
+
+<style>
+  /* Styles for the countdown timer */
+  .bf-timer-container {
+    /* Black background */
+    background-color: #1a1a1a;
+    /* Slightly rounded corners */
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .bf-timer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .bf-timer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    color: #ffffff;
+  }
+
+  .bf-timer-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bf-timer-number {
+    /* Dark gray "card" background */
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.75rem 1rem;
+    /* Rounded corners for the card */
+    border-radius: 5px;
+    min-width: 50px; /* Ensures all cards have the same width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .bf-timer-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #d1d5db; /* Lighter gray for the label */
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .bf-timer-expired {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fca5a5; /* Light red for expired message */
+  }
+</style>
+
+<!-- HTML structure for the timer -->
+<div id="bf-timer-container" class="bf-timer-container">
+  <h3 class="bf-timer-title">Biggest Sale of the Year Ends In:</h3>
+  <div id="bf-timer" class="bf-timer-wrapper">
+    <!-- Days -->
+    <div class="bf-timer-segment">
+      <span id="bf-days" class="bf-timer-number">00</span>
+      <span class="bf-timer-label">Days</span>
+    </div>
+    <!-- Hours -->
+    <div class="bf-timer-segment">
+      <span id="bf-hours" class="bf-timer-number">00</span>
+      <span class="bf-timer-label">Hours</span>
+    </div>
+    <!-- Minutes -->
+    <div class="bf-timer-segment">
+      <span id="bf-minutes" class="bf-timer-number">00</span>
+      <span class="bf-timer-label">Minutes</span>
+    </div>
+    <!-- Seconds (needed for real-time counting) -->
+    <div class="bf-timer-segment">
+      <span id="bf-seconds" class="bf-timer-number">00</span>
+      <span class="bf-timer-label">Seconds</span>
+    </div>
+  </div>
+  <!-- This message will appear when the timer runs out -->
+  <div id="bf-timer-expired" class="bf-timer-expired" style="display: none;">
+    The sale has ended!
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Set the date we're counting down to
+    // Note: Using "Z" for UTC time to ensure it's consistent for all users.
+    // This is 00:00 UTC on December 12, 2025.
+    const countDownDate = new Date("2025-12-12T00:00:00Z").getTime();
+
+    // Get the HTML elements
+    const daysEl = document.getElementById("bf-days");
+    const hoursEl = document.getElementById("bf-hours");
+    const minutesEl = document.getElementById("bf-minutes");
+    const secondsEl = document.getElementById("bf-seconds");
+    const timerEl = document.getElementById("bf-timer");
+    const expiredEl = document.getElementById("bf-timer-expired");
+
+    // Helper function to add a leading zero
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
+
+    // Update the count down every 1 second
+    const x = setInterval(function() {
+
+      // Get today's date and time (in UTC)
+      const now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      const distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the elements
+      // We check if the elements exist first to avoid errors
+      if (daysEl && hoursEl && minutesEl && secondsEl) {
+        daysEl.innerHTML = pad(days);
+        hoursEl.innerHTML = pad(hours);
+        minutesEl.innerHTML = pad(minutes);
+        secondsEl.innerHTML = pad(seconds);
+      }
+
+      // If the count down is finished, show the expired message
+      if (distance < 0) {
+        clearInterval(x);
+        if (timerEl) timerEl.style.display = 'none';
+        if (expiredEl) expiredEl.style.display = 'block';
+      }
+    }, 1000); // 1000ms = 1 second
+  })();
+</script>
+
+{% endif %}
+<!-- End of the Black Friday timer block -->
