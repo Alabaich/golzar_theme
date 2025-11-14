@@ -21,7 +21,7 @@
 
   .bf-timer-title {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #ffffff;
     margin-bottom: 1rem;
     text-align: left;
@@ -72,7 +72,7 @@
 
 <!-- HTML structure for the timer -->
 <div id="bf-timer-container" class="bf-timer-container">
-  <h3 class="bf-timer-title">Biggest Sale of the Year Ends In:<br>Rush For Grab 10% Discount for the Product</h3>
+  <h3 class="bf-timer-title">Biggest Sale of the Year Ends In:<br>Rush and Grab 10% Discount for the Product</h3>
   <div id="bf-timer" class="bf-timer-wrapper">
     <!-- Days -->
     <div class="bf-timer-segment">
@@ -100,6 +100,71 @@
     The sale has ended!
   </div>
 </div>
+
+<div class="bf-timer-container" id="discount-container">
+    <h3 class="bf-timer-title">Click Here For Copy Discount Code: <span id="discount-code">BLCKFRD2025</span></h3>
+</div>
+
+<!-- Script for the discount code clipboard -->
+<script>
+  (function() {
+    // Get the elements for the discount container
+    const discountContainer = document.getElementById("discount-container");
+    const discountTitle = document.getElementById("discount-title");
+    const discountCodeEl = document.getElementById("discount-code");
+
+    // Check if all elements exist
+    if (discountContainer && discountTitle && discountCodeEl) {
+      
+      const originalText = discountTitle.innerHTML;
+      const codeToCopy = discountCodeEl.innerText;
+
+      // Add click event listener
+      discountContainer.addEventListener("click", function() {
+        
+        // Create a temporary textarea element to hold the text
+        // This is the most reliable method, especially for iFrames/mobile
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = codeToCopy;
+        
+        // Make it invisible and add to the page
+        tempTextArea.style.position = "absolute";
+        tempTextArea.style.left = "-9999px";
+        document.body.appendChild(tempTextArea);
+        
+        // Select the text and copy it
+        tempTextArea.select();
+        tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+        
+        try {
+          // Use the 'copy' command
+          document.execCommand("copy");
+          
+          // Provide visual feedback
+          discountTitle.innerText = "Code Copied to Clipboard!";
+          
+          // Change it back after 3 seconds
+          setTimeout(function() {
+            discountTitle.innerHTML = originalText;
+          }, 3000);
+
+        } catch (err) {
+          // Fallback message in case of error
+          console.error("Failed to copy text: ", err);
+          discountTitle.innerText = "Failed to copy. Please copy manually.";
+          
+          // Change it back after 3 seconds
+          setTimeout(function() {
+            discountTitle.innerHTML = originalText;
+          }, 3000);
+        }
+
+        // Remove the temporary element
+        document.body.removeChild(tempTextArea);
+      });
+    }
+  })();
+</script>
 
 <script>
   (function() {
