@@ -164,9 +164,14 @@
         "disabled": false,
         "settings": {}
       },
-      "15891388892413262111": {
-        "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-        "disabled": true,
+      "1990815452989453926": {
+        "type": "shopify://apps/ryviu-product-reviews-app/blocks/ryviu-js/807ad6ed-1a6a-4559-abea-ed062858d9da",
+        "disabled": false,
+        "settings": {}
+      },
+      "9199904770951461025": {
+        "type": "shopify://apps/what-converts/blocks/tracking/d7b55a5f-477a-452c-8760-a3e5c5badb93",
+        "disabled": false,
         "settings": {}
       }
     },
