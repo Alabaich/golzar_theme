@@ -903,7 +903,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     "delivery": "{{ product.metafields.custom.expected_delivery }}",
     "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }},
     "vendor": "{{ product.vendor | escape }}",
-    "tags": {{ product.tags | json }}
+    "tags": {{ product.tags | json }},
+    "handle": "{{ product.handle }}"
   };
 </script>
 
@@ -1033,6 +1034,8 @@ background: rgba(255, 59, 59, 0.10);
         .modal-form button:hover {
             background-color: #2da84a;
         }
+
+        
 </style>
 
     <div id="quote-button-block" style="display: {% if product.tags contains ASK_FOR_QUOTE_TAG %}block{% else %}none{% endif %};">
