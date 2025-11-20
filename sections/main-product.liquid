@@ -902,7 +902,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   const productData = {
     "delivery": "{{ product.metafields.custom.expected_delivery }}",
     "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }},
-    "vendor": "{{ product.vendor | escape }}"
+    "vendor": "{{ product.vendor | escape }}",
+    "tags": {{ product.tags | json }}
   };
 </script>
 
@@ -936,7 +937,110 @@ background: rgba(52, 199, 89, 0.10);
     color: #FF3B30;
 background: rgba(255, 59, 59, 0.10);
   }
+
+  /* Quote Button Style */
+        #quote-button-block {
+            margin: 15px 0 0;
+            width: 100%;
+            display: none; /* Controlled by JS/Liquid */
+        }
+        .quote-button {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: 24px;
+            background-color: #002642; /* Primary Blue */
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .quote-button:hover {
+            background-color: #003a5c;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); 
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%; 
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #002642;
+        }
+        .modal-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        .modal-form input[type="text"],
+        .modal-form input[type="email"],
+        .modal-form input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .modal-form button {
+            background-color: #34C759;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .modal-form button:hover {
+            background-color: #2da84a;
+        }
 </style>
+
+    <div id="quote-button-block" style="display: {% if product.tags contains ASK_FOR_QUOTE_TAG %}block{% else %}none{% endif %};">
+        <span onclick="openQuoteModal(event)" class="quote-button">
+            Ask for Quote
+        </span>
+    </div>
+
 <div id="availability-container" style="display: flex;
     flex-direction: column;
     gap: 25px;">
@@ -990,6 +1094,48 @@ background: rgba(255, 59, 59, 0.10);
     📦 This item is Ready to Ship!
   </p>
 {% endif %}
+
+<!-- The Hidden Quote Modal - Now a Liquid Contact Form -->
+<div id="quote-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeQuoteModal()">&times;</span>
+        <h2>Ask for Quote</h2>
+        <p>Please provide your contact and shipping information to receive a precise quotation for <b><span id="quote-product-title"></span></b>.</p>
+        
+        {% form 'contact', id: 'quote-form', class: 'modal-form' %}
+            
+            {% comment %} 
+            This single hidden field aggregates all product and variant details 
+            (Title, Handle, ID, SKU) to be included in the submission email body. 
+            {% endcomment %}
+            <input type="hidden" name="contact[Quote For Product]" id="quote-product-details-input">
+            
+            {% comment %} Required fields for the customer, named with the contact[] syntax {% endcomment %}
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="contact[First Name]" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="contact[Last Name]" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="contact[Email]" required>
+
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="contact[Phone Number]">
+            
+            <label for="shipping-address">Shipping Address:</label>
+            <input type="text" id="shipping-address" name="contact[Shipping Address]" required>
+
+            <button type="submit">Submit Request</button>
+            
+            {% comment %} The success message is shown in JS after redirection {% endcomment %}
+            <div id="quote-success-message" style="display: none; margin-top: 15px; color: #34C759; font-weight: bold;">
+                Thank you! Your quote request has been sent. We will contact you shortly.
+            </div>
+        {% endform %}
+    </div>
+</div>
+
 
   <div id="buy-buttons-block" style="display: block;">
     {%- render 'buy-buttons',
