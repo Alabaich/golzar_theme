@@ -113,16 +113,16 @@
     margin-bottom: 15px;
   }
 
-  .hq-input,
-  .hq-select {
+  .hq-input {
     width: 100%;
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 50px; /* Pill shape */
-    padding: 12px 20px;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    border-radius: 0; /* Removed border radius */
+    padding: 12px 10px;
     color: #fff;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.2s ease;
     appearance: none;
   }
 
@@ -130,35 +130,11 @@
     color: rgba(255,255,255,0.6);
   }
 
-  .hq-input:focus,
-  .hq-select:focus {
+  .hq-input:focus {
     outline: none;
-    border-color: #fff;
-    background-color: rgba(255,255,255,0.05);
-  }
-
-  /* Custom Arrow for Select */
-  .hq-select-wrapper {
-    position: relative;
-  }
-  
-  .hq-select {
-    cursor: pointer;
-    color: rgba(255,255,255,0.6); /* Placeholder look initially */
-  }
-  .hq-select:not(:invalid) {
-    color: #fff;
-  }
-
-  .hq-select-wrapper::after {
-    content: '▼';
-    font-size: 1.25rem;
-    color: #fff;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    border-bottom: 2px solid #fff; /* Thicker border on active */
+    padding-bottom: 11px; /* Compensate for 1px extra border width to prevent jump */
+    background-color: transparent;
   }
 
   /* Submit Button */
@@ -302,15 +278,7 @@
                      required>
             </div>
 
-            <div class="hq-form-field hq-select-wrapper">
-              <select id="ContactForm-service-{{ section.id }}" name="contact[Service Type]" class="hq-select">
-                  <option value="" disabled selected>Select service type</option>
-                  <option value="Kitchen">Kitchen Renovation</option>
-                  <option value="Bathroom">Bathroom Renovation</option>
-                  <option value="Full Home">Full Home Reno</option>
-                  <option value="Consultation">Consultation</option>
-              </select>
-            </div>
+            <!-- Removed Select Input as requested -->
 
             <button type="submit" class="hq-submit">
               Submit Form
