@@ -9,6 +9,19 @@
  */
 {
   "sections": {
+    "hero_with_form_tnUwff": {
+      "type": "heroWithForm",
+      "name": "Hero Quote Form",
+      "settings": {
+        "bg_image": "shopify://shop_images/Gemini_Generated_Image_wfextnwfextnwfex.png",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "upper_title": "Golzar Home TRADE PROGRAM",
+        "title": "UNLOCK EXCLUSIVE\nPRICING FOR PROS",
+        "description": "<p><br/>Are you a contractor or designer? Partner with us to access huge discounts on premium bathroom supplies. Get wholesale rates, priority shipping, and dedicated support for all your projects.<br/><br/></p>",
+        "form_heading": "GET A QUOTE TODAY!"
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -18,6 +31,7 @@
     }
   },
   "order": [
+    "hero_with_form_tnUwff",
     "main"
   ]
 }
