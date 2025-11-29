@@ -20,7 +20,8 @@
     }
 
     function initVipPricing() {
-      const priceContainers = document.querySelectorAll('.price, .price__container, .product__info-container .price');
+      // TARGET ONLY .price__container as requested
+      const priceContainers = document.querySelectorAll('.price__container');
 
       priceContainers.forEach(container => {
         
@@ -88,9 +89,9 @@
 </script>
 
 <style>
-  /* 1. Hide the original price for VIPs */
-  body.vip-member .price-item--regular,
-  body.vip-member .price-item--sale {
+  /* 1. Hide the original price for VIPs ONLY inside .price__container */
+  body.vip-member .price__container .price-item--regular,
+  body.vip-member .price__container .price-item--sale {
     display: none !important;
   }
 
