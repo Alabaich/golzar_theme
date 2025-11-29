@@ -1,0 +1,84 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. LIQUID INJECTION
+    // Shopify replaces this string with the ID before sending to browser.
+    var customerId = "{{ customer.id }}";
+    
+    // DETECT PREVIEW MODE (For testing in this editor)
+    // If the string still contains curly braces, Liquid didn't run.
+    var isPreview = customerId.includes("{{");
+
+    if (isPreview) {
+      console.log("⚠️ Running in Preview/Editor Mode. Simulating VIP User.");
+      customerId = "TEST_VIP_USER"; 
+    }
+
+    // Debugging
+    console.log("Current Customer ID:", customerId);
+
+    // 2. CHECK IF LOGGED IN
+    if (customerId) {
+      console.log("User is logged in. Checking VIP status...");
+
+      // HELPER FUNCTION: Handle the result
+      function applyVipStatus(data) {
+        console.log("API Response:", data);
+        if (data.isVip) {
+          // 4. APPLY VIP STYLING
+          document.body.classList.add("vip-member");
+          console.log("✅ VIP Mode Activated!");
+        } else {
+          console.log("❌ User is not a VIP.");
+        }
+      }
+
+      // 3. FETCH LOGIC
+      if (isPreview) {
+        // MOCK FETCH for Editor Preview to prevent "Failed to parse URL" error
+        setTimeout(function() {
+          applyVipStatus({ isVip: true, tags: ["VIP (Simulated)"] });
+        }, 500);
+      } else {
+        // REAL FETCH for Shopify Store
+        fetch("/apps/vip-status/check?customerId=" + customerId)
+          .then(function(res) { 
+            if (!res.ok) throw new Error("Proxy returned " + res.status);
+            return res.json(); 
+          })
+          .then(applyVipStatus)
+          .catch(function(err) {
+            console.error(" VIP Check Failed:", err);
+          });
+      }""
+
+    } else {
+      console.log("ℹ️ User is not logged in. Skipping VIP check.");
+    }
+  });
+</script>
+
+<style>
+  /* CSS to hide/show things based on the class added above */
+  
+  /* Hide this for everyone by default */
+  .vip-exclusive-content {
+    display: none;
+  }
+
+  /* Show it ONLY if body has 'vip-member' class */
+  body.vip-member .vip-exclusive-content {
+    display: block !important;
+    border: 2px solid gold;
+    padding: 10px;
+    background: #fff9c4;
+    color: black;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+  }
+</style>
+
+<!-- PREVIEW ELEMENT: This helps you see if it works in the editor -->
+<div class="vip-exclusive-content">
+  🎉 You are seeing this because you are a VIP Member!
+</div>
