@@ -23,56 +23,71 @@
       const priceContainers = document.querySelectorAll('.price__container');
 
       priceContainers.forEach(container => {
-        
+        let observer; // Define variable outside
+
         const updatePrice = () => {
-          // Prioritize Sale Price to calculate discount on the ACTUAL selling price
-          let originalPriceEl = container.querySelector('.price-item--sale');
-          
-          // Fallback to regular price if sale price isn't visible/found
-          if (!originalPriceEl || originalPriceEl.offsetParent === null) {
-             originalPriceEl = container.querySelector('.price-item--regular');
-          }
+          // 1. PAUSE OBSERVER (Prevents infinite loops)
+          if (observer) observer.disconnect();
 
-          if (!originalPriceEl) return;
+          try {
+            // Find Sale Price first
+            let originalPriceEl = container.querySelector('.price-item--sale');
+            
+            // Fallback to regular if sale not found/visible
+            if (!originalPriceEl || originalPriceEl.offsetParent === null) {
+               originalPriceEl = container.querySelector('.price-item--regular');
+            }
 
-          // Get the text
-          const originalText = originalPriceEl.innerText.trim();
-          if (!originalText) return;
+            // Only proceed if we found a valid price element
+            if (originalPriceEl) {
+              const originalText = originalPriceEl.innerText.trim();
+              
+              if (originalText) {
+                // Parse Price
+                const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
+                const cleanNumString = originalText.replace(/[^0-9.]/g, '');
+                const priceValue = parseFloat(cleanNumString);
 
-          // Parse Price
-          const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
-          const cleanNumString = originalText.replace(/[^0-9.]/g, '');
-          const priceValue = parseFloat(cleanNumString);
+                if (!isNaN(priceValue)) {
+                  // Calculate 15% Off
+                  const vipPriceValue = (priceValue * 0.85).toFixed(2);
+                  const newHtml = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
 
-          if (isNaN(priceValue)) return;
+                  // Find or Create VIP Element
+                  let vipEl = container.querySelector('.vip-pro-price');
+                  if (!vipEl) {
+                    vipEl = document.createElement('div');
+                    vipEl.className = 'vip-pro-price';
+                    container.appendChild(vipEl);
+                  }
 
-          // Calculate 15% Off
-          const vipPriceValue = (priceValue * 0.85).toFixed(2);
-          const newHtml = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
-
-          // Find or Create VIP Element
-          let vipEl = container.querySelector('.vip-pro-price');
-          if (!vipEl) {
-            vipEl = document.createElement('div');
-            vipEl.className = 'vip-pro-price';
-            container.appendChild(vipEl);
-          }
-
-          // Update only if changed (prevents loop)
-          if (vipEl.innerHTML !== newHtml) {
-             vipEl.innerHTML = newHtml;
+                  // Update content
+                  if (vipEl.innerHTML !== newHtml) {
+                     vipEl.innerHTML = newHtml;
+                  }
+                }
+              }
+            }
+          } catch (e) {
+            console.error("VIP Price Error:", e);
+          } finally {
+            // 2. RESUME OBSERVER (Crucial: Always runs, even if price was missing momentarily)
+            if (observer) {
+              observer.observe(container, { 
+                subtree: true, 
+                childList: true, 
+                characterData: true 
+              });
+            }
           }
         };
 
-        // Run immediately
-        updatePrice();
-
-        // OBSERVE CHANGES SAFELY
-        const observer = new MutationObserver((mutations) => {
+        // Initialize Observer
+        observer = new MutationObserver((mutations) => {
           let shouldUpdate = false;
           
           for (const mutation of mutations) {
-            // STOP THE LOOP: Ignore changes to our own VIP element
+            // Ignore changes to our own VIP element to prevent loops
             if (mutation.target.classList && mutation.target.classList.contains('vip-pro-price')) continue;
             if (mutation.target.closest && mutation.target.closest('.vip-pro-price')) continue;
             
@@ -82,6 +97,10 @@
           if (shouldUpdate) updatePrice();
         });
 
+        // Run immediately
+        updatePrice();
+        
+        // Start Observing
         observer.observe(container, { 
           subtree: true, 
           childList: true, 
@@ -93,13 +112,11 @@
 </script>
 
 <style>
-  /* REMOVED the rule that hid the original price. Now both show. */
-
   /* Style the new VIP Price */
   .vip-pro-price {
     color: #d9534f;
     font-weight: bold;
     font-size: 1.1em;
-    margin-top: 4px; /* Add some spacing between regular price and pro price */
+    margin-top: 4px; 
   }
 </style>
