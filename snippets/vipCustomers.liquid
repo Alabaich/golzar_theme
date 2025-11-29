@@ -5,7 +5,6 @@
     var customerTags = {{ customer.tags | json | default: "[]" }};
 
     // FIX: Use Unicode for curly braces to bypass Shopify strict validation
-    // This prevents the "Liquid syntax error" during deployment
     var isPreview = customerId.includes("\u007B\u007B"); 
     
     if (isPreview) {
@@ -20,14 +19,20 @@
     }
 
     function initVipPricing() {
-      // TARGET ONLY .price__container as requested
+      // TARGET ONLY .price__container
       const priceContainers = document.querySelectorAll('.price__container');
 
       priceContainers.forEach(container => {
         
         const updatePrice = () => {
-          // Find the Regular or Sale price element
-          const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
+          // Prioritize Sale Price to calculate discount on the ACTUAL selling price
+          let originalPriceEl = container.querySelector('.price-item--sale');
+          
+          // Fallback to regular price if sale price isn't visible/found
+          if (!originalPriceEl || originalPriceEl.offsetParent === null) {
+             originalPriceEl = container.querySelector('.price-item--regular');
+          }
+
           if (!originalPriceEl) return;
 
           // Get the text
@@ -53,7 +58,7 @@
             container.appendChild(vipEl);
           }
 
-          // LOOP PREVENTION: Only update DOM if values are actually different
+          // Update only if changed (prevents loop)
           if (vipEl.innerHTML !== newHtml) {
              vipEl.innerHTML = newHtml;
           }
@@ -67,11 +72,10 @@
           let shouldUpdate = false;
           
           for (const mutation of mutations) {
-            // STOP THE LOOP: If the change happened inside our VIP element, ignore it.
+            // STOP THE LOOP: Ignore changes to our own VIP element
             if (mutation.target.classList && mutation.target.classList.contains('vip-pro-price')) continue;
             if (mutation.target.closest && mutation.target.closest('.vip-pro-price')) continue;
             
-            // Only update if the original price changed
             shouldUpdate = true;
           }
 
@@ -89,17 +93,13 @@
 </script>
 
 <style>
-  /* 1. Hide the original price for VIPs ONLY inside .price__container */
-  body.vip-member .price__container .price-item--regular,
-  body.vip-member .price__container .price-item--sale {
-    display: none !important;
-  }
+  /* REMOVED the rule that hid the original price. Now both show. */
 
-  /* 2. Style the new VIP Price */
+  /* Style the new VIP Price */
   .vip-pro-price {
     color: #d9534f;
     font-weight: bold;
-    font-size: 1.2em;
-    margin-top: 5px;
+    font-size: 1.1em;
+    margin-top: 4px; /* Add some spacing between regular price and pro price */
   }
 </style>
