@@ -1,9 +1,3 @@
-{% comment %}
-
-  Usage:
-  {% render 'vipCustomers' %}
-{% endcomment %}
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // 1. LIQUID INJECTION
@@ -12,12 +6,11 @@
     var customerTags = {{ customer.tags | json | default: "[]" }};
 
     // DETECT PREVIEW MODE (FIXED)
-    // We break the string so Liquid doesn't try to parse it
     var isPreview = customerId.includes("{" + "{"); 
     
     if (isPreview) {
       console.log("⚠️ Preview Mode detected.");
-      customerTags = ["VIP"]; // Simulate VIP tag for editor
+      customerTags = ["VIP"]; 
     }
 
     // 2. CHECK VIP STATUS
@@ -33,49 +26,71 @@
 
     // --- FUNCTION: Handle Dynamic Price Updates ---
     function initVipPricing() {
-      // Find all price containers (handles product page and potentially collection grids)
+      // Find all price containers
       const priceContainers = document.querySelectorAll('.price, .price__container');
 
       priceContainers.forEach(container => {
-        
+        let observer; // Define variable to hold the observer
+
         const updatePrice = () => {
-          // Find the Regular or Sale price element
-          const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
-          
-          if (!originalPriceEl) return;
+          // CRITICAL FIX: STOP OBSERVING while we update the DOM
+          // This prevents the "Infinite Loop" that freezes the browser
+          if (observer) observer.disconnect();
 
-          // Get the text (e.g., "$ 100.00")
-          const originalText = originalPriceEl.innerText.trim();
-          if (!originalText) return;
+          try {
+            // Find the Regular or Sale price element
+            const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
+            
+            if (originalPriceEl) {
+              // Get the text (e.g., "$ 100.00")
+              const originalText = originalPriceEl.innerText.trim();
+              
+              if (originalText) {
+                // CLEAN AND PARSE PRICE
+                const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
+                const cleanNumString = originalText.replace(/[^0-9.]/g, '');
+                const priceValue = parseFloat(cleanNumString);
 
-          // CLEAN AND PARSE PRICE
-          const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
-          const cleanNumString = originalText.replace(/[^0-9.]/g, '');
-          const priceValue = parseFloat(cleanNumString);
+                if (!isNaN(priceValue)) {
+                  // 3. Calculate 15% Off
+                  const vipPriceValue = (priceValue * 0.85).toFixed(2);
 
-          if (isNaN(priceValue)) return;
+                  // 4. Insert or Update the VIP Element
+                  let vipEl = container.querySelector('.vip-pro-price');
+                  
+                  if (!vipEl) {
+                    vipEl = document.createElement('div');
+                    vipEl.className = 'vip-pro-price';
+                    // Append carefully to avoid breaking layout
+                    container.appendChild(vipEl); 
+                  }
 
-          // 3. Calculate 15% Off
-          const vipPriceValue = (priceValue * 0.85).toFixed(2);
-
-          // 4. Insert or Update the VIP Element
-          let vipEl = container.querySelector('.vip-pro-price');
-          
-          if (!vipEl) {
-            vipEl = document.createElement('div');
-            vipEl.className = 'vip-pro-price';
-            container.appendChild(vipEl); 
+                  // Update the text
+                  vipEl.innerHTML = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+                }
+              }
+            }
+          } catch (e) {
+            console.error("VIP Price Calc Error:", e);
           }
 
-          // Update the text
-          vipEl.innerHTML = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+          // RESUME OBSERVING after updates are done
+          if (observer) {
+            observer.observe(container, { 
+              subtree: true, 
+              childList: true, 
+              characterData: true 
+            });
+          }
         };
 
-        // Run immediately
-        updatePrice();
+        // Initialize Observer
+        observer = new MutationObserver(updatePrice);
 
-        // OBSERVE CHANGES (For Variant Switches)
-        const observer = new MutationObserver(updatePrice);
+        // Run once immediately
+        updatePrice();
+        
+        // Start Observing
         observer.observe(container, { 
           subtree: true, 
           childList: true, 
