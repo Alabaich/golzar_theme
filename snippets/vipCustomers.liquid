@@ -2,11 +2,11 @@
   document.addEventListener("DOMContentLoaded", function() {
     // 1. LIQUID INJECTION
     var customerId = "{{ customer.id }}";
-    // Get tags safely
     var customerTags = {{ customer.tags | json | default: "[]" }};
 
-    // DETECT PREVIEW MODE (FIXED)
-    var isPreview = customerId.includes("{" + "{"); 
+    // FIX: Use Unicode for curly braces to bypass Shopify strict validation
+    // This prevents the "Liquid syntax error" during deployment
+    var isPreview = customerId.includes("\u007B\u007B"); 
     
     if (isPreview) {
       console.log("⚠️ Preview Mode detected.");
@@ -16,81 +16,67 @@
     // 2. CHECK VIP STATUS
     if (customerTags.includes("VIP")) {
        document.body.classList.add("vip-member");
-       console.log("✅ VIP Mode Activated!");
-       
-       // 3. INJECT DYNAMIC VIP PRICING
        initVipPricing();
-    } else {
-       console.log("ℹ️ User is not VIP");
     }
 
-    // --- FUNCTION: Handle Dynamic Price Updates ---
     function initVipPricing() {
-      // Find all price containers
-      const priceContainers = document.querySelectorAll('.price, .price__container');
+      const priceContainers = document.querySelectorAll('.price, .price__container, .product__info-container .price');
 
       priceContainers.forEach(container => {
-        let observer; // Define variable to hold the observer
-
+        
         const updatePrice = () => {
-          // CRITICAL FIX: STOP OBSERVING while we update the DOM
-          // This prevents the "Infinite Loop" that freezes the browser
-          if (observer) observer.disconnect();
+          // Find the Regular or Sale price element
+          const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
+          if (!originalPriceEl) return;
 
-          try {
-            // Find the Regular or Sale price element
-            const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
-            
-            if (originalPriceEl) {
-              // Get the text (e.g., "$ 100.00")
-              const originalText = originalPriceEl.innerText.trim();
-              
-              if (originalText) {
-                // CLEAN AND PARSE PRICE
-                const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
-                const cleanNumString = originalText.replace(/[^0-9.]/g, '');
-                const priceValue = parseFloat(cleanNumString);
+          // Get the text
+          const originalText = originalPriceEl.innerText.trim();
+          if (!originalText) return;
 
-                if (!isNaN(priceValue)) {
-                  // 3. Calculate 15% Off
-                  const vipPriceValue = (priceValue * 0.85).toFixed(2);
+          // Parse Price
+          const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
+          const cleanNumString = originalText.replace(/[^0-9.]/g, '');
+          const priceValue = parseFloat(cleanNumString);
 
-                  // 4. Insert or Update the VIP Element
-                  let vipEl = container.querySelector('.vip-pro-price');
-                  
-                  if (!vipEl) {
-                    vipEl = document.createElement('div');
-                    vipEl.className = 'vip-pro-price';
-                    // Append carefully to avoid breaking layout
-                    container.appendChild(vipEl); 
-                  }
+          if (isNaN(priceValue)) return;
 
-                  // Update the text
-                  vipEl.innerHTML = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
-                }
-              }
-            }
-          } catch (e) {
-            console.error("VIP Price Calc Error:", e);
+          // Calculate 15% Off
+          const vipPriceValue = (priceValue * 0.85).toFixed(2);
+          const newHtml = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+
+          // Find or Create VIP Element
+          let vipEl = container.querySelector('.vip-pro-price');
+          if (!vipEl) {
+            vipEl = document.createElement('div');
+            vipEl.className = 'vip-pro-price';
+            container.appendChild(vipEl);
           }
 
-          // RESUME OBSERVING after updates are done
-          if (observer) {
-            observer.observe(container, { 
-              subtree: true, 
-              childList: true, 
-              characterData: true 
-            });
+          // LOOP PREVENTION: Only update DOM if values are actually different
+          if (vipEl.innerHTML !== newHtml) {
+             vipEl.innerHTML = newHtml;
           }
         };
 
-        // Initialize Observer
-        observer = new MutationObserver(updatePrice);
-
-        // Run once immediately
+        // Run immediately
         updatePrice();
-        
-        // Start Observing
+
+        // OBSERVE CHANGES SAFELY
+        const observer = new MutationObserver((mutations) => {
+          let shouldUpdate = false;
+          
+          for (const mutation of mutations) {
+            // STOP THE LOOP: If the change happened inside our VIP element, ignore it.
+            if (mutation.target.classList && mutation.target.classList.contains('vip-pro-price')) continue;
+            if (mutation.target.closest && mutation.target.closest('.vip-pro-price')) continue;
+            
+            // Only update if the original price changed
+            shouldUpdate = true;
+          }
+
+          if (shouldUpdate) updatePrice();
+        });
+
         observer.observe(container, { 
           subtree: true, 
           childList: true, 
@@ -102,8 +88,6 @@
 </script>
 
 <style>
-  /* --- VIP STYLES --- */
-
   /* 1. Hide the original price for VIPs */
   body.vip-member .price-item--regular,
   body.vip-member .price-item--sale {
@@ -112,13 +96,9 @@
 
   /* 2. Style the new VIP Price */
   .vip-pro-price {
-    color: #d9534f; /* Red/Alert color */
+    color: #d9534f;
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 5px;
-  }
-  
-  .vip-pro-price .vip-amount {
-    color: #b91c1c;
   }
 </style>
