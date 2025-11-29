@@ -19,16 +19,11 @@
     }
 
     function initVipPricing() {
-      // TARGET ONLY .price__container
-      const priceContainers = document.querySelectorAll('.price__container');
+      // --- CORE UPDATE FUNCTION ---
+      const updateAllPrices = () => {
+        const priceContainers = document.querySelectorAll('.price__container');
 
-      priceContainers.forEach(container => {
-        let observer; // Define variable outside
-
-        const updatePrice = () => {
-          // 1. PAUSE OBSERVER (Prevents infinite loops)
-          if (observer) observer.disconnect();
-
+        priceContainers.forEach(container => {
           try {
             // Find Sale Price first
             let originalPriceEl = container.querySelector('.price-item--sale');
@@ -38,75 +33,60 @@
                originalPriceEl = container.querySelector('.price-item--regular');
             }
 
-            // Only proceed if we found a valid price element
-            if (originalPriceEl) {
-              const originalText = originalPriceEl.innerText.trim();
-              
-              if (originalText) {
-                // Parse Price
-                const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
-                const cleanNumString = originalText.replace(/[^0-9.]/g, '');
-                const priceValue = parseFloat(cleanNumString);
+            if (!originalPriceEl) return;
 
-                if (!isNaN(priceValue)) {
-                  // Calculate 15% Off
-                  const vipPriceValue = (priceValue * 0.85).toFixed(2);
-                  const newHtml = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+            const originalText = originalPriceEl.innerText.trim();
+            if (!originalText) return;
 
-                  // Find or Create VIP Element
-                  let vipEl = container.querySelector('.vip-pro-price');
-                  if (!vipEl) {
-                    vipEl = document.createElement('div');
-                    vipEl.className = 'vip-pro-price';
-                    container.appendChild(vipEl);
-                  }
+            // Parse Price
+            const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
+            const cleanNumString = originalText.replace(/[^0-9.]/g, '');
+            const priceValue = parseFloat(cleanNumString);
 
-                  // Update content
-                  if (vipEl.innerHTML !== newHtml) {
-                     vipEl.innerHTML = newHtml;
-                  }
-                }
-              }
+            if (isNaN(priceValue)) return;
+
+            // Calculate 15% Off
+            const vipPriceValue = (priceValue * 0.85).toFixed(2);
+            const newHtml = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+
+            // Find or Create VIP Element
+            let vipEl = container.querySelector('.vip-pro-price');
+            if (!vipEl) {
+              vipEl = document.createElement('div');
+              vipEl.className = 'vip-pro-price';
+              container.appendChild(vipEl);
+            }
+
+            // Update content ONLY if changed (Micro-optimization)
+            if (vipEl.innerHTML !== newHtml) {
+               vipEl.innerHTML = newHtml;
             }
           } catch (e) {
             console.error("VIP Price Error:", e);
-          } finally {
-            // 2. RESUME OBSERVER (Crucial: Always runs, even if price was missing momentarily)
-            if (observer) {
-              observer.observe(container, { 
-                subtree: true, 
-                childList: true, 
-                characterData: true 
-              });
-            }
           }
-        };
-
-        // Initialize Observer
-        observer = new MutationObserver((mutations) => {
-          let shouldUpdate = false;
-          
-          for (const mutation of mutations) {
-            // Ignore changes to our own VIP element to prevent loops
-            if (mutation.target.classList && mutation.target.classList.contains('vip-pro-price')) continue;
-            if (mutation.target.closest && mutation.target.closest('.vip-pro-price')) continue;
-            
-            shouldUpdate = true;
-          }
-
-          if (shouldUpdate) updatePrice();
         });
+      };
 
-        // Run immediately
-        updatePrice();
-        
-        // Start Observing
-        observer.observe(container, { 
-          subtree: true, 
-          childList: true, 
-          characterData: true 
-        });
-      });
+      // --- TRIGGER LOGIC ---
+
+      // 1. Run Immediately
+      updateAllPrices();
+
+      // 2. Listen for URL Changes (Variant switching usually changes URL parameters)
+      let lastUrl = location.href; 
+      new MutationObserver(() => {
+        const url = location.href;
+        if (url !== lastUrl) {
+          lastUrl = url;
+          // URL changed, wait a tiny bit for Shopify to render new price, then update
+          setTimeout(updateAllPrices, 100);
+          setTimeout(updateAllPrices, 500); // Backup retry
+        }
+      }).observe(document, {subtree: true, childList: true});
+
+      // 3. Fallback Interval (Checks every 1 second to catch anything missed)
+      // This is lightweight because updateAllPrices checks efficiently
+      setInterval(updateAllPrices, 1000);
     }
   });
 </script>
