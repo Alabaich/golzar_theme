@@ -4,7 +4,6 @@
   {% render 'vipCustomers' %}
 {% endcomment %}
 
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // 1. LIQUID INJECTION
@@ -12,8 +11,10 @@
     // Get tags safely
     var customerTags = {{ customer.tags | json | default: "[]" }};
 
-    // DETECT PREVIEW MODE
-    var isPreview = customerId.includes("{{");
+    // DETECT PREVIEW MODE (FIXED)
+    // We break the string so Liquid doesn't try to parse it
+    var isPreview = customerId.includes("{" + "{"); 
+    
     if (isPreview) {
       console.log("⚠️ Preview Mode detected.");
       customerTags = ["VIP"]; // Simulate VIP tag for editor
@@ -33,15 +34,12 @@
     // --- FUNCTION: Handle Dynamic Price Updates ---
     function initVipPricing() {
       // Find all price containers (handles product page and potentially collection grids)
-      // We look for the container that holds the price items
       const priceContainers = document.querySelectorAll('.price, .price__container');
 
       priceContainers.forEach(container => {
         
-        // Function to Calculate and Display VIP Price
         const updatePrice = () => {
           // Find the Regular or Sale price element
-          // We target standard Shopify classes
           const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
           
           if (!originalPriceEl) return;
@@ -51,11 +49,7 @@
           if (!originalText) return;
 
           // CLEAN AND PARSE PRICE
-          // 1. Get Currency Symbol (Everything that is NOT a number, dot, or comma)
           const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
-          
-          // 2. Get Clean Number (Remove commas, keep dots for decimals)
-          // Assumption: Format is like "1,200.00" or "1200.00"
           const cleanNumString = originalText.replace(/[^0-9.]/g, '');
           const priceValue = parseFloat(cleanNumString);
 
@@ -68,10 +62,9 @@
           let vipEl = container.querySelector('.vip-pro-price');
           
           if (!vipEl) {
-            // Create it if it doesn't exist
             vipEl = document.createElement('div');
             vipEl.className = 'vip-pro-price';
-            container.appendChild(vipEl); // Add it to the price container
+            container.appendChild(vipEl); 
           }
 
           // Update the text
@@ -82,7 +75,6 @@
         updatePrice();
 
         // OBSERVE CHANGES (For Variant Switches)
-        // This watches the price container for any changes made by the theme's JS
         const observer = new MutationObserver(updatePrice);
         observer.observe(container, { 
           subtree: true, 
