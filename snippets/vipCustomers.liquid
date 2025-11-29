@@ -1,84 +1,110 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // 1. LIQUID INJECTION
-    // Shopify replaces this string with the ID before sending to browser.
     var customerId = "{{ customer.id }}";
-    
-    // DETECT PREVIEW MODE (For testing in this editor)
-    // If the string still contains curly braces, Liquid didn't run.
-    var isPreview = customerId.includes("{{");
+    // Get tags safely
+    var customerTags = {{ customer.tags | json | default: "[]" }};
 
+    // DETECT PREVIEW MODE
+    var isPreview = customerId.includes("{{");
     if (isPreview) {
-      console.log("⚠️ Running in Preview/Editor Mode. Simulating VIP User.");
-      customerId = "TEST_VIP_USER"; 
+      console.log("⚠️ Preview Mode detected.");
+      customerTags = ["VIP"]; // Simulate VIP tag for editor
     }
 
-    // Debugging
-    console.log("Current Customer ID:", customerId);
-
-    // 2. CHECK IF LOGGED IN
-    if (customerId) {
-      console.log("User is logged in. Checking VIP status...");
-
-      // HELPER FUNCTION: Handle the result
-      function applyVipStatus(data) {
-        console.log("API Response:", data);
-        if (data.isVip) {
-          // 4. APPLY VIP STYLING
-          document.body.classList.add("vip-member");
-          console.log("✅ VIP Mode Activated!");
-        } else {
-          console.log("❌ User is not a VIP.");
-        }
-      }
-
-      // 3. FETCH LOGIC
-      if (isPreview) {
-        // MOCK FETCH for Editor Preview to prevent "Failed to parse URL" error
-        setTimeout(function() {
-          applyVipStatus({ isVip: true, tags: ["VIP (Simulated)"] });
-        }, 500);
-      } else {
-        // REAL FETCH for Shopify Store
-        fetch("/apps/vip-status/check?customerId=" + customerId)
-          .then(function(res) { 
-            if (!res.ok) throw new Error("Proxy returned " + res.status);
-            return res.json(); 
-          })
-          .then(applyVipStatus)
-          .catch(function(err) {
-            console.error(" VIP Check Failed:", err);
-          });
-      }""
-
+    // 2. CHECK VIP STATUS
+    if (customerTags.includes("VIP")) {
+       document.body.classList.add("vip-member");
+       console.log("✅ VIP Mode Activated!");
+       
+       // 3. INJECT DYNAMIC VIP PRICING
+       initVipPricing();
     } else {
-      console.log("ℹ️ User is not logged in. Skipping VIP check.");
+       console.log("ℹ️ User is not VIP");
+    }
+
+    // --- FUNCTION: Handle Dynamic Price Updates ---
+    function initVipPricing() {
+      // Find all price containers (handles product page and potentially collection grids)
+      // We look for the container that holds the price items
+      const priceContainers = document.querySelectorAll('.price, .price__container');
+
+      priceContainers.forEach(container => {
+        
+        // Function to Calculate and Display VIP Price
+        const updatePrice = () => {
+          // Find the Regular or Sale price element
+          // We target standard Shopify classes
+          const originalPriceEl = container.querySelector('.price-item--sale, .price-item--regular');
+          
+          if (!originalPriceEl) return;
+
+          // Get the text (e.g., "$ 100.00")
+          const originalText = originalPriceEl.innerText.trim();
+          if (!originalText) return;
+
+          // CLEAN AND PARSE PRICE
+          // 1. Get Currency Symbol (Everything that is NOT a number, dot, or comma)
+          const currencySymbol = originalText.replace(/[0-9.,]/g, '').trim();
+          
+          // 2. Get Clean Number (Remove commas, keep dots for decimals)
+          // Assumption: Format is like "1,200.00" or "1200.00"
+          const cleanNumString = originalText.replace(/[^0-9.]/g, '');
+          const priceValue = parseFloat(cleanNumString);
+
+          if (isNaN(priceValue)) return;
+
+          // 3. Calculate 15% Off
+          const vipPriceValue = (priceValue * 0.85).toFixed(2);
+
+          // 4. Insert or Update the VIP Element
+          let vipEl = container.querySelector('.vip-pro-price');
+          
+          if (!vipEl) {
+            // Create it if it doesn't exist
+            vipEl = document.createElement('div');
+            vipEl.className = 'vip-pro-price';
+            container.appendChild(vipEl); // Add it to the price container
+          }
+
+          // Update the text
+          vipEl.innerHTML = `Pro Price <span class="vip-amount">${currencySymbol}${vipPriceValue}</span>`;
+        };
+
+        // Run immediately
+        updatePrice();
+
+        // OBSERVE CHANGES (For Variant Switches)
+        // This watches the price container for any changes made by the theme's JS
+        const observer = new MutationObserver(updatePrice);
+        observer.observe(container, { 
+          subtree: true, 
+          childList: true, 
+          characterData: true 
+        });
+      });
     }
   });
 </script>
 
 <style>
-  /* CSS to hide/show things based on the class added above */
-  
-  /* Hide this for everyone by default */
-  .vip-exclusive-content {
-    display: none;
+  /* --- VIP STYLES --- */
+
+  /* 1. Hide the original price for VIPs */
+  body.vip-member .price-item--regular,
+  body.vip-member .price-item--sale {
+    display: none !important;
   }
 
-  /* Show it ONLY if body has 'vip-member' class */
-  body.vip-member .vip-exclusive-content {
-    display: block !important;
-    border: 2px solid gold;
-    padding: 10px;
-    background: #fff9c4;
-    color: black;
+  /* 2. Style the new VIP Price */
+  .vip-pro-price {
+    color: #d9534f; /* Red/Alert color */
     font-weight: bold;
-    margin: 20px 0;
-    text-align: center;
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+  
+  .vip-pro-price .vip-amount {
+    color: #b91c1c;
   }
 </style>
-
-<!-- PREVIEW ELEMENT: This helps you see if it works in the editor -->
-<div class="vip-exclusive-content">
-  🎉 You are seeing this because you are a VIP Member!
-</div>
