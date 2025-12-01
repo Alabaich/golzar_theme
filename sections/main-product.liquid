@@ -540,16 +540,25 @@
               {%- when 'sku' -%}
                 <div class="brand-sku-wrapper">
                   {% if product.selected_or_first_available_variant.sku != blank %}
-                    <div class="sku-or-tags" style="color: #2c2d2c;">
-                      <span class="skuu"> SKU:
-                        {% comment %} <span class="product__sku alerrt" id="Sku-{{ section.id }}">
-                          {{- product.selected_or_first_available_variant.sku -}}
-                        </span>  {% endcomment %}
-                        <span class="product__sku alerrt" id="Sku-{{ section.id }}" onclick="copySkuToClipboard(this)" style="cursor: pointer;" title="Click to copy SKU">
-                          {{- product.selected_or_first_available_variant.sku -}}
-                        </span>
-                      </span>
-                    </div>
+<div class="sku-or-tags" style="color: #2c2d2c;">
+  <span class="skuu"> SKU:
+    <span class="product__sku alerrt" id="Sku-{{ section.id }}" onclick="copySkuToClipboard(this)" style="cursor: pointer;" title="Click to copy SKU">
+      {{- product.selected_or_first_available_variant.sku -}}
+    </span>
+  </span>
+
+  {%- comment -%} START: Added Barcode Logic {%- endcomment -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- if current_variant.barcode != blank -%}
+    <span class="barcode-wrapper" style="margin-left: 8px; padding-left: 8px; border-left: 1px solid #ccc;">
+      Barcode: 
+      <span class="product__barcode">
+        {{- current_variant.barcode -}}
+      </span>
+    </span>
+  {%- endif -%}
+  {%- comment -%} END: Added Barcode Logic {%- endcomment -%}
+</div>
                     <script>
                       function copySkuToClipboard(skuElement) {
                   if (!skuElement) {
