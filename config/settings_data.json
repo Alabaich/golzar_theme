@@ -173,6 +173,11 @@
         "type": "shopify://apps/what-converts/blocks/tracking/d7b55a5f-477a-452c-8760-a3e5c5badb93",
         "disabled": false,
         "settings": {}
+      },
+      "8203428859517845678": {
+        "type": "shopify://apps/pros-app/blocks/vip_check/019ae53b-bb1e-7771-994f-7b86e51953c6",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
