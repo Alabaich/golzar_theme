@@ -40,8 +40,8 @@
         "pros_app_vip_price_L6VbAB": {
           "type": "shopify://apps/pros-app/blocks/vip_price/019ae53b-bb1e-7771-994f-7b86e51953c6",
           "settings": {
-            "tier_1_tag": "Gold",
-            "tier_1_discount": 30,
+            "tier_1_tag": "VIP",
+            "tier_1_discount": 10,
             "tier_2_tag": "Silver",
             "tier_2_discount": 20,
             "tier_3_tag": "Bronze",
