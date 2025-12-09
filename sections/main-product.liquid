@@ -926,9 +926,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 <style>
   #delivery-time-block, #in-stock-block, #discontinued-block, #backorder-message{
-    border-radius: 15px;
     font-size: 0.75em;
-    padding: 5px 9px;
     justify-content: start;
     align-items: center;
     gap: 5px;
@@ -937,16 +935,12 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
     #delivery-time-block p, #in-stock-block p, #discontinued-block p, #backorder-message p{
       margin: 0;
+      line-height: normal;
     }
-
-  #delivery-time-block, #in-stock-block{
-    color: #34C759;
-background: rgba(52, 199, 89, 0.10);
-  }
 
   #discontinued-block, #backorder-message{
     color: #FF3B30;
-background: rgba(255, 59, 59, 0.10);
+    background: rgba(255, 59, 59, 0.10);
   }
 
   /* Quote Button Style */
@@ -1097,14 +1091,14 @@ background: rgba(255, 59, 59, 0.10);
   {% if product.tags contains READY_TO_SHIP_TAG %}
   <p class="ready-to-ship-indicator" style="
       display: inline-block;
-      padding: 5px 9px;
-      border-radius: 15px;
-      background: rgba(52, 199, 89, 0.10);
-      color: #34C759;
       letter-spacing: 0.5px;
       font-size: 0.75em;
+      margin: 0;
   ">
-    📦 This item is Ready to Ship!
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.3933 7.0837L13.06 3.14174C12.8885 3.04877 12.6959 3 12.5 3C12.3041 3 12.1115 3.04877 11.94 3.14174L4.60667 7.0837C4.42317 7.18228 4.27004 7.32747 4.16331 7.50409C4.05658 7.6807 4.00018 7.88224 4 8.0876V15.9126C4.00018 16.118 4.05658 16.3195 4.16331 16.4961C4.27004 16.6728 4.42317 16.818 4.60667 16.9165L11.94 20.8585C12.1115 20.9513 12.3042 21 12.5 21C12.6958 21 12.8885 20.9513 13.06 20.8585L20.3933 16.9165C20.5768 16.818 20.73 16.6728 20.8367 16.4961C20.9434 16.3195 20.9998 16.118 21 15.9126V8.0876C20.9998 7.88224 20.9434 7.6807 20.8367 7.50409C20.73 7.32747 20.5768 7.18228 20.3933 7.0837ZM12.4167 4.00246C12.4412 3.98928 12.4687 3.98237 12.4967 3.98237C12.5246 3.98237 12.5521 3.98928 12.5767 4.00246L19.5425 7.74561L16.7142 9.26496L9.67083 5.48008L12.4167 4.00246ZM12 19.7728L5.08333 16.0558C5.05778 16.0413 5.03659 16.0204 5.02195 15.9953C5.00731 15.9701 4.99974 15.9416 5 15.9126V8.61778L12 12.3814V19.7728ZM5.4575 7.74561L8.63 6.03971L15.6725 9.82459L12.5 11.5288L5.4575 7.74561ZM20 15.9126C20.0003 15.9416 19.9927 15.9701 19.978 15.9953C19.9634 16.0204 19.9422 16.0413 19.9167 16.0558L13 19.7728V12.3797L16 10.7671V13.9637C16 14.0939 16.0527 14.2188 16.1464 14.3109C16.2402 14.4029 16.3674 14.4546 16.5 14.4546C16.6326 14.4546 16.7598 14.4029 16.8536 14.3109C16.9473 14.2188 17 14.0939 17 13.9637V10.2304L20 8.61778V15.9126Z" fill="#2C2D2C"/>
+  </svg>
+  This item is <b>Ready to Ship!</b>
   </p>
 {% endif %}
 
