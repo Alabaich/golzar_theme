@@ -37,18 +37,14 @@
           "type": "price",
           "settings": {}
         },
-        "pros_app_vip_price_L6VbAB": {
+        "pros_app_vip_price_3gVHnc": {
           "type": "shopify://apps/pros-app/blocks/vip_price/019ae53b-bb1e-7771-994f-7b86e51953c6",
           "settings": {
-            "tier_1_tag": "VIP",
-            "tier_1_discount": 10,
-            "tier_2_tag": "Silver",
-            "tier_2_discount": 20,
-            "tier_3_tag": "Bronze",
-            "tier_3_discount": 10,
-            "label_text": "Your Exclusive Price:",
-            "text_color": "#000000",
-            "price_color": "#ff0000",
+            "label_text": "VIP Exclusive Price",
+            "vip_bg_color": "#1a1a1a",
+            "border_color": "#D4AF37",
+            "vip_text_color": "#ffffff",
+            "vip_price_color": "#ffffff",
             "show_original": true,
             "margin_top": 12,
             "margin_bottom": 12
@@ -134,7 +130,7 @@
         "vendor_NMhiAf",
         "sku_ewbbJK",
         "price",
-        "pros_app_vip_price_L6VbAB",
+        "pros_app_vip_price_3gVHnc",
         "variant_picker",
         "quantity_selector",
         "delivery_time_BymEfj",
