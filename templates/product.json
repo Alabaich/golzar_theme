@@ -37,6 +37,19 @@
           "type": "price",
           "settings": {}
         },
+        "pros_app_vip_price_wiDVqr": {
+          "type": "shopify://apps/pros-app/blocks/vip_price/019ae53b-bb1e-7771-994f-7b86e51953c6",
+          "settings": {
+            "label_text": "VIP Exclusive Price",
+            "vip_bg_color": "#1a1a1a",
+            "border_color": "#D4AF37",
+            "vip_text_color": "#ffffff",
+            "vip_price_color": "#ffffff",
+            "show_original": true,
+            "margin_top": 12,
+            "margin_bottom": 12
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -116,6 +129,7 @@
         "vendor_Fmtz9A",
         "sku_QMiVi7",
         "price",
+        "pros_app_vip_price_wiDVqr",
         "variant_picker",
         "buy_buttons",
         "shipping_refund_ij6BDq",
