@@ -572,7 +572,9 @@
                         <div class="collection-grid-item__form-container">
                           {% if product.metafields.custom.call_for_availability == true %}
                             <a href="https://bathroomsupplier.ca/pages/contact" class="collection-grid-item__add-to-cart-button customButton blueButton">Call For Availability</a>
-                          {% else %}
+                                                {% elsif product.vendor == "Delta" %}
+                        <a href="{{ product.url | within: collection }}" class="collection-grid-item__add-to-cart-button customButton blueButton">More Info</a>
+                      {% else %}
                             <form
                               action="{{ routes.cart_add_url }}"
                               method="post"
