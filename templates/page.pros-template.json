@@ -13,13 +13,11 @@
       "type": "heroWithForm",
       "name": "Hero Quote Form",
       "settings": {
-        "bg_image": "shopify://shop_images/Gemini_Generated_Image_y5i1nfy5i1nfy5i1.png",
+        "bg_color": "#ffffff",
+        "title": "UNLOCK EXCLUSIVEPRICING FOR PROS",
+        "description": "<p>Are you a contractor or designer? Partner with us to access huge discounts on premium bathroom supplies. Get wholesale rates, priority shipping, and dedicated support for all your projects.<br><br></p>",
         "padding_top": 40,
-        "padding_bottom": 40,
-        "upper_title": "Golzar Home TRADE PROGRAM",
-        "title": "UNLOCK EXCLUSIVE\nPRICING FOR PROS",
-        "description": "<p>Are you a contractor or designer? Partner with us to access huge discounts on premium bathroom supplies. Get wholesale rates, priority shipping, and dedicated support for all your projects.<br/><br/></p>",
-        "form_heading": "GET A QUOTE TODAY!"
+        "padding_bottom": 40
       }
     },
     "main": {
