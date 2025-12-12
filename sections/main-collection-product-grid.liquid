@@ -517,10 +517,10 @@
                         {% endif %}
                       {% else %}
                         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg collection-grid-item__image' }}
-                      {% endif %}
+                       {% endif %}{% comment %}
                                               {% if product.tags contains 'black_friday_sale' %}
                           <img style="position: absolute; top: 10px; right:10px; z-index:2 ; max-width: 50%;" src="https://cdn.shopify.com/s/files/1/0848/7193/8321/files/cybermondaybadge_4f4313a4-bc50-4a04-8460-be4f5eb6463f.webp?v=1764620051" alt="Product For Black Friday Sale" width="40%"  height="auto">
-                        {% endif %}
+                        {% endif %} {% endcomment %}
                       <div class="collection-grid-item__badge-info">
 
                         {% if discount_percentage > 0 %}
