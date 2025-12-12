@@ -14,6 +14,7 @@
       "blocks": {
         "slide_AdYdMJ": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/cyber_monday.webp",
             "heading": "Biggest Sale Of The Year",
