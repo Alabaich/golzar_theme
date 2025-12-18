@@ -17,7 +17,7 @@
     max-height: 80%;
     overflow-y: auto;
     padding: 10px;
-    z-index: 20;
+    z-index: 200;
   }
   
   .product-media-thumb-{{ section.id }} {
@@ -68,11 +68,13 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
   
   .product-media-slide-{{ section.id }}.active {
     opacity: 1;
     position: relative;
+    pointer-events: auto;
   }
   
   .product-media-slider-arrow-{{ section.id }} {
@@ -81,19 +83,20 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2147483647;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   }
   
   .product-media-slider-arrow-{{ section.id }}:hover {
     background: #fff;
+    transform: translateY(-50%) scale(1.1);
   }
   
   .product-media-slider-arrow-{{ section.id }}.prev {
@@ -110,32 +113,32 @@
   }
 
   @media screen and (max-width: 750px) {
-  .product-media-modal__content > *:not(.active) {
-    display: block !important;
-  }
+    .product-media-modal__content > *:not(.active) {
+      display: block !important;
+    }
 
-  .product-media-thumbs-{{ section.id }} {
-    position: absolute;
-    left: 50%;
-    top: 100px;
-    transform: translateX(-50%);
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    max-height: 80%;
-    overflow-x: auto;
-    padding: 10px;
-    z-index: 20;
-}
+    .product-media-thumbs-{{ section.id }} {
+      position: absolute;
+      left: 50%;
+      top: 100px;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      max-height: 80%;
+      overflow-x: auto;
+      padding: 10px;
+      z-index: 200;
+    }
 
-  .product-media-slider-arrow-{{ section.id }}.prev {
-    left: 25px;
-  }
-  
-  .product-media-slider-arrow-{{ section.id }}.next {
-    right: 25px;
-  }
+    .product-media-slider-arrow-{{ section.id }}.prev {
+      left: 25px;
+    }
+    
+    .product-media-slider-arrow-{{ section.id }}.next {
+      right: 25px;
+    }
   }
 </style>
 
@@ -204,77 +207,56 @@
 </product-modal>
 
 <script>
-(function() {
-  function initGallery() {
-    const modal = document.querySelector('#ProductModal-{{ section.id }}');
-    if (!modal) return;
+document.addEventListener('click', function(e) {
+  const gallery = e.target.closest('.product-media-gallery-{{ section.id }}');
+  if (!gallery) return;
 
-    const slides = modal.querySelectorAll('.product-media-slide-{{ section.id }}');
-    const thumbs = modal.querySelectorAll('.product-media-thumb-{{ section.id }}');
-    const prevBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.prev');
-    const nextBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.next');
-    let currentSlide = 0;
+  const prevBtn = e.target.closest('.product-media-slider-arrow-{{ section.id }}.prev');
+  const nextBtn = e.target.closest('.product-media-slider-arrow-{{ section.id }}.next');
+  const thumb = e.target.closest('.product-media-thumb-{{ section.id }}');
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      
-      thumbs.forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-      });
-      
-      currentSlide = index;
+  if (!prevBtn && !nextBtn && !thumb) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation();
+
+  const slides = gallery.querySelectorAll('.product-media-slide-{{ section.id }}');
+  const thumbs = gallery.querySelectorAll('.product-media-thumb-{{ section.id }}');
+  let currentIndex = -1;
+
+  slides.forEach((slide, index) => {
+    if (slide.classList.contains('active')) {
+      currentIndex = index;
     }
+  });
 
-    function nextSlide() {
-      let newIndex = (currentSlide + 1) % slides.length;
-      showSlide(newIndex);
-    }
+  if (currentIndex === -1) currentIndex = 0;
 
-    function prevSlide() {
-      let newIndex = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(newIndex);
-    }
+  let newIndex = currentIndex;
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        prevSlide();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        nextSlide();
-      });
-    }
-
-    thumbs.forEach((thumb, index) => {
-      thumb.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        showSlide(index);
-      });
-    });
-
-    const gallery = modal.querySelector('.product-media-gallery-{{ section.id }}');
-    if (gallery) {
-      gallery.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-    }
+  if (prevBtn) {
+    newIndex = (currentIndex - 1 + slides.length) % slides.length;
+  } else if (nextBtn) {
+    newIndex = (currentIndex + 1) % slides.length;
+  } else if (thumb) {
+    newIndex = parseInt(thumb.getAttribute('data-index'));
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initGallery);
-  } else {
-    initGallery();
-  }
-})();
+  slides.forEach((slide, index) => {
+    if (index === newIndex) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+
+  thumbs.forEach((t, index) => {
+    if (index === newIndex) {
+      t.classList.add('active');
+    } else {
+      t.classList.remove('active');
+    }
+  });
+}, true);
 </script>
