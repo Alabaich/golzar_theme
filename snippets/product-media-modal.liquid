@@ -170,11 +170,17 @@
     </button>
 
     <div class="product-media-modal__content">
-      <div class="product-media-gallery-{{ section.id }}" onclick="event.stopPropagation()">
+      <div class="product-media-gallery-{{ section.id }}" 
+           onclick="event.stopPropagation()" 
+           onmousedown="event.stopPropagation()" 
+           ontouchstart="event.stopPropagation()">
+        
         <div class="product-media-thumbs-{{ section.id }}">
           {%- for media in product.media -%}
             <div 
                 class="product-media-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" 
+                onmousedown="event.stopPropagation()"
+                ontouchstart="event.stopPropagation()"
                 onclick="event.preventDefault(); event.stopPropagation(); window.handleGalleryChange('{{ section.id }}', {{ forloop.index0 }})"
                 data-index="{{ forloop.index0 }}"
             >
@@ -207,10 +213,20 @@
           {%- endfor -%}
           
           {% if product.media.size > 1 %}
-            <button type="button" class="product-media-slider-arrow-{{ section.id }} prev" onclick="event.preventDefault(); event.stopPropagation(); window.handleGalleryChange('{{ section.id }}', 'prev')" aria-label="{{ 'general.slider.previous_slide' | t }}">
+            <button type="button" 
+                    class="product-media-slider-arrow-{{ section.id }} prev" 
+                    onmousedown="event.stopPropagation()"
+                    ontouchstart="event.stopPropagation()"
+                    onclick="event.preventDefault(); event.stopPropagation(); window.handleGalleryChange('{{ section.id }}', 'prev')" 
+                    aria-label="{{ 'general.slider.previous_slide' | t }}">
               <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
             </button>
-            <button type="button" class="product-media-slider-arrow-{{ section.id }} next" onclick="event.preventDefault(); event.stopPropagation(); window.handleGalleryChange('{{ section.id }}', 'next')" aria-label="{{ 'general.slider.next_slide' | t }}">
+            <button type="button" 
+                    class="product-media-slider-arrow-{{ section.id }} next" 
+                    onmousedown="event.stopPropagation()"
+                    ontouchstart="event.stopPropagation()"
+                    onclick="event.preventDefault(); event.stopPropagation(); window.handleGalleryChange('{{ section.id }}', 'next')" 
+                    aria-label="{{ 'general.slider.next_slide' | t }}">
               <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
             </button>
           {% endif %}
