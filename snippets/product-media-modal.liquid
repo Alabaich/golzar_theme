@@ -190,10 +190,10 @@
           {%- endfor -%}
           
           {% if product.media.size > 1 %}
-            <button class="product-media-slider-arrow-{{ section.id }} prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+            <button type="button" class="product-media-slider-arrow-{{ section.id }} prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
               <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
             </button>
-            <button class="product-media-slider-arrow-{{ section.id }} next" aria-label="{{ 'general.slider.next_slide' | t }}">
+            <button type="button" class="product-media-slider-arrow-{{ section.id }} next" aria-label="{{ 'general.slider.next_slide' | t }}">
               <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
             </button>
           {% endif %}
@@ -204,62 +204,77 @@
 </product-modal>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.querySelector('#ProductModal-{{ section.id }}');
-  if (!modal) return;
+(function() {
+  function initGallery() {
+    const modal = document.querySelector('#ProductModal-{{ section.id }}');
+    if (!modal) return;
 
-  const slides = modal.querySelectorAll('.product-media-slide-{{ section.id }}');
-  const thumbs = modal.querySelectorAll('.product-media-thumb-{{ section.id }}');
-  const prevBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.prev');
-  const nextBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.next');
-  let currentSlide = 0;
+    const slides = modal.querySelectorAll('.product-media-slide-{{ section.id }}');
+    const thumbs = modal.querySelectorAll('.product-media-thumb-{{ section.id }}');
+    const prevBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.prev');
+    const nextBtn = modal.querySelector('.product-media-slider-arrow-{{ section.id }}.next');
+    let currentSlide = 0;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      let newIndex = (currentSlide + 1) % slides.length;
+      showSlide(newIndex);
+    }
+
+    function prevSlide() {
+      let newIndex = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(newIndex);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        prevSlide();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        nextSlide();
+      });
+    }
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        showSlide(index);
+      });
     });
-    
-    thumbs.forEach((thumb, i) => {
-      thumb.classList.toggle('active', i === index);
-    });
-    
-    currentSlide = index;
+
+    const gallery = modal.querySelector('.product-media-gallery-{{ section.id }}');
+    if (gallery) {
+      gallery.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
   }
 
-  function nextSlide() {
-    let newIndex = (currentSlide + 1) % slides.length;
-    showSlide(newIndex);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+  } else {
+    initGallery();
   }
-
-  function prevSlide() {
-    let newIndex = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(newIndex);
-  }
-
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      prevSlide();
-    });
-    
-    nextBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      nextSlide();
-    });
-  }
-
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener('click', function(e) {
-      e.stopPropagation();
-      showSlide(index);
-    });
-  });
-
-  const gallery = modal.querySelector('.product-media-gallery-{{ section.id }}');
-  if (gallery) {
-    gallery.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-  }
-});
+})();
 </script>
