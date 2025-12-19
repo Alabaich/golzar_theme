@@ -17,7 +17,7 @@ if (!customElements.get('product-modal')) {
         //   }
         // };
 
-        this.addEventListener('pointerup', this._stopPointerUp, { capture: true });
+        // this.addEventListener('pointerup', this._stopPointerUp, { capture: true });
       }
 
       disconnectedCallback() {
