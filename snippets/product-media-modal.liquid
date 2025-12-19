@@ -1,4 +1,3 @@
-```html
 <style>
   .product-media-modal__content {
     display: flex !important;
@@ -7,6 +6,7 @@
     min-height: 500px;
     background-color: #fff;
   }
+
   .product-media-gallery-{{ section.id }} {
     position: relative;
     flex: 1;
@@ -15,6 +15,7 @@
     z-index: 5;
     background: white;
   }
+
   .product-media-modal__toggle {
     position: absolute;
     top: 20px;
@@ -32,17 +33,18 @@
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
+
   .product-media-modal__toggle svg {
     width: 20px;
     height: 20px;
     color: inherit;
   }
-
+  
   .product-media-slider-arrow-{{ section.id }} svg,
   .product-media-slider-arrow-{{ section.id }} path {
     pointer-events: none;
   }
-
+  
   .product-media-thumbs-{{ section.id }} {
     position: absolute;
     left: -45px;
@@ -57,7 +59,7 @@
     padding: 10px;
     z-index: 200;
   }
-
+  
   .product-media-thumb-{{ section.id }} {
     width: 80px;
     height: 80px;
@@ -72,19 +74,19 @@
     z-index: 201;
     background: #fff;
   }
-
+  
   .product-media-thumb-{{ section.id }}.active {
     border-color: #000;
     opacity: 1;
   }
-
+  
   .product-media-thumb-{{ section.id }} img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     pointer-events: none;
   }
-
+  
   .product-media-thumb-icon-{{ section.id }} {
     width: 100%;
     height: 100%;
@@ -94,7 +96,7 @@
     background: #f5f5f5;
     pointer-events: none;
   }
-
+  
   .product-media-slider-{{ section.id }} {
     position: relative;
     height: 100%;
@@ -103,7 +105,7 @@
     overflow: hidden;
     z-index: 10;
   }
-
+  
   .product-media-slide-{{ section.id }} {
     position: absolute;
     top: 0;
@@ -115,14 +117,14 @@
     pointer-events: none;
     z-index: 0;
   }
-
+  
   .product-media-slide-{{ section.id }}.active {
     opacity: 1;
     position: relative;
     pointer-events: auto;
     z-index: 1;
   }
-
+  
   .product-media-slider-arrow-{{ section.id }} {
     position: absolute;
     top: 50%;
@@ -139,26 +141,38 @@
     z-index: 9999;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
-
+  
   .product-media-slider-arrow-{{ section.id }}:hover {
     background: #fff;
     transform: translateY(-50%) scale(1.1);
   }
-
+  
   .product-media-slider-arrow-{{ section.id }}.prev {
     left: 135px;
   }
-
+  
   .product-media-slider-arrow-{{ section.id }}.next {
     right: 100px;
   }
-
+  
   .product-media-slider-arrow-{{ section.id }} svg {
     width: 20px;
     height: 20px;
   }
 
   @media screen and (max-width: 750px) {
+    .product-media-modal__content > *:not(.active) {
+      display: block !important;
+    }
+
+    .product-media-modal__toggle {
+      top: 15px;
+      right: 15px;
+      background-color: rgba(255, 255, 255, 0.95);
+      width: 40px;
+      height: 40px;
+    }
+
     .product-media-thumbs-{{ section.id }} {
       position: absolute;
       left: 50%;
@@ -173,26 +187,25 @@
       padding: 10px;
       z-index: 200;
     }
-    .product-media-slider-{{ section.id }} {
-      margin-left: 0;
-    }
+
     .product-media-slider-arrow-{{ section.id }}.prev {
       left: 25px;
     }
+    
     .product-media-slider-arrow-{{ section.id }}.next {
       right: 25px;
-    }
-    .product-media-modal__toggle {
-      top: 15px;
-      right: 15px;
-      width: 40px;
-      height: 40px;
     }
   }
 </style>
 
 <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
-  <div class="product-media-modal__dialog" role="dialog" aria-label="{{ 'products.modal.label' | t }}" aria-modal="true" tabindex="-1">
+  <div
+    class="product-media-modal__dialog"
+    role="dialog"
+    aria-label="{{ 'products.modal.label' | t }}"
+    aria-modal="true"
+    tabindex="-1"
+  >
     <button
       id="ModalClose-{{ section.id }}"
       type="button"
@@ -204,11 +217,12 @@
 
     <div id="ProductModalContent-{{ section.id }}" class="product-media-modal__content">
       <div class="product-media-gallery-{{ section.id }}">
+        
         <div class="product-media-thumbs-{{ section.id }}">
           {%- for media in product.media -%}
-            <div
-              class="product-media-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}"
-              data-index="{{ forloop.index0 }}"
+            <div 
+                class="product-media-thumb-{{ section.id }}{% if forloop.first %} active{% endif %}" 
+                data-index="{{ forloop.index0 }}"
             >
               {%- if media.media_type == 'image' -%}
                 <img
@@ -223,7 +237,7 @@
                   {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
                     {{ 'icon-play.svg' | inline_asset_content }}
                   {%- elsif media.media_type == 'model' -%}
-                    {{ 'icon-3d-model.svg' | inline_asset_content }}
+                    {{ 'icon-3d-model' | inline_asset_content }}
                   {%- endif -%}
                 </div>
               {%- endif -%}
@@ -237,7 +251,7 @@
               {% render 'product-media', media: media, loop: section.settings.enable_video_looping %}
             </div>
           {%- endfor -%}
-
+          
           {% if product.media.size > 1 %}
             <button type="button" class="product-media-slider-arrow-{{ section.id }} prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
               <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -255,64 +269,70 @@
 <script>
 (function() {
   const sectionId = "{{ section.id }}";
-
-  function changeSlide(directionOrIndex) {
+  
+  function changeSlide(indexOrAction) {
     const modal = document.querySelector('#ProductModal-' + sectionId);
-    if (!modal || !modal.open) return;
+    if (!modal) return;
 
     const slides = modal.querySelectorAll('.product-media-slide-' + sectionId);
     const thumbs = modal.querySelectorAll('.product-media-thumb-' + sectionId);
-
+    
     let currentIndex = 0;
-    slides.forEach((slide, i) => {
-      if (slide.classList.contains('active')) currentIndex = i;
+    slides.forEach((slide, idx) => {
+      if (slide.classList.contains('active')) currentIndex = idx;
     });
 
-    let newIndex;
-    if (directionOrIndex === 'prev') {
+    let newIndex = currentIndex;
+    if (indexOrAction === 'prev') {
       newIndex = (currentIndex - 1 + slides.length) % slides.length;
-    } else if (directionOrIndex === 'next') {
+    } else if (indexOrAction === 'next') {
       newIndex = (currentIndex + 1) % slides.length;
     } else {
-      newIndex = parseInt(directionOrIndex, 10);
+      newIndex = parseInt(indexOrAction);
     }
 
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === newIndex));
-    thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === newIndex));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === newIndex);
+    });
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === newIndex);
+    });
   }
 
-  function initClickHandler() {
+  function initProtector() {
     const content = document.getElementById('ProductModalContent-' + sectionId);
     if (!content) return;
 
     content.addEventListener('click', function(e) {
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-
-      const prevArrow = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
-      const nextArrow = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
+      const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
+      const arrowNext = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
       const thumb = e.target.closest('.product-media-thumb-' + sectionId);
-
-      if (prevArrow) {
+      
+      if (arrowPrev) {
+        e.preventDefault();
         changeSlide('prev');
-        return;
+        return false;
       }
-      if (nextArrow) {
+      
+      if (arrowNext) {
+        e.preventDefault();
         changeSlide('next');
-        return;
+        return false;
       }
+
       if (thumb) {
-        const index = thumb.getAttribute('data-index');
-        changeSlide(index);
-        return;
+        e.preventDefault();
+        changeSlide(thumb.getAttribute('data-index'));
+        return false;
       }
+
     }, true);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initClickHandler);
+    document.addEventListener('DOMContentLoaded', initProtector);
   } else {
-    initClickHandler();
+    initProtector();
   }
 })();
 </script>
