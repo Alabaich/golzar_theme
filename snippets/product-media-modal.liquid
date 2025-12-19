@@ -267,36 +267,59 @@
 </product-modal>
 <script>
   // ---------------------------------------------------------
-  // PART 1: THE MODAL BRAIN (Defines how the modal works)
+  // PART 0: THE RESCUE MISSION (The code you provided)
+  // ---------------------------------------------------------
+  // We define ModalDialog here just in case global.js is broken or loading too late.
+  if (typeof ModalDialog === 'undefined') {
+    window.ModalDialog = class ModalDialog extends HTMLElement {
+      constructor() {
+        super();
+        // We moved the event listener logic to connectedCallback to be safe
+      }
+
+      connectedCallback() {
+        // 1. Find the close button
+        const closeBtn = this.querySelector('[id^="ModalClose-"]');
+        
+        // 2. Attach the listener if the button exists
+        if (closeBtn) {
+           closeBtn.addEventListener('click', (event) => {
+             event.preventDefault();
+             this.hide();
+           });
+        }
+        
+        // 3. Escape key listener (from your code)
+        this.addEventListener('keyup', (event) => {
+          if (event.code.toUpperCase() === 'ESCAPE') this.hide();
+        });
+      }
+
+      show(opener) {
+        this.openedBy = opener;
+        this.setAttribute('open', '');
+      }
+
+      hide() {
+        this.removeAttribute('open');
+      }
+    };
+  }
+
+  // ---------------------------------------------------------
+  // PART 1: THE PRODUCT MODAL (Your specific implementation)
   // ---------------------------------------------------------
   if (!customElements.get('product-modal')) {
     customElements.define('product-modal', class ProductModal extends ModalDialog {
       
       connectedCallback() {
-        // Run standard setup
+        // Run the parent setup (connects the close button)
         if (super.connectedCallback) super.connectedCallback();
-
-        // 1. Find the close button inside this specific modal
-        const closeButton = this.querySelector('.product-media-modal__toggle');
-        
-        // 2. Add the Click Listener
-        if (closeButton) {
-          closeButton.addEventListener('click', (event) => {
-            // Prevent any default link behavior
-            event.preventDefault();
-            // Stop the click from bubbling up
-            event.stopPropagation();
-            
-            // 3. Call the STANDARD hide function
-            // This ensures the scrollbar is unlocked and everything cleans up nicely
-            this.hide(); 
-          });
-        }
       }
 
-      // --- STANDARD MEDIA LOGIC (Don't touch this) ---
+      // --- STANDARD MEDIA LOGIC ---
       show(opener) {
-        super.show(opener);
+        if (super.show) super.show(opener);
         this.showActiveMedia();
       }
 
@@ -332,7 +355,7 @@
   }
 
   // ---------------------------------------------------------
-  // PART 2: THE SLIDER LOGIC (Your custom slider code)
+  // PART 2: THE SLIDER LOGIC
   // ---------------------------------------------------------
   (function() {
     const sectionId = "{{ section.id }}";
@@ -340,15 +363,23 @@
     window.changeSlide = function(indexOrAction) {
       const modal = document.querySelector('#ProductModal-' + sectionId);
       if (!modal) return;
+      
       const slides = modal.querySelectorAll('.product-media-slide-' + sectionId);
       const thumbs = modal.querySelectorAll('.product-media-thumb-' + sectionId);
       let currentIndex = 0;
-      slides.forEach((slide, idx) => { if (slide.classList.contains('active')) currentIndex = idx; });
+      
+      slides.forEach((slide, idx) => { 
+        if (slide.classList.contains('active')) currentIndex = idx; 
+      });
 
       let newIndex = currentIndex;
-      if (indexOrAction === 'prev') newIndex = (currentIndex - 1 + slides.length) % slides.length;
-      else if (indexOrAction === 'next') newIndex = (currentIndex + 1) % slides.length;
-      else newIndex = parseInt(indexOrAction);
+      if (indexOrAction === 'prev') {
+        newIndex = (currentIndex - 1 + slides.length) % slides.length;
+      } else if (indexOrAction === 'next') {
+        newIndex = (currentIndex + 1) % slides.length;
+      } else {
+        newIndex = parseInt(indexOrAction);
+      }
 
       slides.forEach((s, i) => s.classList.toggle('active', i === newIndex));
       thumbs.forEach((t, i) => t.classList.toggle('active', i === newIndex));
@@ -358,15 +389,22 @@
       const content = document.getElementById('ProductModalContent-' + sectionId);
       if (!content) return;
 
-      // Click protector for arrows and thumbs
+      // Click event delegation
       content.addEventListener('click', function(e) {
         const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
         const arrowNext = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
         const thumb = e.target.closest('.product-media-thumb-' + sectionId);
         
-        if (arrowPrev) { e.preventDefault(); changeSlide('prev'); }
-        if (arrowNext) { e.preventDefault(); changeSlide('next'); }
-        if (thumb) { e.preventDefault(); changeSlide(thumb.getAttribute('data-index')); }
+        if (arrowPrev) { 
+          e.preventDefault(); 
+          window.changeSlide('prev'); 
+        } else if (arrowNext) { 
+          e.preventDefault(); 
+          window.changeSlide('next'); 
+        } else if (thumb) { 
+          e.preventDefault(); 
+          window.changeSlide(thumb.getAttribute('data-index')); 
+        }
       });
     });
   })();
