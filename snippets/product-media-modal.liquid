@@ -333,10 +333,17 @@
     }, true);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initProtector);
-  } else {
-    initProtector();
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('ProductModal-' + sectionId);
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (!e.target.closest('.product-media-modal__content')) {
+          e.stopPropagation();
+        }
+      }, true);
+
+      initProtector();
+    }
+  });
 })();
 </script>
