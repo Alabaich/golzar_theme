@@ -211,6 +211,7 @@
       type="button"
       class="product-media-modal__toggle"
       aria-label="{{ 'accessibility.close' | t }}"
+      onclick="document.getElementById('ProductModal-{{ section.id }}').removeAttribute('open');"
     >
       {{ 'icon-close.svg' | inline_asset_content }}
     </button>
@@ -265,99 +266,90 @@
     </div>
   </div>
 </product-modal>
+
 <script>
-  // 1. FIX THE MODAL & CLOSE BUTTON
-  if (!customElements.get('product-modal')) {
-    customElements.define('product-modal', class ProductModal extends ModalDialog {
-      
-      connectedCallback() {
-        if (super.connectedCallback) super.connectedCallback();
+(function() {
+  const sectionId = "{{ section.id }}";
+  
+  function changeSlide(indexOrAction) {
+    const modal = document.querySelector('#ProductModal-' + sectionId);
+    if (!modal) return;
 
-        // FIND THE CLOSE BUTTON
-        const closeButton = this.querySelector('.product-media-modal__toggle');
-        
-        // MANUALLY TELL IT TO CLOSE THE MODAL
-        if (closeButton) {
-          closeButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            this.hide(); // Call the standard hide function
-          });
-        }
-      }
+    const slides = modal.querySelectorAll('.product-media-slide-' + sectionId);
+    const thumbs = modal.querySelectorAll('.product-media-thumb-' + sectionId);
+    
+    let currentIndex = 0;
+    slides.forEach((slide, idx) => {
+      if (slide.classList.contains('active')) currentIndex = idx;
+    });
 
-      // Keep your media logic standard
-      show(opener) {
-        super.show(opener);
-        this.showActiveMedia();
-      }
+    let newIndex = currentIndex;
+    if (indexOrAction === 'prev') {
+      newIndex = (currentIndex - 1 + slides.length) % slides.length;
+    } else if (indexOrAction === 'next') {
+      newIndex = (currentIndex + 1) % slides.length;
+    } else {
+      newIndex = parseInt(indexOrAction);
+    }
 
-      showActiveMedia() {
-        this.querySelectorAll(
-          `[data-media-id]:not([data-media-id="${this.openedBy.getAttribute('data-media-id')}"])`
-        ).forEach((element) => {
-          element.classList.remove('active');
-        });
-        
-        const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute('data-media-id')}"]`);
-        if (!activeMedia) return;
-      
-        const activeMediaTemplate = activeMedia.querySelector('template');
-        const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
-        activeMedia.classList.add('active');
-        activeMedia.scrollIntoView();
-      
-        const container = this.querySelector('[role="document"]');
-        if (container) {
-          container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
-        }
-      
-        if (
-          activeMedia.nodeName == 'DEFERRED-MEDIA' &&
-          activeMediaContent &&
-          activeMediaContent.querySelector('.js-youtube')
-        ) {
-          activeMedia.loadContent();
-        }
-      }
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === newIndex);
+    });
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === newIndex);
     });
   }
 
-  // 2. YOUR SLIDER LOGIC
-  (function() {
-    const sectionId = "{{ section.id }}";
-    
-    window.changeSlide = function(indexOrAction) {
-      const modal = document.querySelector('#ProductModal-' + sectionId);
-      if (!modal) return;
-      const slides = modal.querySelectorAll('.product-media-slide-' + sectionId);
-      const thumbs = modal.querySelectorAll('.product-media-thumb-' + sectionId);
-      let currentIndex = 0;
-      slides.forEach((slide, idx) => { if (slide.classList.contains('active')) currentIndex = idx; });
+  function initProtector() {
+    const content = document.getElementById('ProductModalContent-' + sectionId);
+    if (!content) return;
 
-      let newIndex = currentIndex;
-      if (indexOrAction === 'prev') newIndex = (currentIndex - 1 + slides.length) % slides.length;
-      else if (indexOrAction === 'next') newIndex = (currentIndex + 1) % slides.length;
-      else newIndex = parseInt(indexOrAction);
-
-      slides.forEach((s, i) => s.classList.toggle('active', i === newIndex));
-      thumbs.forEach((t, i) => t.classList.toggle('active', i === newIndex));
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const content = document.getElementById('ProductModalContent-' + sectionId);
-      if (!content) return;
-
-      // Click protector for arrows and thumbs
-      content.addEventListener('click', function(e) {
-        const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
-        const arrowNext = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
-        const thumb = e.target.closest('.product-media-thumb-' + sectionId);
-        
-        if (arrowPrev) { e.preventDefault(); changeSlide('prev'); }
-        if (arrowNext) { e.preventDefault(); changeSlide('next'); }
-        if (thumb) { e.preventDefault(); changeSlide(thumb.getAttribute('data-index')); }
-      });
+    content.addEventListener('click', function(e) {
+      e.stopPropagation(); 
     });
-  })();
+    // ---------------------
+
+    content.addEventListener('click', function(e) {
+      console.log('Click event:', e.target);
+
+      const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
+      const arrowNext = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
+      const thumb = e.target.closest('.product-media-thumb-' + sectionId);
+      
+      if (arrowPrev) {
+        console.log('Previous button clicked');
+        e.preventDefault();
+        changeSlide('prev');
+        return false;
+      }
+      
+      if (arrowNext) {
+        console.log('Next button clicked');
+        e.preventDefault();
+        changeSlide('next');
+        return false;
+      }
+
+      if (thumb) {
+        console.log('Thumbnail clicked', thumb.getAttribute('data-index'));
+        e.preventDefault();
+        changeSlide(thumb.getAttribute('data-index'));
+        return false;
+      }
+    }, true);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('ProductModal-' + sectionId);
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (!e.target.closest('.product-media-modal__content')) {
+          e.stopPropagation();
+        }
+      }, true);
+
+      initProtector();
+    }
+  });
+})();
 </script>
