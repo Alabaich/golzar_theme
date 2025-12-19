@@ -1647,7 +1647,7 @@ body product-recommendations.related-products {
   padding-right: 10px;
 }
 .product .page-width:has(.shopify-app-block) {
-  max-width: 1140px;
+  /* max-width: 1140px; */
   margin: auto;
   padding: 0 10px;
 }
@@ -1914,7 +1914,7 @@ body.type-product .bredcrums-product-main nav.breadcrumb span {
   max-width: 100%;
 }
 .product div {
-  margin: 0;
+  /* margin: 0; */
 }
 /* product-required-css */
 

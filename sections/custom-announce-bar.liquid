@@ -5,6 +5,10 @@
   {% endif %}
   }
 
+  #shopify-section-{{ section.id }} .custom-announce-bar-main {
+    /* max-width: 100%; */
+  }
+
   {% if section.blocks.size == 0 %}
     #shopify-section-{{ section.id }} {
     display: none;
@@ -57,10 +61,10 @@
   100% {
   transform: translateX(-16.67%);
   }
-  }
+}
 {% endstyle %}
 
-<div class="page-width">
+<div class="page-width custom-announce-bar-main">
   <div class="custom-announce-bar-inn">
     <div class="custom-announce-main-box marquee-container">
       <div class="marquee-content">
