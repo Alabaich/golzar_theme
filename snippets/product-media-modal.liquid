@@ -304,28 +304,32 @@
     if (!content) return;
 
     content.addEventListener('click', function(e) {
+      console.log('Click event:', e.target);
+
       const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
       const arrowNext = e.target.closest('.product-media-slider-arrow-' + sectionId + '.next');
       const thumb = e.target.closest('.product-media-thumb-' + sectionId);
       
       if (arrowPrev) {
+        console.log('Previous button clicked');
         e.preventDefault();
         changeSlide('prev');
         return false;
       }
       
       if (arrowNext) {
+        console.log('Next button clicked');
         e.preventDefault();
         changeSlide('next');
         return false;
       }
 
       if (thumb) {
+        console.log('Thumbnail clicked', thumb.getAttribute('data-index'));
         e.preventDefault();
         changeSlide(thumb.getAttribute('data-index'));
         return false;
       }
-
     }, true);
   }
 
