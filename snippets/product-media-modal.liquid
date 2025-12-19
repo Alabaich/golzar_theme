@@ -343,7 +343,24 @@
       }, true);
 
       initProtector();
+
+      // Предотвращение закрытия модального окна при клике вне его содержимого
+      document.body.addEventListener('click', function(e) {
+        const modal = document.getElementById('ProductModal-' + sectionId);
+        if (modal && !modal.contains(e.target)) {
+          e.stopPropagation();
+        }
+      }, true);
+
+      // Предотвращение закрытия модального окна при клике на кнопку закрытия
+      const closeButton = document.querySelector('#ModalClose-' + sectionId);
+      if (closeButton) {
+        closeButton.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
     }
   });
 })();
+
 </script>
