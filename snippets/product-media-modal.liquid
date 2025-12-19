@@ -304,6 +304,11 @@
     if (!content) return;
 
     content.addEventListener('click', function(e) {
+      e.stopPropagation(); 
+    });
+    // ---------------------
+
+    content.addEventListener('click', function(e) {
       console.log('Click event:', e.target);
 
       const arrowPrev = e.target.closest('.product-media-slider-arrow-' + sectionId + '.prev');
@@ -346,4 +351,18 @@
     }
   });
 })();
+
+if (modal) {
+      // OPTIONAL: Add this if you want to STOP the background click from closing it too
+      modal.addEventListener('click', function(e) {
+        // If the click is NOT on the close button...
+        if (!e.target.closest('.product-media-modal__toggle')) {
+          // ...stop the modal from seeing it.
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        }
+      }, true); // Capture phase to beat the built-in closer
+
+      initProtector();
+    }
 </script>
