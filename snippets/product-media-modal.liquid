@@ -268,6 +268,71 @@
 </product-modal>
 
 <script>
+
+if (!customElements.get('product-modal')) {
+  customElements.define(
+    'product-modal',
+    class ProductModal extends ModalDialog {
+      constructor() {
+        super();
+        // We don't need the pointerup logic here anymore
+      }
+
+      // 1. THIS IS NEW: Connect the Close Button manually
+      connectedCallback() {
+        if (super.connectedCallback) super.connectedCallback();
+
+        const closeButton = this.querySelector('.product-media-modal__toggle');
+        if (closeButton) {
+          closeButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            this.hide(); // Force close
+          });
+        }
+      }
+
+      // 2. We removed disconnectedCallback because _stopPointerUp no longer exists
+
+      show(opener) {
+        super.show(opener);
+        this.showActiveMedia();
+      }
+
+      showActiveMedia() {
+        this.querySelectorAll(
+          `[data-media-id]:not([data-media-id="${this.openedBy.getAttribute('data-media-id')}"])`
+        ).forEach((element) => {
+          element.classList.remove('active');
+        });
+
+        const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute('data-media-id')}"]`);
+
+        if (!activeMedia) return;
+
+        const activeMediaTemplate = activeMedia.querySelector('template');
+        const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
+        activeMedia.classList.add('active');
+        activeMedia.scrollIntoView();
+
+        const container = this.querySelector('[role="document"]');
+
+        if (container) {
+          container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
+        }
+
+        if (
+          activeMedia.nodeName == 'DEFERRED-MEDIA' &&
+          activeMediaContent &&
+          activeMediaContent.querySelector('.js-youtube')
+        ) {
+          activeMedia.loadContent();
+        }
+      }
+    }
+  );
+}
+
+
 (function() {
   const sectionId = "{{ section.id }}";
   
