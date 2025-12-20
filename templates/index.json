@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_YGcKYC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/GODI_Banner.png",
+            "heading": "Godi Vanities and Bathroom Furniture in Toronto, Mississauga, Vaughan. Free Delivery",
+            "button_label": "Shop Exclusive Collection",
+            "button_url": "shopify://collections/godi-bathroom-vanities"
+          }
+        },
         "slide_AdYdMJ": {
           "type": "slide",
           "disabled": true,
@@ -60,6 +69,7 @@
         }
       },
       "block_order": [
+        "slide_YGcKYC",
         "slide_AdYdMJ",
         "slide_9Ed4gP",
         "slide_Vrd9hE",
