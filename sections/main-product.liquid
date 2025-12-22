@@ -882,8 +882,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
 
-              {% render 'holiday-shipping-notice' %}
-
 
 
 {% comment %}
@@ -1454,6 +1452,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       </div>
     </div>
 
+                  {% render 'holiday-shipping-notice' %}
 
  <div class="page-width">
  {% comment %} {%- for block in section.blocks -%}
