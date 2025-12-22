@@ -1177,6 +1177,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/bathroomsupplierProductPage.js" async></script>
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/accordion-logic.js" async></script>
 
+{% render 'holiday-shipping-notice' %}
+
 {% if product.tags contains 'no_free_shipping' %}
   <div class="product-tag-disclaimer" style="font-size: 0.9em; color: #666; font-style: italic;">
     <p><b>Please note:</b> Due to special pricing, some options for this item may not be eligible for free shipping promotions.</p>
@@ -1452,7 +1454,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       </div>
     </div>
 
-                  {% render 'holiday-shipping-notice' %}
 
  <div class="page-width">
  {% comment %} {%- for block in section.blocks -%}
