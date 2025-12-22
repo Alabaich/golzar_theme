@@ -1,0 +1,68 @@
+<style>
+  .hsn-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #f8f8f8;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+
+  .hsn-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #4a4a4a;
+    margin-top: 2px;
+  }
+
+  .hsn-content {
+    font-size: 0.9rem;
+    color: #333333;
+  }
+
+  .hsn-title {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000;
+  }
+
+  .hsn-date-highlight {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #d32f2f;
+    text-underline-offset: 3px;
+  }
+</style>
+
+<div class="hsn-container">
+  <svg
+    class="hsn-icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <rect x="1" y="3" width="15" height="13"></rect>
+    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+  </svg>
+
+  <div class="hsn-content">
+    <span class="hsn-title">Holiday Shipping Update</span>
+    We are accepting orders 24/7! Please note that fulfillment is paused from Dec 25 to Jan 5. Shipping resumes on
+    <span class="hsn-date-highlight">January 5th</span>.
+  </div>
+</div>
