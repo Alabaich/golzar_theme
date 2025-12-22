@@ -1,160 +1,143 @@
 {% comment %}
-  SECTION: Template Audit Tool
-  Use: displays a list of products grouped by their assigned template suffix.
-  Note: Limited to checking 1000 products due to Shopify Liquid server limits.
+  SECTION: Full Store Template Scanner
+  Use: Uses JavaScript to fetch ALL products via the 'audit-json' collection template.
 {% endcomment %}
 
 <div class="page-width section-template-audit">
   <div class="audit-header">
-    <h2>Product Template Audit</h2>
-    <p>Checking the first <strong>1,000 products</strong> in your store.</p>
+    <h2>Full Store Template Scanner</h2>
+    <p>Click the button below to scan your entire catalog.</p>
+    <button id="startScanBtn" class="btn-audit">Start Full Scan</button>
+    <div id="statusMsg" class="status-msg"></div>
   </div>
 
-  {% paginate collections.all.products by 1000 %}
-    
-    {% assign unique_templates = "" %}
-    {% assign has_custom_templates = false %}
-
-    {% comment %} --- PHASE 1: Collect unique Template Names --- {% endcomment %}
-    {% for product in collections.all.products %}
-      {% if product.template_suffix != blank %}
-        {% assign has_custom_templates = true %}
-        {% unless unique_templates contains product.template_suffix %}
-          {% assign unique_templates = unique_templates | append: product.template_suffix | append: "," %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-
-    {% assign templates_array = unique_templates | split: "," %}
-
-    {% comment %} --- PHASE 2: Render Dropdowns --- {% endcomment %}
-    {% if has_custom_templates %}
-      <div class="audit-container">
-        {% for template_name in templates_array %}
-           {% if template_name != blank %}
-            <details class="audit-group">
-              <summary>
-                <span class="template-name">{{ template_name }}</span>
-                {% comment %} Calculate count for this specific group {% endcomment %}
-                {% assign counter = 0 %}
-                {% for product in collections.all.products %}
-                  {% if product.template_suffix == template_name %}
-                    {% assign counter = counter | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                <span class="badge">{{ counter }} products</span>
-              </summary>
-              
-              <ul class="product-list">
-                {% for product in collections.all.products %}
-                  {% if product.template_suffix == template_name %}
-                    <li>
-                      <a href="{{ product.url }}" target="_blank">{{ product.title }}</a>
-                      <span class="sku">({{ product.variants.first.sku | default: 'No SKU' }})</span>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </details>
-           {% endif %}
-        {% endfor %}
-      </div>
-    {% else %}
-      <div class="audit-empty">
-        <p>No custom templates found. All 1,000 checked products use "Default Product".</p>
-      </div>
-    {% endif %}
-
-  {% endpaginate %}
+  <div id="resultsContainer"></div>
 </div>
 
+<script>
+document.getElementById('startScanBtn').addEventListener('click', async function() {
+  const btn = this;
+  const status = document.getElementById('statusMsg');
+  const container = document.getElementById('resultsContainer');
+  
+  btn.disabled = true;
+  container.innerHTML = '';
+  let page = 1;
+  let allProducts = [];
+  let hasNext = true;
+
+  // --- 1. FETCH LOOP ---
+  try {
+    while (hasNext) {
+      status.innerHTML = `Scanning page ${page} (found ${allProducts.length} products)...`;
+      
+      // Fetch the custom view we created
+      const response = await fetch(`/collections/all?view=audit-json&page=${page}`);
+      
+      if (!response.ok) throw new Error("Could not fetch data. Ensure 'collection.audit-json.liquid' exists.");
+      
+      const data = await response.json();
+      
+      if (data.products && data.products.length > 0) {
+        allProducts = allProducts.concat(data.products);
+      }
+      
+      hasNext = data.has_next;
+      page++;
+      
+      // Safety brake (optional: stop at 100 pages to prevent infinite loops if something breaks)
+      if (page > 200) hasNext = false; 
+    }
+
+    status.innerHTML = `Scan Complete! Found ${allProducts.length} products.`;
+    renderResults(allProducts);
+    btn.disabled = false;
+    btn.innerText = "Scan Again";
+
+  } catch (error) {
+    status.innerHTML = `<span style="color:red">Error: ${error.message}</span>`;
+    console.error(error);
+    btn.disabled = false;
+  }
+});
+
+// --- 2. RENDER RESULTS ---
+function renderResults(products) {
+  const container = document.getElementById('resultsContainer');
+  const groups = {};
+
+  // Group by template
+  products.forEach(p => {
+    const tmpl = p.template || 'default';
+    if (!groups[tmpl]) groups[tmpl] = [];
+    groups[tmpl].push(p);
+  });
+
+  // Generate HTML
+  if (Object.keys(groups).length === 0) {
+    container.innerHTML = '<p>No products found.</p>';
+    return;
+  }
+
+  let html = '<div class="audit-container">';
+  
+  for (const [templateName, items] of Object.entries(groups)) {
+    // Only show non-default templates if you prefer, or show all. 
+    // Currently showing ALL groups.
+    if(templateName !== 'default') {
+        html += `
+        <details class="audit-group">
+            <summary>
+            <span class="template-name">${templateName}</span>
+            <span class="badge">${items.length} products</span>
+            </summary>
+            <ul class="product-list">
+            ${items.map(item => `
+                <li>
+                <a href="${item.url}" target="_blank">${item.title}</a>
+                <span class="sku">${item.sku || 'No SKU'}</span>
+                </li>
+            `).join('')}
+            </ul>
+        </details>
+        `;
+    }
+  }
+  
+  // Add a separate block for Default if you want to see them too, 
+  // or just a summary.
+  if (groups['default']) {
+      html += `
+      <div class="audit-group-static">
+          <strong>Default Template:</strong> ${groups['default'].length} products (Hidden from list)
+      </div>`;
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+</script>
+
 {% style %}
-  .section-template-audit {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  .audit-header {
-    margin-bottom: 30px;
-    border-bottom: 1px solid #e1e3e5;
-    padding-bottom: 20px;
-  }
-  .audit-group {
-    border: 1px solid #e1e3e5;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    background: white;
-  }
-  .audit-group summary {
-    padding: 15px;
-    cursor: pointer;
-    background-color: #f9fafb;
-    list-style: none; /* Hide default triangle */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-  }
-  /* Custom +/- indicators */
-  .audit-group summary::after {
-    content: "+"; 
-    font-size: 1.2em;
-    font-weight: normal;
-    color: #5c5f62;
-  }
-  .audit-group[open] summary::after {
-    content: "-";
-  }
-  .audit-group summary::-webkit-details-marker {
-    display: none;
-  }
-  .template-name {
-    text-transform: capitalize;
-    color: #202223;
-  }
-  .badge {
-    background: #e4e5e7;
-    color: #444;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 0.8em;
-    font-weight: normal;
-    margin-left: auto;
-    margin-right: 10px;
-  }
-  .product-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .product-list li {
-    padding: 10px 15px;
-    border-top: 1px solid #f1f2f3;
-    display: flex;
-    justify-content: space-between;
-  }
-  .product-list li a {
-    text-decoration: none;
-    color: #005bd3;
-  }
-  .product-list li a:hover {
-    text-decoration: underline;
-  }
-  .sku {
-    color: #8c9196;
-    font-size: 0.9em;
-  }
+  .section-template-audit { padding: 40px 20px; max-width: 800px; margin: 0 auto; font-family: sans-serif; }
+  .audit-header { margin-bottom: 30px; border-bottom: 1px solid #e1e3e5; padding-bottom: 20px; text-align: center; }
+  .btn-audit { background: #000; color: #fff; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; border-radius: 4px; }
+  .btn-audit:disabled { opacity: 0.5; cursor: not-allowed; }
+  .status-msg { margin-top: 15px; font-weight: bold; color: #555; }
+  
+  .audit-group { border: 1px solid #e1e3e5; margin-bottom: 10px; border-radius: 6px; background: white; text-align: left;}
+  .audit-group summary { padding: 15px; cursor: pointer; background-color: #f9fafb; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+  .badge { background: #e4e5e7; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+  .product-list { list-style: none; margin: 0; padding: 0; max-height: 300px; overflow-y: auto; }
+  .product-list li { padding: 8px 15px; border-top: 1px solid #f1f2f3; display: flex; justify-content: space-between; }
+  .product-list a { text-decoration: none; color: #005bd3; }
+  .audit-group-static { margin-top: 20px; color: #666; font-style: italic; }
 {% endstyle %}
 
 {% schema %}
 {
-  "name": "Template Audit Tool",
+  "name": "Template Audit Scanner",
   "settings": [],
-  "presets": [
-    {
-      "name": "Template Audit Tool"
-    }
-  ]
+  "presets": [{ "name": "Template Audit Scanner" }]
 }
 {% endschema %}
