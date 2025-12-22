@@ -1,0 +1,160 @@
+{% comment %}
+  SECTION: Template Audit Tool
+  Use: displays a list of products grouped by their assigned template suffix.
+  Note: Limited to checking 1000 products due to Shopify Liquid server limits.
+{% endcomment %}
+
+<div class="page-width section-template-audit">
+  <div class="audit-header">
+    <h2>Product Template Audit</h2>
+    <p>Checking the first <strong>1,000 products</strong> in your store.</p>
+  </div>
+
+  {% paginate collections.all.products by 1000 %}
+    
+    {% assign unique_templates = "" %}
+    {% assign has_custom_templates = false %}
+
+    {% comment %} --- PHASE 1: Collect unique Template Names --- {% endcomment %}
+    {% for product in collections.all.products %}
+      {% if product.template_suffix != blank %}
+        {% assign has_custom_templates = true %}
+        {% unless unique_templates contains product.template_suffix %}
+          {% assign unique_templates = unique_templates | append: product.template_suffix | append: "," %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign templates_array = unique_templates | split: "," %}
+
+    {% comment %} --- PHASE 2: Render Dropdowns --- {% endcomment %}
+    {% if has_custom_templates %}
+      <div class="audit-container">
+        {% for template_name in templates_array %}
+           {% if template_name != blank %}
+            <details class="audit-group">
+              <summary>
+                <span class="template-name">{{ template_name }}</span>
+                {% comment %} Calculate count for this specific group {% endcomment %}
+                {% assign counter = 0 %}
+                {% for product in collections.all.products %}
+                  {% if product.template_suffix == template_name %}
+                    {% assign counter = counter | plus: 1 %}
+                  {% endif %}
+                {% endfor %}
+                <span class="badge">{{ counter }} products</span>
+              </summary>
+              
+              <ul class="product-list">
+                {% for product in collections.all.products %}
+                  {% if product.template_suffix == template_name %}
+                    <li>
+                      <a href="{{ product.url }}" target="_blank">{{ product.title }}</a>
+                      <span class="sku">({{ product.variants.first.sku | default: 'No SKU' }})</span>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </details>
+           {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="audit-empty">
+        <p>No custom templates found. All 1,000 checked products use "Default Product".</p>
+      </div>
+    {% endif %}
+
+  {% endpaginate %}
+</div>
+
+{% style %}
+  .section-template-audit {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .audit-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e1e3e5;
+    padding-bottom: 20px;
+  }
+  .audit-group {
+    border: 1px solid #e1e3e5;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: white;
+  }
+  .audit-group summary {
+    padding: 15px;
+    cursor: pointer;
+    background-color: #f9fafb;
+    list-style: none; /* Hide default triangle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+  /* Custom +/- indicators */
+  .audit-group summary::after {
+    content: "+"; 
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #5c5f62;
+  }
+  .audit-group[open] summary::after {
+    content: "-";
+  }
+  .audit-group summary::-webkit-details-marker {
+    display: none;
+  }
+  .template-name {
+    text-transform: capitalize;
+    color: #202223;
+  }
+  .badge {
+    background: #e4e5e7;
+    color: #444;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  .product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .product-list li {
+    padding: 10px 15px;
+    border-top: 1px solid #f1f2f3;
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-list li a {
+    text-decoration: none;
+    color: #005bd3;
+  }
+  .product-list li a:hover {
+    text-decoration: underline;
+  }
+  .sku {
+    color: #8c9196;
+    font-size: 0.9em;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Template Audit Tool",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Template Audit Tool"
+    }
+  ]
+}
+{% endschema %}
