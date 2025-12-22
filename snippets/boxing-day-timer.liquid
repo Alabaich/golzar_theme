@@ -32,7 +32,11 @@
     position: relative;
     z-index: 2;
     width: 100%;
+    display: flex;
     max-width: 600px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
   }
 
   .cbd-title {
@@ -94,6 +98,7 @@
     border: none;
     user-select: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: fit-content;
   }
 
   .cbd-copy-btn:active {
