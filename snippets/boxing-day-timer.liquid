@@ -1,0 +1,245 @@
+{% if product.tags contains 'christmas_sale' %}
+
+<style>
+  .cbd-banner-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0848/7193/8321/files/chrboxday.jpg?v=1766437211');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: #ffffff;
+    margin: 1.5rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .cbd-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+  }
+
+  .cbd-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .cbd-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+
+  .cbd-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    font-weight: 400;
+  }
+
+  .cbd-timer-flex {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cbd-timer-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cbd-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .cbd-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+    opacity: 0.8;
+  }
+
+  .cbd-copy-btn {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: inline-block;
+    border: none;
+    user-select: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  .cbd-copy-btn:active {
+    transform: scale(0.98);
+    background-color: #f0f0f0;
+  }
+
+  .cbd-code-text {
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .cbd-title {
+      font-size: 1.5rem;
+    }
+    .cbd-timer-flex {
+      gap: 0.5rem;
+    }
+    .cbd-timer-box {
+      min-width: 55px;
+      padding: 8px;
+    }
+    .cbd-number {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<div class="cbd-banner-wrapper">
+  <div class="cbd-overlay"></div>
+  <div class="cbd-content">
+    
+    <h2 class="cbd-title">Christmas Boxing Day</h2>
+    <p class="cbd-subtitle">Orders accepted now. Shipping resumes January 5th.</p>
+
+    <div id="cbd-timer" class="cbd-timer-flex">
+      <div class="cbd-timer-box">
+        <span id="cbd-days" class="cbd-number">00</span>
+        <span class="cbd-label">Days</span>
+      </div>
+      <div class="cbd-timer-box">
+        <span id="cbd-hours" class="cbd-number">00</span>
+        <span class="cbd-label">Hours</span>
+      </div>
+      <div class="cbd-timer-box">
+        <span id="cbd-minutes" class="cbd-number">00</span>
+        <span class="cbd-label">Mins</span>
+      </div>
+      <div class="cbd-timer-box">
+        <span id="cbd-seconds" class="cbd-number">00</span>
+        <span class="cbd-label">Secs</span>
+      </div>
+    </div>
+
+    <button id="cbd-action-btn" class="cbd-copy-btn">
+      <span id="cbd-btn-text">Use Code: <span style="text-decoration: underline;">BOXINGDAY</span></span>
+    </button>
+    <div id="cbd-hidden-code" style="display:none;">BOXINGDAY</div>
+
+  </div>
+</div>
+
+<script>
+  (function() {
+    const targetDate = new Date("2026-01-05T00:00:00").getTime();
+    
+    const dEl = document.getElementById("cbd-days");
+    const hEl = document.getElementById("cbd-hours");
+    const mEl = document.getElementById("cbd-minutes");
+    const sEl = document.getElementById("cbd-seconds");
+    
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    const timerInt = setInterval(function() {
+      const now = new Date().getTime();
+      const dist = targetDate - now;
+
+      if (dist < 0) {
+        clearInterval(timerInt);
+        if (dEl) dEl.innerHTML = "00";
+        if (hEl) hEl.innerHTML = "00";
+        if (mEl) mEl.innerHTML = "00";
+        if (sEl) sEl.innerHTML = "00";
+        return;
+      }
+
+      const days = Math.floor(dist / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((dist % (1000 * 60)) / 1000);
+
+      if (dEl) dEl.innerHTML = pad(days);
+      if (hEl) hEl.innerHTML = pad(hours);
+      if (mEl) mEl.innerHTML = pad(minutes);
+      if (sEl) sEl.innerHTML = pad(seconds);
+
+    }, 1000);
+  })();
+
+  (function() {
+    const btn = document.getElementById("cbd-action-btn");
+    const btnText = document.getElementById("cbd-btn-text");
+    const hiddenCode = document.getElementById("cbd-hidden-code");
+
+    if (btn && btnText && hiddenCode) {
+      const originalHTML = btnText.innerHTML;
+      const codeValue = hiddenCode.innerText;
+
+      btn.addEventListener("click", function() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(codeValue).then(onCopySuccess).catch(legacyCopy);
+        } else {
+            legacyCopy();
+        }
+
+        function legacyCopy() {
+            const ta = document.createElement("textarea");
+            ta.value = codeValue;
+            ta.style.position = "absolute";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand("copy");
+                onCopySuccess();
+            } catch (e) {
+                console.error(e);
+            }
+            document.body.removeChild(ta);
+        }
+
+        function onCopySuccess() {
+            btnText.innerHTML = "Code Copied!";
+            setTimeout(function() {
+                btnText.innerHTML = originalHTML;
+            }, 1500);
+        }
+      });
+    }
+  })();
+</script>
+
+{% endif %}
