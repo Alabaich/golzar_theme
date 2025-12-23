@@ -94,50 +94,44 @@
     "collection_page_links_NUGRW3": {
       "type": "collection-page-links",
       "blocks": {
-        "collection_KDMA6p": {
-          "type": "collection",
+        "custom_link_7YbDPC": {
+          "type": "custom_link",
           "settings": {
-            "collection": "one-piece-toilets"
+            "image": "shopify://shop_images/riobel-nibi-shower-trim-kit-323-without-spout-639717.webp",
+            "title": "Showers",
+            "link": ""
           }
         },
-        "collection_NJfM8m": {
-          "type": "collection",
+        "custom_link_9EMw4G": {
+          "type": "custom_link",
           "settings": {
-            "collection": "two-piece-toilets"
+            "image": "shopify://shop_images/icy8epmkhrkl7eabs5el__02270.1706596119.webp",
+            "title": "Bathroom Faucets",
+            "link": "https://bathroomsupplier.ca/collections/riobel?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Bathtub+Spouts&filter.p.product_type=Floor-Mount+Tub+Faucets&filter.p.product_type=Single+Hole+Faucets&filter.p.product_type=Vessel+Sink+Faucets&filter.p.product_type=Wall-Mount+Tub+Faucets&filter.p.product_type=Wall-Mounted+Faucets&filter.p.product_type=Widespread+Faucets&sort_by=best-selling"
           }
         },
-        "collection_VHpTzr": {
-          "type": "collection",
+        "custom_link_zx8GGV": {
+          "type": "custom_link",
           "settings": {
-            "collection": "wall-mounted-toilets"
+            "image": "shopify://shop_images/pkia9st0pdn6n8jrj4pw__12571.1676586469.webp",
+            "title": "Kitchen Faucets",
+            "link": "https://bathroomsupplier.ca/collections/riobel?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Sink+Faucets&sort_by=best-selling"
           }
         },
-        "collection_nifBtE": {
-          "type": "collection",
+        "custom_link_a8LRCg": {
+          "type": "custom_link",
           "settings": {
-            "collection": "smart-toilets-bidets"
-          }
-        },
-        "collection_W7mrPD": {
-          "type": "collection",
-          "settings": {
-            "collection": "bidet-seats"
-          }
-        },
-        "collection_PrnzUQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "toilet-seats"
+            "image": "shopify://shop_images/12-inch-thermostatic-and-pressure-balance-rough-in-valve-with-up-to-5-functions-724293.jpg",
+            "title": "Parts and Accessories",
+            "link": "https://bathroomsupplier.ca/collections/riobel?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Bathroom+Sink+Drains&filter.p.product_type=Faucet+Parts&filter.p.product_type=Glass+Holder&filter.p.product_type=Handshower+Holder&filter.p.product_type=Pressure+Balance+Trims&filter.p.product_type=Robe+Hooks&filter.p.product_type=Rough-in&filter.p.product_type=Shower+Arms&filter.p.product_type=Slide+Bar&filter.p.product_type=Soap+%26+Lotion+Dispensers&filter.p.product_type=Soap+Dish&filter.p.product_type=Supply+Elbow&filter.p.product_type=Toilet+Paper+Holders&filter.p.product_type=Towel+Bars&filter.p.product_type=Towel+Rings&sort_by=best-selling"
           }
         }
       },
       "block_order": [
-        "collection_KDMA6p",
-        "collection_NJfM8m",
-        "collection_VHpTzr",
-        "collection_nifBtE",
-        "collection_W7mrPD",
-        "collection_PrnzUQ"
+        "custom_link_7YbDPC",
+        "custom_link_9EMw4G",
+        "custom_link_zx8GGV",
+        "custom_link_a8LRCg"
       ],
       "name": "Collection Page Links",
       "settings": {}
