@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_AdYdMJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/christmasand_boxing_sale.webp",
+            "heading": "Boxing day and Christmas Sale",
+            "button_label": "Boxing Day Sale",
+            "button_url": "https://bathroomsupplier.ca/collections/black-friday-2025-biggest-sale-of-the-year"
+          }
+        },
         "slide_YGcKYC": {
           "type": "slide",
           "settings": {
@@ -19,16 +28,6 @@
             "heading": "Godi Vanities and Bathroom Furniture in Toronto, Mississauga, Vaughan. Free Delivery",
             "button_label": "Shop Exclusive Collection",
             "button_url": "shopify://collections/godi-bathroom-vanities"
-          }
-        },
-        "slide_AdYdMJ": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/christmasand_boxing_sale.webp",
-            "heading": "Boxing day and Christmas Sale",
-            "button_label": "Boxing Day Sale",
-            "button_url": "https://bathroomsupplier.ca/collections/black-friday-2025-biggest-sale-of-the-year"
           }
         },
         "slide_9Ed4gP": {
@@ -69,8 +68,8 @@
         }
       },
       "block_order": [
-        "slide_YGcKYC",
         "slide_AdYdMJ",
+        "slide_YGcKYC",
         "slide_9Ed4gP",
         "slide_Vrd9hE",
         "slide_ywQwcF",
@@ -103,7 +102,7 @@
         "promo_block_MnqjNh": {
           "type": "promo_block",
           "settings": {
-            "image": "shopify://shop_images/cyber_monday_2f26055d-ae25-44ce-a9bd-8c81a905971d.webp",
+            "image": "shopify://shop_images/christmas_boxing_day.webp",
             "heading": "",
             "text": "",
             "button_url": "https://bathroomsupplier.ca/collections/black-friday-2025-biggest-sale-of-the-year"
