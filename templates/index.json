@@ -25,9 +25,9 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/cyber_monday.webp",
-            "heading": "Biggest Sale Of The Year",
-            "button_label": "Black Friday",
+            "image": "shopify://shop_images/christmasand_boxing_sale.webp",
+            "heading": "Boxing day and Christmas Sale",
+            "button_label": "Boxing Day Sale",
             "button_url": "https://bathroomsupplier.ca/collections/black-friday-2025-biggest-sale-of-the-year"
           }
         },
