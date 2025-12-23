@@ -649,8 +649,9 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
                 </div>
                 {% comment %} {% render 'blackFridayCounter' %} {% endcomment %}
+                 {% if product.tags contains 'black_friday_sale' %}
                 {% render 'boxing-day-timer' %}
-
+                 {% endif %}
               {%- when 'price' -%}
                 {% comment %} {% render 'vipCustomers' %} {% endcomment %}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
