@@ -1162,7 +1162,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M11.9998 21C16.9148 21 21 16.9235 21 12C21 7.08513 16.9058 3 11.9908 3C7.06752 3 3 7.08513 3 12C3 16.9235 7.07618 21 11.9998 21ZM11.9915 13.3237C11.5236 13.3237 11.2679 13.05 11.2499 12.582L11.1264 8.22396C11.1087 7.73831 11.4791 7.39459 11.9821 7.39459C12.4764 7.39459 12.8556 7.74734 12.8382 8.23262L12.7144 12.5828C12.6967 13.059 12.432 13.3241 11.9912 13.3241M11.9912 16.5712C11.4791 16.5712 11.0025 16.1653 11.0025 15.6179C11.0025 15.0705 11.4705 14.6654 11.9912 14.6654C12.5028 14.6654 12.979 15.0622 12.979 15.6179C12.979 16.174 12.4938 16.5712 11.9912 16.5712Z" fill="#FF3B3B"/>
       </svg>  
-    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black;">
+    <span style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #D3D3D3; color: black; display: {%- if product.available -%}none{%- else -%}block{%- endif -%};">
       Sold Out
     </span>
   </div>
