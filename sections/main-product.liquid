@@ -743,6 +743,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   | replace: '&lpar;', '(' 
   | replace: '&rpar;', ')' 
   | replace: '', '' 
+  | escape 
 }}
                   </div>
                 {%- endif -%}
@@ -1866,6 +1867,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   | replace: '&excl;', '!'
   | replace: '�', "'"
   | replace: '&colon;', ':'
+  | escape 
 }}
         </div>
       </div>
