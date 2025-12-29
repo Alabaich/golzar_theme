@@ -723,7 +723,13 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
+                    {{ product.description 
+  | replace: '&comma;', ',' 
+  | replace: '&period;', '.' 
+  | replace: '&lpar;', '(' 
+  | replace: '&rpar;', ')' 
+  | replace: '', '' 
+}}
                   </div>
                 {%- endif -%}
               
@@ -1836,7 +1842,13 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     {% if show_description_tab %}
       <div id="product-description-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
         <div class="product-description-content rte">
-          {{ product.description }}
+          {{ product.description 
+  | replace: '&comma;', ',' 
+  | replace: '&period;', '.' 
+  | replace: '&lpar;', '(' 
+  | replace: '&rpar;', ')' 
+  | replace: '', '' 
+}}
         </div>
       </div>
       {% assign is_first_active = false %}
