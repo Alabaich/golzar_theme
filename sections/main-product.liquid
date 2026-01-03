@@ -663,9 +663,9 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
                 </div>
                 {% comment %} {% render 'blackFridayCounter' %} {% endcomment %}
-                 {% if product.tags contains 'black_friday_sale' %}
+                 {% comment %} {% if product.tags contains 'black_friday_sale' %}
                 {% render 'boxing-day-timer' %}
-                 {% endif %}
+                 {% endif %} {% endcomment %}
               {%- when 'price' -%}
                 {% comment %} {% render 'vipCustomers' %} {% endcomment %}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -743,7 +743,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   | replace: '&lpar;', '(' 
   | replace: '&rpar;', ')' 
   | replace: '', '' 
-  | escape 
 }}
                   </div>
                 {%- endif -%}
@@ -1867,7 +1866,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   | replace: '&excl;', '!'
   | replace: '�', "'"
   | replace: '&colon;', ':'
-  | escape 
 }}
         </div>
       </div>
