@@ -1199,7 +1199,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/bathroomsupplierProductPage.js" async></script>
 <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/accordion-logic.js" async></script>
 
-{% render 'holiday-shipping-notice' %}
+{% comment %} {% render 'holiday-shipping-notice' %} {% endcomment %}
 
 {% if product.tags contains 'no_free_shipping' %}
   <div class="product-tag-disclaimer" style="font-size: 0.9em; color: #666; font-style: italic;">
