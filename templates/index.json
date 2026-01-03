@@ -14,6 +14,7 @@
       "blocks": {
         "slide_AdYdMJ": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/christmasand_boxing_sale_a7456a4a-92e7-403f-9d45-bb8c80cfa47b.webp",
             "heading": "Boxing day and Christmas Sale",
