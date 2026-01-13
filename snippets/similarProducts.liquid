@@ -30,10 +30,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: fit-content;
     box-sizing: border-box;
     background-color: #002642;
     color: #ffffff;
+    gap:15px;
     padding: 15px 20px;
     border-radius: 12px;
     text-decoration: none;
@@ -172,7 +173,7 @@
     </div>
     
     <a href="{{ link_url }}" class="category-price-link">
-      <span>{{ link_text }}</span>
+      <span style="line-height: normal;">{{ link_text }}</span>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
