@@ -1856,7 +1856,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
     {% if show_description_tab %}
       <div id="product-description-content" class="product-tab-pane {% if is_first_active %}active{% endif %}" role="tabpanel">
-        <div class="product-description-content rte">
+        <div class="product-description-content">
           {{ product.description 
   | replace: '&comma;', ',' 
   | replace: '&period;', '.' 
