@@ -137,6 +137,10 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
+            <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" class="pros-btn" style="margin-bottom: 2rem;">
+              For Pros
+            </a>
+
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -285,10 +289,6 @@
                     <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
                   </a>
                 </li>
-
-                <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" class="pros-btn" style="margin-bottom: 2rem;">
-                  For Pros
-                </a>
               {%- endif -%}
             </ul>
           </div>
