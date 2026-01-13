@@ -141,6 +141,29 @@
   .boxing-day-btn:hover svg {
     animation: icon-wiggle 0.4s ease-in-out infinite;
   }
+
+  .pros-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #CA3838 !important;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    transition: opacity 0.3s ease;
+  }
+
+  .pros-btn:hover {
+    opacity: 0.8;
+    color: #CA3838 !important;
+    text-decoration: underline;
+  }
 </style>
 
 {%- style -%}
@@ -357,8 +380,8 @@
         render 'header-drawer'
       endif
     -%}
-      <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" class="boxing-day-btn">
-        <span>For Pros</span>
+      <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" class="pros-btn">
+         For Pros
       </a>
     </div>
   </header>
