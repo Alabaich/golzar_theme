@@ -87,9 +87,16 @@
     min-width: 100%;
   }
 
+@keyframes icon-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+  }
+
   .boxing-day-btn {
     display: inline-flex;
     align-items: center;
+    gap: 8px;
     background: transparent;
     color: #000 !important;
     padding: 6px 10px;
@@ -104,12 +111,27 @@
     transition: opacity 0.3s ease;
   }
 
+  .boxing-day-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+  }
+
   .boxing-day-btn:hover {
-    opacity: 0.7;
+    opacity: 0.8; 
     background: transparent;
     color: #000 !important;
     transform: none;
     box-shadow: none;
+  }
+
+  .boxing-day-btn:hover svg {
+    animation: icon-wiggle 0.4s ease-in-out infinite;
   }
 </style>
 
@@ -167,11 +189,19 @@
   <header style="background: #fff;" class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     
 
+
     {% if section.settings.head_btn != blank %}
       <div class="header-btn-wrap" style="display: flex; align-items: center; gap: 10px;">
         <a class="customButton blueButton" href="{{ section.settings.head_btn_link }}">{{ section.settings.head_btn }}</a>
 
         <a class="boxing-day-btn" href="https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 12 20 22 4 22 4 12"></polyline>
+            <rect x="2" y="7" width="20" height="5"></rect>
+            <line x1="12" y1="22" x2="12" y2="7"></line>
+            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+          </svg>
           Boxing Day Sale
         </a>
 
@@ -322,7 +352,7 @@
         render 'header-drawer'
       endif
     -%}
-      <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" style="padding:3px 10px; background-color: #CA3838; border-radius: 5px; color: #fff; display: flex; justify-content: center; align-items: center; gap:5px;"> Pros
+      <a href="https://bathroomsupplier.ca/pages/golzar-home-pros-program" style="padding:3px 10px; color: #CA3838; display: flex; justify-content: center; align-items: center; gap:5px;text-decoration: underline;"> For Pros
       </a>
     </div>
   </header>
