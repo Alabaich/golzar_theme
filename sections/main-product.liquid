@@ -1935,9 +1935,9 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     {% endif %}
 
   </div>
-  
+  {% render 'similarProducts', product: product %}
 </div>
-{% render 'similarProducts', product: product %}
+
 <div class="rightSecondPart">
   {%- for block in section.blocks -%}
   {%- if block.type == 'required-items' -%}
