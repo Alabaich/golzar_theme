@@ -103,12 +103,16 @@
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    letter-spacing: 0.5px;
+    text-decoration: none;
     border: none;
     box-shadow: none;
     transition: opacity 0.3s ease;
+  }
+
+  .boxing-day-btn span {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: letter-spacing 0.3s ease;
   }
 
   .boxing-day-btn svg {
@@ -123,11 +127,15 @@
   }
 
   .boxing-day-btn:hover {
-    opacity: 0.8; 
+    opacity: 1;
     background: transparent;
     color: #CA3838 !important;
     transform: none;
     box-shadow: none;
+  }
+  
+  .boxing-day-btn:hover span {
+    letter-spacing: 1px;
   }
 
   .boxing-day-btn:hover svg {
@@ -196,11 +204,11 @@
 
         <a class="boxing-day-btn" href="https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2.5"></line>
-            <circle cx="6.5" cy="6.5" r="2.5" fill="currentColor" stroke="none"></circle>
-            <circle cx="17.5" cy="17.5" r="2.5" fill="currentColor" stroke="none"></circle>
+            <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2"></line>
+            <circle cx="6.5" cy="6.5" r="2.5" stroke="currentColor" stroke-width="2" fill="none"></circle>
+            <circle cx="17.5" cy="17.5" r="2.5" stroke="currentColor" stroke-width="2" fill="none"></circle>
           </svg>
-          Boxing Day Sale
+          <span>Boxing Day Sale</span>
         </a>
 
       </div>
