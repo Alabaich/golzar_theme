@@ -738,12 +738,12 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description 
-  | replace: '&comma;', ',' 
-  | replace: '&period;', '.' 
-  | replace: '&lpar;', '(' 
-  | replace: '&rpar;', ')' 
-  | replace: '', '' 
-}}
+                      | replace: '&comma;', ',' 
+                      | replace: '&period;', '.' 
+                      | replace: '&lpar;', '(' 
+                      | replace: '&rpar;', ')' 
+                      | replace: '', '' 
+                    }}
                   </div>
                   {% render 'similarProducts', product: product %}
                 {%- endif -%}
