@@ -6,42 +6,59 @@
 {% endcomment %}
 
 <style>
-.shippingAndDelivery.product-category-suggestion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-}
+  .shippingAndDelivery.product-category-suggestion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
 
-.shippingAndDelivery.product-category-suggestion p {
-  margin: 0;
-  font-size: 0.95em;
-  color: #555;
-  line-height: 1.5;
-}
+  .shippingAndDelivery.product-category-suggestion .suggestion-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.shippingAndDelivery.product-category-suggestion .suggestion-text {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  .shippingAndDelivery.product-category-suggestion p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+  }
 
-.shippingAndDelivery .category-price-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #002642;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  padding-top: 5px;
-}
+  .shippingAndDelivery .category-price-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #002642;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 38, 66, 0.15);
+    margin-top: 5px;
+  }
 
-.shippingAndDelivery .category-price-link:hover {
-  opacity: 0.8;
-  gap: 15px;
-}
+  .shippingAndDelivery .category-price-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .shippingAndDelivery .category-price-link:hover {
+    background-color: #003359;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 38, 66, 0.25);
+  }
+
+  .shippingAndDelivery .category-price-link:hover svg {
+    transform: translateX(5px);
+  }
 </style>
 
 {% assign current_category = product.category.name | default: product.type %}
@@ -156,7 +173,7 @@
     
     <a href="{{ link_url }}" class="category-price-link">
       <span>{{ link_text }}</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
