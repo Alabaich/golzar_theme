@@ -1935,7 +1935,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     {% endif %}
 
   </div>
-  {% render 'similarProducts', product: product %}
 </div>
 
 <div class="rightSecondPart">
@@ -2156,6 +2155,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   </div>
 
   {%- render 'brandWarranty', vendor_name: product.vendor -%}
+
+  {% render 'similarProducts', product: product %}
 </div>
 </div>
 
