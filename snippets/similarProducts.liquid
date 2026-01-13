@@ -1,121 +1,65 @@
 {% comment %}
   =========================================
   STEP 1: CONFIGURATION
-  Identify the product and set the rules.
+  Identify the product and set the Label/Handle only.
   =========================================
 {% endcomment %}
 
 {% assign current_category = product.category.name | default: product.type %}
 {% assign cat_handle = nil %}
 {% assign cat_label = nil %}
-{% assign cat_tiers = nil %}
 
 {% comment %} GROUP 1: TOILETS {% endcomment %}
-{% if current_category == "Two-Piece Toilets" 
-   or current_category == "One-Piece Toilets" 
-   or current_category == "Wall-Hung Toilets" 
-   or current_category == "Toilets"
-   or current_category == "Toilets & Bidets" %}
-  
+{% if current_category == "Two-Piece Toilets" or current_category == "One-Piece Toilets" or current_category == "Wall-Hung Toilets" or current_category == "Toilets" or current_category == "Toilets & Bidets" %}
   {% assign cat_handle = "toilets-1" %}
   {% assign cat_label = "Toilets" %}
-  {% assign cat_tiers = "50000,100000,200000" %}
 
 {% comment %} GROUP 2: KITCHEN FAUCETS {% endcomment %}
-{% elsif product.tags contains "Kitchen Faucets" 
-      or product.tags contains "Bar Faucets" 
-      or product.tags contains "Pot Fillers" 
-      or product.tags contains "Kitchen Sink Faucets" %}
-      
+{% elsif product.tags contains "Kitchen Faucets" or product.tags contains "Bar Faucets" or product.tags contains "Pot Fillers" or product.tags contains "Kitchen Sink Faucets" %}
   {% assign cat_handle = "kitchen-faucet" %}
   {% assign cat_label = "Kitchen Faucets" %}
-  {% assign cat_tiers = "20000,50000,100000" %}
 
 {% comment %} GROUP 3: BATHROOM FAUCETS {% endcomment %}
-{% elsif product.tags contains "Bathroom Faucets"
-      or product.tags contains "Centerset Faucets"
-      or product.tags contains "Widespread Faucets"
-      or product.tags contains "Single Hole Faucets"
-      or product.tags contains "Vessel Sink Faucets"
-      or product.tags contains "Wall-Mounted Faucets" %}
-
+{% elsif product.tags contains "Bathroom Faucets" or product.tags contains "Centerset Faucets" or product.tags contains "Widespread Faucets" or product.tags contains "Single Hole Faucets" or product.tags contains "Vessel Sink Faucets" or product.tags contains "Wall-Mounted Faucets" %}
   {% assign cat_handle = "bathroom-faucets" %}
   {% assign cat_label = "Bathroom Faucets" %}
-  {% assign cat_tiers = "20000,50000,100000" %}
 
 {% comment %} GROUP 4: BATHTUBS {% endcomment %}
-{% elsif product.tags contains "Bathtubs"
-      or product.tags contains "Drop-In Bathtubs"
-      or product.tags contains "Alcove Tubs"
-      or product.tags contains "Free-Standing Bathtubs" %}
-
+{% elsif product.tags contains "Bathtubs" or product.tags contains "Drop-In Bathtubs" or product.tags contains "Alcove Tubs" or product.tags contains "Free-Standing Bathtubs" %}
   {% assign cat_handle = "bathtubs" %}
   {% assign cat_label = "Bathtubs" %}
-  {% assign cat_tiers = "100000,200000,500000" %}
 
 {% comment %} GROUP 5: KITCHEN SINKS {% endcomment %}
-{% elsif product.tags contains "Kitchen Sinks"
-      or product.tags contains "Kitchen & Utility Sink"
-      or product.tags contains "Kitchen & Utility Sinks" %}
-
+{% elsif product.tags contains "Kitchen Sinks" or product.tags contains "Kitchen & Utility Sink" or product.tags contains "Kitchen & Utility Sinks" %}
   {% assign cat_handle = "kitchen-sinks" %}
   {% assign cat_label = "Kitchen Sinks" %}
-  {% assign cat_tiers = "25000,50000,100000,200000" %}
 
 {% comment %} GROUP 6: BATHROOM SINKS {% endcomment %}
-{% elsif product.tags contains "Bathroom Sinks"
-      or product.tags contains "Vessel Sink"
-      or product.tags contains "Vessel Sinks"
-      or product.tags contains "Undermount Sink"
-      or product.tags contains "Undermount Sinks"
-      or product.tags contains "Pedestal Sink"
-      or product.tags contains "Pedestal Sinks"
-      or product.tags contains "Drop In Sink"
-      or product.tags contains "Semi-Recessed Sink"
-      or product.tags contains "Wall-Mounted Sinks"
-      or product.tags contains "Wall Mounted Sink" %}
-
+{% elsif product.tags contains "Bathroom Sinks" or product.tags contains "Vessel Sink" or product.tags contains "Vessel Sinks" or product.tags contains "Undermount Sink" or product.tags contains "Undermount Sinks" or product.tags contains "Pedestal Sink" or product.tags contains "Pedestal Sinks" or product.tags contains "Drop In Sink" or product.tags contains "Semi-Recessed Sink" or product.tags contains "Wall-Mounted Sinks" or product.tags contains "Wall Mounted Sink" %}
   {% assign cat_handle = "bathroom-sinks" %}
   {% assign cat_label = "Bathroom Sinks" %}
-  {% assign cat_tiers = "20000,50000,100000,200000,500000" %}
 
 {% comment %} GROUP 7: VANITIES {% endcomment %}
-{% elsif product.tags contains "Vanities"
-      or product.tags contains "Single Sink Vanity"
-      or product.tags contains "Double Sink Vanity"
-      or product.tags contains "Bathroom Vanities" %}
-
+{% elsif product.tags contains "Vanities" or product.tags contains "Single Sink Vanity" or product.tags contains "Double Sink Vanity" or product.tags contains "Bathroom Vanities" %}
   {% assign cat_handle = "bathroom-vanities" %}
   {% assign cat_label = "Bathroom Vanities" %}
-  {% assign cat_tiers = "50000,100000,200000,500000" %}
 
 {% comment %} GROUP 8: SHOWERS {% endcomment %}
-{% elsif product.tags contains "Trims & Valves"
-      or product.tags contains "Shower Kits"
-      or product.tags contains "Bathtub & Shower Faucets"
-      or product.tags contains "Rough-In Valves"
-      or product.tags contains "Shower Faucets" %}
-
+{% elsif product.tags contains "Trims & Valves" or product.tags contains "Shower Kits" or product.tags contains "Bathtub & Shower Faucets" or product.tags contains "Rough-In Valves" or product.tags contains "Shower Faucets" %}
   {% assign cat_handle = "bathroom-showers-faucets" %}
   {% assign cat_label = "Showers" %}
-  {% assign cat_tiers = "20000,50000,100000,200000,500000" %}
 
 {% comment %} GROUP 9: MIRRORS {% endcomment %}
-{% elsif product.tags contains "Mirrors"
-      or product.tags contains "Dress Up Mirror"
-      or product.tags contains "LED Mirror"
-      or product.tags contains "Makeup Mirror" %}
-
+{% elsif product.tags contains "Mirrors" or product.tags contains "Dress Up Mirror" or product.tags contains "LED Mirror" or product.tags contains "Makeup Mirror" %}
   {% assign cat_handle = "mirrors-2" %}
   {% assign cat_label = "Mirrors" %}
-  {% assign cat_tiers = "10000,20000,50000" %}
 
 {% endif %}
 
 {% comment %}
   =========================================
   STEP 2: THE LOGIC ENGINE
-  Calculate link and text based on config.
+  Universal Tiers: <250, 250-500, 500-1000, 1000-2000, 2000-5000, >5000
   =========================================
 {% endcomment %}
 
@@ -124,25 +68,29 @@
   {% assign link_text = "" %}
   {% assign matched = false %}
   
-  {% comment %} Convert comma-string to array {% endcomment %}
-  {% assign tiers = cat_tiers | split: ',' %}
+  {% comment %} DEFINE GLOBAL TIERS HERE (Cents) {% endcomment %}
+  {% assign universal_tiers = "25000,50000,100000,200000,500000" | split: ',' %}
   {% assign prev_tier = 0 %}
 
-  {% for tier_str in tiers %}
+  {% assign base_url = "https://bathroomsupplier.ca/collections/" | append: cat_handle %}
+
+  {% for tier_str in universal_tiers %}
     {% assign tier = tier_str | plus: 0 %}
     
     {% if product.price < tier %}
-      {% comment %} --- FOUND A MATCH (UNDER or RANGE) --- {% endcomment %}
+      {% comment %} --- FOUND A MATCH --- {% endcomment %}
       
       {% assign tier_dollars = tier | divided_by: 100 %}
       {% assign prev_dollars = prev_tier | divided_by: 100 %}
       
-      {% assign base_url = "https://bathroomsupplier.ca/collections/" | append: cat_handle %}
-      {% assign link_url = base_url | append: "?filter.v.price.lte=" | append: tier_dollars %}
-      
       {% if prev_tier == 0 %}
+        {% comment %} CASE: Under $250 {% endcomment %}
+        {% assign link_url = base_url | append: "?filter.v.price.lte=" | append: tier_dollars %}
         {% assign link_text = "Under $" | append: tier_dollars | append: " " | append: cat_label %}
       {% else %}
+        {% comment %} CASE: Range (e.g., $250 - $500) {% endcomment %}
+        {% comment %} Fix: Use BOTH gte (greater than) AND lte (less than) {% endcomment %}
+        {% assign link_url = base_url | append: "?filter.v.price.gte=" | append: prev_dollars | append: "&filter.v.price.lte=" | append: tier_dollars %}
         {% assign link_text = "$" | append: prev_dollars | append: " - $" | append: tier_dollars | append: " " | append: cat_label %}
       {% endif %}
       
@@ -153,18 +101,16 @@
     {% assign prev_tier = tier %}
   {% endfor %}
 
-  {% comment %} --- NO MATCH FOUND (OVERFLOW) --- {% endcomment %}
+  {% comment %} --- NO MATCH FOUND (OVER $5000) --- {% endcomment %}
   {% if matched == false %}
     {% assign tier_dollars = prev_tier | divided_by: 100 %}
-    {% assign base_url = "https://bathroomsupplier.ca/collections/" | append: cat_handle %}
     {% assign link_url = base_url | append: "?filter.v.price.gte=" | append: tier_dollars %}
     {% assign link_text = "Over $" | append: tier_dollars | append: " " | append: cat_label %}
   {% endif %}
 
   {% comment %} --- RENDER --- {% endcomment %}
-    <div class="shippingAndDelivery">
-        <a href="{{ link_url }}" class="category-price-link">{{ link_text }}</a>
-    </div>
-  
+  <div class="shippingAndDelivery">
+      <a href="{{ link_url }}" class="category-price-link">{{ link_text }}</a>
+  </div>
 
 {% endif %}
