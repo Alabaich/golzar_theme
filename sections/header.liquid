@@ -87,26 +87,50 @@
     min-width: 100%;
   }
 
-    .boxing-day-btn {
-    background: linear-gradient(90deg, #d31027, #ea384d); /* Red gradient */
+  @keyframes boxingPulse {
+    0% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(229, 9, 20, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
+  }
+
+  .boxing-day-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff0f7b 0%, #f89b29 100%);
     color: #fff !important;
-    padding: 8px 20px;
-    border-radius: 50px; /* Pill shape */
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(211, 16, 39, 0.3); /* Soft shadow */
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 0.5px;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(255, 15, 123, 0.3);
+    transition: all 0.3s ease;
+    animation: boxingPulse 2s infinite;
+  }
+
+  .boxing-day-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
   }
 
   .boxing-day-btn:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 15px rgba(211, 16, 39, 0.5);
-    background: linear-gradient(90deg, #ea384d, #d31027);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 15, 123, 0.5);
+    background: linear-gradient(135deg, #f89b29 0%, #ff0f7b 100%);
+  }
+  
+  .boxing-day-btn:hover svg {
+    transform: rotate(-10deg) scale(1.1);
   }
 </style>
 
@@ -167,7 +191,18 @@
     {% if section.settings.head_btn != blank %}
       <div class="header-btn-wrap" style="display: flex; align-items: center; gap: 15px;">
         <a class="customButton blueButton" href="{{ section.settings.head_btn_link }}">{{ section.settings.head_btn }}</a>
-        <a class="boxing-day-btn" href="https://bathroomsupplier.ca/collections/boxing-day-2025-sale-of-the-year">Boxing Day Sale</a>
+        
+        <a class="boxing-day-btn" href="https://bathroomsupplier.ca/collections/boxing-day-2025-sale-of-the-year">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20 12 20 22 4 22 4 12"></polyline>
+            <rect x="2" y="7" width="20" height="5"></rect>
+            <line x1="12" y1="22" x2="12" y2="7"></line>
+            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+          </svg>
+          <span>Boxing Day Sale</span>
+        </a>
+      
       </div>
     {% endif %}
 
