@@ -1919,6 +1919,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         </div>
       </div>
       {% assign is_first_active = false %}
+
+      {% render 'similarProducts', product: product %}
     {% endif %}
 
     {% if show_brand_tab %}
