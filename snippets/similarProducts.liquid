@@ -1,0 +1,40 @@
+{% assign link_url = "" %}
+{% assign link_text = "" %}
+
+{% comment %}
+  Captures the category name. 
+  Fallback to product.type if the new Category field is empty.
+{% endcomment %}
+{% assign current_category = product.category.name | default: product.type %}
+
+{% if current_category == "Two-Piece Toilets" 
+   or current_category == "One-Piece Toilets" 
+   or current_category == "Wall-Hung Toilets" 
+   or current_category == "Toilets"
+   or current_category == "Toilets & Bidets" %}
+
+    {% comment %} Shopify prices are in cents (50000 = $500.00) {% endcomment %}
+    {% if product.price < 50000 %}
+        {% assign link_url = "https://bathroomsupplier.ca/collections/toilets-1?filter.v.price.lte=500" %}
+        {% assign link_text = "Under $500 Toilets" %}
+    {% elsif product.price < 100000 %}
+        {% assign link_url = "https://bathroomsupplier.ca/collections/toilets-1?filter.v.price.lte=1000" %}
+        {% assign link_text = "$500 - $1000 Toilets" %}
+    {% elsif product.price < 200000 %}
+        {% assign link_url = "https://bathroomsupplier.ca/collections/toilets-1?filter.v.price.lte=2000" %}
+        {% assign link_text = "$1000 - $2000 Toilets" %}
+    {% else %}
+        {% assign link_url = "https://bathroomsupplier.ca/collections/toilets-1?filter.v.price.gte=2000" %}
+        {% assign link_text = "Over $2000 Toilets" %}
+    {% endif %}
+
+{% elsif current_category == "Kitchen Faucets" %}
+    {% comment %} Add your Kitchen Faucet logic here {% endcomment %}
+    {% assign link_text = "Shop Kitchen Faucets" %}
+    {% assign link_url = "/collections/kitchen-faucets" %}
+{% endif %}
+
+{% comment %} Only render the link if text was actually assigned {% endcomment %}
+{% if link_text != "" %}
+  <a href="{{ link_url }}" class="category-price-link">{{ link_text }}</a>
+{% endif %}
