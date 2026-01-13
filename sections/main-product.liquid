@@ -1920,7 +1920,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       </div>
       {% assign is_first_active = false %}
 
-      {% render 'similarProducts', product: product %}
+      
     {% endif %}
 
     {% if show_brand_tab %}
@@ -1935,6 +1935,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     {% endif %}
 
   </div>
+  {% render 'similarProducts', product: product %}
 </div>
 <div class="rightSecondPart">
   {%- for block in section.blocks -%}
