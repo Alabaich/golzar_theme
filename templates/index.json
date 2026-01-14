@@ -371,6 +371,7 @@
       "blocks": {
         "brand_logo_rypMyQ": {
           "type": "brand_logo",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/MOEN.webp",
             "brand_name": "MOEN",
