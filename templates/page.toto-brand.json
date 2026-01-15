@@ -56,6 +56,18 @@
         "mobile_button_align": "flex-start"
       }
     },
+    "brand_story_r4qCUV": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Brand Heritage",
+        "heading": "The Art of Living",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
@@ -159,6 +171,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "custom_blog_posts_grid_8PkfHz"
