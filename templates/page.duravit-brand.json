@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets-1",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+        "show_button_arrow": true,
+        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-carrier-plates"
+          }
+        },
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-one-piece-toilets-1"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-smart-toilet-washlets"
+          }
+        },
+        "category_inz6n7": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-two-piece-toilets"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-mounted-toilets"
+          }
+        },
+        "category_t8jLap": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-bathroom-sinks",
+            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+          }
+        }
+      },
+      "block_order": [
+        "category_B9xPCm",
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_inz6n7",
+        "category_LJKbDK",
+        "category_t8jLap"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "toto-smart-toilet-washlets",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY",
+    "custom_blog_posts_grid_8PkfHz"
+  ]
+}
