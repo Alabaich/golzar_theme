@@ -74,38 +74,31 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-carrier-plates"
+            "collection": "duravit-in-wall-tank-carriers"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets-1"
+            "collection": "duravit-wall-mounted-toilets"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "toto-smart-toilet-washlets"
+            "collection": "duravit-two-piece-toilets"
           }
         },
         "category_inz6n7": {
           "type": "category",
           "settings": {
-            "collection": "toto-two-piece-toilets"
+            "collection": "duravit-washlet"
           }
         },
         "category_LJKbDK": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-mounted-toilets"
-          }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-bathroom-sinks",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+            "collection": "duravit-one-piece-toilets"
           }
         }
       },
@@ -114,8 +107,7 @@
         "category_8HJ8ec",
         "category_ejVpwL",
         "category_inz6n7",
-        "category_LJKbDK",
-        "category_t8jLap"
+        "category_LJKbDK"
       ],
       "name": "Featured Product Groups",
       "settings": {
