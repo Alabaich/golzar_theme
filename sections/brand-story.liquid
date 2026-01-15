@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    position: relative;
   }
 
   .brand-text-container.text-center {
@@ -14,97 +15,122 @@
   .brand-text-container.text-left {
     text-align: left;
     align-items: flex-start;
+    border-left: 1px solid transparent;
   }
 
   .brand-text-label {
     text-transform: uppercase;
-    font-size: 0.85em;
+    font-size: 0.75rem;
     letter-spacing: 2px;
-    color: #666;
+    color: #888;
     font-weight: 600;
-    margin-bottom: 5px;
-    display: block;
+    margin-bottom: 10px;
+    display: inline-block;
   }
 
   .brand-text-heading {
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 3.2rem;
+    line-height: 1.1;
     margin: 0;
     color: #111;
+    letter-spacing: -0.02em;
+    max-width: 90%;
   }
 
+  /* Основной текст */
   .brand-text-content {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    /* Больше воздуха между строками */
     color: #444;
+    margin-top: 10px;
+  }
+
+  /* Ограничиваем ширину текста при левом выравнивании для удобства чтения */
+  .text-left .brand-text-content {
+    max-width: 650px;
   }
 
   .brand-text-content p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .brand-text-content p:last-child {
     margin-bottom: 0;
   }
 
+  /* Кнопка */
   .brand-text-btn {
     display: inline-block;
-    padding: 14px 35px;
-    background-color: #111;
+    padding: 15px 40px;
+    background-color: #000;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 2px;
+    /* Чуть менее скругленная, более строгая */
     font-weight: 500;
-    margin-top: 15px;
-    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
   }
 
   .brand-text-btn:hover {
-    opacity: 0.8;
+    background-color: #333;
+    transform: translateY(-2px);
   }
 
-  /* Responsive Adjustments */
+  /* Адаптив для мобильных */
   @media (max-width: 768px) {
-    .brand-text-heading {
-      font-size: 2rem;
-    }
     .brand-text-section {
-      padding: 40px 0;
+      padding: 50px 0;
+    }
+    .brand-text-heading {
+      font-size: 2.2rem;
+    }
+    .text-left .brand-text-content {
+      max-width: 100%;
+    }
+    .brand-text-container.text-left {
+      padding-left: 0;
+      border: none;
     }
   }
 </style>
 
 <div class="brand-text-section pageWidth">
-  <div class="brand-text-container text-{{ section.settings.text_alignment }}" style="max-width: {{ section.settings.content_width }}px;">
+  <div class="brand-text-container text-{{ section.settings.text_alignment }}" style="max-width: {{ section.settings.content_width }}px; margin-{{ section.settings.text_alignment }}: 0;">
 
-    {% if section.settings.label != blank %}
-      <span class="brand-text-label">{{ section.settings.label | escape }}</span>
-    {% endif %}
+    <div class="brand-text-inner">
+      {% if section.settings.label != blank %}
+        <span class="brand-text-label">{{ section.settings.label | escape }}</span>
+      {% endif %}
 
-    {% if section.settings.heading != blank %}
-      <h2 class="brand-text-heading">{{ section.settings.heading | escape }}</h2>
-    {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="brand-text-heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
 
-    <div class="brand-text-content">
-      {% if section.settings.text != blank %}
-        {{ section.settings.text }}
-      {% else %}
-        <p>Write a compelling statement about your brand here. Focus on your mission, your values, or the unique story behind your products.</p>
+      <div class="brand-text-content">
+        {% if section.settings.text != blank %}
+          {{ section.settings.text }}
+        {% else %}
+          <p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="brand-text-btn">
+          {{ section.settings.button_label | escape }}
+        </a>
       {% endif %}
     </div>
-
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      <a href="{{ section.settings.button_link }}" class="brand-text-btn">
-        {{ section.settings.button_label | escape }}
-      </a>
-    {% endif %}
 
   </div>
 </div>
 
 {% schema %}
   {
-    "name": "Brand Story",
+    "name": "Brand Story Text",
     "settings": [
       {
         "type": "header",
@@ -113,13 +139,13 @@
       {
         "type": "range",
         "id": "content_width",
-        "min": 400,
-        "max": 1200,
-        "step": 20,
+        "min": 600,
+        "max": 1400,
+        "step": 50,
         "unit": "px",
-        "label": "Content Max Width",
-        "default": 800,
-        "info": "Keeps text readable on large screens."
+        "label": "Content Container Width",
+        "default": 1000,
+        "info": "Controls the overall width of the section area."
       },
       {
         "type": "select",
@@ -127,14 +153,14 @@
         "label": "Text Alignment",
         "options": [
           {
+            "value": "left",
+            "label": "Left (Editorial)"
+          }, {
             "value": "center",
             "label": "Center"
-          }, {
-            "value": "left",
-            "label": "Left"
           }
         ],
-        "default": "center"
+        "default": "left"
       },
       {
         "type": "header",
@@ -148,12 +174,12 @@
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "Simplicity is the ultimate sophistication."
+        "default": "Designed for life."
       }, {
         "type": "richtext",
         "id": "text",
         "label": "Description",
-        "default": "<p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>"
+        "default": "<p>We believe in simple, functional design that improves with use. Our journey began with a single idea: to create products that last a lifetime and tell a story.</p>"
       }, {
         "type": "text",
         "id": "button_label",
@@ -167,7 +193,7 @@
     ],
     "presets": [
       {
-        "name": "Brand Story"
+        "name": "Brand Story Text"
       }
     ]
   }
