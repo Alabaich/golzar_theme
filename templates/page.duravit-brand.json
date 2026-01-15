@@ -45,11 +45,11 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_title": "Discover the art of living with Duravit.",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
         "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Duravit",
-        "show_button_arrow": true,
+        "show_button_arrow": false,
         "hero_image": "shopify://shop_images/Duravit__2559562_300_11296652-776c-4864-a5b1-bf8a18065673.jpg",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
