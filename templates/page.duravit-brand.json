@@ -152,6 +152,19 @@
         "padding_bottom": 25,
         "section_bg_color": "rgba(0,0,0,0)"
       }
+    },
+    "brand_story_VTzE3X": {
+      "type": "brand-story",
+      "name": "Brand Story",
+      "settings": {
+        "content_width": 800,
+        "text_alignment": "center",
+        "label": "Our Philosophy",
+        "heading": "Simplicity is the ultimate sophistication.",
+        "text": "<p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -159,6 +172,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "brand_story_VTzE3X",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "custom_blog_posts_grid_8PkfHz"
