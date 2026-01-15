@@ -1,105 +1,111 @@
 <style>
+  .brand-text-section {
+    width: 100%;
+  }
+
   .brand-text-container {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    position: relative;
-  } /* test */
+    gap: 30px;
+    width: 100%;
+  }
 
   .brand-text-container.text-center {
-    text-align: center;
     align-items: center;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .brand-text-container.text-left {
-    text-align: left;
     align-items: flex-start;
-    border-left: 1px solid transparent;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .brand-text-label {
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: #666;
     font-weight: 600;
     margin-bottom: 10px;
-    display: inline-block;
+    display: block;
   }
 
   .brand-text-heading {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
     line-height: 1.1;
     margin: 0;
-    color: #111;
-    letter-spacing: -0.02em;
-    max-width: 90%;
+    color: #000;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    max-width: 100%;
   }
 
-  /* Основной текст */
   .brand-text-content {
-    font-size: 1.15rem;
-    line-height: 1.75;
-    /* Больше воздуха между строками */
-    color: #444;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #333;
     margin-top: 10px;
   }
 
-  /* Ограничиваем ширину текста при левом выравнивании для удобства чтения */
   .text-left .brand-text-content {
-    max-width: 650px;
+    max-width: 600px;
+  }
+
+  .text-center .brand-text-content {
+    max-width: 800px;
   }
 
   .brand-text-content p {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   .brand-text-content p:last-child {
     margin-bottom: 0;
   }
 
-  /* Кнопка */
   .brand-text-btn {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 16px 40px;
     background-color: #000;
     color: #fff;
     text-decoration: none;
-    border-radius: 2px;
-    /* Чуть менее скругленная, более строгая */
+    border-radius: 0;
     font-weight: 500;
     font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
-    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    margin-top: 25px;
+    transition: opacity 0.3s ease;
   }
 
   .brand-text-btn:hover {
-    background-color: #333;
-    transform: translateY(-2px);
+    opacity: 0.8;
   }
 
-  /* Адаптив для мобильных */
   @media (max-width: 768px) {
-    .brand-text-section {
-      padding: 50px 0;
-    }
     .brand-text-heading {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
     }
+
+    .brand-text-content {
+      font-size: 1rem;
+    }
+
+    .brand-text-container.text-left {
+      align-items: flex-start;
+      text-align: left;
+    }
+
     .text-left .brand-text-content {
       max-width: 100%;
-    }
-    .brand-text-container.text-left {
-      padding-left: 0;
-      border: none;
     }
   }
 </style>
 
 <div class="brand-text-section pageWidth">
-  <div class="brand-text-container text-{{ section.settings.text_alignment }}" style="max-width: {{ section.settings.content_width }}px; margin-{{ section.settings.text_alignment }}: 0;">
+  <div class="brand-text-container text-{{ section.settings.text_alignment }}">
 
     <div class="brand-text-inner">
       {% if section.settings.label != blank %}
@@ -114,7 +120,7 @@
         {% if section.settings.text != blank %}
           {{ section.settings.text }}
         {% else %}
-          <p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>
+          <p>We believe in simple, functional design that improves with use. Our journey began with a single idea: to create products that last a lifetime and tell a story.</p>
         {% endif %}
       </div>
 
@@ -137,24 +143,13 @@
         "content": "Layout Settings"
       },
       {
-        "type": "range",
-        "id": "content_width",
-        "min": 600,
-        "max": 1400,
-        "step": 50,
-        "unit": "px",
-        "label": "Content Container Width",
-        "default": 1000,
-        "info": "Controls the overall width of the section area."
-      },
-      {
         "type": "select",
         "id": "text_alignment",
         "label": "Text Alignment",
         "options": [
           {
             "value": "left",
-            "label": "Left (Editorial)"
+            "label": "Left"
           }, {
             "value": "center",
             "label": "Center"
@@ -165,7 +160,8 @@
       {
         "type": "header",
         "content": "Content"
-      }, {
+      },
+      {
         "type": "text",
         "id": "label",
         "label": "Small Label",
