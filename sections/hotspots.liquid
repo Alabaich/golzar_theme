@@ -24,6 +24,7 @@
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
   }
 
   .hotspot-dot {
@@ -38,6 +39,8 @@
     transition: transform 0.2s ease
     , background-color 0.2s ease;
     z-index: 2;
+    border: none;
+    padding: 0;
   }
 
   .hotspot-dot:hover,
@@ -49,18 +52,16 @@
   .shoppable-products-wrapper {
     flex: 1;
     min-width: 300px;
+    max-width: 400px;
     position: relative;
   }
 
-  .product-detail-card {
+  .product-detail-card-wrapper {
     display: none;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
     animation: fadeIn 0.4s ease;
   }
 
-  .product-detail-card.active {
+  .product-detail-card-wrapper.active {
     display: block;
   }
 
@@ -75,45 +76,180 @@
     }
   }
 
-  .product-detail-image img {
+  .shoppable-section .grid-item.product-card {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+
+  .shoppable-section .product-card__link-image {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+  }
+
+  .shoppable-section .product-card__image-wrapper {
+    padding: 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shoppable-section .product-card__image {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
   }
 
-  .product-detail-title {
+  .shoppable-section .product-card__image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+  }
+
+  .shoppable-section .product-card.has-second-image:hover .product-card__image-hover {
+    opacity: 1;
+  }
+
+  .shoppable-section .product-card.has-second-image:hover .product-card__image:not(.product-card__image-hover) {
+    opacity: 0;
+  }
+
+  .shoppable-section .product-card__badge-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1;
+  }
+
+  .shoppable-section .badge {
+    padding: 3px 8px;
+    font-size: 0.8em;
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  .shoppable-section .badge--vendor {
+    background-color: #555;
+  }
+
+  .shoppable-section .badge--discount {
+    background-color: #d9534f;
+  }
+
+  .shoppable-section .product-card__info {
+    padding: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .shoppable-section .product-card__availability {
+    font-size: 0.85em;
+    margin: 0;
+    padding-bottom: 5px;
+  }
+
+  .shoppable-section .product-card__availability--in-stock {
+    color: #28a745;
+  }
+
+  .shoppable-section .product-card__availability--out-of-stock {
+    color: #dc3545;
+  }
+
+  .shoppable-section .product-card__title-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .shoppable-section .product-card__title {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1em;
+  }
+
+  .shoppable-section .product-card__price-wrapper {
+    margin-bottom: 1rem !important;
+    font-size: 0.9em;
+  }
+
+  .shoppable-section .product-card__price-wrapper .price--sale {
+    color: #D9534F;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #000;
-    text-decoration: none;
-    display: block;
   }
 
-  .product-detail-price {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 15px;
+  .shoppable-section .product-card__price-wrapper .price--original {
+    color: #777777;
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-size: 0.9em;
   }
 
-  .product-detail-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: opacity 0.3s;
+  .shoppable-section .product-card__form-container {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    align-items: center;
   }
 
-  .product-detail-btn:hover {
-    opacity: 0.8;
+  .shoppable-section .product-card__form {
+    flex-grow: 1;
+  }
+
+  .shoppable-section .collection-grid-item__add-to-cart-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 12px 15px;
+    background-color: #002642;
+    color: #ffffff;
+    border: 2px solid #002642;
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background-color 0.3s ease
+    , color 0.3s ease
+    , border-color 0.3s ease;
+    text-align: center;
+  }
+
+  .shoppable-section .collection-grid-item__add-to-cart-button:hover:not(:disabled) {
+    background-color: #003366;
+    border-color: #003366;
+    color: #ffffff;
+  }
+
+  .shoppable-section .collection-grid-item__add-to-cart-button.button--disabled {
+    background-color: #ebebeb;
+    color: #555555;
+    border: 2px solid #d0d0d0;
+    cursor: not-allowed;
+    opacity: 1;
   }
 </style>
 
-<div class="shoppable-section pageWidth">
+<div class="shoppable-section">
   <div class="shoppable-container">
 
     <div class="shoppable-image-wrapper">
@@ -140,14 +276,103 @@
     <div class="shoppable-products-wrapper">
       {% for block in section.blocks %}
         {% assign product = all_products[block.settings.product] %}
+
         {% if product != blank %}
-          <div id="product-{{ block.id }}" class="product-detail-card {% if forloop.first %}active{% endif %}">
-            <a href="{{ product.url }}" class="product-detail-image">
-              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title }}">
-            </a>
-            <a href="{{ product.url }}" class="product-detail-title">{{ product.title }}</a>
-            <div class="product-detail-price">{{ product.price | money }}</div>
-            <a href="{{ product.url }}" class="product-detail-btn">View Product</a>
+          {%- liquid
+            assign current_variant = product.selected_or_first_available_variant
+            assign discount_percentage = 0
+            if current_variant.compare_at_price > current_variant.price
+              assign discount_amount = current_variant.compare_at_price | minus: current_variant.price
+              assign discount_percentage = discount_amount | times: 100.0 | divided_by: current_variant.compare_at_price | round
+            endif
+            assign has_second_image = false
+            if product.images.size > 1
+              assign has_second_image = true
+            endif
+          -%}
+
+          <div id="product-{{ block.id }}" class="product-detail-card-wrapper {% if forloop.first %}active{% endif %}">
+            <div class="grid-item product-card{% if discount_percentage > 0 %} product-card--on-sale{% endif %}{% if has_second_image %} has-second-image{% endif %}">
+              <a
+                href="{{ product.url }}"
+                class="product-card__link-image"
+                title="{{ product.vendor | escape }}">
+                <div class="product-card__image-wrapper">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', widths: '200, 300, 400, 500', class: 'product-card__image' }}
+                    {% if has_second_image %}
+                      {{ product.images[1] | image_url: width: 500 | image_tag: loading: 'lazy', widths: '200, 300, 400, 500', class: 'product-card__image-hover' }}
+                    {% endif %}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
+                  {% endif %}
+
+                  <div class="product-card__badge-info">
+                    {% if section.settings.show_vendor %}
+                      <span class="badge badge--vendor" title="{{ product.vendor | escape }}">{{ product.vendor | escape }}</span>
+                    {% endif %}
+                    {% if discount_percentage > 0 and section.settings.show_discount_badge %}
+                      <span class="badge badge--discount">-{{ discount_percentage }}%</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+
+              <div class="product-card__info">
+                {% if section.settings.show_availability %}
+                  {% if current_variant.available %}
+                    <p class="product-card__availability product-card__availability--in-stock">In Stock</p>
+                  {% else %}
+                    <p class="product-card__availability product-card__availability--out-of-stock">Sold Out</p>
+                  {% endif %}
+                {% endif %}
+
+                <a href="{{ product.url }}" class="product-card__title-link">
+                  <h3 class="product-card__title">{{ product.title | truncate: 30 | escape }}</h3>
+                </a>
+
+                <div class="product-card__price-wrapper">
+                  {%- if current_variant.compare_at_price > current_variant.price -%}
+                    <span class="price--sale">{{ current_variant.price | money }}</span>
+                    <s class="price--original">{{ current_variant.compare_at_price | money }}</s>
+                  {%- else -%}
+                    <span class="price--regular">{{ current_variant.price | money }}</span>
+                  {%- endif -%}
+                </div>
+
+                {% if section.settings.show_add_to_cart_button %}
+                  <div class="product-card__form-container">
+                    <form
+                      action="{{ routes.cart_add_url }}"
+                      method="post"
+                      enctype="multipart/form-data"
+                      class="product-card__form">
+                      <input
+                        type="hidden"
+                        name="id"
+                        value="{{ current_variant.id }}">
+                      <input
+                        type="hidden"
+                        name="quantity"
+                        value="1">
+                      <button
+                        type="submit"
+                        class="collection-grid-item__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                        {% unless current_variant.available %}
+                        disabled
+                        aria-disabled="true"
+                        {% endunless %}>
+                        {% if current_variant.available %}
+                          <span>{{ section.settings.product_button_text | escape }}</span>
+                        {% else %}
+                          <span>Sold Out</span>
+                        {% endif %}
+                      </button>
+                    </form>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
           </div>
         {% endif %}
       {% endfor %}
@@ -162,19 +387,19 @@
     if (!container) return;
   
     const dots = container.querySelectorAll('.hotspot-dot');
-    const cards = container.querySelectorAll('.product-detail-card');
+    const wrappers = container.querySelectorAll('.product-detail-card-wrapper');
   
     dots.forEach(dot => {
       dot.addEventListener('click', function() {
         dots.forEach(d => d.classList.remove('active'));
-        cards.forEach(c => c.classList.remove('active'));
+        wrappers.forEach(w => w.classList.remove('active'));
   
         this.classList.add('active');
         const targetId = this.getAttribute('data-target');
-        const targetCard = document.getElementById(targetId);
+        const targetWrapper = document.getElementById(targetId);
         
-        if (targetCard) {
-          targetCard.classList.add('active');
+        if (targetWrapper) {
+          targetWrapper.classList.add('active');
         }
       });
     });
@@ -189,6 +414,37 @@
         "type": "image_picker",
         "id": "image",
         "label": "Main Image"
+      },
+      {
+        "type": "header",
+        "content": "Product Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show Vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_discount_badge",
+        "label": "Show Discount Badge",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_availability",
+        "label": "Show Availability",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_add_to_cart_button",
+        "label": "Show Add to Cart Button",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "product_button_text",
+        "label": "Button Text",
+        "default": "Buy now"
       }
     ],
     "blocks": [
@@ -231,12 +487,6 @@
             "settings": {
               "pos_x": 30,
               "pos_y": 40
-            }
-          }, {
-            "type": "hotspot",
-            "settings": {
-              "pos_x": 60,
-              "pos_y": 70
             }
           }
         ]
