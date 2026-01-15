@@ -13,10 +13,16 @@
   }
 
   .hs-brand-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     align-items: center;
+  }
+
+  .hs-brand-item {
+    flex: 1 1 150px;
+    max-width: 250px;
   }
 
   .hs-brand-item a {
