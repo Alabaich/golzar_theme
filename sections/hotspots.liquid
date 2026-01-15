@@ -1,0 +1,246 @@
+<style>
+  .shoppable-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .shoppable-container {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .shoppable-image-wrapper {
+    position: relative;
+    flex: 2;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .shoppable-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hotspot-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease
+    , background-color 0.2s ease;
+    z-index: 2;
+  }
+
+  .hotspot-dot:hover,
+  .hotspot-dot.active {
+    transform: translate(-50%, -50%) scale(1.2);
+    background-color: #000;
+  }
+
+  .shoppable-products-wrapper {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+  }
+
+  .product-detail-card {
+    display: none;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .product-detail-card.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  .product-detail-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+    text-decoration: none;
+    display: block;
+  }
+
+  .product-detail-price {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .product-detail-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: opacity 0.3s;
+  }
+
+  .product-detail-btn:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<div class="shoppable-section pageWidth">
+  <div class="shoppable-container">
+
+    <div class="shoppable-image-wrapper">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="{{ section.settings.image.alt }}"
+          class="shoppable-main-img">
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'shoppable-main-img' }}
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.product != blank %}
+          <button
+            class="hotspot-dot {% if forloop.first %}active{% endif %}"
+            style="top: {{ block.settings.pos_y }}%; left: {{ block.settings.pos_x }}%;"
+            data-target="product-{{ block.id }}"
+            aria-label="View product"></button>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="shoppable-products-wrapper">
+      {% for block in section.blocks %}
+        {% assign product = all_products[block.settings.product] %}
+        {% if product != blank %}
+          <div id="product-{{ block.id }}" class="product-detail-card {% if forloop.first %}active{% endif %}">
+            <a href="{{ product.url }}" class="product-detail-image">
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title }}">
+            </a>
+            <a href="{{ product.url }}" class="product-detail-title">{{ product.title }}</a>
+            <div class="product-detail-price">{{ product.price | money }}</div>
+            <a href="{{ product.url }}" class="product-detail-btn">View Product</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector('.shoppable-container');
+    if (!container) return;
+  
+    const dots = container.querySelectorAll('.hotspot-dot');
+    const cards = container.querySelectorAll('.product-detail-card');
+  
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        dots.forEach(d => d.classList.remove('active'));
+        cards.forEach(c => c.classList.remove('active'));
+  
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-target');
+        const targetCard = document.getElementById(targetId);
+        
+        if (targetCard) {
+          targetCard.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Shoppable Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Main Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "hotspot",
+        "name": "Product Hotspot",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select Product"
+          }, {
+            "type": "range",
+            "id": "pos_x",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Horizontal Position",
+            "default": 50
+          }, {
+            "type": "range",
+            "id": "pos_y",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Vertical Position",
+            "default": 50
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shoppable Image",
+        "blocks": [
+          {
+            "type": "hotspot",
+            "settings": {
+              "pos_x": 30,
+              "pos_y": 40
+            }
+          }, {
+            "type": "hotspot",
+            "settings": {
+              "pos_x": 60,
+              "pos_y": 70
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
