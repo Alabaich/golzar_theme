@@ -56,6 +56,18 @@
         "mobile_button_align": "flex-start"
       }
     },
+    "brand_story_VTzE3X": {
+      "type": "brand-story",
+      "name": "Brand Story",
+      "settings": {
+        "content_width": 800,
+        "label": "Brand Heritage",
+        "heading": "The Art of Living",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
@@ -151,19 +163,6 @@
         "padding_top": 25,
         "padding_bottom": 25,
         "section_bg_color": "rgba(0,0,0,0)"
-      }
-    },
-    "brand_story_VTzE3X": {
-      "type": "brand-story",
-      "name": "Brand Story",
-      "settings": {
-        "content_width": 800,
-        "text_alignment": "center",
-        "label": "Our Philosophy",
-        "heading": "Simplicity is the ultimate sophistication.",
-        "text": "<p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>",
-        "button_label": "Read Our Story",
-        "button_link": ""
       }
     }
   },
