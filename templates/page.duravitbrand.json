@@ -121,6 +121,44 @@
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
+    },
+    "hotspots_HChCqt": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_fMtKMt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "0x8-valve-0x8-series-tub-shower-rough-in-valve-0x8-series-tub-shower-rough-in-valve-job-pack-quantity-of-12",
+            "pos_x": 2,
+            "pos_y": 66
+          }
+        },
+        "hotspot_7nirTN": {
+          "type": "hotspot",
+          "settings": {
+            "product": "14-x-18-bar-sink-single-bowl",
+            "pos_x": 30,
+            "pos_y": 40
+          }
+        },
+        "hotspot_Gx3VFq": {
+          "type": "hotspot",
+          "settings": {
+            "product": "32-x-19-kitchen-sink-double-bowls",
+            "pos_x": 60,
+            "pos_y": 38
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fMtKMt",
+        "hotspot_7nirTN",
+        "hotspot_Gx3VFq"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/f8bb27ef-4724-4aae-acb7-fcf73f9161ad.webp"
+      }
     }
   },
   "order": [
@@ -128,6 +166,7 @@
     "rich_text_iRGJkG",
     "duravitbrand",
     "main",
-    "brand_hero_V7teLV"
+    "brand_hero_V7teLV",
+    "hotspots_HChCqt"
   ]
 }
