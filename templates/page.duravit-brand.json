@@ -60,11 +60,11 @@
       "type": "brand-story",
       "name": "Brand Story",
       "settings": {
-        "content_width": 1200,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "Read Our Story",
+        "content_width": 1400,
+        "label": "Tradition Since 1817",
+        "heading": "Elevating the Everyday",
+        "text": "<p>From its roots in the Black Forest, Duravit has evolved into a global leader in designer bathrooms. We believe in transforming ordinary moments into artistic experiences. By combining sustainable manufacturing with timeless aesthetics, we create living spaces where the highest quality meets a unique sense of well-being.</p>",
+        "button_label": "",
         "button_link": ""
       }
     },
