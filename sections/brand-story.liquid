@@ -1,140 +1,103 @@
 <style>
-  .brand-story-container {
+  .brand-text-container {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 25px;
+  }
+
+  .brand-text-container.text-center {
+    text-align: center;
     align-items: center;
   }
 
-  .brand-story-image-wrapper {
-    flex: 1;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .brand-story-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    min-height: 300px;
-  }
-
-  .brand-story-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .brand-text-container.text-left {
     text-align: left;
+    align-items: flex-start;
   }
 
-  .brand-story-label {
+  .brand-text-label {
     text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
+    font-size: 0.85em;
+    letter-spacing: 2px;
     color: #666;
     font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
   }
 
-  .brand-story-heading {
-    font-size: 2.2rem;
+  .brand-text-heading {
+    font-size: 2.5rem;
     line-height: 1.2;
-    margin: 0 0 25px;
+    margin: 0;
     color: #111;
   }
 
-  .brand-story-text {
-    font-size: 1rem;
-    line-height: 1.6;
+  .brand-text-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: #444;
-    margin-bottom: 30px;
   }
 
-  .brand-story-text p {
-    margin-bottom: 15px;
+  .brand-text-content p {
+    margin-bottom: 20px;
   }
 
-  .brand-story-text p:last-child {
+  .brand-text-content p:last-child {
     margin-bottom: 0;
   }
 
-  .brand-story-btn {
+  .brand-text-btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 35px;
     background-color: #111;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
+    margin-top: 15px;
+    transition: opacity 0.3s ease;
   }
 
-  .brand-story-btn:hover {
-    background-color: #333;
+  .brand-text-btn:hover {
+    opacity: 0.8;
   }
 
-  @media (min-width: 990px) {
-    .brand-story-container {
-      flex-direction: row;
-      gap: 60px;
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .brand-text-heading {
+      font-size: 2rem;
     }
-
-    .brand-story-container.layout-right {
-      flex-direction: row-reverse;
-    }
-
-    .brand-story-image {
-      height: auto;
-      min-height: 450px;
-    }
-
-    .brand-story-heading {
-      font-size: 2.8rem;
+    .brand-text-section {
+      padding: 40px 0;
     }
   }
 </style>
 
-<div class="brand-story-section pageWidth">
-  <div class="brand-story-container layout-{{ section.settings.image_position }}">
+<div class="brand-text-section pageWidth">
+  <div class="brand-text-container text-{{ section.settings.text_alignment }}" style="max-width: {{ section.settings.content_width }}px;">
 
-    <div class="brand-story-image-wrapper">
-      {% if section.settings.image != blank %}
-        {{ section.settings.image | image_url: width: 1200 | image_tag: 
- loading: 'lazy', 
- class: 'brand-story-image', 
- widths: '400, 600, 800, 1200'
-        }}
+    {% if section.settings.label != blank %}
+      <span class="brand-text-label">{{ section.settings.label | escape }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="brand-text-heading">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    <div class="brand-text-content">
+      {% if section.settings.text != blank %}
+        {{ section.settings.text }}
       {% else %}
-        {{ 'image' | placeholder_svg_tag: 'brand-story-image' }}
+        <p>Write a compelling statement about your brand here. Focus on your mission, your values, or the unique story behind your products.</p>
       {% endif %}
     </div>
 
-    <div class="brand-story-content">
-      {% if section.settings.label != blank %}
-        <span class="brand-story-label">{{ section.settings.label | escape }}</span>
-      {% endif %}
-
-      {% if section.settings.heading != blank %}
-        <h2 class="brand-story-heading">{{ section.settings.heading | escape }}</h2>
-      {% endif %}
-
-      <div class="brand-story-text">
-        {% if section.settings.text != blank %}
-          {{ section.settings.text }}
-        {% else %}
-          <p>Share your brand's story here. Describe your history, your values, and what makes your products unique.</p>
-        {% endif %}
-      </div>
-
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="brand-story-btn">
-          {{ section.settings.button_label | escape }}
-        </a>
-      {% endif %}
-    </div>
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="brand-text-btn">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {% endif %}
 
   </div>
 </div>
@@ -145,51 +108,57 @@
     "settings": [
       {
         "type": "header",
-        "content": "Layout"
+        "content": "Layout Settings"
+      },
+      {
+        "type": "range",
+        "id": "content_width",
+        "min": 400,
+        "max": 1200,
+        "step": 20,
+        "unit": "px",
+        "label": "Content Max Width",
+        "default": 800,
+        "info": "Keeps text readable on large screens."
       },
       {
         "type": "select",
-        "id": "image_position",
-        "label": "Image Position",
+        "id": "text_alignment",
+        "label": "Text Alignment",
         "options": [
           {
+            "value": "center",
+            "label": "Center"
+          }, {
             "value": "left",
             "label": "Left"
-          }, {
-            "value": "right",
-            "label": "Right"
           }
         ],
-        "default": "left"
+        "default": "center"
       },
       {
         "type": "header",
         "content": "Content"
-      },
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Image"
       }, {
         "type": "text",
         "id": "label",
         "label": "Small Label",
-        "default": "Our Story"
+        "default": "Our Philosophy"
       }, {
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "About Our Brand"
+        "default": "Simplicity is the ultimate sophistication."
       }, {
         "type": "richtext",
         "id": "text",
         "label": "Description",
-        "default": "<p>Crafting quality products since 2010. We believe in sustainable design and exceptional craftsmanship. Every piece tells a story of dedication and passion.</p>"
+        "default": "<p>Use this section to focus purely on text. Great for manifestos, mission statements, or detailed brand introductions without visual distractions.</p>"
       }, {
         "type": "text",
         "id": "button_label",
         "label": "Button Label",
-        "default": "Learn More"
+        "default": "Read Our Story"
       }, {
         "type": "url",
         "id": "button_link",
