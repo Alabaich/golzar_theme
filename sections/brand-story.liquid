@@ -1,0 +1,205 @@
+<style>
+  .brand-story-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .brand-story-image-wrapper {
+    flex: 1;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .brand-story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 300px;
+  }
+
+  .brand-story-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .brand-story-label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #666;
+    font-weight: 600;
+  }
+
+  .brand-story-heading {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 0 0 25px;
+    color: #111;
+  }
+
+  .brand-story-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 30px;
+  }
+
+  .brand-story-text p {
+    margin-bottom: 15px;
+  }
+
+  .brand-story-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .brand-story-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .brand-story-btn:hover {
+    background-color: #333;
+  }
+
+  @media (min-width: 990px) {
+    .brand-story-container {
+      flex-direction: row;
+      gap: 60px;
+    }
+
+    .brand-story-container.layout-right {
+      flex-direction: row-reverse;
+    }
+
+    .brand-story-image {
+      height: auto;
+      min-height: 450px;
+    }
+
+    .brand-story-heading {
+      font-size: 2.8rem;
+    }
+  }
+</style>
+
+<div class="brand-story-section pageWidth">
+  <div class="brand-story-container layout-{{ section.settings.image_position }}">
+
+    <div class="brand-story-image-wrapper">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: 
+ loading: 'lazy', 
+ class: 'brand-story-image', 
+ widths: '400, 600, 800, 1200'
+        }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'brand-story-image' }}
+      {% endif %}
+    </div>
+
+    <div class="brand-story-content">
+      {% if section.settings.label != blank %}
+        <span class="brand-story-label">{{ section.settings.label | escape }}</span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="brand-story-heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+
+      <div class="brand-story-text">
+        {% if section.settings.text != blank %}
+          {{ section.settings.text }}
+        {% else %}
+          <p>Share your brand's story here. Describe your history, your values, and what makes your products unique.</p>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="brand-story-btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Brand Story",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "image_position",
+        "label": "Image Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }, {
+        "type": "text",
+        "id": "label",
+        "label": "Small Label",
+        "default": "Our Story"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "About Our Brand"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Description",
+        "default": "<p>Crafting quality products since 2010. We believe in sustainable design and exceptional craftsmanship. Every piece tells a story of dedication and passion.</p>"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Learn More"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Brand Story"
+      }
+    ]
+  }
+{% endschema %}
