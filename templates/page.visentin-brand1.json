@@ -71,28 +71,31 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_B9xPCm": {
-          "type": "category",
-          "settings": {
-            "collection": "visentin-shower-faucets"
-          }
-        },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "visentin-bathroom-faucets"
+            "collection": "visentin-bathroom-faucets",
+            "image": "shopify://shop_images/victoria-2-handle-centerset-bathroom-faucet-by-visentin-550804.webp"
+          }
+        },
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "visentin-shower-faucets",
+            "image": "shopify://shop_images/melnick-pressure-balanced-tub-shower-set-by-visentin-772201.webp"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "visentin-kitchen-faucets"
+            "collection": "visentin-kitchen-faucets",
+            "image": "shopify://shop_images/visentin-pull-out-kitchen-faucet-386694.webp"
           }
         }
       },
       "block_order": [
-        "category_B9xPCm",
         "category_8HJ8ec",
+        "category_B9xPCm",
         "category_ejVpwL"
       ],
       "name": "Featured Product Groups",
