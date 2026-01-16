@@ -45,69 +45,42 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Discover the art of living with Duravit.",
+        "brand_title": "Experience a level of freshness that feels natural.",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
-        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Duravit",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=alps",
         "show_button_arrow": false,
-        "hero_image": "shopify://shop_images/Duravit__2559562_300_11296652-776c-4864-a5b1-bf8a18065673.jpg",
+        "hero_image": "shopify://shop_images/ALPS-2021_6a8da15d-9cee-4a42-a67c-7a2c401d93b5.jpg",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
     },
-    "brand_story_VTzE3X": {
+    "brand_story_r4qCUV": {
       "type": "brand-story",
-      "name": "Brand Story",
+      "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Tradition Since 1817",
-        "heading": "Elevating the Everyday",
-        "text": "<p>From its roots in the Black Forest, Duravit has evolved into a global leader in designer bathrooms. We believe in transforming ordinary moments into artistic experiences. By combining sustainable manufacturing with timeless aesthetics, we create living spaces where the highest quality meets a unique sense of well-being.</p>",
-        "button_label": "",
+        "label": "Smart Innovation",
+        "heading": "The Peak of Modern Living",
+        "text": "<p>Transform your daily routine with ALPS, where technology meets comfort. Developed specifically for the Canadian market, our smart toilets and minimalist fixtures combine European-inspired luxury with cutting-edge functionality. We elevate your bathroom experience with intelligent features designed for superior hygiene and ease.</p>",
+        "button_label": "Read Our Story",
         "button_link": ""
       }
     },
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_B9xPCm": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-in-wall-tank-carriers"
-          }
-        },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "duravit-wall-mounted-toilets"
-          }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-two-piece-toilets"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-washlet"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-one-piece-toilets"
+            "collection": "alps-wall-mounted-toilets",
+            "image": "shopify://shop_images/alps-wall-hung-toilet-kw-9003-complete-set-with-geberit-carrier-268005.webp"
           }
         }
       },
       "block_order": [
-        "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK"
+        "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
       "settings": {
@@ -120,7 +93,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "duravit",
+        "featured_collection": "alps-wall-mounted-toilets",
         "products_limit": 4,
         "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
         "show_add_to_cart_button": true,
@@ -163,7 +136,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
-    "brand_story_VTzE3X",
+    "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "custom_blog_posts_grid_8PkfHz"
