@@ -61,10 +61,10 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "Read Our Story",
+        "label": "Refined Living",
+        "heading": "A Better Understanding of Life",
+        "text": "<p>Our mission is simple: to make home life higher quality by improving the bathroom space. GODI combines advanced equipment with innovative craftsmanship to create products that are both sophisticated and effortless. We design for the modern lifestyle, offering solutions that make your daily routine easier, sharper, and more distinct.</p>",
+        "button_label": "",
         "button_link": ""
       }
     },
