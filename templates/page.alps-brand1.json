@@ -71,21 +71,15 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_B9xPCm": {
-          "type": "category",
-          "settings": {
-            "collection": "alps-smart-toilets"
-          }
-        },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "alps-wall-mounted-toilets"
+            "collection": "alps-wall-mounted-toilets",
+            "image": "shopify://shop_images/alps-wall-hung-toilet-kw-9003-complete-set-with-geberit-carrier-268005.webp"
           }
         }
       },
       "block_order": [
-        "category_B9xPCm",
         "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
