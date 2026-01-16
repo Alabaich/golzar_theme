@@ -135,6 +135,58 @@
         "product_button_text": "Buy Now"
       }
     },
+    "brand_masonry_gallery_fhYzkx": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Y8rFKH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/toto-ap-wall-hung-toilet.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_VNfhFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-ada-compliant-elongated-bowl-978835.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_cALjKj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Discover_the_Toto_G5A_Smart_Toilet-01.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_99iHYQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/toto-drake-ii-two-piece-toilet-universal-height-997814.jpg",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_cALjKj",
+        "image_99iHYQ"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center"
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -174,6 +226,7 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
+    "brand_masonry_gallery_fhYzkx",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
