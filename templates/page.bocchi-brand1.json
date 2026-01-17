@@ -118,6 +118,58 @@
         "button_link": ""
       }
     },
+    "brand_masonry_gallery_heWkDc": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Cjw9Az": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_27.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_nPJanp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bocchi-wall-hung-toilet-complete-set-white-800523.jpg",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_JjF8QJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_25.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_aAekNh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_24.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Cjw9Az",
+        "image_nPJanp",
+        "image_JjF8QJ",
+        "image_aAekNh"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center"
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -158,6 +210,7 @@
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "brand_story_H48xdA",
+    "brand_masonry_gallery_heWkDc",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
