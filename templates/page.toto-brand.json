@@ -135,6 +135,18 @@
         "product_button_text": "Buy Now"
       }
     },
+    "brand_story_8MPibg": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Revolutionary Comfort",
+        "heading": "The Original WASHLET™",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "TOTO reinvented the bathroom experience with the invention of the WASHLET™. This high-tech electronic bidet seat introduced the world to a new standard of personal hygiene. With features like warm-water cleansing, heated seats, and air drying, the WASHLET™ transforms a daily necessity into a restorative ritual of comfort and care.",
+        "button_link": ""
+      }
+    },
     "brand_masonry_gallery_fhYzkx": {
       "type": "brand-masonry-gallery",
       "blocks": {
@@ -226,6 +238,7 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
+    "brand_story_8MPibg",
     "brand_masonry_gallery_fhYzkx",
     "custom_blog_posts_grid_8PkfHz"
   ]
