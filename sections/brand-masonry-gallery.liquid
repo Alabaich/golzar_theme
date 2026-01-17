@@ -2,7 +2,7 @@
   .masonry-parent-{{ section.id }} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(300px, auto));
+    grid-template-rows: repeat(2, minmax(200px, auto));
     gap: 25px;
     width: 100%;
   }
@@ -80,9 +80,8 @@
       gap: 15px;
     }
 
-    .masonry-parent-{{ section.id }}
-    > * {
-      height: 300px;
+    .masonry-parent-{{ section.id }} > * {
+      height: 250px;
     }
 
     .masonry-overlay {
@@ -106,8 +105,8 @@
         {{ block.shopify_attributes }}>
         {% if block.settings.image != blank %}
           {{ block.settings.image | image_url: width: 1200 | image_tag: 
- loading: 'lazy', 
- widths: '400, 600, 800, 1200'
+            loading: 'lazy', 
+            widths: '400, 600, 800, 1200'
           }}
         {% else %}
           {{ 'image' | placeholder_svg_tag }}
