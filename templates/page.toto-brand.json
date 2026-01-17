@@ -147,6 +147,49 @@
         "button_link": ""
       }
     },
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_36.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
     "brand_masonry_gallery_fhYzkx": {
       "type": "brand-masonry-gallery",
       "blocks": {
@@ -239,6 +282,7 @@
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "brand_story_8MPibg",
+    "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
     "custom_blog_posts_grid_8PkfHz"
   ]
