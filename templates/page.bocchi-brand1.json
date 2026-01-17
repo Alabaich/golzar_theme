@@ -106,6 +106,18 @@
         "product_button_text": "Buy Now"
       }
     },
+    "brand_story_H48xdA": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Advanced Hygiene",
+        "heading": "BOCCHI Clean+ Technology",
+        "text": "<p>BOCCHI revolutionized ceramic hygiene with Clean+ Technology. By treating the surface to be 19 times smoother than standard glazed porcelain, we created a hydrophobic barrier that prevents dirt, limescale, and bacteria from adhering. This means your bathroom fixtures stay cleaner longer, retaining their brilliant shine with minimal effort.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -145,6 +157,7 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
+    "brand_story_H48xdA",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
