@@ -57,11 +57,23 @@
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
         "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Kohler",
-        "show_button_arrow": true,
+        "show_button_arrow": false,
         "hero_image": "shopify://shop_images/GBH_SQTemplate_11461562-3262-4aaa-b833-5ee00e5978e4.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "brand_story_LJQ8hq": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1000,
+        "label": "Powerful Hygiene",
+        "heading": "Revolution 360® Swirl Flush",
+        "text": "<p>Kohler redefined flushing power with Revolution 360®. Powered by our AquaPiston engine, this technology sends water through a single powerful outlet, creating a 360-degree swirling vortex. It covers the entire bowl surface, cleaning it more effectively than traditional flushes while staying incredibly quiet and water-efficient.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
       }
     },
     "featured_product_groups_zjRqfN": {
@@ -198,6 +210,70 @@
         "product_button_text": "Buy Now"
       }
     },
+    "brand_story_4VGgWE": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1000,
+        "label": "Sensory Experience",
+        "heading": "The Science of Katalyst®",
+        "text": "<p>Experience the power of air-infused water. Kohler’s Katalyst® technology ingeniously mixes two liters of air with every 2.5 gallons of water. This creates larger, fuller water droplets that retain heat longer and envelope your body completely. It is not just a shower; it is a warm, drenching rain that maximizes every drop for a true spa-like sensation.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "brand_masonry_gallery_y9aJCd": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_fpEyPk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_28.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_tYTGYH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_29.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_Dc4h8q": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_30.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_9iGcUe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_31.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_fpEyPk",
+        "image_tYTGYH",
+        "image_Dc4h8q",
+        "image_9iGcUe"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center"
+      }
+    },
     "custom_blog_posts_grid_UPatad": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -234,8 +310,11 @@
     "browse_by_options",
     "main",
     "brand_hero_dc3rWA",
+    "brand_story_LJQ8hq",
     "featured_product_groups_zjRqfN",
     "popular_products_BRUd9n",
+    "brand_story_4VGgWE",
+    "brand_masonry_gallery_y9aJCd",
     "custom_blog_posts_grid_UPatad"
   ]
 }
