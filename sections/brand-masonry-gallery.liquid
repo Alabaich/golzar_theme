@@ -2,7 +2,7 @@
   .masonry-parent-{{ section.id }} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(200px, auto));
+    grid-template-rows: repeat(2, 200px); 
     gap: 25px;
     width: 100%;
   }
@@ -81,7 +81,7 @@
     }
 
     .masonry-parent-{{ section.id }} > * {
-      height: 250px;
+      height: 200px;
     }
 
     .masonry-overlay {
