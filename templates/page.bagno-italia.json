@@ -82,6 +82,18 @@
         "mobile_button_align": "flex-start"
       }
     },
+    "brand_story_gDEHwJ": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Seamless Engineering",
+        "heading": "The Art of One-Piece Design",
+        "text": "<p>Bagno Italia redefines the centerpiece of the bathroom with its signature \"One-Piece\" manufacturing technology. Unlike standard tubs where the apron and bowl are joined, our freestanding bathtubs are molded as a single, seamless unit. This creates a flawless, sleek silhouette that is not only visually stunning but also easier to clean, with no crevices for dust or moisture to hide.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
     "featured_product_groups_jrnDqW": {
       "type": "featured-product-groups",
       "blocks": {
@@ -112,6 +124,70 @@
         "show_more_link": "shopify://collections/bagno-italia",
         "show_add_to_cart_button": true,
         "product_button_text": "Add to Cart"
+      }
+    },
+    "brand_story_Yb7tmt": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Timeless Aesthetics",
+        "heading": "Modern Classics, Curated",
+        "text": "<p>We bring the essence of Milanese design to the modern home. Bagno Italia’s philosophy is built on \"Accessible Luxury\"—combining high-end Italian aesthetics with practical durability. From the modular Florenza vanities to the sculptural Bellagio tubs, every piece is designed with clean lines and premium finishes like quartz and multi-layer lacquer to stand the test of time.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "brand_masonry_gallery_iCHcM7": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_fh9BqN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_32.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_i6GwiM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_34.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_ebkGgg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_33.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_jNEkGq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_35.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_fh9BqN",
+        "image_i6GwiM",
+        "image_ebkGgg",
+        "image_jNEkGq"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center"
       }
     },
     "custom_blog_posts_grid_FN6rr3": {
@@ -151,8 +227,11 @@
     "armadi-art-brand",
     "main",
     "brand_hero_3wqiCG",
+    "brand_story_gDEHwJ",
     "featured_product_groups_jrnDqW",
     "popular_products_VXBqKB",
+    "brand_story_Yb7tmt",
+    "brand_masonry_gallery_iCHcM7",
     "custom_blog_posts_grid_FN6rr3"
   ]
 }
