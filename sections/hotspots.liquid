@@ -18,13 +18,15 @@
     border-radius: 8px;
     overflow: hidden;
     line-height: 0;
+    max-height: 550px; 
+    width: 100%;
   }
 
   .shoppable-main-img {
     width: 100%;
-    height: auto;
+    height: 100%; 
     display: block;
-    object-fit: cover;
+    object-fit: cover; 
   }
 
   .hotspot-dot {
@@ -36,8 +38,7 @@
     cursor: pointer;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
-    transition: transform 0.2s ease
-    , background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     z-index: 2;
     border: none;
     padding: 0;
@@ -228,9 +229,7 @@
     font-size: 0.9em;
     font-weight: 300;
     cursor: pointer;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     text-align: center;
   }
 
@@ -249,7 +248,7 @@
   }
 </style>
 
-<div class="shoppable-section">
+<div class="shoppable-section pageWidth page-width">
   <div class="shoppable-container">
 
     <div class="shoppable-image-wrapper">
