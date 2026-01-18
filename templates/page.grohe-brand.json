@@ -137,6 +137,7 @@
     },
     "brand_story_8MPibg": {
       "type": "brand-story",
+      "disabled": true,
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
@@ -180,6 +181,7 @@
         "hotspot_AbkYCt",
         "hotspot_3yKbaP"
       ],
+      "disabled": true,
       "name": "Shoppable Image",
       "settings": {
         "image": "shopify://shop_images/download_36.webp",
@@ -196,7 +198,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-ap-wall-hung-toilet.webp",
+            "image": "shopify://shop_images/download_45.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -205,7 +207,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-ada-compliant-elongated-bowl-978835.webp",
+            "image": "shopify://shop_images/download_46.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -214,7 +216,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Discover_the_Toto_G5A_Smart_Toilet-01.webp",
+            "image": "shopify://shop_images/download_44.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -223,7 +225,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-drake-ii-two-piece-toilet-universal-height-997814.jpg",
+            "image": "shopify://shop_images/download_47.webp",
             "link": "",
             "title": "",
             "text": ""
