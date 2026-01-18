@@ -74,37 +74,42 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-carrier-plates"
+            "collection": "grohe",
+            "image": "shopify://shop_images/download_52.webp"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets-1"
+            "collection": "grohe-shower-kits",
+            "image": "shopify://shop_images/download_51.webp"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "toto-smart-toilet-washlets"
+            "collection": "grohe-single-hole-bathroom-faucets",
+            "image": "shopify://shop_images/download_50.webp"
           }
         },
         "category_inz6n7": {
           "type": "category",
           "settings": {
-            "collection": "toto-two-piece-toilets"
+            "collection": "grohe-wall-mount-faucets",
+            "image": "shopify://shop_images/download_49.webp"
           }
         },
         "category_LJKbDK": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-mounted-toilets"
+            "collection": "grohe-kitchen-faucets",
+            "image": "shopify://shop_images/download_48.webp"
           }
         },
         "category_t8jLap": {
           "type": "category",
           "settings": {
-            "collection": "toto-bathroom-sinks",
+            "collection": "grohe-widespread-faucet",
             "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
           }
         }
