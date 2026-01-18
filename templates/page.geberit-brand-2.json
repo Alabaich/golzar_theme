@@ -153,6 +153,7 @@
         "hotspot_AbkYCt",
         "hotspot_3yKbaP"
       ],
+      "disabled": true,
       "name": "Shoppable Image",
       "settings": {
         "image": "shopify://shop_images/download_36.webp",
