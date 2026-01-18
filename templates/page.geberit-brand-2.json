@@ -45,26 +45,26 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Discover the art of living with Duravit.",
+        "brand_title": "Experience the pinnacle of engineering with Geberit.",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
-        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Duravit",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=geberit",
         "show_button_arrow": false,
-        "hero_image": "shopify://shop_images/Duravit__2559562_300_11296652-776c-4864-a5b1-bf8a18065673.jpg",
+        "hero_image": "shopify://shop_images/download_41.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
       }
     },
-    "brand_story_VTzE3X": {
+    "brand_story_r4qCUV": {
       "type": "brand-story",
-      "name": "Brand Story",
+      "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Tradition Since 1817",
-        "heading": "Elevating the Everyday",
-        "text": "<p>From its roots in the Black Forest, Duravit has evolved into a global leader in designer bathrooms. We believe in transforming ordinary moments into artistic experiences. By combining sustainable manufacturing with timeless aesthetics, we create living spaces where the highest quality meets a unique sense of well-being.</p>",
-        "button_label": "",
+        "label": "Swiss Excellence",
+        "heading": "Design Meets Function",
+        "text": "<p>Geberit combines a passion for quality with over 150 years of Swiss sanitary know-how. We believe that true luxury lies in the perfect balance of elegant design and outstanding functionality. By hiding the technology behind the wall, we create a bathroom experience that offers space, tranquility, and reliability you can trust for decades.</p>",
+        "button_label": "Read Our Story",
         "button_link": ""
       }
     },
@@ -74,40 +74,21 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "duravit-in-wall-tank-carriers"
+            "collection": "geberit-flush-plate",
+            "image": "shopify://shop_images/download_43.webp"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "duravit-wall-mounted-toilets"
-          }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-two-piece-toilets"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-washlet"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-one-piece-toilets"
+            "collection": "geberit-toilet-carrier",
+            "image": "shopify://shop_images/download_42.webp"
           }
         }
       },
       "block_order": [
         "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK"
+        "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
       "settings": {
@@ -120,59 +101,103 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "duravit",
+        "featured_collection": "geberit-flush-plate",
         "products_limit": 4,
         "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
     },
-    "brand_story_RLKreh": {
+    "brand_story_8MPibg": {
       "type": "brand-story",
-      "name": "Brand Story",
+      "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Antibacterial Protection",
-        "heading": "HygieneGlaze Technology",
-        "text": "<p>Duravit sets a new standard in bathroom hygiene with HygieneGlaze. Unlike surface coatings, this ceramic glaze is permanently baked into the interior of the toilet/urinal. It is toxicologically safe and highly effective: within just 24 hours, it inhibits the growth of bacteria (like E. coli) by an unprecedented 99.9%, ensuring lasting purity and peace of mind.</p>",
-        "button_label": "",
+        "label": "Revolutionary Comfort",
+        "heading": "The Original WASHLET™",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "TOTO reinvented the bathroom experience with the invention of the WASHLET™. This high-tech electronic bidet seat introduced the world to a new standard of personal hygiene. With features like warm-water cleansing, heated seats, and air drying, the WASHLET™ transforms a daily necessity into a restorative ritual of comfort and care.",
         "button_link": ""
       }
     },
-    "brand_masonry_gallery_G9QkAK": {
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "disabled": true,
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_36.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "brand_masonry_gallery_fhYzkx": {
       "type": "brand-masonry-gallery",
       "blocks": {
-        "image_FBwkLC": {
+        "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_38.webp",
+            "image": "shopify://shop_images/toto-ap-wall-hung-toilet.webp",
             "link": "",
             "title": "",
             "text": ""
           }
         },
-        "image_j6TH7E": {
+        "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_37.webp",
+            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-ada-compliant-elongated-bowl-978835.webp",
             "link": "",
             "title": "",
             "text": ""
           }
         },
-        "image_KbKBTy": {
+        "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_40.webp",
+            "image": "shopify://shop_images/Discover_the_Toto_G5A_Smart_Toilet-01.webp",
             "link": "",
             "title": "",
             "text": ""
           }
         },
-        "image_hWU7Xz": {
+        "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_39.webp",
+            "image": "shopify://shop_images/toto-drake-ii-two-piece-toilet-universal-height-997814.jpg",
             "link": "",
             "title": "",
             "text": ""
@@ -180,10 +205,10 @@
         }
       },
       "block_order": [
-        "image_FBwkLC",
-        "image_j6TH7E",
-        "image_KbKBTy",
-        "image_hWU7Xz"
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_cALjKj",
+        "image_99iHYQ"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
@@ -227,11 +252,12 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
-    "brand_story_VTzE3X",
+    "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
-    "brand_story_RLKreh",
-    "brand_masonry_gallery_G9QkAK",
+    "brand_story_8MPibg",
+    "hotspots_PQ3dmy",
+    "brand_masonry_gallery_fhYzkx",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
