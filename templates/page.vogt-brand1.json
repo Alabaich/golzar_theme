@@ -45,12 +45,12 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_title": "VOGT. Where raw metal becomes functional art.",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
         "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
-        "show_button_arrow": true,
-        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/download_59.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
@@ -61,9 +61,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "Handcrafted Artistry",
+        "heading": "Forged by Hand",
+        "text": "<p>VOGT believes that true luxury lies in the human touch. Unlike mass-produced fixtures, our sinks and vessels are individually hand-hammered by skilled artisans. This labor-intensive process ensures that no two pieces are exactly alike, giving your home a unique character and a soulful texture that machinery simply cannot replicate.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -74,38 +74,36 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-carrier-plates"
+            "collection": "vogt-kitchen-faucets",
+            "image": "shopify://shop_images/download_54.webp"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets-1"
+            "collection": "vogt-shower-faucets",
+            "image": "shopify://shop_images/download_55.webp"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "toto-smart-toilet-washlets"
+            "collection": "vogt-single-hole-faucets",
+            "image": "shopify://shop_images/download_56.webp"
           }
         },
         "category_inz6n7": {
           "type": "category",
           "settings": {
-            "collection": "toto-two-piece-toilets"
+            "collection": "vogt-tub-fillers",
+            "image": "shopify://shop_images/download_57.webp"
           }
         },
         "category_LJKbDK": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-mounted-toilets"
-          }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-bathroom-sinks",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+            "collection": "vogt-wall-mounted-faucets",
+            "image": "shopify://shop_images/download_58.webp"
           }
         }
       },
@@ -114,8 +112,7 @@
         "category_8HJ8ec",
         "category_ejVpwL",
         "category_inz6n7",
-        "category_LJKbDK",
-        "category_t8jLap"
+        "category_LJKbDK"
       ],
       "name": "Featured Product Groups",
       "settings": {
@@ -128,7 +125,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "toto-smart-toilet-washlets",
+        "featured_collection": "vogt-kitchen-faucets",
         "products_limit": 4,
         "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
         "show_add_to_cart_button": true,
@@ -140,10 +137,10 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Revolutionary Comfort",
-        "heading": "The Original WASHLET™",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "TOTO reinvented the bathroom experience with the invention of the WASHLET™. This high-tech electronic bidet seat introduced the world to a new standard of personal hygiene. With features like warm-water cleansing, heated seats, and air drying, the WASHLET™ transforms a daily necessity into a restorative ritual of comfort and care.",
+        "label": "Living Materials",
+        "heading": "Beauty That Evolves",
+        "text": "<p>We work with materials that tell a story. VOGT’s signature copper and brass finishes are \"living\" surfaces, designed to develop a rich, natural patina over time. This interaction with the elements creates a deep, warm aesthetic that grows more beautiful with age, turning your basin into a timeless centerpiece.</p>",
+        "button_label": "",
         "button_link": ""
       }
     },
@@ -180,6 +177,8 @@
         "hotspot_AbkYCt",
         "hotspot_3yKbaP"
       ],
+      "disabled": true,
+      "custom_css": [],
       "name": "Shoppable Image",
       "settings": {
         "image": "shopify://shop_images/download_36.webp",
@@ -196,7 +195,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-ap-wall-hung-toilet.webp",
+            "image": "shopify://shop_images/download_60.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -205,7 +204,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-ada-compliant-elongated-bowl-978835.webp",
+            "image": "shopify://shop_images/download_62.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -214,7 +213,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Discover_the_Toto_G5A_Smart_Toilet-01.webp",
+            "image": "shopify://shop_images/download_61.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -223,7 +222,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-drake-ii-two-piece-toilet-universal-height-997814.jpg",
+            "image": "shopify://shop_images/download_63.webp",
             "link": "",
             "title": "",
             "text": ""
