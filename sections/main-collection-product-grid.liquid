@@ -532,9 +532,10 @@
                   </a>
                   <div class="collection-grid-item__info">
                     {% if product.tags contains 'ready_to_ship' %}
-  
-  <p class="collection-grid-item__availability collection-grid-item__availability--in-stock">Ready To Ship</p>
-{% endif %}
+                        <p class="collection-grid-item__availability collection-grid-item__availability--in-stock">Ready To Ship</p>
+                      {% else %}
+                        <p class="collection-grid-item__availability collection-grid-item__availability--limited">Limited Inventory</p>
+                      {% endif %}
                     {% comment %} {% if current_variant.available %}
                       <p class="collection-grid-item__availability collection-grid-item__availability--in-stock">In Stock</p>
                     {% else %}
