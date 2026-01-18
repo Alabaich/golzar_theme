@@ -139,6 +139,58 @@
         "button_link": ""
       }
     },
+    "brand_masonry_gallery_G9QkAK": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_FBwkLC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_38.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_j6TH7E": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_37.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_KbKBTy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_40.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_hWU7Xz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_39.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_FBwkLC",
+        "image_j6TH7E",
+        "image_KbKBTy",
+        "image_hWU7Xz"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center"
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -179,6 +231,7 @@
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "brand_story_RLKreh",
+    "brand_masonry_gallery_G9QkAK",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
