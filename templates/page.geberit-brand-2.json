@@ -61,9 +61,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "Swiss Excellence",
+        "heading": "Design Meets Function",
+        "text": "<p>Geberit combines a passion for quality with over 150 years of Swiss sanitary know-how. We believe that true luxury lies in the perfect balance of elegant design and outstanding functionality. By hiding the technology behind the wall, we create a bathroom experience that offers space, tranquility, and reliability you can trust for decades.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -74,48 +74,21 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-carrier-plates"
+            "collection": "geberit-flush-plate",
+            "image": "shopify://shop_images/download_43.webp"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets-1"
-          }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-smart-toilet-washlets"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-two-piece-toilets"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-wall-mounted-toilets"
-          }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-bathroom-sinks",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+            "collection": "geberit-toilet-carrier",
+            "image": "shopify://shop_images/download_42.webp"
           }
         }
       },
       "block_order": [
         "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK",
-        "category_t8jLap"
+        "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
       "settings": {
