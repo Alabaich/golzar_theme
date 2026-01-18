@@ -110,6 +110,7 @@
     },
     "brand_story_8MPibg": {
       "type": "brand-story",
+      "disabled": true,
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
