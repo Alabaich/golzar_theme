@@ -142,14 +142,13 @@
     },
     "brand_story_8MPibg": {
       "type": "brand-story",
-      "disabled": true,
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Revolutionary Comfort",
-        "heading": "The Original WASHLET™",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "TOTO reinvented the bathroom experience with the invention of the WASHLET™. This high-tech electronic bidet seat introduced the world to a new standard of personal hygiene. With features like warm-water cleansing, heated seats, and air drying, the WASHLET™ transforms a daily necessity into a restorative ritual of comfort and care.",
+        "label": "Ultimate Control",
+        "heading": "GROHE SilkMove®",
+        "text": "<p>Experience the difference of a mixer that responds to your lightest touch. GROHE SilkMove® cartridges are engineered for precise and effortless water control. Even after years of daily use, the lever operation remains silky smooth, ensuring perfect temperature and flow management every single time.</p>",
+        "button_label": "",
         "button_link": ""
       }
     },
