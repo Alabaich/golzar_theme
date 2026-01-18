@@ -45,12 +45,12 @@
       "type": "brand-hero",
       "name": "Brand Hero Advanced",
       "settings": {
-        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_title": "Experience the pure joy of water with GROHE.",
         "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
         "button_text": "Discover Brand",
         "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
-        "show_button_arrow": true,
-        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/download_53.webp",
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
@@ -61,9 +61,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "German Technology",
+        "heading": "Pure Freude an Wasser",
+        "text": "<p>GROHE is the world’s leading provider of sanitary fittings, dedicated to providing \"Pure Freude an Wasser\" (Pure Joy of Water). Rooted in German engineering, our products combine quality, technology, and design to create water experiences that are sustainable, innovative, and purely joyful for years to come.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
