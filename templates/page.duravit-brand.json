@@ -127,6 +127,18 @@
         "product_button_text": "Buy Now"
       }
     },
+    "brand_story_RLKreh": {
+      "type": "brand-story",
+      "name": "Brand Story",
+      "settings": {
+        "content_width": 1400,
+        "label": "Antibacterial Protection",
+        "heading": "HygieneGlaze Technology",
+        "text": "<p>Duravit sets a new standard in bathroom hygiene with HygieneGlaze. Unlike surface coatings, this ceramic glaze is permanently baked into the interior of the toilet/urinal. It is toxicologically safe and highly effective: within just 24 hours, it inhibits the growth of bacteria (like E. coli) by an unprecedented 99.9%, ensuring lasting purity and peace of mind.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -166,6 +178,7 @@
     "brand_story_VTzE3X",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
+    "brand_story_RLKreh",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
