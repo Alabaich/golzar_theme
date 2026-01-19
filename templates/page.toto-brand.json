@@ -228,18 +228,39 @@
             "title": "",
             "text": ""
           }
+        },
+        "image_a6Ui8p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download.jpg",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_LLKV6j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_69.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
         }
       },
       "block_order": [
         "image_Y8rFKH",
         "image_VNfhFR",
         "image_cALjKj",
-        "image_99iHYQ"
+        "image_99iHYQ",
+        "image_a6Ui8p",
+        "image_LLKV6j"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "center",
+        "enable_6_items": true
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
