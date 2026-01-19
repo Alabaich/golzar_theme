@@ -2,9 +2,16 @@
   .masonry-parent-{{ section.id }} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 400px); 
     gap: 25px;
     width: 100%;
+  }
+
+  .masonry-4-items-{{ section.id }} {
+    grid-template-rows: repeat(2, 400px);
+  }
+
+  .masonry-6-items-{{ section.id }} {
+    grid-template-rows: repeat(3, 400px);
   }
 
   .masonry-item {
@@ -41,6 +48,12 @@
   }
   .div4 {
     grid-area: 2 / 3 / 3 / 4;
+  }
+  .div5 {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+  .div6 {
+    grid-area: 3 / 3 / 4 / 4;
   }
 
   .masonry-overlay {
@@ -90,6 +103,11 @@
   }
 </style>
 
+{% assign limit_count = 4 %}
+{% if section.settings.enable_6_items %}
+  {% assign limit_count = 6 %}
+{% endif %}
+
 <div class="pageWidth page-width">
   {% if section.settings.heading != blank %}
     <h2 style="text-align: {{ section.settings.heading_align }}; margin-bottom: 30px;">
@@ -97,8 +115,8 @@
     </h2>
   {% endif %}
 
-  <div class="masonry-parent-{{ section.id }}">
-    {% for block in section.blocks limit: 4 %}
+  <div class="masonry-parent-{{ section.id }} {% if section.settings.enable_6_items %}masonry-6-items-{{ section.id }}{% else %}masonry-4-items-{{ section.id }}{% endif %}">
+    {% for block in section.blocks limit: limit_count %}
       <a
         href="{{ block.settings.link | default: '#' }}"
         class="masonry-item div{{ forloop.index }}"
@@ -129,13 +147,14 @@
 
 {% schema %}
   {
-    "name": "Custom Masonry 4-Grid",
+    "name": "Custom Masonry Grid",
     "settings": [
       {
         "type": "text",
         "id": "heading",
         "label": "Section Heading"
-      }, {
+      },
+      {
         "type": "select",
         "id": "heading_align",
         "label": "Heading Alignment",
@@ -143,33 +162,43 @@
           {
             "value": "left",
             "label": "Left"
-          }, {
+          },
+          {
             "value": "center",
             "label": "Center"
           }
         ],
         "default": "center"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_6_items",
+        "label": "Enable 6 Items Layout",
+        "default": false
       }
     ],
     "blocks": [
       {
         "type": "image",
         "name": "Grid Image",
-        "limit": 4,
+        "limit": 6,
         "settings": [
           {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          }, {
+          },
+          {
             "type": "url",
             "id": "link",
             "label": "Link"
-          }, {
+          },
+          {
             "type": "text",
             "id": "title",
             "label": "Overlay Title"
-          }, {
+          },
+          {
             "type": "text",
             "id": "text",
             "label": "Overlay Text"
@@ -179,15 +208,18 @@
     ],
     "presets": [
       {
-        "name": "Custom Masonry 4-Grid",
+        "name": "Custom Masonry Grid",
         "blocks": [
           {
             "type": "image"
-          }, {
+          },
+          {
             "type": "image"
-          }, {
+          },
+          {
             "type": "image"
-          }, {
+          },
+          {
             "type": "image"
           }
         ]
