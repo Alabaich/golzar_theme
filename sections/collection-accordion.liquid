@@ -1,0 +1,320 @@
+<style>
+  .accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .accordion-item:first-child {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .accordion-header {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s;
+  }
+
+  .accordion-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+  }
+
+  .accordion-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    opacity: 0;
+  }
+
+  .accordion-content.open {
+    opacity: 1;
+  }
+
+  .slider-container {
+    padding: 20px 0 40px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slider-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .slider-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+
+  .slider-product-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .slider-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .slider-product-card:hover .slider-img {
+    transform: scale(1.05);
+  }
+
+  .slider-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .slider-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .slider-vendor {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .slider-price {
+    font-size: 0.95rem;
+    margin-top: 5px;
+  }
+
+  .slider-price s {
+    color: #999;
+    font-size: 0.85rem;
+    margin-left: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .accordion-title {
+      font-size: 1.2rem;
+    }
+    .slider-product-card {
+      flex: 0 0 220px;
+    }
+  }
+</style>
+
+<div class="accordion-section pageWidth page-width">
+  <div class="accordion-wrapper">
+    {% for block in section.blocks %}
+      <div class="accordion-item" {{ block.shopify_attributes }}>
+        <button class="accordion-header">
+          <h3 class="accordion-title">{{ block.settings.heading | escape }}</h3>
+          <svg
+            class="accordion-icon"
+            viewBox="0 0 14 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1 1L7 7L13 1"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <div class="accordion-content">
+          <div class="slider-container">
+            {% assign collection = collections[block.settings.collection] %}
+
+            {% if collection != blank and collection.products_count > 0 %}
+              {% for product in collection.products limit: block.settings.limit %}
+                <a href="{{ product.url }}" class="slider-product-card">
+                  <div class="slider-img-wrapper">
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'slider-img' }}
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag: 'slider-img' }}
+                    {% endif %}
+                  </div>
+                  <div class="slider-info">
+                    {% if section.settings.show_vendor %}
+                      <span class="slider-vendor">{{ product.vendor }}</span>
+                    {% endif %}
+                    <h4 class="slider-title">{{ product.title }}</h4>
+                    <div class="slider-price">
+                      {% if product.compare_at_price > product.price %}
+                        <span style="color: #d9534f;">{{ product.price | money }}</span>
+                        <s>{{ product.compare_at_price | money }}</s>
+                      {% else %}
+                        <span>{{ product.price | money }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </a>
+              {% endfor %}
+            {% else %}
+              {% for i in (1..4) %}
+                <div class="slider-product-card">
+                  <div class="slider-img-wrapper">
+                    {{ 'product-' | append: i | placeholder_svg_tag: 'slider-img' }}
+                  </div>
+                  <div class="slider-info">
+                    <h4 class="slider-title">Example Product {{ i }}</h4>
+                    <div class="slider-price">$99.00</div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+  
+    headers.forEach(header => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isOpen = this.classList.contains('active');
+  
+        // Optional: Close other accordions (Accordian behavior vs Toggle behavior)
+        // Remove this loop if you want multiple sections open at once
+        headers.forEach(h => {
+          if (h !== this) {
+            h.classList.remove('active');
+            h.nextElementSibling.style.maxHeight = null;
+            h.nextElementSibling.classList.remove('open');
+          }
+        });
+  
+        // Toggle current
+        this.classList.toggle('active');
+        
+        if (!isOpen) {
+          content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.classList.remove('open');
+          content.style.maxHeight = null;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Collection Accordion",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show Vendor",
+        "default": true
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 40
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection_block",
+        "name": "Collection Row",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "New Arrivals"
+          }, {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }, {
+            "type": "range",
+            "id": "limit",
+            "min": 4,
+            "max": 20,
+            "step": 1,
+            "label": "Product Limit",
+            "default": 8
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Accordion",
+        "blocks": [
+          {
+            "type": "collection_block",
+            "settings": {
+              "heading": "New Arrivals"
+            }
+          }, {
+            "type": "collection_block",
+            "settings": {
+              "heading": "Best Sellers"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
