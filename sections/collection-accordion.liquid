@@ -30,7 +30,7 @@
   .accordion-icon {
     width: 16px;
     height: 16px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
   }
 
   .accordion-header.active .accordion-icon {
@@ -40,8 +40,8 @@
   .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)
-    , opacity 0.5s ease;
+    transition: max-height 0.4s ease
+    , opacity 0.4s ease;
     opacity: 0;
   }
 
@@ -72,18 +72,18 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 5;
-    width: 45px;
-    height: 45px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #ffffff;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     color: #333;
     opacity: 0;
     pointer-events: none;
@@ -98,19 +98,20 @@
     background-color: #000;
     color: #fff;
     border-color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .slider-arrow--prev {
-    left: -22.5px;
+    left: 0;
   }
 
   .slider-arrow--next {
-    right: -22.5px;
+    right: 0;
   }
 
   .slider-arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   .slider-product-card {
@@ -129,8 +130,8 @@
   }
 
   .slider-product-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   .slider-img-wrapper {
@@ -149,7 +150,7 @@
   }
 
   .slider-product-card:hover .slider-img {
-    transform: scale(1.08);
+    transform: scale(1.05);
   }
 
   .slider-info {
@@ -192,16 +193,6 @@
     margin-left: 8px;
   }
 
-  @media (max-width: 1024px) {
-    .slider-arrow {
-      left: 10px;
-      right: 10px;
-    }
-    .slider-arrow--next {
-      right: 10px;
-    }
-  }
-
   @media (max-width: 768px) {
     .accordion-title {
       font-size: 1.3rem;
@@ -216,7 +207,7 @@
       padding: 20px 0 30px;
     }
     .slider-container {
-      padding-left: 10px;
+      padding: 0 15px;
     }
   }
 </style>
