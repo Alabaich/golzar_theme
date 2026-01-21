@@ -308,12 +308,39 @@
       "type": "collection-slider-row",
       "name": "Collection Slider Row",
       "settings": {
+        "background_color": "#ffffff",
         "heading": "TOTO DRAKE",
         "description": "<p>The TOTO Drake collection offers a range of toilets that combine powerful performance with water efficiency. Featuring the DYNAMAX TORNADO FLUSH® system, these toilets utilize 100% of available water for a 360-degree cleaning that reaches every spot, ensuring thorough bowl cleansing.</p><p>TOTO Drake includes a comprehensive range of toilets designed to cater to diverse preferences and needs, from compact models ideal for smaller spaces to larger designs that provide enhanced comfort. These toilets go beyond basic functionality, incorporating user-friendly features such as seamless one-piece designs for easy cleaning, ergonomic seat heights for added convenience, and soft-close lids to minimize noise.</p><p>The collection offers options for dual-flush systems, allowing users to choose between a high-performance flush and a lighter, eco-friendly option for reduced water usage. Each model is crafted with attention to detail, featuring clean lines and elegant finishes that can enhance the visual appeal of any bathroom. Whether prioritizing efficiency, aesthetics, or comfort, TOTO Drake delivers a harmonious blend of innovation and design, making it a standout choice for homeowners and designers alike.</p>",
         "collection": "toto-smart-toilet-washlets",
         "link_text": "View All Products",
         "limit": 20,
-        "show_vendor": true
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_Bp6VLG": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ebf1f5",
+        "heading": "TOTO Aquia",
+        "description": "<p>The TOTO Aquia collection combines modern, minimalist design with advanced functionality, offering dual-flush toilets for water efficiency, DYNAMAX TORNADO FLUSH® for thorough cleaning, and CEFIONTECT® glaze to maintain a pristine finish.</p><p>The DYNAMAX TORNADO FLUSH® system takes cleaning efficiency to the next level with its 360° powerful flush, ensuring every corner of the bowl is thoroughly cleaned, while the advanced non-clog 2.5\" trapway, coated with a clear glaze, further enhances waste removal and prevents blockages.</p><p>The collection features TOTO’s signature CEFIONTECT® ceramic glaze, a proprietary coating that prevents waste from adhering to the bowl, ensuring a hygienic and low-maintenance experience. With a completely skirted design, these toilets boast a sleek, seamless exterior that not only enhances their aesthetic appeal but also makes cleaning simpler and faster by eliminating hard-to-reach crevices. Designed for versatility, the elongated bowl provides added comfort, while the inclusion of a SoftClose® seat ensures a quiet and gentle close, minimizing noise and wear over time.</p><p>Engineered for easy installation, the Aquia collection accommodates standard 12\" rough-ins, with optional 10\" and 14\" rough-in adaptors available for greater flexibility. It is also WASHLET®+ compatible, allowing effortless integration with TOTO’s bidet systems for enhanced functionality and luxury. Additional thoughtful touches include a chrome push-button for dual-flush operation and a Quiet Flush feature, making it an ideal choice for both residential and commercial spaces. The Aquia collection exemplifies TOTO’s commitment to combining sophisticated design, innovative technology, and eco-conscious functionality in every detail.</p>",
+        "collection": "toto-two-piece-toilets",
+        "link_text": "View All Products",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_FBW9aB": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "TOTO Nexus",
+        "description": "<p>The TOTO Nexus combines a sleek, high-profile design with cutting-edge functionality, reflecting TOTO’s commitment to comfortable and healthy living.</p><p>Its modern, skirted silhouette enhances bathroom décor while adding sophistication. The skirted design not only conceals the trapway for a polished appearance but also makes cleaning easier by eliminating hard-to-reach areas. The Nexus includes TOTO’s proprietary CEFIONTECT glaze, which prevents debris from adhering to the ceramic surface. This smooth coating reduces cleaning frequency, conserves water, and minimizes the use of harsh chemicals. The toilet is equipped with the powerful TORNADO FLUSH system, which efficiently cleans the entire bowl with each flush, ensuring lasting hygiene. The Nexus’ Universal Height offers an ergonomic seat position, accommodating a wide range of users for maximum comfort.</p>",
+        "collection": "toto-one-piece-toilets-1",
+        "link_text": "View All Products",
+        "limit": 20,
+        "show_vendor": false
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
@@ -361,6 +388,8 @@
     "brand_masonry_gallery_fhYzkx",
     "collection_accordion_QJqncL",
     "collection_slider_row_c7bVJm",
+    "collection_slider_row_Bp6VLG",
+    "collection_slider_row_FBW9aB",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
