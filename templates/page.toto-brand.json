@@ -141,16 +141,16 @@
         "collection_block_FCNkre": {
           "type": "collection_block",
           "settings": {
-            "heading": "New Arrivals",
-            "collection": "",
+            "heading": "Toilet Seats",
+            "collection": "toilet-seats",
             "limit": 8
           }
         },
         "collection_block_hbi67i": {
           "type": "collection_block",
           "settings": {
-            "heading": "Best Sellers",
-            "collection": "",
+            "heading": "Bathroom",
+            "collection": "toto-bathroom-sinks",
             "limit": 8
           }
         }
