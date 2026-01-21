@@ -17,23 +17,58 @@
     max-width: 800px;
   }
 
+  /* Updated styles based on brand-text-heading */
   .section-title {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 10px;
-    color: #000;
+    color: #2c2d2c;
     letter-spacing: -0.02em;
     line-height: 1.1;
+    max-width: 100%;
   }
 
   .section-description {
     font-size: 1rem;
-    color: #555;
+    color: #333;
     line-height: 1.6;
+    margin-top: 10px;
+    max-width: 800px;
   }
 
   .section-description p {
-    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .section-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: opacity 0.2s ease;
+  }
+
+  .read-more-btn:hover {
+    opacity: 0.7;
+  }
+
+  .description-short {
+    display: block;
+  }
+
+  .description-full {
+    display: none;
   }
 
   .view-all-wrapper {
@@ -228,8 +263,24 @@
       {% if section.settings.heading != blank %}
         <h2 class="section-title">{{ section.settings.heading | escape }}</h2>
       {% endif %}
+
       {% if section.settings.description != blank %}
-        <div class="section-description">{{ section.settings.description }}</div>
+        {% assign content = section.settings.description %}
+        {% assign word_count = content | strip_html | split: ' ' | size %}
+
+        <div class="section-description" id="desc-{{ section.id }}">
+          {% if word_count > 35 %}
+            <div class="description-short">
+              {{ content | truncatewords: 35, "..." }}
+            </div>
+            <div class="description-full">
+              {{ content }}
+            </div>
+            <button class="read-more-btn" onclick="toggleDescription('{{ section.id }}')">Read more</button>
+          {% else %}
+            {{ content }}
+          {% endif %}
+        </div>
       {% endif %}
     </div>
 
@@ -319,6 +370,23 @@
 </div>
 
 <script>
+  function toggleDescription(id) {
+    const container = document.getElementById('desc-' + id);
+    const shortText = container.querySelector('.description-short');
+    const fullText = container.querySelector('.description-full');
+    const btn = container.querySelector('.read-more-btn');
+  
+    if (shortText.style.display === 'none') {
+      shortText.style.display = 'block';
+      fullText.style.display = 'none';
+      btn.innerText = 'Read more';
+    } else {
+      shortText.style.display = 'none';
+      fullText.style.display = 'block';
+      btn.innerText = 'Read less';
+    }
+  }
+  
   document.addEventListener('DOMContentLoaded', function() {
     const section = document.getElementById('slider-{{ section.id }}');
     const container = section.querySelector('.slider-container');
