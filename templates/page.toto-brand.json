@@ -143,7 +143,7 @@
         "label": "Revolutionary Comfort",
         "heading": "The Original WASHLET™",
         "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "TOTO reinvented the bathroom experience with the invention of the WASHLET™. This high-tech electronic bidet seat introduced the world to a new standard of personal hygiene. With features like warm-water cleansing, heated seats, and air drying, the WASHLET™ transforms a daily necessity into a restorative ritual of comfort and care.",
+        "button_label": "",
         "button_link": ""
       }
     },
@@ -190,6 +190,18 @@
         "product_button_text": "Buy now"
       }
     },
+    "brand_story_GhirRw": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Active Cleaning",
+        "heading": "Technology That Cleans Itself",
+        "text": "<p>TOTO sets a new standard for hygiene with its proprietary technologies like EWATER+ and PREMIST. Before each use, a mist of water wets the bowl to prevent waste adherence. After use, electrolyzed water automatically sanitizes the wand and bowl, reducing bacteria by 99.9% without harsh chemicals. It is a smart cycle of cleanliness that works constantly for you.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "brand_masonry_gallery_fhYzkx": {
       "type": "brand-masonry-gallery",
       "blocks": {
@@ -228,18 +240,39 @@
             "title": "",
             "text": ""
           }
+        },
+        "image_a6Ui8p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download.jpg",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_LLKV6j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_69.webp",
+            "link": "",
+            "title": "",
+            "text": ""
+          }
         }
       },
       "block_order": [
         "image_Y8rFKH",
         "image_VNfhFR",
         "image_cALjKj",
-        "image_99iHYQ"
+        "image_99iHYQ",
+        "image_a6Ui8p",
+        "image_LLKV6j"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "center",
+        "enable_6_items": true
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
@@ -283,6 +316,7 @@
     "popular_products_HTNHPY",
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
+    "brand_story_GhirRw",
     "brand_masonry_gallery_fhYzkx",
     "custom_blog_posts_grid_8PkfHz"
   ]
