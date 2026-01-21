@@ -135,6 +135,37 @@
         "product_button_text": "Buy Now"
       }
     },
+    "collection_accordion_QJqncL": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_FCNkre": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "New Arrivals",
+            "collection": "",
+            "limit": 8
+          }
+        },
+        "collection_block_hbi67i": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Best Sellers",
+            "collection": "",
+            "limit": 8
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_FCNkre",
+        "collection_block_hbi67i"
+      ],
+      "name": "Collection Accordion",
+      "settings": {
+        "show_vendor": true,
+        "padding_top": 35,
+        "padding_bottom": 40
+      }
+    },
     "brand_story_8MPibg": {
       "type": "brand-story",
       "name": "Brand Story Text",
@@ -314,6 +345,7 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
+    "collection_accordion_QJqncL",
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_story_GhirRw",
