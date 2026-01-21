@@ -9,7 +9,7 @@
 
   .accordion-header {
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,20 +17,20 @@
     border: none;
     cursor: pointer;
     text-align: left;
-    transition: background-color 0.2s;
   }
 
   .accordion-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 600;
     margin: 0;
     color: #000;
+    letter-spacing: -0.02em;
   }
 
   .accordion-icon {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s ease;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .accordion-header.active .accordion-icon {
@@ -40,7 +40,8 @@
   .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+    , opacity 0.5s ease;
     opacity: 0;
   }
 
@@ -48,23 +49,68 @@
     opacity: 1;
   }
 
+  .slider-wrapper {
+    position: relative;
+    padding: 30px 0 50px;
+  }
+
   .slider-container {
-    padding: 20px 0 40px;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .slider-container::-webkit-scrollbar {
-    height: 6px;
+    display: none;
   }
 
-  .slider-container::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 3px;
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .accordion-content.open .slider-arrow {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slider-arrow:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+  }
+
+  .slider-arrow--prev {
+    left: -22.5px;
+  }
+
+  .slider-arrow--next {
+    right: -22.5px;
+  }
+
+  .slider-arrow svg {
+    width: 20px;
+    height: 20px;
   }
 
   .slider-product-card {
@@ -74,67 +120,103 @@
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease
+    , box-shadow 0.3s ease;
+  }
+
+  .slider-product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   }
 
   .slider-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background-color: #f4f4f4;
+    background-color: #f8f8f8;
+    position: relative;
   }
 
   .slider-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
   }
 
   .slider-product-card:hover .slider-img {
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
 
   .slider-info {
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    flex-grow: 1;
   }
 
   .slider-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 500;
     margin: 0;
-    white-space: nowrap;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .slider-vendor {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .slider-price {
-    font-size: 0.95rem;
-    margin-top: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 10px;
   }
 
   .slider-price s {
-    color: #999;
-    font-size: 0.85rem;
-    margin-left: 5px;
+    color: #aaa;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    .slider-arrow {
+      left: 10px;
+      right: 10px;
+    }
+    .slider-arrow--next {
+      right: 10px;
+    }
   }
 
   @media (max-width: 768px) {
     .accordion-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     .slider-product-card {
-      flex: 0 0 220px;
+      flex: 0 0 240px;
+    }
+    .slider-arrow {
+      display: none;
+    }
+    .slider-wrapper {
+      padding: 20px 0 30px;
+    }
+    .slider-container {
+      padding-left: 10px;
     }
   }
 </style>
@@ -160,48 +242,79 @@
         </button>
 
         <div class="accordion-content">
-          <div class="slider-container">
-            {% assign collection = collections[block.settings.collection] %}
+          <div class="slider-wrapper">
 
-            {% if collection != blank and collection.products_count > 0 %}
-              {% for product in collection.products limit: block.settings.limit %}
-                <a href="{{ product.url }}" class="slider-product-card">
-                  <div class="slider-img-wrapper">
-                    {% if product.featured_image %}
-                      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'slider-img' }}
-                    {% else %}
-                      {{ 'product-1' | placeholder_svg_tag: 'slider-img' }}
-                    {% endif %}
-                  </div>
-                  <div class="slider-info">
-                    {% if section.settings.show_vendor %}
-                      <span class="slider-vendor">{{ product.vendor }}</span>
-                    {% endif %}
-                    <h4 class="slider-title">{{ product.title }}</h4>
-                    <div class="slider-price">
-                      {% if product.compare_at_price > product.price %}
-                        <span style="color: #d9534f;">{{ product.price | money }}</span>
-                        <s>{{ product.compare_at_price | money }}</s>
+            <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button class="slider-arrow slider-arrow--next" aria-label="Next slide">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <div class="slider-container">
+              {% assign collection = collections[block.settings.collection] %}
+
+              {% if collection != blank and collection.products_count > 0 %}
+                {% for product in collection.products limit: block.settings.limit %}
+                  <a href="{{ product.url }}" class="slider-product-card">
+                    <div class="slider-img-wrapper">
+                      {% if product.featured_image %}
+                        {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'slider-img' }}
                       {% else %}
-                        <span>{{ product.price | money }}</span>
+                        {{ 'product-1' | placeholder_svg_tag: 'slider-img' }}
                       {% endif %}
                     </div>
+                    <div class="slider-info">
+                      {% if section.settings.show_vendor %}
+                        <span class="slider-vendor">{{ product.vendor }}</span>
+                      {% endif %}
+                      <h4 class="slider-title">{{ product.title }}</h4>
+                      <div class="slider-price">
+                        {% if product.compare_at_price > product.price %}
+                          <span style="color: #d9534f;">{{ product.price | money }}</span>
+                          <s>{{ product.compare_at_price | money }}</s>
+                        {% else %}
+                          <span>{{ product.price | money }}</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </a>
+                {% endfor %}
+              {% else %}
+                {% for i in (1..6) %}
+                  <div class="slider-product-card">
+                    <div class="slider-img-wrapper">
+                      {{ 'product-' | append: i | placeholder_svg_tag: 'slider-img' }}
+                    </div>
+                    <div class="slider-info">
+                      <span class="slider-vendor">Brand Demo</span>
+                      <h4 class="slider-title">Example Product Title {{ i }}</h4>
+                      <div class="slider-price">$99.00</div>
+                    </div>
                   </div>
-                </a>
-              {% endfor %}
-            {% else %}
-              {% for i in (1..4) %}
-                <div class="slider-product-card">
-                  <div class="slider-img-wrapper">
-                    {{ 'product-' | append: i | placeholder_svg_tag: 'slider-img' }}
-                  </div>
-                  <div class="slider-info">
-                    <h4 class="slider-title">Example Product {{ i }}</h4>
-                    <div class="slider-price">$99.00</div>
-                  </div>
-                </div>
-              {% endfor %}
-            {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
@@ -211,15 +324,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    
     const headers = document.querySelectorAll('.accordion-header');
-  
     headers.forEach(header => {
       header.addEventListener('click', function() {
         const content = this.nextElementSibling;
         const isOpen = this.classList.contains('active');
   
-        // Optional: Close other accordions (Accordian behavior vs Toggle behavior)
-        // Remove this loop if you want multiple sections open at once
         headers.forEach(h => {
           if (h !== this) {
             h.classList.remove('active');
@@ -228,48 +339,51 @@
           }
         });
   
-        // Toggle current
         this.classList.toggle('active');
         
         if (!isOpen) {
           content.classList.add('open');
-          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.maxHeight = content.scrollHeight + 100 + "px";
         } else {
           content.classList.remove('open');
           content.style.maxHeight = null;
         }
       });
     });
+  
+    const accordionItems = document.querySelectorAll('.accordion-item');
+  
+    accordionItems.forEach(item => {
+        const container = item.querySelector('.slider-container');
+        const prevBtn = item.querySelector('.slider-arrow--prev');
+        const nextBtn = item.querySelector('.slider-arrow--next');
+  
+        if (!container || !prevBtn || !nextBtn) return;
+  
+        const scrollAmount = 305; 
+  
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+  
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    });
   });
 </script>
 
 {% schema %}
   {
-    "name": "Collection Accordion",
+    "name": "Collection Accordion Pro",
     "settings": [
       {
         "type": "checkbox",
         "id": "show_vendor",
         "label": "Show Vendor",
         "default": true
-      }, {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "label": "Top Padding",
-        "default": 40
-      }, {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "label": "Bottom Padding",
-        "default": 40
       }
     ],
     "blocks": [
@@ -290,17 +404,17 @@
             "type": "range",
             "id": "limit",
             "min": 4,
-            "max": 20,
+            "max": 24,
             "step": 1,
             "label": "Product Limit",
-            "default": 8
+            "default": 12
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Collection Accordion",
+        "name": "Collection Accordion Pro",
         "blocks": [
           {
             "type": "collection_block",
