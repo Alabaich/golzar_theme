@@ -135,37 +135,6 @@
         "product_button_text": "Buy Now"
       }
     },
-    "collection_accordion_QJqncL": {
-      "type": "collection-accordion",
-      "blocks": {
-        "collection_block_FCNkre": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Toilet Seats",
-            "collection": "toilet-seats",
-            "limit": 8
-          }
-        },
-        "collection_block_hbi67i": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Bathroom",
-            "collection": "toto-bathroom-sinks",
-            "limit": 8
-          }
-        }
-      },
-      "block_order": [
-        "collection_block_FCNkre",
-        "collection_block_hbi67i"
-      ],
-      "name": "Collection Accordion",
-      "settings": {
-        "show_vendor": true,
-        "padding_top": 35,
-        "padding_bottom": 40
-      }
-    },
     "brand_story_8MPibg": {
       "type": "brand-story",
       "name": "Brand Story Text",
@@ -306,6 +275,35 @@
         "enable_6_items": true
       }
     },
+    "collection_accordion_QJqncL": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_FCNkre": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Toilet Seats",
+            "collection": "toilet-seats",
+            "limit": 12
+          }
+        },
+        "collection_block_hbi67i": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Bathroom",
+            "collection": "toto-bathroom-sinks",
+            "limit": 8
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_FCNkre",
+        "collection_block_hbi67i"
+      ],
+      "name": "Collection Accordion",
+      "settings": {
+        "show_vendor": true
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -345,11 +343,11 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
-    "collection_accordion_QJqncL",
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_story_GhirRw",
     "brand_masonry_gallery_fhYzkx",
+    "collection_accordion_QJqncL",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
