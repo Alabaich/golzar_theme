@@ -304,6 +304,18 @@
         "show_vendor": true
       }
     },
+    "collection_slider_row_c7bVJm": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "heading": "TOTO DRAKE",
+        "description": "<p>The TOTO Drake collection offers a range of toilets that combine powerful performance with water efficiency. Featuring the DYNAMAX TORNADO FLUSH® system, these toilets utilize 100% of available water for a 360-degree cleaning that reaches every spot, ensuring thorough bowl cleansing.</p><p>TOTO Drake includes a comprehensive range of toilets designed to cater to diverse preferences and needs, from compact models ideal for smaller spaces to larger designs that provide enhanced comfort. These toilets go beyond basic functionality, incorporating user-friendly features such as seamless one-piece designs for easy cleaning, ergonomic seat heights for added convenience, and soft-close lids to minimize noise.</p><p>The collection offers options for dual-flush systems, allowing users to choose between a high-performance flush and a lighter, eco-friendly option for reduced water usage. Each model is crafted with attention to detail, featuring clean lines and elegant finishes that can enhance the visual appeal of any bathroom. Whether prioritizing efficiency, aesthetics, or comfort, TOTO Drake delivers a harmonious blend of innovation and design, making it a standout choice for homeowners and designers alike.</p>",
+        "collection": "toto-smart-toilet-washlets",
+        "link_text": "View All Products",
+        "limit": 20,
+        "show_vendor": true
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -348,6 +360,7 @@
     "brand_story_GhirRw",
     "brand_masonry_gallery_fhYzkx",
     "collection_accordion_QJqncL",
+    "collection_slider_row_c7bVJm",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
