@@ -1,10 +1,10 @@
 <style>
   #slider-{{ section.id }} {
     overflow: hidden;
+    background-color: {{ section.settings.background_color }};
   }
 
-  #slider-{{ section.id }}
-  .section-header {
+  #slider-{{ section.id }} .section-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -13,14 +13,12 @@
     position: relative;
   }
 
-  #slider-{{ section.id }}
-  .header-content {
+  #slider-{{ section.id }} .header-content {
     text-align: left;
     max-width: 800px;
   }
 
-  #slider-{{ section.id }}
-  .section-title {
+  #slider-{{ section.id }} .section-title {
     margin: 0 0 10px;
     color: #2c2d2c;
     font-weight: 700;
@@ -29,23 +27,13 @@
     letter-spacing: -0.02em;
   }
 
-  #slider-{{ section.id }}
-  .section-description {
+  #slider-{{ section.id }} .section-description {
     margin-top: 10px;
     max-width: 800px;
+    line-height: 1.6;
   }
 
-  #slider-{{ section.id }}
-  .section-description p {
-    margin-bottom: 10px;
-  }
-
-  #slider-{{ section.id }} .section-description p:last-child {
-    margin-bottom: 0;
-  }
-
-  #slider-{{ section.id }}
-  .read-more-btn {
+  #slider-{{ section.id }} .read-more-btn {
     display: inline-block;
     background: none;
     border: none;
@@ -64,26 +52,22 @@
     opacity: 0.7;
   }
 
-  #slider-{{ section.id }}
-  .description-short {
+  #slider-{{ section.id }} .description-short {
     display: block;
   }
 
-  #slider-{{ section.id }}
-  .description-full {
+  #slider-{{ section.id }} .description-full {
     display: none;
   }
 
-  #slider-{{ section.id }}
-  .view-all-wrapper {
+  #slider-{{ section.id }} .view-all-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 30px;
     width: 100%;
   }
 
-  #slider-{{ section.id }}
-  .view-all-btn {
+  #slider-{{ section.id }} .view-all-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,9 +79,7 @@
     font-size: 0.9em;
     font-weight: 300;
     cursor: pointer;
-    transition: background-color 0.3s ease
-    , color 0.3s ease
-    , border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     text-align: center;
     text-decoration: none;
     min-width: 200px;
@@ -109,14 +91,12 @@
     color: #ffffff;
   }
 
-  #slider-{{ section.id }}
-  .slider-wrapper {
+  #slider-{{ section.id }} .slider-wrapper {
     position: relative;
     padding: 10px 0 20px;
   }
 
-  #slider-{{ section.id }}
-  .slider-container {
+  #slider-{{ section.id }} .slider-container {
     display: flex;
     gap: 25px;
     overflow-x: auto;
@@ -127,13 +107,11 @@
     padding: 10px 2px;
   }
 
-  #slider-{{ section.id }}
-  .slider-container::-webkit-scrollbar {
+  #slider-{{ section.id }} .slider-container::-webkit-scrollbar {
     display: none;
   }
 
-  #slider-{{ section.id }}
-  .slider-arrow {
+  #slider-{{ section.id }} .slider-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -149,7 +127,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: #333;
+    color: #2c2d2c;
   }
 
   #slider-{{ section.id }} .slider-arrow:hover {
@@ -159,24 +137,20 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
 
-  #slider-{{ section.id }}
-  .slider-arrow--prev {
-    left: 0;
+  #slider-{{ section.id }} .slider-arrow--prev {
+    left: 10px;
   }
 
-  #slider-{{ section.id }}
-  .slider-arrow--next {
-    right: 0;
+  #slider-{{ section.id }} .slider-arrow--next {
+    right: 10px;
   }
 
-  #slider-{{ section.id }}
-  .slider-arrow svg {
+  #slider-{{ section.id }} .slider-arrow svg {
     width: 20px;
     height: 20px;
   }
 
-  #slider-{{ section.id }}
-  .slider-product-card {
+  #slider-{{ section.id }} .slider-product-card {
     flex: 0 0 280px;
     scroll-snap-align: start;
     display: flex;
@@ -187,17 +161,15 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease
-    , box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  #slider-{{ section.id }}.slider-product-card:hover {
+  #slider-{{ section.id }} .slider-product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
-  #slider-{{ section.id }}
-  .slider-img-wrapper {
+  #slider-{{ section.id }} .slider-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -205,8 +177,7 @@
     position: relative;
   }
 
-  #slider-{{ section.id }}
-  .slider-img {
+  #slider-{{ section.id }} .slider-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -217,8 +188,7 @@
     transform: scale(1.05);
   }
 
-  #slider-{{ section.id }}
-  .slider-info {
+  #slider-{{ section.id }} .slider-info {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -226,8 +196,7 @@
     flex-grow: 1;
   }
 
-  #slider-{{ section.id }}
-  .slider-title {
+  #slider-{{ section.id }} .slider-title {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0;
@@ -238,24 +207,21 @@
     overflow: hidden;
   }
 
-  #slider-{{ section.id }}
-  .slider-vendor {
+  #slider-{{ section.id }} .slider-vendor {
     font-size: 0.85rem;
     color: #777;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  #slider-{{ section.id }}
-  .slider-price {
+  #slider-{{ section.id }} .slider-price {
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: auto;
     padding-top: 5px;
   }
 
-  #slider-{{ section.id }}
-  .slider-price s {
+  #slider-{{ section.id }} .slider-price s {
     color: #aaa;
     font-size: 0.9rem;
     font-weight: 400;
@@ -267,134 +233,115 @@
       padding: 0;
     }
 
-    #slider-{{ section.id }}
-    .slider-product-card {
+    #slider-{{ section.id }} .slider-product-card {
       flex: 0 0 240px;
     }
 
-    #slider-{{ section.id }}
-    .slider-arrow {
+    #slider-{{ section.id }} .slider-arrow {
       display: none;
     }
 
-    #slider-{{ section.id }}
-    .slider-container {
+    #slider-{{ section.id }} .slider-container {
       padding: 10px 5px;
     }
   }
 </style>
 
-<div class="collection-slider-section pageWidth page-width" id="slider-{{ section.id }}">
+<div id="slider-{{ section.id }}" class="collection-slider-section pageWidth page-width">
+  <div>
+    <div class="section-header">
+      <div class="header-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="section-title">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
 
-  <div class="section-header">
-    <div class="header-content">
-      {% if section.settings.heading != blank %}
-        <h2 class="section-title">{{ section.settings.heading | escape }}</h2>
-      {% endif %}
+        {% if section.settings.description != blank %}
+          {% assign content = section.settings.description %}
+          {% assign word_count = content | strip_html | split: ' ' | size %}
 
-      {% if section.settings.description != blank %}
-        {% assign content = section.settings.description %}
-        {% assign word_count = content | strip_html | split: ' ' | size %}
-
-        <div class="section-description" id="desc-{{ section.id }}">
-          {% if word_count > 35 %}
-            <div class="description-short">
-              {{ content | truncatewords: 35, "..." }}
-            </div>
-            <div class="description-full">
+          <div class="section-description" id="desc-{{ section.id }}">
+            {% if word_count > 35 %}
+              <div class="description-short">
+                {{ content | truncatewords: 35, "..." }}
+              </div>
+              <div class="description-full">
+                {{ content }}
+              </div>
+              <button class="read-more-btn" onclick="toggleDescription('{{ section.id }}')">Read more</button>
+            {% else %}
               {{ content }}
-            </div>
-            <button class="read-more-btn" onclick="toggleDescription('{{ section.id }}')">Read more</button>
-          {% else %}
-            {{ content }}
-          {% endif %}
-        </div>
-      {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
     </div>
-  </div>
 
-  <div class="slider-wrapper">
+    <div class="slider-wrapper">
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
 
-    <button class="slider-arrow slider-arrow--prev" aria-label="Previous">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M15.75 19.5L8.25 12l7.5-7.5" />
-      </svg>
-    </button>
-    <button class="slider-arrow slider-arrow--next" aria-label="Next">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-      </svg>
-    </button>
+      <div class="slider-container">
+        {% assign collection = collections[section.settings.collection] %}
 
-    <div class="slider-container">
-      {% assign collection = collections[section.settings.collection] %}
-
-      {% if collection != blank and collection.products_count > 0 %}
-        {% for product in collection.products limit: section.settings.limit %}
-          <a href="{{ product.url }}" class="slider-product-card">
-            <div class="slider-img-wrapper">
-              {% if product.featured_image %}
-                {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'slider-img' }}
-              {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'slider-img' }}
-              {% endif %}
-            </div>
-            <div class="slider-info">
-              {% if section.settings.show_vendor %}
-                <span class="slider-vendor">{{ product.vendor }}</span>
-              {% endif %}
-              <h3 class="slider-title">{{ product.title }}</h3>
-              <div class="slider-price">
-                {% if product.compare_at_price > product.price %}
-                  <span style="color: #d9534f;">{{ product.price | money }}</span>
-                  <s>{{ product.compare_at_price | money }}</s>
+        {% if collection != blank and collection.products_count > 0 %}
+          {% for product in collection.products limit: section.settings.limit %}
+            <a href="{{ product.url }}" class="slider-product-card">
+              <div class="slider-img-wrapper">
+                {% if product.featured_image %}
+                  {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'slider-img' }}
                 {% else %}
-                  <span>{{ product.price | money }}</span>
+                  {{ 'product-1' | placeholder_svg_tag: 'slider-img' }}
                 {% endif %}
               </div>
+              <div class="slider-info">
+                {% if section.settings.show_vendor %}
+                  <span class="slider-vendor">{{ product.vendor }}</span>
+                {% endif %}
+                <h3 class="slider-title">{{ product.title }}</h3>
+                <div class="slider-price">
+                  {% if product.compare_at_price > product.price %}
+                    <span style="color: #d9534f;">{{ product.price | money }}</span>
+                    <s>{{ product.compare_at_price | money }}</s>
+                  {% else %}
+                    <span>{{ product.price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        {% else %}
+          {% for i in (1..6) %}
+            <div class="slider-product-card">
+              <div class="slider-img-wrapper">
+                {{ 'product-' | append: i | placeholder_svg_tag: 'slider-img' }}
+              </div>
+              <div class="slider-info">
+                <span class="slider-vendor">Brand</span>
+                <h3 class="slider-title">Example Product {{ i }}</h3>
+                <div class="slider-price">$99.00</div>
+              </div>
             </div>
-          </a>
-        {% endfor %}
-      {% else %}
-        {% for i in (1..6) %}
-          <div class="slider-product-card">
-            <div class="slider-img-wrapper">
-              {{ 'product-' | append: i | placeholder_svg_tag: 'slider-img' }}
-            </div>
-            <div class="slider-info">
-              <span class="slider-vendor">Brand</span>
-              <h3 class="slider-title">Example Product {{ i }}</h3>
-              <div class="slider-price">$99.00</div>
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
-  </div>
 
-  {% if section.settings.collection != blank %}
-    <div class="view-all-wrapper">
-      <a href="{{ collections[section.settings.collection].url }}" class="view-all-btn">
-        {{ section.settings.link_text | default: 'View Collection' }}
-      </a>
-    </div>
-  {% endif %}
+    {% if section.settings.collection != blank %}
+      <div class="view-all-wrapper">
+        <a href="{{ collections[section.settings.collection].url }}" class="view-all-btn">
+          {{ section.settings.link_text | default: 'View Collection' }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
 </div>
 
 <script>
@@ -403,7 +350,7 @@
     const shortText = container.querySelector('.description-short');
     const fullText = container.querySelector('.description-full');
     const btn = container.querySelector('.read-more-btn');
-  
+
     if (shortText.style.display === 'none') {
       shortText.style.display = 'block';
       fullText.style.display = 'none';
@@ -414,21 +361,21 @@
       btn.innerText = 'Read less';
     }
   }
-  
+
   document.addEventListener('DOMContentLoaded', function() {
     const section = document.getElementById('slider-{{ section.id }}');
     const container = section.querySelector('.slider-container');
     const prevBtn = section.querySelector('.slider-arrow--prev');
     const nextBtn = section.querySelector('.slider-arrow--next');
-  
+
     if (!container || !prevBtn || !nextBtn) return;
-  
+
     const scrollStep = 305;
-  
+
     prevBtn.addEventListener('click', () => {
       container.scrollBy({ left: -scrollStep, behavior: 'smooth' });
     });
-  
+
     nextBtn.addEventListener('click', () => {
       container.scrollBy({ left: scrollStep, behavior: 'smooth' });
     });
@@ -436,50 +383,58 @@
 </script>
 
 {% schema %}
-  {
-    "name": "Collection Slider Row",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Featured Collection"
-      },
-      {
-        "type": "richtext",
-        "id": "description",
-        "label": "Description",
-        "default": "<p>Write a description for this collection here.</p>"
-      },
-      {
-        "type": "collection",
-        "id": "collection",
-        "label": "Select Collection"
-      },
-      {
-        "type": "text",
-        "id": "link_text",
-        "label": "Link Text",
-        "default": "View Collection"
-      }, {
-        "type": "range",
-        "id": "limit",
-        "min": 4,
-        "max": 20,
-        "step": 1,
-        "label": "Product Limit",
-        "default": 8
-      }, {
-        "type": "checkbox",
-        "id": "show_vendor",
-        "label": "Show Vendor",
-        "default": true
-      }
-    ],
-    "presets": [
-      {
-        "name": "Collection Slider Row"
-      }
-    ]
-  }
+{
+  "name": "Collection Slider Row",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Write a description for this collection here.</p>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "View Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "label": "Product Limit",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Slider Row"
+    }
+  ]
+}
 {% endschema %}
