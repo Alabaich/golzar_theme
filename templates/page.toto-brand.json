@@ -208,7 +208,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-ap-wall-hung-toilet.webp",
+            "image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -217,7 +217,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-eco-ultramax-one-piece-toilet-ada-compliant-elongated-bowl-978835.webp",
+            "image": "shopify://shop_images/Banners-03.webp",
             "link": "",
             "title": "",
             "text": ""
@@ -241,19 +241,19 @@
             "text": ""
           }
         },
-        "image_a6Ui8p": {
+        "image_LLKV6j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download.jpg",
+            "image": "shopify://shop_images/download_70.webp",
             "link": "",
             "title": "",
             "text": ""
           }
         },
-        "image_LLKV6j": {
+        "image_a6Ui8p": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_69.webp",
+            "image": "shopify://shop_images/download.jpg",
             "link": "",
             "title": "",
             "text": ""
@@ -265,8 +265,8 @@
         "image_VNfhFR",
         "image_cALjKj",
         "image_99iHYQ",
-        "image_a6Ui8p",
-        "image_LLKV6j"
+        "image_LLKV6j",
+        "image_a6Ui8p"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
