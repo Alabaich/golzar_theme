@@ -209,6 +209,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -217,7 +219,9 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Banners-03.webp",
+            "image": "shopify://shop_images/download_75.webp",
+            "pos_x": 88,
+            "pos_y": 0,
             "link": "",
             "title": "",
             "text": ""
@@ -226,7 +230,9 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Discover_the_Toto_G5A_Smart_Toilet-01.webp",
+            "image": "shopify://shop_images/download_73.webp",
+            "pos_x": 49,
+            "pos_y": 40,
             "link": "",
             "title": "",
             "text": ""
@@ -235,7 +241,9 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-drake-ii-two-piece-toilet-universal-height-997814.jpg",
+            "image": "shopify://shop_images/download_71.webp",
+            "pos_x": 75,
+            "pos_y": 0,
             "link": "",
             "title": "",
             "text": ""
@@ -244,7 +252,9 @@
         "image_LLKV6j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_70.webp",
+            "image": "shopify://shop_images/download_72.webp",
+            "pos_x": 69,
+            "pos_y": 33,
             "link": "",
             "title": "",
             "text": ""
@@ -254,6 +264,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download.jpg",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
