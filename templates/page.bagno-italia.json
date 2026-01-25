@@ -200,7 +200,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_81.webp",
-            "pos_x": 49,
+            "pos_x": 50,
             "pos_y": 50,
             "link": "",
             "title": "",
@@ -221,6 +221,27 @@
         "heading": "",
         "heading_align": "left",
         "enable_6_items": true
+      }
+    },
+    "collection_accordion_FUiRYr": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_hyXK4K": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "New Arrivals",
+            "collection": "bagno-italia",
+            "limit": 12
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_hyXK4K"
+      ],
+      "disabled": true,
+      "name": "Collection Accordion Pro",
+      "settings": {
+        "show_vendor": true
       }
     },
     "custom_blog_posts_grid_FN6rr3": {
@@ -265,6 +286,7 @@
     "popular_products_VXBqKB",
     "brand_story_Yb7tmt",
     "brand_masonry_gallery_iCHcM7",
+    "collection_accordion_FUiRYr",
     "custom_blog_posts_grid_FN6rr3"
   ]
 }
