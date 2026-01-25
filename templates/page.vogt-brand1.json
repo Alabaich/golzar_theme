@@ -196,6 +196,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_60.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -205,6 +207,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_62.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -214,6 +218,30 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_61.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_pTfgnU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_95.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_qFHNFt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_94.webp",
+            "pos_x": 40,
+            "pos_y": 82,
             "link": "",
             "title": "",
             "text": ""
@@ -223,6 +251,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_63.webp",
+            "pos_x": 40,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -233,12 +263,72 @@
         "image_Y8rFKH",
         "image_VNfhFR",
         "image_cALjKj",
+        "image_pTfgnU",
+        "image_qFHNFt",
         "image_99iHYQ"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "feature_icons_ye3RXx": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_rLWNWT": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_9qNGVP": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_pPWi4f": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_cg6LFp": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_rLWNWT",
+        "feature_item_9qNGVP",
+        "feature_item_pPWi4f",
+        "feature_item_cg6LFp"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
@@ -283,6 +373,7 @@
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
+    "feature_icons_ye3RXx",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
