@@ -307,6 +307,118 @@
         "enable_6_items": true
       }
     },
+    "collection_accordion_pMgCrk": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_UDGjr4": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Bathtubs & Shower Kits",
+            "collection": "kohler-bathtub-shower-kits",
+            "limit": 12
+          }
+        },
+        "collection_block_bHd7MM": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "One-Piece Toilets",
+            "collection": "kohler-one-piece-toilet",
+            "limit": 12
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_UDGjr4",
+        "collection_block_bHd7MM"
+      ],
+      "name": "Collection Accordion Pro",
+      "settings": {
+        "show_vendor": true
+      }
+    },
+    "collection_slider_row_PCMqi3": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Widespread Precision",
+        "description": "<p>Elevate your vanity with our widespread faucets featuring <strong>UltraGlide™</strong> valves. Engineered for effortless control and a sophisticated, customizable layout.</p>",
+        "collection": "kohler-widespread-faucets",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_b4ke69": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#eff4f8",
+        "heading": "Sculpted Centerpiece",
+        "description": "<p>Indulge in the <strong>Veil®</strong> freestanding bath. Crafted from <strong>Lithocast®</strong> gloss, its organic curves provide a deep, comfortable soak that serves as the room's focal point.</p>",
+        "collection": "kohler-freestanding-bathtubs",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "feature_icons_6TxGcc": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_Rz3whe": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_GLFFXC": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_MfrMFM": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_ymEfnr": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_Rz3whe",
+        "feature_item_GLFFXC",
+        "feature_item_MfrMFM",
+        "feature_item_ymEfnr"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "custom_blog_posts_grid_UPatad": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -348,6 +460,10 @@
     "popular_products_BRUd9n",
     "brand_story_4VGgWE",
     "brand_masonry_gallery_y9aJCd",
+    "collection_accordion_pMgCrk",
+    "collection_slider_row_PCMqi3",
+    "collection_slider_row_b4ke69",
+    "feature_icons_6TxGcc",
     "custom_blog_posts_grid_UPatad"
   ]
 }
