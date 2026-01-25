@@ -276,6 +276,63 @@
         "show_vendor": false
       }
     },
+    "feature_icons_FUEjCY": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_G6hzGP": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_wn3LJf": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_ibi3az": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_kXViP8": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_G6hzGP",
+        "feature_item_wn3LJf",
+        "feature_item_ibi3az",
+        "feature_item_kXViP8"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "Our Features",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -319,6 +376,7 @@
     "brand_masonry_gallery_G9QkAK",
     "collection_accordion_WLbrcn",
     "collection_slider_row_KFRFiE",
+    "feature_icons_FUEjCY",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
