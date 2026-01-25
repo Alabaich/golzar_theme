@@ -274,6 +274,44 @@
         "enable_6_items": true
       }
     },
+    "collection_accordion_ETwbPj": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_hPwWjK": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Shower Faucets",
+            "collection": "vogt-shower-faucets",
+            "limit": 12
+          }
+        },
+        "collection_block_hUxJRV": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Wall-Mounted Faucets",
+            "collection": "vogt-wall-mounted-faucets",
+            "limit": 12
+          }
+        },
+        "collection_block_KCW3mA": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Tub Fillers",
+            "collection": "vogt-tub-fillers",
+            "limit": 12
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_hPwWjK",
+        "collection_block_hUxJRV",
+        "collection_block_KCW3mA"
+      ],
+      "name": "Collection Accordion Pro",
+      "settings": {
+        "show_vendor": true
+      }
+    },
     "feature_icons_ye3RXx": {
       "type": "feature-icons",
       "blocks": {
@@ -373,6 +411,7 @@
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
+    "collection_accordion_ETwbPj",
     "feature_icons_ye3RXx",
     "custom_blog_posts_grid_8PkfHz"
   ]
