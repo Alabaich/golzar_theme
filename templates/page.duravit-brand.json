@@ -91,6 +91,7 @@
         },
         "category_inz6n7": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "collection": "duravit-washlet"
           }
@@ -142,19 +143,23 @@
     "brand_masonry_gallery_G9QkAK": {
       "type": "brand-masonry-gallery",
       "blocks": {
-        "image_FBwkLC": {
+        "image_j6TH7E": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_38.webp",
+            "image": "shopify://shop_images/download_37.webp",
+            "pos_x": 0,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
           }
         },
-        "image_j6TH7E": {
+        "image_FBwkLC": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_37.webp",
+            "image": "shopify://shop_images/download_38.webp",
+            "pos_x": 25,
+            "pos_y": 0,
             "link": "",
             "title": "",
             "text": ""
@@ -164,6 +169,30 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_40.webp",
+            "pos_x": 22,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_4awKmw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_82.webp",
+            "pos_x": 26,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_G3Q7DB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_83.webp",
+            "pos_x": 0,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -173,6 +202,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_39.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -180,15 +211,69 @@
         }
       },
       "block_order": [
-        "image_FBwkLC",
         "image_j6TH7E",
+        "image_FBwkLC",
         "image_KbKBTy",
+        "image_4awKmw",
+        "image_G3Q7DB",
         "image_hWU7Xz"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "collection_accordion_WLbrcn": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_XfizGi": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "In-Wall Tanks & Carriers",
+            "collection": "duravit-in-wall-tank-carriers",
+            "limit": 12
+          }
+        },
+        "collection_block_MkaNWH": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "SensoWash",
+            "collection": "duravit-washlet",
+            "limit": 12
+          }
+        },
+        "collection_block_YRawkL": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Wall-Mounted Toilets",
+            "collection": "duravit-wall-mounted-toilets",
+            "limit": 12
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_XfizGi",
+        "collection_block_MkaNWH",
+        "collection_block_YRawkL"
+      ],
+      "name": "Collection Accordion Pro",
+      "settings": {
+        "show_vendor": true
+      }
+    },
+    "collection_slider_row_KFRFiE": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "HygieneGlaze",
+        "description": "<ul><li>Innovative ceramic glaze that kills 99.9% of bacteria for a new standard of safety.</li></ul>",
+        "collection": "duravit-bathroom-sinks",
+        "link_text": "View Collection",
+        "limit": 8,
+        "show_vendor": false
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
@@ -232,6 +317,8 @@
     "popular_products_HTNHPY",
     "brand_story_RLKreh",
     "brand_masonry_gallery_G9QkAK",
+    "collection_accordion_WLbrcn",
+    "collection_slider_row_KFRFiE",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
