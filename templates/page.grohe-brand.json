@@ -203,6 +203,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_45.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -212,6 +214,19 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_46.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_z9JAb4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_90.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -220,7 +235,9 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_44.webp",
+            "image": "shopify://shop_images/download_92.webp",
+            "pos_x": 49,
+            "pos_y": 36,
             "link": "",
             "title": "",
             "text": ""
@@ -230,6 +247,19 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_47.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_bhG3pW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_91.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -239,13 +269,16 @@
       "block_order": [
         "image_Y8rFKH",
         "image_VNfhFR",
+        "image_z9JAb4",
         "image_cALjKj",
-        "image_99iHYQ"
+        "image_99iHYQ",
+        "image_bhG3pW"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "center",
+        "enable_6_items": true
       }
     },
     "custom_blog_posts_grid_8PkfHz": {
