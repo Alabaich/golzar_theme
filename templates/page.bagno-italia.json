@@ -145,6 +145,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_32.webp",
+            "pos_x": 100,
+            "pos_y": 0,
             "link": "",
             "title": "",
             "text": ""
@@ -154,6 +156,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_34.webp",
+            "pos_x": 50,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -163,6 +167,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_33.webp",
+            "pos_x": 0,
+            "pos_y": 100,
             "link": "",
             "title": "",
             "text": ""
@@ -172,6 +178,30 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/download_35.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_PEkbzF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_80.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_3RWQNK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_81.webp",
+            "pos_x": 49,
+            "pos_y": 50,
             "link": "",
             "title": "",
             "text": ""
@@ -182,12 +212,15 @@
         "image_fh9BqN",
         "image_i6GwiM",
         "image_ebkGgg",
-        "image_jNEkGq"
+        "image_jNEkGq",
+        "image_PEkbzF",
+        "image_3RWQNK"
       ],
       "name": "Custom Masonry 4-Grid",
       "settings": {
         "heading": "",
-        "heading_align": "center"
+        "heading_align": "left",
+        "enable_6_items": true
       }
     },
     "custom_blog_posts_grid_FN6rr3": {
