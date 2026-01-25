@@ -324,7 +324,7 @@
       ],
       "name": "Feature Icons",
       "settings": {
-        "title": "Our Features",
+        "title": "",
         "heading_size": "h2",
         "heading_alignment": "center",
         "columns_desktop": 4,
