@@ -281,6 +281,89 @@
         "enable_6_items": true
       }
     },
+    "collection_slider_row_6EKJaT": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "SilkMove®",
+        "description": "<ul><li>The smoothest cartridge technology for lifelong, effortless precision in handle movement.</li></ul>",
+        "collection": "grohe-kitchen-faucets",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_XChNGe": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#eff4f8",
+        "heading": "SPA Colors",
+        "description": "<ul><li>Freedom of choice. Customize your space with finishes like Hard Graphite, Warm Sunset, and Cool Sunrise.</li></ul>",
+        "collection": "grohe-widespread-faucet",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "feature_icons_8CDPLY": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_eRp8Kd": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_3jUirz": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_ezCzhH": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        },
+        "feature_item_ChYJjj": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "Feature Title",
+            "description": "<p>Brief description of your benefit or feature.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_eRp8Kd",
+        "feature_item_3jUirz",
+        "feature_item_ezCzhH",
+        "feature_item_ChYJjj"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "custom_blog_posts_grid_8PkfHz": {
       "type": "custom-blog-posts-grid",
       "name": "Blog Posts Grid",
@@ -323,6 +406,9 @@
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
+    "collection_slider_row_6EKJaT",
+    "collection_slider_row_XChNGe",
+    "feature_icons_8CDPLY",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
