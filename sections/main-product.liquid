@@ -1639,19 +1639,40 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 {% if show_tabs_block %}
 <style>
-.secondPartProduct{
-  padding-top: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 25px;
-}
+  .secondPartProduct{
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 25px;
+  }
 
   .product-tabs-container {
-    padding:25px;
+    padding: 25px;
     width: 50%;
     border-radius: 25px;
     background: #fff;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .product-tabs-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-tabs-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .product-tabs-container iframe,
+  .product-tabs-container video,
+  .product-tabs-container table {
+    max-width: 100%;
   }
   .product-tab-links {
     display: flex;
