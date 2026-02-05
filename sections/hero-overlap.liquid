@@ -50,9 +50,9 @@
     line-height: 1.2;
   }
 
-  #{{ section_id }} .rte {
+  #{{ section_id }} .descriptionText {
     color: #4a4a4a;
-    margin-bottom: 30px;
+    padding-left: 25px;
   }
 
   #{{ section_id }} .btn {
@@ -122,7 +122,7 @@
       <h2>{{ section.settings.heading | escape }}</h2>
       
       {%- if section.settings.text != blank -%}
-        <div class="rte">{{ section.settings.text }}</div>
+        <div class="descriptionText">{{ section.settings.text }}</div>
       {%- endif -%}
       
       {%- if section.settings.button_label != blank -%}
