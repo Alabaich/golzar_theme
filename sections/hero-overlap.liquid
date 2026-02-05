@@ -1,0 +1,177 @@
+{%- assign section_id = 'hero-fixed-' | append: section.id -%}
+
+<style>
+  #{{ section_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #FFFFFF;
+  }
+
+  #{{ section_id }} .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{{ section_id }} .image-container {
+    width: 100%;
+    position: relative;
+    height: 350px;
+  }
+
+  #{{ section_id }} .image-container img,
+  #{{ section_id }} .image-container svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ section_id }} .content-box {
+    background-color: #FFFFFF;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: -40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 4px;
+  }
+
+  #{{ section_id }} h2 {
+    color: #151515;
+    margin: 0 0 20px;
+    line-height: 1.2;
+  }
+
+  #{{ section_id }} .rte {
+    color: #4a4a4a;
+    margin-bottom: 30px;
+  }
+
+  #{{ section_id }} .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #151515;
+    border: 1px solid #151515;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .btn:hover {
+    background-color: #FFFFFF;
+    color: #151515;
+  }
+
+  @media screen and (min-width: 990px) {
+    #{{ section_id }} .wrapper {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+      min-height: 550px;
+      padding: 0 40px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    #{{ section_id }} .image-container {
+      grid-column: 4 / 13; 
+      grid-row: 1;
+      height: 100%;
+      min-height: 550px;
+    }
+
+    #{{ section_id }} .content-box {
+      grid-column: 1 / 6; 
+      grid-row: 1;
+      padding: 60px;
+      min-height: 350px;
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+</style>
+
+<div id="{{ section_id }}">
+  <div class="wrapper pageWidth page-width">
+    
+    <div class="image-container">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1500 | image_tag:
+          loading: 'lazy',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+
+    <div class="content-box">
+      <h2>{{ section.settings.heading | escape }}</h2>
+      
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Overlay Hero (ID)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Discover Categories",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Minimal design with fixed styles.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Shop Now",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Overlay Hero (ID)"
+    }
+  ]
+}
+{% endschema %}
