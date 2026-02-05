@@ -56,6 +56,17 @@
         "mobile_button_align": "flex-start"
       }
     },
+    "hero_overlap_JGTLiz": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero",
+      "settings": {
+        "image": "shopify://shop_images/toto-14.jpg",
+        "heading": "Discover a higher state of cleanliness with TOTO.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Shop Now",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+      }
+    },
     "brand_story_r4qCUV": {
       "type": "brand-story",
       "name": "Brand Story Text",
@@ -448,6 +459,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "hero_overlap_JGTLiz",
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
