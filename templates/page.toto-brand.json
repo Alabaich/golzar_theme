@@ -43,6 +43,7 @@
     },
     "brand_hero_nq7tiC": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Discover a higher state of cleanliness with TOTO.",
