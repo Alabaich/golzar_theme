@@ -375,8 +375,8 @@
           "settings": {
             "icon_preset": "support",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
           }
         },
         "feature_item_mckeKT": {
@@ -384,8 +384,8 @@
           "settings": {
             "icon_preset": "price_match",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
           }
         },
         "feature_item_ggUGwe": {
@@ -393,8 +393,8 @@
           "settings": {
             "icon_preset": "delivery",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
           }
         },
         "feature_item_xjPh6J": {
@@ -402,8 +402,8 @@
           "settings": {
             "icon_preset": "pickup",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
           }
         }
       },
