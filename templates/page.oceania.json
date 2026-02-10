@@ -78,6 +78,63 @@
         "button_link": ""
       }
     },
+    "feature_icons_Tq3NgH": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_BK8bU3": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_NCTUpW": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_XJCmym": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_RW3pQA": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_BK8bU3",
+        "feature_item_NCTUpW",
+        "feature_item_XJCmym",
+        "feature_item_RW3pQA"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "featured_product_groups_WRiNR3": {
       "type": "featured-product-groups",
       "blocks": {
@@ -148,6 +205,7 @@
     "main",
     "brand_hero_kzgg49",
     "hero_overlap_rrmPCT",
+    "feature_icons_Tq3NgH",
     "featured_product_groups_WRiNR3",
     "popular_products_ePbGLA",
     "custom_blog_posts_grid_6CWr7U"
