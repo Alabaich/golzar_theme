@@ -220,6 +220,7 @@
     },
     "brand_hero_QAFf7B": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "About Golzar Home",
@@ -231,6 +232,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_GatPET": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/233788_Allure_EnvironmentFull_23858001_2522001_265702430_193752431_195912431_268672430_268452430_0001_Nov2023_CDNwebp.webp",
+        "heading": "About Golzar Home",
+        "text": "<p>100+ years in the industry. 100 years in the plumbing industry, helping customers in Western Canada. Since we have been a leader in the plumbing industry for over a decade.</p>",
+        "button_label": "",
+        "button_link": ""
       }
     },
     "feature_grid_with_text_r8q4cy": {
@@ -519,6 +531,7 @@
     "about_team_QYXaFF",
     "gallery_lightbox_slider_UNGJCQ",
     "brand_hero_QAFf7B",
+    "hero_overlap_GatPET",
     "feature_grid_with_text_r8q4cy",
     "switch_side_image_FWNrhr",
     "timeline_section_FQWqKh",
