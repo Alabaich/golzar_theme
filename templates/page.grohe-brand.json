@@ -43,6 +43,7 @@
     },
     "brand_hero_nq7tiC": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Experience the pure joy of water with GROHE.",
@@ -54,6 +55,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_ebBYcP": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/download_53.webp",
+        "heading": "Experience the pure joy of water with GROHE.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
       }
     },
     "brand_story_r4qCUV": {
@@ -307,51 +319,51 @@
         "show_vendor": false
       }
     },
-    "feature_icons_8CDPLY": {
+    "feature_icons_qFAeyP": {
       "type": "feature-icons",
       "blocks": {
-        "feature_item_eRp8Kd": {
+        "feature_item_Bfkgcc": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "support",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
           }
         },
-        "feature_item_3jUirz": {
+        "feature_item_TFkxEj": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "price_match",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
           }
         },
-        "feature_item_ezCzhH": {
+        "feature_item_ELNJiJ": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "delivery",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
           }
         },
-        "feature_item_ChYJjj": {
+        "feature_item_VQ4YgE": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "pickup",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
           }
         }
       },
       "block_order": [
-        "feature_item_eRp8Kd",
-        "feature_item_3jUirz",
-        "feature_item_ezCzhH",
-        "feature_item_ChYJjj"
+        "feature_item_Bfkgcc",
+        "feature_item_TFkxEj",
+        "feature_item_ELNJiJ",
+        "feature_item_VQ4YgE"
       ],
       "name": "Feature Icons",
       "settings": {
@@ -400,6 +412,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "hero_overlap_ebBYcP",
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
@@ -408,7 +421,7 @@
     "brand_masonry_gallery_fhYzkx",
     "collection_slider_row_6EKJaT",
     "collection_slider_row_XChNGe",
-    "feature_icons_8CDPLY",
+    "feature_icons_qFAeyP",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
