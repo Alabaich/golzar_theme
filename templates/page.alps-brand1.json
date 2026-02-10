@@ -41,8 +41,20 @@
         "padding_bottom": 4
       }
     },
+    "hero_overlap_tpjBCD": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/ALPS-2021_6a8da15d-9cee-4a42-a67c-7a2c401d93b5.jpg",
+        "heading": "Experience a level of freshness that feels natural.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=alps"
+      }
+    },
     "brand_hero_nq7tiC": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Experience a level of freshness that feels natural.",
@@ -135,6 +147,7 @@
     "bocchi_brand_h_gtEJCd",
     "browse_by_options",
     "main",
+    "hero_overlap_tpjBCD",
     "brand_hero_nq7tiC",
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
