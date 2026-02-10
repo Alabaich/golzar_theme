@@ -53,6 +53,7 @@
     },
     "brand_hero_kzgg49": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Discover your personal sanctuary with Oceania.",
@@ -64,6 +65,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_rrmPCT": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/oceaniawebp.webp",
+        "heading": "Discover your personal sanctuary with Oceania.",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
       }
     },
     "featured_product_groups_WRiNR3": {
@@ -118,7 +130,7 @@
         "show_excerpt": true,
         "excerpt_length": 12,
         "read_more_text": "READ NOW",
-        "card_bg_color": "#FFFFFF",
+        "card_bg_color": "#ffffff",
         "card_border_radius": 6,
         "date_color": "#777777",
         "article_title_color": "#222222",
@@ -135,6 +147,7 @@
     "brand_info_kg33jK",
     "main",
     "brand_hero_kzgg49",
+    "hero_overlap_rrmPCT",
     "featured_product_groups_WRiNR3",
     "popular_products_ePbGLA",
     "custom_blog_posts_grid_6CWr7U"
