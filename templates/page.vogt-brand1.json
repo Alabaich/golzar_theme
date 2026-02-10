@@ -43,6 +43,7 @@
     },
     "brand_hero_nq7tiC": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "VOGT. Where raw metal becomes functional art.",
@@ -54,6 +55,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_jGYerW": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/download_59.webp",
+        "heading": "VOGT. Where raw metal becomes functional art.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
       }
     },
     "brand_story_r4qCUV": {
@@ -312,51 +324,51 @@
         "show_vendor": true
       }
     },
-    "feature_icons_ye3RXx": {
+    "feature_icons_tDkbm7": {
       "type": "feature-icons",
       "blocks": {
-        "feature_item_rLWNWT": {
+        "feature_item_4JkD3K": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "support",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
           }
         },
-        "feature_item_9qNGVP": {
+        "feature_item_idqBHi": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "price_match",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
           }
         },
-        "feature_item_pPWi4f": {
+        "feature_item_JbBKfB": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "delivery",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
           }
         },
-        "feature_item_cg6LFp": {
+        "feature_item_rmUf8g": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "pickup",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
           }
         }
       },
       "block_order": [
-        "feature_item_rLWNWT",
-        "feature_item_9qNGVP",
-        "feature_item_pPWi4f",
-        "feature_item_cg6LFp"
+        "feature_item_4JkD3K",
+        "feature_item_idqBHi",
+        "feature_item_JbBKfB",
+        "feature_item_rmUf8g"
       ],
       "name": "Feature Icons",
       "settings": {
@@ -405,6 +417,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "hero_overlap_jGYerW",
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
@@ -412,7 +425,7 @@
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
     "collection_accordion_ETwbPj",
-    "feature_icons_ye3RXx",
+    "feature_icons_tDkbm7",
     "custom_blog_posts_grid_8PkfHz"
   ]
 }
