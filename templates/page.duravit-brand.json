@@ -43,6 +43,7 @@
     },
     "brand_hero_nq7tiC": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Discover the art of living with Duravit.",
@@ -54,6 +55,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_bxUPCa": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/Duravit__2559562_300_11296652-776c-4864-a5b1-bf8a18065673.jpg",
+        "heading": "Discover the art of living with Duravit.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Duravit"
       }
     },
     "brand_story_VTzE3X": {
@@ -369,6 +381,7 @@
     "browse_by_options",
     "main",
     "brand_hero_nq7tiC",
+    "hero_overlap_bxUPCa",
     "brand_story_VTzE3X",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
