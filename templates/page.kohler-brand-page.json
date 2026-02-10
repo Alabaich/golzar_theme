@@ -51,6 +51,7 @@
     },
     "brand_hero_dc3rWA": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Experience the art  \nof living with Kohler",
@@ -62,6 +63,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_zNqBAH": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/GBH_SQTemplate_11461562-3262-4aaa-b833-5ee00e5978e4.webp",
+        "heading": "Experience the art  of living with Kohler",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": ""
       }
     },
     "brand_story_LJQ8hq": {
@@ -88,6 +100,7 @@
         },
         "category_NB7fba": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "collection": "kitchen-faucets",
             "image": "shopify://shop_images/Kohler_Components_Pull-down_kitchen_sink_faucet_with_two-function_sprayhead_Matte_Black_with_Brushed_Moderne_Brass.webp"
@@ -455,6 +468,7 @@
     "browse_by_options",
     "main",
     "brand_hero_dc3rWA",
+    "hero_overlap_zNqBAH",
     "brand_story_LJQ8hq",
     "featured_product_groups_zjRqfN",
     "popular_products_BRUd9n",
