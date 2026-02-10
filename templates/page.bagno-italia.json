@@ -69,6 +69,7 @@
     },
     "brand_hero_3wqiCG": {
       "type": "brand-hero",
+      "disabled": true,
       "name": "Brand Hero Advanced",
       "settings": {
         "brand_title": "Bagno Italia: Experience the art of Italian design.",
@@ -80,6 +81,17 @@
         "show_onboarding_image": true,
         "mobile_text_align": "left",
         "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_xaetBW": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/VERS-150_2.webp",
+        "heading": "Bagno Italia: Experience the art of Italian design.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "shopify://collections/bagno-italia"
       }
     },
     "brand_story_gDEHwJ": {
@@ -281,6 +293,7 @@
     "armadi-art-brand",
     "main",
     "brand_hero_3wqiCG",
+    "hero_overlap_xaetBW",
     "brand_story_gDEHwJ",
     "featured_product_groups_jrnDqW",
     "popular_products_VXBqKB",
