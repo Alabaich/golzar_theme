@@ -375,51 +375,51 @@
         "show_vendor": false
       }
     },
-    "feature_icons_6TxGcc": {
+    "feature_icons_hx8RRR": {
       "type": "feature-icons",
       "blocks": {
-        "feature_item_Rz3whe": {
+        "feature_item_Yw4Y99": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "support",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
           }
         },
-        "feature_item_GLFFXC": {
+        "feature_item_pRJtgr": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "price_match",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
           }
         },
-        "feature_item_MfrMFM": {
+        "feature_item_fcPCDR": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "delivery",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
           }
         },
-        "feature_item_ymEfnr": {
+        "feature_item_MVpmUR": {
           "type": "feature_item",
           "settings": {
             "icon_preset": "pickup",
             "icon_width": 48,
-            "title": "Feature Title",
-            "description": "<p>Brief description of your benefit or feature.</p>"
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
           }
         }
       },
       "block_order": [
-        "feature_item_Rz3whe",
-        "feature_item_GLFFXC",
-        "feature_item_MfrMFM",
-        "feature_item_ymEfnr"
+        "feature_item_Yw4Y99",
+        "feature_item_pRJtgr",
+        "feature_item_fcPCDR",
+        "feature_item_MVpmUR"
       ],
       "name": "Feature Icons",
       "settings": {
@@ -477,7 +477,7 @@
     "collection_accordion_pMgCrk",
     "collection_slider_row_PCMqi3",
     "collection_slider_row_b4ke69",
-    "feature_icons_6TxGcc",
+    "feature_icons_hx8RRR",
     "custom_blog_posts_grid_UPatad"
   ]
 }
