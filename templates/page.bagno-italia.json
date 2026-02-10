@@ -235,6 +235,63 @@
         "enable_6_items": true
       }
     },
+    "feature_icons_zeGewy": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_Jff3XQ": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_MDqD3g": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_yGEK3T": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_nmE9Kd": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_Jff3XQ",
+        "feature_item_MDqD3g",
+        "feature_item_yGEK3T",
+        "feature_item_nmE9Kd"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
     "collection_accordion_FUiRYr": {
       "type": "collection-accordion",
       "blocks": {
@@ -299,6 +356,7 @@
     "popular_products_VXBqKB",
     "brand_story_Yb7tmt",
     "brand_masonry_gallery_iCHcM7",
+    "feature_icons_zeGewy",
     "collection_accordion_FUiRYr",
     "custom_blog_posts_grid_FN6rr3"
   ]
