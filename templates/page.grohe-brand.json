@@ -164,6 +164,49 @@
         "button_link": ""
       }
     },
+    "hotspots_fMpTHV": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_CrdK4q": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-single-hole-single-handle-l-size-bathroom-faucet-1-2-gpm",
+            "pos_x": 8,
+            "pos_y": 58
+          }
+        },
+        "hotspot_FBc67L": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-double-towel-bar",
+            "pos_x": 40,
+            "pos_y": 53
+          }
+        },
+        "hotspot_MHwiVa": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-single-hole-single-handle-l-size-bathroom-faucet-1-2-gpm",
+            "pos_x": 55,
+            "pos_y": 48
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_CrdK4q",
+        "hotspot_FBc67L",
+        "hotspot_MHwiVa"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_-_2026-02-10T162148.389.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
     "hotspots_PQ3dmy": {
       "type": "hotspots",
       "blocks": {
@@ -417,6 +460,7 @@
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
     "brand_story_8MPibg",
+    "hotspots_fMpTHV",
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
     "collection_slider_row_6EKJaT",
