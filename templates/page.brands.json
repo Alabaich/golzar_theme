@@ -95,6 +95,15 @@
     "brands_grid_section_Kcfijq": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_3mYehq": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/toto-14.jpg",
+            "logo_image": "shopify://shop_images/TOTO.svg",
+            "text": "Elevate your daily routine with TOTO's cutting-edge Japanese technology, from the revolutionary WASHLET bidet to high-efficiency, self-cleaning toilets.",
+            "linkToBrand": "shopify://pages/toto-golzar-home"
+          }
+        },
         "one_brand_G38AKr": {
           "type": "one_brand",
           "settings": {
@@ -102,6 +111,42 @@
             "logo_image": "shopify://shop_images/kohler_2cd2685e-d8f9-46ba-9c5c-d732e7d6a559.svg",
             "text": "With over 150 years of expertise, Kohler delivers iconic design and legendary reliability for your kitchen and bath, creating a legacy of excellence in your home.",
             "linkToBrand": "shopify://pages/kohler-brand-page"
+          }
+        },
+        "one_brand_E9VfQk": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/grohe-grohtherm-round-thermostatic-shower-kit-27-lmin-71-gpm-147934.webp",
+            "logo_image": "shopify://shop_images/GROHE.svg",
+            "text": "Discover Grohe's German-engineered precision in every drop. From the smooth handling of its faucets to innovative smart showers",
+            "linkToBrand": "shopify://pages/grohe-golzar-home"
+          }
+        },
+        "one_brand_LyKPDX": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
+            "logo_image": "shopify://shop_images/DURAVIT.svg",
+            "text": "Transform your space with Duravit's German-engineered fixtures and furniture. In partnership with world-class designers",
+            "linkToBrand": "shopify://pages/duravit-golzar-home"
+          }
+        },
+        "one_brand_GDtyaD": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Vogt.webp",
+            "logo_image": "shopify://shop_images/vogt.svg",
+            "text": "Proudly Canadian, Vogt offers a perfect fusion of striking design and reliable performance in its kitchen and bath collections.",
+            "linkToBrand": "shopify://pages/vogt-golzar-home"
+          }
+        },
+        "one_brand_pkQJrC": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/img-geberit-selnova-hospital-toilet-sigma10-washbasin-760-760.jpg",
+            "logo_image": "shopify://shop_images/GEBERIT.svg",
+            "text": "Unlock a new level of design with Geberit's Swiss-engineered in-wall systems. Create a more spacious, hygienic, and quieter bathroom",
+            "linkToBrand": "shopify://pages/geberit-golzar-home"
           }
         },
         "one_brand_BLyDjy": {
@@ -121,62 +166,17 @@
             "text": "Discover the art of relaxation with Quebec's own Oceania. Renowned for premium acrylic bathtubs and custom showers",
             "linkToBrand": "shopify://pages/oceania-brand-page"
           }
-        },
-        "one_brand_3mYehq": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/toto-14.jpg",
-            "logo_image": "shopify://shop_images/TOTO.svg",
-            "text": "Elevate your daily routine with TOTO's cutting-edge Japanese technology, from the revolutionary WASHLET bidet to high-efficiency, self-cleaning toilets.",
-            "linkToBrand": "shopify://pages/toto-golzar-home"
-          }
-        },
-        "one_brand_LyKPDX": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
-            "logo_image": "shopify://shop_images/DURAVIT.svg",
-            "text": "Transform your space with Duravit's German-engineered fixtures and furniture. In partnership with world-class designers",
-            "linkToBrand": "shopify://pages/duravit-golzar-home"
-          }
-        },
-        "one_brand_pkQJrC": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/img-geberit-selnova-hospital-toilet-sigma10-washbasin-760-760.jpg",
-            "logo_image": "shopify://shop_images/GEBERIT.svg",
-            "text": "Unlock a new level of design with Geberit's Swiss-engineered in-wall systems. Create a more spacious, hygienic, and quieter bathroom",
-            "linkToBrand": "shopify://pages/geberit-golzar-home"
-          }
-        },
-        "one_brand_E9VfQk": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/grohe-grohtherm-round-thermostatic-shower-kit-27-lmin-71-gpm-147934.webp",
-            "logo_image": "shopify://shop_images/GROHE.svg",
-            "text": "Discover Grohe's German-engineered precision in every drop. From the smooth handling of its faucets to innovative smart showers",
-            "linkToBrand": "shopify://pages/grohe-golzar-home"
-          }
-        },
-        "one_brand_GDtyaD": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/Vogt.webp",
-            "logo_image": "shopify://shop_images/vogt.svg",
-            "text": "Proudly Canadian, Vogt offers a perfect fusion of striking design and reliable performance in its kitchen and bath collections.",
-            "linkToBrand": "shopify://pages/vogt-golzar-home"
-          }
         }
       },
       "block_order": [
-        "one_brand_G38AKr",
-        "one_brand_BLyDjy",
-        "one_brand_QRyErf",
         "one_brand_3mYehq",
-        "one_brand_LyKPDX",
-        "one_brand_pkQJrC",
+        "one_brand_G38AKr",
         "one_brand_E9VfQk",
-        "one_brand_GDtyaD"
+        "one_brand_LyKPDX",
+        "one_brand_GDtyaD",
+        "one_brand_pkQJrC",
+        "one_brand_BLyDjy",
+        "one_brand_QRyErf"
       ],
       "name": "Brands Grid Section",
       "settings": {
