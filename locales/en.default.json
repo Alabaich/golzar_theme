@@ -547,6 +547,9 @@
         "shipping_method_not_available_generic": {
           "one": "Looks like your order needs a special shipping quote! Please contact us to complete the order, and we may be able to offer a discount for the inconvenience."
         }
+      },
+      "delivery_options": {
+        "pick_up_in_twenty_four_hours": "We'll text you as soon as it's ready for pickup."
       }
     }
   }
