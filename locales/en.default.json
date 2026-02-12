@@ -550,6 +550,11 @@
       },
       "delivery_options": {
         "pick_up_in_twenty_four_hours": "We'll text you as soon as it's ready for pickup."
+      },
+      "local_pickup": {
+        "location_information": {
+          "one": "Pick up time depends on availability, please contact us for more details"
+        }
       }
     }
   }
