@@ -260,7 +260,7 @@
         "promo_heading_color": "#ffffff",
         "promo_subheading_color": "#ffffff",
         "section_title": "Our products",
-        "featured_collection": "sales-sales",
+        "featured_collection": "most-popular-products",
         "products_to_show": 12,
         "product_title_truncate_length": 30,
         "show_vendor": false,
