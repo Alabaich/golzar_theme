@@ -91,56 +91,10 @@
     "featured_product_groups_zjRqfN": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_XPX9YN": {
-          "type": "category",
-          "settings": {
-            "collection": "actuator-plates",
-            "image": "shopify://shop_images/geberit-omega-30-plastic-actuator-451413.jpg"
-          }
-        },
-        "category_NB7fba": {
-          "type": "category",
-          "disabled": true,
-          "settings": {
-            "collection": "kitchen-faucets",
-            "image": "shopify://shop_images/Kohler_Components_Pull-down_kitchen_sink_faucet_with_two-function_sprayhead_Matte_Black_with_Brushed_Moderne_Brass.webp"
-          }
-        },
         "category_YqdKLc": {
           "type": "category",
           "settings": {
             "collection": "kohler-one-piece-toilet"
-          }
-        },
-        "category_xckBrP": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-freestanding-bathtubs"
-          }
-        },
-        "category_hUgDBV": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-bathtub-shower-kits"
-          }
-        },
-        "category_hdPcPF": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-shower-valves-trim"
-          }
-        },
-        "category_6JzGR4": {
-          "type": "category",
-          "settings": {
-            "collection": "bathroom-sinks",
-            "image": "shopify://shop_images/1704_34702001-single-handle-bathroom-faucet-xs-size-enviro-5_CDNwebp.webp"
-          }
-        },
-        "category_mVKbcQ": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-smart-toilets"
           }
         },
         "category_m6jVW7": {
@@ -149,22 +103,16 @@
             "collection": "kohler-two-piece-toilets"
           }
         },
-        "category_W3K9mi": {
+        "category_mVKbcQ": {
           "type": "category",
           "settings": {
-            "collection": "kohler-undermount-sinks"
+            "collection": "kohler-smart-toilets"
           }
         },
-        "category_P3jQ3V": {
+        "category_hUgDBV": {
           "type": "category",
           "settings": {
-            "collection": "kohler-vessel-sinks"
-          }
-        },
-        "category_nKfGMJ": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-wall-mounted-sinks"
+            "collection": "kohler-bathtub-shower-kits"
           }
         },
         "category_zhFhqV": {
@@ -179,6 +127,50 @@
             "collection": "kohler-widespread-faucets"
           }
         },
+        "category_6JzGR4": {
+          "type": "category",
+          "settings": {
+            "collection": "bathroom-sinks",
+            "image": "shopify://shop_images/1704_34702001-single-handle-bathroom-faucet-xs-size-enviro-5_CDNwebp.webp"
+          }
+        },
+        "category_W3K9mi": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-undermount-sinks"
+          }
+        },
+        "category_P3jQ3V": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-vessel-sinks"
+          }
+        },
+        "category_NB7fba": {
+          "type": "category",
+          "settings": {
+            "collection": "kitchen-faucets",
+            "image": "shopify://shop_images/Kohler_Components_Pull-down_kitchen_sink_faucet_with_two-function_sprayhead_Matte_Black_with_Brushed_Moderne_Brass.webp"
+          }
+        },
+        "category_xckBrP": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-freestanding-bathtubs"
+          }
+        },
+        "category_hdPcPF": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-shower-valves-trim"
+          }
+        },
+        "category_nKfGMJ": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-wall-mounted-sinks"
+          }
+        },
         "category_ygtQy6": {
           "type": "category",
           "disabled": true,
@@ -189,20 +181,19 @@
         }
       },
       "block_order": [
-        "category_XPX9YN",
-        "category_NB7fba",
         "category_YqdKLc",
-        "category_xckBrP",
-        "category_hUgDBV",
-        "category_hdPcPF",
-        "category_6JzGR4",
-        "category_mVKbcQ",
         "category_m6jVW7",
-        "category_W3K9mi",
-        "category_P3jQ3V",
-        "category_nKfGMJ",
+        "category_mVKbcQ",
+        "category_hUgDBV",
         "category_zhFhqV",
         "category_ATFpBb",
+        "category_6JzGR4",
+        "category_W3K9mi",
+        "category_P3jQ3V",
+        "category_NB7fba",
+        "category_xckBrP",
+        "category_hdPcPF",
+        "category_nKfGMJ",
         "category_ygtQy6"
       ],
       "name": "Featured Product Groups",
