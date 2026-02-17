@@ -149,18 +149,6 @@
         "product_button_text": "Buy Now"
       }
     },
-    "brand_story_8MPibg": {
-      "type": "brand-story",
-      "name": "Brand Story Text",
-      "settings": {
-        "content_width": 1400,
-        "label": "Revolutionary Comfort",
-        "heading": "The Original WASHLET™",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
     "hotspots_PQ3dmy": {
       "type": "hotspots",
       "blocks": {
@@ -479,7 +467,6 @@
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
-    "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_story_GhirRw",
     "brand_masonry_gallery_fhYzkx",
