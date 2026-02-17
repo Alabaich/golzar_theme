@@ -166,6 +166,15 @@
             "text": "Discover the art of relaxation with Quebec's own Oceania. Renowned for premium acrylic bathtubs and custom showers",
             "linkToBrand": "shopify://pages/oceania-brand-page"
           }
+        },
+        "one_brand_FfACB9": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/BLANCOCULINAII-07.webp",
+            "logo_image": "shopify://shop_images/blancoWhite.png",
+            "text": "Redefine your kitchen with BLANCO’s German-engineered excellence. Famous for durable Silgranit sinks and precision faucets, they transform your water zone into a seamless, stylish workstation.",
+            "linkToBrand": "shopify://pages/blanco"
+          }
         }
       },
       "block_order": [
@@ -176,7 +185,8 @@
         "one_brand_GDtyaD",
         "one_brand_pkQJrC",
         "one_brand_BLyDjy",
-        "one_brand_QRyErf"
+        "one_brand_QRyErf",
+        "one_brand_FfACB9"
       ],
       "name": "Brands Grid Section",
       "settings": {
