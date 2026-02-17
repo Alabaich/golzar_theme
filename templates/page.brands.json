@@ -175,6 +175,15 @@
             "text": "Redefine your kitchen with BLANCO’s German-engineered excellence. Famous for durable Silgranit sinks and precision faucets, they transform your water zone into a seamless, stylish workstation.",
             "linkToBrand": "shopify://pages/blanco"
           }
+        },
+        "one_brand_eCtUjV": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/maax-manhattan-long-shelf-45mw-mtile-sm-lg-deco.jpg",
+            "logo_image": "shopify://shop_images/maax-canada-logo.svg",
+            "text": "Immerse yourself in relaxation with MAAX. Known for their stylish freestanding tubs and contemporary shower doors, they deliver a spa-like experience backed by over 50 years of North American expertise.",
+            "linkToBrand": "shopify://pages/maax-bathtubs"
+          }
         }
       },
       "block_order": [
@@ -186,7 +195,8 @@
         "one_brand_pkQJrC",
         "one_brand_BLyDjy",
         "one_brand_QRyErf",
-        "one_brand_FfACB9"
+        "one_brand_FfACB9",
+        "one_brand_eCtUjV"
       ],
       "name": "Brands Grid Section",
       "settings": {
