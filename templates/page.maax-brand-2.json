@@ -111,9 +111,9 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "toto-smart-toilet-washlets",
+        "featured_collection": "maax-alcove-bathtub",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_more_link": "shopify://collections/maax-alcove-bathtub",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
@@ -123,9 +123,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Revolutionary Comfort",
-        "heading": "The Original WASHLET™",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "THE MAAX EXPERIENCE",
+        "heading": "Transform Your Routine.",
+        "text": "<p>We believe the bathroom is more than just a functional space—it’s a personal sanctuary. MAAX offers a broad range of freestanding tubs, showers, and doors designed to provide a spa-like experience right at home. Immerse yourself in lasting quality and Canadian craftsmanship.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -136,36 +136,54 @@
         "hotspot_e3FM8M": {
           "type": "hotspot",
           "settings": {
-            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
-            "pos_x": 67,
-            "pos_y": 72
+            "product": "maax-louie-5829-acrylic-freestanding-center-drain-bathtub-106384",
+            "pos_x": 10,
+            "pos_y": 73
           }
         },
-        "hotspot_AbkYCt": {
+        "hotspot_CiWM7U": {
           "type": "hotspot",
           "settings": {
-            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
-            "pos_x": 27,
+            "product": "halo_44_47_x_78_in_8mm_sliding_shower_door_for_alcove_installation_with_clear_glass_in_chrome_138996_900_305_000",
+            "pos_x": 50,
             "pos_y": 50
           }
         },
-        "hotspot_3yKbaP": {
+        "hotspot_BHWCyF": {
           "type": "hotspot",
           "settings": {
-            "product": "toto-washlet-c5-elongated-washlet",
-            "pos_x": 61,
-            "pos_y": 59
+            "product": "manhattan_squeegee_in_white_10045085_015",
+            "pos_x": 60,
+            "pos_y": 39
+          }
+        },
+        "hotspot_rnB66H": {
+          "type": "hotspot",
+          "settings": {
+            "product": "utile_36_in_composite_direct_to_stud_side_wall_in_metro_tux_103415_306_513_000",
+            "pos_x": 68,
+            "pos_y": 50
+          }
+        },
+        "hotspot_ypEgfL": {
+          "type": "hotspot",
+          "settings": {
+            "product": "manhattan_corner_shelf_with_glass_in_glossy_white_10042818_201",
+            "pos_x": 86,
+            "pos_y": 34
           }
         }
       },
       "block_order": [
         "hotspot_e3FM8M",
-        "hotspot_AbkYCt",
-        "hotspot_3yKbaP"
+        "hotspot_CiWM7U",
+        "hotspot_BHWCyF",
+        "hotspot_rnB66H",
+        "hotspot_ypEgfL"
       ],
       "name": "Shoppable Image",
       "settings": {
-        "image": "shopify://shop_images/download_36.webp",
+        "image": "shopify://shop_images/Untitled_3.webp",
         "show_vendor": false,
         "show_discount_badge": true,
         "show_availability": true,
