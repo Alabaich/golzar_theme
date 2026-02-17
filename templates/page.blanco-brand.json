@@ -218,9 +218,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Active Cleaning",
-        "heading": "Technology That Cleans Itself",
-        "text": "<p>TOTO sets a new standard for hygiene with its proprietary technologies like EWATER+ and PREMIST. Before each use, a mist of water wets the bowl to prevent waste adherence. After use, electrolyzed water automatically sanitizes the wand and bowl, reducing bacteria by 99.9% without harsh chemicals. It is a smart cycle of cleanliness that works constantly for you.</p>",
+        "label": "THE BLANCO UNIT",
+        "heading": "A Seamless Water Hub.",
+        "text": "<p>Forget separate components. The BLANCO UNIT seamlessly combines basins, high-end mixer taps, and smart waste organization into one functional system. From instant boiling water to durable surfaces, we offer a solution that brings flexibility and individual style to the heart of your home.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -334,6 +334,7 @@
         "collection_block_FCNkre",
         "collection_block_hbi67i"
       ],
+      "disabled": true,
       "name": "Collection Accordion",
       "settings": {
         "show_vendor": true
@@ -341,6 +342,7 @@
     },
     "collection_slider_row_c7bVJm": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
@@ -354,6 +356,7 @@
     },
     "collection_slider_row_Bp6VLG": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ebf1f5",
@@ -367,6 +370,7 @@
     },
     "collection_slider_row_FBW9aB": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
