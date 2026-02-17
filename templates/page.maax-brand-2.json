@@ -294,16 +294,16 @@
         "collection_block_FCNkre": {
           "type": "collection_block",
           "settings": {
-            "heading": "Toilet Seats",
-            "collection": "toilet-seats",
+            "heading": "Alcove Bathtubs",
+            "collection": "maax-alcove-bathtub",
             "limit": 12
           }
         },
         "collection_block_hbi67i": {
           "type": "collection_block",
           "settings": {
-            "heading": "Bathroom",
-            "collection": "toto-bathroom-sinks",
+            "heading": "Freestanding Bathtub",
+            "collection": "maax-freestanding-bathtub",
             "limit": 8
           }
         }
@@ -319,6 +319,7 @@
     },
     "collection_slider_row_c7bVJm": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
@@ -332,6 +333,7 @@
     },
     "collection_slider_row_Bp6VLG": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ebf1f5",
@@ -345,6 +347,7 @@
     },
     "collection_slider_row_FBW9aB": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
