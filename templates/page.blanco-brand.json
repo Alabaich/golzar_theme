@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "GERMAN ROOTS",
+        "heading": "Premium Quality, Defined.",
+        "text": "<p>As an internationally established supplier, BLANCO is synonymous with German craftsmanship. We don’t just build sinks; we engineer the entire \"water place.\" By combining award-winning design with high-quality materials, we transform the most used spot in your kitchen into a source of daily convenience and joy.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -129,6 +129,7 @@
         "category_LJKbDK",
         "category_t8jLap"
       ],
+      "disabled": true,
       "name": "Featured Product Groups",
       "settings": {
         "title": "Featured Groups"
@@ -136,6 +137,7 @@
     },
     "popular_products_HTNHPY": {
       "type": "popular-products",
+      "disabled": true,
       "name": "Popular Products",
       "settings": {
         "popular_title": "Popular Products",
@@ -165,36 +167,45 @@
         "hotspot_e3FM8M": {
           "type": "hotspot",
           "settings": {
-            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
-            "pos_x": 67,
-            "pos_y": 72
+            "product": "blancoculina_ii_527473",
+            "pos_x": 76,
+            "pos_y": 46
           }
         },
         "hotspot_AbkYCt": {
           "type": "hotspot",
           "settings": {
-            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "product": "blanco-inteos-bridge-cutting-board",
             "pos_x": 27,
-            "pos_y": 50
+            "pos_y": 60
           }
         },
         "hotspot_3yKbaP": {
           "type": "hotspot",
           "settings": {
-            "product": "toto-washlet-c5-elongated-washlet",
-            "pos_x": 61,
-            "pos_y": 59
+            "product": "inteos_33_403884",
+            "pos_x": 48,
+            "pos_y": 93
+          }
+        },
+        "hotspot_qDz4YP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "blanco-inteos-stainless-steel-colander-large",
+            "pos_x": 29,
+            "pos_y": 78
           }
         }
       },
       "block_order": [
         "hotspot_e3FM8M",
         "hotspot_AbkYCt",
-        "hotspot_3yKbaP"
+        "hotspot_3yKbaP",
+        "hotspot_qDz4YP"
       ],
       "name": "Shoppable Image",
       "settings": {
-        "image": "shopify://shop_images/download_36.webp",
+        "image": "shopify://shop_images/Untitled.webp",
         "show_vendor": false,
         "show_discount_badge": true,
         "show_availability": true,
