@@ -61,9 +61,9 @@
       "type": "hero-overlap",
       "name": "Overlay Hero",
       "settings": {
-        "image": "shopify://shop_images/toto-14.jpg",
-        "heading": "Discover a higher state of cleanliness with TOTO.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/627644844_18339789172212123_1215.webp",
+        "heading": "Design without compromise with Rubinet.",
+        "text": "<p>Customize every detail. Mix and match finishes and handle styles to create a faucet that is uniquely yours.</p>",
         "button_label": "Shop Now",
         "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
       }
@@ -73,62 +73,16 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "BESPOKE DESIGN",
+        "heading": "The Ultimate in Customization.",
+        "text": "<p>Rubinet is where creativity meets engineering. Unlike mass-produced brands, Rubinet allows you to personalize your fixtures. With an impressive palette of finishes and handle options, every faucet is precision-machined to reflect your personal style and elevate your bathroom’s aesthetic.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
     },
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
-      "blocks": {
-        "category_B9xPCm": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-wall-carrier-plates"
-          }
-        },
-        "category_8HJ8ec": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-one-piece-toilets-1"
-          }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-smart-toilet-washlets"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-two-piece-toilets"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-wall-mounted-toilets"
-          }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-bathroom-sinks",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
-          }
-        }
-      },
-      "block_order": [
-        "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK",
-        "category_t8jLap"
-      ],
+      "disabled": true,
       "name": "Featured Product Groups",
       "settings": {
         "title": "Featured Groups"
@@ -140,9 +94,9 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "toto-smart-toilet-washlets",
+        "featured_collection": "rubinet",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_more_link": "shopify://collections/rubinet",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
@@ -152,9 +106,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Revolutionary Comfort",
-        "heading": "The Original WASHLET™",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "CANADIAN CRAFTSMANSHIP",
+        "heading": "A Splash of Personality.",
+        "text": "<p>Known for their solid brass construction and ceramic disc valves, Rubinet faucets are built to last. Whether you seek a bold statement piece or subtle elegance, their extensive collection ensures you never have to settle for the standard. Experience the freedom of true choice.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -192,6 +146,7 @@
         "hotspot_AbkYCt",
         "hotspot_3yKbaP"
       ],
+      "disabled": true,
       "name": "Shoppable Image",
       "settings": {
         "image": "shopify://shop_images/download_36.webp",
@@ -204,6 +159,7 @@
     },
     "brand_story_GhirRw": {
       "type": "brand-story",
+      "disabled": true,
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
@@ -220,9 +176,9 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
+            "image": "shopify://shop_images/627159315_18339098416212123_2016.webp",
             "pos_x": 50,
-            "pos_y": 50,
+            "pos_y": 0,
             "link": "",
             "title": "",
             "text": ""
@@ -231,7 +187,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_75.webp",
+            "image": "shopify://shop_images/624173180_18337888390212123_2226.webp",
             "pos_x": 88,
             "pos_y": 0,
             "link": "",
@@ -242,7 +198,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_73.webp",
+            "image": "shopify://shop_images/623418602_18337503877212123_7496.webp",
             "pos_x": 49,
             "pos_y": 40,
             "link": "",
@@ -253,7 +209,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_71.webp",
+            "image": "shopify://shop_images/622208697_18336681853212123_1042.webp",
             "pos_x": 75,
             "pos_y": 0,
             "link": "",
@@ -264,8 +220,8 @@
         "image_LLKV6j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_72.webp",
-            "pos_x": 69,
+            "image": "shopify://shop_images/620404914_18336451843212123_6408.webp",
+            "pos_x": 100,
             "pos_y": 33,
             "link": "",
             "title": "",
@@ -275,7 +231,7 @@
         "image_a6Ui8p": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download.jpg",
+            "image": "shopify://shop_images/634750839_18340472323212123_7576.webp",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -323,6 +279,7 @@
         "collection_block_FCNkre",
         "collection_block_hbi67i"
       ],
+      "disabled": true,
       "name": "Collection Accordion",
       "settings": {
         "show_vendor": true
@@ -330,6 +287,7 @@
     },
     "collection_slider_row_c7bVJm": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
@@ -343,6 +301,7 @@
     },
     "collection_slider_row_Bp6VLG": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ebf1f5",
@@ -356,6 +315,7 @@
     },
     "collection_slider_row_FBW9aB": {
       "type": "collection-slider-row",
+      "disabled": true,
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
