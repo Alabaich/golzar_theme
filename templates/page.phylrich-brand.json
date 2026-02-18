@@ -1,0 +1,478 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets-1",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "disabled": true,
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_JGTLiz": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero",
+      "settings": {
+        "image": "shopify://shop_images/toto-14.jpg",
+        "heading": "Discover a higher state of cleanliness with TOTO.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Shop Now",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+      }
+    },
+    "brand_story_r4qCUV": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Brand Heritage",
+        "heading": "The Art of Living",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-carrier-plates"
+          }
+        },
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-one-piece-toilets-1"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-smart-toilet-washlets"
+          }
+        },
+        "category_inz6n7": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-two-piece-toilets"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-wall-mounted-toilets"
+          }
+        },
+        "category_t8jLap": {
+          "type": "category",
+          "settings": {
+            "collection": "toto-bathroom-sinks",
+            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+          }
+        }
+      },
+      "block_order": [
+        "category_B9xPCm",
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_inz6n7",
+        "category_LJKbDK",
+        "category_t8jLap"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "toto-smart-toilet-washlets",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
+    },
+    "brand_story_8MPibg": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Revolutionary Comfort",
+        "heading": "The Original WASHLET™",
+        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_36.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "brand_story_GhirRw": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Active Cleaning",
+        "heading": "Technology That Cleans Itself",
+        "text": "<p>TOTO sets a new standard for hygiene with its proprietary technologies like EWATER+ and PREMIST. Before each use, a mist of water wets the bowl to prevent waste adherence. After use, electrolyzed water automatically sanitizes the wand and bowl, reducing bacteria by 99.9% without harsh chemicals. It is a smart cycle of cleanliness that works constantly for you.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "brand_masonry_gallery_fhYzkx": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Y8rFKH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_VNfhFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_75.webp",
+            "pos_x": 88,
+            "pos_y": 0,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_cALjKj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_73.webp",
+            "pos_x": 49,
+            "pos_y": 40,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_99iHYQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_71.webp",
+            "pos_x": 75,
+            "pos_y": 0,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_LLKV6j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_72.webp",
+            "pos_x": 69,
+            "pos_y": 33,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_a6Ui8p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download.jpg",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_cALjKj",
+        "image_99iHYQ",
+        "image_LLKV6j",
+        "image_a6Ui8p"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "collection_accordion_QJqncL": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_FCNkre": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Toilet Seats",
+            "collection": "toilet-seats",
+            "limit": 12
+          }
+        },
+        "collection_block_hbi67i": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Bathroom",
+            "collection": "toto-bathroom-sinks",
+            "limit": 8
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_FCNkre",
+        "collection_block_hbi67i"
+      ],
+      "name": "Collection Accordion",
+      "settings": {
+        "show_vendor": true
+      }
+    },
+    "collection_slider_row_c7bVJm": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "TOTO DRAKE",
+        "description": "<p>The TOTO Drake collection offers a range of toilets that combine powerful performance with water efficiency. Featuring the DYNAMAX TORNADO FLUSH® system, these toilets utilize 100% of available water for a 360-degree cleaning that reaches every spot, ensuring thorough bowl cleansing.</p><p>TOTO Drake includes a comprehensive range of toilets designed to cater to diverse preferences and needs, from compact models ideal for smaller spaces to larger designs that provide enhanced comfort. These toilets go beyond basic functionality, incorporating user-friendly features such as seamless one-piece designs for easy cleaning, ergonomic seat heights for added convenience, and soft-close lids to minimize noise.</p><p>The collection offers options for dual-flush systems, allowing users to choose between a high-performance flush and a lighter, eco-friendly option for reduced water usage. Each model is crafted with attention to detail, featuring clean lines and elegant finishes that can enhance the visual appeal of any bathroom. Whether prioritizing efficiency, aesthetics, or comfort, TOTO Drake delivers a harmonious blend of innovation and design, making it a standout choice for homeowners and designers alike.</p>",
+        "collection": "toto-smart-toilet-washlets",
+        "link_text": "View All Products",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_Bp6VLG": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ebf1f5",
+        "heading": "TOTO Neorest",
+        "description": "<p>The <strong>TOTO Neorest</strong> collection represents the pinnacle of bathroom luxury and innovation, seamlessly integrating advanced technology with a sophisticated, sculptural aesthetic. As TOTO’s flagship line of intelligent toilets, the Neorest series offers a fully automated, hands-free experience that redefines personal hygiene and comfort.</p><p></p><h3>Unrivaled Cleaning Innovation</h3><p>At the heart of the Neorest is the <strong>TORNADO FLUSH®</strong> system, which uses powerful nozzles to create a centrifugal rinsing action that cleans the bowl more efficiently with less water. This is enhanced by <strong>EWATER+®</strong> technology—electrolyzed water that mists the bowl and the wand after every use to sanitize surfaces and reduce the need for harsh cleaning chemicals. Additionally, the <strong>PREMIST®</strong> function sprays the bowl before each use, using the ultra-smooth <strong>CEFIONTECT®</strong> glaze to ensure waste slides away effortlessly.</p><p></p><h3>Seamless Design & Intelligent Comfort</h3><p>The collection is defined by its clean lines and skirted design, concealing all integrated components within a sleek, low-profile silhouette. Every detail is engineered for an intuitive experience:</p><p></p><ul><li><strong>Auto-Open/Close Lid:</strong> Sensors detect your approach and departure for a completely touchless experience.</li><li><strong>Integrated WASHLET®:</strong> Provides personalized warm water cleansing with adjustable pressure, position, and temperature settings.</li><li><strong>Heated Seat & Deodorizer:</strong> A temperature-controlled seat and a powerful built-in air filter ensure maximum comfort and a fresh environment.</li><li><strong>Warm Air Dryer:</strong> Reduces the need for toilet paper, contributing to a more sustainable lifestyle.</li></ul><h3>Eco-Conscious Performance</h3><p>Neorest units are <strong>WaterSense®</strong> certified, utilizing high-efficiency dual-flush technology that maintains peak performance while conserving water. The system also includes a built-in night light for safety and a sleek, wall-mounted remote control that allows users to save their preferred settings for a truly bespoke experience.</p><p></p><p>The TOTO Neorest collection is more than a toilet; it is a holistic wellness solution that embodies TOTO’s commitment to \"Life Anew,\" combining unparalleled Japanese craftsmanship with the future of smart home technology.</p>",
+        "collection": "toto-neorest",
+        "link_text": "",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_FBW9aB": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "TOTO UltraMax II",
+        "description": "<p>The <strong>TOTO UltraMax II</strong> is the refined successor to one of the most trusted names in the industry, representing the perfect intersection of elegant one-piece styling and high-performance engineering. Known for its sleek, seamless silhouette, the UltraMax II eliminates the gap between the tank and bowl, providing a sophisticated aesthetic that is exceptionally easy to keep clean.</p><h3>Revolutionary Cleaning Power</h3><p>The hallmark of the UltraMax II is the <strong>TORNADO FLUSH®</strong> system. This technology utilizes two powerful nozzles to create a centrifugal, cyclonic rinsing action that covers every inch of the bowl. This 360° cleaning power is more effective than traditional rim holes, ensuring a thorough wash with every flush while using only 1.28 gallons of water, making it <strong>WaterSense®</strong> certified for superior efficiency.</p><h3>Permanent Surface Protection</h3><p>To complement its flushing power, the UltraMax II features TOTO’s proprietary <strong>CEFIONTECT®</strong> ceramic glaze. This ultra-smooth, ion-barrier surface prevents waste and mold from sticking to the porcelain. When paired with the TORNADO FLUSH®, it creates a synergistic effect that keeps the toilet cleaner for longer, significantly reducing the frequency of scrubbing and the need for harsh chemicals.</p><h3>Universal Design and Comfort</h3><p>Designed for maximum accessibility and comfort, the UltraMax II features <strong>Universal Height</strong>, which places the seat at a more natural position for users of all ages and mobilities. The <strong>elongated bowl</strong> provides additional room and support, while the included <strong>SoftClose® seat</strong> ensures a quiet, slam-free experience that protects both the ceramic and your peace of mind.</p><h3>Streamlined Installation and Compatibility</h3><p>The UltraMax II is engineered to fit standard <strong>12\" rough-ins</strong>, making it an ideal choice for both new constructions and simple bathroom upgrades. Its one-piece construction not only looks modern but also eliminates the potential for leaks between the tank and bowl. For those looking to upgrade their hygiene routine, the UltraMax II is also available in <strong>WASHLET®+</strong> versions, which feature a hidden channel to seamlessly integrate a bidet seat without visible hoses or cords.</p>",
+        "collection": "toto-ultramax-ii",
+        "link_text": "",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "feature_icons_NdkHPr": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_q8jKtw": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_mckeKT": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_ggUGwe": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_xjPh6J": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_q8jKtw",
+        "feature_item_mckeKT",
+        "feature_item_ggUGwe",
+        "feature_item_xjPh6J"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC",
+    "hero_overlap_JGTLiz",
+    "brand_story_r4qCUV",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY",
+    "brand_story_8MPibg",
+    "hotspots_PQ3dmy",
+    "brand_story_GhirRw",
+    "brand_masonry_gallery_fhYzkx",
+    "collection_accordion_QJqncL",
+    "collection_slider_row_c7bVJm",
+    "collection_slider_row_Bp6VLG",
+    "collection_slider_row_FBW9aB",
+    "feature_icons_NdkHPr",
+    "custom_blog_posts_grid_8PkfHz"
+  ]
+}
