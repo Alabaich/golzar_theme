@@ -184,6 +184,15 @@
             "text": "Immerse yourself in relaxation with MAAX. Known for their stylish freestanding tubs and contemporary shower doors, they deliver a spa-like experience backed by over 50 years of North American expertise.",
             "linkToBrand": "shopify://pages/maax-bathtubs"
           }
+        },
+        "one_brand_gqrmDa": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Untitled_6.webp",
+            "logo_image": "shopify://shop_images/Phylrich_logo_def_410x_63554f4f-5d3b-4f19-8492-d413e7179cd1.png",
+            "text": "Adorn your home with Phylrich. Known as \"jewelry for the bath,\" this Californian brand has been crafting luxury faucets and hardware with distinctive finishes and American artistry since 1959.",
+            "linkToBrand": ""
+          }
         }
       },
       "block_order": [
@@ -196,7 +205,8 @@
         "one_brand_BLyDjy",
         "one_brand_QRyErf",
         "one_brand_FfACB9",
-        "one_brand_eCtUjV"
+        "one_brand_eCtUjV",
+        "one_brand_gqrmDa"
       ],
       "name": "Brands Grid Section",
       "settings": {
