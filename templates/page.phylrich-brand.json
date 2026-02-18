@@ -159,6 +159,7 @@
     },
     "brand_story_GhirRw": {
       "type": "brand-story",
+      "disabled": true,
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
