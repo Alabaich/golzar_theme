@@ -122,15 +122,6 @@
             "linkToBrand": "shopify://pages/grohe-golzar-home"
           }
         },
-        "one_brand_LyKPDX": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
-            "logo_image": "shopify://shop_images/DURAVIT.svg",
-            "text": "Transform your space with Duravit's German-engineered fixtures and furniture. In partnership with world-class designers",
-            "linkToBrand": "shopify://pages/duravit-golzar-home"
-          }
-        },
         "one_brand_GDtyaD": {
           "type": "one_brand",
           "settings": {
@@ -176,6 +167,15 @@
             "linkToBrand": "shopify://pages/blanco"
           }
         },
+        "one_brand_LyKPDX": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/duravit-d-neo-wall-hung-toilet-complete-set-168376.jpg",
+            "logo_image": "shopify://shop_images/DURAVIT.svg",
+            "text": "Transform your space with Duravit's German-engineered fixtures and furniture. In partnership with world-class designers",
+            "linkToBrand": "shopify://pages/duravit-golzar-home"
+          }
+        },
         "one_brand_eCtUjV": {
           "type": "one_brand",
           "settings": {
@@ -208,12 +208,12 @@
         "one_brand_3mYehq",
         "one_brand_G38AKr",
         "one_brand_E9VfQk",
-        "one_brand_LyKPDX",
         "one_brand_GDtyaD",
         "one_brand_pkQJrC",
         "one_brand_BLyDjy",
         "one_brand_QRyErf",
         "one_brand_FfACB9",
+        "one_brand_LyKPDX",
         "one_brand_eCtUjV",
         "one_brand_gqrmDa",
         "one_brand_7VecPq"
