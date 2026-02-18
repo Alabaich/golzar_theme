@@ -250,6 +250,7 @@
         },
         "collection_block_MkaNWH": {
           "type": "collection_block",
+          "disabled": true,
           "settings": {
             "heading": "SensoWash",
             "collection": "duravit-washlet",
