@@ -3140,6 +3140,7 @@ body .collection_main_wrap {
   box-shadow: none;
   border: 1px solid #5c5c5c;
   padding: 10px 16px;
+  padding-right: 3.5rem;
   font-size: 14px;
   font-family: "Raleway";
   border-radius: 999px;
