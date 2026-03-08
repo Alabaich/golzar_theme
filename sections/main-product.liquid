@@ -378,36 +378,49 @@
   transition: transform 0.3s ease-in-out;
 }
 
-
-.main-aacrodaian.active .acc-icon {
-  transform: rotate(45deg);
+.social-icon-pro ul {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
 }
 
 .social-icon-pro li a {
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;  
+  height: 32px; 
+  border-radius: 50%; 
+  transition: background-color 0.3s ease;
+  overflow: hidden; 
 }
 
-.social-icon-pro li a svg rect {
-  transition: all 0.3s ease;
+.social-icon-pro li a svg {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
 }
 
+.social-icon-pro li a svg rect,
 .social-icon-pro li a svg path {
-  transition: fill 0.3s ease;
+  transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
 .social-icon-pro li a:hover {
   background-color: #002642;
-  border-radius: 50%;
 }
 
 .social-icon-pro li a:hover svg rect {
   fill: #002642;
+  stroke: #002642;
 }
 
 .social-icon-pro li a:hover svg path {
   fill: #ffffff;
 }
-
 .product__info-container .product_information {
   display: flex;
   flex-direction: column;
