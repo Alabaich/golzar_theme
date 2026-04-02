@@ -98,9 +98,7 @@
         "slide_ywQwcF",
         "slide_kFJGHx"
       ],
-      "custom_css": [
-        ".banner__media img,.slideshow__media img,.media > img {object-fit: contain !important; object-position: center !important;}"
-      ],
+      "custom_css": [],
       "name": "Hero Slider",
       "settings": {}
     },
