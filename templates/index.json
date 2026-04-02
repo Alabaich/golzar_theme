@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_Uew3kV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/123123.webp",
+            "heading": "TOTO AURORA COLLECTION",
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/toto-products"
+          }
+        },
         "slide_Dy7fac": {
           "type": "slide",
           "settings": {
@@ -89,6 +98,7 @@
         }
       },
       "block_order": [
+        "slide_Uew3kV",
         "slide_Dy7fac",
         "slide_jzF7Dw",
         "slide_AdYdMJ",
