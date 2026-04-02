@@ -21,15 +21,6 @@
             "button_url": "shopify://collections/toto-products"
           }
         },
-        "slide_Dy7fac": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/blanco.webp",
-            "heading": "Blanco Collection",
-            "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco"
-          }
-        },
         "slide_jzF7Dw": {
           "type": "slide",
           "settings": {
@@ -37,6 +28,15 @@
             "heading": "The Rubinet Collection",
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Faucets&q=Rubinet&sort_by=title-ascending"
+          }
+        },
+        "slide_Dy7fac": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/blanco_d453e034-a52a-44db-8efe-cc2cc3cd5cb4.webp",
+            "heading": "Blanco Collection",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco"
           }
         },
         "slide_AdYdMJ": {
@@ -99,8 +99,8 @@
       },
       "block_order": [
         "slide_Uew3kV",
-        "slide_Dy7fac",
         "slide_jzF7Dw",
+        "slide_Dy7fac",
         "slide_AdYdMJ",
         "slide_YGcKYC",
         "slide_9Ed4gP",
