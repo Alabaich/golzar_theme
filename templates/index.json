@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_Dy7fac": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo_2026-04-01_22-17-59.jpg",
+            "heading": "Blanco Collection",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco"
+          }
+        },
         "slide_AdYdMJ": {
           "type": "slide",
           "disabled": true,
@@ -42,6 +51,7 @@
         },
         "slide_Vrd9hE": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/duravit_3406a936-1305-4200-92a1-2e2389379509.webp",
             "heading": "Duravit Brand Buy",
@@ -60,6 +70,7 @@
         },
         "slide_kFJGHx": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/kohler_74ba08f0-f804-4c10-980a-273ae360b60d.webp",
             "heading": "The bold look  of Kohler",
@@ -69,6 +80,7 @@
         }
       },
       "block_order": [
+        "slide_Dy7fac",
         "slide_AdYdMJ",
         "slide_YGcKYC",
         "slide_9Ed4gP",
