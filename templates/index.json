@@ -21,6 +21,15 @@
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco"
           }
         },
+        "slide_jzF7Dw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo_2026-04-01_22-18-43.jpg",
+            "heading": "The Rubinet Collection",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Faucets&q=Rubinet&sort_by=title-ascending"
+          }
+        },
         "slide_AdYdMJ": {
           "type": "slide",
           "disabled": true,
@@ -81,6 +90,7 @@
       },
       "block_order": [
         "slide_Dy7fac",
+        "slide_jzF7Dw",
         "slide_AdYdMJ",
         "slide_YGcKYC",
         "slide_9Ed4gP",
