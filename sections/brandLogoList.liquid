@@ -13,11 +13,9 @@
   }
 
   .hs-brand-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
   }
 
   .hs-brand-item {
@@ -26,11 +24,9 @@
   }
 
   .hs-brand-item a {
-    display: block;
-    text-decoration: none;
-    transition: transform 0.3s ease
-    , box-shadow 0.3s ease;
-    padding: 15px;
+    height: 120px;
+    background-color: #f9f9f9;
+    border: 1px solid #e8e8e8;
     border-radius: 8px;
   }
 
