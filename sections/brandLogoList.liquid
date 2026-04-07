@@ -7,9 +7,17 @@
     margin-bottom: 25px;
   }
 
+  .hs-brand-header h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: #111;
+  }
+
   .hs-brand-header p {
     margin: 0;
     color: #555;
+    font-size: 15px;
   }
 
   .hs-brand-grid {
@@ -28,8 +36,7 @@
   .hs-brand-item a {
     display: block;
     text-decoration: none;
-    transition: transform 0.3s ease
-    , box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 15px;
     border-radius: 8px;
   }
@@ -46,8 +53,7 @@
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.8;
-    transition: filter 0.3s ease
-    , opacity 0.3s ease;
+    transition: filter 0.3s ease, opacity 0.3s ease;
   }
 
   .hs-brand-item a:hover img {
@@ -71,21 +77,86 @@
     color: #777;
   }
 
+  /* МОБИЛЬНАЯ ВЕРСИЯ - КРАСИВАЯ */
   @media (max-width: 768px) {
     .hs-brand-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
+      justify-content: space-around;
+    }
+
+    .hs-brand-item {
+      flex: 0 0 calc(50% - 8px);
+      max-width: none;
+    }
+
+    .hs-brand-item a {
+      padding: 20px 12px;
+      background-color: #f8f8f8;
+      border-radius: 12px;
+      border: 1px solid #efefef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+    }
+
+    .hs-brand-item a:hover {
+      background-color: #fff;
+      border-color: #ddd;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .hs-brand-item img {
+      max-height: 50px;
+    }
+
+    .hs-brand-header {
+      margin-bottom: 30px;
+      gap: 12px;
+    }
+
+    .hs-brand-header h2 {
+      font-size: 26px;
+    }
+
+    .hs-brand-header p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .hs-brand-footer {
+      margin-top: 30px;
+    }
+
+    .hs-brand-footer a {
+      font-size: 14px;
     }
   }
 
   @media (max-width: 480px) {
-    .hs-brand-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+    .hs-brand-item {
+      flex: 0 0 calc(50% - 8px);
     }
 
     .hs-brand-item a {
-      padding: 10px;
+      min-height: 95px;
+      padding: 16px 10px;
+    }
+
+    .hs-brand-item img {
+      max-height: 45px;
+    }
+
+    .hs-brand-header h2 {
+      font-size: 22px;
+    }
+
+    .hs-brand-header p {
+      font-size: 13px;
+    }
+
+    .hs-brand-grid {
+      gap: 12px;
     }
   }
 </style>
@@ -95,7 +166,7 @@
   {% if section.settings.heading != blank or section.settings.subheading != blank %}
     <div class="hs-brand-header">
       {% if section.settings.heading != blank %}
-        <h2 style="margin: 0;">{{ section.settings.heading | escape }}</h2>
+        <h2>{{ section.settings.heading | escape }}</h2>
       {% endif %}
       {% if section.settings.subheading != blank %}
         <p>{{ section.settings.subheading | escape }}</p>
