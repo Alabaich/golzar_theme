@@ -966,7 +966,7 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   // Fallback data for the whole product
   const productData = {
     "delivery": "{{ product.metafields.custom.expected_delivery }}",
-    "call_for_availability": {{ product.metafields.custom.call_for_availability | default: false }},
+    "call_for_availability": {{ product.metafields.custom.call_for_availability | json }},
     "vendor": "{{ product.vendor | escape }}",
     "tags": {{ product.tags | json }},
     "handle": "{{ product.handle }}"
