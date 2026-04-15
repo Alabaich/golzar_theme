@@ -48,7 +48,7 @@
 
         <div class="footer-bottom page-width">
             <div class="footer-bottom-in">
-                <div class="footer__copyright caption">
+                {% comment %} <div class="footer__copyright caption">
                     <p class="copyright__content">
                         Copyright © <a href="{{ routes.root_url }}">{{ shop.name }}</a> {{ 'now' | date: '%Y' }} All Rights Reserved. 
                         Design & Development: <a href="https://enjoyable.design/" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">Enjoyable Design Inc.</a>
@@ -98,7 +98,7 @@
                         </ul>
                     </div>
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </div>
