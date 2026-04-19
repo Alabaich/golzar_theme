@@ -12,6 +12,15 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_rQMdhT": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/big_spring_sale.webp",
+            "heading": "Big Refreshing Bathroom Supplies Sale",
+            "button_label": "Shop Sale",
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale"
+          }
+        },
         "slide_Uew3kV": {
           "type": "slide",
           "settings": {
@@ -98,6 +107,7 @@
         }
       },
       "block_order": [
+        "slide_rQMdhT",
         "slide_Uew3kV",
         "slide_jzF7Dw",
         "slide_Dy7fac",
