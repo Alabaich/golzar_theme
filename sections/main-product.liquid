@@ -426,6 +426,233 @@
   border-radius: 25px;
   background-color: #fff;
 }
+
+/* Улучшенный стиль для product-additional-box */
+.product-additional-box {
+  padding: 28px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.product-additional-box .title-reqiueed {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.product-additional-box .title-reqiueed h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #151515;
+  letter-spacing: 0.3px;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.main-required-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inner-main-required {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.inner-main-required:hover {
+  background-color: #f5f5f5;
+  border-color: #e8e8e8;
+}
+
+.inner-main-required-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.inner-main-required-header:hover {
+  color: #333;
+}
+
+.inner-main-required-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: #999;
+}
+
+.inner-main-required.expanded .inner-main-required-toggle {
+  transform: rotate(180deg);
+}
+
+.inner-main-required-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.inner-main-required-preview .product-img-left {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+}
+
+.inner-main-required-preview .product-img-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner-main-required-preview-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.inner-main-required-preview-info .sku-pro {
+  font-size: 14px;
+  font-weight: 600;
+  color: #151515;
+  margin: 0 0 4px 0;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inner-main-required-preview-info .sku-pro a {
+  color: #151515;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.inner-main-required-preview-info .sku-pro a:hover {
+  color: #666;
+}
+
+.inner-main-required-preview-info .price-pro {
+  font-size: 13px;
+  color: #666;
+}
+
+.inner-main-required-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  opacity: 0;
+}
+
+.inner-main-required.expanded .inner-main-required-content {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.product-content-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.custom-quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px;
+  width: fit-content;
+}
+
+.custom-quantity-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #151515;
+  transition: background-color 0.2s ease;
+  border-radius: 6px;
+}
+
+.custom-quantity-button:hover {
+  background-color: #f5f5f5;
+}
+
+.custom-quantity-input {
+  width: 50px;
+  height: 32px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.custom-quantity-input:focus {
+  outline: none;
+}
+
+.required-compatible-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.required-compatible-form .button {
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.show-more-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .product-additional-box {
+    padding: 20px;
+  }
+
+  .inner-main-required {
+    padding: 12px;
+  }
+
+  .inner-main-required-preview .product-img-left {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inner-main-required-preview-info .sku-pro {
+    font-size: 13px;
+  }
+}
 </style>
 
 
@@ -1638,6 +1865,33 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       {{ product | structured_data }}
     </script>
   </div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.inner-main-required').forEach(item => {
+    const selector = item.querySelector('.custom-quantity-selector');
+    const input = item.querySelector('.custom-quantity-input');
+    const form = item.querySelector('.required-compatible-form');
+    const formInput = form ? form.querySelector('.form-quantity-input') : null;
+
+    if (input && selector) {
+      selector.addEventListener('change', function() {
+        const value = input.value || 1;
+        if (formInput) {
+          formInput.value = value;
+        }
+      });
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const value = input.value || 1;
+          formInput.value = value;
+        });
+      }
+    }
+  });
+});
+</script>
 </product-info>
 
 
@@ -2015,61 +2269,78 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         <div class="title-reqiueed">
           <h5 style="margin: 0;">{{ block.settings.title_pro }}</h5>
         </div>
-        <div class="main-required-pro">
-          {% for required_pro in product.metafields.custom.required_items.value %}
-            <div class="inner-main-required" data-show-more-item>
-              {% if required_pro.featured_image != blank %}
-                <div class="product-img-left">
-                  <a href="{{ required_pro.url }}">
-                    <img src="{{ required_pro.featured_image | img_url: 'master' }}">
-                  </a>
-                </div>
-              {% endif %}
-              <div class="product-content-right">
-                <div class="inner-content">
-                  {% assign current_variant_sku_pro = required_pro.selected_or_first_available_variant %}
-                  {% if current_variant_sku_pro != blank %}
-                    <h4 class="sku-pro"><a href="{{ required_pro.url }}">{{ current_variant_sku_pro.sku }}</a></h4>
-                  {% endif %}
-                  <span class="price-pro">
-                    {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
-                  </span>
-                  <span class="cart-count-pro" style="display: none;">0 item(s) in your cart</span>
-                  <form method="post" class="required-compatible-form" data-product-id="{{ required_pro.id }}" data-cart-add-url="{{ routes.cart_add_url }}">
-                    <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
-                    <div class="custom-quantity-selector">
-                      <button type="button" class="custom-quantity-button" name="minus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepDown()">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                      <input type="number" name="quantity" class="custom-quantity-input" value="1" min="1">
-                      <button type="button" class="custom-quantity-button" name="plus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepUp()">
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </button>
-                    </div>
-                    {%- if required_pro.selected_or_first_available_variant.available == false or required_pro.selected_or_first_available_variant == null -%}
-                      <button type="button" class="product-form__submit button button--full-width" disabled>
-                        <span>{{ 'products.product.sold_out' | t }}</span>
-                      </button>
-                    {%- else -%}
-                      <button type="submit" name="add" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
-                           <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
-                           <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
-                        </svg>
-                      </button>
-                    {%- endif -%}
-                  </form>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
+    <div class="main-required-pro">
+      {% for required_pro in product.metafields.custom.required_items.value %}
+    <div class="inner-main-required" data-show-more-item>
+      <div class="inner-main-required-header" onclick="this.closest('.inner-main-required').classList.toggle('expanded')">
+        <div class="inner-main-required-toggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
+        
+        <div class="inner-main-required-preview">
+          {% if required_pro.featured_image != blank %}
+            <div class="product-img-left">
+              <img src="{{ required_pro.featured_image | img_url: '100x100' }}" alt="{{ required_pro.title }}">
+            </div>
+          {% endif %}
+          
+          <div class="inner-main-required-preview-info">
+            {% assign current_variant_sku_pro = required_pro.selected_or_first_available_variant %}
+            {% if current_variant_sku_pro != blank %}
+              <h4 class="sku-pro"><a href="{{ required_pro.url }}">{{ current_variant_sku_pro.sku }}</a></h4>
+            {% endif %}
+            <span class="price-pro">
+              {%- render 'price', product: required_pro, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inner-main-required-content">
+        <div class="product-content-right">
+          <div class="inner-content">
+            <div class="custom-quantity-selector">
+              <button type="button" class="custom-quantity-button" name="minus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepDown()">
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.47949 7H13.8539" stroke="#151515" stroke-width="1.52381" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <input type="number" class="custom-quantity-input" value="1" min="1">
+              <button type="button" class="custom-quantity-button" name="plus" onclick="this.closest('.custom-quantity-selector').querySelector('input').stepUp()">
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.33269 0.812816V13.1872" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M1.14551 7H13.5199" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <form method="post" class="required-compatible-form" data-product-id="{{ required_pro.id }}" data-cart-add-url="{{ routes.cart_add_url }}">
+              <input type="hidden" name="id" value="{{ required_pro.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="quantity" class="form-quantity-input" value="1">
+              
+              {%- if required_pro.selected_or_first_available_variant.available == false or required_pro.selected_or_first_available_variant == null -%}
+                <button type="button" class="product-form__submit button button--full-width" disabled>
+                  <span>{{ 'products.product.sold_out' | t }}</span>
+                </button>
+              {%- else -%}
+                <button type="submit" name="add" class="custom-add-to-cart required-item-cart product-form__submit button button--full-width button--primary">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.49996C0 2.03972 0.373096 1.66663 0.833333 1.66663H2.03204C3.17921 1.66663 4.17917 2.44737 4.4574 3.56029L4.60898 4.16663H15.5023C17.4097 4.16663 18.6113 6.21549 17.6862 7.88073L15.3714 12.0474C14.9305 12.8411 14.0939 13.3333 13.186 13.3333H7.13463C5.98746 13.3333 4.9875 12.5525 4.70927 11.4396L2.84049 3.96451C2.74775 3.59354 2.41443 3.33329 2.03204 3.33329H0.833333C0.373096 3.33329 0 2.9602 0 2.49996ZM5.02565 5.83329L6.32618 11.0354C6.41892 11.4064 6.75224 11.6666 7.13463 11.6666H13.186C13.4886 11.6666 13.7675 11.5025 13.9145 11.238L16.2293 7.07133C16.5385 6.5148 16.1364 5.83329 15.5023 5.83329H5.02565Z" fill="white"/>
+                     <path d="M7.5 16.6666C7.5 17.5871 6.75381 18.3333 5.833333 18.3333C4.91286 18.3333 4.16667 17.5871 4.16667 16.6666C4.16667 15.7462 4.91286 15 5.83333 15C6.75381 15 7.5 15.7462 7.5 16.6666Z" fill="white"/>
+                     <path d="M15.8333 16.6666C15.8333 17.5871 15.0871 18.3333 14.1667 18.3333C13.2462 18.3333 12.5 17.5871 12.5 16.6666C12.5 15.7462 13.2462 15 14.1667 15C15.0871 15 15.8333 15.7462 15.8333 16.6666Z" fill="white"/>
+                  </svg>
+                  Add to Cart
+                </button>
+              {%- endif -%}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
         <span class="show-more-toggle" data-show-more-toggle></span>
       </div>
     {% endif %}
