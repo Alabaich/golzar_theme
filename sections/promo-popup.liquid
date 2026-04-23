@@ -1,215 +1,179 @@
-{% if template.name == 'product' %}
-  <style>
-    .promo-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 99999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
+<style>
+  .promo-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .promo-popup-container {
+    background-color: #ffffff;
+    width: 750px;
+    max-width: 90%;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .promo-popup-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #a0a0a0;
+    background: none;
+    border: none;
+    z-index: 2;
+    padding: 0;
+  }
+
+  .promo-popup-close-btn:hover {
+    color: #333;
+  }
+
+  .promo-popup-image-wrapper {
+    width: 45%;
+    flex: 0 0 45%;
+    background-color: #e9ecef;
+    background-image: url('https://cdn.shopify.com/s/files/1/0848/7193/8321/files/toto-collection-image-ultramax-washlet.webp?v=1768631791');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+  }
+
+  .promo-popup-content-wrapper {
+    width: 55%;
+    flex: 0 0 55%;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .promo-popup-title {
+    color: #1a3673;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    line-height: 1.1;
+  }
+
+  .promo-popup-description {
+    color: #333333;
+    font-size: 14px;
+    margin: 0 0 15px;
+    line-height: 1.5;
+  }
+
+  .promo-popup-promise {
+    color: #555555;
+    font-size: 13px;
+    margin: 0 0 25px;
+  }
+
+  .promo-popup-input-field {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid #4a4a4a;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .promo-popup-input-field:focus {
+    border-color: #1a3673;
+  }
+
+  .promo-popup-submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    background-color: #1a3673;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .promo-popup-submit-btn:hover {
+    background-color: #122856;
+  }
+
+  @media (max-width: 768px) {
     .promo-popup-container {
-      background-color: #ffffff;
-      width: 750px;
-      max-width: 90%;
-      display: flex;
-      align-items: stretch;
-      /* Forces children to be equal height */
-      position: relative;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      flex-direction: column;
+      max-height: 90vh;
+      overflow-y: auto;
     }
-
-    .promo-popup-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 24px;
-      line-height: 1;
-      cursor: pointer;
-      color: #a0a0a0;
-      background: none;
-      border: none;
-      z-index: 2;
-      padding: 0;
-    }
-
-    .promo-popup-close-btn:hover {
-      color: #333;
-    }
-
     .promo-popup-image-wrapper {
-      width: 45%;
-      flex: 0 0 45%;
-      /* Prevents collapsing */
-      background-color: #e9ecef;
-      background-image: url('https://cdn.shopify.com/s/files/1/0848/7193/8321/files/toto-collection-image-ultramax-washlet.webp?v=1768631791');
-      background-size: cover;
-      background-position: center;
-      min-height: 400px;
+      width: 100%;
+      flex: 0 0 auto;
+      height: 250px;
+      min-height: 250px;
     }
-
     .promo-popup-content-wrapper {
-      width: 55%;
-      flex: 0 0 55%;
-      /* Prevents collapsing */
-      padding: 50px 40px;
-      box-sizing: border-box;
-      text-align: left;
+      width: 100%;
+      flex: 0 0 auto;
+      padding: 30px 20px;
     }
-
     .promo-popup-title {
-      color: #1a3673;
-      font-size: 32px;
-      font-weight: 700;
-      margin: 0 0 15px;
-      line-height: 1.1;
+      font-size: 26px;
     }
+  }
+</style>
 
-    .promo-popup-description {
-      color: #333333;
-      font-size: 14px;
-      margin: 0 0 15px;
-      line-height: 1.5;
-    }
+<div id="promo-popup-overlay" class="promo-popup-overlay">
+  <div class="promo-popup-container">
+    <button id="promo-popup-close-btn" class="promo-popup-close-btn">&times;</button>
 
-    .promo-popup-promise {
-      color: #555555;
-      font-size: 13px;
-      margin: 0 0 25px;
-    }
+    <div class="promo-popup-image-wrapper">&nbsp;</div>
 
-    .promo-popup-input-field {
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 12px;
-      border: 1px solid #4a4a4a;
-      box-sizing: border-box;
-      font-size: 14px;
-      outline: none;
-    }
+    <div class="promo-popup-content-wrapper">
+      <h2 class="promo-popup-title">Renovation<br>plans ahead?</h2>
+      <p class="promo-popup-description">Subscribe to receive our best deals on bathroom and kitchen essentials.</p>
+      <p class="promo-popup-promise">Only the good stuff, we promise.</p>
 
-    .promo-popup-input-field:focus {
-      border-color: #1a3673;
-    }
-
-    .promo-popup-submit-btn {
-      width: 100%;
-      padding: 14px;
-      margin-top: 5px;
-      background-color: #1a3673;
-      color: #ffffff;
-      border: none;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-
-    .promo-popup-submit-btn:hover {
-      background-color: #122856;
-    }
-
-    @media (max-width: 768px) {
-      .promo-popup-container {
-        flex-direction: column;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .promo-popup-image-wrapper {
-        width: 100%;
-        flex: 0 0 auto;
-        height: 250px;
-        min-height: 250px;
-      }
-      .promo-popup-content-wrapper {
-        width: 100%;
-        flex: 0 0 auto;
-        padding: 30px 20px;
-      }
-      .promo-popup-title {
-        font-size: 26px;
-      }
-    }
-  </style>
-
-  <div id="promo-popup-overlay" class="promo-popup-overlay">
-    <div class="promo-popup-container">
-      <button id="promo-popup-close-btn" class="promo-popup-close-btn">&times;</button>
-
-      <div class="promo-popup-image-wrapper">&nbsp;</div>
-
-      <div class="promo-popup-content-wrapper">
-        <h2 class="promo-popup-title">Renovation<br>plans ahead?</h2>
-        <p class="promo-popup-description">Subscribe to receive our best deals on bathroom and kitchen essentials.</p>
-        <p class="promo-popup-promise">Only the good stuff, we promise.</p>
-
-        {% form 'customer'
-          , id: 'promo-popup-newsletter-form' %}
-          {% if form.posted_successfully? %}
-            <p style="color: green; font-weight: bold;">Thank you for subscribing!</p>
-            <script>
-                          sessionStorage.setItem('promoPopupInteracted', 'true');
-            </script>
-          {% else %}
-            <input
-              type="hidden"
-              name="contact[tags]"
-              value="newsletter">
-            <input
-              type="text"
-              name="contact[first_name]"
-              class="promo-popup-input-field"
-              placeholder="First Name"
-              required>
-            <input
-              type="text"
-              name="contact[last_name]"
-              class="promo-popup-input-field"
-              placeholder="Last Name"
-              required>
-            <input
-              type="email"
-              name="contact[email]"
-              class="promo-popup-input-field"
-              placeholder="Email"
-              required>
-            <button type="submit" class="promo-popup-submit-btn">Sign me up!</button>
-          {% endif %}
-        {% endform %}
-      </div>
+      {% form 'customer', id: 'promo-popup-newsletter-form' %}
+        {% if form.posted_successfully? %}
+          <p style="color: green; font-weight: bold;">Thank you for subscribing!</p>
+        {% else %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First Name" required>
+          <input type="text" name="contact[last_name]" class="promo-popup-input-field" placeholder="Last Name" required>
+          <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email" required>
+          <button type="submit" class="promo-popup-submit-btn">Sign me up!</button>
+        {% endif %}
+      {% endform %}
     </div>
   </div>
+</div>
 
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
     var overlay = document.getElementById('promo-popup-overlay');
     var closeButton = document.getElementById('promo-popup-close-btn');
-    var storageKey = 'promoPopupShownPerSession';
-    
-    if (window.location.search.indexOf('customer_posted=true') > -1) {
-      overlay.style.display = 'flex';
-      sessionStorage.setItem('promoPopupInteracted', 'true');
-    } else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
-      setTimeout(function() {
-        overlay.style.display = 'flex';
-        sessionStorage.setItem(storageKey, 'true');
-      }, 4000); 
-    }
-    
+
+    overlay.style.display = 'flex';
+
     closeButton.addEventListener('click', function() {
       overlay.style.display = 'none';
     });
-    
+
     overlay.addEventListener('click', function(event) {
       if (event.target === overlay) {
         overlay.style.display = 'none';
       }
     });
-      });
-  </script>
-{% endif %}
+  });
+</script>
