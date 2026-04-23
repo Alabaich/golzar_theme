@@ -34,21 +34,21 @@
     font-size: 22px;
     line-height: 1;
     cursor: pointer;
-    color: #999;
-    background: transparent;
+    color: #333333;
+    background-color: #ffffff;
     border: none;
-    z-index: 2;
+    z-index: 10;
     width: 36px;
     height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
   }
 
   .promo-popup-close-btn:hover {
-    color: #333;
     background-color: #f0f0f0;
   }
 
@@ -138,8 +138,11 @@
     .promo-popup-container {
       flex-direction: column;
       max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 12px;
+    }
+    .promo-popup-close-btn {
+      top: 10px;
+      right: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     }
     .promo-popup-image-wrapper {
       width: 100%;
@@ -149,8 +152,9 @@
     }
     .promo-popup-content-wrapper {
       width: 100%;
-      flex: 0 0 auto;
-      padding: 35px 25px;
+      flex: 1 1 auto;
+      padding: 30px 25px;
+      overflow-y: auto;
     }
     .promo-popup-title {
       font-size: 28px;
@@ -193,24 +197,32 @@
     var closeButton = document.getElementById('promo-popup-close-btn');
     var storageKey = 'promoPopupShownPerSession';
 
-    if (window.location.search.indexOf('customer_posted=true') > -1) {
+    function openPopup() {
       overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closePopup() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = ''; 
+    }
+
+    if (window.location.search.indexOf('customer_posted=true') > -1) {
+      openPopup();
       sessionStorage.setItem('promoPopupInteracted', 'true');
     } 
     else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
       setTimeout(function() {
-        overlay.style.display = 'flex';
+        openPopup();
         sessionStorage.setItem(storageKey, 'true');
       }, 4000);
     }
 
-    closeButton.addEventListener('click', function() {
-      overlay.style.display = 'none';
-    });
+    closeButton.addEventListener('click', closePopup);
 
     overlay.addEventListener('click', function(event) {
       if (event.target === overlay) {
-        overlay.style.display = 'none';
+        closePopup();
       }
     });
   });
