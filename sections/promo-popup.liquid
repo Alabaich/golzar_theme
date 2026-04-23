@@ -1,0 +1,232 @@
+{% if template.name == 'product' %}
+<style>
+  .promo-popup-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .promo-popup-container {
+    background-color: #ffffff;
+    width: 750px;
+    max-width: 90%;
+    display: flex;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  
+  .promo-popup-close-btn {
+    position: absolute;
+    top: 15px; 
+    right: 15px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #a0a0a0;
+    background: none;
+    border: none;
+    z-index: 2;
+    padding: 0;
+  }
+
+  .promo-popup-close-btn:hover {
+    color: #333;
+  }
+  
+  .promo-popup-image-wrapper {
+    width: 45%;
+    background-color: #e9ecef;
+    {% if section.settings.popup_image %}
+      background-image: url('{{ section.settings.popup_image | image_url: width: 800 }}');
+    {% else %}
+      background-image: url('https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png');
+    {% endif %}
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .promo-popup-content-wrapper {
+    width: 55%;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .promo-popup-title {
+    color: #1a3673;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+  }
+  
+  .promo-popup-description {
+    color: #333333;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    line-height: 1.5;
+  }
+  
+  .promo-popup-promise {
+    color: #555555;
+    font-size: 13px;
+    margin: 0 0 25px 0;
+  }
+  
+  .promo-popup-input-field {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid #4a4a4a;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .promo-popup-input-field:focus {
+    border-color: #1a3673;
+  }
+  
+  .promo-popup-submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    background-color: #1a3673;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .promo-popup-submit-btn:hover {
+    background-color: #122856;
+  }
+  
+  @media (max-width: 768px) {
+    .promo-popup-container {
+      flex-direction: column;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .promo-popup-image-wrapper {
+      width: 100%;
+      height: 250px;
+    }
+    .promo-popup-content-wrapper {
+      width: 100%;
+      padding: 30px 20px;
+    }
+    .promo-popup-title {
+      font-size: 26px;
+    }
+  }
+</style>
+
+<div id="promo-popup-overlay" class="promo-popup-overlay">
+  <div class="promo-popup-container">
+    <button id="promo-popup-close-btn" class="promo-popup-close-btn">&times;</button>
+    
+    <div class="promo-popup-image-wrapper"></div>
+    
+    <div class="promo-popup-content-wrapper">
+      <h2 class="promo-popup-title">{{ section.settings.popup_title }}</h2>
+      <p class="promo-popup-description">{{ section.settings.popup_description }}</p>
+      <p class="promo-popup-promise">{{ section.settings.popup_promise }}</p>
+      
+      {% form 'customer', id: 'promo-popup-newsletter-form' %}
+        {% if form.posted_successfully? %}
+          <p style="color: green; font-weight: bold;">Thank you for subscribing!</p>
+          <script>
+            sessionStorage.setItem('promoPopupInteracted', 'true');
+          </script>
+        {% else %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First Name" required>
+          <input type="text" name="contact[last_name]" class="promo-popup-input-field" placeholder="Last Name" required>
+          <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email" required>
+          <button type="submit" class="promo-popup-submit-btn">{{ section.settings.button_text }}</button>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var overlay = document.getElementById('promo-popup-overlay');
+    var closeButton = document.getElementById('promo-popup-close-btn');
+    var storageKey = 'promoPopupShownPerSession';
+
+    if (window.location.search.indexOf('customer_posted=true') > -1) {
+      overlay.style.display = 'flex';
+      sessionStorage.setItem('promoPopupInteracted', 'true');
+    } else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
+      setTimeout(function() {
+        overlay.style.display = 'flex';
+        sessionStorage.setItem(storageKey, 'true');
+      }, 4000); 
+    }
+
+    closeButton.addEventListener('click', function() {
+      overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', function(event) {
+      if (event.target === overlay) {
+        overlay.style.display = 'none';
+      }
+    });
+  });
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Promo Popup",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Popup Image"
+    },
+    {
+      "type": "html",
+      "id": "popup_title",
+      "label": "Title",
+      "default": "Renovation<br>plans ahead?"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_description",
+      "label": "Description",
+      "default": "Subscribe to receive our best deals on bathroom and kitchen essentials."
+    },
+    {
+      "type": "text",
+      "id": "popup_promise",
+      "label": "Sub-text",
+      "default": "Only the good stuff, we promise."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Sign me up!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Popup"
+    }
+  ]
+}
+{% endschema %}
