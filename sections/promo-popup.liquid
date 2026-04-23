@@ -1,3 +1,4 @@
+{% if template.name == 'product' %}
 <style>
   .promo-popup-overlay {
     position: fixed;
@@ -5,39 +6,50 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
     z-index: 99999;
     display: none;
     align-items: center;
     justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   .promo-popup-container {
     background-color: #ffffff;
-    width: 750px;
+    width: 800px;
     max-width: 90%;
     display: flex;
     align-items: stretch;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .promo-popup-close-btn {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1;
     cursor: pointer;
-    color: #a0a0a0;
-    background: none;
+    color: #999;
+    background: transparent;
     border: none;
     z-index: 2;
-    padding: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
   }
 
   .promo-popup-close-btn:hover {
     color: #333;
+    background-color: #f0f0f0;
   }
 
   .promo-popup-image-wrapper {
@@ -47,67 +59,79 @@
     background-image: url('https://cdn.shopify.com/s/files/1/0848/7193/8321/files/toto-collection-image-ultramax-washlet.webp?v=1768631791');
     background-size: cover;
     background-position: center;
-    min-height: 400px;
+    min-height: 450px;
   }
 
   .promo-popup-content-wrapper {
     width: 55%;
     flex: 0 0 55%;
-    padding: 50px 40px;
+    padding: 60px 50px;
     box-sizing: border-box;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .promo-popup-title {
     color: #1a3673;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
-    margin: 0 0 15px;
-    line-height: 1.1;
+    margin: 0 0 12px 0;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
   }
 
   .promo-popup-description {
-    color: #333333;
-    font-size: 14px;
-    margin: 0 0 15px;
+    color: #444444;
+    font-size: 15px;
+    margin: 0 0 10px 0;
     line-height: 1.5;
   }
 
   .promo-popup-promise {
-    color: #555555;
+    color: #777777;
     font-size: 13px;
-    margin: 0 0 25px;
+    margin: 0 0 25px 0;
   }
 
   .promo-popup-input-field {
     width: 100%;
-    padding: 12px 15px;
+    padding: 14px 16px;
     margin-bottom: 12px;
-    border: 1px solid #4a4a4a;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
     box-sizing: border-box;
     font-size: 14px;
     outline: none;
+    transition: all 0.2s ease;
   }
 
   .promo-popup-input-field:focus {
     border-color: #1a3673;
+    box-shadow: 0 0 0 1px #1a3673;
   }
 
   .promo-popup-submit-btn {
     width: 100%;
-    padding: 14px;
-    margin-top: 5px;
+    padding: 15px;
+    margin-top: 8px;
     background-color: #1a3673;
     color: #ffffff;
     border: none;
-    font-size: 15px;
+    border-radius: 6px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
   }
 
   .promo-popup-submit-btn:hover {
     background-color: #122856;
+  }
+
+  .promo-popup-submit-btn:active {
+    transform: scale(0.98);
   }
 
   @media (max-width: 768px) {
@@ -115,27 +139,28 @@
       flex-direction: column;
       max-height: 90vh;
       overflow-y: auto;
+      border-radius: 12px;
     }
     .promo-popup-image-wrapper {
       width: 100%;
       flex: 0 0 auto;
-      height: 250px;
-      min-height: 250px;
+      height: 220px;
+      min-height: 220px;
     }
     .promo-popup-content-wrapper {
       width: 100%;
       flex: 0 0 auto;
-      padding: 30px 20px;
+      padding: 35px 25px;
     }
     .promo-popup-title {
-      font-size: 26px;
+      font-size: 28px;
     }
   }
 </style>
 
 <div id="promo-popup-overlay" class="promo-popup-overlay">
   <div class="promo-popup-container">
-    <button id="promo-popup-close-btn" class="promo-popup-close-btn">&times;</button>
+    <button id="promo-popup-close-btn" class="promo-popup-close-btn" aria-label="Close">&times;</button>
 
     <div class="promo-popup-image-wrapper">&nbsp;</div>
 
@@ -146,7 +171,10 @@
 
       {% form 'customer', id: 'promo-popup-newsletter-form' %}
         {% if form.posted_successfully? %}
-          <p style="color: green; font-weight: bold;">Thank you for subscribing!</p>
+          <p style="color: #28a745; font-weight: 600; font-size: 15px; text-align: center; padding: 10px 0;">Thank you for subscribing!</p>
+          <script>
+            sessionStorage.setItem('promoPopupInteracted', 'true');
+          </script>
         {% else %}
           <input type="hidden" name="contact[tags]" value="newsletter">
           <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First Name" required>
@@ -163,8 +191,18 @@
   document.addEventListener("DOMContentLoaded", function() {
     var overlay = document.getElementById('promo-popup-overlay');
     var closeButton = document.getElementById('promo-popup-close-btn');
+    var storageKey = 'promoPopupShownPerSession';
 
-    overlay.style.display = 'flex';
+    if (window.location.search.indexOf('customer_posted=true') > -1) {
+      overlay.style.display = 'flex';
+      sessionStorage.setItem('promoPopupInteracted', 'true');
+    } 
+    else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
+      setTimeout(function() {
+        overlay.style.display = 'flex';
+        sessionStorage.setItem(storageKey, 'true');
+      }, 4000);
+    }
 
     closeButton.addEventListener('click', function() {
       overlay.style.display = 'none';
@@ -177,3 +215,4 @@
     });
   });
 </script>
+{% endif %}
