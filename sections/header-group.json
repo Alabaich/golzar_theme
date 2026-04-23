@@ -67,6 +67,17 @@
         "scroll_duration": 20
       }
     },
+    "promo_popup_weWHjE": {
+      "type": "promo-popup",
+      "name": "Promo Popup",
+      "settings": {
+        "popup_image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
+        "popup_title": "Renovation<br>plans ahead?",
+        "popup_description": "Subscribe to receive our best deals on bathroom and kitchen essentials.",
+        "popup_promise": "Only the good stuff, we promise.",
+        "button_text": "Sign me up!"
+      }
+    },
     "custom_liquid_qTQEht": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -102,6 +113,7 @@
   },
   "order": [
     "announcement-bar",
+    "promo_popup_weWHjE",
     "custom_liquid_qTQEht",
     "header"
   ]
