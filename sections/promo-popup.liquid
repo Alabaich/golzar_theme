@@ -141,10 +141,17 @@
   }
 
   @media (max-width: 768px) {
+    .promo-popup-overlay {
+      align-items: center;
+      padding: 16px;
+      padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+      box-sizing: border-box;
+    }
     .promo-popup-container {
       flex-direction: column;
-      max-height: 90vh;
+      max-height: 100%;
       overflow-y: auto;
+      max-width: 100%;
     }
     .promo-popup-close-btn {
       top: 10px;
@@ -154,16 +161,35 @@
     .promo-popup-image-wrapper {
       width: 100%;
       flex: 0 0 auto;
-      height: 220px;
-      min-height: 220px;
+      height: 160px;
+      min-height: 160px;
     }
     .promo-popup-content-wrapper {
       width: 100%;
       flex: 1 1 auto;
-      padding: 30px 25px calc(80px + env(safe-area-inset-bottom, 0px)) 25px;
+      padding: 20px 20px 24px 20px;
     }
     .promo-popup-title {
-      font-size: 28px;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .promo-popup-description {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .promo-popup-promise {
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+    .promo-popup-input-field {
+      padding: 11px 14px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .promo-popup-submit-btn {
+      padding: 13px;
+      font-size: 15px;
+      margin-top: 4px;
     }
   }
 </style>
