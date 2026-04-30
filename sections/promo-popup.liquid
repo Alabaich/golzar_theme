@@ -2,264 +2,218 @@
 <style>
   .promo-popup-overlay {
     position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
     z-index: 99999;
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 16px;
-    box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   .promo-popup-container {
-    background: #ffffff;
-    width: 100%;
-    max-width: 560px;
-    max-height: calc(100vh - 32px);
+    background-color: #ffffff;
+    width: 800px;
+    max-width: 90%;
     display: flex;
-    flex-direction: column;
+    align-items: stretch;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
     overflow: hidden;
   }
 
-  /* Close button */
   .promo-popup-close-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
-    color: #555;
-    background: rgba(255,255,255,0.95);
+    color: #333333;
+    background-color: #ffffff;
     border: none;
-    z-index: 10;
-    width: 32px;
-    height: 32px;
+    z-index: 999;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: background 0.15s ease, transform 0.15s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
     -webkit-appearance: none;
     appearance: none;
-    padding: 0;
-    flex-shrink: 0;
   }
+
   .promo-popup-close-btn:hover {
-    background: #f0f0f0;
-    transform: scale(1.08);
+    background-color: #f0f0f0;
   }
 
   .promo-popup-image-wrapper {
+    width: 45%;
+    flex: 0 0 45%;
+    min-height: 450px;
+    overflow: hidden;
+    background-color: #e9ecef;
+  }
+
+  .promo-popup-image-wrapper img {
     width: 100%;
-    height: 180px;
-    flex-shrink: 0;
-    background-color: #d5dce8;
-    background-image: url('https://cdn.shopify.com/s/files/1/0848/7193/8321/files/toto-collection-image-ultramax-washlet.webp?v=1768631791');
-    background-size: cover;
-    background-position: center;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
-  /* Content */
   .promo-popup-content-wrapper {
-    padding: 28px 32px 32px;
+    width: 55%;
+    flex: 0 0 55%;
+    padding: 60px 50px;
     box-sizing: border-box;
-    overflow-y: auto;
-  }
-
-  .promo-popup-badge {
-    display: inline-block;
-    background: #eef1f9;
-    color: #1a3673;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .promo-popup-title {
     color: #1a3673;
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 700;
-    margin: 0 0 8px 0;
-    line-height: 1.2;
-    letter-spacing: -0.3px;
+    margin: 0 0 12px 0;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
   }
 
   .promo-popup-description {
-    color: #555;
-    font-size: 14px;
-    margin: 0 0 20px 0;
-    line-height: 1.55;
+    color: #444444;
+    font-size: 15px;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
   }
 
-  .promo-popup-fields {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+  .promo-popup-promise {
+    color: #777777;
+    font-size: 13px;
+    margin: 0 0 25px 0;
   }
 
   .promo-popup-input-field {
     width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
     box-sizing: border-box;
     font-size: 14px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    color: #222;
-    background: #fafafa;
+    transition: all 0.2s ease;
   }
+
   .promo-popup-input-field:focus {
     border-color: #1a3673;
-    box-shadow: 0 0 0 3px rgba(26,54,115,0.1);
-    background: #fff;
-  }
-  .promo-popup-input-field::placeholder {
-    color: #aaa;
+    box-shadow: 0 0 0 1px #1a3673;
   }
 
   .promo-popup-submit-btn {
     width: 100%;
-    padding: 14px;
-    margin-top: 4px;
-    background: #1a3673;
-    color: #fff;
+    padding: 15px;
+    margin-top: 8px;
+    background-color: #1a3673;
+    color: #ffffff;
     border: none;
-    border-radius: 8px;
-    font-size: 15px;
+    border-radius: 6px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
   }
+
   .promo-popup-submit-btn:hover {
-    background: #122856;
+    background-color: #122856;
   }
+
   .promo-popup-submit-btn:active {
     transform: scale(0.98);
   }
 
-  .promo-popup-fine-print {
-    color: #aaa;
-    font-size: 11px;
-    margin: 10px 0 0 0;
-    text-align: center;
-  }
-
-  /* Success state */
-  .promo-popup-success {
-    text-align: center;
-    padding: 8px 0 4px;
-  }
-  .promo-popup-success-icon {
-    width: 48px;
-    height: 48px;
-    background: #eef7ee;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 12px;
-  }
-  .promo-popup-success p {
-    color: #333;
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0;
-  }
-  .promo-popup-success span {
-    color: #777;
-    font-size: 13px;
-    display: block;
-    margin-top: 4px;
-  }
-
-  /* Mobile */
-  @media (max-width: 480px) {
-    .promo-popup-overlay {
-      padding: 22px 20px calc(50% + env(safe-area-inset-bottom, 0px));
-      align-items: flex-end;
-    }
+  @media (max-width: 768px) {
     .promo-popup-container {
-      max-width: 100%;
-      border-radius: 16px;
-      max-height: 92vh;
+      flex-direction: column;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .promo-popup-close-btn {
+      top: 10px;
+      right: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     }
     .promo-popup-image-wrapper {
-      height: 150px;
+      width: 100%;
+      flex: 0 0 auto;
+      height: 220px;
+      min-height: 220px;
     }
     .promo-popup-content-wrapper {
-      padding: 22px 20px 28px;
-    }
-    .promo-popup-fields {
-      flex-direction: column;
-      gap: 8px;
+      width: 100%;
+      flex: 1 1 auto;
+      padding: 30px 25px calc(80px + env(safe-area-inset-bottom, 0px)) 25px;
     }
     .promo-popup-title {
-      font-size: 22px;
+      font-size: 28px;
     }
   }
 </style>
 
-<div id="promo-popup-overlay" class="promo-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="promo-popup-heading">
-  <div class="promo-popup-container" id="promo-popup-container">
+<div id="promo-popup-overlay" class="promo-popup-overlay">
+  <div class="promo-popup-container">
 
-    <div class="promo-popup-image-wrapper" aria-hidden="true"></div>
+    <div class="promo-popup-image-wrapper">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0848/7193/8321/files/toto-collection-image-ultramax-washlet.webp?v=1768631791"
+        alt=""
+        loading="eager"
+        onerror="this.parentElement.style.display='none'"
+      >
+    </div>
 
     <div class="promo-popup-content-wrapper">
-      <span class="promo-popup-badge">Exclusive offer</span>
-      <h2 class="promo-popup-title" id="promo-popup-heading">Planning a renovation?</h2>
-      <p class="promo-popup-description">Get the best deals on bathroom &amp; kitchen essentials — straight to your inbox.</p>
+      <h2 class="promo-popup-title">Renovation<br>plans ahead?</h2>
+      <p class="promo-popup-description">Subscribe to receive our best deals on bathroom and kitchen essentials.</p>
+      <p class="promo-popup-promise">Only the good stuff, we promise.</p>
 
       {% form 'customer', id: 'promo-popup-newsletter-form' %}
         {% if form.posted_successfully? %}
-          <div class="promo-popup-success">
-            <div class="promo-popup-success-icon">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 11L9 16L18 6" stroke="#2d8a3e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <p>You're subscribed!</p>
-            <span>We'll be in touch with our best offers.</span>
-          </div>
-          <script>sessionStorage.setItem('promoPopupInteracted', 'true');</script>
+          <p style="color: #28a745; font-weight: 600; font-size: 15px; text-align: center; padding: 10px 0;">Thank you for subscribing!</p>
+          <script>
+            sessionStorage.setItem('promoPopupInteracted', 'true');
+          </script>
         {% else %}
           <input type="hidden" name="contact[tags]" value="newsletter">
-          <div class="promo-popup-fields">
-            <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First name" autocomplete="given-name" required>
-            <input type="text" name="contact[last_name]" class="promo-popup-input-field" placeholder="Last name" autocomplete="family-name" required>
-          </div>
-          <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email address" autocomplete="email" required>
-          <button type="submit" class="promo-popup-submit-btn">Get the deals</button>
-          <p class="promo-popup-fine-print">Unsubscribe any time.</p>
+          <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First Name" required>
+          <input type="text" name="contact[last_name]" class="promo-popup-input-field" placeholder="Last Name" required>
+          <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email" required>
+          <button type="submit" class="promo-popup-submit-btn">Sign me up!</button>
         {% endif %}
       {% endform %}
     </div>
 
     <button id="promo-popup-close-btn" class="promo-popup-close-btn" aria-label="Close">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 1L1 11M1 1L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 1L1 13M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
   </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     var overlay = document.getElementById('promo-popup-overlay');
-    var container = document.getElementById('promo-popup-container');
-    var closeBtn = document.getElementById('promo-popup-close-btn');
+    var container = document.querySelector('.promo-popup-container');
+    var closeButton = document.getElementById('promo-popup-close-btn');
     var storageKey = 'promoPopupShownPerSession';
 
     function openPopup() {
@@ -272,31 +226,30 @@
       document.body.style.overflow = '';
     }
 
-    // Close on backdrop click (click outside the popup container)
-    overlay.addEventListener('click', function (e) {
-      if (!container.contains(e.target)) {
+    if (window.location.search.indexOf('customer_posted=true') > -1) {
+      openPopup();
+      sessionStorage.setItem('promoPopupInteracted', 'true');
+    }
+    else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
+      setTimeout(function() {
+        openPopup();
+        sessionStorage.setItem(storageKey, 'true');
+      }, 4000);
+    }
+
+    closeButton.addEventListener('click', closePopup);
+
+    overlay.addEventListener('click', function(event) {
+      if (!container.contains(event.target)) {
         closePopup();
       }
     });
 
-    // Close on X button
-    closeBtn.addEventListener('click', closePopup);
-
-    // Close on Escape key
-    document.addEventListener('keydown', function (e) {
+    document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && overlay.style.display === 'flex') {
         closePopup();
       }
     });
-
-    // Show logic
-    if (window.location.search.indexOf('customer_posted=true') > -1) {
-      openPopup();
-      sessionStorage.setItem('promoPopupInteracted', 'true');
-    } else if (!sessionStorage.getItem(storageKey) && !sessionStorage.getItem('promoPopupInteracted')) {
-      setTimeout(openPopup, 4000);
-      sessionStorage.setItem(storageKey, 'true');
-    }
   });
 </script>
 {% endif %}
