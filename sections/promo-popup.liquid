@@ -188,7 +188,7 @@
   /* Mobile */
   @media (max-width: 480px) {
     .promo-popup-overlay {
-      padding: 0;
+      padding: 22px 20px calc(70px + env(safe-area-inset-bottom, 0px));
       align-items: flex-end;
     }
     .promo-popup-container {
@@ -242,7 +242,7 @@
           </div>
           <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email address" autocomplete="email" required>
           <button type="submit" class="promo-popup-submit-btn">Get the deals</button>
-          <p class="promo-popup-fine-print">No spam. Unsubscribe any time.</p>
+          <p class="promo-popup-fine-print">Unsubscribe any time.</p>
         {% endif %}
       {% endform %}
     </div>
