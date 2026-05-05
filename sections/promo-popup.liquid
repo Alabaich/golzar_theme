@@ -229,7 +229,7 @@
           <input type="hidden" name="contact[tags]" value="newsletter">
           <input type="text" name="contact[first_name]" class="promo-popup-input-field" placeholder="First Name" required>
           <input type="text" name="contact[last_name]" class="promo-popup-input-field" placeholder="Last Name" required>
-          <input type="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email" required>
+          <input type="text" inputmode="email" name="contact[email]" class="promo-popup-input-field" placeholder="Email" required autocomplete="off" spellcheck="false">
           <button type="submit" class="promo-popup-submit-btn">Sign me up!</button>
           <p class="promo-popup-fine-print">Unsubscribe anytime.</p>
         {% endif %}
