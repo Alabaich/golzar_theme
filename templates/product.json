@@ -42,7 +42,7 @@
           "settings": {
             "label_text": "VIP Exclusive Price",
             "vip_bg_color": "#1a1a1a",
-            "border_color": "#D4AF37",
+            "border_color": "#d4af37",
             "vip_text_color": "#ffffff",
             "vip_price_color": "#ffffff",
             "show_original": true,
@@ -53,7 +53,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "swatch",
+            "picker_type": "button",
             "swatch_shape": "square"
           }
         },
@@ -280,7 +280,7 @@
       "type": "apps",
       "blocks": {
         "ryviu_product_reviews_app_ryviu_widget_KBN9Nx": {
-          "type": "shopify://apps/ryviu-product-reviews-app/blocks/ryviu-widget/807ad6ed-1a6a-4559-abea-ed062858d9da",
+          "type": "shopify://apps/ryviu-product-reviews/blocks/ryviu-widget/807ad6ed-1a6a-4559-abea-ed062858d9da",
           "settings": {
             "r_wapper_class": "",
             "r_max_width": 1920,
