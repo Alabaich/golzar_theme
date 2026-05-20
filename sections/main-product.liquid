@@ -1227,8 +1227,10 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
   Load the external logic script from our CDN.
   The 'async' attribute helps prevent it from blocking page load.
 {% endcomment %}
-<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/bathroomsupplierProductPage.js" async></script>
-<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/accordion-logic.js" async></script>
+{% comment %} <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/bathroomsupplierProductPage.js" async></script>
+<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/accordion-logic.js" async></script> {% endcomment %}
+<script src="{{ 'bathroomsupplierProductPage.js' | asset_url }}" async></script>
+<script src="{{ 'accordion-logic.js' | asset_url }}" async></script>
 
 {% comment %} {% render 'holiday-shipping-notice' %} {% endcomment %}
 
@@ -2234,7 +2236,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 </div>
 
 {% comment %} <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/descriptionTabs.js" async></script> {% endcomment %}
-<script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/additional-items-toggle.js" async></script>
+{% comment %} <script src="https://cdn.enjob.ca/bathroomSupplierExternalScripts/scripts/additional-items-toggle.js" async></script> {% endcomment %}
+<script src="{{ 'additional-items-toggle.js' | asset_url }}" async></script>
 
 
 <script>
