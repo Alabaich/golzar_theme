@@ -5,25 +5,18 @@
     <meta name="facebook-domain-verification" content="2axs34dazivdo09hkotbrx8tf05s00" />
     <meta name="facebook-domain-verification" content="ucfurezq2474sj366e1jl89aqjwqki" />
 <!-- Google Tag Manager -->
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MTKBNPXS');</script>
-<!-- End Google Tag Manager -->
-	<!-- Added by AVADA SEO Suite -->
-	<!-- {% include 'avada-seo' %} -->
-	<!-- /Added by AVADA SEO Suite -->
-      <!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16848442183">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-16848442183');
-</script> -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+  })(window,document,'script','dataLayer','GTM-MTKBNPXS');</script>
+
+<!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -381,6 +374,13 @@ document.addEventListener("DOMContentLoaded", function() {
    {% assign full_url = request.host | append: request.path | split: '/' | last %}
 
   <body class="{{ page_title | handle }} {{ template.name }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if full_url == 'refund-policy' %} policy-refund{% elsif full_url == 'privacy-policy' %} policy-privacy{% elsif full_url == 'terms-of-service' %} policy-service-terms{% endif %}{% if template == 'index' %} transparent-header{% endif %}{% if template contains 'customers' %} account-page-{{ template.name | split: '/' | last }}{% else %}{% if template.suffix == blank %} type-{{ template.name }}{% endif %}{% if template.suffix != blank %} type-{{ template.name }} type-{{ template.suffix }}{% endif %}{% endif %}{% if template.name != 'index' %} inner-pages{% endif %}">
+    <!-- Google Tag Manager (noscript) -->
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTKBNPXS"
+
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- End Google Tag Manager (noscript) -->
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
