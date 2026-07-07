@@ -17,13 +17,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_yHxjiU": {
-          "type": "text",
-          "settings": {
-            "text": "Text block",
-            "text_style": "body"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -132,7 +125,6 @@
         }
       },
       "block_order": [
-        "text_yHxjiU",
         "title",
         "vendor_Fmtz9A",
         "sku_QMiVi7",
