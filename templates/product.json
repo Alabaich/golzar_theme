@@ -17,6 +17,41 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "text_Dkcdgj": {
+          "type": "text",
+          "settings": {
+            "text": "Text block--",
+            "text_style": "body"
+          }
+        },
+        "related_products_modal_qAiDez": {
+          "type": "related_products_modal",
+          "settings": {
+            "modal_title": "",
+            "open_delay": 3,
+            "modal_size": "medium",
+            "animation": "fade",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 50,
+            "close_on_overlay_click": true,
+            "show_close_button": true,
+            "close_on_escape": true,
+            "auto_close": false,
+            "auto_close_delay": 10,
+            "show_once_per_session": false,
+            "products_to_show": 4,
+            "columns_desktop": 2,
+            "columns_mobile": "2",
+            "image_ratio": "adapt",
+            "show_secondary_image": false,
+            "show_vendor": false,
+            "show_rating": false,
+            "heading_size": "h2",
+            "dialog_background": "#ffffff",
+            "dialog_text": "#121212"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -122,37 +157,11 @@
             "facebook": "https://m.facebook.com/golzarhomecanada",
             "pinterest": "https://www.pinterest.ca/golzarhomecanada/"
           }
-        },
-        "related_products_modal_qAiDez": {
-          "type": "related_products_modal",
-          "settings": {
-            "modal_title": "",
-            "open_delay": 3,
-            "modal_size": "medium",
-            "animation": "fade",
-            "show_overlay": true,
-            "overlay_color": "#000000",
-            "overlay_opacity": 50,
-            "close_on_overlay_click": true,
-            "show_close_button": true,
-            "close_on_escape": true,
-            "auto_close": false,
-            "auto_close_delay": 10,
-            "show_once_per_session": false,
-            "products_to_show": 4,
-            "columns_desktop": 2,
-            "columns_mobile": "2",
-            "image_ratio": "adapt",
-            "show_secondary_image": false,
-            "show_vendor": false,
-            "show_rating": false,
-            "heading_size": "h2",
-            "dialog_background": "#ffffff",
-            "dialog_text": "#121212"
-          }
         }
       },
       "block_order": [
+        "text_Dkcdgj",
+        "related_products_modal_qAiDez",
         "title",
         "vendor_Fmtz9A",
         "sku_QMiVi7",
@@ -167,8 +176,7 @@
         "see_product_components_986tRR",
         "required_items_9nVkDq",
         "compatible_items_grVTge",
-        "product_information_gjpgNk",
-        "related_products_modal_qAiDez"
+        "product_information_gjpgNk"
       ],
       "custom_css": [],
       "settings": {
