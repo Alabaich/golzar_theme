@@ -1429,6 +1429,12 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+                {%- when 'related_products_modal' -%}
+              {% render 'related-products-modal',
+                product: product,
+                block: block,
+                section: section
+              %}
             {%- endcase -%}
             {%- endif -%}
           {%- endfor -%}
@@ -2406,26 +2412,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
-{% render 'related-products-modal',
-  product: product,
-  enabled: section.settings.modal_enabled,
-  open_delay: section.settings.modal_open_delay,
-  modal_size: section.settings.modal_size,
-  show_overlay: section.settings.modal_show_overlay,
-  overlay_color: section.settings.modal_overlay_color,
-  overlay_opacity: section.settings.modal_overlay_opacity,
-  show_close_button: section.settings.modal_show_close_button,
-  close_on_overlay_click: section.settings.modal_close_on_overlay_click,
-  close_on_escape: section.settings.modal_close_on_escape,
-  auto_close: section.settings.modal_auto_close,
-  auto_close_delay: section.settings.modal_auto_close_delay,
-  show_once_per_session: section.settings.modal_show_once_per_session,
-  modal_title: section.settings.modal_title,
-  products_limit: section.settings.modal_products_limit,
-  animation: section.settings.modal_animation,
-  section_id: 'related-products'
-%}
 
 {% schema %}
 {
@@ -3925,6 +3911,217 @@ document.addEventListener('DOMContentLoaded', function() {
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type": "related_products_modal",
+      "name": "Related products modal",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Modal behavior"
+        },
+        {
+          "type": "text",
+          "id": "modal_title",
+          "label": "Modal title",
+          "default": "You may also like"
+        },
+        {
+          "type": "range",
+          "id": "open_delay",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "s",
+          "label": "Open delay",
+          "default": 3,
+          "info": "Seconds after page load before the modal appears"
+        },
+        {
+          "type": "select",
+          "id": "modal_size",
+          "label": "Modal size",
+          "default": "medium",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" },
+            { "value": "full", "label": "Full screen" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "label": "Open animation",
+          "default": "fade",
+          "options": [
+            { "value": "fade", "label": "Fade" },
+            { "value": "slide-up", "label": "Slide up" },
+            { "value": "zoom", "label": "Zoom" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Overlay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show overlay",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "label": "Overlay opacity",
+          "default": 50
+        },
+        {
+          "type": "checkbox",
+          "id": "close_on_overlay_click",
+          "label": "Close when overlay is clicked",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Close behavior"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_close_button",
+          "label": "Show close button",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "close_on_escape",
+          "label": "Close on Escape key",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "auto_close",
+          "label": "Auto-close after delay",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "auto_close_delay",
+          "min": 3,
+          "max": 60,
+          "step": 1,
+          "unit": "s",
+          "label": "Auto-close delay",
+          "default": 10
+        },
+        {
+          "type": "checkbox",
+          "id": "show_once_per_session",
+          "label": "Show only once per session",
+          "default": true,
+          "info": "After the visitor closes the modal, it won't appear again until they start a new browser session"
+        },
+        {
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "range",
+          "id": "products_to_show",
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "default": 4,
+          "label": "Products to show"
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "default": 4,
+          "label": "Columns on desktop"
+        },
+        {
+          "type": "select",
+          "id": "columns_mobile",
+          "default": "2",
+          "label": "Columns on mobile",
+          "options": [
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Image ratio",
+          "default": "adapt",
+          "options": [
+            { "value": "adapt", "label": "Adapt to image" },
+            { "value": "portrait", "label": "Portrait" },
+            { "value": "square", "label": "Square" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_secondary_image",
+          "default": false,
+          "label": "Show second image on hover"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "default": false,
+          "label": "Show vendor"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_rating",
+          "default": false,
+          "label": "Show product rating",
+          "info": "Requires a product review app that supports theme rating metafields"
+        },
+        {
+          "type": "header",
+          "content": "Look"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "default": "h2",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "dialog_background",
+          "label": "Dialog background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "dialog_text",
+          "label": "Dialog text color",
+          "default": "#121212"
+        }
+      ]
     }
   ],
   "settings": [
@@ -4123,136 +4320,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    },
-    {
-      "type": "header",
-      "content": "Related products modal"
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_enabled",
-      "label": "Enable related products modal",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "modal_title",
-      "label": "Modal title",
-      "default": "You may also like"
-    },
-    {
-      "type": "range",
-      "id": "modal_open_delay",
-      "min": 0,
-      "max": 30,
-      "step": 1,
-      "unit": "s",
-      "label": "Open delay",
-      "default": 3,
-      "info": "Seconds after page load before the modal appears"
-    },
-    {
-      "type": "select",
-      "id": "modal_size",
-      "label": "Modal size",
-      "default": "medium",
-      "options": [
-        { "value": "small", "label": "Small" },
-        { "value": "medium", "label": "Medium" },
-        { "value": "large", "label": "Large" },
-        { "value": "full", "label": "Full screen" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "modal_animation",
-      "label": "Open animation",
-      "default": "fade",
-      "options": [
-        { "value": "fade", "label": "Fade" },
-        { "value": "slide-up", "label": "Slide up" },
-        { "value": "zoom", "label": "Zoom" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "modal_products_limit",
-      "min": 2,
-      "max": 8,
-      "step": 1,
-      "label": "Products to show",
-      "default": 4
-    },
-    {
-      "type": "header",
-      "content": "Overlay"
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_show_overlay",
-      "label": "Show overlay",
-      "default": true
-    },
-    {
-      "type": "color",
-      "id": "modal_overlay_color",
-      "label": "Overlay color",
-      "default": "#000000"
-    },
-    {
-      "type": "range",
-      "id": "modal_overlay_opacity",
-      "min": 0,
-      "max": 90,
-      "step": 5,
-      "unit": "%",
-      "label": "Overlay opacity",
-      "default": 50
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_close_on_overlay_click",
-      "label": "Close when overlay is clicked",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Close behavior"
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_show_close_button",
-      "label": "Show close button",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_close_on_escape",
-      "label": "Close on Escape key",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_auto_close",
-      "label": "Auto-close after delay",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "modal_auto_close_delay",
-      "min": 3,
-      "max": 60,
-      "step": 1,
-      "unit": "s",
-      "label": "Auto-close delay",
-      "default": 10
-    },
-    {
-      "type": "checkbox",
-      "id": "modal_show_once_per_session",
-      "label": "Show only once per session",
-      "default": true,
-      "info": "After the visitor closes the modal, it won't appear again until they start a new browser session"
     }
   ]
 }
