@@ -156,7 +156,22 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 44
+        "padding_bottom": 44,
+        "modal_enabled": true,
+        "modal_title": "You may also like",
+        "modal_open_delay": 3,
+        "modal_size": "medium",
+        "modal_animation": "fade",
+        "modal_products_limit": 2,
+        "modal_show_overlay": true,
+        "modal_overlay_color": "#000000",
+        "modal_overlay_opacity": 50,
+        "modal_close_on_overlay_click": true,
+        "modal_show_close_button": true,
+        "modal_close_on_escape": true,
+        "modal_auto_close": false,
+        "modal_auto_close_delay": 10,
+        "modal_show_once_per_session": true
       }
     },
     "1735585868466f2cf4": {
