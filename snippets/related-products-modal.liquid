@@ -1,34 +1,38 @@
 {% doc %}
-Related products modal for the product page.
+Related products modal block for the product page.
+Renders its own recommendation cards using block settings.
 @param {product} product - Current product
-@param {boolean} enabled - Show modal on product page
-@param {number} open_delay - Seconds before modal opens
-@param {string} modal_size - small | medium | large | full
-@param {boolean} show_overlay - Show backdrop overlay
-@param {string} overlay_color - CSS color for overlay
-@param {number} overlay_opacity - Overlay opacity 0-100
-@param {boolean} show_close_button - Show close button
-@param {boolean} close_on_overlay_click - Close when overlay is clicked
-@param {boolean} close_on_escape - Close on Escape key
-@param {boolean} auto_close - Auto-close after delay
-@param {number} auto_close_delay - Seconds before auto-close
-@param {boolean} show_once_per_session - Only show once per browser session
-@param {string} modal_title - Modal heading text
-@param {number} products_limit - Number of related products
-@param {string} animation - fade | slide-up | zoom
-@param {string} section_id - Related products section handle for API
+@param {object} block - Related products modal block
+@param {object} section - Parent main-product section
 @example
-{% render 'related-products-modal', product: product, enabled: section.settings.modal_enabled %}
+{% render 'related-products-modal', product: product, block: block, section: section %}
 {% enddoc %}
 
-{%- if enabled and product != blank -%}
+{%- if product != blank and block != blank -%}
 {%- liquid
-  assign modal_id = 'related-products-modal-' | append: product.id
-  assign section_handle = section_id | default: 'related-products'
-  assign recommendations_url = routes.product_recommendations_url | append: '?section_id=' | append: section_handle | append: '&product_id=' | append: product.id | append: '&limit=' | append: products_limit
+  assign modal_id = 'related-products-modal-' | append: block.id
+  assign products_to_show = block.settings.products_to_show | default: 4
+  assign recommendations_url = routes.product_recommendations_url | append: '?section_id=' | append: section.id | append: '&product_id=' | append: product.id | append: '&limit=' | append: products_to_show | append: '&intent=related'
 -%}
 
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
 <style>
+  .related-products-modal-placeholder {
+    display: none;
+  }
+
+  .shopify-design-mode .related-products-modal-placeholder {
+    display: block;
+    margin: 0.8rem 0;
+    padding: 0.8rem 1.2rem;
+    border: 1px dashed rgba(18, 18, 18, 0.25);
+    border-radius: 0.4rem;
+    font-size: 1.3rem;
+    opacity: 0.75;
+  }
+
   .related-products-modal {
     position: fixed;
     inset: 0;
@@ -66,8 +70,8 @@ Related products modal for the product page.
     width: 100%;
     max-height: min(90vh, 720px);
     overflow: auto;
-    background: rgb(var(--color-background, 255, 255, 255));
-    color: rgb(var(--color-foreground, 18, 18, 18));
+    background: var(--rpm-dialog-bg, #ffffff);
+    color: var(--rpm-dialog-text, #121212);
     border-radius: 0.8rem;
     box-shadow: 0 1.6rem 4.8rem rgba(0, 0, 0, 0.18);
     transform: translateY(1.6rem) scale(0.98);
@@ -111,7 +115,6 @@ Related products modal for the product page.
 
   .related-products-modal__title {
     margin: 0;
-    font-size: 2rem;
     font-weight: 600;
   }
 
@@ -121,7 +124,7 @@ Related products modal for the product page.
     height: 3.6rem;
     border: 0;
     border-radius: 50%;
-    background: rgba(var(--color-foreground, 18, 18, 18), 0.08);
+    background: rgba(18, 18, 18, 0.08);
     color: inherit;
     font-size: 2.4rem;
     line-height: 1;
@@ -132,18 +135,13 @@ Related products modal for the product page.
     padding: 1.6rem;
   }
 
-  .related-products-modal__body .related-products {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .related-products-modal__loading {
+  .related-products-modal__grid {
+    list-style: none;
     margin: 0;
-    text-align: center;
-    opacity: 0.7;
+    padding: 0;
   }
 
+  .related-products-modal__loading,
   .related-products-modal__empty {
     margin: 0;
     text-align: center;
@@ -158,24 +156,33 @@ Related products modal for the product page.
   }
 </style>
 
+<div
+  class="related-products-modal-placeholder"
+  {{ block.shopify_attributes }}
+>
+  Related products modal — opens on the product page after the open delay. Configure settings in this block.
+</div>
+
 <related-products-modal
   id="{{ modal_id }}"
-  class="related-products-modal related-products-modal--{{ modal_size | default: 'medium' }} related-products-modal--{{ animation | default: 'fade' }}"
+  class="related-products-modal related-products-modal--{{ block.settings.modal_size | default: 'medium' }} related-products-modal--{{ block.settings.animation | default: 'fade' }}"
   data-url="{{ recommendations_url }}"
-  data-open-delay="{{ open_delay | default: 3 }}"
-  data-auto-close="{{ auto_close }}"
-  data-auto-close-delay="{{ auto_close_delay | default: 10 }}"
-  data-show-once="{{ show_once_per_session }}"
-  data-show-overlay="{{ show_overlay | default: true }}"
-  data-close-on-overlay="{{ close_on_overlay_click | default: true }}"
-  data-close-on-escape="{{ close_on_escape | default: true }}"
+  data-open-delay="{{ block.settings.open_delay | default: 3 }}"
+  data-auto-close="{{ block.settings.auto_close }}"
+  data-auto-close-delay="{{ block.settings.auto_close_delay | default: 10 }}"
+  data-show-once="{{ block.settings.show_once_per_session }}"
+  data-close-on-overlay="{{ block.settings.close_on_overlay_click }}"
+  data-close-on-escape="{{ block.settings.close_on_escape }}"
+  data-block-id="{{ block.id }}"
   style="
-    --rpm-overlay-color: {{ overlay_color | default: '#000000' }};
-    --rpm-overlay-opacity: {{ overlay_opacity | default: 50 | divided_by: 100.0 }};
+    --rpm-overlay-color: {{ block.settings.overlay_color | default: '#000000' }};
+    --rpm-overlay-opacity: {{ block.settings.overlay_opacity | default: 50 | divided_by: 100.0 }};
+    --rpm-dialog-bg: {{ block.settings.dialog_background | default: '#ffffff' }};
+    --rpm-dialog-text: {{ block.settings.dialog_text | default: '#121212' }};
   "
   hidden
 >
-  {%- if show_overlay != false -%}
+  {%- if block.settings.show_overlay != false -%}
     <button
       type="button"
       class="related-products-modal__overlay"
@@ -193,11 +200,16 @@ Related products modal for the product page.
     tabindex="-1"
   >
     <div class="related-products-modal__header">
-      {%- if modal_title != blank -%}
-        <h2 id="{{ modal_id }}-title" class="related-products-modal__title">{{ modal_title }}</h2>
+      {%- if block.settings.modal_title != blank -%}
+        <h2
+          id="{{ modal_id }}-title"
+          class="related-products-modal__title {{ block.settings.heading_size | default: 'h2' }}"
+        >
+          {{ block.settings.modal_title }}
+        </h2>
       {%- endif -%}
 
-      {%- if show_close_button != false -%}
+      {%- if block.settings.show_close_button != false -%}
         <button
           type="button"
           class="related-products-modal__close"
@@ -210,7 +222,34 @@ Related products modal for the product page.
     </div>
 
     <div class="related-products-modal__body" data-content>
-      <p class="related-products-modal__loading" data-loading>Loading...</p>
+      {%- if recommendations.performed -%}
+        {%- if recommendations.products_count > 0 -%}
+          <ul
+            class="related-products-modal__grid grid product-grid grid--{{ block.settings.columns_desktop }}-col-desktop grid--{{ block.settings.columns_mobile }}-col-tablet-down"
+            role="list"
+            data-modal-products
+          >
+            {%- assign skip_card_product_styles = false -%}
+            {%- for recommendation in recommendations.products limit: products_to_show -%}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: recommendation,
+                  media_aspect_ratio: block.settings.image_ratio,
+                  show_secondary_image: block.settings.show_secondary_image,
+                  show_vendor: block.settings.show_vendor,
+                  show_rating: block.settings.show_rating,
+                  skip_styles: skip_card_product_styles
+                %}
+              </li>
+              {%- assign skip_card_product_styles = true -%}
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <p class="related-products-modal__empty" data-empty>No related products found.</p>
+        {%- endif -%}
+      {%- else -%}
+        <p class="related-products-modal__loading" data-loading>Loading...</p>
+      {%- endif -%}
     </div>
   </div>
 </related-products-modal>
@@ -228,6 +267,10 @@ Related products modal for the product page.
 
       connectedCallback() {
         if (this.dataset.showOnce === 'true' && sessionStorage.getItem(this.storageKey) === '1') {
+          return;
+        }
+
+        if (window.Shopify && window.Shopify.designMode) {
           return;
         }
 
@@ -310,10 +353,15 @@ Related products modal for the product page.
 
       async loadRecommendations() {
         const content = this.querySelector('[data-content]');
-        const loading = this.querySelector('[data-loading]');
         const url = this.dataset.url;
+        const blockId = this.dataset.blockId;
 
         if (!content || !url) return;
+
+        if (content.querySelector('[data-modal-products]')) {
+          this.loaded = true;
+          return;
+        }
 
         try {
           const response = await fetch(url);
@@ -321,19 +369,25 @@ Related products modal for the product page.
 
           const html = await response.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
-          const section = doc.querySelector('.related-products');
+          const sourceModal = blockId
+            ? doc.querySelector('related-products-modal[data-block-id="' + blockId + '"]')
+            : doc.querySelector('related-products-modal');
+          const sourceContent = sourceModal
+            ? sourceModal.querySelector('[data-content]')
+            : null;
+          const products = sourceContent
+            ? sourceContent.querySelector('[data-modal-products]')
+            : null;
 
-          if (loading) loading.remove();
-
-          if (section && section.querySelector('.grid__item')) {
-            content.innerHTML = section.outerHTML;
+          if (products && products.querySelector('.grid__item')) {
+            content.innerHTML = products.outerHTML;
             this.loaded = true;
           } else {
             content.innerHTML = '<p class="related-products-modal__empty">No related products found.</p>';
             window.setTimeout(() => this.close(), 2000);
           }
         } catch (error) {
-          if (loading) loading.textContent = 'Unable to load related products.';
+          content.innerHTML = '<p class="related-products-modal__empty">Unable to load related products.</p>';
           window.setTimeout(() => this.close(), 2000);
         }
       }
