@@ -1430,9 +1430,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
               {%- when 'related_products_modal' -%}
-                <script>
-                  console.log('modal added.');
-                </script>
                 {% render 'related-products-modal',
                   product: product,
                   block: block,
@@ -2251,7 +2248,6 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('prodMain loaded.');
   /**
    * Tries to find and set up the product tabs.
    * @param {number} retriesLeft - The number of remaining attempts.
