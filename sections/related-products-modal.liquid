@@ -1,0 +1,210 @@
+{%- if template.name == 'product' and product != blank and section.settings.enabled -%}
+  <div class="related-products-modal-section" id="shopify-section-{{ section.id }}">
+    {%- if request.design_mode -%}
+      <p class="related-products-modal-section__editor-note">
+        Related products modal — uses settings from the existing Related products section on this page.
+      </p>
+    {%- endif -%}
+    {% render 'related-products-modal', product: product, section: section %}
+  </div>
+{%- endif -%}
+
+<style>
+  .related-products-modal-section {
+    margin: 0;
+    padding: 0;
+    height: 0;
+    overflow: visible;
+  }
+
+  .related-products-modal-section__editor-note {
+    display: none;
+    margin: 0;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.3rem;
+    opacity: 0.75;
+    border: 1px dashed rgba(18, 18, 18, 0.25);
+    border-radius: 0.4rem;
+  }
+
+  .shopify-design-mode .related-products-modal-section {
+    height: auto;
+  }
+
+  .shopify-design-mode .related-products-modal-section__editor-note {
+    display: block;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Related products modal",
+  "tag": "section",
+  "class": "related-products-modal-section-wrapper",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable related products modal",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Modal behavior"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Modal title",
+      "default": "You may also like"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_related_heading",
+      "label": "Hide heading from related products section inside modal",
+      "default": true,
+      "info": "Useful when the modal title is set above the product grid"
+    },
+    {
+      "type": "range",
+      "id": "open_delay",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "s",
+      "label": "Open delay",
+      "default": 3,
+      "info": "Seconds after page load before the modal appears"
+    },
+    {
+      "type": "select",
+      "id": "modal_size",
+      "label": "Modal size",
+      "default": "medium",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" },
+        { "value": "full", "label": "Full screen" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Open animation",
+      "default": "fade",
+      "options": [
+        { "value": "fade", "label": "Fade" },
+        { "value": "slide-up", "label": "Slide up" },
+        { "value": "zoom", "label": "Zoom" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "close_on_overlay_click",
+      "label": "Close when overlay is clicked",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Close behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close_button",
+      "label": "Show close button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "close_on_escape",
+      "label": "Close on Escape key",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_close",
+      "label": "Auto-close after delay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "auto_close_delay",
+      "min": 3,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Auto-close delay",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "show_once_per_session",
+      "label": "Show only once per session",
+      "default": true,
+      "info": "After the visitor closes the modal, it won't appear again until they start a new browser session"
+    },
+    {
+      "type": "header",
+      "content": "Page display"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_page_related_products",
+      "label": "Hide page related products section",
+      "default": false,
+      "info": "Hides the existing Related products section on the page so products only appear in the modal"
+    },
+    {
+      "type": "header",
+      "content": "Dialog look"
+    },
+    {
+      "type": "color",
+      "id": "dialog_background",
+      "label": "Dialog background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "dialog_text",
+      "label": "Dialog text color",
+      "default": "#121212"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related products modal"
+    }
+  ]
+}
+{% endschema %}
