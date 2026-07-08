@@ -17,13 +17,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_Dkcdgj": {
-          "type": "text",
-          "settings": {
-            "text": "Text block--",
-            "text_style": "body"
-          }
-        },
         "related_products_modal_qAiDez": {
           "type": "related_products_modal",
           "settings": {
@@ -160,7 +153,6 @@
         }
       },
       "block_order": [
-        "text_Dkcdgj",
         "related_products_modal_qAiDez",
         "title",
         "vendor_Fmtz9A",
