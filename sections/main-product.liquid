@@ -1429,12 +1429,12 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
-                {%- when 'related_products_modal' -%}
-              {% render 'related-products-modal',
-                product: product,
-                block: block,
-                section: section
-              %}
+              {%- when 'related_products_modal' -%}
+                {% render 'related-products-modal',
+                  product: product,
+                  block: block,
+                  section: section
+                %}
             {%- endcase -%}
             {%- endif -%}
           {%- endfor -%}
