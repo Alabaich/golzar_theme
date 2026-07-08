@@ -1,38 +1,18 @@
 {% doc %}
-Related products modal block for the product page.
-Renders its own recommendation cards using block settings.
+Related products modal shell for the product page.
+Loads the existing on-page related-products section via Recommendations API.
 @param {product} product - Current product
-@param {object} block - Related products modal block
-@param {object} section - Parent main-product section
+@param {object} section - Related products modal section
 @example
-{% render 'related-products-modal', product: product, block: block, section: section %}
+{% render 'related-products-modal', product: product, section: section %}
 {% enddoc %}
 
-{%- if product != blank and block != blank -%}
+{%- if product != blank and section != blank -%}
 {%- liquid
-  assign modal_id = 'related-products-modal-' | append: block.id
-  assign products_to_show = block.settings.products_to_show | default: 4
-  assign recommendations_url = routes.product_recommendations_url | append: '?section_id=' | append: section.id | append: '&product_id=' | append: product.id | append: '&limit=' | append: products_to_show | append: '&intent=related'
+  assign modal_id = 'related-products-modal-' | append: section.id
 -%}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-
 <style>
-  .related-products-modal-placeholder {
-    display: none;
-  }
-
-  .shopify-design-mode .related-products-modal-placeholder {
-    display: block;
-    margin: 0.8rem 0;
-    padding: 0.8rem 1.2rem;
-    border: 1px dashed rgba(18, 18, 18, 0.25);
-    border-radius: 0.4rem;
-    font-size: 1.3rem;
-    opacity: 0.75;
-  }
-
   .related-products-modal {
     position: fixed;
     inset: 0;
@@ -115,6 +95,7 @@ Renders its own recommendation cards using block settings.
 
   .related-products-modal__title {
     margin: 0;
+    font-size: 2rem;
     font-weight: 600;
   }
 
@@ -135,10 +116,20 @@ Renders its own recommendation cards using block settings.
     padding: 1.6rem;
   }
 
-  .related-products-modal__grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .related-products-modal__body .related-products {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .related-products-modal__body .page-width {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .related-products-modal--hide-related-heading .related-products-modal__body .related-products__heading {
+    display: none;
   }
 
   .related-products-modal__loading,
@@ -156,33 +147,28 @@ Renders its own recommendation cards using block settings.
   }
 </style>
 
-<div
-  class="related-products-modal-placeholder"
-  {{ block.shopify_attributes }}
->
-  Related products modal — opens on the product page after the open delay. Configure settings in this block.
-</div>
-
 <related-products-modal
   id="{{ modal_id }}"
-  class="related-products-modal related-products-modal--{{ block.settings.modal_size | default: 'medium' }} related-products-modal--{{ block.settings.animation | default: 'fade' }}"
-  data-url="{{ recommendations_url }}"
-  data-open-delay="{{ block.settings.open_delay | default: 3 }}"
-  data-auto-close="{{ block.settings.auto_close }}"
-  data-auto-close-delay="{{ block.settings.auto_close_delay | default: 10 }}"
-  data-show-once="{{ block.settings.show_once_per_session }}"
-  data-close-on-overlay="{{ block.settings.close_on_overlay_click }}"
-  data-close-on-escape="{{ block.settings.close_on_escape }}"
-  data-block-id="{{ block.id }}"
+  class="related-products-modal related-products-modal--{{ section.settings.modal_size | default: 'medium' }} related-products-modal--{{ section.settings.animation | default: 'fade' }}{% if section.settings.hide_related_heading %} related-products-modal--hide-related-heading{% endif %}"
+  data-product-id="{{ product.id }}"
+  data-recommendations-base="{{ routes.product_recommendations_url }}"
+  data-fallback-section-id="related-products"
+  data-open-delay="{{ section.settings.open_delay | default: 3 }}"
+  data-auto-close="{{ section.settings.auto_close }}"
+  data-auto-close-delay="{{ section.settings.auto_close_delay | default: 10 }}"
+  data-show-once="{{ section.settings.show_once_per_session }}"
+  data-close-on-overlay="{{ section.settings.close_on_overlay_click }}"
+  data-close-on-escape="{{ section.settings.close_on_escape }}"
+  data-hide-page-related="{{ section.settings.hide_page_related_products }}"
   style="
-    --rpm-overlay-color: {{ block.settings.overlay_color | default: '#000000' }};
-    --rpm-overlay-opacity: {{ block.settings.overlay_opacity | default: 50 | divided_by: 100.0 }};
-    --rpm-dialog-bg: {{ block.settings.dialog_background | default: '#ffffff' }};
-    --rpm-dialog-text: {{ block.settings.dialog_text | default: '#121212' }};
+    --rpm-overlay-color: {{ section.settings.overlay_color | default: '#000000' }};
+    --rpm-overlay-opacity: {{ section.settings.overlay_opacity | default: 50 | divided_by: 100.0 }};
+    --rpm-dialog-bg: {{ section.settings.dialog_background | default: '#ffffff' }};
+    --rpm-dialog-text: {{ section.settings.dialog_text | default: '#121212' }};
   "
   hidden
 >
-  {%- if block.settings.show_overlay != false -%}
+  {%- if section.settings.show_overlay != false -%}
     <button
       type="button"
       class="related-products-modal__overlay"
@@ -200,16 +186,13 @@ Renders its own recommendation cards using block settings.
     tabindex="-1"
   >
     <div class="related-products-modal__header">
-      {%- if block.settings.modal_title != blank -%}
-        <h2
-          id="{{ modal_id }}-title"
-          class="related-products-modal__title {{ block.settings.heading_size | default: 'h2' }}"
-        >
-          {{ block.settings.modal_title }}
+      {%- if section.settings.modal_title != blank -%}
+        <h2 id="{{ modal_id }}-title" class="related-products-modal__title">
+          {{ section.settings.modal_title }}
         </h2>
       {%- endif -%}
 
-      {%- if block.settings.show_close_button != false -%}
+      {%- if section.settings.show_close_button != false -%}
         <button
           type="button"
           class="related-products-modal__close"
@@ -222,40 +205,12 @@ Renders its own recommendation cards using block settings.
     </div>
 
     <div class="related-products-modal__body" data-content>
-      {%- if recommendations.performed -%}
-        {%- if recommendations.products_count > 0 -%}
-          <ul
-            class="related-products-modal__grid grid product-grid grid--{{ block.settings.columns_desktop }}-col-desktop grid--{{ block.settings.columns_mobile }}-col-tablet-down"
-            role="list"
-            data-modal-products
-          >
-            {%- assign skip_card_product_styles = false -%}
-            {%- for recommendation in recommendations.products limit: products_to_show -%}
-              <li class="grid__item">
-                {% render 'card-product',
-                  card_product: recommendation,
-                  media_aspect_ratio: block.settings.image_ratio,
-                  show_secondary_image: block.settings.show_secondary_image,
-                  show_vendor: block.settings.show_vendor,
-                  show_rating: block.settings.show_rating,
-                  skip_styles: skip_card_product_styles
-                %}
-              </li>
-              {%- assign skip_card_product_styles = true -%}
-            {%- endfor -%}
-          </ul>
-        {%- else -%}
-          <p class="related-products-modal__empty" data-empty>No related products found.</p>
-        {%- endif -%}
-      {%- else -%}
-        <p class="related-products-modal__loading" data-loading>Loading...</p>
-      {%- endif -%}
+      <p class="related-products-modal__loading" data-loading>Loading...</p>
     </div>
   </div>
 </related-products-modal>
 
 <script>
-  console.log('modal script start.');
   if (!customElements.get('related-products-modal')) {
     class RelatedProductsModal extends HTMLElement {
       constructor() {
@@ -267,6 +222,12 @@ Renders its own recommendation cards using block settings.
       }
 
       connectedCallback() {
+        if (this.parentElement !== document.body) {
+          document.body.appendChild(this);
+        }
+
+        this.applyPageRelatedVisibility();
+
         if (this.dataset.showOnce === 'true' && sessionStorage.getItem(this.storageKey) === '1') {
           return;
         }
@@ -282,6 +243,44 @@ Renders its own recommendation cards using block settings.
       disconnectedCallback() {
         this.clearTimers();
         this.removeListeners();
+      }
+
+      getRelatedSource() {
+        return document.querySelector('product-recommendations.related-products[data-section-id]');
+      }
+
+      getRelatedSectionId() {
+        const source = this.getRelatedSource();
+        return source ? source.dataset.sectionId : null;
+      }
+
+      buildRecommendationsUrl() {
+        const base = this.dataset.recommendationsBase;
+        const productId = this.dataset.productId;
+        const sectionId = this.getRelatedSectionId() || this.dataset.fallbackSectionId;
+
+        if (!base || !productId || !sectionId) return null;
+
+        return (
+          base +
+          '?section_id=' +
+          encodeURIComponent(sectionId) +
+          '&product_id=' +
+          encodeURIComponent(productId) +
+          '&intent=related'
+        );
+      }
+
+      applyPageRelatedVisibility() {
+        if (this.dataset.hidePageRelated !== 'true') return;
+
+        const sectionId = this.getRelatedSectionId();
+        if (!sectionId) return;
+
+        const pageSection = document.getElementById('shopify-section-' + sectionId);
+        if (pageSection) {
+          pageSection.style.display = 'none';
+        }
       }
 
       clearTimers() {
@@ -354,13 +353,12 @@ Renders its own recommendation cards using block settings.
 
       async loadRecommendations() {
         const content = this.querySelector('[data-content]');
-        const url = this.dataset.url;
-        const blockId = this.dataset.blockId;
+        const url = this.buildRecommendationsUrl();
 
-        if (!content || !url) return;
-
-        if (content.querySelector('[data-modal-products]')) {
-          this.loaded = true;
+        if (!content || !url) {
+          if (content) {
+            content.innerHTML = '<p class="related-products-modal__empty">Related products section not found on this page.</p>';
+          }
           return;
         }
 
@@ -370,18 +368,13 @@ Renders its own recommendation cards using block settings.
 
           const html = await response.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
-          const sourceModal = blockId
-            ? doc.querySelector('related-products-modal[data-block-id="' + blockId + '"]')
-            : doc.querySelector('related-products-modal');
-          const sourceContent = sourceModal
-            ? sourceModal.querySelector('[data-content]')
-            : null;
-          const products = sourceContent
-            ? sourceContent.querySelector('[data-modal-products]')
-            : null;
+          const relatedProducts = doc.querySelector('.related-products');
+          const loading = content.querySelector('[data-loading]');
 
-          if (products && products.querySelector('.grid__item')) {
-            content.innerHTML = products.outerHTML;
+          if (loading) loading.remove();
+
+          if (relatedProducts && relatedProducts.querySelector('.grid__item')) {
+            content.innerHTML = relatedProducts.outerHTML;
             this.loaded = true;
           } else {
             content.innerHTML = '<p class="related-products-modal__empty">No related products found.</p>';
