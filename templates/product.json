@@ -19,7 +19,7 @@
       "name": "Related products modal",
       "settings": {
         "enabled": true,
-        "modal_title": "You may also like",
+        "modal_title": "",
         "hide_related_heading": false,
         "open_delay": 3,
         "modal_size": "medium",
