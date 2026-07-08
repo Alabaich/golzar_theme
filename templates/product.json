@@ -141,9 +141,7 @@
         "compatible_items_grVTge",
         "product_information_gjpgNk"
       ],
-      "custom_css": [
-        ".inline-richtext.related-products__heading {font-size: 2em;}"
-      ],
+      "custom_css": [],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
