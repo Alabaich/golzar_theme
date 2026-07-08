@@ -32,7 +32,7 @@
         "close_on_escape": true,
         "auto_close": false,
         "auto_close_delay": 10,
-        "show_once_per_session": true,
+        "show_once_per_session": false,
         "hide_page_related_products": false,
         "dialog_background": "#ffffff",
         "dialog_text": "#121212"
