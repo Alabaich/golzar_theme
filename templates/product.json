@@ -14,6 +14,30 @@
       "name": "Breadcrumbs",
       "settings": {}
     },
+    "related_products_modal_C8AXTW": {
+      "type": "related-products-modal",
+      "name": "Related products modal",
+      "settings": {
+        "enabled": true,
+        "modal_title": "You may also like",
+        "hide_related_heading": false,
+        "open_delay": 3,
+        "modal_size": "medium",
+        "animation": "fade",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "close_on_overlay_click": true,
+        "show_close_button": true,
+        "close_on_escape": true,
+        "auto_close": false,
+        "auto_close_delay": 10,
+        "show_once_per_session": true,
+        "hide_page_related_products": false,
+        "dialog_background": "#ffffff",
+        "dialog_text": "#121212"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -306,6 +330,7 @@
   },
   "order": [
     "breadcrumbs_section_AprXKk",
+    "related_products_modal_C8AXTW",
     "main",
     "1735585868466f2cf4",
     "recently_viewed_products_6jRWHP",
