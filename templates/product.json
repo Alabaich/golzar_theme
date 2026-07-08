@@ -172,7 +172,7 @@
         "modal_close_on_escape": true,
         "modal_auto_close": false,
         "modal_auto_close_delay": 10,
-        "modal_show_once_per_session": true
+        "modal_show_once_per_session": false
       }
     },
     "1735585868466f2cf4": {
