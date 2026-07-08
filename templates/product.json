@@ -146,7 +146,7 @@
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "enable_read": true,
-        "char_limit": 750,
+        "char_limit": 700,
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
