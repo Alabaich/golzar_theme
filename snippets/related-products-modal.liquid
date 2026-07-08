@@ -216,6 +216,7 @@ Related products modal for the product page.
 </related-products-modal>
 
 <script>
+  console.log('modal loaded.')
   if (!customElements.get('related-products-modal')) {
     class RelatedProductsModal extends HTMLElement {
       constructor() {
