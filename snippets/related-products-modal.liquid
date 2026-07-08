@@ -1,0 +1,339 @@
+{% doc %}
+  Related products modal for the product page.
+
+  @param {product} product - Current product
+  @param {boolean} enabled - Show modal on product page
+  @param {number} open_delay - Seconds before modal opens
+  @param {string} modal_size - small | medium | large | full
+  @param {boolean} show_overlay - Show backdrop overlay
+  @param {string} overlay_color - CSS color for overlay
+  @param {number} overlay_opacity - Overlay opacity 0-100
+  @param {boolean} show_close_button - Show close button
+  @param {boolean} close_on_overlay_click - Close when overlay is clicked
+  @param {boolean} close_on_escape - Close on Escape key
+  @param {boolean} auto_close - Auto-close after delay
+  @param {number} auto_close_delay - Seconds before auto-close
+  @param {boolean} show_once_per_session - Only show once per browser session
+  @param {string} modal_title - Modal heading text
+  @param {number} products_limit - Number of related products
+  @param {string} animation - fade | slide-up | zoom
+  @param {string} section_id - Related products section handle for API
+
+  @example
+  {% render 'related-products-modal', product: product, enabled: section.settings.modal_enabled %}
+{% enddoc %}
+{% stylesheet %}
+  .related-products-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.6rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .related-products-modal.is-open {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .related-products-modal__overlay {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: var(--rpm-overlay-color);
+    opacity: var(--rpm-overlay-opacity);
+    cursor: pointer;
+  }
+
+  .related-products-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-height: min(90vh, 720px);
+    overflow: auto;
+    background: rgb(var(--color-background, 255, 255, 255));
+    color: rgb(var(--color-foreground, 18, 18, 18));
+    border-radius: 0.8rem;
+    box-shadow: 0 1.6rem 4.8rem rgba(0, 0, 0, 0.18);
+    transform: translateY(1.6rem) scale(0.98);
+    transition: transform 0.3s ease;
+  }
+
+  .related-products-modal--small .related-products-modal__dialog {
+    max-width: 42rem;
+  }
+
+  .related-products-modal--medium .related-products-modal__dialog {
+    max-width: 64rem;
+  }
+
+  .related-products-modal--large .related-products-modal__dialog {
+    max-width: 90rem;
+  }
+
+  .related-products-modal--full .related-products-modal__dialog {
+    max-width: calc(100vw - 3.2rem);
+    max-height: calc(100vh - 3.2rem);
+  }
+
+  .related-products-modal--fade.is-open .related-products-modal__dialog,
+  .related-products-modal--slide-up.is-open .related-products-modal__dialog,
+  .related-products-modal--zoom.is-open .related-products-modal__dialog {
+    transform: translateY(0) scale(1);
+  }
+
+  .related-products-modal--zoom .related-products-modal__dialog {
+    transform: scale(0.92);
+  }
+
+  .related-products-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.6rem 1.6rem 0;
+  }
+
+  .related-products-modal__title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .related-products-modal__close {
+    flex-shrink: 0;
+    width: 3.6rem;
+    height: 3.6rem;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(var(--color-foreground, 18, 18, 18), 0.08);
+    color: inherit;
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .related-products-modal__body {
+    padding: 1.6rem;
+  }
+
+  .related-products-modal__loading {
+    margin: 0;
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  .related-products-modal__empty {
+    margin: 0;
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .related-products-modal,
+    .related-products-modal__dialog {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('related-products-modal')) {
+    class RelatedProductsModal extends HTMLElement {
+      constructor() {
+        super();
+        this.storageKey = 'related-products-modal-dismissed';
+        this.openTimer = null;
+        this.closeTimer = null;
+        this.loaded = false;
+      }
+
+      connectedCallback() {
+        if (this.dataset.showOnce === 'true' && sessionStorage.getItem(this.storageKey) === '1') {
+          return;
+        }
+
+        const openDelay = Number(this.dataset.openDelay || 3) * 1000;
+        this.openTimer = window.setTimeout(() => this.open(), openDelay);
+      }
+
+      disconnectedCallback() {
+        this.clearTimers();
+        this.removeListeners();
+      }
+
+      clearTimers() {
+        if (this.openTimer) window.clearTimeout(this.openTimer);
+        if (this.closeTimer) window.clearTimeout(this.closeTimer);
+        this.openTimer = null;
+        this.closeTimer = null;
+      }
+
+      addListeners() {
+        this.onKeydown = (event) => {
+          if (event.key === 'Escape' && this.dataset.closeOnEscape !== 'false') {
+            this.close();
+          }
+        };
+
+        this.onClick = (event) => {
+          const closeTarget = event.target.closest('[data-action="close"]');
+          if (!closeTarget) return;
+
+          if (
+            closeTarget.classList.contains('related-products-modal__overlay') &&
+            this.dataset.closeOnOverlay === 'false'
+          ) {
+            return;
+          }
+
+          this.close();
+        };
+
+        document.addEventListener('keydown', this.onKeydown);
+        this.addEventListener('click', this.onClick);
+      }
+
+      removeListeners() {
+        if (this.onKeydown) document.removeEventListener('keydown', this.onKeydown);
+        if (this.onClick) this.removeEventListener('click', this.onClick);
+      }
+
+      async open() {
+        if (this.classList.contains('is-open')) return;
+
+        this.removeAttribute('hidden');
+        this.classList.add('is-open');
+        this.addListeners();
+
+        const dialog = this.querySelector('.related-products-modal__dialog');
+        if (dialog) dialog.focus();
+
+        if (!this.loaded) {
+          await this.loadRecommendations();
+        }
+
+        if (this.dataset.autoClose === 'true') {
+          const autoCloseDelay = Number(this.dataset.autoCloseDelay || 10) * 1000;
+          this.closeTimer = window.setTimeout(() => this.close(), autoCloseDelay);
+        }
+      }
+
+      close() {
+        this.classList.remove('is-open');
+        this.setAttribute('hidden', '');
+        this.clearTimers();
+        this.removeListeners();
+
+        if (this.dataset.showOnce === 'true') {
+          sessionStorage.setItem(this.storageKey, '1');
+        }
+      }
+
+      async loadRecommendations() {
+        const content = this.querySelector('[data-content]');
+        const loading = this.querySelector('[data-loading]');
+        const url = this.dataset.url;
+
+        if (!content || !url) return;
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Failed to load recommendations');
+
+          const html = await response.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const section = doc.querySelector('.related-products');
+
+          if (loading) loading.remove();
+
+          if (section && section.querySelector('.related-products__item')) {
+            content.innerHTML = section.outerHTML;
+            this.loaded = true;
+          } else {
+            content.innerHTML = '<p class="related-products-modal__empty">No related products found.</p>';
+            window.setTimeout(() => this.close(), 2000);
+          }
+        } catch (error) {
+          if (loading) loading.textContent = 'Unable to load related products.';
+          window.setTimeout(() => this.close(), 2000);
+        }
+      }
+    }
+
+    customElements.define('related-products-modal', RelatedProductsModal);
+  }
+{% endjavascript %}
+{%- if enabled and product != blank -%}
+  {%- liquid
+    assign modal_id = 'related-products-modal-' | append: product.id
+    assign section_handle = section_id | default: 'related-products'
+    assign recommendations_url = routes.product_recommendations_url | append: '?section_id=' | append: section_handle | append: '&product_id=' | append: product.id | append: '&limit=' | append: products_limit
+  -%}
+
+  <related-products-modal
+    id="{{ modal_id }}"
+    class="related-products-modal related-products-modal--{{ modal_size | default: 'medium' }} related-products-modal--{{ animation | default: 'fade' }}"
+    data-url="{{ recommendations_url }}"
+    data-open-delay="{{ open_delay | default: 3 }}"
+    data-auto-close="{{ auto_close }}"
+    data-auto-close-delay="{{ auto_close_delay | default: 10 }}"
+    data-show-once="{{ show_once_per_session }}"
+    data-show-overlay="{{ show_overlay | default: true }}"
+    data-close-on-overlay="{{ close_on_overlay_click | default: true }}"
+    data-close-on-escape="{{ close_on_escape | default: true }}"
+    style="
+      --rpm-overlay-color: {{ overlay_color | default: '#000000' }};
+      --rpm-overlay-opacity: {{ overlay_opacity | default: 50 | divided_by: 100.0 }};
+    "
+    hidden
+  >
+    {%- if show_overlay != false -%}
+      <button
+        type="button"
+        class="related-products-modal__overlay"
+        data-action="close"
+        aria-label="{{ 'accessibility.close' | t }}"
+        tabindex="-1"
+      ></button>
+    {%- endif -%}
+
+    <div
+      class="related-products-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="{{ modal_id }}-title"
+      tabindex="-1"
+    >
+      <div class="related-products-modal__header">
+        {%- if modal_title != blank -%}
+          <h2 id="{{ modal_id }}-title" class="related-products-modal__title">{{ modal_title }}</h2>
+        {%- endif -%}
+
+        {%- if show_close_button != false -%}
+          <button
+            type="button"
+            class="related-products-modal__close"
+            data-action="close"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        {%- endif -%}
+      </div>
+
+      <div class="related-products-modal__body" data-content>
+        <p class="related-products-modal__loading" data-loading>Loading...</p>
+      </div>
+    </div>
+  </related-products-modal>
+{%- endif -%}
