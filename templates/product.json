@@ -141,6 +141,9 @@
         "compatible_items_grVTge",
         "product_information_gjpgNk"
       ],
+      "custom_css": [
+        ".inline-richtext.related-products__heading {font-size: 2em;}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -158,7 +161,7 @@
         "padding_top": 36,
         "padding_bottom": 44,
         "modal_enabled": true,
-        "modal_title": "You may also like",
+        "modal_title": "",
         "modal_open_delay": 3,
         "modal_size": "medium",
         "modal_animation": "fade",
