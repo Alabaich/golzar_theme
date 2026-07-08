@@ -158,6 +158,7 @@ Related products modal for the product page.
   }
 </style>
 
+
 <related-products-modal
   id="{{ modal_id }}"
   class="related-products-modal related-products-modal--{{ modal_size | default: 'medium' }} related-products-modal--{{ animation | default: 'fade' }}"
@@ -173,7 +174,7 @@ Related products modal for the product page.
     --rpm-overlay-color: {{ overlay_color | default: '#000000' }};
     --rpm-overlay-opacity: {{ overlay_opacity | default: 50 | divided_by: 100.0 }};
   "
-  hidden
+  
 >
   {%- if show_overlay != false -%}
     <button
