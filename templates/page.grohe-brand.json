@@ -104,13 +104,6 @@
             "image": "shopify://shop_images/278910_Listra_EnvironmentCloseUp_1062390000_0001_November2025_0_CDNwebp_2000x_17c5e09b-ce70-4e80-b5f1-bdd2fa593a9a.webp"
           }
         },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "grohe-wall-mount-faucets",
-            "image": "shopify://shop_images/186617_Atrio_EnvironmentCloseUp_20663GN0_14215GN0_0002_Oct2023_0_CDNwebp_2000x_2d4881a5-a3a0-4313-8df9-1d3d3842faa2.webp"
-          }
-        },
         "category_LJKbDK": {
           "type": "category",
           "settings": {
@@ -122,7 +115,14 @@
           "type": "category",
           "settings": {
             "collection": "grohe-widespread-faucet",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+            "image": "shopify://shop_images/186630_Atrio_EnvironmentCloseUp_206592430_0001_Oct2023_0_CDNwebp_2000x_929fddc8-5fc8-41f7-99fb-a59eeafb4c27.webp"
+          }
+        },
+        "category_neeCM8": {
+          "type": "category",
+          "name": "Grohe Toilets",
+          "settings": {
+            "collection": "grohe-toilets"
           }
         }
       },
@@ -130,9 +130,9 @@
         "category_8HJ8ec",
         "category_ejVpwL",
         "category_B9xPCm",
-        "category_inz6n7",
         "category_LJKbDK",
-        "category_t8jLap"
+        "category_t8jLap",
+        "category_neeCM8"
       ],
       "name": "Featured Product Groups",
       "settings": {
