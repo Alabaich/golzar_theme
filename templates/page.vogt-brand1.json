@@ -137,9 +137,9 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "vogt-kitchen-faucets",
+        "featured_collection": "vogt-products",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_more_link": "shopify://collections/vogt-products",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
