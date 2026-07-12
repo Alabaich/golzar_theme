@@ -83,13 +83,6 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_B9xPCm": {
-          "type": "category",
-          "settings": {
-            "collection": "grohe",
-            "image": "shopify://shop_images/download_52.webp"
-          }
-        },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
@@ -102,6 +95,13 @@
           "settings": {
             "collection": "grohe-single-hole-bathroom-faucets",
             "image": "shopify://shop_images/download_50.webp"
+          }
+        },
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-accessories",
+            "image": "shopify://shop_images/278910_Listra_EnvironmentCloseUp_1062390000_0001_November2025_0_CDNwebp_2000x_17c5e09b-ce70-4e80-b5f1-bdd2fa593a9a.webp"
           }
         },
         "category_inz6n7": {
@@ -127,9 +127,9 @@
         }
       },
       "block_order": [
-        "category_B9xPCm",
         "category_8HJ8ec",
         "category_ejVpwL",
+        "category_B9xPCm",
         "category_inz6n7",
         "category_LJKbDK",
         "category_t8jLap"
