@@ -68,6 +68,35 @@
         "button_link": "https://bathroomsupplier.ca/collections/vendors?q=blanco"
       }
     },
+    "featured_collection_EzWDHr": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Product Categories",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 6,
+        "columns_desktop": 6,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "brand_story_r4qCUV": {
       "type": "brand-story",
       "name": "Brand Story Text",
@@ -83,51 +112,30 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
-        "category_B9xPCm": {
+        "category_mPdth7": {
           "type": "category",
           "settings": {
-            "collection": "toto-wall-carrier-plates"
+            "collection": "blanco-undermount-kitchen-sinks"
           }
         },
-        "category_8HJ8ec": {
+        "category_Ef7pxY": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets"
+            "collection": "blanco-bar-prep-sink",
+            "image": "shopify://shop_images/401906-liven-mg-442026-artona-ssmg-401952-laundryrack-bs_image_1600w_1200h.jpg"
           }
         },
-        "category_ejVpwL": {
+        "category_KheqyF": {
           "type": "category",
           "settings": {
-            "collection": "toto-smart-toilet-washlets"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-two-piece-toilets"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-wall-mounted-toilets"
-          }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "toto-bathroom-sinks",
-            "image": "shopify://shop_images/Best-bathroom-vessel-sink7-1-qnhhkitov278ihteu3xtdtdt211k819eaed33iejwo.webp"
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK",
-        "category_t8jLap"
+        "category_mPdth7",
+        "category_Ef7pxY",
+        "category_KheqyF"
       ],
       "disabled": true,
       "name": "Featured Product Groups",
@@ -456,35 +464,6 @@
         "padding_bottom": 25,
         "section_bg_color": "rgba(0,0,0,0)"
       }
-    },
-    "featured_collection_EzWDHr": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -493,6 +472,7 @@
     "main",
     "brand_hero_nq7tiC",
     "hero_overlap_JGTLiz",
+    "featured_collection_EzWDHr",
     "brand_story_r4qCUV",
     "featured_product_groups_7FBk6H",
     "popular_products_HTNHPY",
@@ -504,7 +484,6 @@
     "collection_slider_row_Bp6VLG",
     "collection_slider_row_FBW9aB",
     "feature_icons_NdkHPr",
-    "custom_blog_posts_grid_8PkfHz",
-    "featured_collection_EzWDHr"
+    "custom_blog_posts_grid_8PkfHz"
   ]
 }
