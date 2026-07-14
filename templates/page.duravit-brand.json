@@ -92,13 +92,15 @@
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "duravit-wall-mounted-toilets"
+            "collection": "duravit-wall-mounted-toilets",
+            "image": "shopify://shop_images/image_bdb88455-0230-4681-8092-fbb4f14254f1.webp"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "duravit-two-piece-toilets"
+            "collection": "duravit-two-piece-toilets",
+            "image": "shopify://shop_images/image_c5905388-eb9d-4142-9e90-36eed7d39392.webp"
           }
         },
         "category_inz6n7": {
@@ -111,7 +113,8 @@
         "category_LJKbDK": {
           "type": "category",
           "settings": {
-            "collection": "duravit-one-piece-toilets"
+            "collection": "duravit-one-piece-toilets",
+            "image": "shopify://shop_images/image_bb29979b-1227-421c-b153-7983b45dd0ce.webp"
           }
         }
       },
