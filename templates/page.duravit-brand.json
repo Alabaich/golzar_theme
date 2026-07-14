@@ -83,6 +83,13 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
+        "category_Jq4YGW": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/image_1ac97d08-2694-4c84-83b2-d90bb49f524b.webp"
+          }
+        },
         "category_B9xPCm": {
           "type": "category",
           "settings": {
@@ -105,9 +112,9 @@
         },
         "category_inz6n7": {
           "type": "category",
-          "disabled": true,
           "settings": {
-            "collection": "duravit-washlet"
+            "collection": "duravit-bathroom-sinks",
+            "image": "shopify://shop_images/image_37e439f5-b3ac-4d66-a77d-1c9eaa7d703d.webp"
           }
         },
         "category_LJKbDK": {
@@ -119,6 +126,7 @@
         }
       },
       "block_order": [
+        "category_Jq4YGW",
         "category_B9xPCm",
         "category_8HJ8ec",
         "category_ejVpwL",
