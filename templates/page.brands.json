@@ -43,6 +43,16 @@
     "brands_grid_section_ktFxMd": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_EjDiJa": {
+          "type": "one_brand",
+          "disabled": true,
+          "settings": {
+            "showcase_image": "shopify://shop_images/laufen-pro-wall-hung-toilet-complete-set-433303.jpg",
+            "logo_image": "shopify://shop_images/LAUFEN_1.svg",
+            "text": "Laufen offers premium wall-mounted toilets, stylish bathroom sinks, and modern toilets with Swiss quality, innovative design, and lasting performance.",
+            "linkToBrand": ""
+          }
+        },
         "one_brand_XnNEji": {
           "type": "one_brand",
           "settings": {
@@ -81,6 +91,7 @@
         }
       },
       "block_order": [
+        "one_brand_EjDiJa",
         "one_brand_XnNEji",
         "one_brand_ChPyky",
         "one_brand_qRQTN9",
@@ -456,6 +467,15 @@
         "subheading_font_size_mobile": 15,
         "button_font_size_mobile": 14
       }
+    },
+    "brands_collection_hWkPh4": {
+      "type": "brands-collection",
+      "name": "Brands Collection",
+      "settings": {
+        "title": "Our Brands Collection",
+        "subtitle": "We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style.",
+        "collection": ""
+      }
     }
   },
   "order": [
@@ -466,6 +486,7 @@
     "brands_grid_section_Kcfijq",
     "our-brands",
     "feature_grid_with_text_Ye3pQT",
-    "switch_side_image_zVzFg4"
+    "switch_side_image_zVzFg4",
+    "brands_collection_hWkPh4"
   ]
 }
