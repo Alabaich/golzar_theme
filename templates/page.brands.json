@@ -45,7 +45,6 @@
       "blocks": {
         "one_brand_EjDiJa": {
           "type": "one_brand",
-          "disabled": true,
           "settings": {
             "showcase_image": "shopify://shop_images/laufen-pro-wall-hung-toilet-complete-set-433303.jpg",
             "logo_image": "shopify://shop_images/LAUFEN_1.svg",
