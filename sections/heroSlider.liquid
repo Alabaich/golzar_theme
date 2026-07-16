@@ -116,22 +116,18 @@
         {% if block.type == 'slide' %}
           {% assign image = block.settings.image %}
           {% assign heading = block.settings.heading %}
-          {% comment %} {% assign button_label = block.settings.button_label %} {% endcomment %}
+          {% assign button_label = block.settings.button_label %}
           {% assign button_url = block.settings.button_url %}
-          {% comment %} {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
-          {% assign target_url = block.settings.url_type | default: '_self' %} {% endcomment %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
               <a
                 href="{{ button_url }}"
-                {% comment %} target="{{ target_url }}" {% endcomment %}
                 class="hs-slide-link btn-url"
               >
                 <img
                   src="{{ image | image_url: '1600x' }}"
                   alt="{{ heading }}"
                   title="{{ heading }}"
-                  {% comment %} style="object-fit: {{ img_object_fit }};" {% endcomment %}
                   width="auto"
                   height="auto"
                 >
