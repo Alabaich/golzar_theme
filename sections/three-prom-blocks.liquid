@@ -1,162 +1,255 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
 <style>
-  .hs-three-blocks-section {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .hs-three-blocks-section .hs-block-item {
-    flex: 1;
-    min-width: 225px;
+  .hs-hero-slider {
     position: relative;
-    border-radius: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .hs-hero-slider .splide__slide {
+    position: relative;
+    width: 100%;
+    height: 500px;
     overflow: hidden;
-    height: auto;
-    transition: transform 0.3s ease;
+    border-radius: 12px;
   }
 
-  .hs-block-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .hs-block-item a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-  }
-
-  .hs-block-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .hs-block-item:hover img {
-    transform: scale(1.05);
-  }
-
-  .hs-three-blocks-section .hs-block-content {
+  .hs-hero-slider .splide__slide img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 25px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .hs-hero-slider .splide__slide .hs-slide-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-indent: -9999px;
+  }
+
+  .hs-slide-content {
+    position: absolute;
+    top: 15%;
+    left: 5%;
     color: #fff;
+    z-index: 2;
+    max-width: 60%;
     display: flex;
+    gap: 25px;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
   }
 
-  .hs-block-content-top {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hs-three .pageWidth {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .hs-block-content-bottom {
-    margin-top: auto;
-  }
-
-  .hs-three-blocks-section .hs-block-content h3 {
+  .hs-slide-content h2 {
     margin: 0;
+    line-height: 1.2;
     color: #fff;
+    text-align: left;
   }
 
-  .hs-three-blocks-section .hs-block-content p {
-    margin: 0;
-    font-size: 16px;
+  .hs-slide-content .hs-btn-hero-slider {
+    width: fit-content;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+  }
+
+  .hs-hero-slider .splide__arrow {
+    height: 3em;
+    width: 3em;
+  }
+
+  .hs-hero-slider .splide__arrow--next {
+    right: 8rem;
+  }
+
+  .hs-hero-slider .splide__arrow--prev {
+    left: 8rem;
+  }
+
+  .splide__pagination__page.is-active {
+    background: #667D8E !important;
+  }
+
+  @media (max-width: 1600px) {
+    .hs-hero-slider .splide__arrow--next {
+      right: 5rem;
+    }
+
+    .hs-hero-slider .splide__arrow--prev {
+      left: 5rem;
+    }
+  }
+
+  @media (max-width: 990px) {
+    .hs-hero-slider .splide__arrow--next {
+      right: 2em;
+    }
+
+    .hs-hero-slider .splide__arrow--prev {
+      left: 2em;
+    }
   }
 
   @media (max-width: 768px) {
-    .hs-three-blocks-section {
-      flex-direction: column;
-    }
-
-    .hs-block-item {
-      height: 300px;
+    .hs-hero-slider .splide__slide {
+      height: auto;
+      aspect-ratio: 16 / 9;
     }
   }
 </style>
 
-<div class="hs-three">
-  <div class="page-width pageWidth">
-    <div class="hs-three-blocks-section">
+<div class="hs-hero-slider splide page-width pageWidth">
+  <div class="splide__track">
+    <ul class="splide__list">
       {% for block in section.blocks %}
-        {% if block.type == 'promo_block' %}
-          <div class="hs-block-item">
-            <a href="{{ block.settings.button_url }}">
-              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
-              <div class="hs-block-content">
-                <div class="hs-block-content-top">
-                  <h3>{{ block.settings.heading }}</h3>
-                  <p>{{ block.settings.text }}</p>
+        {% if block.type == 'slide' %}
+          {% assign image = block.settings.image %}
+          {% assign heading = block.settings.heading %}
+          {% assign button_label = block.settings.button_label %}
+          {% assign button_url = block.settings.button_url %}
+          {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
+          {% assign target_url = block.settings.url_type | default: '_self' %}
+          {% if image != blank and button_url != blank %}
+            <li class="splide__slide" title="{{ heading }}">
+              <a
+                href="{{ button_url }}"
+                target="{{ target_url }}"
+                class="hs-slide-link btn-url"
+              >
+                <img
+                  src="{{ image | image_url: '1600x' }}"
+                  alt="{{ heading }}"
+                  title="{{ heading }}"
+                  style="object-fit: {{ img_object_fit }};"
+                  width="auto"
+                  height="auto"
+                >
+                  
+                <div class="hs-slide-content">
+                  {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
                 </div>
+              </a>
+            </li>
+          {% else %}
+            <li class="splide__slide" title="{{ heading }}">
+              <img
+                src="{{ image | image_url: '1600x' }}"
+                alt="{{ heading }}"
+                title="{{ heading }}"
+                width="auto"
+                height="auto"
+              >
+              <div class="hs-slide-content">
+                {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
               </div>
-            </a>
-          </div>
+            </li>
+          {% endif %}
         {% endif %}
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('.splide', {
+      type: 'loop',
+      gap: '25px',
+      autoplay: true,
+      interval: 4000,
+      pauseOnHover: false,
+      pauseOnFocus: true,
+      heightRatio : 0.4,
+      pagination: false,
+    }).mount();
+  });
+</script>
+
 {% schema %}
   {
-    "name": "Three Promo Blocks",
-    "class": "index-section",
-    "max_blocks": 3,
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "Add up to 3 promo blocks with full image links"
-      }
-    ],
+    "name": "Hero Slider",
     "blocks": [
       {
-        "type": "promo_block",
-        "name": "Promo Block",
+        "type": "slide",
+        "name": "Slide",
         "settings": [
           {
             "type": "image_picker",
             "id": "image",
-            "label": "Block Image"
-          }, {
+            "label": "Slide Image"
+          },
+          {
             "type": "text",
             "id": "heading",
-            "label": "Block Heading"
-          }, {
+            "label": "Slide Heading",
+            "default": "Your Heading Here"
+          },
+          {
             "type": "text",
-            "id": "text",
-            "label": "Block Text"
-          }, {
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Shop Now"
+          },
+          {
             "type": "url",
             "id": "button_url",
-            "label": "Block Link URL"
+            "label": "Button URL"
+          },
+          {
+            "type": "select",
+            "id": "url_type",
+            "label": "URL Type",
+            "options": [
+              {
+                "value": "_self",
+                "label": "Internal"
+              },
+              {
+                "value": "_blank",
+                "label": "External"
+              }
+            ],
+            "default": "_self"
+          },
+          {
+            "type": "select",
+            "id": "img_object_fit",
+            "label": "Object Fit",
+            "options": [
+              {
+                "value": "cover",
+                "label": "Cover"
+              },
+              {
+                "value": "contain",
+                "label": "Contain"
+              }
+            ],
+            "default": "cover"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Three Promo Blocks",
-        "category": "Custom",
+        "name": "Hero Slider",
+        "category": "Slideshow",
         "blocks": [
           {
-            "type": "promo_block"
+            "type": "slide"
           }, {
-            "type": "promo_block"
-          }, {
-            "type": "promo_block"
+            "type": "slide"
           }
         ]
       }
