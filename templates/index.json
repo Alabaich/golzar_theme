@@ -12,6 +12,42 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_39VbWH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Builder_Pricing_Banner.webp",
+            "heading": "Builder Pricing Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/pages/golzar-home-pros-program"
+          }
+        },
+        "slide_EqzUHE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Authorized_Dealer_Banner.webp",
+            "heading": "Authorized Dealer Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home"
+          }
+        },
+        "slide_EjN93U": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Physical_Showroom_Banner.webp",
+            "heading": "Physical Showroom Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9"
+          }
+        },
+        "slide_CdjNt7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Sale_Banner.webp",
+            "heading": "Sale Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale"
+          }
+        },
         "slide_rQMdhT": {
           "type": "slide",
           "settings": {
@@ -107,6 +143,10 @@
         }
       },
       "block_order": [
+        "slide_39VbWH",
+        "slide_EqzUHE",
+        "slide_EjN93U",
+        "slide_CdjNt7",
         "slide_rQMdhT",
         "slide_Uew3kV",
         "slide_jzF7Dw",
