@@ -118,20 +118,20 @@
           {% assign heading = block.settings.heading %}
           {% comment %} {% assign button_label = block.settings.button_label %} {% endcomment %}
           {% assign button_url = block.settings.button_url %}
-          {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
-          {% assign target_url = block.settings.url_type | default: '_self' %}
+          {% comment %} {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
+          {% assign target_url = block.settings.url_type | default: '_self' %} {% endcomment %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
               <a
                 href="{{ button_url }}"
-                target="{{ target_url }}"
+                {% comment %} target="{{ target_url }}" {% endcomment %}
                 class="hs-slide-link btn-url"
               >
                 <img
                   src="{{ image | image_url: '1600x' }}"
                   alt="{{ heading }}"
                   title="{{ heading }}"
-                  style="object-fit: {{ img_object_fit }};"
+                  {% comment %} style="object-fit: {{ img_object_fit }};" {% endcomment %}
                   width="auto"
                   height="auto"
                 >
@@ -205,38 +205,6 @@
             "type": "url",
             "id": "button_url",
             "label": "Button URL"
-          },
-          {
-            "type": "select",
-            "id": "url_type",
-            "label": "URL Type",
-            "options": [
-              {
-                "value": "_self",
-                "label": "Internal"
-              },
-              {
-                "value": "_blank",
-                "label": "External"
-              }
-            ],
-            "default": "_self"
-          },
-          {
-            "type": "select",
-            "id": "img_object_fit",
-            "label": "Object Fit",
-            "options": [
-              {
-                "value": "cover",
-                "label": "Cover"
-              },
-              {
-                "value": "contain",
-                "label": "Contain"
-              }
-            ],
-            "default": "cover"
           }
         ]
       }
