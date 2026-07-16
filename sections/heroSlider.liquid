@@ -122,7 +122,7 @@
           {% assign target = block.settings.url_type %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
-              <a href="{{ button_url }}" class="hs-slide-link" target="{{ target }}">
+              <a href="{{ button_url }}" target="{{ target }}" class="hs-slide-link" >
                 <img
                   src="{{ image | img_url: '1600x' }}"
                   alt="{{ heading }}"
