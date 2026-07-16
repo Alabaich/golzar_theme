@@ -114,87 +114,13 @@
           "settings": {
             "collection": "kohler-bathtub-shower-kits"
           }
-        },
-        "category_zhFhqV": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-wall-mounted-faucets"
-          }
-        },
-        "category_ATFpBb": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-widespread-faucets"
-          }
-        },
-        "category_6JzGR4": {
-          "type": "category",
-          "settings": {
-            "collection": "bathroom-sinks",
-            "image": "shopify://shop_images/1704_34702001-single-handle-bathroom-faucet-xs-size-enviro-5_CDNwebp.webp"
-          }
-        },
-        "category_W3K9mi": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-undermount-sinks"
-          }
-        },
-        "category_P3jQ3V": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-vessel-sinks"
-          }
-        },
-        "category_NB7fba": {
-          "type": "category",
-          "settings": {
-            "collection": "kitchen-faucets",
-            "image": "shopify://shop_images/Kohler_Components_Pull-down_kitchen_sink_faucet_with_two-function_sprayhead_Matte_Black_with_Brushed_Moderne_Brass.webp"
-          }
-        },
-        "category_xckBrP": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-freestanding-bathtubs"
-          }
-        },
-        "category_hdPcPF": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-shower-valves-trim"
-          }
-        },
-        "category_nKfGMJ": {
-          "type": "category",
-          "settings": {
-            "collection": "kohler-wall-mounted-sinks"
-          }
-        },
-        "category_ygtQy6": {
-          "type": "category",
-          "disabled": true,
-          "settings": {
-            "collection": "shower-parts",
-            "image": "shopify://shop_images/Shower_Parts-43.webp"
-          }
         }
       },
       "block_order": [
         "category_YqdKLc",
         "category_m6jVW7",
         "category_mVKbcQ",
-        "category_hUgDBV",
-        "category_zhFhqV",
-        "category_ATFpBb",
-        "category_6JzGR4",
-        "category_W3K9mi",
-        "category_P3jQ3V",
-        "category_NB7fba",
-        "category_xckBrP",
-        "category_hdPcPF",
-        "category_nKfGMJ",
-        "category_ygtQy6"
+        "category_hUgDBV"
       ],
       "name": "Featured Product Groups",
       "settings": {
