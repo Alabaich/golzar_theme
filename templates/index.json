@@ -41,7 +41,7 @@
             "heading": "Physical Showroom Banner",
             "button_label": "Shop Now",
             "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
-            "url_type": "_blank",
+            "url_type": "_self",
             "img_object_fit": "contain"
           }
         },
