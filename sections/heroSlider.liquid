@@ -116,20 +116,28 @@
         {% if block.type == 'slide' %}
           {% assign image = block.settings.image %}
           {% assign heading = block.settings.heading %}
-          {% assign button_label = block.settings.button_label %}
+          {% comment %} {% assign button_label = block.settings.button_label %} {% endcomment %}
           {% assign button_url = block.settings.button_url %}
           {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
           {% assign target_url = block.settings.url_type | default: '_self' %}
+          {% assign custom_classes = block.settings.custom_classes %}
+          {% assign image_src = image | image_url: width: 1600 %}
+          {% if image_src contains '/cdn/' %}
+            {% assign image_src = image_src | split: '/cdn/' | last | prepend: 'https://cdn.shopify.com/cdn/' %}
+          {% elsif image_src contains '/s/files/' %}
+            {% assign image_src = image_src | split: '/s/files/' | last | prepend: 'https://cdn.shopify.com/s/files/' %}
+          {% elsif image_src contains '//' %}
+            {% assign image_src = image_src | split: '//' | last | prepend: 'https://' %}
+          {% endif %}
           {% if image != blank and button_url != blank %}
-            <li class="splide__slide" title="{{ heading }}">
-              <div style="display: none;"><pre>{{ image }}</pre></div>
+            <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
               <a
                 href="{{ button_url }}"
                 target="{{ target_url }}"
                 class="hs-slide-link btn-url"
               >
                 <img
-                  src="{{ image | image_url: '1600x' }}"
+                  src="{{ image_src }}"
                   alt="{{ heading }}"
                   title="{{ heading }}"
                   style="object-fit: {{ img_object_fit }};"
@@ -145,7 +153,7 @@
           {% else %}
             <li class="splide__slide" title="{{ heading }}">
               <img
-                src="{{ image | image_url: '1600x' }}"
+                src="{{ image_src }}"
                 alt="{{ heading }}"
                 title="{{ heading }}"
                 width="auto"
@@ -238,6 +246,11 @@
               }
             ],
             "default": "cover"
+          },
+          {
+            "type": "text",
+            "id": "custom_classes",
+            "label": "Custom Classes"
           }
         ]
       }
