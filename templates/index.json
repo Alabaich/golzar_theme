@@ -12,6 +12,18 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_CdjNt7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Sale_Banner_ec0fb0b2-55cd-4138-80f4-cf2fdeda477e.webp",
+            "heading": "Sale Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
+            "url_type": "_self",
+            "img_object_fit": "contain",
+            "custom_classes": ""
+          }
+        },
         "slide_39VbWH": {
           "type": "slide",
           "settings": {
@@ -39,7 +51,7 @@
         "slide_EjN93U": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Physical_Showroom_Banner.webp",
+            "image": "shopify://shop_images/Physical_Showroom_Banner_a8b58e4c-f7d3-496b-ae3c-5db2084bf2d6.webp",
             "heading": "Physical Showroom Banner",
             "button_label": "Shop Now",
             "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
@@ -47,25 +59,13 @@
             "img_object_fit": "contain",
             "custom_classes": ""
           }
-        },
-        "slide_CdjNt7": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Sale_Banner.webp",
-            "heading": "Sale Banner",
-            "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
-            "url_type": "_self",
-            "img_object_fit": "contain",
-            "custom_classes": ""
-          }
         }
       },
       "block_order": [
+        "slide_CdjNt7",
         "slide_39VbWH",
         "slide_EqzUHE",
-        "slide_EjN93U",
-        "slide_CdjNt7"
+        "slide_EjN93U"
       ],
       "custom_css": [],
       "name": "Hero Slider",
