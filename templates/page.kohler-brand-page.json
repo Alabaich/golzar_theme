@@ -69,10 +69,10 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/GBH_SQTemplate_11461562-3262-4aaa-b833-5ee00e5978e4.webp",
-        "heading": "Experience the art  of living with Kohler",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
-        "button_label": "Discover Brand",
+        "image": "shopify://shop_images/AP01_Alvia_14_t_Ambient_Pictures_TF_Mob_solu_xxl_v2.jpg",
+        "heading": "The world of Laufen is moving fast.",
+        "text": "<p>Our news and stories help you stay up to date.</p>",
+        "button_label": "Discover More",
         "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Kohler"
       }
     },
