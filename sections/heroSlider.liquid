@@ -131,6 +131,9 @@
           {% endif %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
+              <div style="display: none;">
+                {{ shop.url }}/{{ image_src }}
+              </div>
               <a
                 href="{{ button_url }}"
                 target="{{ target_url }}"
