@@ -133,9 +133,9 @@
       "type": "popular-products",
       "name": "Popular Products",
       "settings": {
-        "popular_title": "Popular products of Kohler",
+        "popular_title": "Popular products of Laufen",
         "underTitleText": "",
-        "featured_collection": "kohler-bathtub-shower-kits",
+        "featured_collection": "laufen",
         "products_limit": 4,
         "show_more_link": "shopify://collections/kohler-bathtub-shower-kits",
         "show_add_to_cart_button": true,
