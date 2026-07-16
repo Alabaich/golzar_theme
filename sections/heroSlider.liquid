@@ -118,8 +118,8 @@
           {% assign heading = block.settings.heading %}
           {% comment %} {% assign button_label = block.settings.button_label %} {% endcomment %}
           {% assign button_url = block.settings.button_url %}
-          {% assign img_object_fit = block.settings.img_object_fit %}
-          {% assign target_url = block.settings.url_type %}
+          {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
+          {% assign target_url = block.settings.url_type | default: '_self' %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
               <a
@@ -131,8 +131,9 @@
                   src="{{ image | image_url: '1600x' }}"
                   alt="{{ heading }}"
                   title="{{ heading }}"
-                  style="object-fit: {{ img_object_fit }}"
-
+                  style="object-fit: {{ img_object_fit }};"
+                  width="auto"
+                  height="auto"
                 >
                   
                 <div class="hs-slide-content">
@@ -218,7 +219,8 @@
                 "value": "_blank",
                 "label": "External"
               }
-            ]
+            ],
+            "default": "_self"
           },
           {
             "type": "select",
@@ -234,6 +236,7 @@
                 "label": "Contain"
               }
             ],
+            "default": "cover"
           }
         ]
       }
