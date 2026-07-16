@@ -123,9 +123,9 @@
           {% assign custom_classes = block.settings.custom_classes %}
           {% assign image_src = image | image_url: width: 1600 %}
           {% if image_src contains '/cdn/' %}
-            {% assign image_src = image_src | split: '/cdn/' | last | prepend: site.url | append: '/cdn/' %}
+            {% assign image_src = image_src | split: '/cdn/' | last | prepend: 'https://bathroomsupplier.ca/cdn/' %}
           {% elsif image_src contains '/s/files/' %}
-            {% assign image_src = image_src | split: '/s/files/' | last | prepend: site.url | append: '/s/files/' %}
+            {% assign image_src = image_src | split: '/s/files/' | last | prepend: 'https://bathroomsupplier.ca/s/files/' %}
           {% elsif image_src contains '//' %}
             {% assign image_src = image_src | split: '//' | last | prepend: 'https://' %}
           {% endif %}
@@ -143,7 +143,6 @@
                   style="object-fit: {{ img_object_fit }};"
                   width="auto"
                   height="auto"
-                  class="hero-slide-img"
                 >
                   
                 <div class="hs-slide-content">
