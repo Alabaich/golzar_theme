@@ -18,7 +18,7 @@
             "image": "shopify://shop_images/SummerSale.webp",
             "heading": "SummerSale",
             "button_label": "Shop Now",
-            "button_url": "",
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
             "url_type": "_self",
             "img_object_fit": "cover",
             "custom_classes": ""
@@ -80,7 +80,6 @@
         "slide_EqzUHE",
         "slide_EjN93U"
       ],
-      "disabled": true,
       "custom_css": [],
       "name": "Hero Slider",
       "settings": {}
@@ -276,6 +275,7 @@
         "slide_afXFbH",
         "slide_wXyAf6"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "Hero Slider",
       "settings": {}
