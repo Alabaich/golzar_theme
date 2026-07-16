@@ -101,7 +101,7 @@
         "category_m6jVW7": {
           "type": "category",
           "settings": {
-            "collection": "kohler-two-piece-toilets"
+            "collection": "laufen-smart-toilet"
           }
         },
         "category_mVKbcQ": {
@@ -113,7 +113,8 @@
         "category_hUgDBV": {
           "type": "category",
           "settings": {
-            "collection": "kohler-bathtub-shower-kits"
+            "collection": "laufen-bidet",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_124420.png"
           }
         }
       },
