@@ -254,7 +254,7 @@
         "image_Dc4h8q": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_79.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_121931.png",
             "pos_x": 79,
             "pos_y": 66,
             "link": "",
@@ -345,11 +345,11 @@
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "Widespread Precision",
-        "description": "<p>Elevate your vanity with our widespread faucets featuring <strong>UltraGlide™</strong> valves. Engineered for effortless control and a sophisticated, customizable layout.</p>",
+        "heading": "Wall-mounted Toilets",
+        "description": "<p>Wall-hung WCs from LAUFEN offer a clean, space-saving solution suited to both compact and generous bathrooms. The EasyFit system simplifies installation, while durable ceramic construction ensures long-term reliability.</p>",
         "collection": "kohler-widespread-faucets",
         "link_text": "View Collection",
-        "limit": 12,
+        "limit": 8,
         "show_vendor": false
       }
     },
