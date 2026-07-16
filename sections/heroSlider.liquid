@@ -120,8 +120,9 @@
           {% assign button_url = block.settings.button_url %}
           {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
           {% assign target_url = block.settings.url_type | default: '_self' %}
+          {%  assign custom_classes = block.settings.custom_classes %}
           {% if image != blank and button_url != blank %}
-            <li class="splide__slide" title="{{ heading }}">
+            <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
               <a
                 href="{{ button_url }}"
                 target="{{ target_url }}"
@@ -237,6 +238,11 @@
               }
             ],
             "default": "cover"
+          },
+          {
+            "type": "text",
+            "id": "custom_classes",
+            "label": "Custom Classes"
           }
         ]
       }
