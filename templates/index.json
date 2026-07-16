@@ -20,7 +20,8 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/pages/golzar-home-pros-program",
             "url_type": "_self",
-            "img_object_fit": "contain"
+            "img_object_fit": "contain",
+            "custom_classes": ""
           }
         },
         "slide_EqzUHE": {
@@ -31,7 +32,8 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home",
             "url_type": "_self",
-            "img_object_fit": "contain"
+            "img_object_fit": "contain",
+            "custom_classes": ""
           }
         },
         "slide_EjN93U": {
@@ -42,7 +44,8 @@
             "button_label": "Shop Now",
             "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
             "url_type": "_blank",
-            "img_object_fit": "contain"
+            "img_object_fit": "contain",
+            "custom_classes": ""
           }
         },
         "slide_CdjNt7": {
@@ -53,10 +56,73 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
             "url_type": "_self",
-            "img_object_fit": "contain"
+            "img_object_fit": "contain",
+            "custom_classes": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_39VbWH",
+        "slide_EqzUHE",
+        "slide_EjN93U",
+        "slide_CdjNt7"
+      ],
+      "custom_css": [],
+      "name": "Hero Slider",
+      "settings": {}
+    },
+    "hero_slider_dYeeCq": {
+      "type": "heroSlider",
+      "blocks": {
+        "slide_cziQ77": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Builder_Pricing_Banner.webp",
+            "heading": "Builder Pricing Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/pages/golzar-home-pros-program",
+            "url_type": "_self",
+            "img_object_fit": "contain",
+            "custom_classes": ""
           }
         },
-        "slide_rQMdhT": {
+        "slide_9KcWQq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Authorized_Dealer_Banner.webp",
+            "heading": "Authorized Dealer Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home",
+            "url_type": "_self",
+            "img_object_fit": "contain",
+            "custom_classes": ""
+          }
+        },
+        "slide_B6WpJ4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Physical_Showroom_Banner.webp",
+            "heading": "Physical Showroom Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
+            "url_type": "_blank",
+            "img_object_fit": "contain",
+            "custom_classes": ""
+          }
+        },
+        "slide_3Dg8p9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Sale_Banner.webp",
+            "heading": "Sale Banner",
+            "button_label": "Shop Now",
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
+            "url_type": "_self",
+            "img_object_fit": "contain",
+            "custom_classes": ""
+          }
+        },
+        "slide_6rkaDn": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/big_spring_sale.webp",
@@ -64,10 +130,11 @@
             "button_label": "Shop Sale",
             "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_Uew3kV": {
+        "slide_6qkLy6": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/TOTO_4049b485-8dcb-4e2a-a445-c220202d1a7b.webp",
@@ -75,10 +142,11 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_jzF7Dw": {
+        "slide_Vja6kU": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rubinet.webp",
@@ -86,10 +154,11 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Faucets&q=Rubinet&sort_by=title-ascending",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_Dy7fac": {
+        "slide_EM9hFP": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/blanco_d453e034-a52a-44db-8efe-cc2cc3cd5cb4.webp",
@@ -97,10 +166,11 @@
             "button_label": "Shop Now",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_AdYdMJ": {
+        "slide_cYCjiF": {
           "type": "slide",
           "disabled": true,
           "settings": {
@@ -109,10 +179,11 @@
             "button_label": "Boxing Day Sale",
             "button_url": "shopify://collections/bathroom-and-kitchen-supplies-for-sale",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_YGcKYC": {
+        "slide_4MREUw": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/godi_banner.webp",
@@ -120,10 +191,11 @@
             "button_label": "Shop Exclusive Collection",
             "button_url": "shopify://collections/godi-bathroom-vanities",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_9Ed4gP": {
+        "slide_9jdEd9": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/big_grohe_sale_086dbce8-4806-40fc-a4c1-57adc5eb82eb.webp",
@@ -131,10 +203,11 @@
             "button_label": "Grohe  Sale Page",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Grohe",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_Vrd9hE": {
+        "slide_dA6JTB": {
           "type": "slide",
           "disabled": true,
           "settings": {
@@ -143,10 +216,11 @@
             "button_label": "Duravit Brand Buy",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Duravit",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_ywQwcF": {
+        "slide_afXFbH": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/toto_90ad66fd-8d16-4c18-9e1a-3057526e4d38.webp",
@@ -154,10 +228,11 @@
             "button_label": "Shop Now Toto",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         },
-        "slide_kFJGHx": {
+        "slide_wXyAf6": {
           "type": "slide",
           "disabled": true,
           "settings": {
@@ -166,26 +241,28 @@
             "button_label": "Express your personality with our range of styles and finishes.",
             "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Kohler",
             "url_type": "_self",
-            "img_object_fit": "cover"
+            "img_object_fit": "cover",
+            "custom_classes": ""
           }
         }
       },
       "block_order": [
-        "slide_39VbWH",
-        "slide_EqzUHE",
-        "slide_EjN93U",
-        "slide_CdjNt7",
-        "slide_rQMdhT",
-        "slide_Uew3kV",
-        "slide_jzF7Dw",
-        "slide_Dy7fac",
-        "slide_AdYdMJ",
-        "slide_YGcKYC",
-        "slide_9Ed4gP",
-        "slide_Vrd9hE",
-        "slide_ywQwcF",
-        "slide_kFJGHx"
+        "slide_cziQ77",
+        "slide_9KcWQq",
+        "slide_B6WpJ4",
+        "slide_3Dg8p9",
+        "slide_6rkaDn",
+        "slide_6qkLy6",
+        "slide_Vja6kU",
+        "slide_EM9hFP",
+        "slide_cYCjiF",
+        "slide_4MREUw",
+        "slide_9jdEd9",
+        "slide_dA6JTB",
+        "slide_afXFbH",
+        "slide_wXyAf6"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "Hero Slider",
       "settings": {}
@@ -805,6 +882,7 @@
   },
   "order": [
     "hero_slider_ditAGH",
+    "hero_slider_dYeeCq",
     "three_prom_blocks_JagmYh",
     "slideshow_JJwBwz",
     "featured_collection_promo_PBVXnq",
