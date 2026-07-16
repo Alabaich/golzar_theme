@@ -18,7 +18,8 @@
             "image": "shopify://shop_images/Builder_Pricing_Banner.webp",
             "heading": "Builder Pricing Banner",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/pages/golzar-home-pros-program"
+            "button_url": "https://bathroomsupplier.ca/pages/golzar-home-pros-program",
+            "img_object_fit": "contain"
           }
         },
         "slide_EqzUHE": {
@@ -27,7 +28,8 @@
             "image": "shopify://shop_images/Authorized_Dealer_Banner.webp",
             "heading": "Authorized Dealer Banner",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home"
+            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home",
+            "img_object_fit": "contain"
           }
         },
         "slide_EjN93U": {
@@ -36,7 +38,8 @@
             "image": "shopify://shop_images/Physical_Showroom_Banner.webp",
             "heading": "Physical Showroom Banner",
             "button_label": "Shop Now",
-            "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9"
+            "button_url": "https://maps.app.goo.gl/Y4eTR1A5pHXCKq6s9",
+            "img_object_fit": "contain"
           }
         },
         "slide_CdjNt7": {
@@ -45,7 +48,8 @@
             "image": "shopify://shop_images/Sale_Banner.webp",
             "heading": "Sale Banner",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale"
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
+            "img_object_fit": "contain"
           }
         },
         "slide_rQMdhT": {
@@ -54,7 +58,8 @@
             "image": "shopify://shop_images/big_spring_sale.webp",
             "heading": "Big Refreshing Bathroom Supplies Sale",
             "button_label": "Shop Sale",
-            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale"
+            "button_url": "https://bathroomsupplier.ca/collections/bathroom-and-kitchen-supplies-for-sale",
+            "img_object_fit": "cover"
           }
         },
         "slide_Uew3kV": {
@@ -63,7 +68,8 @@
             "image": "shopify://shop_images/TOTO_4049b485-8dcb-4e2a-a445-c220202d1a7b.webp",
             "heading": "TOTO AURORA COLLECTION",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home"
+            "button_url": "https://bathroomsupplier.ca/pages/toto-golzar-home",
+            "img_object_fit": "cover"
           }
         },
         "slide_jzF7Dw": {
@@ -72,7 +78,8 @@
             "image": "shopify://shop_images/Rubinet.webp",
             "heading": "The Rubinet Collection",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Faucets&q=Rubinet&sort_by=title-ascending"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?filter.v.price.gte=&filter.v.price.lte=&filter.p.product_type=Kitchen+Faucets&q=Rubinet&sort_by=title-ascending",
+            "img_object_fit": "cover"
           }
         },
         "slide_Dy7fac": {
@@ -81,7 +88,8 @@
             "image": "shopify://shop_images/blanco_d453e034-a52a-44db-8efe-cc2cc3cd5cb4.webp",
             "heading": "Blanco Collection",
             "button_label": "Shop Now",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Blanco",
+            "img_object_fit": "cover"
           }
         },
         "slide_AdYdMJ": {
@@ -91,7 +99,8 @@
             "image": "shopify://shop_images/christmasand_boxing_sale_a7456a4a-92e7-403f-9d45-bb8c80cfa47b.webp",
             "heading": "Boxing day and Christmas Sale",
             "button_label": "Boxing Day Sale",
-            "button_url": "shopify://collections/bathroom-and-kitchen-supplies-for-sale"
+            "button_url": "shopify://collections/bathroom-and-kitchen-supplies-for-sale",
+            "img_object_fit": "cover"
           }
         },
         "slide_YGcKYC": {
@@ -100,7 +109,8 @@
             "image": "shopify://shop_images/godi_banner.webp",
             "heading": "Godi Vanities and Bathroom Furniture in Toronto, Mississauga, Vaughan. Free Delivery",
             "button_label": "Shop Exclusive Collection",
-            "button_url": "shopify://collections/godi-bathroom-vanities"
+            "button_url": "shopify://collections/godi-bathroom-vanities",
+            "img_object_fit": "cover"
           }
         },
         "slide_9Ed4gP": {
@@ -109,7 +119,8 @@
             "image": "shopify://shop_images/big_grohe_sale_086dbce8-4806-40fc-a4c1-57adc5eb82eb.webp",
             "heading": "Big Grohe Sale",
             "button_label": "Grohe  Sale Page",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Grohe"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Grohe",
+            "img_object_fit": "cover"
           }
         },
         "slide_Vrd9hE": {
@@ -119,7 +130,8 @@
             "image": "shopify://shop_images/duravit_3406a936-1305-4200-92a1-2e2389379509.webp",
             "heading": "Duravit Brand Buy",
             "button_label": "Duravit Brand Buy",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Duravit"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Duravit",
+            "img_object_fit": "cover"
           }
         },
         "slide_ywQwcF": {
@@ -128,7 +140,8 @@
             "image": "shopify://shop_images/toto_90ad66fd-8d16-4c18-9e1a-3057526e4d38.webp",
             "heading": "TOTO Authorized Dealer",
             "button_label": "Shop Now Toto",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+            "img_object_fit": "cover"
           }
         },
         "slide_kFJGHx": {
@@ -138,7 +151,8 @@
             "image": "shopify://shop_images/kohler_74ba08f0-f804-4c10-980a-273ae360b60d.webp",
             "heading": "The bold look  of Kohler",
             "button_label": "Express your personality with our range of styles and finishes.",
-            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Kohler"
+            "button_url": "https://bathroomsupplier.ca/collections/vendors?q=Kohler",
+            "img_object_fit": "cover"
           }
         }
       },
