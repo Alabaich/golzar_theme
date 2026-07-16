@@ -120,7 +120,11 @@
           {% assign button_url = block.settings.button_url %}
           {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
           {% assign target_url = block.settings.url_type | default: '_self' %}
-          {%  assign custom_classes = block.settings.custom_classes %}
+          {% assign custom_classes = block.settings.custom_classes %}
+          {% assign image_src = image | image_url: width: 1600 %}
+          {% unless image_src contains '://' %}
+            {% assign image_src = image_src | prepend: 'https:' %}
+          {% endunless %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
               <a
@@ -129,8 +133,7 @@
                 class="hs-slide-link btn-url"
               >
                 <img
-                  src="{{ image | image_url: '1600x' }}"
-                  data-img-info="{{ image }}"
+                  src="{{ image_src }}"
                   alt="{{ heading }}"
                   title="{{ heading }}"
                   style="object-fit: {{ img_object_fit }};"
@@ -146,7 +149,7 @@
           {% else %}
             <li class="splide__slide" title="{{ heading }}">
               <img
-                src="{{ image | image_url: '1600x' }}"
+                src="{{ image_src }}"
                 alt="{{ heading }}"
                 title="{{ heading }}"
                 width="auto"
