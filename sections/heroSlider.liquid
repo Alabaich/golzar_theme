@@ -124,7 +124,12 @@
                 <img
                   src="{{ image | img_url: '1600x' }}"
                   alt="{{ heading }}"
-                  title="{{ heading }}">
+                  title="{{ heading }}"
+                  style="object-fit: {{ img_object_fit }}"
+                  width="auto"
+                  height="auto"
+                >
+                  
                 <div class="hs-slide-content">
                   {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
                 </div>
@@ -135,7 +140,10 @@
               <img
                 src="{{ image | img_url: '1600x' }}"
                 alt="{{ heading }}"
-                title="{{ heading }}">
+                title="{{ heading }}"
+                width="auto"
+                height="auto"
+              >
               <div class="hs-slide-content">
                 {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
               </div>
@@ -188,6 +196,21 @@
             "type": "url",
             "id": "button_url",
             "label": "Button URL"
+          },
+          {
+            "type": "select",
+            "id": "img_object_fit",
+            "label": "Object Fit",
+            "options": [
+              {
+                "value": "cover",
+                "label": "Cover"
+              },
+              {
+                "value": "contain",
+                "label": "Contain"
+              }
+            ],
           }
         ]
       }
