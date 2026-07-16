@@ -12,6 +12,18 @@
     "hero_slider_ditAGH": {
       "type": "heroSlider",
       "blocks": {
+        "slide_zRKj9c": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/SummerSale.webp",
+            "heading": "SummerSale",
+            "button_label": "Shop Now",
+            "button_url": "",
+            "url_type": "_self",
+            "img_object_fit": "cover",
+            "custom_classes": ""
+          }
+        },
         "slide_CdjNt7": {
           "type": "slide",
           "settings": {
@@ -62,6 +74,7 @@
         }
       },
       "block_order": [
+        "slide_zRKj9c",
         "slide_CdjNt7",
         "slide_39VbWH",
         "slide_EqzUHE",
@@ -262,7 +275,6 @@
         "slide_afXFbH",
         "slide_wXyAf6"
       ],
-      "disabled": true,
       "custom_css": [],
       "name": "Hero Slider",
       "settings": {}
