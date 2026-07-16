@@ -61,9 +61,9 @@
       "type": "hero-overlap",
       "name": "Overlay Hero",
       "settings": {
-        "image": "shopify://shop_images/toto-14.jpg",
-        "heading": "Discover a higher state of cleanliness with TOTO.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/GBH_SQTemplate_361c1f1a-bae8-488b-ad62-73e364de5a8f.webp",
+        "heading": "Design Changes Everything",
+        "text": "<p>Streamlined Specification for Every Project Need</p>",
         "button_label": "Shop Now",
         "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
       }
@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Brand Heritage",
-        "heading": "The Art of Living",
-        "text": "<p>Embracing the TOTO Group’s founding philosophy, we are dedicated to delivering a healthy, civilized way of life. We ensure this legacy continues by connecting you with craftsmanship that transforms a simple routine into an enriched, comfortable experience.</p>",
+        "label": "the Bold look of kohler",
+        "heading": "Bring Home the Art of Balance",
+        "text": "<p>Explore the connection between luxury design and modern innovation through a creative collaboration inspired by the striking elegance of the <strong>Kohler Veil® Smart Toilet</strong> in <strong>Honed Black</strong>.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -92,7 +92,7 @@
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "toto-one-piece-toilets"
+            "collection": "kohler-one-piece-toilet"
           }
         },
         "category_ejVpwL": {
@@ -131,7 +131,7 @@
       ],
       "name": "Featured Product Groups",
       "settings": {
-        "title": "Featured Groups"
+        "title": "Product Categories"
       }
     },
     "popular_products_HTNHPY": {
