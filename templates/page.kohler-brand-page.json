@@ -81,9 +81,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1000,
-        "label": "Powerful Hygiene",
-        "heading": "Revolution 360® Swirl Flush",
-        "text": "<p>Kohler redefined flushing power with Revolution 360®. Powered by our AquaPiston engine, this technology sends water through a single powerful outlet, creating a 360-degree swirling vortex. It covers the entire bowl surface, cleaning it more effectively than traditional flushes while staying incredibly quiet and water-efficient.</p>",
+        "label": "Kartell LAUFEN",
+        "heading": "Colour as identity",
+        "text": "<p>Kartell • LAUFEN transports you to a realm of ethereal beauty, where the ordinary dissolves into a bold fusion of colour, light, and design. This visionary collaboration redefines the bathroom, inviting you to shape a fluid, ever-evolving space, transforming it from mere function into a canvas for creativity and self-expression.<br/><br/></p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -219,9 +219,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1000,
-        "label": "Sensory Experience",
-        "heading": "The Science of Katalyst®",
-        "text": "<p>Experience the power of air-infused water. Kohler’s Katalyst® technology ingeniously mixes two liters of air with every 2.5 gallons of water. This creates larger, fuller water droplets that retain heat longer and envelope your body completely. It is not just a shower; it is a warm, drenching rain that maximizes every drop for a true spa-like sensation.</p>",
+        "label": "Elegance in every shade",
+        "heading": "Black bathroom design by LAUFEN",
+        "text": "<p>In the world of contemporary bathroom design, the colour black holds a timeless allure. Bold, sophisticated, and versatile, black infuses spaces with a modern, refined aesthetic.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -232,7 +232,7 @@
         "image_fpEyPk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_28.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_115424.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -243,7 +243,7 @@
         "image_tYTGYH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_29.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_121445.png",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -265,7 +265,7 @@
         "image_9iGcUe": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_31.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_121019.png",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -276,7 +276,7 @@
         "image_CJYTqP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_78.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_121538.png",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -287,7 +287,7 @@
         "image_QaBYFE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_77.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_115324.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
