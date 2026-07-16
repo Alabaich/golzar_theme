@@ -141,9 +141,9 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "toto-smart-toilet-washlets",
+        "featured_collection": "kohler",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_more_link": "shopify://collections/kohler",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
