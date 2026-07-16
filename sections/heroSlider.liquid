@@ -119,10 +119,10 @@
           {% assign button_label = block.settings.button_label %}
           {% assign button_url = block.settings.button_url %}
           {% assign img_object_fit = block.settings.img_object_fit %}
-          {% assign target = block.settings.url_type %}
+          {% assign target_url = block.settings.url_type %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
-              <a href="{{ button_url }}" target="{{ target }}" class="hs-slide-link" >
+              <a href="{{ button_url }}" target="{{ target_url }}" class="hs-slide-link" >
                 <img
                   src="{{ image | img_url: '1600x' }}"
                   alt="{{ heading }}"
