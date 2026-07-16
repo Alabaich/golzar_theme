@@ -122,6 +122,7 @@
           {% assign target_url = block.settings.url_type | default: '_self' %}
           {% if image != blank and button_url != blank %}
             <li class="splide__slide" title="{{ heading }}">
+              <div style="display: none;"><pre>{{ image }}</pre></div>
               <a
                 href="{{ button_url }}"
                 target="{{ target_url }}"
