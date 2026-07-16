@@ -123,9 +123,9 @@
           {% assign custom_classes = block.settings.custom_classes %}
           {% assign image_src = image | image_url: width: 1600 %}
           {% if image_src contains '/cdn/' %}
-            {% assign image_src = image_src | split: '/cdn/' | last | prepend: 'https://cdn.shopify.com/cdn/' %}
+            {% assign image_src = image_src | split: '/cdn/' | last | prepend: 'https://bathroomsupplier.ca/cdn/' %}
           {% elsif image_src contains '/s/files/' %}
-            {% assign image_src = image_src | split: '/s/files/' | last | prepend: 'https://cdn.shopify.com/s/files/' %}
+            {% assign image_src = image_src | split: '/s/files/' | last | prepend: 'https://bathroomsupplier.ca/s/files/' %}
           {% elsif image_src contains '//' %}
             {% assign image_src = image_src | split: '//' | last | prepend: 'https://' %}
           {% endif %}
