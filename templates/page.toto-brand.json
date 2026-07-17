@@ -210,9 +210,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Active Cleaning",
-        "heading": "Technology That Cleans Itself",
-        "text": "<p>TOTO sets a new standard for hygiene with its proprietary technologies like EWATER+ and PREMIST. Before each use, a mist of water wets the bowl to prevent waste adherence. After use, electrolyzed water automatically sanitizes the wand and bowl, reducing bacteria by 99.9% without harsh chemicals. It is a smart cycle of cleanliness that works constantly for you.</p>",
+        "label": "Self-Cleaning Toilet",
+        "heading": "ContinuousClean ST one-piece compact elongated toilet",
+        "text": "<p>Revolution 360® flushing technology keeps the bowl clean longer and combines with ContinuousClean ST system to dispense cleaning solution with every flush. Chair-height makes it comfortable to use, and a Quiet-Close™ elongated seat is included.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -223,7 +223,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/toto-collection-image-ultramax-washlet.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183507.png",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -234,7 +234,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_75.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183550.png",
             "pos_x": 88,
             "pos_y": 0,
             "link": "",
@@ -245,7 +245,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_73.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183938.png",
             "pos_x": 49,
             "pos_y": 40,
             "link": "",
@@ -256,7 +256,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_71.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183526.png",
             "pos_x": 75,
             "pos_y": 0,
             "link": "",
@@ -267,18 +267,18 @@
         "image_LLKV6j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_72.webp",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_184021.png",
             "pos_x": 69,
             "pos_y": 33,
-            "link": "",
-            "title": "",
+            "link": "shopify://products/santa-rosa-continuousclean-st-one-piece-compact-elongated-1-28-gpf-toilet-with-revolution-360-swirl-flushing-technology-and-continuousclean-st-30812",
+            "title": "Buy Now",
             "text": ""
           }
         },
         "image_a6Ui8p": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download.jpg",
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183517.png",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
