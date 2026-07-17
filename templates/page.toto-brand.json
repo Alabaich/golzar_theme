@@ -308,8 +308,8 @@
         "collection_block_FCNkre": {
           "type": "collection_block",
           "settings": {
-            "heading": "Toilet Seats",
-            "collection": "toilet-seats",
+            "heading": "Vessel Sinks",
+            "collection": "kohler-vessel-sinks",
             "limit": 12
           }
         },
