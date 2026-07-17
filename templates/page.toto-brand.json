@@ -316,8 +316,8 @@
         "collection_block_hbi67i": {
           "type": "collection_block",
           "settings": {
-            "heading": "Bathroom",
-            "collection": "toto-bathroom-sinks",
+            "heading": "Free-standing Bathtub",
+            "collection": "kohler-freestanding-bathtubs",
             "limit": 8
           }
         }
