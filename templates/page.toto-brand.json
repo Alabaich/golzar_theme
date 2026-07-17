@@ -166,13 +166,14 @@
         "hotspot_e3FM8M": {
           "type": "hotspot",
           "settings": {
-            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "product": "memoirs",
             "pos_x": 67,
             "pos_y": 72
           }
         },
         "hotspot_AbkYCt": {
           "type": "hotspot",
+          "disabled": true,
           "settings": {
             "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
             "pos_x": 27,
@@ -181,6 +182,7 @@
         },
         "hotspot_3yKbaP": {
           "type": "hotspot",
+          "disabled": true,
           "settings": {
             "product": "toto-washlet-c5-elongated-washlet",
             "pos_x": 61,
@@ -195,7 +197,7 @@
       ],
       "name": "Shoppable Image",
       "settings": {
-        "image": "shopify://shop_images/download_36.webp",
+        "image": "shopify://shop_images/Screenshot_2026-07-17_183145.png",
         "show_vendor": false,
         "show_discount_badge": true,
         "show_availability": true,
