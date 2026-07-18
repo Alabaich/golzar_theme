@@ -337,9 +337,9 @@
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "Kohler - Purist Collection",
-        "description": "<p>Kitchen and bathroom faucets, fixtures and accessories combined with sensual lines to create minimalist style.</p>",
-        "collection": "kohler-purist-collection",
+        "heading": "Toto - Drake",
+        "description": "<p><strong>Experience the legendary performance of the TOTO Drake.</strong><br/><br/>Powerful flushing, water-efficient design, and lasting reliability—built for bathrooms that demand quality.</p>",
+        "collection": "toto-drake",
         "link_text": "View All Products",
         "limit": 20,
         "show_vendor": false
