@@ -363,9 +363,9 @@
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "Kohler x Studio McGee",
+        "heading": "Toto - Ultramax",
         "description": "<p>With the introduction of the Claude™bathroom collection, the timeless style of our collaboration with Shea McGee is now available throughout the entire kitchen and bathroom.</p>",
-        "collection": "kohler-x-studio-mcgee",
+        "collection": "toto-ultramax-ii",
         "link_text": "",
         "limit": 20,
         "show_vendor": false
