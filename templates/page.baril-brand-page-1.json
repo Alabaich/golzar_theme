@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Handcrafted Artistry",
-        "heading": "Forged by Hand",
-        "text": "<p>VOGT believes that true luxury lies in the human touch. Unlike mass-produced fixtures, our sinks and vessels are individually hand-hammered by skilled artisans. This labor-intensive process ensures that no two pieces are exactly alike, giving your home a unique character and a soulful texture that machinery simply cannot replicate.</p>",
+        "label": "BARIL 40 Years of History and Excellence",
+        "heading": "Our story from 1986…",
+        "text": "<p>While Louise Thibault was working at her parents’ hardware store, she realized that the world of faucets was sorely lacking in beauty and design. Together with her husband, Jacques Baril, she founded BARIL remedy this situation.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -86,8 +86,8 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "vogt-kitchen-faucets",
-            "image": "shopify://shop_images/1663243619212.jpg"
+            "collection": "baril-kitchen-faucets",
+            "image": "shopify://shop_images/Screenshot_2026-07-18_181504.png"
           }
         },
         "category_8HJ8ec": {
