@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero",
       "settings": {
-        "image": "shopify://shop_images/GBH_SQTemplate_361c1f1a-bae8-488b-ad62-73e364de5a8f.webp",
-        "heading": "Design Changes Everything",
-        "text": "<p>Streamlined Specification for Every Project Need</p>",
+        "image": "shopify://shop_images/id20_slide-img04.jpg",
+        "heading": "Let's Wash With Toto",
+        "text": "<p>Always innovating to Spread a Culture of Everyday Comfort and Cleanliness</p>",
         "button_label": "Shop Now",
-        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+        "button_link": "shopify://collections/toto-smart-toilet-washlets"
       }
     },
     "brand_story_r4qCUV": {
