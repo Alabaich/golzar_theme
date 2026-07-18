@@ -142,7 +142,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "kohler",
+        "featured_collection": "toto-popular-products",
         "products_limit": 4,
         "show_more_link": "shopify://collections/toto-popular-products",
         "show_add_to_cart_button": true,
