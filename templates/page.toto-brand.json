@@ -350,9 +350,9 @@
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ebf1f5",
-        "heading": "Kohler - Memoirs®",
-        "description": "<p>Crisp lines and architectural details create a look that’s both classic and timeless, sophisticated yet approachable.</p>",
-        "collection": "kohler-memoirs",
+        "heading": "Toto - Aquia",
+        "description": "<p>Sleek, seamless, and easy to clean. The TOTO Aquia Toilet combines elegant style with powerful, water-efficient performance.</p>",
+        "collection": "toto-aquia",
         "link_text": "",
         "limit": 20,
         "show_vendor": false
