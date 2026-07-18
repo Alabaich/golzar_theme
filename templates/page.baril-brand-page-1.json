@@ -157,9 +157,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Living Materials",
-        "heading": "Beauty That Evolves",
-        "text": "<p>We work with materials that tell a story. VOGT’s signature copper and brass finishes are \"living\" surfaces, designed to develop a rich, natural patina over time. This interaction with the elements creates a deep, warm aesthetic that grows more beautiful with age, turning your basin into a timeless centerpiece.</p>",
+        "label": "Customizable Faucet",
+        "heading": "A vision focused on the future",
+        "text": "<p>In the spirit of haute couture, the Baril faucet is fully customizable. Choose the finishes you want for each component from our selection of six finishes. Once you’ve created your combination of finishes, customize your faucet with our various installation options.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -215,7 +215,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_60.webp",
+            "image": "shopify://shop_images/b35-8100-00l-kkek-tet-1210-35-jkk-b35-9320-00-kjk-amb-768x740.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -226,7 +226,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_62.webp",
+            "image": "shopify://shop_images/marina-bastarache-2-768x983.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -237,7 +237,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_61.webp",
+            "image": "shopify://shop_images/po-beaudoin-2-768x1152.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -248,7 +248,7 @@
         "image_pTfgnU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_95.webp",
+            "image": "shopify://shop_images/brook-and-peony-1-768x1152.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -259,7 +259,7 @@
         "image_qFHNFt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_94.webp",
+            "image": "shopify://shop_images/fernandfig-design-768x983.jpg",
             "pos_x": 40,
             "pos_y": 82,
             "link": "",
@@ -270,7 +270,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_63.webp",
+            "image": "shopify://shop_images/smt-design-5-768x983.jpg",
             "pos_x": 40,
             "pos_y": 50,
             "link": "",
@@ -292,44 +292,6 @@
         "heading": "",
         "heading_align": "center",
         "enable_6_items": true
-      }
-    },
-    "collection_accordion_ETwbPj": {
-      "type": "collection-accordion",
-      "blocks": {
-        "collection_block_hPwWjK": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Shower Faucets",
-            "collection": "vogt-shower-faucets",
-            "limit": 12
-          }
-        },
-        "collection_block_hUxJRV": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Wall-Mounted Faucets",
-            "collection": "vogt-wall-mounted-faucets",
-            "limit": 12
-          }
-        },
-        "collection_block_KCW3mA": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Tub Fillers",
-            "collection": "vogt-tub-fillers",
-            "limit": 12
-          }
-        }
-      },
-      "block_order": [
-        "collection_block_hPwWjK",
-        "collection_block_hUxJRV",
-        "collection_block_KCW3mA"
-      ],
-      "name": "Collection Accordion Pro",
-      "settings": {
-        "show_vendor": true
       }
     },
     "feature_icons_tDkbm7": {
@@ -432,7 +394,6 @@
     "brand_story_8MPibg",
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
-    "collection_accordion_ETwbPj",
     "feature_icons_tDkbm7",
     "custom_blog_posts_grid_8PkfHz"
   ]
