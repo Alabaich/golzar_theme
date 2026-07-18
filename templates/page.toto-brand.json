@@ -144,7 +144,7 @@
         "underTitleText": "",
         "featured_collection": "kohler",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/kohler",
+        "show_more_link": "shopify://collections/toto-popular-products",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
