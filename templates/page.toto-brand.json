@@ -309,8 +309,8 @@
         "collection_block_FCNkre": {
           "type": "collection_block",
           "settings": {
-            "heading": "Vessel Sinks",
-            "collection": "kohler-vessel-sinks",
+            "heading": "Bathroom Sinks",
+            "collection": "toto-bathroom-sinks",
             "limit": 12
           }
         },
