@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "the Bold look of kohler",
-        "heading": "Bring Home the Art of Balance",
-        "text": "<p>Explore the connection between luxury design and modern innovation through a creative collaboration inspired by the striking elegance of the <strong>Kohler Veil® Smart Toilet</strong> in <strong>Honed Black</strong>.</p>",
+        "label": "Washlet+",
+        "heading": "Series of WASHLET-and-toilet sets.",
+        "text": "<p>Standard of comfort and cleanliness for daily life. Designed for every home,<strong>WASHLET+</strong>is the smart way to introduce the life-changing comfort and cleanliness to your life.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -86,8 +86,8 @@
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "kohler-bathtub-shower-kits",
-            "image": "shopify://shop_images/Screenshot_2026-07-16_184343.png"
+            "collection": "toto-smart-toilet-washlets",
+            "image": "shopify://shop_images/toto-washlet-g5a-integrated-smart-toilet-951594.jpg"
           }
         },
         "category_8HJ8ec": {
