@@ -1,0 +1,481 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "disabled": true,
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Discover a higher state of cleanliness with TOTO.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/csm_PJY1886HPWNE_GW_bathtubs_LS.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_JGTLiz": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero",
+      "settings": {
+        "image": "shopify://shop_images/GBH_SQTemplate_361c1f1a-bae8-488b-ad62-73e364de5a8f.webp",
+        "heading": "Design Changes Everything",
+        "text": "<p>Streamlined Specification for Every Project Need</p>",
+        "button_label": "Shop Now",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+      }
+    },
+    "brand_story_r4qCUV": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "the Bold look of kohler",
+        "heading": "Bring Home the Art of Balance",
+        "text": "<p>Explore the connection between luxury design and modern innovation through a creative collaboration inspired by the striking elegance of the <strong>Kohler Veil® Smart Toilet</strong> in <strong>Honed Black</strong>.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-bathtub-shower-kits",
+            "image": "shopify://shop_images/Screenshot_2026-07-16_184343.png"
+          }
+        },
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-one-piece-toilet"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-smart-toilets"
+          }
+        },
+        "category_inz6n7": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-two-piece-toilets"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-alcove-bathtubs"
+          }
+        },
+        "category_t8jLap": {
+          "type": "category",
+          "settings": {
+            "collection": "kohler-widespread-faucets",
+            "image": "shopify://shop_images/Kohler_Widespread_Faucets.webp"
+          }
+        }
+      },
+      "block_order": [
+        "category_B9xPCm",
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_inz6n7",
+        "category_LJKbDK",
+        "category_t8jLap"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Product Categories"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "kohler",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/kohler",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
+    },
+    "brand_story_8MPibg": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Memoirs® Stately",
+        "heading": "One-piece compact elongated toilet with skirted trapway, 1.28 gpf",
+        "text": "<p>Inspired by elegant architecture and featuring crisp lines, this Memoirs KOHLER® Memoirs Stately collection one-piece elongated toilet with Stately design delivers functionality and water savings--as well as traditional style. A high-efficiency 1.28-gallon flush offers up to 16,500 gallons of water savings per year (versus a 3.5-gallon toilet) without sacrificing performance. The included seat, positioned at chair height for your comfort, features technology for noiseless closing and easy cleaning.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "memoirs",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "disabled": true,
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "disabled": true,
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-07-17_183145.png",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "brand_story_GhirRw": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Self-Cleaning Toilet",
+        "heading": "ContinuousClean ST one-piece compact elongated toilet",
+        "text": "<p>Revolution 360® flushing technology keeps the bowl clean longer and combines with ContinuousClean ST system to dispense cleaning solution with every flush. Chair-height makes it comfortable to use, and a Quiet-Close™ elongated seat is included.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "brand_masonry_gallery_fhYzkx": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Y8rFKH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183507.png",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_VNfhFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183550.png",
+            "pos_x": 88,
+            "pos_y": 0,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_cALjKj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183938.png",
+            "pos_x": 49,
+            "pos_y": 40,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_99iHYQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183526.png",
+            "pos_x": 75,
+            "pos_y": 0,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_LLKV6j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_184021.png",
+            "pos_x": 69,
+            "pos_y": 33,
+            "link": "shopify://products/santa-rosa-continuousclean-st-one-piece-compact-elongated-1-28-gpf-toilet-with-revolution-360-swirl-flushing-technology-and-continuousclean-st-30812",
+            "title": "Buy Now",
+            "text": ""
+          }
+        },
+        "image_a6Ui8p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-07-17_183517.png",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_cALjKj",
+        "image_99iHYQ",
+        "image_LLKV6j",
+        "image_a6Ui8p"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "collection_accordion_QJqncL": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_FCNkre": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Vessel Sinks",
+            "collection": "kohler-vessel-sinks",
+            "limit": 12
+          }
+        },
+        "collection_block_hbi67i": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Free-standing Bathtub",
+            "collection": "kohler-freestanding-bathtubs",
+            "limit": 8
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_FCNkre",
+        "collection_block_hbi67i"
+      ],
+      "name": "Collection Accordion",
+      "settings": {
+        "show_vendor": true
+      }
+    },
+    "collection_slider_row_c7bVJm": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Kohler - Purist Collection",
+        "description": "<p>Kitchen and bathroom faucets, fixtures and accessories combined with sensual lines to create minimalist style.</p>",
+        "collection": "kohler-purist-collection",
+        "link_text": "View All Products",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_Bp6VLG": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ebf1f5",
+        "heading": "Kohler - Memoirs®",
+        "description": "<p>Crisp lines and architectural details create a look that’s both classic and timeless, sophisticated yet approachable.</p>",
+        "collection": "kohler-memoirs",
+        "link_text": "",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_FBW9aB": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Kohler x Studio McGee",
+        "description": "<p>With the introduction of the Claude™bathroom collection, the timeless style of our collaboration with Shea McGee is now available throughout the entire kitchen and bathroom.</p>",
+        "collection": "kohler-x-studio-mcgee",
+        "link_text": "",
+        "limit": 20,
+        "show_vendor": false
+      }
+    },
+    "feature_icons_NdkHPr": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_q8jKtw": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_mckeKT": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_ggUGwe": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_xjPh6J": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_q8jKtw",
+        "feature_item_mckeKT",
+        "feature_item_ggUGwe",
+        "feature_item_xjPh6J"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC",
+    "hero_overlap_JGTLiz",
+    "brand_story_r4qCUV",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY",
+    "brand_story_8MPibg",
+    "hotspots_PQ3dmy",
+    "brand_story_GhirRw",
+    "brand_masonry_gallery_fhYzkx",
+    "collection_accordion_QJqncL",
+    "collection_slider_row_c7bVJm",
+    "collection_slider_row_Bp6VLG",
+    "collection_slider_row_FBW9aB",
+    "feature_icons_NdkHPr",
+    "custom_blog_posts_grid_8PkfHz"
+  ]
+}
