@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/download_59.webp",
-        "heading": "VOGT. Where raw metal becomes functional art.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/C35-3130-26-JK_M35-3130-80-CK.jpg",
+        "heading": "Baril, An art piece to love every day",
+        "text": "<p>Like a sculpture or a work of art, each Marie piece is unique and will blend perfectly with any decor.<br/>Become the designer behind your own high-end faucet.</p>",
         "button_label": "Discover Brand",
-        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+        "button_link": "shopify://collections/baril"
       }
     },
     "brand_story_r4qCUV": {
