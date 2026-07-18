@@ -117,6 +117,13 @@
             "collection": "baril-bathroom-faucets",
             "image": "shopify://shop_images/b35-1100-00-ke-b35-9320-00-iji-amb-768x768.jpg"
           }
+        },
+        "category_X3LzVa": {
+          "type": "category",
+          "settings": {
+            "collection": "baril-tub-filler",
+            "image": "shopify://shop_images/smt-designs-4-768x960.png"
+          }
         }
       },
       "block_order": [
@@ -124,7 +131,8 @@
         "category_8HJ8ec",
         "category_ejVpwL",
         "category_inz6n7",
-        "category_LJKbDK"
+        "category_LJKbDK",
+        "category_X3LzVa"
       ],
       "name": "Featured Product Groups",
       "settings": {
