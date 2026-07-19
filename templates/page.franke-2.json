@@ -110,29 +110,13 @@
             "collection": "franke-kitchen-accessories",
             "image": "shopify://shop_images/FrankAllIn.jpg"
           }
-        },
-        "category_t8jLap": {
-          "type": "category",
-          "settings": {
-            "collection": "grohe-widespread-faucet",
-            "image": "shopify://shop_images/186630_Atrio_EnvironmentCloseUp_206592430_0001_Oct2023_0_CDNwebp_2000x_929fddc8-5fc8-41f7-99fb-a59eeafb4c27.webp"
-          }
-        },
-        "category_neeCM8": {
-          "type": "category",
-          "name": "Grohe Toilets",
-          "settings": {
-            "collection": "grohe-toilets"
-          }
         }
       },
       "block_order": [
         "category_8HJ8ec",
         "category_ejVpwL",
         "category_B9xPCm",
-        "category_LJKbDK",
-        "category_t8jLap",
-        "category_neeCM8"
+        "category_LJKbDK"
       ],
       "name": "Featured Product Groups",
       "settings": {
