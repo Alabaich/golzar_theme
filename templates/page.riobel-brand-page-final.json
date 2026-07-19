@@ -145,7 +145,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "vogt-products",
+        "featured_collection": "riobel",
         "products_limit": 4,
         "show_more_link": "shopify://collections/vogt-products",
         "show_add_to_cart_button": true,
