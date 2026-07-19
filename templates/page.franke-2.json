@@ -151,6 +151,14 @@
     "hotspots_fMpTHV": {
       "type": "hotspots",
       "blocks": {
+        "hotspot_aEYB4C": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "pos_x": 50,
+            "pos_y": 50
+          }
+        },
         "hotspot_CrdK4q": {
           "type": "hotspot",
           "settings": {
@@ -177,6 +185,7 @@
         }
       },
       "block_order": [
+        "hotspot_aEYB4C",
         "hotspot_CrdK4q",
         "hotspot_FBc67L",
         "hotspot_MHwiVa"
@@ -241,7 +250,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_45.webp",
+            "image": "shopify://shop_images/MMX11027-ANT-WKC_EOS-PD-ANT-RD.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -274,7 +283,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_92.webp",
+            "image": "shopify://shop_images/Pescara2_ac4362c7-7eb9-48cb-84fb-4136d3885410.jpg",
             "pos_x": 49,
             "pos_y": 36,
             "link": "",
@@ -285,7 +294,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_47.webp",
+            "image": "shopify://shop_images/Franke_Sustainability-1.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -296,7 +305,7 @@
         "image_bhG3pW": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_91.webp",
+            "image": "shopify://shop_images/ICON-SEMI-PRO_ICN-SP-MBK_MYTHOS-MASTERPIECE_MMX11027-ANT_2.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
