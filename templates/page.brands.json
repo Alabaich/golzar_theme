@@ -43,6 +43,15 @@
     "brands_grid_section_ktFxMd": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_qabahJ": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Ceranova-with-faucet.jpg",
+            "logo_image": "shopify://shop_images/FRANKE.svg",
+            "text": "",
+            "linkToBrand": ""
+          }
+        },
         "one_brand_nVHx3C": {
           "type": "one_brand",
           "settings": {
@@ -99,6 +108,7 @@
         }
       },
       "block_order": [
+        "one_brand_qabahJ",
         "one_brand_nVHx3C",
         "one_brand_EjDiJa",
         "one_brand_XnNEji",
