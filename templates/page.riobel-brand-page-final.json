@@ -157,9 +157,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Living Materials",
+        "label": "RIU™ collection",
         "heading": "Beauty That Evolves",
-        "text": "<p>We work with materials that tell a story. VOGT’s signature copper and brass finishes are \"living\" surfaces, designed to develop a rich, natural patina over time. This interaction with the elements creates a deep, warm aesthetic that grows more beautiful with age, turning your basin into a timeless centerpiece.</p>",
+        "text": "<p>The simple beauty of the Riu faucet collection makes it a natural for urban industrial settings and minimalist<br/>spaces. And Riu can fi t transitional bathrooms with subtlety and grace. You can personalize the look with<br/>a cross or level handle, and one of fi ve fi nishes. Behind Riu’s sleek form is functionality with engineering<br/>brilliance, creating a stand-out piece that performs.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -215,7 +215,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_60.webp",
+            "image": "shopify://shop_images/6_d80d9518-002b-4557-b1ca-94b363ea95df.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -226,7 +226,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_62.webp",
+            "image": "shopify://shop_images/OIP.webp",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -237,7 +237,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_61.webp",
+            "image": "shopify://shop_images/029e5b47-949f-43e4-9fae-a2b0acf51da4-at1000.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -248,7 +248,7 @@
         "image_pTfgnU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_95.webp",
+            "image": "shopify://shop_images/riu_collection_480x480_68d946f1-1c40-45bf-9402-7a084e52bd4b.webp",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -259,7 +259,7 @@
         "image_qFHNFt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_94.webp",
+            "image": "shopify://shop_images/8_80f03351-3634-49ff-b635-1b16dee675a1.jpg",
             "pos_x": 40,
             "pos_y": 82,
             "link": "",
@@ -270,7 +270,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_63.webp",
+            "image": "shopify://shop_images/7_408088e1-c49b-4d79-8b76-e4b4cef5f44c.jpg",
             "pos_x": 40,
             "pos_y": 50,
             "link": "",
@@ -296,37 +296,6 @@
     },
     "collection_accordion_ETwbPj": {
       "type": "collection-accordion",
-      "blocks": {
-        "collection_block_hPwWjK": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Shower Faucets",
-            "collection": "vogt-shower-faucets",
-            "limit": 12
-          }
-        },
-        "collection_block_hUxJRV": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Wall-Mounted Faucets",
-            "collection": "vogt-wall-mounted-faucets",
-            "limit": 12
-          }
-        },
-        "collection_block_KCW3mA": {
-          "type": "collection_block",
-          "settings": {
-            "heading": "Tub Fillers",
-            "collection": "vogt-tub-fillers",
-            "limit": 12
-          }
-        }
-      },
-      "block_order": [
-        "collection_block_hPwWjK",
-        "collection_block_hUxJRV",
-        "collection_block_KCW3mA"
-      ],
       "name": "Collection Accordion Pro",
       "settings": {
         "show_vendor": true
