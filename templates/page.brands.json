@@ -118,8 +118,8 @@
       ],
       "name": "Brands Grid Section",
       "settings": {
-        "main_heading": "Our Brand Partners",
-        "description": "We take pride in offering a carefully selected range of trusted bathroom brands to bring you both quality and style."
+        "main_heading": "Discover Our Brands",
+        "description": "From luxury kitchen solutions to designer bathroom collections, we bring together trusted brands that combine innovation, craftsmanship, and timeless style."
       }
     },
     "brands_grid_section_Kcfijq": {
@@ -143,15 +143,6 @@
             "linkToBrand": "shopify://pages/kohler-brand-page"
           }
         },
-        "one_brand_GDtyaD": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/Vogt.webp",
-            "logo_image": "shopify://shop_images/vogt.svg",
-            "text": "Proudly Canadian, Vogt offers a perfect fusion of striking design and reliable performance in its kitchen and bath collections.",
-            "linkToBrand": "shopify://pages/vogt-golzar-home"
-          }
-        },
         "one_brand_E9VfQk": {
           "type": "one_brand",
           "settings": {
@@ -159,33 +150,6 @@
             "logo_image": "shopify://shop_images/GROHE.svg",
             "text": "Discover Grohe's German-engineered precision in every drop. From the smooth handling of its faucets to innovative smart showers",
             "linkToBrand": "shopify://pages/grohe-golzar-home"
-          }
-        },
-        "one_brand_pkQJrC": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/img-geberit-selnova-hospital-toilet-sigma10-washbasin-760-760.jpg",
-            "logo_image": "shopify://shop_images/GEBERIT.svg",
-            "text": "Unlock a new level of design with Geberit's Swiss-engineered in-wall systems. Create a more spacious, hygienic, and quieter bathroom",
-            "linkToBrand": "shopify://pages/geberit-golzar-home"
-          }
-        },
-        "one_brand_BLyDjy": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/17_OK.png",
-            "logo_image": "shopify://shop_images/bagno_italia_logo.svg",
-            "text": "Experience Bagno Italia, where authentic Italian design meets modern, functional bathroom furniture.",
-            "linkToBrand": "shopify://pages/bagno-italia-brand-page"
-          }
-        },
-        "one_brand_QRyErf": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/2-59_2f570ddc-81ca-4961-9ffc-94f0d92a8f6c.webp",
-            "logo_image": "shopify://shop_images/oceania.svg",
-            "text": "Discover the art of relaxation with Quebec's own Oceania. Renowned for premium acrylic bathtubs and custom showers",
-            "linkToBrand": "shopify://pages/oceania-brand-page"
           }
         },
         "one_brand_FfACB9": {
@@ -197,6 +161,15 @@
             "linkToBrand": "shopify://pages/blanco"
           }
         },
+        "one_brand_pkQJrC": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/img-geberit-selnova-hospital-toilet-sigma10-washbasin-760-760.jpg",
+            "logo_image": "shopify://shop_images/GEBERIT.svg",
+            "text": "Unlock a new level of design with Geberit's Swiss-engineered in-wall systems. Create a more spacious, hygienic, and quieter bathroom",
+            "linkToBrand": "shopify://pages/geberit-golzar-home"
+          }
+        },
         "one_brand_LyKPDX": {
           "type": "one_brand",
           "settings": {
@@ -206,13 +179,31 @@
             "linkToBrand": "shopify://pages/duravit-golzar-home"
           }
         },
-        "one_brand_eCtUjV": {
+        "one_brand_GDtyaD": {
           "type": "one_brand",
           "settings": {
-            "showcase_image": "shopify://shop_images/maax-manhattan-long-shelf-45mw-mtile-sm-lg-deco.jpg",
-            "logo_image": "shopify://shop_images/maax-canada-logo.svg",
-            "text": "Immerse yourself in relaxation with MAAX. Known for their stylish freestanding tubs and contemporary shower doors, they deliver a spa-like experience backed by over 50 years of North American expertise.",
-            "linkToBrand": "shopify://pages/maax-bathtubs"
+            "showcase_image": "shopify://shop_images/Vogt.webp",
+            "logo_image": "shopify://shop_images/vogt.svg",
+            "text": "Proudly Canadian, Vogt offers a perfect fusion of striking design and reliable performance in its kitchen and bath collections.",
+            "linkToBrand": "shopify://pages/vogt-golzar-home"
+          }
+        },
+        "one_brand_BLyDjy": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/17_OK.png",
+            "logo_image": "shopify://shop_images/bagno_italia_logo.svg",
+            "text": "Experience Bagno Italia, where authentic Italian design meets modern, functional bathroom furniture.",
+            "linkToBrand": "shopify://pages/bagno-italia-brand-page"
+          }
+        },
+        "one_brand_7VecPq": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/622208697_18336681853212123_1042.webp",
+            "logo_image": "shopify://shop_images/LogoRubinetWhite.svg",
+            "text": "Express your style with Rubinet. Famous for their \"made-to-order\" philosophy, they deliver high-quality brass fixtures in virtually any color combination you can imagine.",
+            "linkToBrand": "shopify://pages/rubinet"
           }
         },
         "one_brand_gqrmDa": {
@@ -224,29 +215,38 @@
             "linkToBrand": "shopify://pages/phyrlich"
           }
         },
-        "one_brand_7VecPq": {
+        "one_brand_QRyErf": {
           "type": "one_brand",
           "settings": {
-            "showcase_image": "shopify://shop_images/622208697_18336681853212123_1042.webp",
-            "logo_image": "shopify://shop_images/LogoRubinetWhite.svg",
-            "text": "Express your style with Rubinet. Famous for their \"made-to-order\" philosophy, they deliver high-quality brass fixtures in virtually any color combination you can imagine.",
-            "linkToBrand": "shopify://pages/rubinet"
+            "showcase_image": "shopify://shop_images/2-59_2f570ddc-81ca-4961-9ffc-94f0d92a8f6c.webp",
+            "logo_image": "shopify://shop_images/oceania.svg",
+            "text": "Discover the art of relaxation with Quebec's own Oceania. Renowned for premium acrylic bathtubs and custom showers",
+            "linkToBrand": "shopify://pages/oceania-brand-page"
+          }
+        },
+        "one_brand_eCtUjV": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/maax-manhattan-long-shelf-45mw-mtile-sm-lg-deco.jpg",
+            "logo_image": "shopify://shop_images/maax-canada-logo.svg",
+            "text": "Immerse yourself in relaxation with MAAX. Known for their stylish freestanding tubs and contemporary shower doors, they deliver a spa-like experience backed by over 50 years of North American expertise.",
+            "linkToBrand": "shopify://pages/maax-bathtubs"
           }
         }
       },
       "block_order": [
         "one_brand_3mYehq",
         "one_brand_NAHyec",
-        "one_brand_GDtyaD",
         "one_brand_E9VfQk",
-        "one_brand_pkQJrC",
-        "one_brand_BLyDjy",
-        "one_brand_QRyErf",
         "one_brand_FfACB9",
+        "one_brand_pkQJrC",
         "one_brand_LyKPDX",
-        "one_brand_eCtUjV",
+        "one_brand_GDtyaD",
+        "one_brand_BLyDjy",
+        "one_brand_7VecPq",
         "one_brand_gqrmDa",
-        "one_brand_7VecPq"
+        "one_brand_QRyErf",
+        "one_brand_eCtUjV"
       ],
       "name": "Brands Grid Section",
       "settings": {
