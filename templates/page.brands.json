@@ -43,6 +43,15 @@
     "brands_grid_section_ktFxMd": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_zwCEYC": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Riobel_Azure_AZ801BK_L.jpg",
+            "logo_image": "shopify://shop_images/Riobel_850c57f7-c366-4409-b061-3025a4dbe2c8.svg",
+            "text": "Originating in Quebec, Riobel® combines European panache with North American flair. Design and engineering work hand in hand, and come together brilliantly through innovation and ingenuity.",
+            "linkToBrand": ""
+          }
+        },
         "one_brand_qabahJ": {
           "type": "one_brand",
           "settings": {
@@ -108,6 +117,7 @@
         }
       },
       "block_order": [
+        "one_brand_zwCEYC",
         "one_brand_qabahJ",
         "one_brand_nVHx3C",
         "one_brand_EjDiJa",
