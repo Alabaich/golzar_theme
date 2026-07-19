@@ -83,11 +83,18 @@
     "featured_product_groups_7FBk6H": {
       "type": "featured-product-groups",
       "blocks": {
+        "category_GFa6Kb": {
+          "type": "category",
+          "settings": {
+            "collection": "riobel-vessel-sink-faucets",
+            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN.jpg"
+          }
+        },
         "category_B9xPCm": {
           "type": "category",
           "settings": {
             "collection": "riobel-shower-kits",
-            "image": "shopify://shop_images/1663243619212.jpg"
+            "image": "shopify://shop_images/029e5b47-949f-43e4-9fae-a2b0acf51da4-at1000.jpg"
           }
         },
         "category_8HJ8ec": {
@@ -108,7 +115,7 @@
           "type": "category",
           "settings": {
             "collection": "riobel-kitchen-faucets",
-            "image": "shopify://shop_images/1728411537297.png"
+            "image": "shopify://shop_images/4e7d8218-a080-423d-80dc-2582a7eb8a4b-at1600.jpg"
           }
         },
         "category_LJKbDK": {
@@ -120,6 +127,7 @@
         }
       },
       "block_order": [
+        "category_GFa6Kb",
         "category_B9xPCm",
         "category_8HJ8ec",
         "category_ejVpwL",
