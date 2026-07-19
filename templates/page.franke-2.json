@@ -141,9 +141,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Ultimate Control",
-        "heading": "GROHE SilkMove®",
-        "text": "<p>Experience the difference of a mixer that responds to your lightest touch. GROHE SilkMove® cartridges are engineered for precise and effortless water control. Even after years of daily use, the lever operation remains silky smooth, ensuring perfect temperature and flow management every single time.</p>",
+        "label": "fRANKE ACCESSORIES",
+        "heading": "Eight accessories, limitless possibilities",
+        "text": "<p>From breakfast for the whole family to cosy dinner parties, All-In is all you need to get into your stride in the kitchen. With these accessories, you can prepare great meals without interruptions.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -154,7 +154,7 @@
         "hotspot_CrdK4q": {
           "type": "hotspot",
           "settings": {
-            "product": "grohe-allure-new-single-hole-single-handle-l-size-bathroom-faucet-1-2-gpm",
+            "product": "all-in-accessory-kit-aius300-112-0655-489",
             "pos_x": 8,
             "pos_y": 58
           }
@@ -183,7 +183,7 @@
       ],
       "name": "Shoppable Image",
       "settings": {
-        "image": "shopify://shop_images/download_-_2026-02-10T162148.389.webp",
+        "image": "shopify://shop_images/All-In_Accessories_overview_on_Image_2025.06.jpg",
         "show_vendor": false,
         "show_discount_badge": true,
         "show_availability": true,
@@ -333,19 +333,6 @@
         "show_vendor": false
       }
     },
-    "collection_slider_row_XChNGe": {
-      "type": "collection-slider-row",
-      "name": "Collection Slider Row",
-      "settings": {
-        "background_color": "#eff4f8",
-        "heading": "SPA Colors",
-        "description": "<ul><li>Freedom of choice. Customize your space with finishes like Hard Graphite, Warm Sunset, and Cool Sunrise.</li></ul>",
-        "collection": "grohe-widespread-faucet",
-        "link_text": "View Collection",
-        "limit": 12,
-        "show_vendor": false
-      }
-    },
     "feature_icons_qFAeyP": {
       "type": "feature-icons",
       "blocks": {
@@ -448,7 +435,6 @@
     "hotspots_PQ3dmy",
     "brand_masonry_gallery_fhYzkx",
     "collection_slider_row_6EKJaT",
-    "collection_slider_row_XChNGe",
     "feature_icons_qFAeyP",
     "custom_blog_posts_grid_8PkfHz"
   ]
