@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/download_59.webp",
-        "heading": "VOGT. Where raw metal becomes functional art.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/the-house-of-rohl-kitchen-riobel-lateral-l-002-662197b6ca908.jpg",
+        "heading": "Riobel. Inspired design meets brilliant engineering",
+        "text": "<p>Where Beautiful Design And Advanced Performance Come Together</p>",
         "button_label": "Discover Brand",
-        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+        "button_link": "shopify://collections/riobel"
       }
     },
     "brand_story_r4qCUV": {
