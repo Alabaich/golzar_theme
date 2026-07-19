@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "German Technology",
-        "heading": "Pure Freude an Wasser",
-        "text": "<p>GROHE is the world’s leading provider of sanitary fittings, dedicated to providing \"Pure Freude an Wasser\" (Pure Joy of Water). Rooted in German engineering, our products combine quality, technology, and design to create water experiences that are sustainable, innovative, and purely joyful for years to come.</p>",
+        "label": "History",
+        "heading": "An over 100-year tradition of adaptability and innovation",
+        "text": "<p>Adaptability is part of our pioneer DNA. For more than a century, it has determined how we at Franke have seized unique opportunities to drive change. This is how we always think and develop complete systems for residential and commercial kitchens, as well as for the professional preparation of coffee one step further.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -86,22 +86,22 @@
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "grohe-shower-kits",
-            "image": "shopify://shop_images/Grohe_shower_kits.webp"
+            "collection": "frenke-kitchen-sinks",
+            "image": "shopify://shop_images/Pescara2.jpg"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "grohe-single-hole-bathroom-faucets",
-            "image": "shopify://shop_images/FaucetsStatement_Thumbnail_500x500_1.webp"
+            "collection": "franke-kitchen-faucets",
+            "image": "shopify://shop_images/Ceranova.jpg"
           }
         },
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "grohe-accessories",
-            "image": "shopify://shop_images/278910_Listra_EnvironmentCloseUp_1062390000_0001_November2025_0_CDNwebp_2000x_17c5e09b-ce70-4e80-b5f1-bdd2fa593a9a.webp"
+            "collection": "franke-filter-faucet",
+            "image": "shopify://shop_images/Screenshot_2026-07-19_114631.png"
           }
         },
         "category_LJKbDK": {
@@ -136,7 +136,7 @@
       ],
       "name": "Featured Product Groups",
       "settings": {
-        "title": "Featured Groups"
+        "title": "Product Categories"
       }
     },
     "popular_products_HTNHPY": {
