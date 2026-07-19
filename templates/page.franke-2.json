@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/download_53.webp",
-        "heading": "Experience the pure joy of water with GROHE.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/AP001_115.jpg",
+        "heading": "Sculpting Kitchen Innovation by Franke",
+        "text": "<p><strong>Choose the finish that suits your kitchen décor</strong></p>",
         "button_label": "Discover Brand",
-        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+        "button_link": "shopify://collections/franke"
       }
     },
     "brand_story_r4qCUV": {
