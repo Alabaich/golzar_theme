@@ -1,0 +1,471 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "disabled": true,
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "Experience the pure joy of water with GROHE.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/download_53.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_ebBYcP": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/download_53.webp",
+        "heading": "Experience the pure joy of water with GROHE.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+      }
+    },
+    "brand_story_r4qCUV": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "German Technology",
+        "heading": "Pure Freude an Wasser",
+        "text": "<p>GROHE is the world’s leading provider of sanitary fittings, dedicated to providing \"Pure Freude an Wasser\" (Pure Joy of Water). Rooted in German engineering, our products combine quality, technology, and design to create water experiences that are sustainable, innovative, and purely joyful for years to come.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-shower-kits",
+            "image": "shopify://shop_images/Grohe_shower_kits.webp"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-single-hole-bathroom-faucets",
+            "image": "shopify://shop_images/FaucetsStatement_Thumbnail_500x500_1.webp"
+          }
+        },
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-accessories",
+            "image": "shopify://shop_images/278910_Listra_EnvironmentCloseUp_1062390000_0001_November2025_0_CDNwebp_2000x_17c5e09b-ce70-4e80-b5f1-bdd2fa593a9a.webp"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-kitchen-faucets",
+            "image": "shopify://shop_images/71730_B-30205DC2_CDNwebp_2000x_515e779e-18e6-4281-911a-7117c1c28430.webp"
+          }
+        },
+        "category_t8jLap": {
+          "type": "category",
+          "settings": {
+            "collection": "grohe-widespread-faucet",
+            "image": "shopify://shop_images/186630_Atrio_EnvironmentCloseUp_206592430_0001_Oct2023_0_CDNwebp_2000x_929fddc8-5fc8-41f7-99fb-a59eeafb4c27.webp"
+          }
+        },
+        "category_neeCM8": {
+          "type": "category",
+          "name": "Grohe Toilets",
+          "settings": {
+            "collection": "grohe-toilets"
+          }
+        }
+      },
+      "block_order": [
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_B9xPCm",
+        "category_LJKbDK",
+        "category_t8jLap",
+        "category_neeCM8"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Featured Groups"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "grohe",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
+    },
+    "brand_story_8MPibg": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Ultimate Control",
+        "heading": "GROHE SilkMove®",
+        "text": "<p>Experience the difference of a mixer that responds to your lightest touch. GROHE SilkMove® cartridges are engineered for precise and effortless water control. Even after years of daily use, the lever operation remains silky smooth, ensuring perfect temperature and flow management every single time.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "hotspots_fMpTHV": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_CrdK4q": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-single-hole-single-handle-l-size-bathroom-faucet-1-2-gpm",
+            "pos_x": 8,
+            "pos_y": 58
+          }
+        },
+        "hotspot_FBc67L": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-double-towel-bar",
+            "pos_x": 40,
+            "pos_y": 53
+          }
+        },
+        "hotspot_MHwiVa": {
+          "type": "hotspot",
+          "settings": {
+            "product": "grohe-allure-new-single-hole-single-handle-l-size-bathroom-faucet-1-2-gpm",
+            "pos_x": 55,
+            "pos_y": 48
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_CrdK4q",
+        "hotspot_FBc67L",
+        "hotspot_MHwiVa"
+      ],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_-_2026-02-10T162148.389.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "disabled": true,
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_36.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "brand_masonry_gallery_fhYzkx": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Y8rFKH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_45.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_VNfhFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_46.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_z9JAb4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_90.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_cALjKj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_92.webp",
+            "pos_x": 49,
+            "pos_y": 36,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_99iHYQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_47.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_bhG3pW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_91.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_z9JAb4",
+        "image_cALjKj",
+        "image_99iHYQ",
+        "image_bhG3pW"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "collection_slider_row_6EKJaT": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "SilkMove®",
+        "description": "<ul><li>The smoothest cartridge technology for lifelong, effortless precision in handle movement.</li></ul>",
+        "collection": "grohe-kitchen-faucets",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "collection_slider_row_XChNGe": {
+      "type": "collection-slider-row",
+      "name": "Collection Slider Row",
+      "settings": {
+        "background_color": "#eff4f8",
+        "heading": "SPA Colors",
+        "description": "<ul><li>Freedom of choice. Customize your space with finishes like Hard Graphite, Warm Sunset, and Cool Sunrise.</li></ul>",
+        "collection": "grohe-widespread-faucet",
+        "link_text": "View Collection",
+        "limit": 12,
+        "show_vendor": false
+      }
+    },
+    "feature_icons_qFAeyP": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_Bfkgcc": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_TFkxEj": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_ELNJiJ": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_VQ4YgE": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_Bfkgcc",
+        "feature_item_TFkxEj",
+        "feature_item_ELNJiJ",
+        "feature_item_VQ4YgE"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC",
+    "hero_overlap_ebBYcP",
+    "brand_story_r4qCUV",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY",
+    "brand_story_8MPibg",
+    "hotspots_fMpTHV",
+    "hotspots_PQ3dmy",
+    "brand_masonry_gallery_fhYzkx",
+    "collection_slider_row_6EKJaT",
+    "collection_slider_row_XChNGe",
+    "feature_icons_qFAeyP",
+    "custom_blog_posts_grid_8PkfHz"
+  ]
+}
