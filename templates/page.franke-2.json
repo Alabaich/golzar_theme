@@ -334,9 +334,9 @@
       "name": "Collection Slider Row",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "SilkMove®",
-        "description": "<ul><li>The smoothest cartridge technology for lifelong, effortless precision in handle movement.</li></ul>",
-        "collection": "grohe-kitchen-faucets",
+        "heading": "Workcenter Sinks",
+        "description": "<p>With the Franke Workcenter range, everything runs smoothly.</p>",
+        "collection": "franke-work-station-sinks",
         "link_text": "View Collection",
         "limit": 12,
         "show_vendor": false
