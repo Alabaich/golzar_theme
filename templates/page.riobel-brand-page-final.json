@@ -1,0 +1,431 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "disabled": true,
+      "settings": {
+        "color": ""
+      }
+    },
+    "browse_by_options": {
+      "type": "browse-by-options",
+      "disabled": true,
+      "settings": {
+        "show_product_type_options": false,
+        "product_type_title": "Browse By Product Type",
+        "show_collection_options": true,
+        "collection_title": "Browse By Product Type",
+        "collection_list": [
+          "toto-smart-toilet-washlets",
+          "toto-one-piece-toilets",
+          "toto-two-piece-toilets",
+          "toto-wall-mounted-toilets",
+          "toto-wall-carrier-plates"
+        ]
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "brand_hero_nq7tiC": {
+      "type": "brand-hero",
+      "disabled": true,
+      "name": "Brand Hero Advanced",
+      "settings": {
+        "brand_title": "VOGT. Where raw metal becomes functional art.",
+        "brand_subtitle": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_text": "Discover Brand",
+        "brand_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto",
+        "show_button_arrow": false,
+        "hero_image": "shopify://shop_images/download_59.webp",
+        "show_onboarding_image": true,
+        "mobile_text_align": "left",
+        "mobile_button_align": "flex-start"
+      }
+    },
+    "hero_overlap_jGYerW": {
+      "type": "hero-overlap",
+      "name": "Overlay Hero (ID)",
+      "settings": {
+        "image": "shopify://shop_images/download_59.webp",
+        "heading": "VOGT. Where raw metal becomes functional art.",
+        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "button_label": "Discover Brand",
+        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Toto"
+      }
+    },
+    "brand_story_r4qCUV": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Handcrafted Artistry",
+        "heading": "Forged by Hand",
+        "text": "<p>VOGT believes that true luxury lies in the human touch. Unlike mass-produced fixtures, our sinks and vessels are individually hand-hammered by skilled artisans. This labor-intensive process ensures that no two pieces are exactly alike, giving your home a unique character and a soulful texture that machinery simply cannot replicate.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
+    "featured_product_groups_7FBk6H": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_B9xPCm": {
+          "type": "category",
+          "settings": {
+            "collection": "vogt-kitchen-faucets",
+            "image": "shopify://shop_images/1663243619212.jpg"
+          }
+        },
+        "category_8HJ8ec": {
+          "type": "category",
+          "settings": {
+            "collection": "vogt-shower-faucets",
+            "image": "shopify://shop_images/1662664052471.png"
+          }
+        },
+        "category_ejVpwL": {
+          "type": "category",
+          "settings": {
+            "collection": "vogt-bathroom-faucet",
+            "image": "shopify://shop_images/1660783578757.png"
+          }
+        },
+        "category_inz6n7": {
+          "type": "category",
+          "settings": {
+            "collection": "vogt-tub-fillers",
+            "image": "shopify://shop_images/1728411537297.png"
+          }
+        },
+        "category_LJKbDK": {
+          "type": "category",
+          "settings": {
+            "collection": "vogt-kitchen-sinks",
+            "image": "shopify://shop_images/1677016356426.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "category_B9xPCm",
+        "category_8HJ8ec",
+        "category_ejVpwL",
+        "category_inz6n7",
+        "category_LJKbDK"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Products Categories"
+      }
+    },
+    "popular_products_HTNHPY": {
+      "type": "popular-products",
+      "name": "Popular Products",
+      "settings": {
+        "popular_title": "Popular Products",
+        "underTitleText": "",
+        "featured_collection": "vogt-products",
+        "products_limit": 4,
+        "show_more_link": "shopify://collections/vogt-products",
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy Now"
+      }
+    },
+    "brand_story_8MPibg": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1400,
+        "label": "Living Materials",
+        "heading": "Beauty That Evolves",
+        "text": "<p>We work with materials that tell a story. VOGT’s signature copper and brass finishes are \"living\" surfaces, designed to develop a rich, natural patina over time. This interaction with the elements creates a deep, warm aesthetic that grows more beautiful with age, turning your basin into a timeless centerpiece.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "hotspots_PQ3dmy": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_e3FM8M": {
+          "type": "hotspot",
+          "settings": {
+            "product": "eco_ultramax_one_piece_toilet_1_28_gpf_elongated_bowl_cefiontect_ms854114eg_01",
+            "pos_x": 67,
+            "pos_y": 72
+          }
+        },
+        "hotspot_AbkYCt": {
+          "type": "hotspot",
+          "settings": {
+            "product": "kiwami_19_11_16_rectangle_vessel_lavatory_lt475gr_01",
+            "pos_x": 27,
+            "pos_y": 50
+          }
+        },
+        "hotspot_3yKbaP": {
+          "type": "hotspot",
+          "settings": {
+            "product": "toto-washlet-c5-elongated-washlet",
+            "pos_x": 61,
+            "pos_y": 59
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_e3FM8M",
+        "hotspot_AbkYCt",
+        "hotspot_3yKbaP"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "Shoppable Image",
+      "settings": {
+        "image": "shopify://shop_images/download_36.webp",
+        "show_vendor": false,
+        "show_discount_badge": true,
+        "show_availability": true,
+        "show_add_to_cart_button": true,
+        "product_button_text": "Buy now"
+      }
+    },
+    "brand_masonry_gallery_fhYzkx": {
+      "type": "brand-masonry-gallery",
+      "blocks": {
+        "image_Y8rFKH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_60.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_VNfhFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_62.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_cALjKj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_61.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_pTfgnU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_95.webp",
+            "pos_x": 50,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_qFHNFt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_94.webp",
+            "pos_x": 40,
+            "pos_y": 82,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        },
+        "image_99iHYQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_63.webp",
+            "pos_x": 40,
+            "pos_y": 50,
+            "link": "",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8rFKH",
+        "image_VNfhFR",
+        "image_cALjKj",
+        "image_pTfgnU",
+        "image_qFHNFt",
+        "image_99iHYQ"
+      ],
+      "name": "Custom Masonry 4-Grid",
+      "settings": {
+        "heading": "",
+        "heading_align": "center",
+        "enable_6_items": true
+      }
+    },
+    "collection_accordion_ETwbPj": {
+      "type": "collection-accordion",
+      "blocks": {
+        "collection_block_hPwWjK": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Shower Faucets",
+            "collection": "vogt-shower-faucets",
+            "limit": 12
+          }
+        },
+        "collection_block_hUxJRV": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Wall-Mounted Faucets",
+            "collection": "vogt-wall-mounted-faucets",
+            "limit": 12
+          }
+        },
+        "collection_block_KCW3mA": {
+          "type": "collection_block",
+          "settings": {
+            "heading": "Tub Fillers",
+            "collection": "vogt-tub-fillers",
+            "limit": 12
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_hPwWjK",
+        "collection_block_hUxJRV",
+        "collection_block_KCW3mA"
+      ],
+      "name": "Collection Accordion Pro",
+      "settings": {
+        "show_vendor": true
+      }
+    },
+    "feature_icons_tDkbm7": {
+      "type": "feature-icons",
+      "blocks": {
+        "feature_item_4JkD3K": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "support",
+            "icon_width": 48,
+            "title": "Assistance Available",
+            "description": "<p>Always here to help, anytime you need.</p>"
+          }
+        },
+        "feature_item_idqBHi": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "price_match",
+            "icon_width": 48,
+            "title": "Price Comparison",
+            "description": "<p>Lowest Price, Guaranteed or Matched</p>"
+          }
+        },
+        "feature_item_JbBKfB": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "delivery",
+            "icon_width": 48,
+            "title": "Quick Dispatch",
+            "description": "<p>Prompt Delivery Right to Your Door</p>"
+          }
+        },
+        "feature_item_rmUf8g": {
+          "type": "feature_item",
+          "settings": {
+            "icon_preset": "pickup",
+            "icon_width": 48,
+            "title": "In-Store Pickup",
+            "description": "<p>Easy Pickup at Your Convenience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_4JkD3K",
+        "feature_item_idqBHi",
+        "feature_item_JbBKfB",
+        "feature_item_rmUf8g"
+      ],
+      "name": "Feature Icons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "grid_gap": 32,
+        "content_alignment": "left",
+        "color_scheme": ""
+      }
+    },
+    "custom_blog_posts_grid_8PkfHz": {
+      "type": "custom-blog-posts-grid",
+      "name": "Blog Posts Grid",
+      "settings": {
+        "heading": "Learn more about our popular products",
+        "heading_alignment": "left",
+        "heading_size": 28,
+        "heading_color": "#222222",
+        "blog_handle": "news",
+        "posts_to_show": 7,
+        "columns_desktop": 4,
+        "columns_tablet": 2,
+        "grid_gap": 30,
+        "show_image": true,
+        "image_aspect_ratio": "4/3",
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 12,
+        "read_more_text": "Read now",
+        "card_bg_color": "#ffffff",
+        "card_border_radius": 6,
+        "date_color": "#777777",
+        "article_title_color": "#222222",
+        "excerpt_color": "#555555",
+        "read_more_link_color": "#222222",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "section_bg_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "browse_by_options",
+    "main",
+    "brand_hero_nq7tiC",
+    "hero_overlap_jGYerW",
+    "brand_story_r4qCUV",
+    "featured_product_groups_7FBk6H",
+    "popular_products_HTNHPY",
+    "brand_story_8MPibg",
+    "hotspots_PQ3dmy",
+    "brand_masonry_gallery_fhYzkx",
+    "collection_accordion_ETwbPj",
+    "feature_icons_tDkbm7",
+    "custom_blog_posts_grid_8PkfHz"
+  ]
+}
