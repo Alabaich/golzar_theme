@@ -129,9 +129,9 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "grohe",
+        "featured_collection": "franke",
         "products_limit": 4,
-        "show_more_link": "shopify://collections/toto-smart-toilet-washlets",
+        "show_more_link": "shopify://collections/franke",
         "show_add_to_cart_button": true,
         "product_button_text": "Buy Now"
       }
