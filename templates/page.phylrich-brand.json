@@ -434,7 +434,8 @@
         "category_iDr4gB": {
           "type": "category",
           "settings": {
-            "collection": ""
+            "collection": "phylrich-basic",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_172907.png"
           }
         },
         "category_DLegKF": {
