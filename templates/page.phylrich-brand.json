@@ -441,19 +441,22 @@
         "category_DLegKF": {
           "type": "category",
           "settings": {
-            "collection": ""
+            "collection": "phylrich-diama",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_173011.png"
           }
         },
         "category_3Gicyz": {
           "type": "category",
           "settings": {
-            "collection": ""
+            "collection": "phylrich-hex-modern",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_173109.png"
           }
         },
         "category_VRfFN6": {
           "type": "category",
           "settings": {
-            "collection": ""
+            "collection": "phylrich-jolie",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_173149.png"
           }
         }
       },
