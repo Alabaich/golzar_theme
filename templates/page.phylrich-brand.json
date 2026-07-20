@@ -413,6 +413,61 @@
         "padding_bottom": 25,
         "section_bg_color": "rgba(0,0,0,0)"
       }
+    },
+    "featured_product_groups_cNBgDy": {
+      "type": "featured-product-groups",
+      "blocks": {
+        "category_npnijP": {
+          "type": "category",
+          "settings": {
+            "collection": "phylrich-circ",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_172600.png"
+          }
+        },
+        "category_NTRfpR": {
+          "type": "category",
+          "settings": {
+            "collection": "phylrich-croi",
+            "image": "shopify://shop_images/Screenshot_2026-07-20_172649.png"
+          }
+        },
+        "category_iDr4gB": {
+          "type": "category",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "category_DLegKF": {
+          "type": "category",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "category_3Gicyz": {
+          "type": "category",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "category_VRfFN6": {
+          "type": "category",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_npnijP",
+        "category_NTRfpR",
+        "category_iDr4gB",
+        "category_DLegKF",
+        "category_3Gicyz",
+        "category_VRfFN6"
+      ],
+      "name": "Featured Product Groups",
+      "settings": {
+        "title": "Phylrich Series"
+      }
     }
   },
   "order": [
@@ -433,6 +488,7 @@
     "collection_slider_row_Bp6VLG",
     "collection_slider_row_FBW9aB",
     "feature_icons_NdkHPr",
-    "custom_blog_posts_grid_8PkfHz"
+    "custom_blog_posts_grid_8PkfHz",
+    "featured_product_groups_cNBgDy"
   ]
 }
