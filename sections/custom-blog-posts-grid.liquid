@@ -29,7 +29,7 @@
 
 {{ 'section-custom-blog-posts-grid.css' | asset_url | stylesheet_tag }}
 
-{% comment %} 
+{% comment %}
 <style>
   .blog-posts-section-{{ section.id }} {
     /* padding-top: {{ section.settings.padding_top }}px;
@@ -211,7 +211,26 @@
 </style>
 {% endcomment %}
 
-<div class="blog-posts-section-{{ section.id }} pageWidth">
+{%- style -%}
+  .blog-posts-section-{{ section.id }} {
+    --blog-posts-section-bg: {{ section.settings.section_bg_color }};
+    --blog-posts-heading-align: {{ section.settings.heading_alignment }};
+    --blog-posts-heading-color: {{ section.settings.heading_color }};
+    --blog-posts-grid-gap: {{ section.settings.grid_gap }}px;
+    --blog-posts-cols-mobile: {{ columns_mobile }};
+    --blog-posts-cols-tablet: {{ columns_tablet }};
+    --blog-posts-cols-desktop: {{ columns_desktop }};
+    --blog-posts-card-bg: {{ section.settings.card_bg_color }};
+    --blog-posts-card-radius: {{ section.settings.card_border_radius }}px;
+    --blog-posts-image-aspect: {{ image_aspect_ratio_value }};
+    --blog-posts-date-color: {{ section.settings.date_color }};
+    --blog-posts-title-color: {{ section.settings.article_title_color }};
+    --blog-posts-excerpt-color: {{ section.settings.excerpt_color }};
+    --blog-posts-read-more-color: {{ section.settings.read_more_link_color }};
+  }
+{%- endstyle -%}
+
+<div class="blog-posts-section blog-posts-section-{{ section.id }} pageWidth">
   <div class="page-width">
     {%- if heading != blank -%}
       <div class="section-header">
