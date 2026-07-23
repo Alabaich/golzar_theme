@@ -1,7 +1,9 @@
+{{ 'section-heroSlider.css' | asset_url | stylesheet_tag }}
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 <script async src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 
-<style>
+{% comment %} <style>
   .hs-hero-slider {
     position: relative;
     padding-top: 25px;
@@ -107,7 +109,7 @@
       aspect-ratio: 16 / 9;
     }
   }
-</style>
+</style> {% endcomment %}
 
 <div class="hs-hero-slider splide page-width pageWidth">
   <div class="splide__track">
