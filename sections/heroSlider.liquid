@@ -18,55 +18,62 @@
           {% assign img_object_fit = block.settings.img_object_fit | default: 'cover' %}
           {% assign target_url = block.settings.url_type | default: '_self' %}
           {% assign custom_classes = block.settings.custom_classes %}
-          {% assign image_src = image | image_url: width: 1600 %}
-          {% if image_src contains '/cdn/' %}
-            {% assign image_src = image_src | split: '/cdn/' | last | prepend: 'https://bathroomsupplier.ca/cdn/' %}
-          {% elsif image_src contains '/s/files/' %}
-            {% assign image_src = image_src | split: '/s/files/' | last | prepend: 'https://bathroomsupplier.ca/s/files/' %}
-          {% elsif image_src contains '//' %}
-            {% assign image_src = image_src | split: '//' | last | prepend: 'https://' %}
-          {% endif %}
-          {% if image != blank and button_url != blank %}
-            <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
-              <a
-                href="{{ button_url }}"
-                target="{{ target_url }}"
-                class="hs-slide-link btn-url"
-              >
-                <img
-                  src="{{ image_src }}"
-                  alt="{{ heading }}"
-                  title="{{ heading }}"
-                  style="object-fit: {{ img_object_fit }};"
-                  width="auto"
-                  height="auto"
-                  class="hero-slide-img"
-                  {% if first_slide_image %}
-                    fetchpriority="high"
-                    data-fetch-priority
-                    {% assign first_slide_image = false %}
-                  {% endif %}
+          {% assign img_style = 'object-fit: ' | append: img_object_fit | append: ';' %}
+          {% if image != blank %}
+            {% if first_slide_image %}
+              {% capture slide_image %}
+                {{
+                  image
+                  | image_url: width: 1600
+                  | image_tag:
+                    class: 'hero-slide-img',
+                    alt: heading,
+                    title: heading,
+                    style: img_style,
+                    loading: 'eager',
+                    fetchpriority: 'high',
+                    sizes: '100vw',
+                    widths: '750, 990, 1200, 1400, 1600'
+                }}
+              {% endcapture %}
+              {% assign first_slide_image = false %}
+            {% else %}
+              {% capture slide_image %}
+                {{
+                  image
+                  | image_url: width: 1600
+                  | image_tag:
+                    class: 'hero-slide-img',
+                    alt: heading,
+                    title: heading,
+                    style: img_style,
+                    loading: 'lazy',
+                    sizes: '100vw',
+                    widths: '750, 990, 1200, 1400, 1600'
+                }}
+              {% endcapture %}
+            {% endif %}
+            {% if button_url != blank %}
+              <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
+                <a
+                  href="{{ button_url }}"
+                  target="{{ target_url }}"
+                  class="hs-slide-link btn-url"
                 >
-                  
+                  {{ slide_image }}
+                  <div class="hs-slide-content">
+                    {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
+                  </div>
+                </a>
+              </li>
+            {% else %}
+              <li class="splide__slide {{ custom_classes }}" title="{{ heading }}">
+                {{ slide_image }}
                 <div class="hs-slide-content">
                   {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
                 </div>
-              </a>
-            </li>
-          {% else %}
-            <li class="splide__slide" title="{{ heading }}">
-              <img
-                src="{{ image_src }}"
-                alt="{{ heading }}"
-                title="{{ heading }}"
-                width="auto"
-                height="auto"
-                {% if first_slide_image %}fetchpriority="high"{% assign first_slide_image = false %}{% endif %}
-              >
-              <div class="hs-slide-content">
-                {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
-              </div>
-            </li>
+              </li>
+            {% endif %}
           {% endif %}
         {% endif %}
       {% endfor %}
@@ -92,88 +99,88 @@
 </script>
 
 {% schema %}
-  {
-    "name": "Hero Slider",
-    "blocks": [
-      {
-        "type": "slide",
-        "name": "Slide",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Slide Image"
-          },
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Slide Heading",
-            "default": "Your Heading Here"
-          },
-          {
-            "type": "text",
-            "id": "button_label",
-            "label": "Button Label",
-            "default": "Shop Now"
-          },
-          {
-            "type": "url",
-            "id": "button_url",
-            "label": "Button URL"
-          },
-          {
-            "type": "select",
-            "id": "url_type",
-            "label": "URL Type",
-            "options": [
-              {
-                "value": "_self",
-                "label": "Internal"
-              },
-              {
-                "value": "_blank",
-                "label": "External"
-              }
-            ],
-            "default": "_self"
-          },
-          {
-            "type": "select",
-            "id": "img_object_fit",
-            "label": "Object Fit",
-            "options": [
-              {
-                "value": "cover",
-                "label": "Cover"
-              },
-              {
-                "value": "contain",
-                "label": "Contain"
-              }
-            ],
-            "default": "cover"
-          },
-          {
-            "type": "text",
-            "id": "custom_classes",
-            "label": "Custom Classes"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Hero Slider",
-        "category": "Slideshow",
-        "blocks": [
-          {
-            "type": "slide"
-          },
-          {
-            "type": "slide"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Hero Slider",
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Slide Heading",
+          "default": "Your Heading Here"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "select",
+          "id": "url_type",
+          "label": "URL Type",
+          "options": [
+            {
+              "value": "_self",
+              "label": "Internal"
+            },
+            {
+              "value": "_blank",
+              "label": "External"
+            }
+          ],
+          "default": "_self"
+        },
+        {
+          "type": "select",
+          "id": "img_object_fit",
+          "label": "Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            }
+          ],
+          "default": "cover"
+        },
+        {
+          "type": "text",
+          "id": "custom_classes",
+          "label": "Custom Classes"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider",
+      "category": "Slideshow",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
