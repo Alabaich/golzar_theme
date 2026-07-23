@@ -1,8 +1,11 @@
-<style>
- @media screen and (max-width = 768px;){
-   .overlay-txt-with-img-main
- }
-  </style>
+
+{{ 'section-newCustomOverlay.css' | asset_url | stylesheet_tag }}
+
+{% comment %} <style>
+@media screen and (max-width = 768px;){
+    .overlay-txt-with-img-main
+}
+</style> {% endcomment %}
 
 <div class="overlay-txt-with-img-main">
   <div class="overlay-txt-with-img-inn ">
@@ -122,112 +125,112 @@
 {% endschema %}
 
 <style>
-  .section.overlay-txt-with-img {
-    background-color: #002642;
-  }
-
-  .section.overlay-txt-with-img .overlay-txt-with-img-main {
-    position: relative;
-  }
-
-  .section.overlay-txt-with-img .grid--2-col {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .section.overlay-txt-with-img .grid__item {
-    flex: 1 1 200px;
-    min-width: 200px;
-  }
-
-  .section.overlay-txt-with-img .overlay-txt-box {
-    padding: 20px;
-    position: relative;
-  }
-
-  @media screen and (max-width : 768px){
-      .section.overlay-txt-with-img .overlay-txt-box {
-    display: flex;
-        justify-content: center;
-        width: 100%;
-  }
-
-       .overlay-txt-with-img .overlay-txt-box {
-        min-height: 0;
-        text-align: left;
-        padding: 15px !important;
-    }
-
-      .section.overlay-txt-with-img .grid__item {
-    flex: none;
-    min-width: auto;
-  }
-
-  }
-
-  .section.overlay-txt-with-img .overlay-txt-box-in h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-  }
-
-  .section.overlay-txt-with-img .overlay-img-box {
-    position: relative;
-  }
-
-  .section.overlay-txt-with-img .overlay-img-box img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: auto;
-  }
-
-  .section.overlay-txt-with-img.overlay-img-box::after {
-    position: absolute;
-    content: "";
-    background-color: rgba(0, 38, 66, 0);
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+.section.overlay-txt-with-img {
+  background-color: #002642;
 }
 
-  .section.overlay-txt-with-img .logo-contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+.section.overlay-txt-with-img .overlay-txt-with-img-main {
+  position: relative;
+}
 
+.section.overlay-txt-with-img .grid--2-col {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section.overlay-txt-with-img .grid__item {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.section.overlay-txt-with-img .overlay-txt-box {
+  padding: 20px;
+  position: relative;
+}
+
+@media screen and (max-width : 768px){
+    .section.overlay-txt-with-img .overlay-txt-box {
+  display: flex;
+      justify-content: center;
+      width: 100%;
+}
+
+      .overlay-txt-with-img .overlay-txt-box {
+      min-height: 0;
+      text-align: left;
+      padding: 15px !important;
   }
 
-  .section.overlay-txt-with-img .logo-contact li img {
-    max-height: 40px;
-    width: auto;
-  }
+    .section.overlay-txt-with-img .grid__item {
+  flex: none;
+  min-width: auto;
+}
 
-  .section.overlay-txt-with-img .overlay-header {
-    text-align: center;
-  }
+}
 
-  .section.overlay-txt-with-img .custom-logo-container {
-    display: inline-block;
-    outline: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-  }
+.section.overlay-txt-with-img .overlay-txt-box-in h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
 
-  .section.overlay-txt-with-img .custom-logo {
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
+.section.overlay-txt-with-img .overlay-img-box {
+  position: relative;
+}
 
-  .section.overlay-txt-with-img .overlay-txt-box-in a {
-    border: none;
-  }
+.section.overlay-txt-with-img .overlay-img-box img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.section.overlay-txt-with-img.overlay-img-box::after {
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 38, 66, 0);
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.section.overlay-txt-with-img .logo-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+
+}
+
+.section.overlay-txt-with-img .logo-contact li img {
+  max-height: 40px;
+  width: auto;
+}
+
+.section.overlay-txt-with-img .overlay-header {
+  text-align: center;
+}
+
+.section.overlay-txt-with-img .custom-logo-container {
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section.overlay-txt-with-img .custom-logo {
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.section.overlay-txt-with-img .overlay-txt-box-in a {
+  border: none;
+}
 </style>
