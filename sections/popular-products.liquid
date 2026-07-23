@@ -239,7 +239,7 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-  } 
+  }
 
   .popular-products-main .popular-titles-container{
     max-width: 70%;
@@ -260,7 +260,7 @@
     }
     .qdsad {
       flex-direction: column;
-      
+
       align-items: start;
       gap: 15px;
     }
@@ -275,8 +275,6 @@
     max-width: 100%;
   }
   }
-
-
 {% endstyle %}
 
 <div class="page-width">
@@ -285,29 +283,34 @@
       <div class="popular-products">
         <div class="qdsad">
           <div class="popular-titles-container">
-                      <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
+            <h2 class="section-title">{{ section.settings.popular_title | escape }}</h2>
             <p class="bodyText">{{ section.settings.underTitleText | escape }}</p>
           </div>
 
           {% if section.settings.featured_collection != blank and collection_to_display.products_count > 0 %}
-            <a href="{{ collection_to_display.url }}" class="customButton transparentDarkButton">Show More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="#366A91"/>
-</svg></a>
+            <a href="{{ collection_to_display.url }}" class="customButton transparentDarkButton"
+              >Show More
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="#366A91"/>
+              </svg>
+            </a>
           {% elsif section.settings.show_more_link != blank %}
-            <a href="{{ section.settings.show_more_link }}" class="customButton transparentDarkButton">Show More <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="#366A91"/>
-</svg></a>
+            <a href="{{ section.settings.show_more_link }}" class="customButton transparentDarkButton"
+              >Show More
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74408 5.24408C8.06951 4.91864 8.59715 4.91864 8.92259 5.24408L13.0893 9.41074C13.4147 9.73618 13.4147 10.2638 13.0893 10.5893L8.92259 14.7559C8.59715 15.0814 8.06951 15.0814 7.74408 14.7559C7.41864 14.4305 7.41864 13.9028 7.74408 13.5774L11.3215 10L7.74408 6.42259C7.41864 6.09715 7.41864 5.56951 7.74408 5.24408Z" fill="#366A91"/>
+              </svg>
+            </a>
           {% endif %}
         </div>
 
         <div class="products-grid">
           {%- if collection_handle == blank -%}
-            <p class="products-grid__no-products-message">
-              Please select a collection in the theme customizer.
-            </p>
+            <p class="products-grid__no-products-message">Please select a collection in the theme customizer.</p>
           {%- elsif collection_to_display == blank -%}
             <p class="products-grid__no-products-message">
-              The selected collection '{{ collection_handle }}' could not be found. It might have been deleted or the handle is incorrect.
+              The selected collection '{{ collection_handle }}' could not be found. It might have been deleted or the
+              handle is incorrect.
             </p>
           {%- elsif collection_to_display.products_count == 0 -%}
             <p class="products-grid__no-products-message">
@@ -322,13 +325,16 @@
                 <a href="{{ product.url | within: collection_to_display }}" class="product-image-link">
                   {%- if product.featured_image != blank -%}
                     <div class="product-image">
-                      <img
-                        src="{{ product.featured_image | image_url: width: 300 }}"
-                        alt="{{ product.title | escape }}"
-                        class="prod-img"
-                        loading="lazy"
-                        width="300"
-                        height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}">
+                      {{
+                        product.featured_image
+                        | image_url: width: 600
+                        | image_tag:
+                          class: 'prod-img',
+                          alt: product.title,
+                          loading: 'lazy',
+                          sizes: '(min-width: 990px) 25vw, (min-width: 750px) 33vw, 50vw',
+                          widths: '200, 300, 400, 600'
+                      }}
                     </div>
                   {%- else -%}
                     <div class="product-image placeholder">
@@ -361,23 +367,27 @@
                       action="{{ routes.cart_add_url }}"
                       method="post"
                       enctype="multipart/form-data"
-                      class="product-card__form">
+                      class="product-card__form"
+                    >
                       <input
                         type="hidden"
                         name="id"
-                        value="{{ current_variant.id }}">
+                        value="{{ current_variant.id }}"
+                      >
                       <input
                         type="hidden"
                         name="quantity"
                         value="1"
-                        min="1">
+                        min="1"
+                      >
                       <button
                         type="submit"
                         class="product-card__add-to-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
                         {% unless current_variant.available %}
-                        disabled
-                        aria-disabled="true"
-                        {% endunless %}>
+                          disabled
+                          aria-disabled="true"
+                        {% endunless %}
+                      >
                         {% if current_variant.available %}
                           {{ section.settings.product_button_text | default: 'Add to Cart' | escape }}
                         {% else %}
@@ -385,29 +395,31 @@
                         {% endif %}
                       </button>
                     </form>
-                    <!-- <button
-                      type="button"
-                      class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
-                      aria-label="{{ 'products.product.add_to_cart' | t }}"
-                      data-variant-id="{{ current_variant.id }}"
-                      {% unless current_variant.available %}
-                      disabled
-                      aria-disabled="true"
-                      {% endunless %}>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
-                        <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" />
-                        <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" />
-                      </svg>
-                    </button> -->
+                    <!--
+                      <button
+                        type="button"
+                        class="product-card__quick-cart-button{% unless current_variant.available %} button--disabled{% endunless %}"
+                        aria-label="{{ 'products.product.add_to_cart' | t }}"
+                        data-variant-id="{{ current_variant.id }}"
+                        {% unless current_variant.available %}
+                        disabled
+                        aria-disabled="true"
+                        {% endunless %}>
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0 3C0 2.44772 0.447715 2 1 2H2.43845C3.81505 2 5.015 2.93689 5.34887 4.27239L5.53078 5H18.6027C20.8917 5 22.3336 7.45864 21.2234 9.45693L18.4457 14.4569C17.9166 15.4093 16.9127 16 15.8232 16H8.56155C7.18495 16 5.985 15.0631 5.65113 13.7276L3.40859 4.75746C3.2973 4.3123 2.89732 4 2.43845 4H1C0.447715 4 0 3.55228 0 3Z" />
+                          <path d="M9 20C9 21.1046 8.10457 22 7 22C5.89543 22 5 21.1046 5 20C5 18.8954 5.89543 18 7 18C8.10457 18 9 18.8954 9 20Z" />
+                          <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" />
+                        </svg>
+                      </button>
+                    -->
                   </div>
                 {% endif %}
               </div>
@@ -420,58 +432,60 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Popular Products",
-    "class": "section popular-products-section",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "popular_title",
-        "label": "Title",
-        "default": "Popular Products"
-      },
-            {
-        "type": "text",
-        "id": "underTitleText",
-        "label": "Under Title Text",
-        "default": "Under Title Text"
-      },
-      {
-        "type": "collection",
-        "id": "featured_collection",
-        "label": "Collection"
-      },
-      {
-        "type": "range",
-        "id": "products_limit",
-        "min": 2,
-        "max": 16,
-        "step": 1,
-        "label": "Number of products to show",
-        "default": 4
-      },
-      {
-        "type": "url",
-        "id": "show_more_link",
-        "label": " Fallback 'Show More' Link",
-        "info": "If a collection is selected AND has products, 'Show More' links to it. Otherwise, this fallback link is used (if not blank)."
-      }, {
-        "type": "checkbox",
-        "id": "show_add_to_cart_button",
-        "label": "Show 'Add to Cart' button",
-        "default": true
-      }, {
-        "type": "text",
-        "id": "product_button_text",
-        "label": "Add to Cart button text",
-        "default": "Add to Cart"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Popular Products"
-      }
-    ]
-  }
+{
+  "name": "Popular Products",
+  "class": "section popular-products-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "popular_title",
+      "label": "Title",
+      "default": "Popular Products"
+    },
+    {
+      "type": "text",
+      "id": "underTitleText",
+      "label": "Under Title Text",
+      "default": "Under Title Text"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 2,
+      "max": 16,
+      "step": 1,
+      "label": "Number of products to show",
+      "default": 4
+    },
+    {
+      "type": "url",
+      "id": "show_more_link",
+      "label": " Fallback 'Show More' Link",
+      "info": "If a collection is selected AND has products, 'Show More' links to it. Otherwise, this fallback link is used (if not blank)."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart_button",
+      "label": "Show 'Add to Cart' button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_button_text",
+      "label": "Add to Cart button text",
+      "default": "Add to Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popular Products"
+    }
+  ]
+}
 {% endschema %}
