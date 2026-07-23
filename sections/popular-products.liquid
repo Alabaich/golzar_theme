@@ -1,10 +1,12 @@
+{{ 'section-popular-products.css' | asset_url | stylesheet_tag }}
+
 {%- liquid
   assign collection_handle = section.settings.featured_collection
   assign collection_to_display = collections[collection_handle]
   assign products_limit = section.settings.products_limit
 -%}
 
-{% style %}
+{% comment %} {% style %}
   #shopify-section-{{ section.id }},
   #shopify-section-popular-products {
     padding: 40px 0;
@@ -276,7 +278,7 @@
     max-width: 100%;
   }
   }
-{% endstyle %}
+{% endstyle %} {% endcomment %}
 
 <div class="page-width">
   <div class="popular-products-main">
