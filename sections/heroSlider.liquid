@@ -112,6 +112,7 @@
 <div class="hs-hero-slider splide page-width pageWidth">
   <div class="splide__track">
     <ul class="splide__list">
+      {% assign first_slide_image = true %}
       {% for block in section.blocks %}
         {% if block.type == 'slide' %}
           {% assign image = block.settings.image %}
@@ -144,6 +145,7 @@
                   width="auto"
                   height="auto"
                   class="hero-slide-img"
+                  {% if first_slide_image %}fetchpriority="high"{% assign first_slide_image = false %}{% endif %}
                 >
                   
                 <div class="hs-slide-content">
@@ -159,6 +161,7 @@
                 title="{{ heading }}"
                 width="auto"
                 height="auto"
+                {% if first_slide_image %}fetchpriority="high"{% assign first_slide_image = false %}{% endif %}
               >
               <div class="hs-slide-content">
                 {% comment %} <h2>{{ heading }}</h2> {% endcomment %}
@@ -182,6 +185,8 @@
       pauseOnFocus: true,
       heightRatio : 0.4,
       pagination: false,
+      lazyLoad: 'nearby',
+      preloadPages: 1,
     }).mount();
   });
 </script>
