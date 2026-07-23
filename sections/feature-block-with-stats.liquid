@@ -9,7 +9,6 @@
 
 {{ 'section-feature-block-with-stats.css' | asset_url | stylesheet_tag }}
 
-
 {% comment %}
 <style>
   #{{ section_id }} {
@@ -119,7 +118,7 @@
 
   #{{ section_id }} .feature-block-stats__image--main {
       width: 75%;
-      height: 100%;
+      height: auto;
       top: 0;
       right: 0;
       left: auto;
@@ -188,7 +187,7 @@
 
       #{{ section_id }} .feature-block-stats__image--main {
           width: 80%;
-          height: 100%;
+          height: auto;
           max-height: 80%;
           left: 5%;
           top: 0;
@@ -231,6 +230,21 @@
   }
 </style>
 {% endcomment %}
+
+{%- style -%}
+  #{{ section_id }} {
+    --fbs-section-bg: {{ section.settings.section_bg_color }};
+    --fbs-text-color: {{ section.settings.text_color }};
+    --fbs-heading-color: {{ section.settings.heading_color | default: section.settings.text_color }};
+    --fbs-heading-size: {{ section.settings.heading_size }}px;
+    --fbs-subheading-size: {{ section.settings.subheading_size }}px;
+    --fbs-stat-align-items: {{ text_alignment | default: 'flex-start' }};
+    --fbs-stat-number-size: {{ section.settings.stat_number_size }}px;
+    --fbs-stat-number-color: {{ section.settings.stat_number_color | default: section.settings.heading_color | default: section.settings.text_color }};
+    --fbs-stat-text-size: {{ section.settings.stat_text_size }}px;
+    --fbs-stat-text-color: {{ section.settings.stat_text_color | default: section.settings.text_color }};
+  }
+{%- endstyle -%}
 
 <div id="{{ section_id }}" class="feature-block-stats pageWidth">
   <div class="page-width">
