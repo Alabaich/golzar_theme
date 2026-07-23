@@ -7,6 +7,10 @@
   endif
 -%}
 
+{{ 'section-feature-block-with-stats.css' | asset_url | stylesheet_tag }}
+
+
+{% comment %}
 <style>
   #{{ section_id }} {
       background-color: {{ section.settings.section_bg_color }};
@@ -226,6 +230,7 @@
       }
   }
 </style>
+{% endcomment %}
 
 <div id="{{ section_id }}" class="feature-block-stats pageWidth">
   <div class="page-width">
