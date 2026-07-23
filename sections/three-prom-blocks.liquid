@@ -91,11 +91,22 @@
 <div class="hs-three">
   <div class="page-width pageWidth">
     <div class="hs-three-blocks-section">
+      {% assign first_image=true %}
       {% for block in section.blocks %}
         {% if block.type == 'promo_block' %}
           <div class="hs-block-item">
             <a href="{{ block.settings.button_url }}">
-              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.heading }}">
+              <img
+                src="{{ block.settings.image | img_url: '800x' }}"
+                alt="{{ block.settings.heading }}"
+                width="auto"
+                height="auto"
+                {% if first_image %}
+                    fetchpriority="high"
+                    data-fetch-priority
+                    {% assign first_image = false %}
+                  {% endif %}
+              >
               <div class="hs-block-content">
                 <div class="hs-block-content-top">
                   <h3>{{ block.settings.heading }}</h3>
