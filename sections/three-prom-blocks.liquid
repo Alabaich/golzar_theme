@@ -91,7 +91,7 @@
 <div class="hs-three">
   <div class="page-width pageWidth">
     <div class="hs-three-blocks-section">
-      {% assign first_image=true %}
+      {% comment %} {% assign first_image=true %} {% endcomment %}
       {% for block in section.blocks %}
         {% if block.type == 'promo_block' %}
           <div class="hs-block-item">
@@ -101,11 +101,8 @@
                 alt="{{ block.settings.heading }}"
                 width="auto"
                 height="auto"
-                {% if first_image %}
-                    fetchpriority="high"
-                    data-fetch-priority
-                    {% assign first_image = false %}
-                  {% endif %}
+                fetchpriority="high"
+                data-fetch-priority
               >
               <div class="hs-block-content">
                 <div class="hs-block-content-top">
