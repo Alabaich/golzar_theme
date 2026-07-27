@@ -15,6 +15,34 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .xmp-fix-object-fit .card.article-card.card--standard {
+    & .card__inner.color-scheme-1.gradient.ratio {
+      /* display: flex;
+      flex-direction: column; */
+      &::before {
+        content: none;
+      }
+      & > a > .article-card__image-wrapper.card__media {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        inset: revert;
+
+        & .article-card__image.media {
+          position: relative;
+          border-radius: 3px;
+          & img {
+            object-fit: contain;
+            position: relative;
+          }
+        }
+      }
+      & .card__content {
+        display: none;
+      }
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
