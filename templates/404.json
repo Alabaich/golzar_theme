@@ -30,21 +30,10 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "custom_liquid_Q3RFXc": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "{\n.article-card .card__inner::before {\n  content: none;\n}\n\n.article-card .card__inner > a > .card__media {\n  display: block;\n  position: relative;\n  width: 100%;\n  height: 100%;\n  inset: revert;\n}\n\n.article-card .card__inner > a > .card__media .article-card__image.media {\n  position: relative;\n  border-radius: 3px;\n}\n\n.article-card .card__inner > a > .card__media .article-card__image.media img {\n  object-fit: contain;\n  position: relative;\n}\n\n.article-card .card__inner .card__content {\n  display: none;\n}\n<style>",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
     "main",
-    "featured_blog_ATjjHX",
-    "custom_liquid_Q3RFXc"
+    "featured_blog_ATjjHX"
   ]
 }
