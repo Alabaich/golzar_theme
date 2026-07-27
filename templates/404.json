@@ -15,6 +15,7 @@
     },
     "featured_blog_ATjjHX": {
       "type": "featured-blog",
+      "custom_css": [],
       "settings": {
         "heading": "Blog posts",
         "heading_size": "h1",
