@@ -267,10 +267,6 @@
 }
 
 @media only screen and (max-width: 767px) {
-  /* XMP Fix Horiz Scroll on Product Page */
-  body.product .grid__item.product__media-wrapper {
-    overflow-x: clip;
-  }
   /* .section.product_main_sec .product__info-wrapper .product--vendor {
     margin: 10px 0 0;
   } */
