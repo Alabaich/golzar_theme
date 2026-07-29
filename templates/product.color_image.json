@@ -142,9 +142,7 @@
         "compatible_items_FyfNrL",
         "product_information_gjpgNk"
       ],
-      "custom_css": [
-        ".grid__item.product__media-wrapper {overflow-x: clip;}"
-      ],
+      "custom_css": [],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
