@@ -42,7 +42,7 @@
           "settings": {
             "label_text": "VIP Exclusive Price",
             "vip_bg_color": "#1a1a1a",
-            "border_color": "#D4AF37",
+            "border_color": "#d4af37",
             "vip_text_color": "#ffffff",
             "vip_price_color": "#ffffff",
             "show_original": true,
@@ -141,6 +141,9 @@
         "required_items_9nVkDq",
         "compatible_items_FyfNrL",
         "product_information_gjpgNk"
+      ],
+      "custom_css": [
+        ".grid__item.product__media-wrapper {overflow-x: clip;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -280,14 +283,18 @@
       "type": "apps",
       "blocks": {
         "ryviu_product_reviews_app_ryviu_widget_KrYhJU": {
-          "type": "shopify://apps/ryviu-product-reviews-app/blocks/ryviu-widget/807ad6ed-1a6a-4559-abea-ed062858d9da",
+          "type": "shopify://apps/ryviu-product-reviews/blocks/ryviu-widget/807ad6ed-1a6a-4559-abea-ed062858d9da",
           "settings": {
+            "layout": "",
+            "layout_tablet": "",
+            "layout_mobile": "",
             "r_wapper_class": "",
             "r_max_width": 1920,
             "r_padding_block": 0,
             "hide_when_no_reviews": false,
             "one_col_on_mobile": false,
-            "hide_title_image_form": false
+            "hide_title_image_form": false,
+            "enable_schema": false
           }
         }
       },
