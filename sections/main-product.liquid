@@ -514,7 +514,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div>
+  <div data-version="1">
     <div class="page-width product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} {% unless product.media.size > 0 %}product--no-media{% endunless %} product-main-flex-container">
       <div class="grid__item product__media-wrapper" style="position:relative;">
                 {% if product.vendor == 'Alps' or product.vendor == 'Bocchi' or product.vendor == 'Visentin' or product.vendor == 'Kodaen' %}
