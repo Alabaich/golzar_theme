@@ -43,6 +43,13 @@
     "brands_grid_section_ktFxMd": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_prdwHF": {
+          "type": "one_brand",
+          "settings": {
+            "text": "Delta Brand Page",
+            "linkToBrand": "shopify://pages/delta-golzar-home"
+          }
+        },
         "one_brand_zwCEYC": {
           "type": "one_brand",
           "settings": {
@@ -117,6 +124,7 @@
         }
       },
       "block_order": [
+        "one_brand_prdwHF",
         "one_brand_zwCEYC",
         "one_brand_qabahJ",
         "one_brand_nVHx3C",
