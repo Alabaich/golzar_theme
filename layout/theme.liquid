@@ -465,8 +465,7 @@ document.addEventListener("DOMContentLoaded", function() {
     {%- endif -%}
   <script>
   document.addEventListener('click', function(e) {
-    var isAvailabilityBtn = e.target.closest('#chat-block, #chat-button-text, [onclick*="openChatBox"]') || 
-                        (e.target.textContent && e.target.textContent.trim().toLowerCase().includes('check availability'));
+    var isAvailabilityBtn = e.target.closest('#chat-block, #chat-button-text, [onclick*="openChatBox"]');
     
     if (isAvailabilityBtn) {
       e.preventDefault();
