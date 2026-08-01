@@ -1110,170 +1110,58 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 </style>
 
 {% comment %}
-  Opens Shopify Chat by clicking the light-DOM activator button.
-  DEBUG logs prefixed with [openChatBox] — remove after fix.
+  Shopify Chat lives inside <shopify-chat> shadow DOM.
+  Prefer shopify-agent-runtime.openFromActivator(), else click button.activator.
 {% endcomment %}
 <script>
   window.openChatBox = function openChatBox(event) {
-    var log = [];
-    function L(msg, data) {
-      try {
-        log.push(msg + (data !== undefined ? ' | ' + JSON.stringify(data) : ''));
-        if (data !== undefined) console.log('[openChatBox]', msg, data);
-        else console.log('[openChatBox]', msg);
-      } catch (e) {
-        console.log('[openChatBox]', msg);
-      }
-    }
-
-    L('CALLED', {
-      type: event && event.type,
-      target: event && event.target && (event.target.id || event.target.tagName),
-      href: window.location.href
-    });
-
     if (event) {
       event.preventDefault();
       event.stopPropagation();
-      L('preventDefault + stopPropagation done');
     }
 
-    var wrapper = document.querySelector('#shopify-element-wrapper');
-    var runtime = document.querySelector('shopify-agent-runtime');
-    L('wrapper found', !!wrapper);
-    L('wrapper.innerHTML preview', wrapper ? wrapper.innerHTML.slice(0, 500) : null);
-    L('runtime found', !!runtime);
-    L('runtime.open attr', runtime ? runtime.hasAttribute('open') : null);
-    L('runtime.outerHTML preview', runtime ? runtime.outerHTML.slice(0, 300) : null);
-
-    if (runtime && runtime.hasAttribute('open')) {
-      L('RESULT: already open — noop');
-      console.log('[openChatBox] FULL LOG:\n' + log.join('\n'));
+    var chatHost = document.querySelector('shopify-chat');
+    var outerRoot = chatHost && chatHost.shadowRoot;
+    if (!outerRoot) {
+      console.warn('[openChatBox] shopify-chat not found');
       return false;
     }
 
-    var selectors = [
-      '#shopify-element-wrapper button.activator',
-      '#shopify-element-wrapper button[part="activator"]',
-      '#shopify-element-wrapper .activator-nudge button',
-      'button.activator[aria-label="Chat"]',
-      'button[part="activator"][aria-label="Chat"]',
-      'button.activator',
-      'button[aria-label="Chat"]'
-    ];
-
-    var activator = null;
-    var matchedSelector = null;
-    for (var i = 0; i < selectors.length; i++) {
-      var el = document.querySelector(selectors[i]);
-      L('selector try: ' + selectors[i], !!el);
-      if (el && !activator) {
-        activator = el;
-        matchedSelector = selectors[i];
-      }
-    }
-
-    // Also list all buttons under wrapper
-    if (wrapper) {
-      var buttons = wrapper.querySelectorAll('button');
-      L('buttons inside wrapper count', buttons.length);
-      for (var b = 0; b < buttons.length; b++) {
-        L('wrapper button[' + b + ']', {
-          className: buttons[b].className,
-          part: buttons[b].getAttribute('part'),
-          ariaLabel: buttons[b].getAttribute('aria-label'),
-          ariaExpanded: buttons[b].getAttribute('aria-expanded'),
-          text: (buttons[b].textContent || '').trim().slice(0, 40)
-        });
-      }
-    }
-
-    function forceClick(el, label) {
-      L('forceClick start: ' + label, {
-        tag: el.tagName,
-        className: el.className,
-        part: el.getAttribute('part'),
-        ariaLabel: el.getAttribute('aria-label')
-      });
-      try {
-        el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-      } catch (e) {}
-      try {
-        el.focus({ preventScroll: true });
-        L('focus ok');
-      } catch (e) {
-        L('focus failed', String(e));
-      }
-
-      var rect = el.getBoundingClientRect();
-      L('getBoundingClientRect', {
-        x: rect.x, y: rect.y, w: rect.width, h: rect.height,
-        visible: rect.width > 0 && rect.height > 0
-      });
-
-      var opts = { bubbles: true, cancelable: true, composed: true, view: window, clientX: rect.left + 5, clientY: rect.top + 5 };
-      try {
-        el.dispatchEvent(new PointerEvent('pointerdown', opts));
-        L('pointerdown dispatched');
-      } catch (e) { L('pointerdown failed', String(e)); }
-      try {
-        el.dispatchEvent(new MouseEvent('mousedown', opts));
-        L('mousedown dispatched');
-      } catch (e) { L('mousedown failed', String(e)); }
-      try {
-        el.click();
-        L('el.click() ok');
-      } catch (e) { L('el.click() failed', String(e)); }
-      try {
-        el.dispatchEvent(new MouseEvent('mouseup', opts));
-        L('mouseup dispatched');
-      } catch (e) {}
-      try {
-        el.dispatchEvent(new MouseEvent('click', opts));
-        L('MouseEvent click dispatched');
-      } catch (e) { L('MouseEvent click failed', String(e)); }
-
-      setTimeout(function () {
-        var runtimeAfter = document.querySelector('shopify-agent-runtime');
-        var activatorAfter = document.querySelector('#shopify-element-wrapper button.activator');
-        L('AFTER 300ms runtime.open', runtimeAfter ? runtimeAfter.hasAttribute('open') : null);
-        L('AFTER 300ms activator aria-expanded', activatorAfter ? activatorAfter.getAttribute('aria-expanded') : null);
-        L('AFTER 300ms wrapper preview', (document.querySelector('#shopify-element-wrapper') || {}).innerHTML
-          ? document.querySelector('#shopify-element-wrapper').innerHTML.slice(0, 400)
-          : null);
-        console.log('[openChatBox] FULL LOG:\n' + log.join('\n'));
-        console.log('[openChatBox] Copy this object:', { log: log, wrapperHTML: (document.querySelector('#shopify-element-wrapper') || {}).innerHTML });
-      }, 300);
-    }
-
-    if (activator) {
-      L('RESULT: found activator via ' + matchedSelector);
-      forceClick(activator, matchedSelector);
-      return false;
-    }
-
+    var runtime = outerRoot.querySelector('shopify-agent-runtime');
     if (runtime) {
-      L('RESULT: no activator, setting open attr on runtime');
-      try {
-        runtime.setAttribute('open', '');
-        L('setAttribute open done', runtime.hasAttribute('open'));
-      } catch (e) {
-        L('setAttribute open failed', String(e));
+      if (runtime.open === true) return false;
+
+      if (typeof runtime.openFromActivator === 'function') {
+        runtime.openFromActivator();
+        return false;
       }
-      setTimeout(function () {
-        L('AFTER setAttribute wrapper preview', wrapper ? wrapper.innerHTML.slice(0, 400) : null);
-        console.log('[openChatBox] FULL LOG:\n' + log.join('\n'));
-      }, 300);
+      if (typeof runtime.show === 'function') {
+        runtime.show();
+        return false;
+      }
+
+      try { runtime.open = true; } catch (e) {}
+
+      var nestedRoot = runtime.shadowRoot;
+      var nestedBtn =
+        nestedRoot &&
+        nestedRoot.querySelector('button.activator, button[part="activator"], button[aria-label="Chat"]');
+      if (nestedBtn) nestedBtn.click();
       return false;
     }
 
-    L('RESULT: FAILED — no activator and no runtime');
-    console.log('[openChatBox] FULL LOG:\n' + log.join('\n'));
+    // Default closed markup: activator in outer shadow
+    var activator = outerRoot.querySelector(
+      'button.activator, button[part="activator"], button[aria-label="Chat"]'
+    );
+    if (activator) {
+      activator.click();
+      return false;
+    }
+
+    console.warn('[openChatBox] no runtime/activator inside shopify-chat');
     return false;
   };
-
-  // Confirm script loaded
-  console.log('[openChatBox] script loaded, typeof window.openChatBox =', typeof window.openChatBox);
 </script>
 
 {% if product.vendor == 'Delta' %}
