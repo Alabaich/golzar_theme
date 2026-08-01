@@ -1110,8 +1110,8 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 </style>
 
 {% comment %}
-  Inline chat opener so Check Availability works even if the async asset fails to load.
-  Targets shopify-agent-runtime (new Shopify Chat) and falls back to ?show_chat.
+  Opens Shopify Chat by clicking the light-DOM activator button:
+  #shopify-element-wrapper button.activator[part="activator"]
 {% endcomment %}
 <script>
   window.openChatBox = function openChatBox(event) {
@@ -1120,116 +1120,30 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
       event.stopPropagation();
     }
 
-    function clickEl(el) {
-      if (!el) return false;
-      try {
-        el.focus({ preventScroll: true });
-      } catch (e) {}
-      try {
-        el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, composed: true, cancelable: true }));
-        el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true, cancelable: true }));
-        el.click();
-        el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, composed: true, cancelable: true }));
-        el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, composed: true, cancelable: true }));
-        return true;
-      } catch (e) {
-        try { el.click(); return true; } catch (err) { return false; }
-      }
-    }
-
-    function isChatControl(el) {
-      if (!el || el.nodeType !== 1) return false;
-      var part = (el.getAttribute('part') || '').toLowerCase();
-      if (part.indexOf('activator') !== -1) return true;
-      var label = ((el.getAttribute('aria-label') || '') + ' ' + (el.textContent || '')).toLowerCase().trim();
-      var tag = el.tagName ? el.tagName.toLowerCase() : '';
-      if ((tag === 'button' || el.getAttribute('role') === 'button') && label.indexOf('chat') !== -1) return true;
+    // Already open
+    var runtime = document.querySelector('shopify-agent-runtime');
+    if (runtime && runtime.hasAttribute('open')) {
       return false;
     }
 
-    function walk(root, visit) {
-      if (!root) return;
-      var nodes = root.querySelectorAll('*');
-      for (var i = 0; i < nodes.length; i++) {
-        visit(nodes[i]);
-        if (nodes[i].shadowRoot) walk(nodes[i].shadowRoot, visit);
-      }
-    }
+    // Default closed state: real Chat button in light DOM
+    var activator =
+      document.querySelector('#shopify-element-wrapper button.activator') ||
+      document.querySelector('#shopify-element-wrapper button[part="activator"]') ||
+      document.querySelector('button.activator[aria-label="Chat"]') ||
+      document.querySelector('button[part="activator"][aria-label="Chat"]');
 
-    function tryClickChatActivator() {
-      var hosts = document.querySelectorAll(
-        'shopify-agent-runtime, #shopify-element-wrapper, inbox-online-store-chat, #ShopifyChat, shopify-chat'
-      );
-      var found = null;
-
-      for (var h = 0; h < hosts.length; h++) {
-        var host = hosts[h];
-        if (isChatControl(host) && clickEl(host)) return true;
-
-        if (typeof host.open === 'function') {
-          try { host.open(); return true; } catch (e) {}
-        }
-        if (typeof host.openChannel === 'function') {
-          try { host.openChannel('chat'); return true; } catch (e) {}
-        }
-
-        var roots = [host.shadowRoot, host].filter(Boolean);
-        for (var r = 0; r < roots.length; r++) {
-          walk(roots[r], function (el) {
-            if (!found && isChatControl(el)) found = el;
-          });
-        }
-      }
-
-      // Full-page walk (covers nested agent shell shadows)
-      if (!found) {
-        walk(document, function (el) {
-          if (!found && isChatControl(el)) found = el;
-        });
-      }
-
-      if (found && clickEl(found)) return true;
-
-      // Hit-test the bottom-left Chat launcher (closed shadow DOM)
-      var points = [
-        [40, window.innerHeight - 40],
-        [56, window.innerHeight - 36],
-        [72, window.innerHeight - 48],
-        [28, window.innerHeight - 28]
-      ];
-      for (var p = 0; p < points.length; p++) {
-        var hit = document.elementFromPoint(points[p][0], points[p][1]);
-        if (!hit) continue;
-        if (
-          hit.closest('shopify-agent-runtime, #shopify-element-wrapper, inbox-online-store-chat, #ShopifyChat') ||
-          isChatControl(hit)
-        ) {
-          if (clickEl(hit)) return true;
-        }
-      }
-
-      try {
-        if (window.Shopify && window.Shopify.chat && typeof window.Shopify.chat.open === 'function') {
-          window.Shopify.chat.open();
-          return true;
-        }
-      } catch (e) {}
-
+    if (activator) {
+      activator.click();
       return false;
     }
 
-    if (tryClickChatActivator()) return false;
-
-    // Shopify-supported fallback: reload with show_chat
-    try {
-      var url = new URL(window.location.href);
-      if (!url.searchParams.has('show_chat')) {
-        url.searchParams.set('show_chat', 'true');
-        window.location.assign(url.toString());
-      }
-    } catch (e) {
-      window.location.href = window.location.pathname + '?show_chat=true';
+    // Runtime present but closed: set open attribute (opened state markup)
+    if (runtime) {
+      runtime.setAttribute('open', '');
+      return false;
     }
+
     return false;
   };
 </script>
