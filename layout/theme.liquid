@@ -463,5 +463,31 @@ document.addEventListener("DOMContentLoaded", function() {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+  <script>
+  document.addEventListener('click', function(e) {
+    var isAvailabilityBtn = e.target.closest('#chat-block, #chat-button-text, [onclick*="openChatBox"]');
+    
+    if (isAvailabilityBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var shopifyChat = document.querySelector('shopify-chat');
+      if (shopifyChat) {
+        if (typeof shopifyChat.open === 'function') {
+          shopifyChat.open();
+          return;
+        } 
+        if (shopifyChat.shadowRoot) {
+          var activator = shopifyChat.shadowRoot.querySelector('button.activator, button[part="activator"], button');
+          if (activator) {
+            activator.click();
+            return;
+          }
+        }
+        shopifyChat.click();
+      }
+    }
+  }, true);
+</script>
   </body>
 </html>
