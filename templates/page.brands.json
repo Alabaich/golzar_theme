@@ -46,7 +46,9 @@
         "one_brand_prdwHF": {
           "type": "one_brand",
           "settings": {
-            "text": "Delta Brand Page",
+            "showcase_image": "shopify://shop_images/DELTA-49.jpg",
+            "logo_image": "shopify://shop_images/DELTA.webp",
+            "text": "Delta offers premium kitchen and bathroom faucets, shower systems, and tub fillers designed for lasting performance and modern style. Shop Delta in Canada at Golzar Home.",
             "linkToBrand": "shopify://pages/delta-golzar-home"
           }
         },
