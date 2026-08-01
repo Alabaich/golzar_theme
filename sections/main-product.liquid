@@ -1109,17 +1109,141 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
         
 </style>
 
+{% comment %}
+  Inline chat opener so Check Availability works even if the async asset fails to load.
+  Targets shopify-agent-runtime (new Shopify Chat) and falls back to ?show_chat.
+{% endcomment %}
+<script>
+  window.openChatBox = function openChatBox(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    function clickEl(el) {
+      if (!el) return false;
+      try {
+        el.focus({ preventScroll: true });
+      } catch (e) {}
+      try {
+        el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, composed: true, cancelable: true }));
+        el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true, cancelable: true }));
+        el.click();
+        el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, composed: true, cancelable: true }));
+        el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, composed: true, cancelable: true }));
+        return true;
+      } catch (e) {
+        try { el.click(); return true; } catch (err) { return false; }
+      }
+    }
+
+    function isChatControl(el) {
+      if (!el || el.nodeType !== 1) return false;
+      var part = (el.getAttribute('part') || '').toLowerCase();
+      if (part.indexOf('activator') !== -1) return true;
+      var label = ((el.getAttribute('aria-label') || '') + ' ' + (el.textContent || '')).toLowerCase().trim();
+      var tag = el.tagName ? el.tagName.toLowerCase() : '';
+      if ((tag === 'button' || el.getAttribute('role') === 'button') && label.indexOf('chat') !== -1) return true;
+      return false;
+    }
+
+    function walk(root, visit) {
+      if (!root) return;
+      var nodes = root.querySelectorAll('*');
+      for (var i = 0; i < nodes.length; i++) {
+        visit(nodes[i]);
+        if (nodes[i].shadowRoot) walk(nodes[i].shadowRoot, visit);
+      }
+    }
+
+    function tryClickChatActivator() {
+      var hosts = document.querySelectorAll(
+        'shopify-agent-runtime, #shopify-element-wrapper, inbox-online-store-chat, #ShopifyChat, shopify-chat'
+      );
+      var found = null;
+
+      for (var h = 0; h < hosts.length; h++) {
+        var host = hosts[h];
+        if (isChatControl(host) && clickEl(host)) return true;
+
+        if (typeof host.open === 'function') {
+          try { host.open(); return true; } catch (e) {}
+        }
+        if (typeof host.openChannel === 'function') {
+          try { host.openChannel('chat'); return true; } catch (e) {}
+        }
+
+        var roots = [host.shadowRoot, host].filter(Boolean);
+        for (var r = 0; r < roots.length; r++) {
+          walk(roots[r], function (el) {
+            if (!found && isChatControl(el)) found = el;
+          });
+        }
+      }
+
+      // Full-page walk (covers nested agent shell shadows)
+      if (!found) {
+        walk(document, function (el) {
+          if (!found && isChatControl(el)) found = el;
+        });
+      }
+
+      if (found && clickEl(found)) return true;
+
+      // Hit-test the bottom-left Chat launcher (closed shadow DOM)
+      var points = [
+        [40, window.innerHeight - 40],
+        [56, window.innerHeight - 36],
+        [72, window.innerHeight - 48],
+        [28, window.innerHeight - 28]
+      ];
+      for (var p = 0; p < points.length; p++) {
+        var hit = document.elementFromPoint(points[p][0], points[p][1]);
+        if (!hit) continue;
+        if (
+          hit.closest('shopify-agent-runtime, #shopify-element-wrapper, inbox-online-store-chat, #ShopifyChat') ||
+          isChatControl(hit)
+        ) {
+          if (clickEl(hit)) return true;
+        }
+      }
+
+      try {
+        if (window.Shopify && window.Shopify.chat && typeof window.Shopify.chat.open === 'function') {
+          window.Shopify.chat.open();
+          return true;
+        }
+      } catch (e) {}
+
+      return false;
+    }
+
+    if (tryClickChatActivator()) return false;
+
+    // Shopify-supported fallback: reload with show_chat
+    try {
+      var url = new URL(window.location.href);
+      if (!url.searchParams.has('show_chat')) {
+        url.searchParams.set('show_chat', 'true');
+        window.location.assign(url.toString());
+      }
+    } catch (e) {
+      window.location.href = window.location.pathname + '?show_chat=true';
+    }
+    return false;
+  };
+</script>
+
 {% if product.vendor == 'Delta' %}
   <div id="chat-block" style="margin: 15px 0 0; width: 100%;">
-    <span
-      role="button"
-      tabindex="0"
-      onclick="openChatBox(event)"
-      onkeydown="if(event.key==='Enter'||event.key===' '){openChatBox(event)}"
-      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;"
+    <a
+      href="?show_chat=true"
+      id="chat-availability-btn"
+      onclick="return openChatBox(event)"
+      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; text-decoration: none;"
     >
       <span id="chat-button-text">Chat For Details</span>
-    </span>
+    </a>
   </div>
 {% else %}
   <div id="quote-button-block" style="display: {% if product.tags contains 'ask-for-quote' %}block{% else %}none{% endif %};">
@@ -1143,15 +1267,14 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     </div>
 
   <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
-    <span
-      role="button"
-      tabindex="0"
-      onclick="openChatBox(event)"
-      onkeydown="if(event.key==='Enter'||event.key===' '){openChatBox(event)}"
-      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer;"
+    <a
+      href="?show_chat=true"
+      id="chat-availability-btn"
+      onclick="return openChatBox(event)"
+      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; text-decoration: none;"
     >
       <span id="chat-button-text">Check Availability</span>
-    </span>
+    </a>
     <p style="margin-top: 10px;" id="backorder-message">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M11.9998 21C16.9148 21 21 16.9235 21 12C21 7.08513 16.9058 3 11.9908 3C7.06752 3 3 7.08513 3 12C3 16.9235 7.07618 21 11.9998 21ZM11.9915 13.3237C11.5236 13.3237 11.2679 13.05 11.2499 12.582L11.1264 8.22396C11.1087 7.73831 11.4791 7.39459 11.9821 7.39459C12.4764 7.39459 12.8556 7.74734 12.8382 8.23262L12.7144 12.5828C12.6967 13.059 12.432 13.3241 11.9912 13.3241M11.9912 16.5712C11.4791 16.5712 11.0025 16.1653 11.0025 15.6179C11.0025 15.0705 11.4705 14.6654 11.9912 14.6654C12.5028 14.6654 12.979 15.0622 12.979 15.6179C12.979 16.174 12.4938 16.5712 11.9912 16.5712Z" fill="#FF3B3B"/>
