@@ -1110,70 +1110,87 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
 </style>
 
 {% comment %}
-  Shopify Chat lives inside <shopify-chat> shadow DOM.
-  Prefer shopify-agent-runtime.openFromActivator(), else click button.activator.
+  Opens <shopify-chat> via host.show() — verified against live bathroomsupplier.ca
 {% endcomment %}
 <script>
-  window.openChatBox = function openChatBox(event) {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  (function () {
+    var opening = false;
 
-    var chatHost = document.querySelector('shopify-chat');
-    var outerRoot = chatHost && chatHost.shadowRoot;
-    if (!outerRoot) {
-      console.warn('[openChatBox] shopify-chat not found');
-      return false;
-    }
-
-    var runtime = outerRoot.querySelector('shopify-agent-runtime');
-    if (runtime) {
-      if (runtime.open === true) return false;
-
-      if (typeof runtime.openFromActivator === 'function') {
-        runtime.openFromActivator();
-        return false;
-      }
-      if (typeof runtime.show === 'function') {
-        runtime.show();
-        return false;
+    window.openChatBox = function openChatBox(event) {
+      if (event) {
+        try {
+          event.preventDefault();
+          event.stopPropagation();
+        } catch (e) {}
       }
 
-      try { runtime.open = true; } catch (e) {}
+      if (opening) return false;
+      opening = true;
+      setTimeout(function () {
+        opening = false;
+      }, 600);
 
-      var nestedRoot = runtime.shadowRoot;
-      var nestedBtn =
-        nestedRoot &&
-        nestedRoot.querySelector('button.activator, button[part="activator"], button[aria-label="Chat"]');
-      if (nestedBtn) nestedBtn.click();
+      try {
+        var chatHost = document.querySelector('shopify-chat');
+        if (!chatHost) {
+          console.warn('[openChatBox] shopify-chat not found');
+          return false;
+        }
+
+        if (typeof chatHost.show === 'function') {
+          chatHost.show();
+          return false;
+        }
+
+        var outerRoot = chatHost.shadowRoot;
+        var runtime = outerRoot && outerRoot.querySelector('shopify-agent-runtime');
+        if (runtime) {
+          if (typeof runtime.openFromActivator === 'function') {
+            runtime.openFromActivator();
+            return false;
+          }
+          if (typeof runtime.show === 'function') {
+            runtime.show();
+            return false;
+          }
+          try {
+            runtime.open = true;
+          } catch (e) {}
+          return false;
+        }
+
+        console.warn('[openChatBox] no show()/runtime on shopify-chat');
+      } catch (err) {
+        console.error('[openChatBox] error', err);
+      }
       return false;
-    }
+    };
 
-    // Default closed markup: activator in outer shadow
-    var activator = outerRoot.querySelector(
-      'button.activator, button[part="activator"], button[aria-label="Chat"]'
+    document.addEventListener(
+      'click',
+      function (event) {
+        var target = event.target;
+        if (!target || !target.closest) return;
+        var btn = target.closest('#chat-availability-btn, [data-open-shopify-chat]');
+        if (!btn) return;
+        openChatBox(event);
+      },
+      true
     );
-    if (activator) {
-      activator.click();
-      return false;
-    }
-
-    console.warn('[openChatBox] no runtime/activator inside shopify-chat');
-    return false;
-  };
+  })();
 </script>
 
 {% if product.vendor == 'Delta' %}
   <div id="chat-block" style="margin: 15px 0 0; width: 100%;">
-    <a
-      href="?show_chat=true"
+    <button
+      type="button"
       id="chat-availability-btn"
-      onclick="return openChatBox(event)"
-      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; text-decoration: none;"
+      data-open-shopify-chat
+      onclick="openChatBox(event)"
+      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; border: 0; font: inherit;"
     >
       <span id="chat-button-text">Chat For Details</span>
-    </a>
+    </button>
   </div>
 {% else %}
   <div id="quote-button-block" style="display: {% if product.tags contains 'ask-for-quote' %}block{% else %}none{% endif %};">
@@ -1197,14 +1214,15 @@ function fallbackCopyTextToClipboard(skuElement, text, originalText) {
     </div>
 
   <div id="chat-block" style="display: none; margin: 15px 0 0; width: 100%;">
-    <a
-      href="?show_chat=true"
+    <button
+      type="button"
       id="chat-availability-btn"
-      onclick="return openChatBox(event)"
-      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; text-decoration: none;"
+      data-open-shopify-chat
+      onclick="openChatBox(event)"
+      style="display: flex; justify-content: center; width: 100%; padding: 12px 24px; border-radius: 24px; background-color: #002642; color: white; cursor: pointer; border: 0; font: inherit;"
     >
       <span id="chat-button-text">Check Availability</span>
-    </a>
+    </button>
     <p style="margin-top: 10px;" id="backorder-message">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M11.9998 21C16.9148 21 21 16.9235 21 12C21 7.08513 16.9058 3 11.9908 3C7.06752 3 3 7.08513 3 12C3 16.9235 7.07618 21 11.9998 21ZM11.9915 13.3237C11.5236 13.3237 11.2679 13.05 11.2499 12.582L11.1264 8.22396C11.1087 7.73831 11.4791 7.39459 11.9821 7.39459C12.4764 7.39459 12.8556 7.74734 12.8382 8.23262L12.7144 12.5828C12.6967 13.059 12.432 13.3241 11.9912 13.3241M11.9912 16.5712C11.4791 16.5712 11.0025 16.1653 11.0025 15.6179C11.0025 15.0705 11.4705 14.6654 11.9912 14.6654C12.5028 14.6654 12.979 15.0622 12.979 15.6179C12.979 16.174 12.4938 16.5712 11.9912 16.5712Z" fill="#FF3B3B"/>
