@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/the-house-of-rohl-kitchen-riobel-lateral-l-002-662197b6ca908.jpg",
-        "heading": "Riobel. Inspired design meets brilliant engineering",
-        "text": "<p>Where Beautiful Design And Advanced Performance Come Together</p>",
+        "image": "shopify://shop_images/pulsify_hand-shower_wallstories-mattwhite_man-in-bathroom-ambiance_16x9_e2286d66-6d75-4940-b128-21633be63e88.jpg",
+        "heading": "hansgrohe. Meet the beauty of water.",
+        "text": "<p>Modern design and refreshingly high-quality products</p>",
         "button_label": "Discover Brand",
-        "button_link": "shopify://collections/riobel"
+        "button_link": "shopify://collections/hansgrohe"
       }
     },
     "brand_story_r4qCUV": {
@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "House of Rohl Stories",
-        "heading": "THE STORY OF A LIFE WELL CRAFTED™",
-        "text": "<p>We believe distinctive stories are what make life exceptional.<br/>At House of Rohl®,<br/>A portfolio of luxury décor brands,<br/>We pursue the discovery of time-honored craft<br/>that opens the door to stories unlike any other.</p>",
+        "label": "Pulsify: Simply full of life",
+        "heading": "Unparalleled shower experiences for any size bathroom",
+        "text": "<p>Want wonderful moments of wellbeing with water, even if you don't have much space in the bathroom? hansgrohe developed Pulsify especially for you. The modern shower family envelops your body with microfine PowderRain and adapts perfectly to your space – however tiny it may be. Enjoy incomparable showering experiences, great comfort features, and individual design combos!</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -86,8 +86,8 @@
         "category_GFa6Kb": {
           "type": "category",
           "settings": {
-            "collection": "riobel-vessel-sink-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN.jpg"
+            "collection": "hansgrohe-bathroom-faucet",
+            "image": "shopify://shop_images/vivenis-basin-mixer_part-ambiance_16x9_9eb660b8-f2c8-48f9-827e-870b16fd5785.jpg"
           }
         },
         "category_B9xPCm": {
@@ -103,36 +103,12 @@
             "collection": "riobel-floor-mount-tub-faucets",
             "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_8ca91447-1e94-421e-9c73-b37b6879a267.jpg"
           }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "riobel-single-hole-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_49e99b34-6b4a-4821-95be-a9136d22782b.jpg"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "riobel-kitchen-faucets",
-            "image": "shopify://shop_images/4e7d8218-a080-423d-80dc-2582a7eb8a4b-at1600.jpg"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "riobel-wall-mounted-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_63c85a4f-dac8-404f-ac2d-d81cba9e6d76.jpg"
-          }
         }
       },
       "block_order": [
         "category_GFa6Kb",
         "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK"
+        "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
       "settings": {
