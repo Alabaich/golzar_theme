@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/Duravit__2559562_300_11296652-776c-4864-a5b1-bf8a18065673.jpg",
-        "heading": "Discover the art of living with Duravit.",
-        "text": "<p>Express your personality with our range of styles and finishes.</p>",
+        "image": "shopify://shop_images/4710BCVU_01_dc395d84-32b3-414c-b6ac-08fb679d315a.jpg",
+        "heading": "About Contrac's Professional Plumbing Solutions",
+        "text": "<p>DELIVERING TRADE-TRUSTED BATH PRODUCTS ACROSS NORTH AMERICA</p>",
         "button_label": "Discover Brand",
-        "button_link": "https://bathroomsupplier.ca/collections/vendors?q=Duravit"
+        "button_link": "shopify://collections/contrac"
       }
     },
     "brand_story_VTzE3X": {
@@ -73,9 +73,9 @@
       "name": "Brand Story",
       "settings": {
         "content_width": 1400,
-        "label": "Tradition Since 1817",
-        "heading": "Elevating the Everyday",
-        "text": "<p>From its roots in the Black Forest, Duravit has evolved into a global leader in designer bathrooms. We believe in transforming ordinary moments into artistic experiences. By combining sustainable manufacturing with timeless aesthetics, we create living spaces where the highest quality meets a unique sense of well-being.</p>",
+        "label": "A Proud Member of the FGI Industries Family",
+        "heading": "Driven by Innovation and Service",
+        "text": "<p>Contrac is a trusted name in North American plumbing, offering a wide range of residential and commercial vitreous china fixtures. Built for performance and backed by decades of expertise, our products are the first choice for professional plumbers, contractors, and project developers. Whether you’re outfitting a multi-unit build or upgrading a commercial space, Contrac delivers products that work—every time.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -86,7 +86,7 @@
         "category_Jq4YGW": {
           "type": "category",
           "settings": {
-            "collection": "duravit-bathroom-vanities",
+            "collection": "contrac-two-piece-toilets",
             "image": "shopify://shop_images/image_1ac97d08-2694-4c84-83b2-d90bb49f524b.webp"
           }
         },
@@ -102,40 +102,16 @@
             "collection": "duravit-wall-mounted-toilets",
             "image": "shopify://shop_images/image_bdb88455-0230-4681-8092-fbb4f14254f1.webp"
           }
-        },
-        "category_ejVpwL": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-two-piece-toilets",
-            "image": "shopify://shop_images/image_c5905388-eb9d-4142-9e90-36eed7d39392.webp"
-          }
-        },
-        "category_inz6n7": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-bathroom-sinks",
-            "image": "shopify://shop_images/image_37e439f5-b3ac-4d66-a77d-1c9eaa7d703d.webp"
-          }
-        },
-        "category_LJKbDK": {
-          "type": "category",
-          "settings": {
-            "collection": "duravit-one-piece-toilets",
-            "image": "shopify://shop_images/image_bb29979b-1227-421c-b153-7983b45dd0ce.webp"
-          }
         }
       },
       "block_order": [
         "category_Jq4YGW",
         "category_B9xPCm",
-        "category_8HJ8ec",
-        "category_ejVpwL",
-        "category_inz6n7",
-        "category_LJKbDK"
+        "category_8HJ8ec"
       ],
       "name": "Featured Product Groups",
       "settings": {
-        "title": "Featured Groups"
+        "title": "Product Categories"
       }
     },
     "popular_products_HTNHPY": {
