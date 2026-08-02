@@ -100,8 +100,8 @@
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "riobel-floor-mount-tub-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_8ca91447-1e94-421e-9c73-b37b6879a267.jpg"
+            "collection": "hansgrohe-shower-kits",
+            "image": "shopify://shop_images/raindance-e-300-air-1jet-overhead-shower_fixfit-porter-300_ambience_4x3_7c7dc3a9-ce21-4151-89b7-5e95ea9e9339.jpg"
           }
         }
       },
@@ -121,7 +121,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "riobel",
+        "featured_collection": "hansgrohe",
         "products_limit": 4,
         "show_more_link": "shopify://collections/vogt-products",
         "show_add_to_cart_button": true,
