@@ -133,9 +133,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "RIU™ collection",
-        "heading": "Beauty That Evolves",
-        "text": "<p>The simple beauty of the Riu faucet collection makes it a natural for urban industrial settings and minimalist<br/>spaces. And Riu can fi t transitional bathrooms with subtlety and grace. You can personalize the look with<br/>a cross or level handle, and one of fi ve fi nishes. Behind Riu’s sleek form is functionality with engineering<br/>brilliance, creating a stand-out piece that performs.</p>",
+        "label": "Trends for your kitchen",
+        "heading": "Multi-tasking at the sink: The choice is yours",
+        "text": "<p>Current furnishing ideas for your dream kitchen: Be inspired!</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -191,7 +191,7 @@
         "image_Y8rFKH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/6_d80d9518-002b-4557-b1ca-94b363ea95df.jpg",
+            "image": "shopify://shop_images/kitchen-mixer_aquno-select-M81_wide-spray-for-washing-hands_4x3_64c9acde-4f3f-4f6b-a76a-a377ece8ef2f.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -202,7 +202,7 @@
         "image_VNfhFR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/OIP.webp",
+            "image": "shopify://shop_images/kitchen-mixer_aquno-select-M81_L-AZA_single-lever-kitchen-mixer-handle_4x3_1.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -213,7 +213,7 @@
         "image_cALjKj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/029e5b47-949f-43e4-9fae-a2b0acf51da4-at1000.jpg",
+            "image": "shopify://shop_images/kitchen-mixer_aquno-select-M81_L-AZB_part-ambience_4x3_ccdc4cc9-e0cd-4cb9-b936-b2f55a6156ef.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -224,7 +224,7 @@
         "image_pTfgnU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/riu_collection_480x480_68d946f1-1c40-45bf-9402-7a084e52bd4b.webp",
+            "image": "shopify://shop_images/kitchen-mixer_aquno-select-M81_part-ambience-with-vase_4x3_b4d01415-b84f-46a1-9151-ed782ca5575b.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -235,7 +235,7 @@
         "image_qFHNFt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/8_80f03351-3634-49ff-b635-1b16dee675a1.jpg",
+            "image": "shopify://shop_images/kitchen-mixer_quno-select-M81_single-lever-kitchen-mixer-150_top-view_4x3_9d4684b0-f5b7-46cd-8526-f943747defd1.jpg",
             "pos_x": 40,
             "pos_y": 82,
             "link": "",
@@ -246,7 +246,7 @@
         "image_99iHYQ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/7_408088e1-c49b-4d79-8b76-e4b4cef5f44c.jpg",
+            "image": "shopify://shop_images/kitchen-mixer_aquno-select-M81_laminar_4x3_79e2abff-99a8-40b7-9a11-c25dd0d58dac.jpg",
             "pos_x": 40,
             "pos_y": 50,
             "link": "",
