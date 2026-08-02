@@ -165,6 +165,24 @@
     "brands_grid_section_Kcfijq": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_7VecPq": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/622208697_18336681853212123_1042.webp",
+            "logo_image": "shopify://shop_images/LogoRubinetWhite.svg",
+            "text": "Express your style with Rubinet. Famous for their \"made-to-order\" philosophy, they deliver high-quality brass fixtures in virtually any color combination you can imagine.",
+            "linkToBrand": "shopify://pages/rubinet"
+          }
+        },
+        "one_brand_gqrmDa": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Untitled_7.webp",
+            "logo_image": "shopify://shop_images/Phylrich_logo_def_410x_63554f4f-5d3b-4f19-8492-d413e7179cd1.png",
+            "text": "Adorn your home with Phylrich. Known as \"jewelry for the bath,\" this Californian brand has been crafting luxury faucets and hardware with distinctive finishes and American artistry since 1959.",
+            "linkToBrand": "shopify://pages/phyrlich"
+          }
+        },
         "one_brand_3mYehq": {
           "type": "one_brand",
           "settings": {
@@ -237,24 +255,6 @@
             "linkToBrand": "shopify://pages/bagno-italia-brand-page"
           }
         },
-        "one_brand_7VecPq": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/622208697_18336681853212123_1042.webp",
-            "logo_image": "shopify://shop_images/LogoRubinetWhite.svg",
-            "text": "Express your style with Rubinet. Famous for their \"made-to-order\" philosophy, they deliver high-quality brass fixtures in virtually any color combination you can imagine.",
-            "linkToBrand": "shopify://pages/rubinet"
-          }
-        },
-        "one_brand_gqrmDa": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/Untitled_7.webp",
-            "logo_image": "shopify://shop_images/Phylrich_logo_def_410x_63554f4f-5d3b-4f19-8492-d413e7179cd1.png",
-            "text": "Adorn your home with Phylrich. Known as \"jewelry for the bath,\" this Californian brand has been crafting luxury faucets and hardware with distinctive finishes and American artistry since 1959.",
-            "linkToBrand": "shopify://pages/phyrlich"
-          }
-        },
         "one_brand_QRyErf": {
           "type": "one_brand",
           "settings": {
@@ -275,6 +275,8 @@
         }
       },
       "block_order": [
+        "one_brand_7VecPq",
+        "one_brand_gqrmDa",
         "one_brand_3mYehq",
         "one_brand_NAHyec",
         "one_brand_E9VfQk",
@@ -283,8 +285,6 @@
         "one_brand_LyKPDX",
         "one_brand_GDtyaD",
         "one_brand_BLyDjy",
-        "one_brand_7VecPq",
-        "one_brand_gqrmDa",
         "one_brand_QRyErf",
         "one_brand_eCtUjV"
       ],
