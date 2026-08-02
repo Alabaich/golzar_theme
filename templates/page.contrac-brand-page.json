@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bocchi_brand_h_gtEJCd": {
+      "type": "brand-breadcrums",
+      "settings": {
+        "color": ""
+      }
+    },
+    "laufen": {
+      "type": "laufen-brand",
+      "blocks": {
+        "brand_wXrA9R": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-24.webp",
+            "title": "Wall-Mounted Toilets",
+            "link": "shopify://collections/laufen-wall-mounted-toilets"
+          }
+        },
+        "brand_DzMR9P": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-25.webp",
+            "title": "Vessel Sinks",
+            "link": "shopify://collections/laufen-vessel-sinks"
+          }
+        },
+        "brand_9tWJNX": {
+          "type": "brand",
+          "settings": {
+            "brand_img": "shopify://shop_images/Brands-26.webp",
+            "title": "Bidets",
+            "link": "shopify://collections/laufen-bidets"
+          }
+        }
+      },
+      "block_order": [
+        "brand_wXrA9R",
+        "brand_DzMR9P",
+        "brand_9tWJNX"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "bocchi_brand_h_gtEJCd",
+    "laufen",
+    "main"
+  ]
+}
