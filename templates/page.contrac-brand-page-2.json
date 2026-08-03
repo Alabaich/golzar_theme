@@ -156,7 +156,7 @@
         "image_FBwkLC": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_38.webp",
+            "image": "shopify://shop_images/4772HNW_RS-3_43668cb0-790c-4bfc-b0c4-0ac89d11527f.jpg",
             "pos_x": 25,
             "pos_y": 0,
             "link": "",
@@ -167,7 +167,7 @@
         "image_KbKBTy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_40.webp",
+            "image": "shopify://shop_images/4810BNX_06_de29e674-0d08-493f-a100-1b670dd4f1ce.jpg",
             "pos_x": 22,
             "pos_y": 50,
             "link": "",
@@ -200,7 +200,7 @@
         "image_hWU7Xz": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_39.webp",
+            "image": "shopify://shop_images/4760BKV_02_c3c2e9fb-d993-491f-afd8-b8509e9b9021.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -231,7 +231,7 @@
           "type": "collection_block",
           "settings": {
             "heading": "In-Wall Tanks & Carriers",
-            "collection": "duravit-in-wall-tank-carriers",
+            "collection": "contrac-commercial",
             "limit": 12
           }
         },
@@ -261,19 +261,6 @@
       "name": "Collection Accordion Pro",
       "settings": {
         "show_vendor": true
-      }
-    },
-    "collection_slider_row_KFRFiE": {
-      "type": "collection-slider-row",
-      "name": "Collection Slider Row",
-      "settings": {
-        "background_color": "#ffffff",
-        "heading": "HygieneGlaze",
-        "description": "<ul><li>Innovative ceramic glaze that kills 99.9% of bacteria for a new standard of safety.</li></ul>",
-        "collection": "duravit-bathroom-sinks",
-        "link_text": "View Collection",
-        "limit": 8,
-        "show_vendor": false
       }
     },
     "feature_icons_TTWEL6": {
@@ -376,7 +363,6 @@
     "brand_story_RLKreh",
     "brand_masonry_gallery_G9QkAK",
     "collection_accordion_WLbrcn",
-    "collection_slider_row_KFRFiE",
     "feature_icons_TTWEL6",
     "custom_blog_posts_grid_8PkfHz"
   ]
