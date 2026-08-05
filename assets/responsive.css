@@ -181,6 +181,18 @@
   .blogs_faq_sec_header h3 {
     font-size: 40px;
   }
+  .whatsapp_support {
+    bottom: 100px;
+    left: auto;
+    right: 16px;
+  }
+  .activator-nudge.activator-nudge--left {
+    bottom: 100px !important;
+    left: 16px;
+  }
+  shopify-chat {
+    --shopify-agent-activator-offset: 100px !important;
+  }
 }
 
 @media (max-width: 992px) and (min-width: 750px) {
