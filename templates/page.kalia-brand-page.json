@@ -61,11 +61,11 @@
       "type": "hero-overlap",
       "name": "Overlay Hero (ID)",
       "settings": {
-        "image": "shopify://shop_images/the-house-of-rohl-kitchen-riobel-lateral-l-002-662197b6ca908.jpg",
-        "heading": "Riobel. Inspired design meets brilliant engineering",
-        "text": "<p>Where Beautiful Design And Advanced Performance Come Together</p>",
+        "image": "shopify://shop_images/zitta-accueil1.webp",
+        "heading": "A World OF Style And Quality Within Your Reach",
+        "text": "<p>Discover stunning designs that will dazzle your senses, impeccable finishes that breathe art and exclusivity.Each product has been carefully crafted, combining the best of comfort and aesthetics, to create an unparalleled experience in your personal oasis</p>",
         "button_label": "Discover Brand",
-        "button_link": "shopify://collections/riobel"
+        "button_link": "shopify://collections/zitta"
       }
     },
     "brand_story_r4qCUV": {
@@ -73,9 +73,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "House of Rohl Stories",
+        "label": "INFINITELY YOU",
         "heading": "THE STORY OF A LIFE WELL CRAFTED™",
-        "text": "<p>We believe distinctive stories are what make life exceptional.<br/>At House of Rohl®,<br/>A portfolio of luxury décor brands,<br/>We pursue the discovery of time-honored craft<br/>that opens the door to stories unlike any other.</p>",
+        "text": "<p>Discover Inspira, a unique idea where every customization is handcrafted by local experts. Fully customizable, each piece reflects your style and our Canadian expertise. Exceptionally created, made for you, at home.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -86,43 +86,43 @@
         "category_GFa6Kb": {
           "type": "category",
           "settings": {
-            "collection": "riobel-vessel-sink-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN.jpg"
+            "collection": "zitta-alcove-bathtub",
+            "image": "shopify://shop_images/TL16032TA0L1_ZITTA_BATHTUB_SALAI_FREESTANDING_ALCOVE_60_LEFT_DRAIN_GLOSSY_WHITE_c49d2134-3cf4-4fdc-8d37-69e08b9505b2.jpg"
           }
         },
         "category_B9xPCm": {
           "type": "category",
           "settings": {
-            "collection": "riobel-shower-kits",
-            "image": "shopify://shop_images/029e5b47-949f-43e4-9fae-a2b0acf51da4-at1000.jpg"
+            "collection": "zitta-drop-in-bathtubs",
+            "image": "shopify://shop_images/ZOEMBL6032D1_Zitta_Bathtub_DropIn_GlossyWhite_5f2dc6d7-05a0-42ca-befc-6b755e7a97be.jpg"
           }
         },
         "category_8HJ8ec": {
           "type": "category",
           "settings": {
-            "collection": "riobel-floor-mount-tub-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_8ca91447-1e94-421e-9c73-b37b6879a267.jpg"
+            "collection": "zitta-freestanding-tub",
+            "image": "shopify://shop_images/TAO6633FA051_Slik_bathtub_Aito_freestanding_66_glossy_white_ac5ac6d1-0b88-4ef1-b0ed-50504b755523.jpg"
           }
         },
         "category_ejVpwL": {
           "type": "category",
           "settings": {
-            "collection": "riobel-single-hole-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_49e99b34-6b4a-4821-95be-a9136d22782b.jpg"
+            "collection": "zitta-shower-base",
+            "image": "shopify://shop_images/B4832LREG1_bases_Liss__48X32_GlossyWhite_e110a563-32e4-4d3f-8e5d-73d69c8bab62.jpg"
           }
         },
         "category_inz6n7": {
           "type": "category",
           "settings": {
-            "collection": "riobel-kitchen-faucets",
-            "image": "shopify://shop_images/4e7d8218-a080-423d-80dc-2582a7eb8a4b-at1600.jpg"
+            "collection": "zitta-shower-doors",
+            "image": "shopify://shop_images/KDS2600032VSTC71_Zitta_BathtubDoor_Stile_Corner_6032_MB_MB.jpg"
           }
         },
         "category_LJKbDK": {
           "type": "category",
           "settings": {
-            "collection": "riobel-wall-mounted-faucets",
-            "image": "shopify://shop_images/Riobel_2025_Price_Book_CA-EN_63c85a4f-dac8-404f-ac2d-d81cba9e6d76.jpg"
+            "collection": "zitta-shower-drains",
+            "image": "shopify://shop_images/AD2401MIZB16_Zitta_Drains_24_Stainless_b85ab276-9705-4f84-9ad8-febeeb9652b2.jpg"
           }
         }
       },
