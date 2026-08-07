@@ -43,6 +43,15 @@
     "brands_grid_section_ktFxMd": {
       "type": "brands-grid-section",
       "blocks": {
+        "one_brand_8dLMXe": {
+          "type": "one_brand",
+          "settings": {
+            "showcase_image": "shopify://shop_images/Godi.jpg",
+            "logo_image": "shopify://shop_images/GODI.svg",
+            "text": "",
+            "linkToBrand": "shopify://pages/godi-bathroom"
+          }
+        },
         "one_brand_CKNzL4": {
           "type": "one_brand",
           "settings": {
@@ -144,6 +153,7 @@
         }
       },
       "block_order": [
+        "one_brand_8dLMXe",
         "one_brand_CKNzL4",
         "one_brand_nJtRMd",
         "one_brand_prdwHF",
