@@ -109,20 +109,36 @@
     "featured_product_groups_jrnDqW": {
       "type": "featured-product-groups",
       "blocks": {
+        "category_xJdf9C": {
+          "type": "category",
+          "settings": {
+            "collection": "godi-single-sink-bathroom-vanities",
+            "image": "shopify://shop_images/o_NC-05_3.jpg"
+          }
+        },
         "category_Tk3e8G": {
           "type": "category",
           "settings": {
-            "collection": "bagno-italia",
-            "image": "shopify://shop_images/VERS-150_2.webp"
+            "collection": "godi-double-sink-bathroom-vanity",
+            "image": "shopify://shop_images/GD10-05-1800_1_a3595e08-5c85-4e4e-b916-81c9654dfa7d.jpg"
+          }
+        },
+        "category_YAxg3M": {
+          "type": "category",
+          "settings": {
+            "collection": "godi-led-mirrors",
+            "image": "shopify://shop_images/IMG_5472.jpg"
           }
         }
       },
       "block_order": [
-        "category_Tk3e8G"
+        "category_xJdf9C",
+        "category_Tk3e8G",
+        "category_YAxg3M"
       ],
       "name": "Featured Product Groups",
       "settings": {
-        "title": "Featured Groups"
+        "title": "Product Categories"
       }
     },
     "popular_products_VXBqKB": {
@@ -131,7 +147,7 @@
       "settings": {
         "popular_title": "Popular Products",
         "underTitleText": "",
-        "featured_collection": "bagno-italia",
+        "featured_collection": "godi-bathroom-vanities",
         "products_limit": 4,
         "show_more_link": "shopify://collections/bagno-italia",
         "show_add_to_cart_button": true,
