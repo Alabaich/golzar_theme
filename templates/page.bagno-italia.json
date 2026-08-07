@@ -99,9 +99,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Seamless Engineering",
-        "heading": "The Art of One-Piece Design",
-        "text": "<p>Bagno Italia redefines the centerpiece of the bathroom with its signature \"One-Piece\" manufacturing technology. Unlike standard tubs where the apron and bowl are joined, our freestanding bathtubs are molded as a single, seamless unit. This creates a flawless, sleek silhouette that is not only visually stunning but also easier to clean, with no crevices for dust or moisture to hide.</p>",
+        "label": "Modern Bathroom Vanity Designs",
+        "heading": "Godi Bathroom Vanities Canada",
+        "text": "<p>Discover <strong>Godi bathroom vanities</strong>, designed to bring modern style, practical storage, and lasting quality to Canadian bathrooms. Whether you are renovating a powder room, upgrading a primary bathroom, or working on a new construction project, Godi offers a variety of <strong>bathroom vanity</strong> designs for different spaces and layouts.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -141,6 +141,18 @@
         "title": "Product Categories"
       }
     },
+    "brand_story_fheU7B": {
+      "type": "brand-story",
+      "name": "Brand Story Text",
+      "settings": {
+        "content_width": 1000,
+        "label": "Floating Vanity",
+        "heading": "Designed for life.",
+        "text": "<p>Create a clean and contemporary bathroom with a <strong>floating vanity</strong>. Wall-mounted designs provide a streamlined appearance while keeping the floor visible underneath the cabinet.</p>",
+        "button_label": "Read Our Story",
+        "button_link": ""
+      }
+    },
     "popular_products_VXBqKB": {
       "type": "popular-products",
       "name": "Popular Products",
@@ -159,9 +171,9 @@
       "name": "Brand Story Text",
       "settings": {
         "content_width": 1400,
-        "label": "Timeless Aesthetics",
-        "heading": "Modern Classics, Curated",
-        "text": "<p>We bring the essence of Milanese design to the modern home. Bagno Italia’s philosophy is built on \"Accessible Luxury\"—combining high-end Italian aesthetics with practical durability. From the modular Florenza vanities to the sculptural Bellagio tubs, every piece is designed with clean lines and premium finishes like quartz and multi-layer lacquer to stand the test of time.</p>",
+        "label": "handcrafted bathroom vanity",
+        "heading": "High Quality Bathroom Vanities in Canada",
+        "text": "<p>If you are searching for a <strong>high quality vanity in Canada</strong>, explore the Godi collection for modern designs in a range of sizes and configurations.</p><p>From a compact <strong>24\" vanity</strong> and versatile <strong>32\" vanity</strong> to a spacious <strong>72\" double sink vanity</strong>, there are options for bathrooms of different sizes.</p>",
         "button_label": "Read Our Story",
         "button_link": ""
       }
@@ -172,7 +184,7 @@
         "image_fh9BqN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_32.webp",
+            "image": "shopify://shop_images/IMG_5522.jpg",
             "pos_x": 100,
             "pos_y": 0,
             "link": "",
@@ -183,7 +195,7 @@
         "image_i6GwiM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_34.webp",
+            "image": "shopify://shop_images/o_NC-05_1.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -194,7 +206,7 @@
         "image_ebkGgg": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_33.webp",
+            "image": "shopify://shop_images/e_TG-53_1_deb43c1e-26ac-4414-b3c8-2d061124b2b4.jpg",
             "pos_x": 0,
             "pos_y": 100,
             "link": "",
@@ -205,7 +217,7 @@
         "image_jNEkGq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_35.webp",
+            "image": "shopify://shop_images/IMG_5462_60113864-8135-480d-a3b4-d42dba2f245a.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -216,7 +228,7 @@
         "image_PEkbzF": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_80.webp",
+            "image": "shopify://shop_images/MC-20_24b928e4-f30a-4631-8b08-446ca734e2f5.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -227,7 +239,7 @@
         "image_3RWQNK": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_81.webp",
+            "image": "shopify://shop_images/MC-10A_2_129d1232-7c15-424a-8f26-0e1d44c71471.jpg",
             "pos_x": 50,
             "pos_y": 50,
             "link": "",
@@ -369,6 +381,7 @@
     "hero_overlap_xaetBW",
     "brand_story_gDEHwJ",
     "featured_product_groups_jrnDqW",
+    "brand_story_fheU7B",
     "popular_products_VXBqKB",
     "brand_story_Yb7tmt",
     "brand_masonry_gallery_iCHcM7",
