@@ -48,7 +48,7 @@
           "settings": {
             "showcase_image": "shopify://shop_images/Godi.jpg",
             "logo_image": "shopify://shop_images/GODI.svg",
-            "text": "",
+            "text": "Discover Godi bathroom vanities, designed to bring modern style, practical storage, and lasting quality to Canadian bathrooms.",
             "linkToBrand": "shopify://pages/godi-bathroom"
           }
         },
@@ -141,15 +141,6 @@
             "text": "Discover VISENTIN faucets, fusing 50 years of Italian engineering with the timeless elegance and durability of solid-brass craftsmanship.",
             "linkToBrand": "shopify://pages/visentin-golzar-home"
           }
-        },
-        "one_brand_FRgRAF": {
-          "type": "one_brand",
-          "settings": {
-            "showcase_image": "shopify://shop_images/Godi.jpg",
-            "logo_image": "shopify://shop_images/GODI.svg",
-            "text": "GODI specializes in luxurious, hand-crafted bathroom vanities, bringing old-world European charm and timeless, classical elegance to your home.",
-            "linkToBrand": "shopify://collections/godi-bathroom-vanities"
-          }
         }
       },
       "block_order": [
@@ -163,8 +154,7 @@
         "one_brand_EjDiJa",
         "one_brand_XnNEji",
         "one_brand_ChPyky",
-        "one_brand_qRQTN9",
-        "one_brand_FRgRAF"
+        "one_brand_qRQTN9"
       ],
       "name": "Brands Grid Section",
       "settings": {
