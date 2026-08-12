@@ -1,0 +1,20 @@
+{% doc %}
+  Renders a configurable heading with selectable HTML tag.
+  @param {string} text - Heading text
+  @param {string} [heading_tag] - h1–h6 or p (default h2)
+  @param {string} [class] - Extra CSS classes
+  @param {string} [id] - Optional element id
+{% enddoc %}
+{%- liquid
+  assign tag = heading_tag | default: 'h2'
+  assign allowed = 'h1,h2,h3,h4,h5,h6,p' | split: ','
+  unless allowed contains tag
+    assign tag = 'h2'
+  endunless
+-%}
+{%- if text != blank -%}
+  <{{ tag }}
+    class="mp-heading{% if class != blank %} {{ class }}{% endif %}"
+    {% if id != blank %}id="{{ id }}"{% endif %}
+  >{{ text | escape }}</{{ tag }}>
+{%- endif -%}

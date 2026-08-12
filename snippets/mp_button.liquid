@@ -1,0 +1,31 @@
+{% doc %}
+  Renders an MP button / CTA link.
+  @param {string} label - Button label
+  @param {string} [url] - Link URL
+  @param {string} [style] - primary | secondary | link (default primary)
+  @param {string} [icon] - Optional image URL (asset or CDN)
+  @param {string} [icon_position] - start | end (default start for primary with icon)
+  @param {string} [target] - _self | _blank
+  @param {string} [class] - Extra classes
+  @param {boolean} [full_width] - Stretch on mobile helpers
+{% enddoc %}
+{%- liquid
+  assign btn_style = style | default: 'primary'
+  assign btn_target = target | default: '_self'
+  assign icon_pos = icon_position | default: 'start'
+-%}
+{%- if label != blank -%}
+  <a
+    class="mp-button mp-button--{{ btn_style }}{% if full_width %} mp-button--full{% endif %}{% if class != blank %} {{ class }}{% endif %}"
+    {% if url != blank %}href="{{ url }}"{% else %}role="link" aria-disabled="true"{% endif %}
+    {% if btn_target == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}
+  >
+    {%- if icon != blank and icon_pos == 'start' -%}
+      <img class="mp-button__icon" src="{{ icon }}" alt="" width="20" height="20" loading="lazy">
+    {%- endif -%}
+    <span class="mp-button__label">{{ label | escape }}</span>
+    {%- if icon != blank and icon_pos == 'end' -%}
+      <img class="mp-button__icon" src="{{ icon }}" alt="" width="18" height="18" loading="lazy">
+    {%- endif -%}
+  </a>
+{%- endif -%}
