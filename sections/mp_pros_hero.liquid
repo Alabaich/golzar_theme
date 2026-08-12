@@ -1,0 +1,139 @@
+{{ 'section-mp-pros.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign s = section.settings
+  assign star_icon = 'mp-icon-star.svg' | asset_url
+  assign check_icon = 'mp-icon-list-check.svg' | asset_url
+  assign arrow_icon = 'mp-icon-arrow-right.svg' | asset_url
+-%}
+
+<section
+  id="mp-pros-hero-{{ section.id }}"
+  class="mp-pros-hero {{ s.custom_class }}"
+  style="
+    --mp-pad-top: {{ s.padding_top }}px;
+    --mp-pad-bottom: {{ s.padding_bottom }}px;
+    {% if s.overlay_color != blank %}--mp-hero-overlay: {{ s.overlay_color }};{% endif %}
+  "
+>
+  <div class="mp-pros-hero__media">
+    {%- if s.image != blank -%}
+      {{
+        s.image
+        | image_url: width: 2000
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '750,1100,1500,2000',
+          alt: s.heading
+      }}
+    {%- else -%}
+      <img src="{{ 'mp-hero-bg.png' | asset_url }}" alt="{{ s.heading | escape }}" width="1440" height="580" loading="eager">
+    {%- endif -%}
+  </div>
+  <div class="mp-pros-hero__overlay" aria-hidden="true"></div>
+
+  <div class="mp-pros-hero__inner" style="padding-top: {{ s.padding_top }}px; padding-bottom: {{ s.padding_bottom }}px;">
+    <div class="mp-pros-hero__content">
+      {%- if s.show_rating -%}
+        <div class="mp-pros-hero__rating">
+          <div class="mp-pros-hero__score">
+            {{ s.rating_score | escape }}<span>{{ s.rating_suffix | escape }}</span>
+          </div>
+          <div class="mp-pros-hero__rating-meta">
+            <div>
+              <strong>{{ s.rating_label | escape }}</strong>
+              <span class="mp-pros-hero__stars" aria-hidden="true">
+                {%- for i in (1..5) -%}
+                  <img src="{{ star_icon }}" alt="" width="12" height="12">
+                {%- endfor -%}
+              </span>
+            </div>
+            {%- if s.rating_caption != blank -%}
+              <span>{{ s.rating_caption | escape }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {% render 'mp_heading', text: s.heading, heading_tag: s.heading_tag, class: 'mp-pros-hero__title' %}
+
+      {%- if s.text != blank -%}
+        <p class="mp-pros-hero__text">{{ s.text | escape }}</p>
+      {%- endif -%}
+
+      <div class="mp-button-row">
+        {% render 'mp_button',
+          label: s.cta1_label,
+          url: s.cta1_link,
+          style: 'primary',
+          icon: check_icon,
+          icon_position: 'start',
+          class: 'mp-button--full-mobile'
+        %}
+        {% render 'mp_button',
+          label: s.cta2_label,
+          url: s.cta2_link,
+          style: 'secondary',
+          icon: arrow_icon,
+          icon_position: 'end',
+          class: 'mp-button--full-mobile'
+        %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Pros Hero",
+  "tag": "section",
+  "class": "mp-section-wrapper",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "color_background", "id": "overlay_color", "label": "Overlay (optional CSS gradient/color)", "info": "Leave blank to use default navy gradient" },
+    { "type": "header", "content": "Rating card" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating card", "default": true },
+    { "type": "text", "id": "rating_score", "label": "Score", "default": "4.9" },
+    { "type": "text", "id": "rating_suffix", "label": "Score suffix", "default": "/ 5" },
+    { "type": "text", "id": "rating_label", "label": "Rating label", "default": "Customer Rating" },
+    { "type": "text", "id": "rating_caption", "label": "Rating caption", "default": "Trusted by homeowners and building professionals." },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trade Bathroom & Kitchen Solutions for Professionals" },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Supporting text",
+      "default": "Your clients expect every detail to be right. Golzar Home helps trade and design professionals source bathroom and kitchen products, request pricing for current projects, and coordinate Vaughan pickup or shipping based on order requirements and destination."
+    },
+    { "type": "header", "content": "Primary CTA" },
+    { "type": "text", "id": "cta1_label", "label": "Label", "default": "Apply for a Trade Account" },
+    { "type": "url", "id": "cta1_link", "label": "Link" },
+    { "type": "header", "content": "Secondary CTA" },
+    { "type": "text", "id": "cta2_label", "label": "Label", "default": "Request Project Pricing" },
+    { "type": "url", "id": "cta2_link", "label": "Link" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 64 },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [{ "name": "MP Pros Hero" }]
+}
+{% endschema %}

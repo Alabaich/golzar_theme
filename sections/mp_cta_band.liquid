@@ -1,0 +1,85 @@
+{{ 'section-mp-pros.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign s = section.settings
+  assign check_icon = 'mp-icon-list-check.svg' | asset_url
+  assign arrow_icon = 'mp-icon-arrow-right.svg' | asset_url
+-%}
+
+<section
+  id="mp-cta-band-{{ section.id }}"
+  class="mp-section mp-cta-band {{ s.custom_class }}"
+  style="
+    --mp-bg: {{ s.background_color }};
+    --mp-heading: {{ s.heading_color }};
+    --mp-text: {{ s.text_color }};
+    --mp-pad-top: {{ s.padding_top }}px;
+    --mp-pad-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <div class="mp-section__inner">
+    {% render 'mp_heading', text: s.heading, heading_tag: s.heading_tag %}
+    {%- if s.text != blank -%}
+      <p class="mp-section__subcopy">{{ s.text | escape }}</p>
+    {%- endif -%}
+    <div class="mp-button-row">
+      {% render 'mp_button',
+        label: s.cta1_label,
+        url: s.cta1_link,
+        style: 'primary',
+        icon: check_icon,
+        icon_position: 'start'
+      %}
+      {% render 'mp_button',
+        label: s.cta2_label,
+        url: s.cta2_link,
+        style: 'secondary',
+        icon: arrow_icon,
+        icon_position: 'end'
+      %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP CTA Band",
+  "tag": "section",
+  "class": "mp-section-wrapper",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Start Your Professional Request" },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Apply for an ongoing trade account or request pricing for a specific project. Choose the option that best matches your current needs."
+    },
+    { "type": "text", "id": "cta1_label", "label": "Primary CTA label", "default": "Apply for a Trade Account" },
+    { "type": "url", "id": "cta1_link", "label": "Primary CTA link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary CTA label", "default": "Request Project Pricing" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary CTA link" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#061d32" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 60 },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [{ "name": "MP CTA Band" }]
+}
+{% endschema %}

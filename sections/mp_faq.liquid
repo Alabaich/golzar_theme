@@ -1,0 +1,142 @@
+{{ 'section-mp-pros.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-mp-faq.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign s = section.settings
+  assign plus_icon = 'mp-icon-plus.svg' | asset_url
+  assign arrow = 'mp-icon-arrow-right.svg' | asset_url
+-%}
+
+<section
+  id="mp-faq-{{ section.id }}"
+  class="mp-section mp-faq {{ s.custom_class }}"
+  style="
+    --mp-bg: {{ s.background_color }};
+    --mp-heading: {{ s.heading_color }};
+    --mp-text: {{ s.text_color }};
+    --mp-accent: {{ s.link_color }};
+    --mp-pad-top: {{ s.padding_top }}px;
+    --mp-pad-bottom: {{ s.padding_bottom }}px;
+  "
+  data-mp-faq
+>
+  <div class="mp-section__inner">
+    <header class="mp-section__header">
+      {% render 'mp_heading', text: s.heading, heading_tag: s.heading_tag %}
+      {%- if s.subheading != blank -%}
+        <p class="mp-section__subcopy">{{ s.subheading | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <ul class="mp-faq__list">
+      {%- for block in section.blocks -%}
+        <li class="mp-faq__item{% if forloop.first and s.open_first %} is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button
+            type="button"
+            class="mp-faq__trigger"
+            aria-expanded="{% if forloop.first and s.open_first %}true{% else %}false{% endif %}"
+            data-mp-faq-trigger
+          >
+            <span>{{ block.settings.question | escape }}</span>
+            <img class="mp-faq__icon" src="{{ plus_icon }}" alt="" width="24" height="24">
+          </button>
+          <div class="mp-faq__panel" data-mp-faq-panel {% unless forloop.first and s.open_first %}hidden{% endunless %}>
+            {%- if block.settings.answer != blank -%}
+              <div class="rte">{{ block.settings.answer }}</div>
+            {%- endif -%}
+            {%- if block.settings.link_label != blank -%}
+              <a class="mp-faq__link" href="{{ block.settings.link | default: '#' }}">
+                {{ block.settings.link_label | escape }}
+                <img src="{{ arrow }}" alt="" width="12" height="12" loading="lazy">
+              </a>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP FAQ",
+  "tag": "section",
+  "class": "mp-section-wrapper",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "checkbox", "id": "open_first", "label": "Open first item by default", "default": true },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#061d32" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#5c5c5c" },
+    { "type": "color", "id": "link_color", "label": "Link color", "default": "#c8102e" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 60 },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Question?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer text goes here.</p>" },
+        { "type": "text", "id": "link_label", "label": "Optional link label" },
+        { "type": "url", "id": "link", "label": "Optional link URL" }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [
+    {
+      "name": "MP FAQ",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "question": "Who can apply for a Golzar Home trade account?",
+            "answer": "<p>Trade accounts are intended for contractors, builders, designers and related professionals who source bathroom and kitchen products for client or project work.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "What is the difference between trade pricing and project pricing?",
+            "answer": "<p>Trade pricing applies to approved professional accounts. Project pricing is a review for a defined product list or project scope.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer Vaughan pickup and shipping?",
+            "answer": "<p>Yes. Eligible orders can be collected from the Vaughan showroom or shipped based on products, order size and destination.</p>",
+            "link_label": "Read the Shipping Policy"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Which brands does Golzar Home carry?",
+            "answer": "<p>Golzar Home carries established bathroom and kitchen brands. Availability varies by product line.</p>",
+            "link_label": "View Golzar Home Brands"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

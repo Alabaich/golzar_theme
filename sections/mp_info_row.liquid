@@ -1,0 +1,121 @@
+{{ 'section-mp-pros.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign s = section.settings
+  assign variant = s.layout_variant | default: 'trust-ribbon'
+-%}
+
+<section
+  id="mp-info-row-{{ section.id }}"
+  class="mp-section mp-info-row mp-info-row--{{ variant }} {{ s.custom_class }}"
+  style="
+    --mp-bg: {{ s.background_color }};
+    --mp-text: {{ s.text_color }};
+    --mp-pad-top: {{ s.padding_top }}px;
+    --mp-pad-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <div class="mp-info-row__track mp-section__inner">
+    {%- for block in section.blocks -%}
+      <div class="mp-info-row__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.icon != blank -%}
+          {{
+            block.settings.icon
+            | image_url: width: 48
+            | image_tag: class: 'mp-info-row__icon', loading: 'lazy', widths: '36,48', alt: ''
+          }}
+        {%- elsif block.settings.icon_asset != blank -%}
+          <img class="mp-info-row__icon" src="{{ block.settings.icon_asset | asset_url }}" alt="" width="18" height="18" loading="lazy">
+        {%- endif -%}
+        <div class="mp-info-row__item-text">
+          {%- if block.settings.title != blank -%}
+            <strong>{{ block.settings.title | escape }}</strong>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <span>{{ block.settings.text | escape }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MP Info Row",
+  "tag": "section",
+  "class": "mp-section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout_variant",
+      "label": "Layout variant",
+      "options": [
+        { "value": "trust-ribbon", "label": "Trust ribbon" },
+        { "value": "info-bar", "label": "Info bar (stacked titles)" }
+      ],
+      "default": "trust-ribbon"
+    },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#061d32" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Top padding", "default": 16 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Bottom padding", "default": 16 },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon image" },
+        {
+          "type": "text",
+          "id": "icon_asset",
+          "label": "Theme asset filename (fallback)",
+          "info": "e.g. mp-icon-shield.svg — used if Icon image is empty"
+        },
+        { "type": "text", "id": "title", "label": "Title (info-bar)" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [
+    {
+      "name": "MP Info Row",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon_asset": "mp-icon-shield.svg",
+            "text": "Trade Pricing: Pricing for approved professional accounts."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_asset": "mp-icon-tag.svg",
+            "text": "Project Pricing: Pricing review for defined projects or product lists."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_asset": "mp-icon-truck.svg",
+            "text": "Pickup & Delivery: Vaughan pickup and shipping options based on the order and destination."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_asset": "mp-icon-user-check.svg",
+            "text": "Product Support: Help with product details, available documents and order questions."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

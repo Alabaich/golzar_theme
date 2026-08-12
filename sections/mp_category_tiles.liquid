@@ -1,0 +1,133 @@
+{{ 'section-mp-pros.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign s = section.settings
+-%}
+
+<section
+  id="mp-category-tiles-{{ section.id }}"
+  class="mp-section mp-category-tiles {{ s.custom_class }}"
+  style="
+    --mp-bg: {{ s.background_color }};
+    --mp-heading: {{ s.heading_color }};
+    --mp-text: {{ s.text_color }};
+    --mp-pad-top: {{ s.padding_top }}px;
+    --mp-pad-bottom: {{ s.padding_bottom }}px;
+  "
+>
+  <div class="mp-section__inner">
+    <header class="mp-section__header">
+      {% render 'mp_heading', text: s.heading, heading_tag: s.heading_tag %}
+      {%- if s.subheading != blank -%}
+        <p class="mp-section__subcopy">{{ s.subheading | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if s.cta_label != blank -%}
+      <div class="mp-category-tiles__actions">
+        {% render 'mp_button', label: s.cta_label, url: s.cta_link, style: 'secondary', class: 'mp-button--outline-dark' %}
+      </div>
+    {%- endif -%}
+
+    <div class="mp-category-tiles__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign href = block.settings.link | default: '#'
+          assign label = block.settings.title
+          assign fallback = 'mp-cat-' | append: forloop.index | append: '.png'
+        -%}
+        <a class="mp-category-tiles__tile" href="{{ href }}" {{ block.shopify_attributes }}>
+          <div class="mp-category-tiles__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', widths: '200,400,600', sizes: '(min-width: 990px) 14vw, 45vw', alt: label
+              }}
+            {%- else -%}
+              <img src="{{ fallback | asset_url }}" alt="{{ label | escape }}" width="200" height="250" loading="lazy">
+            {%- endif -%}
+          </div>
+          {%- if label != blank -%}
+            <span class="mp-category-tiles__label">{{ label | escape }}</span>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  /* Scoped outline button for light backgrounds — needed for secondary on white */
+  #mp-category-tiles-{{ section.id }} .mp-button--secondary,
+  #mp-category-tiles-{{ section.id }} .mp-button--outline-dark {
+    color: {{ s.heading_color }};
+    border-color: {{ s.heading_color }};
+    background: transparent;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "MP Category Tiles",
+  "tag": "section",
+  "class": "mp-section-wrapper",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Bathroom & Kitchen Products for Professional Projects" },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Choose from the main product categories used in renovations, client projects, new construction and multi-unit work."
+    },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "SHOP ALL CATEGORIES" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#061d32" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#5c5c5c" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 60 },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Category",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Label", "default": "Category" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [
+    {
+      "name": "MP Category Tiles",
+      "blocks": [
+        { "type": "tile", "settings": { "title": "Vanities" } },
+        { "type": "tile", "settings": { "title": "Toilets" } },
+        { "type": "tile", "settings": { "title": "Faucets" } },
+        { "type": "tile", "settings": { "title": "Showers" } },
+        { "type": "tile", "settings": { "title": "Bathtubs" } },
+        { "type": "tile", "settings": { "title": "Sinks" } },
+        { "type": "tile", "settings": { "title": "Accessories" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
