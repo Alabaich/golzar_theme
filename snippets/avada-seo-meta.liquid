@@ -5,14 +5,14 @@
   
 {%- if request.page_type == 'product' -%}
 {%-  if avada_seo_ovr_product_ids contains product.id  -%}
-{%- if product.metafields.multilingual_meta_tag.description_tag.[shop.locale] -%}
+{%- if product.metafields.multilingual_meta_tag.description_tag[shop.locale] -%}
 {%- capture avada_seo_meta_description -%}
-{{ product.metafields.multilingual_meta_tag.description_tag.[shop.locale] }}
+{{ product.metafields.multilingual_meta_tag.description_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
-{%- if product.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}
+{%- if product.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}
 {%- capture avada_seo_meta_title -%}
-{{ product.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}
+{{ product.metafields.multilingual_meta_tag.title_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
 {%- endif -%}
@@ -20,14 +20,14 @@
   
 {%- if request.page_type == 'collection' -%}
 {%-  if avada_seo_ovr_collection_ids contains collection.id  -%}
-{%- if collection.metafields.multilingual_meta_tag.description_tag.[shop.locale] -%}
+{%- if collection.metafields.multilingual_meta_tag.description_tag[shop.locale] -%}
 {%- capture avada_seo_meta_description -%}
-{{ collection.metafields.multilingual_meta_tag.description_tag.[shop.locale] }}
+{{ collection.metafields.multilingual_meta_tag.description_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
-{%- if collection.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}
+{%- if collection.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}
 {%- capture avada_seo_meta_title -%}
-{{ collection.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}
+{{ collection.metafields.multilingual_meta_tag.title_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
 {%- endif -%}
@@ -35,14 +35,14 @@
   
 {%- if request.page_type == 'article' -%}
 {%-  if avada_seo_ovr_article_ids contains article.id  -%}
-{%- if article.metafields.multilingual_meta_tag.description_tag.[shop.locale] -%}
+{%- if article.metafields.multilingual_meta_tag.description_tag[shop.locale] -%}
 {%- capture avada_seo_meta_description -%}
-{{ article.metafields.multilingual_meta_tag.description_tag.[shop.locale] }}
+{{ article.metafields.multilingual_meta_tag.description_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
-{%- if article.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}
+{%- if article.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}
 {%- capture avada_seo_meta_title -%}
-{{ article.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}
+{{ article.metafields.multilingual_meta_tag.title_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
 {%- endif -%}
@@ -50,14 +50,14 @@
   
 {%- if request.page_type == 'page' -%}
 {%-  if avada_seo_ovr_page_ids contains page.id  -%}
-{%- if page.metafields.multilingual_meta_tag.description_tag.[shop.locale] -%}
+{%- if page.metafields.multilingual_meta_tag.description_tag[shop.locale] -%}
 {%- capture avada_seo_meta_description -%}
-{{ page.metafields.multilingual_meta_tag.description_tag.[shop.locale] }}
+{{ page.metafields.multilingual_meta_tag.description_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
-{%- if page.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}
+{%- if page.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}
 {%- capture avada_seo_meta_title -%}
-{{ page.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}
+{{ page.metafields.multilingual_meta_tag.title_tag[shop.locale] }}
 {%- endcapture -%}
 {%- endif -%}
 {%- endif -%}
@@ -185,4 +185,70 @@ Mua ngay {{ collection.title }} tại {{ shop.name }}. Đặt hàng Online. ✓ 
 {%- if avada_seo_meta_description -%}
 {%- assign page_description = avada_seo_meta_description | strip_html | strip -%}
 {%- assign og_description = page_description -%}
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- if product.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    -%}"
+  to: "{%- if product.metafields.multilingual_meta_tag.description_tag[shop.locale]
+    -%}"
+  position: 1696..1776
+- from: "{{ product.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    }}"
+  to: "{{ product.metafields.multilingual_meta_tag.description_tag[shop.locale] }}"
+  position: 1820..1895
+- from: "{%- if product.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}"
+  to: "{%- if product.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}"
+  position: 1929..2003
+- from: "{{ product.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}"
+  to: "{{ product.metafields.multilingual_meta_tag.title_tag[shop.locale] }}"
+  position: 2041..2110
+- from: "{%- if collection.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    -%}"
+  to: "{%- if collection.metafields.multilingual_meta_tag.description_tag[shop.locale]
+    -%}"
+  position: 2285..2368
+- from: "{{ collection.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    }}"
+  to: "{{ collection.metafields.multilingual_meta_tag.description_tag[shop.locale]
+    }}"
+  position: 2412..2490
+- from: "{%- if collection.metafields.multilingual_meta_tag.title_tag.[shop.locale]
+    -%}"
+  to: "{%- if collection.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}"
+  position: 2524..2601
+- from: "{{ collection.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}"
+  to: "{{ collection.metafields.multilingual_meta_tag.title_tag[shop.locale] }}"
+  position: 2639..2711
+- from: "{%- if article.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    -%}"
+  to: "{%- if article.metafields.multilingual_meta_tag.description_tag[shop.locale]
+    -%}"
+  position: 2877..2957
+- from: "{{ article.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    }}"
+  to: "{{ article.metafields.multilingual_meta_tag.description_tag[shop.locale] }}"
+  position: 3001..3076
+- from: "{%- if article.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}"
+  to: "{%- if article.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}"
+  position: 3110..3184
+- from: "{{ article.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}"
+  to: "{{ article.metafields.multilingual_meta_tag.title_tag[shop.locale] }}"
+  position: 3222..3291
+- from: "{%- if page.metafields.multilingual_meta_tag.description_tag.[shop.locale]
+    -%}"
+  to: "{%- if page.metafields.multilingual_meta_tag.description_tag[shop.locale] -%}"
+  position: 3448..3525
+- from: "{{ page.metafields.multilingual_meta_tag.description_tag.[shop.locale] }}"
+  to: "{{ page.metafields.multilingual_meta_tag.description_tag[shop.locale] }}"
+  position: 3569..3641
+- from: "{%- if page.metafields.multilingual_meta_tag.title_tag.[shop.locale] -%}"
+  to: "{%- if page.metafields.multilingual_meta_tag.title_tag[shop.locale] -%}"
+  position: 3675..3746
+- from: "{{ page.metafields.multilingual_meta_tag.title_tag.[shop.locale] }}"
+  to: "{{ page.metafields.multilingual_meta_tag.title_tag[shop.locale] }}"
+  position: 3784..3850
+{%- endcomment -%}

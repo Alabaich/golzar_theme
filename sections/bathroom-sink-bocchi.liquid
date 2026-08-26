@@ -32,10 +32,7 @@
     {% if product.tags contains tag_name %}
     {% assign i = i | plus: 1 %}
       <div class="product-item tags-product">
-    {% render 'card-product-brands', 
-       card_product: product,
-       quick_add: section.settings.quick_add;
-    %}
+    {% render 'card-product-brands', card_product: product, quick_add: section.settings.quick_add %}
       </div>
     {% endif %}
   {% endfor %}
@@ -76,4 +73,15 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'card-product-brands', \n       card_product: product,\n       quick_add:
+    section.settings.quick_add;\n    %}"
+  to: "{% render 'card-product-brands', card_product: product, quick_add: section.settings.quick_add
+    %}"
+  position: 1351..1447
+{%- endcomment -%}
